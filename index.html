@@ -1,24 +1,13 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>STARWARS_DELTA Storyboards</title>
-<link rel="stylesheet" href="assets/site.css">
-</head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>STARWARS_DELTA Storyboard Library V3</title><link rel="stylesheet" href="assets/site.css"></head>
 <body>
-<header>
-  <div><div class="eyebrow">STARWARS_DELTA</div><h1>Storyboard Library</h1><p>Shared read-only visual storyboards for review.</p></div>
-  <div class="badge">NO LOGIN REQUIRED</div>
-</header>
+<header class="site-header"><div><div class="eyebrow">STARWARS_DELTA</div><h1>Storyboard Library <span class="version">V3</span></h1><p>Shared read-only boards for Haggai, Debora and the team.</p></div><div class="badge">NO LOGIN REQUIRED</div></header>
 <main>
-  <section class="intro">
-    <h2>Current Storyboards</h2>
-    <p>Open a storyboard to review the visual page and its verified source package. This site is intentionally simple so designers can just look at the work instead of learning another tool.</p>
-  </section>
-  <section id="grid" class="grid"><div class="loading">Loading storyboards…</div></section>
+  <section class="hero"><div><h2>Current Storyboards</h2><p>Open a board for shot-by-shot review, motion beats and timed animatic playback. Old static boards remain readable.</p></div><div id="libraryStats" class="library-stats"></div></section>
+  <section class="library-tools"><input id="search" type="search" placeholder="Search storyboards..."><select id="typeFilter"><option value="all">All types</option><option value="motion">Motion storyboards</option><option value="static">Static / legacy</option></select><select id="sortBy"><option value="current">Current first</option><option value="updated">Newest updated</option><option value="title">Title</option><option value="duration">Duration</option></select></section>
+  <section id="grid" class="grid"><div class="loading">Loading storyboards...</div></section>
 </main>
-<footer>STARWARS_DELTA · Shared Storyboard Viewer</footer>
+<footer>STARWARS_DELTA - Shared Storyboard Viewer V3</footer>
 <script src="assets/site.js"></script>
-</body>
-</html>
+</body></html>

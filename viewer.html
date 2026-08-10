@@ -1,25 +1,19 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Storyboard Viewer</title>
-<link rel="stylesheet" href="assets/site.css">
-</head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>STARWARS_DELTA Storyboard Viewer V3</title><link rel="stylesheet" href="assets/site.css"></head>
 <body>
-<header>
-  <div><div class="eyebrow">STARWARS_DELTA</div><h1 id="title">Storyboard</h1><p id="subtitle"></p></div>
-  <a class="back" href="index.html">← ALL STORYBOARDS</a>
-</header>
-<main>
+<header class="site-header viewer-header"><div><div class="eyebrow">STARWARS_DELTA</div><h1 id="title">Storyboard</h1><p id="subtitle"></p></div><a class="button secondary" href="index.html">ALL STORYBOARDS</a></header>
+<main class="viewer-main">
   <section id="status" class="status"></section>
-  <section id="pages" class="pages"></section>
-  <section class="details">
-    <a id="sourceLink" class="button" href="#">VIEW SOURCE JSON</a>
-    <a id="manifestLink" class="button secondary" href="#">VIEW MANIFEST</a>
-  </section>
+  <nav id="modes" class="web-modes"><button data-mode="overview" class="active">OVERVIEW</button><button data-mode="shot">SHOT REVIEW</button><button data-mode="motion">MOTION BOARD</button><button data-mode="animatic">PLAY ANIMATIC</button><button data-mode="technical">TECHNICAL</button></nav>
+  <div id="legacyNote" class="legacy-note hidden"></div>
+  <section id="overview"></section>
+  <section id="shot" class="hidden"><div class="review-layout"><aside id="shotSidebar" class="shot-sidebar"></aside><div class="shot-review"><div class="shot-nav"><button id="prevShot" class="button secondary">PREV</button><span id="shotCounter"></span><button id="nextShot" class="button secondary">NEXT</button></div><div class="review-columns"><div><div id="shotHero" class="shot-hero"></div><div id="frameStrip" class="frame-strip"></div></div><div id="shotData" class="shot-data"></div></div></div></div></section>
+  <section id="motion" class="hidden"></section>
+  <section id="animatic" class="hidden"><div class="anim-shell"><div class="anim-stage"><img id="animImg" alt="Animatic frame"><div id="animOverlay" class="anim-overlay"></div></div><div class="anim-controls"><button id="animPlay" class="button">PLAY</button><button id="animPrev" class="button secondary">PREV SHOT</button><button id="animNext" class="button secondary">NEXT SHOT</button><label>SPEED <select id="animSpeed"><option value="0.5">0.5x</option><option value="1" selected>1x</option><option value="1.5">1.5x</option><option value="2">2x</option></select></label><span id="animTime"></span></div><input id="animScrub" class="scrubber" type="range" min="0" max="1000" value="0"></div></section>
+  <section id="technical" class="hidden"><div id="healthGrid" class="health-grid"></div><details class="tech-details"><summary>PACKAGE DETAILS</summary><pre id="manifestPreview"></pre></details><div class="details"><a id="sourceLink" class="button" href="#">VIEW SHOT PLAN</a><a id="manifestLink" class="button secondary" href="#">VIEW MANIFEST</a></div></section>
 </main>
-<footer>STARWARS_DELTA · Shared Storyboard Viewer</footer>
+<footer>STARWARS_DELTA - Shared Storyboard Viewer V3</footer>
+<div id="imageModal" class="image-modal hidden"><button id="closeModal" class="modal-close">X</button><img id="modalImg" alt="Full storyboard frame"></div>
 <script src="assets/viewer.js"></script>
-</body>
-</html>
+</body></html>
