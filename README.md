@@ -1,8 +1,8 @@
-# STARWARS_DELTA Storyboard Library V3
+# STARWARS_DELTA Storyboard Library V1.5
 
 Shared read-only GitHub Pages viewer for STARWARS_DELTA storyboards.
 
-V3 features:
+V1.5 features:
 - searchable/sortable storyboard library
 - CURRENT and MOTION/STATIC badges
 - Overview, Shot Review, Motion Board, Animatic and Technical modes
