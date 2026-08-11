@@ -32,3 +32,5 @@ try{const items=await(await fetch('storyboards/index.json',{cache:'no-store'})).
 }catch(e){$('status').textContent='FAILED TO LOAD STORYBOARD: '+e.message;$('status').className='status failed'}
 document.querySelectorAll('#modes button').forEach(b=>b.onclick=()=>{if(!b.disabled)setMode(b.dataset.mode)});document.addEventListener('keydown',e=>{if(!$('imageModal').classList.contains('hidden')){if(e.key==='Escape')closeModal();return}if(e.code==='Space'&&mode==='animatic'){e.preventDefault();$('animPlay').click()}if((e.key==='ArrowLeft'||e.key==='ArrowRight')&&mode==='shot'&&shots.length){e.preventDefault();shotIndex=(shotIndex+(e.key==='ArrowRight'?1:-1)+shots.length)%shots.length;frameIndex=0;renderShot()}});
 })();
+
+;(()=>{const BUILD="20260811-0319-v1.8";setInterval(async()=>{try{const v=await(await fetch('current.json?ts='+Date.now(),{cache:'no-store'})).json();if(v?.buildId&&v.buildId!==BUILD)location.reload()}catch(_ ){}},60000)})();

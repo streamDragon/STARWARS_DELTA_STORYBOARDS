@@ -1,15 +1,8 @@
-# STARWARS_DELTA Storyboard Library V1.7
+# STARWARS_DELTA Storyboard Library - CURRENT
 
-Shared read-only GitHub Pages viewer for STARWARS_DELTA storyboards.
+Use one permanent URL only:
+https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/
 
-V1.7 features:
-- searchable/sortable storyboard library
-- CURRENT and MOTION/STATIC badges
-- Overview, Shot Review, Motion Board, Animatic and Technical modes
-- shot sidebar and exact frame-to-shot mapping
-- beat-timed animatic scrubber and speed control
-- fullscreen frame inspection
-- backward compatibility with legacy static visual-storyboard-v2 packages
-- motion-storyboard-v1 compatibility and motion-storyboard-v2 native support
+`current.json` is fetched with cache disabled. The browser automatically reloads when a new viewer build is deployed.
 
-The public viewer requires no login. Publishing remains an explicit local GitHub action.
+Existing storyboard data under `storyboards/` is preserved when the viewer shell is upgraded.
