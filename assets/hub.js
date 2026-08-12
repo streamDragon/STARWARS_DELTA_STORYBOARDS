@@ -1,5 +1,8 @@
 (()=>{
 'use strict';
+const UI_BUILD='20260812-1205-v2.1CINEMATIC';
+if(!document.querySelector('link[data-ui-polish]')){const l=document.createElement('link');l.rel='stylesheet';l.href=`assets/ui-polish.css?build=${UI_BUILD}`;l.dataset.uiPolish='1';document.head.appendChild(l)}
+if(!document.querySelector('script[data-ui-polish]')){const s=document.createElement('script');s.src=`assets/ui-polish.js?build=${UI_BUILD}`;s.defer=true;s.dataset.uiPolish='1';document.head.appendChild(s)}
 const status=document.getElementById('designerStatus');
 const meta=document.getElementById('designerMeta');
 const note=document.getElementById('designerNote');
