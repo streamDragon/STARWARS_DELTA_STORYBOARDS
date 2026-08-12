@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <script>
-window.STORYBOARD_BUILD_ID="20260812-0535-v1.9HUB";
+window.STORYBOARD_BUILD_ID="20260812-0830-v2.0STORY";
 (function(){
   const check=()=>fetch('current.json?ts='+Date.now(),{cache:'no-store'})
     .then(r=>r.json())
@@ -24,8 +24,9 @@ window.STORYBOARD_BUILD_ID="20260812-0535-v1.9HUB";
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>STARWARS_DELTA Tools Hub</title>
-<link rel="stylesheet" href="assets/site.css?build=20260812-0535-v1.9HUB">
-<link rel="stylesheet" href="assets/hub.css?build=20260812-0535-v1.9HUB">
+<link rel="stylesheet" href="assets/site.css?build=20260812-0830-v2.0STORY">
+<link rel="stylesheet" href="assets/hub.css?build=20260812-0830-v2.0STORY">
+<link rel="stylesheet" href="assets/storyboard-workflow.css?build=20260812-0830-v2.0STORY">
 </head>
 <body>
 <header class="site-header">
@@ -34,7 +35,7 @@ window.STORYBOARD_BUILD_ID="20260812-0535-v1.9HUB";
     <h1>External Tools Hub <span class="version">CURRENT</span></h1>
     <p>One permanent place for Storyboards, Designer AI packages and future tools outside Unity.</p>
   </div>
-  <div class="badge">ALWAYS CURRENT · NO LOGIN REQUIRED</div>
+  <div class="badge">ALWAYS CURRENT - NO LOGIN REQUIRED</div>
 </header>
 <main>
   <section class="hub-intro">
@@ -45,22 +46,23 @@ window.STORYBOARD_BUILD_ID="20260812-0535-v1.9HUB";
 
   <section class="hub-grid">
     <article class="hub-card primary">
-      <div class="hub-icon">▣</div>
+      <div class="hub-icon">SB</div>
       <div class="hub-kicker">Storyboard System</div>
       <div class="hub-status">CURRENT</div>
       <h2>Storyboards</h2>
-      <p>Open the shared Storyboard Library for shot review, motion boards, animatics and legacy static boards.</p>
+      <p>Create a storyboard with ChatGPT or review boards already saved and published.</p>
       <div class="hub-meta">
-        <span>System: <b>Storyboard Director / Library 1.8</b></span>
-        <span>Publishing: <b>Permanent CURRENT link</b></span>
+        <span>New board: <b>Cutscene JSON -> ChatGPT -> returned ZIP</b></span>
+        <span>Review: <b>Shot keyframes first, full motion frames on click</b></span>
       </div>
       <div class="hub-actions">
-        <a class="button" href="#storyboards">OPEN STORYBOARD LIBRARY</a>
+        <a class="button" href="#create-storyboard">NEW STORYBOARD</a>
+        <a class="button secondary" href="#storyboards">OPEN LIBRARY</a>
       </div>
     </article>
 
     <article class="hub-card designer">
-      <div class="hub-icon">⬇</div>
+      <div class="hub-icon">AI</div>
       <div class="hub-kicker">Designer AI</div>
       <div id="designerStatus" class="hub-status warn">CHECKING CURRENT...</div>
       <h2>Cutscene Catalog + Instructions</h2>
@@ -78,24 +80,100 @@ window.STORYBOARD_BUILD_ID="20260812-0535-v1.9HUB";
 
   <div class="section-divider"></div>
 
+  <section id="create-storyboard" class="storyboard-workflow">
+    <div class="workflow-title">
+      <div>
+        <div class="hub-kicker">NEW STORYBOARD</div>
+        <h2>Create a storyboard with ChatGPT</h2>
+        <p>Four steps. The site keeps the shot structure aligned with the Cutscene JSON and saves the returned storyboard in this browser.</p>
+      </div>
+      <div class="workflow-badge">JSON -> CHATGPT -> ZIP -> MY STORYBOARDS</div>
+    </div>
+
+    <div class="workflow-steps">
+      <article class="workflow-step">
+        <div class="step-number">1</div>
+        <h3>Load Cutscene JSON</h3>
+        <p>Start from the real Cutscene package so shot IDs, order and timing stay authoritative.</p>
+        <button id="storyboardChooseSource" class="button" type="button">LOAD CUTSCENE JSON</button>
+        <input id="storyboardSourceInput" type="file" accept=".json,application/json" hidden>
+        <div id="storyboardSourceStatus" class="workflow-status">No Cutscene JSON loaded yet.</div>
+      </article>
+
+      <article class="workflow-step">
+        <div class="step-number">2</div>
+        <h3>Download the ChatGPT handoff</h3>
+        <p>Attach both files to ChatGPT: the current AI context and the storyboard request JSON generated from your Cutscene.</p>
+        <div class="workflow-actions">
+          <button id="storyboardDownloadContext" class="button secondary" type="button">DOWNLOAD AI CONTEXT</button>
+          <button id="storyboardDownloadRequest" class="button" type="button" disabled>DOWNLOAD REQUEST JSON</button>
+        </div>
+        <details id="storyboardRequestDetails" class="request-details">
+          <summary>VIEW GENERATED REQUEST</summary>
+          <textarea id="storyboardRequestPreview" readonly spellcheck="false"></textarea>
+        </details>
+      </article>
+
+      <article class="workflow-step">
+        <div class="step-number">3</div>
+        <h3>Take it to ChatGPT</h3>
+        <p>ChatGPT creates the storyboard frames and returns one ZIP. The request tells it the exact filenames and manifest contract.</p>
+        <div class="workflow-actions">
+          <button id="storyboardCopyChatMessage" class="button secondary" type="button" disabled>COPY CHATGPT MESSAGE</button>
+          <a class="button" href="https://chatgpt.com/" target="_blank" rel="noopener">OPEN CHATGPT</a>
+        </div>
+        <div id="storyboardCopyStatus" class="workflow-status">Load a Cutscene JSON first.</div>
+      </article>
+
+      <article class="workflow-step">
+        <div class="step-number">4</div>
+        <h3>Return the ZIP</h3>
+        <p>Drop the ZIP from ChatGPT here. It is validated before anything is saved. Wrong request IDs, missing shots or missing frames are rejected.</p>
+        <button id="storyboardChooseReturn" class="button" type="button">IMPORT RETURNED STORYBOARD ZIP</button>
+        <input id="storyboardReturnInput" type="file" accept=".zip,application/zip" hidden>
+        <div id="storyboardDropZone" class="storyboard-drop">DROP STORYBOARD ZIP HERE</div>
+        <div id="storyboardReturnStatus" class="workflow-status">Waiting for a returned ZIP.</div>
+      </article>
+    </div>
+  </section>
+
+  <section id="my-storyboards" class="my-storyboards">
+    <section class="hero">
+      <div>
+        <div class="hub-kicker">THIS BROWSER</div>
+        <h2>My Storyboards</h2>
+        <p>Imported ChatGPT storyboards are saved locally on this computer. Click a Shot to expand every frame in that Shot.</p>
+      </div>
+      <div id="localLibraryStats" class="library-stats"></div>
+    </section>
+    <section id="localStoryboards" class="storyboard-browser-list">
+      <div class="loading">No local storyboards yet. Create one above.</div>
+    </section>
+  </section>
+
+  <div class="section-divider"></div>
+
   <section id="storyboards" class="storyboard-section">
     <section class="hero">
       <div>
-        <h2>Current Storyboards</h2>
-        <p>Open a board for shot-by-shot review, motion beats and timed animatic playback. Old static boards remain readable.</p>
+        <div class="hub-kicker">SHARED / PUBLISHED</div>
+        <h2>Shared Storyboards</h2>
+        <p>Published boards from GitHub. Motion boards show the first frame of every Shot; click a Shot to reveal all of its frames.</p>
       </div>
       <div id="libraryStats" class="library-stats"></div>
     </section>
     <section class="library-tools">
-      <input id="search" type="search" placeholder="Search storyboards...">
+      <input id="search" type="search" placeholder="Search published storyboards...">
       <select id="typeFilter"><option value="all">All types</option><option value="motion">Motion storyboards</option><option value="static">Static / legacy</option></select>
       <select id="sortBy"><option value="current">Current first</option><option value="updated">Newest updated</option><option value="title">Title</option><option value="duration">Duration</option></select>
     </section>
-    <section id="grid" class="grid"><div class="loading">Loading storyboards...</div></section>
+    <section id="grid" class="storyboard-browser-list"><div class="loading">Loading published storyboards...</div></section>
   </section>
 </main>
-<footer>STARWARS_DELTA · External Tools Hub · CURRENT</footer>
-<script src="assets/storyboards.js?build=20260812-0535-v1.9HUB"></script>
-<script src="assets/hub.js?build=20260812-0535-v1.9HUB"></script>
+<footer>STARWARS_DELTA - External Tools Hub - CURRENT</footer>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="assets/hub.js?build=20260812-0830-v2.0STORY"></script>
+<script src="assets/storyboard-director.js?build=20260812-0830-v2.0STORY"></script>
+<script src="assets/storyboards.js?build=20260812-0830-v2.0STORY"></script>
 </body>
 </html>
