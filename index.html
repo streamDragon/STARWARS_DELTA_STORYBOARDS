@@ -1,13 +1,101 @@
 <!doctype html>
 <html lang="en">
-<head><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script>window.STORYBOARD_BUILD_ID="20260811-0319-v1.8";(function(){const check=()=>fetch('current.json?ts='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(v=>{if(!v||!v.buildId)return;const u=new URL(location.href);if(u.searchParams.get('build')!==v.buildId){u.searchParams.set('build',v.buildId);location.replace(u.href)}}).catch(()=>{});check();setInterval(check,60000)})();</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>STARWARS_DELTA Storyboard Library</title><link rel="stylesheet" href="assets/site.css?build=20260811-0319-v1.8"></head>
+<head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<script>
+window.STORYBOARD_BUILD_ID="20260812-0535-v1.9HUB";
+(function(){
+  const check=()=>fetch('current.json?ts='+Date.now(),{cache:'no-store'})
+    .then(r=>r.json())
+    .then(v=>{
+      if(!v||!v.buildId)return;
+      const u=new URL(location.href);
+      if(u.searchParams.get('build')!==v.buildId){
+        u.searchParams.set('build',v.buildId);
+        location.replace(u.href);
+      }
+    }).catch(()=>{});
+  check();
+  setInterval(check,60000);
+})();
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>STARWARS_DELTA Tools Hub</title>
+<link rel="stylesheet" href="assets/site.css?build=20260812-0535-v1.9HUB">
+<link rel="stylesheet" href="assets/hub.css?build=20260812-0535-v1.9HUB">
+</head>
 <body>
-<header class="site-header"><div><div class="eyebrow">STARWARS_DELTA</div><h1>Storyboard Library <span class="version">CURRENT</span></h1><p>One permanent link for Haggai, Debora and the team. This page automatically follows the current viewer.</p></div><div class="badge">ALWAYS CURRENT · NO LOGIN REQUIRED</div></header>
+<header class="site-header">
+  <div>
+    <div class="eyebrow">STARWARS_DELTA</div>
+    <h1>External Tools Hub <span class="version">CURRENT</span></h1>
+    <p>One permanent place for Storyboards, Designer AI packages and future tools outside Unity.</p>
+  </div>
+  <div class="badge">ALWAYS CURRENT · NO LOGIN REQUIRED</div>
+</header>
 <main>
-  <section class="hero"><div><h2>Current Storyboards</h2><p>Open a board for shot-by-shot review, motion beats and timed animatic playback. Old static boards remain readable.</p></div><div id="libraryStats" class="library-stats"></div></section>
-  <section class="library-tools"><input id="search" type="search" placeholder="Search storyboards..."><select id="typeFilter"><option value="all">All types</option><option value="motion">Motion storyboards</option><option value="static">Static / legacy</option></select><select id="sortBy"><option value="current">Current first</option><option value="updated">Newest updated</option><option value="title">Title</option><option value="duration">Duration</option></select></section>
-  <section id="grid" class="grid"><div class="loading">Loading storyboards...</div></section>
+  <section class="hub-intro">
+    <h2>Choose what you want to work on</h2>
+    <p>This permanent page follows the current published version automatically. Do not bookmark versioned build URLs; bookmark this site.</p>
+    <div class="hub-updated">Permanent URL: <span class="permanent-link">https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/</span></div>
+  </section>
+
+  <section class="hub-grid">
+    <article class="hub-card primary">
+      <div class="hub-icon">▣</div>
+      <div class="hub-kicker">Storyboard System</div>
+      <div class="hub-status">CURRENT</div>
+      <h2>Storyboards</h2>
+      <p>Open the shared Storyboard Library for shot review, motion boards, animatics and legacy static boards.</p>
+      <div class="hub-meta">
+        <span>System: <b>Storyboard Director / Library 1.8</b></span>
+        <span>Publishing: <b>Permanent CURRENT link</b></span>
+      </div>
+      <div class="hub-actions">
+        <a class="button" href="#storyboards">OPEN STORYBOARD LIBRARY</a>
+      </div>
+    </article>
+
+    <article class="hub-card designer">
+      <div class="hub-icon">⬇</div>
+      <div class="hub-kicker">Designer AI</div>
+      <div id="designerStatus" class="hub-status warn">CHECKING CURRENT...</div>
+      <h2>Cutscene Catalog + Instructions</h2>
+      <p>Download the current verified authoring packages for ChatGPT. Debora should use these files instead of passing old ZIPs around manually.</p>
+      <div id="designerMeta" class="hub-meta"><span>Loading current manifest...</span></div>
+      <div class="hub-actions">
+        <a id="downloadBundle" class="button disabled" href="#">DOWNLOAD EVERYTHING FOR CHATGPT</a>
+        <a id="downloadCatalog" class="button secondary disabled" href="#">CATALOG</a>
+        <a id="downloadBook" class="button secondary disabled" href="#">INSTRUCTION BOOK</a>
+        <button id="copyChatStart" class="button secondary" type="button">COPY CHATGPT START MESSAGE</button>
+      </div>
+      <div id="designerNote" class="hub-note">The first successful Unity publish will activate the download buttons.</div>
+    </article>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section id="storyboards" class="storyboard-section">
+    <section class="hero">
+      <div>
+        <h2>Current Storyboards</h2>
+        <p>Open a board for shot-by-shot review, motion beats and timed animatic playback. Old static boards remain readable.</p>
+      </div>
+      <div id="libraryStats" class="library-stats"></div>
+    </section>
+    <section class="library-tools">
+      <input id="search" type="search" placeholder="Search storyboards...">
+      <select id="typeFilter"><option value="all">All types</option><option value="motion">Motion storyboards</option><option value="static">Static / legacy</option></select>
+      <select id="sortBy"><option value="current">Current first</option><option value="updated">Newest updated</option><option value="title">Title</option><option value="duration">Duration</option></select>
+    </section>
+    <section id="grid" class="grid"><div class="loading">Loading storyboards...</div></section>
+  </section>
 </main>
-<footer>STARWARS_DELTA - Shared Storyboard Viewer - CURRENT</footer>
-<script src="assets/site.js?build=20260811-0319-v1.8"></script>
-</body></html>
+<footer>STARWARS_DELTA · External Tools Hub · CURRENT</footer>
+<script src="assets/site.js?build=20260812-0535-v1.9HUB"></script>
+<script src="assets/hub.js?build=20260812-0535-v1.9HUB"></script>
+</body>
+</html>
