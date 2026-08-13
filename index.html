@@ -102,12 +102,14 @@ window.STORYBOARD_BUILD_ID="20260812-0830-v2.0STORY";
 
       <article class="workflow-step">
         <div class="step-number">2</div>
-        <h3>Download the ChatGPT handoff</h3>
-        <p>Attach both files to ChatGPT: the current AI context and the storyboard request JSON generated from your Cutscene.</p>
+        <h3>Create the one ChatGPT handoff</h3>
+        <p>One package includes the request, current Designer AI context, and only the authoritative visual references used by this Cutscene.</p>
         <div class="workflow-actions">
-          <button id="storyboardDownloadContext" class="button secondary" type="button">DOWNLOAD AI CONTEXT</button>
-          <button id="storyboardDownloadRequest" class="button" type="button" disabled>DOWNLOAD REQUEST JSON</button>
+          <button id="storyboardCreateHandoff" class="button" type="button" disabled>CREATE STORYBOARD AI PACKAGE</button>
+          <button id="storyboardDownloadRequest" class="button secondary" type="button" disabled>DOWNLOAD REQUEST JSON</button>
         </div>
+        <div id="storyboardVisualStatus" class="workflow-status">Load a Cutscene JSON to resolve its visual references.</div>
+        <details class="request-details"><summary>ADVANCED / SEPARATE AI CONTEXT</summary><button id="storyboardDownloadContext" class="button secondary" type="button">DOWNLOAD AI CONTEXT</button></details>
         <details id="storyboardRequestDetails" class="request-details">
           <summary>VIEW GENERATED REQUEST</summary>
           <textarea id="storyboardRequestPreview" readonly spellcheck="false"></textarea>
@@ -117,7 +119,7 @@ window.STORYBOARD_BUILD_ID="20260812-0830-v2.0STORY";
       <article class="workflow-step">
         <div class="step-number">3</div>
         <h3>Take it to ChatGPT</h3>
-        <p>ChatGPT creates the storyboard frames and returns one ZIP. The request tells it the exact filenames and manifest contract.</p>
+        <p>ChatGPT creates the storyboard frames and returns one ZIP. The handoff package tells it the exact filenames, asset identity, visual references and manifest contract.</p>
         <div class="workflow-actions">
           <button id="storyboardCopyChatMessage" class="button secondary" type="button" disabled>COPY CHATGPT MESSAGE</button>
           <a class="button" href="https://chatgpt.com/" target="_blank" rel="noopener">OPEN CHATGPT</a>
