@@ -35,6 +35,7 @@ h1{font-size:42px;margin:10px 0 8px}.sub{color:#a9b7ca;font-size:18px;line-heigh
 <a id="bundle" class="button bundle disabled" href="#">DOWNLOAD EVERYTHING FOR CHATGPT</a>
 <a id="catalog" class="button primary disabled" href="#">DOWNLOAD CURRENT CATALOG</a>
 <a id="book" class="button secondary disabled" href="#">DOWNLOAD CURRENT INSTRUCTION BOOK</a>
+<a id="proof" class="button secondary disabled" href="#">DOWNLOAD VISUAL QA PROOF</a>
 <button id="copy" class="secondary" disabled>COPY CHATGPT START MESSAGE</button>
 </div>
 <div class="hint">Normal designer flow: download the one CURRENT Bundle, attach that Bundle to ChatGPT, describe the new Cutscene naturally, then Validate → Build Editable Preview → Open Preview. Separate Catalog/Book downloads are convenience copies from the exact same transaction.</div>
@@ -47,7 +48,7 @@ h1{font-size:42px;margin:10px 0 8px}.sub{color:#a9b7ca;font-size:18px;line-heigh
  const x=await r.json(); if(x.status!=='CURRENT_VERIFIED') throw new Error('CURRENT manifest is not verified.');
  const byId=id=>document.getElementById(id); byId('state').innerHTML='<span class="dot"></span><span>CURRENT VERIFIED</span>';
  byId('transaction').textContent=x.publishTransactionId||''; byId('published').textContent=x.publishedUtc||''; byId('catalogRevision').textContent=String(x.catalog?.catalogRevision??''); byId('catalogHash').textContent=x.catalog?.snapshotContentHash||''; byId('bookVersion').textContent=(x.instructionBook?.bookVersion||'')+' · '+(x.instructionBook?.status||''); byId('contract').textContent=x.contractRevision||''; byId('schema').textContent=x.schemaHash||'';
- const wire=(id,url)=>{const a=byId(id); if(url){a.href=url;a.classList.remove('disabled')}}; wire('catalog',x.catalog?.downloadUrl); wire('book',x.instructionBook?.downloadUrl); wire('bundle',x.bundle?.downloadUrl);
+ const wire=(id,url)=>{const a=byId(id); if(url){a.href=url;a.classList.remove('disabled')}}; wire('catalog',x.catalog?.downloadUrl); wire('book',x.instructionBook?.downloadUrl); wire('bundle',x.bundle?.downloadUrl); wire('proof',x.visualProof?.downloadUrl);
  const copy=byId('copy'); copy.disabled=false; copy.onclick=async()=>{const m='Use the attached CURRENT STARWARS_DELTA Designer AI Bundle as one atomic authoring snapshot. Its nested Catalog and Instruction Book belong to the same Unity publish transaction and must not be mixed with other CURRENT files. Create a NEW Cutscene from my natural-language request. Do not reuse old JSON, old revisions, examples as asset truth, or remembered asset IDs.'; await navigator.clipboard.writeText(m); copy.textContent='COPIED'; setTimeout(()=>copy.textContent='COPY CHATGPT START MESSAGE',1300)};
  }catch(e){document.getElementById('state').style.display='none';document.getElementById('error').textContent='Could not load CURRENT: '+e.message;}})();
 </script></body></html>
