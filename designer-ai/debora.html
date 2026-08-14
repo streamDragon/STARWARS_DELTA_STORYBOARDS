@@ -1,6 +1,62 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"><title>STARWARS_DELTA - Debora</title>
-<style>:root{color-scheme:dark;font-family:Inter,Segoe UI,Arial,sans-serif;background:#0b1018;color:#eef4ff}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 20% 0,#1b3452,#0b1018 50%)}main{width:min(760px,calc(100% - 32px));padding:28px}.card{background:#121b28;border:1px solid #2a4059;border-radius:20px;padding:28px;box-shadow:0 20px 60px #0008}.eyebrow{color:#7fd5ff;font-size:12px;font-weight:800;letter-spacing:.16em}h1{font-size:38px;margin:8px 0 8px}p{color:#a9b7ca;line-height:1.55}.status{display:inline-block;padding:8px 12px;border-radius:999px;background:#143526;color:#9ef0bd;border:1px solid #286a49;font-weight:800;margin:10px 0 18px}button,a{display:block;width:100%;box-sizing:border-box;text-align:center;border:0;border-radius:12px;padding:16px 18px;font-weight:900;font-size:17px;text-decoration:none;margin-top:12px;cursor:pointer}.copy{background:#8ce7ad;color:#07150d}.secondary{background:#1c2a3c;color:#eaf5ff;border:1px solid #314762}.fallback{background:#332b16;color:#ffe69a;border:1px solid #6b5925}.small{font-size:13px;color:#8193aa}.error{color:#ffaaa5}</style></head>
-<body><main><div class="card"><div class="eyebrow">STARWARS_DELTA · DESIGNER AI</div><h1>Debora Cutscene Start</h1><p>Normal use: press one button, paste into ChatGPT, then describe the cutscene. ChatGPT reads the current Catalog, Instruction guidance and real visual evidence directly.</p><div id="status" class="status">CHECKING CURRENT...</div><div id="coverage" class="small"></div><div id="error" class="error"></div><button id="copy" class="copy" disabled>COPY FOR CHAT</button><a id="download" class="fallback" href="open-current/STARWARS_DELTA_CHATGPT_VISUAL_CURRENT.zip" download>DOWNLOAD CURRENT CHATGPT VISUAL PACK · FALLBACK</a><a class="secondary" href="open-current/FULL_VISUAL_INDEX.json" target="_blank" rel="noopener">OPEN CURRENT VISUAL INDEX</a><a class="secondary" href="CHATGPT_START.txt" target="_blank" rel="noopener">OPEN CHATGPT START INSTRUCTIONS</a><p class="small">Direct access is the normal path. The download is a stable CURRENT fallback for ChatGPT when direct browsing fails. It already contains the matching Catalog/Instruction subsets and representative visual sheets, so do not manually pair versions.</p></div></main>
-<script>(async()=>{const status=document.getElementById('status'),coverage=document.getElementById('coverage'),err=document.getElementById('error'),copy=document.getElementById('copy'),download=document.getElementById('download');try{const r=await fetch('open-current/OPEN_CURRENT.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('CURRENT HTTP '+r.status);const x=await r.json();if(x.status!=='CURRENT_VERIFIED_OPEN')throw new Error('CURRENT is not verified open');status.textContent='CURRENT VERIFIED · '+x.publishTransactionId;if(x.visualCoverage){coverage.textContent='Visual coverage: '+x.visualCoverage.coveredVisualIdentityCount+' / '+x.visualCoverage.sourceVisualIdentityCount+' identities ('+x.visualCoverage.coveragePercent+'%). Missing pixel evidence is explicitly reported; ChatGPT must not guess it.'}if(x.download&&x.download.chatgptVisualCurrentZipUrl){download.href=x.download.chatgptVisualCurrentZipUrl}copy.disabled=false;copy.onclick=async()=>{const fallback=(x.download&&x.download.chatgptVisualCurrentZipUrl)||'https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/STARWARS_DELTA_CHATGPT_VISUAL_CURRENT.zip';const msg='Use the STARWARS_DELTA direct CURRENT authoring instructions at https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/CHATGPT_START.txt . Read CURRENT yourself. Before choosing visual assets or making a storyboard, resolve them through the CURRENT visual index and inspect the actual pageImageUrl pixels. Never invent the appearance of anything listed in VISUAL_UNAVAILABLE.json. If direct browsing genuinely fails, download the stable CURRENT fallback pack yourself from '+fallback+' and continue from that same atomic snapshot. Then create a NEW cutscene from my request.';await navigator.clipboard.writeText(msg);copy.textContent='COPIED - PASTE INTO CHATGPT';setTimeout(()=>copy.textContent='COPY FOR CHAT',1800)}}catch(e){status.textContent='CURRENT ACCESS ERROR';err.textContent=e.message+' · Use the DOWNLOAD CURRENT CHATGPT VISUAL PACK fallback below.'}})();</script></body></html>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"><title>STARWARS_DELTA - Debora Cutscene Start</title>
+<style>
+:root{color-scheme:dark;font-family:Inter,Segoe UI,Arial,sans-serif;background:#0b1018;color:#eef4ff}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 20% 0,#1b3452,#0b1018 50%)}main{width:min(840px,calc(100% - 32px));padding:28px}.card{background:#121b28;border:1px solid #2a4059;border-radius:20px;padding:28px;box-shadow:0 20px 60px #0008}.eyebrow{color:#7fd5ff;font-size:12px;font-weight:800;letter-spacing:.16em}h1{font-size:clamp(32px,7vw,44px);margin:8px 0 8px}p{color:#a9b7ca;line-height:1.55}.status{display:inline-block;padding:8px 12px;border-radius:999px;background:#143526;color:#9ef0bd;border:1px solid #286a49;font-weight:800;margin:10px 0 12px}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:14px 0}.metric{background:#0d1622;border:1px solid #26384d;border-radius:11px;padding:10px}.metric b{display:block;font-size:20px}.metric span{color:#8294aa;font-size:11px;text-transform:uppercase;letter-spacing:.06em}button,a{display:block;width:100%;text-align:center;border:0;border-radius:12px;padding:16px 18px;font-weight:900;font-size:16px;text-decoration:none;margin-top:12px;cursor:pointer}.copy{background:#8ce7ad;color:#07150d}.fallback{background:#332b16;color:#ffe69a;border:1px solid #6b5925}.secondary{background:#1c2a3c;color:#eaf5ff;border:1px solid #314762}.small{font-size:13px;color:#8193aa}.error{color:#ffaaa5}.scope{background:#0e1621;border-left:3px solid #7fd5ff;padding:10px 12px;border-radius:8px;color:#a9b7ca;font-size:13px;line-height:1.45}button:disabled{opacity:.45;cursor:not-allowed}</style>
+</head>
+<body><main><div class="card">
+<div class="eyebrow">STARWARS_DELTA · DESIGNER AI</div>
+<h1>Debora Cutscene Start</h1>
+<p>Normal use is deliberately boring: press <b>COPY FOR CHAT</b>, paste it into ChatGPT, and describe the film you want. ChatGPT reads the current full Director View, Instruction Book, visual evidence, animations and audio itself.</p>
+<div id="status" class="status">CHECKING CURRENT...</div>
+<div id="error" class="error"></div>
+<div id="metrics" class="metrics" hidden>
+<div class="metric"><b id="actors">-</b><span>Actors</span></div>
+<div class="metric"><b id="layers">-</b><span>Layers</span></div>
+<div class="metric"><b id="effects">-</b><span>Effects</span></div>
+<div class="metric"><b id="ui">-</b><span>UI</span></div>
+<div class="metric"><b id="animations">-</b><span>Animations</span></div>
+<div class="metric"><b id="audio">-</b><span>Audio</span></div>
+</div>
+<div id="scope" class="scope" hidden></div>
+<button id="copy" class="copy" disabled>COPY FOR CHAT</button>
+<a id="download" class="fallback" href="open-current/STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip" download>DOWNLOAD CURRENT DIRECTOR PACK · FALLBACK</a>
+<a id="director" class="secondary" href="open-current/director-view/DIRECTOR_VIEW.json" target="_blank" rel="noopener">OPEN CURRENT DIRECTOR VIEW</a>
+<a id="completion" class="secondary" href="open-current/director-view/completion-queue.json" target="_blank" rel="noopener">OPEN CURRENT COMPLETION QUEUE</a>
+<a class="secondary" href="CHATGPT_START.txt" target="_blank" rel="noopener">OPEN CHATGPT START INSTRUCTIONS</a>
+<p class="small">The 300MB Visual Library is an evidence archive, not the normal workflow. The fallback Director Pack is compact, atomic, and already contains the matching Director View, contract, Instruction Book and representative visual sheets.</p>
+</div></main>
+<script>
+(async()=>{
+ const byId=id=>document.getElementById(id),status=byId('status'),err=byId('error'),copy=byId('copy'),download=byId('download');
+ try{
+  const r=await fetch('open-current/OPEN_CURRENT.json?t='+Date.now(),{cache:'no-store'});
+  if(!r.ok)throw new Error('CURRENT HTTP '+r.status);
+  const x=await r.json();
+  if(x.status!=='CURRENT_VERIFIED_OPEN')throw new Error('CURRENT is not verified open');
+  if(!x.directorView||x.directorView.requestScoped!==false)throw new Error('Full Director View is not active');
+  status.textContent='FULL DIRECTOR CURRENT VERIFIED · '+x.publishTransactionId;
+  const c=x.directorView.counts||{};
+  for(const key of ['actors','layers','effects','ui','animations','audio'])byId(key).textContent=String(c[key]??0);
+  byId('metrics').hidden=false;
+  const raw=x.visualLibraryPreviewCoverage||{};
+  byId('scope').hidden=false;
+  byId('scope').textContent='Catalog source: '+String(x.directorView.sourceCatalogRecordCount||0)+' records. Direct visual previews: '+String(raw.directPixelEvidenceCount??0)+' / '+String(raw.sourceVisualIdentityCount??0)+' Visual Library identities. This preview number is evidence coverage only, not total Director coverage; Audio and Animation are available through their own Director files.';
+  if(x.download&&x.download.chatgptDirectorCurrentZipUrl)download.href=x.download.chatgptDirectorCurrentZipUrl;
+  if(x.directorView.url)byId('director').href=x.directorView.url;
+  if(x.directorView.root)byId('completion').href=x.directorView.root+'completion-queue.json';
+  copy.disabled=false;
+  copy.onclick=async()=>{
+   const fallback=(x.download&&x.download.chatgptDirectorCurrentZipUrl)||'https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip';
+   const msg='Use the STARWARS_DELTA FULL DIRECTOR CURRENT instructions at https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/CHATGPT_START.txt . Read OPEN_CURRENT and the full Director View yourself. Search the Director category files for Actors, Layers, Effects, UI, Animations and Audio. Inspect actual pageImageUrl pixels before visual choices or storyboards. Use exact current asset IDs and validate against the current contract. Do not expose prefab internals, gameplay scripts, colliders or physics as authoring vocabulary. If direct access genuinely fails, download the atomic fallback pack yourself from '+fallback+'. Then create a NEW cutscene from my request.';
+   await navigator.clipboard.writeText(msg);
+   copy.textContent='COPIED - PASTE INTO CHATGPT';
+   setTimeout(()=>copy.textContent='COPY FOR CHAT',1800);
+  };
+ }catch(e){
+  status.textContent='CURRENT ACCESS ERROR';
+  err.textContent=e.message+' · Use the DOWNLOAD CURRENT DIRECTOR PACK fallback below.';
+ }
+})();
+</script></body></html>
