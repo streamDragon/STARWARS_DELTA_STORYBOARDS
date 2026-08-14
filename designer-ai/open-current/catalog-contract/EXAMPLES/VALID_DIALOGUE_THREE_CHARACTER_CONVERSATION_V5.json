@@ -1,0 +1,318 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
+  "schemaVersion": 5,
+  "contextVersion": 3,
+  "contractRevision": "82ACB76B4A67F4570B463DE3C2189C13E418E1CABE83A9A9C8D867DFB6698360",
+  "schemaHash": "96BE087805BCA5E07AC0BDDCAA2FAE3DBFC81FCA5BA56E179D0D8158926167FC",
+  "contextId": "NEW_CUTSCENE_CONTEXT",
+  "catalogRevision": "7625331408923133048",
+  "projectId": "",
+  "planId": "plan_example_dialogue_three_character",
+  "baseRevision": 0,
+  "displayName": "Valid Dialogue Three Character Conversation",
+  "duration": 12.0,
+  "creativeIntent": {
+    "summary": "Three cast identities converse through rotating speaker/listener pairs; no third visible participant is spawned.",
+    "style": "Project-owned editable 2D cinematic",
+    "mood": "Designer-defined"
+  },
+  "selectedKits": [],
+  "cast": [
+    {
+      "entityId": "a",
+      "displayName": "A",
+      "role": "SupportingCharacter",
+      "entityKind": "Person",
+      "visualAssetId": "051e0b3854f08b94d8b988ff8a23c4ac:3110914309453802679",
+      "animationAssetIds": [],
+      "spawnWorldActor": false,
+      "useGameplayObject": false,
+      "temporaryCinematicClone": false
+    },
+    {
+      "entityId": "b",
+      "displayName": "B",
+      "role": "SupportingCharacter",
+      "entityKind": "Person",
+      "visualAssetId": "1cb6108c17cb046408f158f6ba798416:1755457364051241212",
+      "animationAssetIds": [],
+      "spawnWorldActor": false,
+      "useGameplayObject": false,
+      "temporaryCinematicClone": false
+    },
+    {
+      "entityId": "c",
+      "displayName": "C",
+      "role": "SupportingCharacter",
+      "entityKind": "Person",
+      "visualAssetId": "c64b1a2f6e1d51e4db28cd1337fefc09:2949561940459812151",
+      "animationAssetIds": [],
+      "spawnWorldActor": false,
+      "useGameplayObject": false,
+      "temporaryCinematicClone": false
+    }
+  ],
+  "sequences": [
+    {
+      "sequenceId": "sequence_main",
+      "startTime": 0.0,
+      "duration": 12.0,
+      "intention": "Three cast identities converse through rotating speaker/listener pairs; no third visible participant is spawned.",
+      "layers": [],
+      "actorActions": [],
+      "dialogue": [],
+      "effects": [],
+      "audio": [],
+      "events": [],
+      "shots": [
+        {
+          "shotId": "shot_main",
+          "startOffset": 0.0,
+          "duration": 12.0,
+          "shotType": "Establishing",
+          "framing": "Wide",
+          "intention": "Three cast identities converse through rotating speaker/listener pairs; no third visible participant is spawned.",
+          "continuity": {
+            "preserveScreenDirection": true,
+            "matchedEntityIds": []
+          },
+          "transitionIn": {
+            "transitionId": "plan_example_dialogue_three_character_transition_in",
+            "type": "HardCut",
+            "duration": 0.0,
+            "easing": "Linear"
+          },
+          "transitionOut": {
+            "transitionId": "plan_example_dialogue_three_character_transition_out",
+            "type": "HardCut",
+            "duration": 0.0,
+            "easing": "Linear"
+          },
+          "cameraActions": [
+            {
+              "actionId": "camera_hold",
+              "type": "Hold",
+              "startOffset": 0.0,
+              "duration": 12.0,
+              "fromX": 0.0,
+              "fromY": 0.0,
+              "toX": 0.0,
+              "toY": 0.0,
+              "fromRotation": 0.0,
+              "toRotation": 0.0,
+              "fromOrthographicSize": 8.0,
+              "toOrthographicSize": 8.0,
+              "amplitude": 0.0,
+              "frequency": 0.0,
+              "easing": "Linear"
+            }
+          ],
+          "layerActions": [],
+          "actorActions": [],
+          "dialogue": [
+            {
+              "lineId": "a_to_b",
+              "speakerActorId": "a",
+              "listenerActorId": "b",
+              "speakerName": "A",
+              "text": "Status report.",
+              "purpose": "Dialogue presentation",
+              "presentationPreset": "COMMAND_SCREEN",
+              "speakerPortraitAssetId": "c79c03b41a76949aa6bf802f6539b40b:21300000",
+              "listenerPortraitAssetId": "d900564298edd042780d96fefc4d275f:21300000",
+              "dialogueFrameAssetId": "a2aa5e7d1c4c6c92b669ab8d10504f20:21300000",
+              "speakerExpression": "Neutral",
+              "listenerExpression": "Neutral",
+              "startOffset": 0.0,
+              "duration": 3.5,
+              "textRevealSpeed": 30.0,
+              "skippable": true,
+              "stage": {
+                "shotGrammar": "DialogueWide",
+                "lockStaging": true,
+                "layout": "COMMAND_SCREEN",
+                "speakerSlot": "NearLeft",
+                "listenerSlot": "NearRight",
+                "uiForm": "ClearPrimaryBox",
+                "textMode": "Typewriter",
+                "typewriterSpeed": "Normal",
+                "advanceMode": "Automatic",
+                "textDirection": "Auto",
+                "speakerEmotion": "Serious",
+                "listenerEmotion": "Serious",
+                "speakerPose": "Speaking",
+                "listenerPose": "IdleListening",
+                "backgroundAssetId": "756d5125e980e4838801726ba57efcc7:21300000",
+                "atmosphereVfxAssetIds": []
+              },
+              "delivery": {
+                "emotion": "Serious",
+                "intensity": 0.6,
+                "pace": "Slow",
+                "pauseBefore": 0.0,
+                "pauseAfter": 0.0
+              },
+              "performance": {
+                "speakerPose": "Speaking",
+                "listenerPose": "IdleListening",
+                "speakerLookDirection": "TowardListener",
+                "listenerLookDirection": "TowardSpeaker",
+                "mouthMode": "TimedSimple",
+                "blinkPreset": "Slow"
+              },
+              "cameraCue": {
+                "shotPreset": "COCKPIT_WIDE",
+                "transition": "HardCut",
+                "blendDuration": 0.0
+              },
+              "reaction": {
+                "actorId": "b",
+                "expression": "Concerned",
+                "startOffset": 0.0,
+                "holdAfterLine": 0.0,
+                "shotPreset": "REACTION_CLOSE_UP"
+              }
+            },
+            {
+              "lineId": "b_to_c",
+              "speakerActorId": "b",
+              "listenerActorId": "c",
+              "speakerName": "B",
+              "text": "The route is open.",
+              "purpose": "Dialogue presentation",
+              "presentationPreset": "COMMAND_SCREEN",
+              "speakerPortraitAssetId": "d900564298edd042780d96fefc4d275f:21300000",
+              "listenerPortraitAssetId": "96522108743e0de45bdf3b5a118528e0:21300000",
+              "dialogueFrameAssetId": "a2aa5e7d1c4c6c92b669ab8d10504f20:21300000",
+              "speakerExpression": "Neutral",
+              "listenerExpression": "Neutral",
+              "startOffset": 4.0,
+              "duration": 3.5,
+              "textRevealSpeed": 30.0,
+              "skippable": true,
+              "stage": {
+                "shotGrammar": "DialogueWide",
+                "lockStaging": true,
+                "layout": "COMMAND_SCREEN",
+                "speakerSlot": "NearLeft",
+                "listenerSlot": "NearRight",
+                "uiForm": "ClearPrimaryBox",
+                "textMode": "Typewriter",
+                "typewriterSpeed": "Normal",
+                "advanceMode": "Automatic",
+                "textDirection": "Auto",
+                "speakerEmotion": "Serious",
+                "listenerEmotion": "Serious",
+                "speakerPose": "Speaking",
+                "listenerPose": "IdleListening",
+                "backgroundAssetId": "756d5125e980e4838801726ba57efcc7:21300000",
+                "atmosphereVfxAssetIds": []
+              },
+              "delivery": {
+                "emotion": "Serious",
+                "intensity": 0.6,
+                "pace": "Slow",
+                "pauseBefore": 0.0,
+                "pauseAfter": 0.0
+              },
+              "performance": {
+                "speakerPose": "Speaking",
+                "listenerPose": "IdleListening",
+                "speakerLookDirection": "TowardListener",
+                "listenerLookDirection": "TowardSpeaker",
+                "mouthMode": "TimedSimple",
+                "blinkPreset": "Slow"
+              },
+              "cameraCue": {
+                "shotPreset": "COCKPIT_WIDE",
+                "transition": "HardCut",
+                "blendDuration": 0.0
+              },
+              "reaction": {
+                "actorId": "c",
+                "expression": "Concerned",
+                "startOffset": 0.0,
+                "holdAfterLine": 0.0,
+                "shotPreset": "REACTION_CLOSE_UP"
+              }
+            },
+            {
+              "lineId": "c_to_a",
+              "speakerActorId": "c",
+              "listenerActorId": "a",
+              "speakerName": "C",
+              "text": "Proceed together.",
+              "purpose": "Dialogue presentation",
+              "presentationPreset": "COMMAND_SCREEN",
+              "speakerPortraitAssetId": "96522108743e0de45bdf3b5a118528e0:21300000",
+              "listenerPortraitAssetId": "c79c03b41a76949aa6bf802f6539b40b:21300000",
+              "dialogueFrameAssetId": "a2aa5e7d1c4c6c92b669ab8d10504f20:21300000",
+              "speakerExpression": "Neutral",
+              "listenerExpression": "Neutral",
+              "startOffset": 8.0,
+              "duration": 4.0,
+              "textRevealSpeed": 30.0,
+              "skippable": true,
+              "stage": {
+                "shotGrammar": "DialogueWide",
+                "lockStaging": true,
+                "layout": "COMMAND_SCREEN",
+                "speakerSlot": "NearLeft",
+                "listenerSlot": "NearRight",
+                "uiForm": "ClearPrimaryBox",
+                "textMode": "Typewriter",
+                "typewriterSpeed": "Normal",
+                "advanceMode": "Automatic",
+                "textDirection": "Auto",
+                "speakerEmotion": "Serious",
+                "listenerEmotion": "Serious",
+                "speakerPose": "Speaking",
+                "listenerPose": "IdleListening",
+                "backgroundAssetId": "756d5125e980e4838801726ba57efcc7:21300000",
+                "atmosphereVfxAssetIds": []
+              },
+              "delivery": {
+                "emotion": "Serious",
+                "intensity": 0.6,
+                "pace": "Slow",
+                "pauseBefore": 0.0,
+                "pauseAfter": 0.0
+              },
+              "performance": {
+                "speakerPose": "Speaking",
+                "listenerPose": "IdleListening",
+                "speakerLookDirection": "TowardListener",
+                "listenerLookDirection": "TowardSpeaker",
+                "mouthMode": "TimedSimple",
+                "blinkPreset": "Slow"
+              },
+              "cameraCue": {
+                "shotPreset": "COCKPIT_WIDE",
+                "transition": "HardCut",
+                "blendDuration": 0.0
+              },
+              "reaction": {
+                "actorId": "a",
+                "expression": "Concerned",
+                "startOffset": 0.0,
+                "holdAfterLine": 0.0,
+                "shotPreset": "REACTION_CLOSE_UP"
+              }
+            }
+          ],
+          "effects": [],
+          "audio": [],
+          "events": []
+        }
+      ]
+    }
+  ],
+  "missingAssets": [],
+  "handoff": {
+    "enabled": true,
+    "time": 12.0,
+    "disableCutsceneRoot": true,
+    "events": []
+  },
+  "extensions": []
+}

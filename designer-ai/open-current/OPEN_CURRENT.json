@@ -1,6 +1,6 @@
 {
   "schema": "STARWARS_DELTA_DESIGNER_AI_OPEN_CURRENT",
-  "schemaVersion": 5,
+  "schemaVersion": 7,
   "status": "CURRENT_VERIFIED_OPEN",
   "publishTransactionId": "20260813-212754773-ff89e3c3",
   "publishedUtc": "2026-08-13T21:34:05.2577254Z",
@@ -8,80 +8,62 @@
   "contractRevision": "82ACB76B4A67F4570B463DE3C2189C13E418E1CABE83A9A9C8D867DFB6698360",
   "schemaHash": "96BE087805BCA5E07AC0BDDCAA2FAE3DBFC81FCA5BA56E179D0D8158926167FC",
   "sourceCurrentPath": "SOURCE_CURRENT.json",
-  "chatgptVisualIndexPath": "CHATGPT_VISUAL_INDEX.json",
   "fullVisualIndexPath": "FULL_VISUAL_INDEX.json",
   "fullVisualIndexUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/FULL_VISUAL_INDEX.json",
   "assetVisualLookupUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/ASSET_VISUAL_LOOKUP.json",
   "fullVisualSheetsRoot": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/",
-  "groups": {
-    "authoring": [
-      "authoring/AUTHORING_REQUEST.txt",
-      "authoring/CATALOG_SUBSET.json",
-      "authoring/INSTRUCTION_SUBSET.json",
-      "authoring/MANIFEST.json",
-      "authoring/VISUAL_PACK/assets/proof_000/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_001/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_002/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_003/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_004/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_005/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_006/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_007/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_008/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_009/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_010/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_011/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_012/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_013/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_014/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_015/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_016/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_017/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_018/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_019/preview.png",
-      "authoring/VISUAL_PACK/assets/proof_020/preview.png",
-      "authoring/VISUAL_PACK/proof_manifest.json"
-    ],
-    "visual-proof": [
-      "visual-proof/assets/proof_000/preview.png",
-      "visual-proof/assets/proof_001/preview.png",
-      "visual-proof/assets/proof_002/preview.png",
-      "visual-proof/assets/proof_003/preview.png",
-      "visual-proof/assets/proof_004/preview.png",
-      "visual-proof/assets/proof_005/preview.png",
-      "visual-proof/assets/proof_006/preview.png",
-      "visual-proof/assets/proof_007/preview.png",
-      "visual-proof/assets/proof_008/preview.png",
-      "visual-proof/assets/proof_009/preview.png",
-      "visual-proof/assets/proof_010/preview.png",
-      "visual-proof/assets/proof_011/preview.png",
-      "visual-proof/assets/proof_012/preview.png",
-      "visual-proof/assets/proof_013/preview.png",
-      "visual-proof/assets/proof_014/preview.png",
-      "visual-proof/assets/proof_015/preview.png",
-      "visual-proof/assets/proof_016/preview.png",
-      "visual-proof/assets/proof_017/preview.png",
-      "visual-proof/assets/proof_018/preview.png",
-      "visual-proof/assets/proof_019/preview.png",
-      "visual-proof/assets/proof_020/preview.png",
-      "visual-proof/proof_manifest.json"
-    ]
-  },
   "usage": {
-    "rule": "Before visual claims, asset selection, or storyboarding, resolve the asset in FULL_VISUAL_INDEX/category index and inspect pageImageUrl. Names and metadata are not substitutes for pixels.",
+    "rule": "The visual index is evidence only. Build authoring choices from the full Director View, then inspect pageImageUrl pixels before visual claims.",
     "animation": "One representative image per animation family is intentional; do not require every frame.",
     "preferredVisualFormat": "Open pageImageUrl JPEG first. PDF is a secondary archive/fallback format.",
-    "missingPixels": "If an asset is listed in VISUAL_UNAVAILABLE.json, do not invent its appearance. Request/fix a new Unity Visual Library publish."
+    "missingPixels": "VISUAL_UNAVAILABLE.json is raw evidence. Use the Director completion queue to decide which missing previews actually require a Unity fix.",
+    "director": "Start with director-view/DIRECTOR_VIEW.json. Search the relevant category file, inspect exact pageImageUrl pixels, then validate exact IDs against catalog-contract.",
+    "audio": "Use director-view/audio.json. Audio is non-visual and must never be counted as a visual gap.",
+    "animations": "Use director-view/animations.json. One representative image per animation family is intentional.",
+    "fallback": "Use STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip only when direct Pages access genuinely fails."
   },
-  "visualCoverage": {
+  "visualLibraryPreviewCoverage": {
     "sourceVisualIdentityCount": 1340,
-    "coveredVisualIdentityCount": 1061,
-    "unavailableVisualIdentityCount": 279,
-    "coveragePercent": 79.18,
+    "directPixelEvidenceCount": 1061,
+    "directPixelEvidenceMissingCount": 279,
+    "directPreviewCoveragePercent": 79.18,
+    "scopeWarning": "Visual Library direct-preview metric only; do not present it as total Director or Catalog coverage.",
     "unavailableManifestUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/VISUAL_UNAVAILABLE.json"
   },
+  "directorView": {
+    "status": "CURRENT_FULL_CATALOG_PROJECTION",
+    "url": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/DIRECTOR_VIEW.json",
+    "root": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/",
+    "counts": {
+      "actors": 548,
+      "layers": 100,
+      "effects": 363,
+      "ui": 247,
+      "animations": 566,
+      "audio": 237,
+      "recommendableVisualEntriesBeforeActorCanonicalMerge": 1328,
+      "pixelVerifiedVisualEntries": 1049,
+      "pixelMissingRecommendableVisualEntries": 279,
+      "syntheticCatalogVisualEntriesNotPresentInVisualLibrary": 0
+    },
+    "sourceCatalogRecordCount": 22506,
+    "requestScoped": false
+  },
+  "instructionBook": {
+    "rootUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/instruction-book/",
+    "sourceReleaseAsset": "STARWARS_DELTA_CUTSCENE_INSTRUCTION_BOOK_CURRENT.zip"
+  },
+  "catalogContract": {
+    "rootUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/catalog-contract/",
+    "sourceReleaseAsset": "STARWARS_DELTA_CHATGPT_CATALOG_CURRENT.zip",
+    "fullCatalogReleaseUrl": "https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/releases/download/designer-ai-current-20260813-213405257-3853703ae0/STARWARS_DELTA_CHATGPT_CATALOG_CURRENT.zip"
+  },
   "download": {
-    "chatgptVisualCurrentZipUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/STARWARS_DELTA_CHATGPT_VISUAL_CURRENT.zip",
-    "purpose": "Fallback download for Debora/ChatGPT. Contains the compact current authoring data, visual indexes, and representative visual sheets. It intentionally does not contain every animation frame."
-  }
+    "chatgptDirectorCurrentZipUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip",
+    "purpose": "Stable compact fallback containing the full Director projection, exact authoring contract, Instruction Book, visual indexes and representative sheets. It does not contain every animation frame or the 300MB Visual Library archive."
+  },
+  "deprecations": [
+    "The old 717-record CURRENT_VISUAL_PROOF_CANDIDATES subset was request-scoped evidence, not a general authoring Catalog, and is no longer the primary direct source.",
+    "The 300MB Visual Library remains an evidence archive. It is not the normal Debora or ChatGPT download."
+  ]
 }

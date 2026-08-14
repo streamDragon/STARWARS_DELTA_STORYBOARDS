@@ -1,0 +1,195 @@
+STARWARS_DELTA CUTSCENE INSTRUCTION BOOK
+CURRENT AUTHORITATIVE RULES
+V2.7
+
+This is the current authoring guide for Debora and ChatGPT. It is a learning
+layer and does not replace the Catalog or the executable V5 contract.
+- Examples teach STRUCTURE; the Catalog supplies CURRENT CONTENT and exact
+  technical truth.
+
+CURRENT AUTHORITY AND WORKFLOW
+- The CURRENT Catalog is authoritative for assets, exact asset IDs, placement,
+  compatibility and Preview safety. Never invent asset IDs or reuse remembered
+  IDs from an old chat or example.
+- cutscenePrimaryUse is authoritative. FullCatalog remains authoritative even
+  when an asset is absent from a shortlist.
+- The designer supplies a natural-language creative request. When current
+  packages are already supplied, do not ask Debora for COPY FOR CHAT, projectId,
+  baseRevision, asset paths or another Catalog upload.
+- Create a current V5 package using the current contract and schema truth.
+- Normal workflow is: CURRENT CATALOG + CURRENT INSTRUCTION BOOK + natural-
+  language request -> JSON -> Validate -> Build Editable Preview -> Open Preview
+  -> human Timeline editing.
+- Debora does not run Catalog Scan as part of normal authoring. Instruction Book
+  export is separate from Catalog scanning; do not run Full Scan or Vision Batch.
+
+IDENTITY
+- cast[].visualAssetId is Actor-primary identity. Prefer
+  preferredActorAssetId when provided.
+- V3 filters cast candidates by exact destination legality before selection:
+  Ui-primary portraits, bodies and frames never become cast identity.
+- Never use Run, Hit, Death or other action frames as permanent cast identity.
+- Distinct narrative characters resolve to distinct identities unless they
+  intentionally represent the same character or clone.
+- Dialogue visuals must remain identity-safe. Use compatibleDialogueVisualIds
+  when available and never borrow a portrait from another character because it
+  looks useful.
+- Use exactly one visual source per visible participant: an explicit body wins
+  and suppresses portrait fallback; portrait-only lines may use same-identity
+  repair or an allowed built-in fallback; with neither source, fallback is legal
+  only when the exact preset permits it.
+- Hero, SupportingCharacter and Antagonist are dramatic roles, not proof of a
+  physical asset type. Use entityKind and cutscenePrimaryUse for that truth.
+
+STRUCTURAL ENUMS - COPY VALUES, NEVER NARRATIVE LABELS
+- cast[].role is a structural enum. Allowed values ONLY: Hero,
+  SupportingCharacter, Antagonist, Prop, Environment, Ui.
+- Commander, MissionControl, Pilot, Wingman, Boss, Support Ship, Enemy Unit,
+  Protagonist and Support are narrative labels, not cast[].role values. Put
+  them in displayName, entityKind/entitySubKind or creative/intention text.
+- cast[].entityKind is a physical semantic enum, not a job/rank. Use the exact
+  values from CUTSCENE_AUTHORING_CLOSED_ENUMS.json.
+- cast[].presentationMode is explicit: WorldActor = world staging/actions only;
+  DialoguePortrait = dialogue participant only; Both = the same identity may
+  use both routes only when their active intervals are temporally isolated.
+  Omitted presentationMode keeps legacy spawnWorldActor behavior and NEVER
+  infers Both.
+- Valid presentation shapes are compact and explicit:
+  WorldActor: {"role":"Hero","displayName":"Delta7","presentationMode":"WorldActor","spawnWorldActor":true}
+  DialoguePortrait: {"role":"SupportingCharacter","displayName":"Commander","presentationMode":"DialoguePortrait","spawnWorldActor":false}
+  Both: {"role":"SupportingCharacter","displayName":"Commander","presentationMode":"Both","spawnWorldActor":true}; put world activity before/after the portrait interval and never overlap it.
+- shotType is camera grammar only: Establishing, CloseUp, Medium, Wide,
+  ExtremeCloseUp, TwoShot, OverTheShoulder, Reaction, Insert, Reveal,
+  Tracking, Follow, Static. Keep Launch, Chase, Threat and Counterattack in
+  intention. framing is exactly ExtremeCloseUp, CloseUp, Medium, Wide,
+  ExtremeWide, TwoShot or FullFrame.
+- Layer action role is exactly FarBackground, Background, Midground, Actor,
+  Foreground, Atmosphere, Overlay or Ui. Use Midground, never MidBackground.
+- Dialogue staging uses exact canonical values from the machine cheat sheet:
+  presentationPreset = RADIO_COMMUNICATION, FACE_TO_FACE_PORTRAITS,
+  COMMAND_SCREEN, SUBTITLE_ONLY, EMERGENCY_BROADCAST or CAPTAIN_LOG;
+  stage.layout = COMMAND_SCREEN, TWO_SHOT or SPEAKER_FOCUS;
+  stage.shotGrammar = DialogueWide, DialogueCloseup, DialogueTwoShot,
+  AlertInsert or RevealWide.
+- stage.speakerEmotion, stage.listenerEmotion and delivery.emotion are only
+  Serious, Shock, Anger, Perplexed, Sad or Happy. Determined, Concerned,
+  Urgent, Shocked and Relieved belong in expression fields, not emotion.
+- The compact machine-readable projection is
+  CUTSCENE_AUTHORING_CLOSED_ENUMS.json. It is generated from the current
+  production contract; do not maintain a second enum list by hand.
+
+ANIMATION AND MOVEMENT
+- PlayAnimation is legal only when the exact animationAssetId appears in that
+  exact Actor's compatibleAnimationIds. Never infer compatibility from a
+  filename, folder, family or appearance.
+- Running normally means a verified Run animation plus Move. If no verified
+  animation exists, movement without invented animation is legal.
+- Use Layer actions for Layer-primary scenery/debris and Actor actions only for
+  Actor-primary movable objects.
+
+DIALOGUE
+- Standard dialogue is speaker plus listener. For current V2.7 staging, prefer
+  speaker-forward hierarchy: the active speaker is foreground/visually
+  dominant; the listener is behind/visually subordinate but still readable.
+- When the speaker changes, the hierarchy may change with the speaker. Modular
+  body/pose assets may support this hierarchy where legal.
+- Locked dialogue must obey the current actorAction restrictions. Use exact
+  compatibleTuples for layout, grammar and camera.
+- Never silently invent an illegal dialogue preset/camera/grammar combination.
+  Never silently fall back to SUBTITLE_ONLY when the current contract forbids it.
+- When stage.lockStaging=true, author actorActions=[] and only a static Hold or
+  supported cut-based Snap camera. Do not repair this by silently changing the
+  line to SUBTITLE_ONLY.
+- FACE_TO_FACE_PORTRAITS is portrait-only during the locked dialogue shot. Use
+  DialoguePortrait for portrait-only actors, WorldActor for world-only actors,
+  and explicit Both for an actor needed in world and portrait shots. Both routes
+  must be temporally isolated: no world actorActions, renderer or lifecycle
+  activity may remain active during the portrait shot. Never infer Both. The
+  Ghost Ship case remains failure evidence, not a global ban on world-capable
+  actors.
+- Each visible participant uses exactly one primary visual source: portrait OR
+  body. An explicit body suppresses portrait fallback.
+- SUBTITLE_ONLY carries no participant portrait/body. If a visual is required,
+  choose a legal compatible presentation preset.
+- Dialogue Emotion and Expression use different legal vocabularies. Use the
+  current contract’s exact fields and values; do not move expression words into
+  emotion fields.
+
+TACTICAL AND RADAR UI
+- Radar, scanner, targeting and tactical displays may be semantic DATA SUPPORT
+  inside an appropriate dialogue or briefing composition.
+- Prefer compact inset placement, normally upper-right, rather than a large
+  unexplained center-screen panel. Do not unnecessarily cover speaker/listener
+  identity.
+- ShowUi/HideUi ownership remains deterministic: HideUi targets its ShowUi
+  event under the same owner.
+
+BACKGROUNDS AND COMPOSITION
+- Background/FarBackground should establish the location and normally cover the
+  usable frame. Avoid postage-stamp backgrounds.
+- Midground/Foreground are supporting composition planes and must not swallow
+  the focal action.
+- Prefer a small coherent asset set over maximum asset count. One clear visual
+  intention per shot is better than clutter.
+- A Catalog-legal asset can still be visually unsuitable. Verify grounding,
+  framing, scale, style and story readability in Preview.
+
+PROPORTIONS
+- Unity owns semantic baseline proportions. Use
+  cutsceneSystemManagedProportions where applicable.
+- Human, Robot, Fighter, Ship, Large/Capital Ship, Projectile and VFX do not
+  share one arbitrary PNG-based scale.
+- Authored scale should normally remain a modest multiplier near 1 rather than
+  compensating for source texture dimensions. Preserve conservative V2.7 ship
+  and VFX safety baselines; capital/fleet actors remain bounded and VFX remain
+  accents unless the story makes an effect the focal subject.
+
+VFX AND TEMPORAL STATE
+- Effects are accents unless the story explicitly makes the effect itself the
+  focal subject. Preserve the current procedural-vs-catalog Effect policy and
+  never invent Effect asset IDs.
+- Cast identity does not mean visible from time zero. Generated actors, layers,
+  UI and VFX respect deterministic ownership and lifetime semantics.
+- Do not author defensive cleanup boilerplate when the current runtime owns
+  that lifetime automatically. Scrubbing, Evaluate and rebuild must produce the
+  same before/inside/after state.
+
+RUNTIME DIALOGUE CONTENT
+- Environment/dialogue backgrounds contain ZERO baked runtime dialogue content.
+  Do not intentionally select backgrounds with baked speaker names, dialogue
+  sentences, runtime subtitles or fixed runtime portraits.
+- Blank screens, decorative monitors, cockpit elements and empty dialogue frames
+  are acceptable. Runtime owns names, sentences, subtitles and dynamic portraits.
+
+DIAGNOSTICS AND WARNINGS
+- Never treat an unexplained gray square or rectangle as a cinematic element.
+  Trace unknown generated visuals through generated object, source event/action,
+  requested asset/type and diagnostic metadata before changing content.
+- A diagnostic placeholder should be clearly identifiable. Do not teach ChatGPT
+  to compose around infrastructure defects.
+- Yellow/review warnings are non-blocking for Editable Preview. REAL BLOCKERS
+  stop Build. Missing optional content should degrade gracefully where supported.
+- A safe repair must return a canonical state accepted by the same Validator;
+  otherwise report one clear blocker.
+
+LEARNING AND GOLDEN EXAMPLES
+- Raw Learning Cases remain immutable evidence. Historical implementation layers
+  may remain in raw cases, but they are classified as Current,
+  StillRelevantLesson, HistoricalFixed or ContractAgnostic and do not
+  automatically become active current lessons.
+- The active book teaches concise reusable lessons and BAD -> GOOD patterns,
+  not historical failure dumps or repeated versioned overrides. Keep the active
+  lesson set at or below the configured limit of approximately 50.
+- A full JSON is GOLDEN only after it validated, built an Editable Preview and
+  received acceptable real Visual QA. Zero verified GOLDEN examples is valid;
+  never promote a technically valid but visually poor Cutscene.
+- Active curated GOLDEN example count: 1
+
+READ_FIRST END STATE
+- The Catalog answers what exists and its exact technical truth.
+- The Instruction Book answers how ChatGPT should use that truth.
+- Use this one current authority. Do not expose historical override headings to
+  ChatGPT.
+
+Current authoring contract revision: 82ACB76B4A67F4570B463DE3C2189C13E418E1CABE83A9A9C8D867DFB6698360
+Current schema hash: 96BE087805BCA5E07AC0BDDCAA2FAE3DBFC81FCA5BA56E179D0D8158926167FC

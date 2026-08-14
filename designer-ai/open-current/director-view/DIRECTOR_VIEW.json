@@ -1,0 +1,86 @@
+{
+  "schema": "STARWARS_DELTA_DIRECTOR_VIEW",
+  "schemaVersion": 2,
+  "status": "CURRENT_FULL_CATALOG_PROJECTION",
+  "sourceOfTruth": "Projection only. The atomic full Catalog remains authoritative for exact IDs, compatibility and validation.",
+  "publishTransactionId": "20260813-212754773-ff89e3c3",
+  "publishedUtc": "2026-08-13T21:34:05.2577254Z",
+  "catalogRevision": 7625331408923133048,
+  "snapshotContentHash": "3853703AE0C6416630E4434C4AFE28AAE460C52131B5B2374A7BADCB2A4D50E7",
+  "contractRevision": "82ACB76B4A67F4570B463DE3C2189C13E418E1CABE83A9A9C8D867DFB6698360",
+  "schemaHash": "96BE087805BCA5E07AC0BDDCAA2FAE3DBFC81FCA5BA56E179D0D8158926167FC",
+  "lastCompletedScanUtc": "2026-08-13T01:00:36.2423518Z",
+  "catalogGeneratedUtc": "2026-08-13T21:27:54.9213843Z",
+  "sourceCatalogRecordCount": 22506,
+  "requestScoped": false,
+  "diagnostics": {
+    "annotated": 19114,
+    "reviewed": 15413,
+    "needsReview": 3714,
+    "stale": 598,
+    "cutsceneReady": 14689
+  },
+  "counts": {
+    "actors": 548,
+    "layers": 100,
+    "effects": 363,
+    "ui": 247,
+    "animations": 566,
+    "audio": 237,
+    "recommendableVisualEntriesBeforeActorCanonicalMerge": 1328,
+    "pixelVerifiedVisualEntries": 1049,
+    "pixelMissingRecommendableVisualEntries": 279,
+    "syntheticCatalogVisualEntriesNotPresentInVisualLibrary": 0
+  },
+  "policies": {
+    "visuals": "Use one Director visual identity enriched from all mapped Catalog records. Inspect pixel evidence before visual claims.",
+    "animations": "Use every exact AnimationClip ID, but only one representative image per animation family. Never require every frame.",
+    "audio": "Audio is a first-class Director input and does not require visual evidence.",
+    "prefabs": "Prefab internals are not authoring vocabulary. Safe Prefabs appear only as CanonicalActor or PreviewSafeVisualComposite; gameplay scripts, colliders and physics are not exposed to the director.",
+    "technicalAssets": "Materials, technical textures, fonts, gameplay helpers and unsafe records are dependencies or excluded evidence, not normal Director choices.",
+    "unsafe": "Unsafe Catalog records are excluded from Director recommendations."
+  },
+  "categoryFiles": [
+    {
+      "category": "Actor",
+      "count": 548,
+      "file": "director-view/actors.json",
+      "url": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/actors.json"
+    },
+    {
+      "category": "Layer",
+      "count": 100,
+      "file": "director-view/layers.json",
+      "url": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/layers.json"
+    },
+    {
+      "category": "Effect",
+      "count": 363,
+      "file": "director-view/effects.json",
+      "url": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/effects.json"
+    },
+    {
+      "category": "Ui",
+      "count": 247,
+      "file": "director-view/ui.json",
+      "url": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/ui.json"
+    },
+    {
+      "category": "Animation",
+      "count": 566,
+      "file": "director-view/animations.json",
+      "url": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/animations.json"
+    },
+    {
+      "category": "Audio",
+      "count": 237,
+      "file": "director-view/audio.json",
+      "url": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/audio.json"
+    }
+  ],
+  "assetLookupUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/asset-lookup.json",
+  "completionQueueUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/completion-queue.json",
+  "visualIndexUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/FULL_VISUAL_INDEX.json",
+  "instructionBookRootUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/instruction-book/",
+  "catalogContractRootUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/catalog-contract/"
+}
