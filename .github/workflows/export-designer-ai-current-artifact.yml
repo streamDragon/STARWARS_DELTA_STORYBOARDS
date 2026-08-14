@@ -5,10 +5,15 @@ on:
   push:
     branches: [main]
     paths:
+      - 'designer-ai/open-current/**'
       - '.github/workflows/export-designer-ai-current-artifact.yml'
 
 permissions:
   contents: read
+
+concurrency:
+  group: designer-ai-current-artifact
+  cancel-in-progress: true
 
 jobs:
   export-current-artifact:
