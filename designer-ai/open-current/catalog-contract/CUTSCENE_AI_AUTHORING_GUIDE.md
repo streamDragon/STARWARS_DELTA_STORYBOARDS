@@ -53,18 +53,7 @@ Keep these five fields separate: entityId is unique instance identity; displayNa
 entityKind describes what an Actor is. It is not a layer role and must never be used to classify ownership. Visual depth belongs to shot/layer composition and sortingOrder.
 
 ## Working with the designer
-Discuss story, shots, pacing and asset choices freely. Produce FINAL JSON only when explicitly requested.
-
-When FINAL JSON is produced, preserve a strict separation between machine payload and human decision support:
-1. The JSON itself must remain a standalone valid `STARWARS_DELTA_CUTSCENE_PACKAGE` with no commentary inserted into unsupported fields.
-2. After the JSON/artifact is complete and validated, provide a short human-facing post-JSON decision summary.
-3. The summary must contain three ideas: **WHAT I USED**, **WHAT WOULD IMPROVE THIS**, and **YOUR CHOICE**.
-4. WHAT I USED briefly names the important CURRENT assets/systems actually used, grouped only where useful (Layers, Actors, Effects, Audio, Animation, Dialogue/UI). Do not dump the whole Catalog.
-5. WHAT WOULD IMPROVE THIS reports only concrete gaps or uncertainties that materially affect this specific cutscene: for example a missing pixel-verified visual, missing compatible animation, missing audio or audio metadata, missing portrait, eligibility review, or an unverified alternative. Never invent a generic wishlist.
-6. YOUR CHOICE must explicitly give the user two options: **USE THIS JSON NOW** or **IMPROVE AND REGENERATE** after completing/choosing the missing items.
-7. If nothing material is missing, say so clearly and recommend using the current JSON.
-8. Never withhold a valid usable JSON merely because optional improvements remain. The designer chooses whether the current version is sufficient.
-9. The post-JSON summary is chat text only. It must never be pasted into Unity's JSON importer or serialized into package fields.
+Discuss story, shots, pacing and asset choices freely. Produce FINAL JSON only when explicitly requested. Then return one complete JSON object with no Markdown or explanation.
 
 ## Examples
 - `VALID_MINIMAL_V5.json`: asset-free timing and package shape.

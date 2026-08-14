@@ -1,7 +1,7 @@
 {
   "schema": "STARWARS_DELTA_CUTSCENE_CURATION_SOURCE",
   "schemaVersion": 1,
-  "curationVersion": "2026-08-12-v3-invariants",
+  "curationVersion": "2026-08-14-wp3-film-preflight",
   "entries": [
     {
       "curationId": "CUR_LESSON_045",
@@ -10,13 +10,14 @@
       "activationPolicy": "ContractAgnostic",
       "sourceContractRevision": "",
       "sourceCaseIds": [],
+      "canonicalLessonId": "IB024",
       "lesson": {
-        "id": "IB045",
-        "type": "LEARNING_SYSTEM",
-        "title": "Raw Learning Cases and curated teaching are separate stores",
-        "whenToUse": "Any failure review or manual BAD/GOLDEN curation pass.",
-        "badPattern": "Rewrite a raw Unity case or paste a manually edited Learning ZIP back into the evidence inbox.",
-        "goodPattern": "Library Learning Case Inbox remains raw evidence. Approved lessons/manual cases live in the project-owned Curation source. Exports combine them without mutating raw cases.",
+        "id": "IB024",
+        "type": "PROTOCOL",
+        "title": "Raw evidence and curated teaching are separate stores",
+        "whenToUse": "Every validation/build failure, visual issue, or manual BAD/GOLDEN curation pass.",
+        "badPattern": "Rewrite a raw Unity case, paste a manually edited Learning ZIP back into the evidence inbox, or teach an unreviewed failure directly as an active lesson.",
+        "goodPattern": "Library Learning Case Inbox remains immutable raw evidence. Capture and deduplicate cases there; approved reusable lessons/manual cases live in the project-owned Curation source. Exports combine them without mutating raw cases.",
         "lesson": "Evidence is immutable input; curation is reviewed project knowledge."
       }
     },
@@ -31,13 +32,14 @@
         "case_d7ae533baa2d5fe9",
         "case_75f178e12356001e"
       ],
+      "canonicalLessonId": "IB044",
       "lesson": {
-        "id": "IB046",
+        "id": "IB044",
         "type": "LEARNING_SYSTEM",
-        "title": "Classify teaching by source contract revision",
-        "whenToUse": "A lesson or failure was produced under an older Cutscene contract.",
-        "badPattern": "Teach an old contract failure as if it proves the current contract is still broken.",
-        "goodPattern": "Preserve sourceContractRevision and classify Current, Historical or ContractAgnostic. Historical cases stay visible as evidence but do not become current-only authoring rules automatically.",
+        "title": "Learning evidence preserves contract identity and curation classification",
+        "whenToUse": "Capturing, exporting or reviewing raw failure cases and lessons across Cutscene contract revisions.",
+        "badPattern": "Aggressive dedupe removes distinct Error occurrences, or an old-contract failure is taught as if it proves the current contract is still broken.",
+        "goodPattern": "Dedupe by stable issue identity while preserving distinct occurrences. Keep sourceContractRevision and classify Current, Historical or ContractAgnostic; historical cases stay visible as evidence but do not become current-only authoring rules automatically.",
         "lesson": "A useful failure is evidence about the contract that produced it, not timeless truth by default."
       }
     },
@@ -843,6 +845,128 @@
         "confidence": "High",
         "badExcerpt": "Actor compatibleAnimationIds=[idle] + PlayAnimation(animationAssetId=run)",
         "goldenExcerpt": "Actor compatibleAnimationIds=[run] + PlayAnimation(animationAssetId=run)"
+      }
+    },
+    {
+      "curationId": "CUR_MARS_CAFE_FILM_PREFLIGHT",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [
+        "MARS_CAFE_HOMECOMING_V1_BAD"
+      ],
+      "sourceFile": "Assets/_Game/MY_Core/MY_Cutscenes/InstructionBook/CASE_NOTES/034_MARS_CAFE_BAD_EVIDENCE_AND_GOLDEN_GATE.md",
+      "canonicalLessonId": "IB001",
+      "lesson": {
+        "id": "IB001",
+        "type": "PROTOCOL",
+        "title": "Story first, visual world and audio preflight before JSON",
+        "whenToUse": "Every new narrative Cutscene request before final JSON is emitted.",
+        "badPattern": "Start filling schema fields mechanically, use equal-duration shot blocks, and omit the Audio pass while available assets dictate the story.",
+        "goodPattern": "Write the beginning state, dramatic change, ending state, audience feeling, shot purpose and camera intent in plain language first. Build one visual world, vary shot rhythm by dramatic function, perform an Audio pass when suitable CURRENT clips exist, then select exact IDs and serialize only after film preflight and contract validation.",
+        "lesson": "JSON is the serialization of a coherent film plan; story, rhythm, visual continuity and Audio come first."
+      }
+    },
+    {
+      "curationId": "CUR_MARS_CAFE_VISUAL_WORLD",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [
+        "MARS_CAFE_HOMECOMING_V1_BAD"
+      ],
+      "sourceFile": "Assets/_Game/MY_Core/MY_Cutscenes/InstructionBook/CASE_NOTES/034_MARS_CAFE_BAD_EVIDENCE_AND_GOLDEN_GATE.md",
+      "canonicalLessonId": "IB023",
+      "lesson": {
+        "id": "IB023",
+        "type": "VISUAL_SELECTION",
+        "title": "Exact identity still requires one coherent visual world",
+        "whenToUse": "Selecting any important background, environment, actor, ship or effect after exact Catalog eligibility is known.",
+        "badPattern": "Use a keyword-perfect or filename-perfect asset without inspecting its Atlas pixels, even when its style, view angle, perspective, lighting, composition or runtime form breaks the requested world.",
+        "goodPattern": "Inspect important assets as pixels and verify visualStyle, view angle/perspective, orientation, lighting, location/environment continuity, composition and scale relationship. Prefer a slightly less literal asset that belongs to the same visual world over a top-down or concept/reference visual inserted into an eye-level painterly shot. Confirm the requested role has a usable world-actor form and capability before authoring.",
+        "lesson": "Exact IDs and real pixels are necessary but insufficient; location, style, perspective and runtime-form continuity outrank literal filename matches."
+      }
+    },
+    {
+      "curationId": "CUR_MARS_CAFE_SPATIAL_COMPOSITION",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [
+        "MARS_CAFE_HOMECOMING_V1_BAD"
+      ],
+      "sourceFile": "Assets/_Game/MY_Core/MY_Cutscenes/InstructionBook/CASE_NOTES/034_MARS_CAFE_BAD_EVIDENCE_AND_GOLDEN_GATE.md",
+      "canonicalLessonId": "IB027",
+      "lesson": {
+        "id": "IB027",
+        "type": "BAD_TO_GOOD",
+        "title": "Unity owns spatial composition and Background Cover",
+        "whenToUse": "Authoring Background, FarBackground, world actors, camera motion or generated ShowUi visuals.",
+        "badPattern": "Compensate for source texture dimensions with arbitrary scale or transforms, accept postage-stamp backgrounds, or validate coverage only at the initial camera position.",
+        "goodPattern": "Choose the correct legal asset and express deliberate staging intent. Unity owns routine spatial composition, Background/FarBackground Cover and framing; Cover must remain at least 95% through the largest required Hold and Push/Pull/zoom view. Do not use author scale as source-dimension compensation.",
+        "lesson": "Authors choose the world and dramatic composition; Unity owns routine fit, framing and background coverage."
+      }
+    },
+    {
+      "curationId": "CUR_MARS_CAFE_PROPORTIONS",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [
+        "MARS_CAFE_HOMECOMING_V1_BAD"
+      ],
+      "sourceFile": "Assets/_Game/MY_Core/MY_Cutscenes/InstructionBook/CASE_NOTES/034_MARS_CAFE_BAD_EVIDENCE_AND_GOLDEN_GATE.md",
+      "canonicalLessonId": "IB031",
+      "lesson": {
+        "id": "IB031",
+        "type": "PROTOCOL",
+        "title": "System-managed proportions start at authored scale 1.0",
+        "whenToUse": "Placing any actor or VFX with systemManagedProportions=true.",
+        "badPattern": "Read source PNG dimensions as world scale or use extreme authored scale values to correct a system-managed actor after materialization.",
+        "goodPattern": "Author scaleX and scaleY at 1.0 by default. Treat scale as only a small deliberate multiplier around the semantic baseline; values outside roughly 0.75-1.35 require a specific cinematic reason and review. Never use scale to compensate for source dimensions or a diagnostic fallback.",
+        "lesson": "Unity owns semantic proportions; authored scale is a controlled multiplier, not a source-size correction."
+      }
+    },
+    {
+      "curationId": "CUR_MARS_CAFE_MATERIALIZATION",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [
+        "MARS_CAFE_HOMECOMING_V1_BAD"
+      ],
+      "sourceFile": "Assets/_Game/MY_Core/MY_Cutscenes/InstructionBook/CASE_NOTES/034_MARS_CAFE_BAD_EVIDENCE_AND_GOLDEN_GATE.md",
+      "canonicalLessonId": "IB041",
+      "lesson": {
+        "id": "IB041",
+        "type": "DIAGNOSTICS",
+        "title": "Principal visuals require proven materialization before film success",
+        "whenToUse": "Any principal actor, location-critical background or required Effect is selected for a representative preview.",
+        "badPattern": "Treat a yellow diagnostic placeholder, missing renderer or unproven Effect as successful representative art because JSON import or validation completed.",
+        "goodPattern": "Trace each principal visual through the normal import/materialization path and require real renderer/effect evidence. A required diagnostic fallback, missing materialization or unproven principal Effect is degraded/blocked RED evidence, not normal GREEN success; investigate the source route before changing scale or cosmetically hiding the symptom.",
+        "lesson": "A valid package is not a representative film until every principal visual has a proven materialization route."
+      }
+    },
+    {
+      "curationId": "CUR_CASE_MARS_CAFE_HOMECOMING_V1_BAD",
+      "entryType": "MANUAL_CASE",
+      "status": "Approved",
+      "activationPolicy": "HistoricalReference",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [
+        "MARS_CAFE_HOMECOMING_V1_BAD"
+      ],
+      "sourceFile": "Assets/_Game/MY_Core/MY_Cutscenes/InstructionBook/CASE_NOTES/034_MARS_CAFE_BAD_EVIDENCE_AND_GOLDEN_GATE.md",
+      "manualCase": {
+        "caseId": "MARS_CAFE_HOMECOMING_V1_BAD",
+        "title": "Mars Cafe homecoming proof: BAD evidence and GOLDEN gate",
+        "classification": "Historical visual-authoring reference",
+        "summary": "The first 60-second Mars Cafe proof proved exact-ID import and real cafe materialization, but exposed style/perspective mismatch, manual scale compensation, missing audio pass, mechanical shot rhythm, principal fallback and incomplete preview evidence. Preserve the raw fixture separately; promote only the recurring film-preflight lessons, and require a separate corrected artifact plus manual canonical visual review before GOLDEN promotion."
       }
     }
   ],

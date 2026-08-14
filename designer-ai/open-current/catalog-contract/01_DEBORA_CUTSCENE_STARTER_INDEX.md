@@ -9,6 +9,10 @@ Exported record count: 22506
 ## Actors
 Actor-primary records that are safe for Preview.
 Count: 30
+- `051e0b3854f08b94d8b988ff8a23c4ac:3110914309453802679` — Delta7 Starfighter
+  - Animation count: 0; sample IDs: none
+- `1cb6108c17cb046408f158f6ba798416:1755457364051241212` — Delta7 Starfighter Hunyuan
+  - Animation count: 0; sample IDs: none
 - `08f2f3394e7f7c4478721c3ecf02e5d4:-1113357152` — player 6
   - Animation count: 0; sample IDs: none
 - `08f2f3394e7f7c4478721c3ecf02e5d4:-1142697123` — player 23
@@ -64,10 +68,6 @@ Count: 30
 - `08f2f3394e7f7c4478721c3ecf02e5d4:633558873` — player 25
   - Animation count: 0; sample IDs: none
 - `08f2f3394e7f7c4478721c3ecf02e5d4:928039468` — player 26
-  - Animation count: 0; sample IDs: none
-- `0a936ae5d70c6c14ab943882f62e0a7a:21300000` — TitleBorder
-  - Animation count: 0; sample IDs: none
-- `0aeee19417c9d5a41ac7045edd5bb550:21300000` — Instruct z
   - Animation count: 0; sample IDs: none
 
 ## Actors with verified animations
