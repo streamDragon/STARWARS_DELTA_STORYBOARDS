@@ -1,0 +1,19 @@
+{
+  "schema": "STARWARS_DELTA_CHATGPT_CURRENT_POINTER",
+  "schemaVersion": 1,
+  "status": "POINTER_ACTIVE_OPEN_VISUALS_PENDING",
+  "currentManifestUrl": "https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/main/designer-ai/current.json",
+  "currentPageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/",
+  "openCurrentManifestUrl": "https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/designer-ai-open-current/OPEN_CURRENT.json",
+  "openCurrentBranch": "designer-ai-open-current",
+  "requiredOpenArtifacts": [
+    "OPEN_CURRENT.json",
+    "SOURCE_CURRENT.json",
+    "CATALOG_SUBSET.json",
+    "VISUAL_PACK/",
+    "VISUAL_CONTACT_SHEET.pdf"
+  ],
+  "authoringRule": "For visual authoring, metadata alone is not sufficient. Inspect the actual VISUAL_PACK pixels or VISUAL_CONTACT_SHEET before making visual claims or storyboards.",
+  "fallbackRule": "Until openCurrentManifestUrl reports CURRENT_VERIFIED_OPEN for the same publishTransactionId as currentManifestUrl, do not claim direct visual access. Release ZIP download URLs remain valid for human/browser download only.",
+  "note": "This is a stable machine pointer. The Designer AI publisher must update designer-ai-open-current atomically whenever CURRENT advances."
+}
