@@ -6,6 +6,9 @@ on:
     branches: [main]
     paths:
       - 'designer-ai/current.json'
+      - 'designer-ai/CHATGPT_START.txt'
+      - 'designer-ai/FILM_AUTHORING_GUIDE_CURRENT.md'
+      - 'designer-ai/chatgpt-current.json'
       - 'designer-ai/tools/build_open_current.py'
       - 'designer-ai/tools/build_visual_atlas.py'
       - 'designer-ai/tools/finalize_open_current.py'
@@ -53,7 +56,10 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/build_director_view.py
 
-      - name: Finalize atomic Director identity and eligibility audit
+      - name: Finalize atomic Director identity, recommendation states, completion queue and eligibility audit
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/finalize_director_current.py
 
       - name: Validate final CURRENT payload
@@ -98,8 +104,9 @@ jobs:
           assert manifest['atomicIdentity'] == expected_identity
           assert audit['publishTransactionId'] == director['publishTransactionId']
           assert audit['catalogRevision'] == director['catalogRevision']
-          assert queue['eligibilityAuditUrl'] == current['eligibilityAudit']['url']
           assert queue['visualPreviewCount'] == len(queue['visualPreviews'])
+          assert queue['visualPreviewGenerationCount'] + queue['visualEligibilityReviewCount'] == queue['visualPreviewCount']
+          assert current['eligibilityAudit']['url'] == director['eligibilityAuditUrl']
           assert pack.is_file() and pack.stat().st_size > 0
 
           assert atlas.is_file() and atlas.stat().st_size > 0
@@ -111,6 +118,29 @@ jobs:
           assert len(PdfReader(str(atlas)).pages) == atlas_manifest['totalPages']
           mapped = [a for a in visual_index.get('assets', []) if a.get('atlasPage') and a.get('atlasSlot')]
           assert len(mapped) == visual_index['representativeCount']
+
+          visual_entries = []
+          for filename in ('actors.json', 'layers.json', 'effects.json', 'ui.json'):
+              payload = json.loads((root / 'director-view' / filename).read_text(encoding='utf-8'))
+              assert payload['count'] == len(payload['assets'])
+              visual_entries.extend(payload['assets'])
+          valid_states = {
+              'RECOMMENDABLE',
+              'PIXEL_COMPLETION_REQUIRED',
+              'DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW',
+          }
+          assert visual_entries
+          assert all(entry.get('recommendationStatus') in valid_states for entry in visual_entries)
+          verified = [entry for entry in visual_entries if entry.get('visualEvidence', {}).get('status') == 'PIXELS_VERIFIED']
+          assert all(entry.get('visualEvidence', {}).get('atlasPage') and entry.get('visualEvidence', {}).get('atlasSlot') for entry in verified)
+          assert director['quality']['verifiedVisualEntryCount'] == len(verified)
+          assert director['quality']['atlasMappedVerifiedVisualEntryCount'] == len(verified)
+
+          animations = json.loads((root / 'director-view' / 'animations.json').read_text(encoding='utf-8'))['assets']
+          audio = json.loads((root / 'director-view' / 'audio.json').read_text(encoding='utf-8'))['assets']
+          assert not any(item.get('unknownCompatibleActorAssetIds') for item in animations)
+          assert all('blockingCompletionNeeded' in item and 'qualityCompletionNeeded' in item for item in animations)
+          assert all('blockingCompletionNeeded' in item and 'qualityCompletionNeeded' in item for item in audio)
 
           with zipfile.ZipFile(pack) as archive:
               names = set(archive.namelist())
@@ -145,12 +175,13 @@ jobs:
               assert zip_manifest['atomicIdentity'] == expected_identity
               assert zip_audit['publishTransactionId'] == expected_identity['publishTransactionId']
               assert zip_audit['catalogRevision'] == expected_identity['catalogRevision']
-              assert zip_queue['eligibilityAuditUrl'] == current['eligibilityAudit']['url']
+              assert zip_queue['visualPreviewGenerationCount'] + zip_queue['visualEligibilityReviewCount'] == zip_queue['visualPreviewCount']
               assert zip_current['visualAtlas']['pdfUrl'] == current['visualAtlas']['pdfUrl']
 
           print('DIRECTOR_CURRENT_VALIDATED')
           print('SOURCE_CATALOG_RECORDS', director['sourceCatalogRecordCount'])
           print('DIRECTOR_COUNTS', director['counts'])
+          print('DIRECTOR_QUALITY', director['quality'])
           print('ELIGIBILITY_REVIEW', audit['flaggedDirectorVisualCount'])
           print('VISUAL_ATLAS_PAGES', atlas_manifest['totalPages'])
           print('VISUAL_ATLAS_REPRESENTATIVES', atlas_manifest['representativeCount'])
