@@ -102,6 +102,7 @@ def main():
 
     if not atlas_path.is_file() or atlas_path.stat().st_size <= 0:
         raise SystemExit("Visual atlas PDF was not created")
+    atlas_bytes = atlas_path.stat().st_size
 
     augmented = 0
     for entry in full_index.get("assets", []):
@@ -116,15 +117,27 @@ def main():
 
     atlas_summary = {
         "schema": "STARWARS_DELTA_CHATGPT_VISUAL_ATLAS",
-        "schemaVersion": 1,
+        "schemaVersion": 2,
         "status": "CURRENT_VERIFIED_VISUAL_ATLAS",
         "publishTransactionId": transaction_id,
         "pdfFile": ATLAS_RELATIVE,
+        "pdfFileName": ATLAS_NAME,
         "pdfUrl": ATLAS_URL,
         "manifestUrl": ATLAS_MANIFEST_URL,
+        "fileSizeBytes": atlas_bytes,
         "totalPages": atlas_page_count,
         "representativeCount": augmented,
         "sourceVisualIdentityCount": full_index.get("sourceVisualIdentityCount"),
+        "contains": [
+            "Actor visual sheets: characters, robots, ships and other world actors",
+            "Effect visual sheets: explosions, flashes, atmosphere and VFX",
+            "Layer visual sheets: backgrounds, environments and scenery",
+            "Ui visual sheets: portraits, dialogue frames, screens and interface visuals",
+        ],
+        "doesNotNeedPixelSheets": [
+            "Animations use exact Director compatibility IDs with representative family visuals",
+            "Audio is selected from Director metadata and is non-visual",
+        ],
         "categoryRanges": ranges,
         "lookup": {
             "fullVisualIndexFile": "FULL_VISUAL_INDEX.json",
@@ -134,9 +147,23 @@ def main():
         },
         "usage": (
             "Use Director metadata to shortlist assets, resolve the asset in FULL_VISUAL_INDEX.json, "
-            "then open this PDF and visually inspect the exact atlasPage and atlasSlot before any visual claim, "
+            "then inspect the real pixels in this PDF at atlasPage and atlasSlot before any visual claim, "
             "asset choice or storyboard."
         ),
+        "visualAccessFallback": {
+            "rule": (
+                "If ChatGPT cannot actually render and inspect this PDF from the public URL, it must not guess from metadata. "
+                "Ask the user to download this single PDF from the Debora page and upload it directly to the chat, then continue "
+                "using the same CURRENT Director metadata and asset IDs."
+            ),
+            "userFileToUpload": ATLAS_NAME,
+            "doNotRequest": [
+                "Catalog ZIP for ordinary visual access",
+                "Instruction Book ZIP for ordinary visual access",
+                "Full Visual Library archive for ordinary visual access",
+                "Multiple category PDFs when the unified Atlas PDF is available",
+            ],
+        },
     }
 
     full_index["schemaVersion"] = max(int(full_index.get("schemaVersion", 0)), 4)
@@ -170,7 +197,7 @@ def main():
 
     write_json(ROOT / ATLAS_MANIFEST_RELATIVE, atlas_summary)
 
-    open_current["schemaVersion"] = max(int(open_current.get("schemaVersion", 0)), 9)
+    open_current["schemaVersion"] = max(int(open_current.get("schemaVersion", 0)), 10)
     open_current["visualAtlas"] = atlas_summary
     usage = open_current.setdefault("usage", {})
     usage["rule"] = (
@@ -180,12 +207,20 @@ def main():
     usage["preferredVisualFormat"] = (
         "Use the single CURRENT Visual Atlas PDF for pixel inspection. JPEG sheets remain transport/debug fallbacks only."
     )
+    usage["visualAccessFallback"] = (
+        "If ChatGPT cannot render the Atlas URL as pixels, do not guess. Ask the user to download and upload the single CURRENT "
+        "Visual Atlas PDF from the Debora page. Continue with the same CURRENT Director after upload."
+    )
+    usage["normalUserDownload"] = (
+        "No download is normally required. If ChatGPT asks for visual access, the only normal user download is the single CURRENT "
+        "Visual Atlas PDF. The Director ZIP is advanced metadata fallback, not the normal visual-access download."
+    )
     write_json(open_current_path, open_current)
 
     print("VISUAL_ATLAS_FILE", ATLAS_RELATIVE)
     print("VISUAL_ATLAS_PAGES", atlas_page_count)
     print("VISUAL_ATLAS_REPRESENTATIVES", augmented)
-    print("VISUAL_ATLAS_BYTES", atlas_path.stat().st_size)
+    print("VISUAL_ATLAS_BYTES", atlas_bytes)
 
 
 if __name__ == "__main__":
