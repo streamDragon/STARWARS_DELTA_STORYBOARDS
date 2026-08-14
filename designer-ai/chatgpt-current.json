@@ -1,19 +1,17 @@
 {
   "schema": "STARWARS_DELTA_CHATGPT_CURRENT_POINTER",
-  "schemaVersion": 1,
-  "status": "POINTER_ACTIVE_OPEN_VISUALS_PENDING",
-  "currentManifestUrl": "https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/main/designer-ai/current.json",
+  "schemaVersion": 2,
+  "status": "CURRENT_VERIFIED_OPEN",
+  "currentManifestUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/current.json",
   "currentPageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/",
-  "openCurrentManifestUrl": "https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/designer-ai-open-current/OPEN_CURRENT.json",
-  "openCurrentBranch": "designer-ai-open-current",
-  "requiredOpenArtifacts": [
-    "OPEN_CURRENT.json",
-    "SOURCE_CURRENT.json",
-    "CATALOG_SUBSET.json",
-    "VISUAL_PACK/",
-    "VISUAL_CONTACT_SHEET.pdf"
-  ],
-  "authoringRule": "For visual authoring, metadata alone is not sufficient. Inspect the actual VISUAL_PACK pixels or VISUAL_CONTACT_SHEET before making visual claims or storyboards.",
-  "fallbackRule": "Until openCurrentManifestUrl reports CURRENT_VERIFIED_OPEN for the same publishTransactionId as currentManifestUrl, do not claim direct visual access. Release ZIP download URLs remain valid for human/browser download only.",
-  "note": "This is a stable machine pointer. The Designer AI publisher must update designer-ai-open-current atomically whenever CURRENT advances."
+  "deboraPageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/debora.html",
+  "startMessageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/CHATGPT_START.txt",
+  "openCurrentManifestUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/OPEN_CURRENT.json",
+  "visualIndexUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/CHATGPT_VISUAL_INDEX.json",
+  "visualContactSheetUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/VISUAL_CONTACT_SHEET.pdf",
+  "catalogSubsetUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/CATALOG_SUBSET.json",
+  "instructionSubsetUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/INSTRUCTION_SUBSET.json",
+  "authoringRule": "For visual authoring, metadata alone is not sufficient. Inspect the actual pixels in VISUAL_CONTACT_SHEET.pdf or the preview assets before making visual claims, choosing assets, or drawing storyboards.",
+  "deboraRule": "Debora normally opens deboraPageUrl and presses COPY FOR CHAT. Her ChatGPT reads the permanent CURRENT sources itself. ZIP upload is fallback only.",
+  "fallbackRule": "If direct Pages access genuinely fails, use the current ChatGPT Authoring Package download from designer-ai/current.json. Do not mix transactions or older packages."
 }
