@@ -1,6 +1,6 @@
 {
   "schema": "STARWARS_DELTA_DESIGNER_AI_OPEN_CURRENT",
-  "schemaVersion": 4,
+  "schemaVersion": 5,
   "status": "CURRENT_VERIFIED_OPEN",
   "publishTransactionId": "20260813-212754773-ff89e3c3",
   "publishedUtc": "2026-08-13T21:34:05.2577254Z",
@@ -70,6 +70,18 @@
   "usage": {
     "rule": "Before visual claims, asset selection, or storyboarding, resolve the asset in FULL_VISUAL_INDEX/category index and inspect pageImageUrl. Names and metadata are not substitutes for pixels.",
     "animation": "One representative image per animation family is intentional; do not require every frame.",
-    "preferredVisualFormat": "Open pageImageUrl JPEG first. PDF is a secondary archive/fallback format."
+    "preferredVisualFormat": "Open pageImageUrl JPEG first. PDF is a secondary archive/fallback format.",
+    "missingPixels": "If an asset is listed in VISUAL_UNAVAILABLE.json, do not invent its appearance. Request/fix a new Unity Visual Library publish."
+  },
+  "visualCoverage": {
+    "sourceVisualIdentityCount": 1340,
+    "coveredVisualIdentityCount": 1061,
+    "unavailableVisualIdentityCount": 279,
+    "coveragePercent": 79.18,
+    "unavailableManifestUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/VISUAL_UNAVAILABLE.json"
+  },
+  "download": {
+    "chatgptVisualCurrentZipUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/STARWARS_DELTA_CHATGPT_VISUAL_CURRENT.zip",
+    "purpose": "Fallback download for Debora/ChatGPT. Contains the compact current authoring data, visual indexes, and representative visual sheets. It intentionally does not contain every animation frame."
   }
 }
