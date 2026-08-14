@@ -1,6 +1,6 @@
 {
   "schema": "STARWARS_DELTA_DESIGNER_AI_OPEN_CURRENT",
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "status": "CURRENT_VERIFIED_OPEN",
   "publishTransactionId": "20260813-212754773-ff89e3c3",
   "publishedUtc": "2026-08-13T21:34:05.2577254Z",
@@ -10,8 +10,9 @@
   "sourceCurrentPath": "SOURCE_CURRENT.json",
   "chatgptVisualIndexPath": "CHATGPT_VISUAL_INDEX.json",
   "fullVisualIndexPath": "FULL_VISUAL_INDEX.json",
-  "fullVisualIndexUrl": "https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/designer-ai-open-current/FULL_VISUAL_INDEX.json",
-  "fullVisualSheetsRoot": "https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/designer-ai-open-current/full-visual-sheets/",
+  "fullVisualIndexUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/FULL_VISUAL_INDEX.json",
+  "assetVisualLookupUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/ASSET_VISUAL_LOOKUP.json",
+  "fullVisualSheetsRoot": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/",
   "groups": {
     "authoring": [
       "authoring/AUTHORING_REQUEST.txt",
@@ -67,7 +68,8 @@
     ]
   },
   "usage": {
-    "rule": "Before visual claims, asset selection, or storyboarding, inspect the relevant full-visual-sheets PDF page identified by FULL_VISUAL_INDEX.json. Names and metadata are not substitutes for pixels.",
-    "animation": "One representative image per animation family is intentional; do not require every frame."
+    "rule": "Before visual claims, asset selection, or storyboarding, resolve the asset in FULL_VISUAL_INDEX/category index and inspect pageImageUrl. Names and metadata are not substitutes for pixels.",
+    "animation": "One representative image per animation family is intentional; do not require every frame.",
+    "preferredVisualFormat": "Open pageImageUrl JPEG first. PDF is a secondary archive/fallback format."
   }
 }
