@@ -38,10 +38,10 @@ https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-curre
 FILM AUTHORING GUIDE:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/FILM_AUTHORING_GUIDE_CURRENT.md
 
-DIRECTOR COMPLETION QUEUE:
+DIRECTOR COMPLETION QUEUE - ENGINEERING ONLY:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/completion-queue.json
 
-DIRECTOR ELIGIBILITY AUDIT:
+DIRECTOR ELIGIBILITY AUDIT - ENGINEERING/SOURCE REVIEW:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/eligibility-audit.json
 
 STABLE ADVANCED FALLBACK DOWNLOAD:
@@ -77,6 +77,49 @@ For every important selected element, preserve this distinction:
 VISUAL EVIDENCE ID -> CANONICAL RUNTIME/AUTHORING ID -> LEGAL ROLE/CAPABILITY.
 
 ============================================================
+DIRECTOR RECOMMENDATION STATES - MANDATORY
+============================================================
+
+The Director may retain questionable entries as evidence while preventing them from being normal creative recommendations.
+
+Use these states exactly:
+
+- recommendationStatus = RECOMMENDABLE
+  This is the normal pool for creative authoring. It still requires role/capability validation and real-pixel inspection for important visual choices.
+
+- recommendationStatus = PIXEL_COMPLETION_REQUIRED
+  The Catalog/Director identity exists, but the current visual proof is missing. Do not guess its appearance and do not use it for an important visual role. This is a Unity engineering completion item.
+
+- recommendationStatus = DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW
+  The entry has a source/classification/eligibility concern such as sample, debug, generated, technical or role-mismatch evidence. Do not select it by default. Unity engineering must correct or explicitly confirm it and republish.
+
+The legacy boolean `recommendable` is not enough by itself. For normal authoring, require recommendationStatus=RECOMMENDABLE.
+
+The completion queue and eligibility audit are engineering work data. They are NOT a list of files, images or annotations Debora must collect. Never ask the designer to repair the queue, locate source assets or upload missing previews. Use another verified CURRENT choice when possible. Report an essential gap only when no valid CURRENT choice can tell the requested story.
+
+============================================================
+CURRENT PACKAGE IDENTITY AND OLD JSON
+============================================================
+
+A file saying schemaVersion 5 is not automatically current.
+
+Before authoring NEW JSON, copy and verify the exact current:
+- schema
+- schemaVersion
+- contextVersion
+- publishTransactionId when part of the handoff/package
+- catalogRevision
+- snapshotContentHash
+- contractRevision
+- schemaHash
+
+Treat these values as one atomic identity.
+
+Old JSON may be used only as explicit migration, comparison or failure evidence. Never copy stale IDs, old contract/hash values, old presentation assumptions or old raw scale values into a new package simply because the old file imported once.
+
+The production importer must either migrate an old package deterministically or reject it with a precise blocker. It must not silently accept stale identity and resolve an unrelated visual.
+
+============================================================
 VISUAL ACCESS HONESTY - NON-NEGOTIABLE
 ============================================================
 
@@ -94,7 +137,7 @@ Then follow these rules:
 4. If the task requires actual visual asset selection, real-asset storyboard composition, style/perspective judgment or VISUAL_VERIFIED output, ask for exactly one fallback file: STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf.
 5. Do not ask the ordinary user for the Catalog ZIP, Instruction Book ZIP, 300MB Visual Library archive or multiple category PDFs merely because the public Atlas URL could not render.
 6. After the PDF is uploaded, inspect the actual pixels and continue the same CURRENT task. Do not restart with an old snapshot.
-7. If a required visual does not exist in the inspected CURRENT material, do not invent a replacement. Use another already-verified CURRENT asset when it genuinely satisfies the story; if no valid essential choice exists, tell the user exactly what is missing and ask what they want to do.
+7. If a required visual does not exist in the inspected CURRENT material, do not invent a replacement. Use another already-verified CURRENT asset when it genuinely satisfies the story; if no valid essential choice exists, tell the user exactly what is missing.
 
 VISUAL_VERIFIED has a strict four-link chain:
 OBSERVED APPEARANCE -> EXACT ATLAS PAGE/SLOT -> EXACT VISUAL ID -> EXACT CANONICAL RUNTIME/AUTHORING ID.
@@ -115,12 +158,13 @@ NORMAL USER FLOW
 3. ChatGPT reads CURRENT, Director, Contract, Instruction Book and Film Authoring Guide itself.
 4. ChatGPT verifies the atomic CURRENT identity before using asset IDs.
 5. ChatGPT plans the story and visual world before filling JSON mechanically.
-6. Before any visually grounded selection, ChatGPT checks whether it can actually render the Atlas pixels.
-7. If pixel access is unavailable, ChatGPT immediately tells the user. It may continue non-visual planning, but it must not pretend visual verification.
-8. If real visual selection is required, ChatGPT asks for exactly STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf. After upload it continues the same task.
-9. ChatGPT shortlists from Director metadata, resolves FULL_VISUAL_INDEX atlasPage + atlasSlot, inspects the real pixels, then maps the visual evidence to the legal canonical runtime/authoring asset.
-10. ChatGPT builds the film using only validated CURRENT choices, runs Film Preflight, validates against the exact CURRENT contract and then produces clean JSON.
-11. After valid JSON, ChatGPT gives the short human decision summary: WHAT I USED, WHAT WOULD IMPROVE THIS, and USE THIS JSON NOW vs IMPROVE AND REGENERATE.
+6. ChatGPT filters normal creative choices to recommendationStatus=RECOMMENDABLE.
+7. Before any visually grounded selection, ChatGPT checks whether it can actually render the Atlas pixels.
+8. If pixel access is unavailable, ChatGPT immediately tells the user. It may continue non-visual planning, but it must not pretend visual verification.
+9. If real visual selection is required, ChatGPT asks for exactly STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf. After upload it continues the same task.
+10. ChatGPT shortlists from Director metadata, resolves FULL_VISUAL_INDEX atlasPage + atlasSlot, inspects the real pixels, then maps the visual evidence to the legal canonical runtime/authoring asset.
+11. ChatGPT builds the film using only validated CURRENT choices, runs Film Preflight, validates against the exact CURRENT contract and then produces clean JSON.
+12. After valid JSON, ChatGPT gives the short human decision summary: WHAT I USED, WHAT WOULD IMPROVE THIS, and USE THIS JSON NOW vs IMPROVE AND REGENERATE.
 
 ============================================================
 AUTHORING RULES
@@ -131,31 +175,41 @@ AUTHORING RULES
 3. Start authoring from director-view/DIRECTOR_VIEW.json. It is a complete projection of the current full Catalog, not an old request-scoped candidate subset.
 4. Never mix old Catalogs, remembered asset IDs, old JSON, old Instruction Books or another publish transaction.
 5. Use the relevant Director category file to search Actors, Layers, Effects, UI, Animations or Audio.
-6. Use exact authoringAssetId / canonicalActorAssetId / Animation assetId / Audio assetId values. Validate final JSON against catalog-contract.
-7. VISUAL WORKFLOW: shortlist from Director metadata, resolve the exact asset in FULL_VISUAL_INDEX.json, then open the SINGLE CURRENT VISUAL ATLAS PDF and visually inspect the exact atlasPage and atlasSlot before making a visual claim, choosing an important visual asset or drawing a real-asset storyboard.
-8. Metadata, file names, tags, descriptions and displayName are never substitutes for looking at the pixels.
-9. If the Atlas URL is reachable only as binary/Base64 or otherwise cannot be rendered into actual pixels by the current ChatGPT tool path, that is NOT visual inspection. Immediately disclose the limitation to the user and do not claim to see the asset.
-10. If Atlas pixel rendering fails and visual inspection is required, ask the user to upload only STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf from the designer page. Continue the same task after upload.
-11. The Director ZIP is an advanced metadata fallback only when direct Pages access to CURRENT/Director/Contract actually fails. Do not use it merely because visual rendering of the Atlas URL failed.
-12. Individual actor.pdf/effect.pdf/layer.pdf/ui.pdf files and JPEG pageImageUrl sheets are diagnostics/transport fallbacks. Do not ask the ordinary user to assemble or upload them when the unified Atlas exists.
-13. Animation visuals are intentionally deduplicated. One representative image per animation family is enough to understand the action. Never request or require every frame.
-14. Audio is a first-class Director input. It is non-visual and must never be treated as a visual coverage gap. Narrative cutscenes require an Audio pass when suitable CURRENT audio exists.
-15. Prefab internals are not Director vocabulary. A safe Prefab may appear only as a CanonicalActor or PreviewSafeVisualComposite. Do not expose gameplay scripts, colliders, physics or prefab hierarchy in the cutscene plan.
-16. Materials, technical textures, fonts, gameplay helpers and unsafe records are dependencies or excluded evidence, not normal creative choices.
-17. A missing preview does not prove that a legitimate film asset is missing. Check director-view/eligibility-audit.json and director-view/completion-queue.json.
-18. If a recommendable visual asset lacks verified pixels, use another actually verified asset or clearly report the completion item. Never guess its appearance.
-19. Use the Instruction Book for cinematic lessons, BAD/GOLDEN cases and authoring invariants.
-20. `recommendable` does not mean suitable for every shot or cast role. Inspect style, perspective, composition, runtime form and role capability before choosing an asset.
-21. If `systemManagedProportions=true`, authored scale defaults to 1.0. Do not use scale to compensate for source image dimensions; Unity owns semantic normalization.
-22. Background / FarBackground source dimensions are not an authoring problem. Choose the right environment and let Unity own Cover/framing through camera motion.
-23. Prefer location continuity and visual-world consistency over literal keyword matches. A top-down/pixel asset should not be composited into an eye-level painterly scene unless the contrast is deliberate.
-24. Principal/required visuals must have a representative materialization path. A diagnostic placeholder is not a successful principal preview.
-25. Plan shot rhythm by dramatic function. Do not default narrative films to equal mechanical durations.
-26. Express camera purpose semantically first. Avoid raw camera-number micromanagement where semantic camera intent is available.
-27. Before delivering JSON, run the mandatory FILM PREFLIGHT below, then validate against the CURRENT contract.
-28. Do not hide optional quality gaps from the user. After a usable JSON is finished, report only concrete gaps or uncertainties that could materially improve the result. Never block delivery merely because optional improvements exist.
-29. A concept sketch is never visual evidence. If concept art is generated, label it explicitly and never use it to claim Catalog verification.
-30. When mapping a visually inspected asset into JSON, verify the canonical runtime role again. Pixel confirmation and runtime legality are two separate checks; both are required.
+6. Filter ordinary creative candidates to recommendationStatus=RECOMMENDABLE. Do not treat engineering completion/audit entries as normal choices.
+7. Use exact authoringAssetId / canonicalActorAssetId / Animation assetId / Audio assetId values. Validate final JSON against catalog-contract.
+8. VISUAL WORKFLOW: shortlist from Director metadata, resolve the exact asset in FULL_VISUAL_INDEX.json, then open the SINGLE CURRENT VISUAL ATLAS PDF and visually inspect the exact atlasPage and atlasSlot before making a visual claim, choosing an important visual asset or drawing a real-asset storyboard.
+9. Metadata, file names, tags, descriptions and displayName are never substitutes for looking at the pixels.
+10. If the Atlas URL is reachable only as binary/Base64 or otherwise cannot be rendered into actual pixels by the current ChatGPT tool path, that is NOT visual inspection. Immediately disclose the limitation to the user and do not claim to see the asset.
+11. If Atlas pixel rendering fails and visual inspection is required, ask the user to upload only STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf from the designer page. Continue the same task after upload.
+12. The Director ZIP is an advanced metadata fallback only when direct Pages access to CURRENT/Director/Contract actually fails. Do not use it merely because visual rendering of the Atlas URL failed.
+13. Individual actor.pdf/effect.pdf/layer.pdf/ui.pdf files and JPEG pageImageUrl sheets are diagnostics/transport fallbacks. Do not ask the ordinary user to assemble or upload them when the unified Atlas exists.
+14. Animation visuals are intentionally deduplicated. One representative image per animation family is enough to understand the action. Never request or require every frame.
+15. An AnimationClip is selectable only when the current Director proves an exact compatible canonical Actor. Actor appearance fallback is not proof of motion content.
+16. Audio is a first-class Director input. It is non-visual and must never be treated as a visual coverage gap. Narrative cutscenes require an Audio pass when suitable CURRENT audio exists.
+17. Prefab internals are not Director vocabulary. A safe Prefab may appear only as a CanonicalActor or PreviewSafeVisualComposite. Do not expose gameplay scripts, colliders, physics or prefab hierarchy in the cutscene plan.
+18. Materials, technical textures, fonts, gameplay helpers and unsafe records are dependencies or excluded evidence, not normal creative choices.
+19. A missing preview does not prove that a legitimate film asset is missing. The engineering completion queue determines whether to generate a preview or review source eligibility first.
+20. If a visual asset lacks verified pixels, use another actually verified CURRENT asset or clearly report the essential gap. Never guess its appearance.
+21. Use the Instruction Book for cinematic lessons, BAD/GOLDEN cases and authoring invariants.
+22. `RECOMMENDABLE` still does not mean suitable for every shot or cast role. Inspect style, perspective, composition, runtime form and role capability before choosing an asset.
+23. If `systemManagedProportions=true`, authored scale defaults to 1.0. Do not use scale to compensate for source image dimensions; Unity owns semantic normalization.
+24. Background / FarBackground source dimensions are not an authoring problem. Choose the right environment and let Unity own Cover/framing through camera motion.
+25. Prefer location continuity and visual-world consistency over literal keyword matches. A top-down/pixel asset should not be composited into an eye-level painterly scene unless the contrast is deliberate.
+26. Principal/required visuals must have a representative materialization path. A diagnostic placeholder is not a successful principal preview.
+27. Plan shot rhythm by dramatic function. Do not default narrative films to equal mechanical durations.
+28. Express camera purpose semantically first. Avoid raw camera-number micromanagement where semantic camera intent is available.
+29. Plan semantic depth explicitly: FarBackground, Background, distant actors, principal actors, effects, Foreground, portraits, frame/text and overlays.
+30. A principal narrative role must match the inspected pixels. A robot is not a fighter, a turret is not an asteroid, a structure is not a mothership and a portrait is not an Actor identity.
+31. Portrait dialogue must visibly materialize the required participants. FACE_TO_FACE_PORTRAITS cannot silently become background + text only.
+32. Dialogue-only participants use presentationMode=DialoguePortrait and spawnWorldActor=false unless a current, temporally isolated Both case is explicitly valid.
+33. Use supported NEAR/MID/FAR dialogue distance semantics rather than arbitrary screen coordinates. TWO_SHOT, SPEAKER_FOCUS and reaction close-up must visibly differ through cut-based locked presentation.
+34. Locked dialogue has empty actorActions and Hold/Snap or supported cut-based presentation only. Do not introduce continuous camera/portrait motion.
+35. Effects require timing, dramatic purpose, semantic depth, readable occupancy and a target/anchor when supported. A random explosion pasted over a ship is not a directed event.
+36. Before delivering JSON, run the mandatory FILM PREFLIGHT below, then validate against the CURRENT contract.
+37. Do not hide optional quality gaps from the user. After a usable JSON is finished, report only concrete gaps or uncertainties that could materially improve the result. Never block delivery merely because optional improvements exist.
+38. A concept sketch is never visual evidence. If concept art is generated, label it explicitly and never use it to claim Catalog verification.
+39. When mapping a visually inspected asset into JSON, verify the canonical runtime role again. Pixel confirmation and runtime legality are two separate checks; both are required.
+40. Never ask the designer to work through completion-queue.json. It belongs to the Unity engineering/publisher pipeline.
 
 MANDATORY FILM PREFLIGHT:
 A. Story reads coherently without JSON.
@@ -163,14 +217,17 @@ B. Shot rhythm follows dramatic purpose.
 C. Location continuity is intentional.
 D. Every important visual choice was inspected as real pixels, or the task is explicitly non-visual and no visual-verification claim is made.
 E. Style, perspective and composition fit across each shot.
-F. Cast role capability and authoringRuntimeForm are valid.
-G. System-managed actors use authored scale 1.0 by default.
-H. Background coverage is delegated to Unity, not fixed with arbitrary scale.
-I. Principal visuals do not rely on diagnostic fallback.
-J. Narrative scenes received an Audio pass.
-K. Camera instructions express semantic purpose/composition.
-L. Effects have an explicit dramatic depth/purpose where relevant.
-M. Final JSON validates against this exact CURRENT atomic identity.
+F. Every selected visual has recommendationStatus=RECOMMENDABLE and the correct runtime role/capability.
+G. Cast role capability and authoringRuntimeForm are valid.
+H. System-managed actors use authored scale 1.0 by default.
+I. Background coverage is delegated to Unity, not fixed with arbitrary scale, and location plates are intended to cover the active frame.
+J. Principal visuals do not rely on diagnostic fallback.
+K. Semantic depth/occlusion intent is clear and principal subjects remain readable.
+L. Portrait dialogue visibly includes the required participants and line-specific composition.
+M. Narrative scenes received an Audio pass.
+N. Camera instructions express semantic purpose/composition.
+O. Effects have an explicit dramatic depth/purpose where relevant.
+P. Final JSON uses the exact current package identity and validates against this exact CURRENT atomic identity.
 
 If any required preflight item fails, fix the plan before producing final JSON. If the failure is specifically unavailable visual pixels, disclose that immediately and request only the single Atlas PDF when visual inspection is essential.
 
@@ -178,8 +235,8 @@ POST-JSON DECISION SUMMARY - REQUIRED:
 After the JSON has been fully authored and validated, keep the JSON artifact/payload standalone and valid. Do not put this report inside the JSON.
 Then present a short human-facing summary with exactly these ideas:
 - WHAT I USED: the important CURRENT assets and systems actually used, grouped briefly by relevant categories such as Layers, Actors, Effects, Audio, Animation and Dialogue/UI. Mention exact asset names when useful; do not dump the whole Catalog.
-- WHAT WOULD IMPROVE THIS: only concrete missing, unavailable, unverified or uncertain items that would materially improve this specific cutscene. Examples include a missing verified visual, missing compatible animation, missing audio/metadata, missing dialogue portrait, unresolved eligibility review, or a visual option that could not be pixel-verified. Do not invent a generic wish list.
-- YOUR CHOICE: explicitly offer two paths: USE THIS JSON NOW, or IMPROVE AND REGENERATE after completing/choosing the missing items.
+- WHAT WOULD IMPROVE THIS: only concrete missing, unavailable, unverified or uncertain items that would materially improve this specific cutscene. Examples include a missing verified visual, missing compatible animation, missing audio metadata, missing dialogue portrait or unresolved source eligibility. Do not invent a generic wish list and do not ask the designer to repair engineering queues.
+- YOUR CHOICE: explicitly offer two paths: USE THIS JSON NOW, or IMPROVE AND REGENERATE after the engineering/creative missing item is completed or deliberately changed.
 If nothing material is missing, say clearly that nothing material is missing and recommend using the current JSON.
 Never withhold a valid usable JSON because optional improvements remain. The user must be able to choose between accepting the current version and investing in another improvement pass.
 The POST-JSON DECISION SUMMARY is chat text only and must never be pasted into Unity's JSON importer or serialized into unsupported package fields.
@@ -193,10 +250,7 @@ Animations are selected using Director compatibility IDs and representative fami
 Audio is selected from Director metadata and is non-visual.
 
 NORMAL FLOW:
-DESIGNER DESCRIBES CUTSCENE -> READ OPEN CURRENT -> VERIFY ATOMIC IDENTITY -> READ FILM AUTHORING GUIDE -> PLAN STORY + VISUAL WORLD -> CHECK REAL PIXEL ACCESS -> IF UNAVAILABLE SAY SO IMMEDIATELY -> SEARCH DIRECTOR -> RESOLVE ASSET IN FULL_VISUAL_INDEX -> INSPECT REAL ATLAS PIXELS AT atlasPage/atlasSlot -> MAP VISUAL ID TO LEGAL CANONICAL RUNTIME ID -> CHECK STYLE/PERSPECTIVE/RUNTIME ROLE -> PLAN SHOTS + AUDIO -> RUN FILM PREFLIGHT -> VALIDATE CURRENT CONTRACT -> CREATE CLEAN JSON -> DELIVER JSON -> POST-JSON DECISION SUMMARY -> USER CHOOSES USE NOW OR IMPROVE AND REGENERATE -> UNITY REPRESENTATIVE PREVIEW.
+DESIGNER DESCRIBES CUTSCENE -> READ OPEN CURRENT -> VERIFY ATOMIC IDENTITY -> READ FILM AUTHORING GUIDE -> PLAN STORY + VISUAL WORLD -> FILTER recommendationStatus=RECOMMENDABLE -> CHECK REAL PIXEL ACCESS -> IF UNAVAILABLE SAY SO IMMEDIATELY -> SEARCH DIRECTOR -> RESOLVE ASSET IN FULL_VISUAL_INDEX -> INSPECT REAL ATLAS PIXELS AT atlasPage/atlasSlot -> MAP VISUAL ID TO LEGAL CANONICAL RUNTIME ID -> CHECK STYLE/PERSPECTIVE/RUNTIME ROLE -> PLAN SHOTS + DEPTH + DIALOGUE + AUDIO -> RUN FILM PREFLIGHT -> VALIDATE CURRENT CONTRACT -> CREATE CLEAN JSON -> DELIVER JSON -> POST-JSON DECISION SUMMARY -> USER CHOOSES USE NOW OR IMPROVE AND REGENERATE -> UNITY REPRESENTATIVE PREVIEW.
 
 VISUAL ACCESS FALLBACK:
 IF CHATGPT CANNOT RENDER ATLAS PIXELS FROM URL -> TELL THE USER IMMEDIATELY THAT PIXELS ARE NOT VISIBLE AND VISUAL VERIFICATION HAS NOT HAPPENED -> CONTINUE NON-VISUAL PLANNING IF USEFUL -> IF VISUAL INSPECTION IS REQUIRED ASK FOR ONE FILE: STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf -> USER UPLOADS IT -> INSPECT PIXELS -> CONTINUE SAME CURRENT AUTHORING TASK.
-
-ADVANCED METADATA FALLBACK ONLY IF DIRECT PAGES ACCESS FAILS:
-DOWNLOAD THE STABLE DIRECTOR CURRENT ZIP -> READ CHATGPT_READ_FIRST.txt FOR PACKAGE STRUCTURE -> VERIFY THE SAME ATOMIC IDENTITY -> CONTINUE THE SAME AUTHORING TASK. This website CHATGPT_START.txt remains the single website authoring-instruction source.
