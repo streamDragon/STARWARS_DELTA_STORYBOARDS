@@ -6,13 +6,15 @@ import shutil
 import tempfile
 import urllib.request
 import zipfile
-from collections import Counter, defaultdict
+from collections import defaultdict
 
 REPO = os.environ["REPOSITORY"]
 TOKEN = os.environ["GITHUB_TOKEN"]
 ROOT = pathlib.Path("_open_current_stage")
 CURRENT_PATH = pathlib.Path("designer-ai/current.json")
 PAGES_BASE = "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current"
+DOWNLOAD_NAME = "STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip"
+LEGACY_DOWNLOAD_NAME = "STARWARS_DELTA_CHATGPT_VISUAL_CURRENT.zip"
 
 
 def get_json(url):
@@ -48,10 +50,7 @@ def read_json(path):
 
 def write_json(path, payload, compact=False):
     path.parent.mkdir(parents=True, exist_ok=True)
-    if compact:
-        text = json.dumps(payload, separators=(",", ":"), ensure_ascii=False)
-    else:
-        text = json.dumps(payload, indent=2, ensure_ascii=False)
+    text = json.dumps(payload, separators=(",", ":"), ensure_ascii=False) if compact else json.dumps(payload, indent=2, ensure_ascii=False)
     path.write_text(text + "\n", encoding="utf-8")
 
 
@@ -65,6 +64,14 @@ def record_type(record):
 
 def is_safe(record):
     return bool(record.get("cutsceneSafeForPreview")) and primary_use(record).lower() != "unsafe"
+
+
+def is_direct_visual_record(record):
+    return (
+        is_safe(record)
+        and primary_use(record).lower() in {"actor", "layer", "effect", "ui"}
+        and record_type(record).lower() in {"sprite", "prefab", "gameobject"}
+    )
 
 
 def union_values(records, key):
@@ -117,7 +124,7 @@ def choose_authoring_record(category, records, by_id):
         if preferred_ids:
             return sorted(preferred_ids, key=lambda record: str(record.get("assetId")))[0]
 
-    preference = {"Sprite": 0, "Prefab": 1, "Texture": 2}
+    preference = {"Sprite": 0, "Prefab": 1, "GameObject": 1, "Texture": 2}
     return sorted(
         candidates,
         key=lambda record: (
@@ -134,8 +141,8 @@ def visual_runtime_form(category, authoring_record):
         return "Unavailable"
     kind = record_type(authoring_record)
     if category == "Actor":
-        return "CanonicalActor" if kind == "Prefab" else "SpriteActor"
-    if kind == "Prefab":
+        return "CanonicalActor" if kind in ("Prefab", "GameObject") else "SpriteActor"
+    if kind in ("Prefab", "GameObject"):
         return "PreviewSafeVisualComposite"
     if kind == "Sprite":
         return "Sprite"
@@ -158,19 +165,8 @@ def visual_entry_from_source(source, pixel_status, by_id):
     animation_family = str(source.get("animationFamily") or "")
     if not animation_family:
         purposes = [str(value) for value in source.get("representativePurposes", [])]
-        animation_purposes = [value.split("/", 1)[1] for value in purposes if value.startswith("Animation/") and "/" in value]
-        if animation_purposes:
+        if any(value.startswith("Animation/") for value in purposes):
             animation_family = str(source.get("displayName") or "")
-
-    warnings = union_values(records, "cutsceneWarnings")
-    pixel_evidence = {
-        "status": pixel_status,
-        "visualReferenceId": visual_reference_id or None,
-        "pageImageUrl": source.get("pageImageUrl"),
-        "sheetUrl": source.get("sheetUrl"),
-        "page": source.get("page"),
-        "slot": source.get("slot"),
-    }
 
     authoring_asset_id = str(authoring_record.get("assetId")) if authoring_record else ""
     canonical_actor_id = ""
@@ -187,7 +183,14 @@ def visual_entry_from_source(source, pixel_status, by_id):
         "authoringRuntimeForm": visual_runtime_form(category, authoring_record),
         "recommendable": bool(authoring_record),
         "catalogAssetIds": catalog_ids,
-        "visualEvidence": pixel_evidence,
+        "visualEvidence": {
+            "status": pixel_status,
+            "visualReferenceId": visual_reference_id or None,
+            "pageImageUrl": source.get("pageImageUrl"),
+            "sheetUrl": source.get("sheetUrl"),
+            "page": source.get("page"),
+            "slot": source.get("slot"),
+        },
         "animationFamily": animation_family or None,
         "description": best_text(records, "description") or str(source.get("visualDescription") or ""),
         "roles": union_values(records, "roles"),
@@ -199,7 +202,13 @@ def visual_entry_from_source(source, pixel_status, by_id):
         "semanticFacets": union_values(records, "cutsceneSemanticFacets"),
         "semanticStates": source.get("semanticStates", []),
         "entityKind": entity_kind,
-        "compatibleAnimationIds": sorted(set(str(value) for value in union_values(records, "compatibleAnimationIds") + list(source.get("compatibleAnimationIds", [])) if value)),
+        "compatibleAnimationIds": sorted(
+            set(
+                str(value)
+                for value in union_values(records, "compatibleAnimationIds") + list(source.get("compatibleAnimationIds", []))
+                if value
+            )
+        ),
         "compatibleDialogueVisualIds": sorted(set(str(value) for value in union_values(records, "compatibleDialogueVisualIds") if value)),
         "proportionClass": authoring_record.get("cutsceneProportionClass") if authoring_record else None,
         "targetScreenFraction": authoring_record.get("cutsceneTargetScreenFraction") if authoring_record else None,
@@ -209,7 +218,7 @@ def visual_entry_from_source(source, pixel_status, by_id):
         "safeForPublish": bool(authoring_record and authoring_record.get("cutsceneSafeForPublish")),
         "visionReviewStates": sorted(set(str(record.get("visionReviewState") or "Unreviewed") for record in records)),
         "needsHumanReview": any(bool(record.get("cutsceneNeedsHumanReview")) for record in records),
-        "warnings": warnings,
+        "warnings": union_values(records, "cutsceneWarnings"),
         "sourceKinds": sorted(set(record_type(record) for record in records if record_type(record))),
         "sourcePaths": sorted(set(str(record.get("path")) for record in records if record.get("path"))),
     }
@@ -234,7 +243,21 @@ def merge_actor_group(entries):
         }
         for entry in entries
     ]
-    for key in ("roles", "tags", "capabilities", "families", "familyIds", "collections", "semanticFacets", "compatibleAnimationIds", "compatibleDialogueVisualIds", "warnings", "sourceKinds", "sourcePaths"):
+    for key in (
+        "catalogAssetIds",
+        "roles",
+        "tags",
+        "capabilities",
+        "families",
+        "familyIds",
+        "collections",
+        "semanticFacets",
+        "compatibleAnimationIds",
+        "compatibleDialogueVisualIds",
+        "warnings",
+        "sourceKinds",
+        "sourcePaths",
+    ):
         merged = []
         seen = set()
         for entry in entries:
@@ -262,6 +285,28 @@ def classify_audio(record):
     if "Cutscene.UiAudio" in capabilities or "ui" in tags:
         return "Ui"
     return "Sfx"
+
+
+def completion_visual(entry):
+    return {
+        "kind": "VisualPreview",
+        "priority": "High" if entry.get("category") in ("Actor", "Layer") else "Normal",
+        "visualReferenceId": entry.get("visualReferenceId"),
+        "authoringAssetId": entry.get("authoringAssetId"),
+        "displayName": entry.get("displayName"),
+        "category": entry.get("category"),
+        "sourceKinds": entry.get("sourceKinds"),
+        "sourcePaths": entry.get("sourcePaths"),
+        "requiredFix": "Unity Visual Library publisher must export one deterministic preview for this safe Director visual identity.",
+    }
+
+
+def add_tree_to_zip(bundle, directory, root):
+    if not directory.exists():
+        return
+    for path in sorted(directory.rglob("*")):
+        if path.is_file():
+            bundle.write(path, str(path.relative_to(root)).replace(os.sep, "/"))
 
 
 def main():
@@ -303,6 +348,8 @@ def main():
             allowed_prefixes = ("EXAMPLES/",)
             allowed_names = {
                 "00_CHATGPT_READ_FIRST.txt",
+                "CHATGPT_HANDOFF.md",
+                "CUTSCENE_AI_AUTHORING_GUIDE.md",
                 "CUTSCENE_AUTHORING_CONTRACT.json",
                 "CUTSCENE_PACKAGE_SCHEMA_V5.json",
                 "CUTSCENE_ENUMS_V5.json",
@@ -316,6 +363,7 @@ def main():
                 "collections.json",
                 "capabilities.json",
                 "families.json",
+                "01_DEBORA_CUTSCENE_STARTER_INDEX.md",
             }
             for member in archive.infolist():
                 if member.filename in allowed_names or member.filename.startswith(allowed_prefixes):
@@ -332,37 +380,54 @@ def main():
 
     by_id = {str(record.get("assetId")): record for record in records if record.get("assetId")}
 
-    source_visuals = []
-    for source in full_visual_index.get("assets", []):
-        source_visuals.append(visual_entry_from_source(source, "PIXELS_VERIFIED", by_id))
-    pixel_visual_refs = set(entry.get("visualReferenceId") for entry in source_visuals if entry.get("visualReferenceId"))
+    source_visuals = [
+        visual_entry_from_source(source, "PIXELS_VERIFIED", by_id)
+        for source in full_visual_index.get("assets", [])
+    ]
+    pixel_visual_refs = {entry.get("visualReferenceId") for entry in source_visuals if entry.get("visualReferenceId")}
     for source in unavailable.get("assets", []):
         if source.get("visualReferenceId") in pixel_visual_refs:
             continue
         source_visuals.append(visual_entry_from_source(source, "PIXELS_UNAVAILABLE", by_id))
 
+    mapped_catalog_ids = {
+        str(asset_id)
+        for entry in source_visuals
+        for asset_id in entry.get("catalogAssetIds", [])
+        if asset_id
+    }
+    synthetic_catalog_visual_count = 0
+    for record in records:
+        asset_id = str(record.get("assetId") or "")
+        if not asset_id or asset_id in mapped_catalog_ids or not is_direct_visual_record(record):
+            continue
+        source_visuals.append(
+            visual_entry_from_source(
+                {
+                    "assetId": asset_id,
+                    "catalogAssetIds": [asset_id],
+                    "displayName": record.get("displayName"),
+                    "category": primary_use(record),
+                    "entityClassification": record.get("entityKind"),
+                    "representativePurposes": [primary_use(record)],
+                    "compatibleAnimationIds": record.get("compatibleAnimationIds", []),
+                    "visualDescription": record.get("description"),
+                },
+                "PIXELS_UNAVAILABLE",
+                by_id,
+            )
+        )
+        mapped_catalog_ids.add(asset_id)
+        synthetic_catalog_visual_count += 1
+
     actor_groups = defaultdict(list)
     layers = []
     effects = []
     ui_assets = []
-    completion_visuals = []
     for entry in source_visuals:
+        if not entry.get("recommendable"):
+            continue
         category = entry.get("category")
-        if entry.get("recommendable") and entry["visualEvidence"]["status"] != "PIXELS_VERIFIED":
-            completion_visuals.append(
-                {
-                    "kind": "VisualPreview",
-                    "priority": "High" if category in ("Actor", "Layer") else "Normal",
-                    "visualReferenceId": entry.get("visualReferenceId"),
-                    "authoringAssetId": entry.get("authoringAssetId"),
-                    "displayName": entry.get("displayName"),
-                    "category": category,
-                    "sourceKinds": entry.get("sourceKinds"),
-                    "sourcePaths": entry.get("sourcePaths"),
-                    "requiredFix": "Unity Visual Library publisher must export one deterministic preview for this safe Director visual identity.",
-                }
-            )
-
         if category == "Actor":
             key = entry.get("canonicalActorAssetId") or entry.get("authoringAssetId") or entry.get("visualReferenceId")
             if key:
@@ -380,6 +445,17 @@ def main():
     effects.sort(key=lambda entry: str(entry.get("displayName") or "").lower())
     ui_assets.sort(key=lambda entry: str(entry.get("displayName") or "").lower())
 
+    completion_visuals = []
+    for actor in actors:
+        if not any(
+            variant.get("visualEvidence", {}).get("status") == "PIXELS_VERIFIED"
+            for variant in actor.get("visualVariants", [])
+        ):
+            completion_visuals.append(completion_visual(actor))
+    for entry in layers + effects + ui_assets:
+        if entry.get("visualEvidence", {}).get("status") != "PIXELS_VERIFIED":
+            completion_visuals.append(completion_visual(entry))
+
     reverse_animation_actors = defaultdict(set)
     for record in records:
         if primary_use(record).lower() != "actor" or not is_safe(record):
@@ -391,6 +467,8 @@ def main():
 
     visual_by_animation = defaultdict(list)
     for entry in source_visuals:
+        if not entry.get("recommendable"):
+            continue
         for animation_id in entry.get("compatibleAnimationIds", []):
             visual_by_animation[str(animation_id)].append(entry)
 
@@ -472,24 +550,25 @@ def main():
         if not record.get("description"):
             missing.append("description")
         missing.extend(["durationSeconds", "loopMetadata", "mood", "intensity"])
-        audio = {
-            "assetId": audio_id,
-            "displayName": record.get("displayName"),
-            "path": record.get("path"),
-            "purpose": classify_audio(record),
-            "description": record.get("description") or "",
-            "tags": record.get("tags", []),
-            "capabilities": record.get("capabilities", []),
-            "durationSeconds": None,
-            "loopMetadata": None,
-            "mood": None,
-            "intensity": None,
-            "safeForPreview": bool(record.get("cutsceneSafeForPreview")),
-            "safeForPublish": bool(record.get("cutsceneSafeForPublish")),
-            "warnings": record.get("cutsceneWarnings", []),
-            "metadataCompletionNeeded": missing,
-        }
-        audio_assets.append(audio)
+        audio_assets.append(
+            {
+                "assetId": audio_id,
+                "displayName": record.get("displayName"),
+                "path": record.get("path"),
+                "purpose": classify_audio(record),
+                "description": record.get("description") or "",
+                "tags": record.get("tags", []),
+                "capabilities": record.get("capabilities", []),
+                "durationSeconds": None,
+                "loopMetadata": None,
+                "mood": None,
+                "intensity": None,
+                "safeForPreview": bool(record.get("cutsceneSafeForPreview")),
+                "safeForPublish": bool(record.get("cutsceneSafeForPublish")),
+                "warnings": record.get("cutsceneWarnings", []),
+                "metadataCompletionNeeded": missing,
+            }
+        )
         completion_audio.append(
             {
                 "kind": "AudioMetadata",
@@ -517,18 +596,20 @@ def main():
     }
     category_files = []
     for filename, (category, assets_list) in category_payloads.items():
-        payload = {
-            "schema": "STARWARS_DELTA_DIRECTOR_CATEGORY",
-            "schemaVersion": 1,
-            "status": "CURRENT_FULL_CATALOG_PROJECTION",
-            "publishTransactionId": transaction_id,
-            "catalogRevision": catalog_summary.get("catalogRevision"),
-            "snapshotContentHash": catalog_summary.get("snapshotContentHash"),
-            "category": category,
-            "count": len(assets_list),
-            "assets": assets_list,
-        }
-        write_json(director_root / filename, payload)
+        write_json(
+            director_root / filename,
+            {
+                "schema": "STARWARS_DELTA_DIRECTOR_CATEGORY",
+                "schemaVersion": 2,
+                "status": "CURRENT_FULL_CATALOG_PROJECTION",
+                "publishTransactionId": transaction_id,
+                "catalogRevision": catalog_summary.get("catalogRevision"),
+                "snapshotContentHash": catalog_summary.get("snapshotContentHash"),
+                "category": category,
+                "count": len(assets_list),
+                "assets": assets_list,
+            },
+        )
         category_files.append(
             {
                 "category": category,
@@ -540,15 +621,15 @@ def main():
 
     completion_queue = {
         "schema": "STARWARS_DELTA_DIRECTOR_COMPLETION_QUEUE",
-        "schemaVersion": 1,
+        "schemaVersion": 2,
         "status": "CURRENT_GAPS_EXPLICIT",
         "publishTransactionId": transaction_id,
         "visualPreviewCount": len(completion_visuals),
         "animationMetadataCount": len(completion_animations),
         "audioMetadataCount": len(completion_audio),
         "presentationMetadata": {
-            "currentState": "Catalog presentationDescription/locationType/sceneState/lightingMood remain largely unpopulated in the current snapshot.",
-            "requiredFix": "Populate Director semantic presentation metadata in Unity and republish the same atomic Current pipeline.",
+            "currentState": "The current Catalog has strong general semantics but presentationDescription/locationType/sceneState/lightingMood are still largely unpopulated.",
+            "requiredFix": "Populate Director semantic presentation metadata in Unity and republish through the same atomic CURRENT pipeline.",
         },
         "visualPreviews": completion_visuals,
         "animations": completion_animations,
@@ -571,7 +652,7 @@ def main():
         director_root / "asset-lookup.json",
         {
             "schema": "STARWARS_DELTA_DIRECTOR_ASSET_LOOKUP",
-            "schemaVersion": 1,
+            "schemaVersion": 2,
             "status": "CURRENT_FULL_CATALOG_PROJECTION",
             "publishTransactionId": transaction_id,
             "assetIdToDirectorEntry": asset_lookup,
@@ -583,9 +664,9 @@ def main():
     verified_visuals = [entry for entry in recommendable_visuals if entry.get("visualEvidence", {}).get("status") == "PIXELS_VERIFIED"]
     summary = {
         "schema": "STARWARS_DELTA_DIRECTOR_VIEW",
-        "schemaVersion": 1,
+        "schemaVersion": 2,
         "status": "CURRENT_FULL_CATALOG_PROJECTION",
-        "sourceOfTruth": "Projection only. The atomic full Catalog remains authoritative for exact asset IDs, compatibility and validation.",
+        "sourceOfTruth": "Projection only. The atomic full Catalog remains authoritative for exact IDs, compatibility and validation.",
         "publishTransactionId": transaction_id,
         "publishedUtc": current.get("publishedUtc"),
         "catalogRevision": catalog_summary.get("catalogRevision"),
@@ -595,6 +676,7 @@ def main():
         "lastCompletedScanUtc": catalog_summary.get("lastCompletedScanUtc"),
         "catalogGeneratedUtc": catalog_summary.get("generatedUtc"),
         "sourceCatalogRecordCount": len(records),
+        "requestScoped": False,
         "diagnostics": {
             "annotated": diagnostics.get("annotated"),
             "reviewed": diagnostics.get("reviewed"),
@@ -609,15 +691,17 @@ def main():
             "ui": len(ui_assets),
             "animations": len(animations),
             "audio": len(audio_assets),
-            "recommendableVisualIdentities": len(recommendable_visuals),
-            "pixelVerifiedVisualIdentities": len(verified_visuals),
-            "pixelMissingRecommendableVisualIdentities": len(recommendable_visuals) - len(verified_visuals),
+            "recommendableVisualEntriesBeforeActorCanonicalMerge": len(recommendable_visuals),
+            "pixelVerifiedVisualEntries": len(verified_visuals),
+            "pixelMissingRecommendableVisualEntries": len(recommendable_visuals) - len(verified_visuals),
+            "syntheticCatalogVisualEntriesNotPresentInVisualLibrary": synthetic_catalog_visual_count,
         },
         "policies": {
-            "visuals": "Use one Director visual identity, enriched from all mapped Catalog records. Inspect pixel evidence before visual claims.",
-            "animations": "Use every exact AnimationClip asset ID, but only one representative image per animation family. Never require every frame.",
+            "visuals": "Use one Director visual identity enriched from all mapped Catalog records. Inspect pixel evidence before visual claims.",
+            "animations": "Use every exact AnimationClip ID, but only one representative image per animation family. Never require every frame.",
             "audio": "Audio is a first-class Director input and does not require visual evidence.",
-            "prefabs": "Prefab internals are not authoring vocabulary. Preview-safe Prefabs may appear only as CanonicalActor or PreviewSafeVisualComposite; gameplay, scripts and physics are not exposed to the director.",
+            "prefabs": "Prefab internals are not authoring vocabulary. Safe Prefabs appear only as CanonicalActor or PreviewSafeVisualComposite; gameplay scripts, colliders and physics are not exposed to the director.",
+            "technicalAssets": "Materials, technical textures, fonts, gameplay helpers and unsafe records are dependencies or excluded evidence, not normal Director choices.",
             "unsafe": "Unsafe Catalog records are excluded from Director recommendations.",
         },
         "categoryFiles": category_files,
@@ -629,19 +713,10 @@ def main():
     }
     write_json(director_root / "DIRECTOR_VIEW.json", summary)
 
-    # Remove the old request-scoped package from the public open-current payload.
-    for obsolete in (ROOT / "authoring", ROOT / "visual-proof", ROOT / "CHATGPT_VISUAL_INDEX.json"):
-        if obsolete.is_dir():
-            shutil.rmtree(obsolete)
-        elif obsolete.exists():
-            obsolete.unlink()
-
     open_path = ROOT / "OPEN_CURRENT.json"
     open_manifest = read_json(open_path)
-    open_manifest["schemaVersion"] = max(int(open_manifest.get("schemaVersion", 0)), 6)
+    open_manifest["schemaVersion"] = max(int(open_manifest.get("schemaVersion", 0)), 7)
     open_manifest["status"] = "CURRENT_VERIFIED_OPEN"
-    open_manifest.pop("chatgptVisualIndexPath", None)
-    open_manifest.pop("groups", None)
     open_manifest["directorView"] = {
         "status": "CURRENT_FULL_CATALOG_PROJECTION",
         "url": f"{PAGES_BASE}/director-view/DIRECTOR_VIEW.json",
@@ -659,16 +734,78 @@ def main():
         "sourceReleaseAsset": catalog_name,
         "fullCatalogReleaseUrl": release_assets[catalog_name]["browser_download_url"],
     }
+    open_manifest["download"] = {
+        "chatgptDirectorCurrentZipUrl": f"{PAGES_BASE}/{DOWNLOAD_NAME}",
+        "purpose": "Stable compact fallback containing the full Director projection, exact authoring contract, Instruction Book, visual indexes and representative sheets. It does not contain every animation frame or the 300MB Visual Library archive.",
+    }
     open_manifest["deprecations"] = [
-        "The old 717-record CURRENT_VISUAL_PROOF_CANDIDATES subset is request-scoped evidence, not the general authoring Catalog, and is no longer published as the primary direct source.",
-        "The 300MB Visual Library is an archive/evidence source, not the normal Debora or ChatGPT download.",
+        "The old 717-record CURRENT_VISUAL_PROOF_CANDIDATES subset was request-scoped evidence, not a general authoring Catalog, and is no longer the primary direct source.",
+        "The 300MB Visual Library remains an evidence archive. It is not the normal Debora or ChatGPT download.",
     ]
     open_manifest.setdefault("usage", {})["director"] = (
-        "Start with director-view/DIRECTOR_VIEW.json. Use category files for search, then inspect the exact visual page pixels and validate exact IDs against the current contract."
+        "Start with director-view/DIRECTOR_VIEW.json. Search the relevant category file, inspect exact pageImageUrl pixels, then validate exact IDs against catalog-contract."
     )
-    open_manifest["usage"]["audio"] = "Use director-view/audio.json. Audio is non-visual and must not be treated as a visual coverage gap."
+    open_manifest["usage"]["audio"] = "Use director-view/audio.json. Audio is non-visual and must never be counted as a visual gap."
     open_manifest["usage"]["animations"] = "Use director-view/animations.json. One representative image per animation family is intentional."
+    open_manifest["usage"]["fallback"] = f"Use {DOWNLOAD_NAME} only when direct Pages access genuinely fails."
     write_json(open_path, open_manifest)
+
+    read_first = f"""STARWARS_DELTA CHATGPT DIRECTOR CURRENT
+
+This is an atomic fallback for publish transaction {transaction_id}.
+Start with OPEN_CURRENT.json, then director-view/DIRECTOR_VIEW.json.
+Use the Director category files for Actors, Layers, Effects, UI, Animations and Audio.
+Inspect actual visual sheet pixels before visual claims.
+One representative image per animation family is intentional.
+Audio is first-class and does not require an image.
+Do not expose prefab internals, gameplay scripts, colliders or physics as authoring vocabulary.
+Do not mix this package with older Catalog, Instruction Book or visual packages.
+"""
+    (ROOT / "CHATGPT_READ_FIRST.txt").write_text(read_first, encoding="utf-8")
+    write_json(
+        ROOT / "DIRECTOR_PACK_MANIFEST.json",
+        {
+            "schema": "STARWARS_DELTA_CHATGPT_DIRECTOR_PACK",
+            "schemaVersion": 1,
+            "status": "CURRENT_FULL_CATALOG_PROJECTION",
+            "publishTransactionId": transaction_id,
+            "catalogRevision": catalog_summary.get("catalogRevision"),
+            "snapshotContentHash": catalog_summary.get("snapshotContentHash"),
+            "contractRevision": current.get("contractRevision"),
+            "schemaHash": current.get("schemaHash"),
+            "counts": summary["counts"],
+            "entrypoint": "CHATGPT_READ_FIRST.txt",
+            "directorView": "director-view/DIRECTOR_VIEW.json",
+        },
+    )
+
+    legacy_path = ROOT / LEGACY_DOWNLOAD_NAME
+    if legacy_path.exists():
+        legacy_path.unlink()
+    bundle_path = ROOT / DOWNLOAD_NAME
+    if bundle_path.exists():
+        bundle_path.unlink()
+    with zipfile.ZipFile(bundle_path, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=7) as bundle:
+        for relative in (
+            "CHATGPT_READ_FIRST.txt",
+            "DIRECTOR_PACK_MANIFEST.json",
+            "OPEN_CURRENT.json",
+            "SOURCE_CURRENT.json",
+            "FULL_VISUAL_INDEX.json",
+            "ASSET_VISUAL_LOOKUP.json",
+            "VISUAL_UNAVAILABLE.json",
+        ):
+            path = ROOT / relative
+            if path.is_file():
+                bundle.write(path, relative)
+        for directory in (
+            ROOT / "director-view",
+            ROOT / "full-visual-index",
+            ROOT / "full-visual-sheets",
+            ROOT / "catalog-contract",
+            ROOT / "instruction-book",
+        ):
+            add_tree_to_zip(bundle, directory, ROOT)
 
     print("DIRECTOR_ACTORS", len(actors))
     print("DIRECTOR_LAYERS", len(layers))
@@ -677,6 +814,8 @@ def main():
     print("DIRECTOR_ANIMATIONS", len(animations))
     print("DIRECTOR_AUDIO", len(audio_assets))
     print("DIRECTOR_VISUAL_GAPS", len(completion_visuals))
+    print("DIRECTOR_SYNTHETIC_CATALOG_VISUALS", synthetic_catalog_visual_count)
+    print("DIRECTOR_PACK_BYTES", bundle_path.stat().st_size)
 
 
 if __name__ == "__main__":
