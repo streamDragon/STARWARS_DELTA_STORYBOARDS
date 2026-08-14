@@ -7,6 +7,7 @@ on:
     paths:
       - 'designer-ai/current.json'
       - 'designer-ai/tools/build_open_current.py'
+      - 'designer-ai/tools/build_visual_atlas.py'
       - 'designer-ai/tools/finalize_open_current.py'
       - 'designer-ai/tools/build_director_view.py'
       - 'designer-ai/tools/finalize_director_current.py'
@@ -28,14 +29,17 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Install visual builder dependency
-        run: python3 -m pip install --disable-pip-version-check pillow
+      - name: Install visual builder dependencies
+        run: python3 -m pip install --disable-pip-version-check pillow pypdf
 
       - name: Build visual evidence CURRENT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/build_open_current.py
+
+      - name: Build unified ChatGPT Visual Atlas
+        run: python3 designer-ai/tools/build_visual_atlas.py
 
       - name: Report raw Visual Library preview gaps
         env:
@@ -59,6 +63,7 @@ jobs:
           import json
           import pathlib
           import zipfile
+          from pypdf import PdfReader
 
           root = pathlib.Path('_open_current_stage')
           current = json.loads((root / 'OPEN_CURRENT.json').read_text(encoding='utf-8'))
@@ -66,6 +71,9 @@ jobs:
           queue = json.loads((root / 'director-view' / 'completion-queue.json').read_text(encoding='utf-8'))
           audit = json.loads((root / 'director-view' / 'eligibility-audit.json').read_text(encoding='utf-8'))
           manifest = json.loads((root / 'DIRECTOR_PACK_MANIFEST.json').read_text(encoding='utf-8'))
+          visual_index = json.loads((root / 'FULL_VISUAL_INDEX.json').read_text(encoding='utf-8'))
+          atlas_manifest = json.loads((root / 'full-visual-sheets' / 'VISUAL_ATLAS_CURRENT.json').read_text(encoding='utf-8'))
+          atlas = root / 'full-visual-sheets' / 'STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf'
           pack = root / 'STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip'
 
           expected_identity = {
@@ -94,12 +102,25 @@ jobs:
           assert queue['visualPreviewCount'] == len(queue['visualPreviews'])
           assert pack.is_file() and pack.stat().st_size > 0
 
+          assert atlas.is_file() and atlas.stat().st_size > 0
+          assert current['visualAtlas']['status'] == 'CURRENT_VERIFIED_VISUAL_ATLAS'
+          assert current['visualAtlas']['publishTransactionId'] == director['publishTransactionId']
+          assert visual_index['visualAtlas']['pdfUrl'] == current['visualAtlas']['pdfUrl']
+          assert atlas_manifest['pdfUrl'] == current['visualAtlas']['pdfUrl']
+          assert atlas_manifest['representativeCount'] == visual_index['representativeCount']
+          assert len(PdfReader(str(atlas)).pages) == atlas_manifest['totalPages']
+          mapped = [a for a in visual_index.get('assets', []) if a.get('atlasPage') and a.get('atlasSlot')]
+          assert len(mapped) == visual_index['representativeCount']
+
           with zipfile.ZipFile(pack) as archive:
               names = set(archive.namelist())
               required = {
                   'CHATGPT_READ_FIRST.txt',
                   'DIRECTOR_PACK_MANIFEST.json',
                   'OPEN_CURRENT.json',
+                  'FULL_VISUAL_INDEX.json',
+                  'full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf',
+                  'full-visual-sheets/VISUAL_ATLAS_CURRENT.json',
                   'director-view/DIRECTOR_VIEW.json',
                   'director-view/actors.json',
                   'director-view/layers.json',
@@ -125,11 +146,14 @@ jobs:
               assert zip_audit['publishTransactionId'] == expected_identity['publishTransactionId']
               assert zip_audit['catalogRevision'] == expected_identity['catalogRevision']
               assert zip_queue['eligibilityAuditUrl'] == current['eligibilityAudit']['url']
+              assert zip_current['visualAtlas']['pdfUrl'] == current['visualAtlas']['pdfUrl']
 
           print('DIRECTOR_CURRENT_VALIDATED')
           print('SOURCE_CATALOG_RECORDS', director['sourceCatalogRecordCount'])
           print('DIRECTOR_COUNTS', director['counts'])
           print('ELIGIBILITY_REVIEW', audit['flaggedDirectorVisualCount'])
+          print('VISUAL_ATLAS_PAGES', atlas_manifest['totalPages'])
+          print('VISUAL_ATLAS_REPRESENTATIVES', atlas_manifest['representativeCount'])
           print('PACK_BYTES', pack.stat().st_size)
           PY
 
