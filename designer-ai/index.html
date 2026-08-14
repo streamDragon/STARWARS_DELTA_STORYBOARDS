@@ -28,6 +28,7 @@
 <a id="download" class="button warning disabled" href="#">DOWNLOAD CURRENT DIRECTOR PACK</a>
 <a id="director" class="button accent disabled" href="#" target="_blank" rel="noopener">OPEN DIRECTOR VIEW</a>
 <a id="completion" class="button secondary disabled" href="#" target="_blank" rel="noopener">OPEN COMPLETION QUEUE</a>
+<a id="eligibility" class="button secondary disabled" href="#" target="_blank" rel="noopener">OPEN ELIGIBILITY AUDIT</a>
 <a class="button secondary" href="CHATGPT_START.txt" target="_blank" rel="noopener">OPEN CHATGPT INSTRUCTIONS</a>
 </div>
 </section>
@@ -55,18 +56,21 @@
   if(!sourceResponse.ok)throw new Error('current.json HTTP '+sourceResponse.status);
   const open=await openResponse.json(),source=await sourceResponse.json();
   if(open.status!=='CURRENT_VERIFIED_OPEN'||!open.directorView||open.directorView.requestScoped!==false)throw new Error('Full Director CURRENT is not verified');
+  if(open.publishTransactionId!==source.publishTransactionId||open.contractRevision!==source.contractRevision||open.schemaHash!==source.schemaHash)throw new Error('OPEN CURRENT does not match the atomic Unity CURRENT');
+  if(!open.atomicIdentity||open.atomicIdentity.publishTransactionId!==open.publishTransactionId||open.atomicIdentity.catalogRevision!==open.catalogRevision||open.atomicIdentity.snapshotContentHash!==open.snapshotContentHash||open.atomicIdentity.contractRevision!==open.contractRevision||open.atomicIdentity.schemaHash!==open.schemaHash)throw new Error('Director atomic identity is incomplete or inconsistent');
   byId('state').innerHTML='<span class="dot"></span><span>FULL DIRECTOR CURRENT VERIFIED</span>';
-  const c=open.directorView.counts||{},raw=open.visualLibraryPreviewCoverage||{};
+  const c=open.directorView.counts||{},raw=open.visualLibraryPreviewCoverage||{},elig=open.eligibilityAudit||{};
   byId('catalogRecords').textContent=String(open.directorView.sourceCatalogRecordCount||0);
   for(const key of ['actors','layers','effects','ui','animations','audio'])byId(key).textContent=String(c[key]??0);
   byId('visualEvidence').textContent=String(raw.directPixelEvidenceCount??0)+' / '+String(raw.sourceVisualIdentityCount??0);
   byId('metrics').hidden=false;
   byId('scope').hidden=false;
-  byId('scope').textContent='Publish '+open.publishTransactionId+' · direct visual-preview coverage is an evidence metric only, not total Director coverage. Audio and exact AnimationClips are available through separate Director categories. Missing legitimate previews and metadata are listed in the completion queue.';
+  byId('scope').textContent='Publish '+open.publishTransactionId+' · Catalog revision '+open.catalogRevision+' · direct visual-preview coverage is an evidence metric only, not total Director coverage. '+String(elig.flaggedDirectorVisualCount??0)+' Director visuals are conservatively flagged for Unity eligibility review. Audio and exact AnimationClips are available through separate Director categories.';
   const wire=(id,url)=>{const element=byId(id);if(url){element.href=url;element.classList.remove('disabled')}};
   wire('download',open.download&&open.download.chatgptDirectorCurrentZipUrl);
   wire('director',open.directorView.url);
   wire('completion',open.directorView.root&&open.directorView.root+'completion-queue.json');
+  wire('eligibility',elig.url);
   wire('catalog',source.catalog&&source.catalog.downloadUrl);
   wire('book',source.instructionBook&&source.instructionBook.downloadUrl);
   wire('visualLibrary',source.visualLibrary&&source.visualLibrary.downloadUrl);
@@ -74,7 +78,7 @@
   const copy=byId('copy');copy.disabled=false;
   copy.onclick=async()=>{
    const fallback=(open.download&&open.download.chatgptDirectorCurrentZipUrl)||'https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip';
-   const message='Use the STARWARS_DELTA FULL DIRECTOR CURRENT instructions at https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/CHATGPT_START.txt . Read CURRENT and the full Director View yourself. Search Actors, Layers, Effects, UI, Animations and Audio; inspect real pageImageUrl pixels before visual choices; use exact current IDs; validate against the matching contract; and keep prefab internals, gameplay scripts, colliders and physics out of the creative authoring vocabulary. If direct access genuinely fails, download the atomic fallback pack from '+fallback+'. Then create a NEW cutscene from my request.';
+   const message='Use the STARWARS_DELTA FULL DIRECTOR CURRENT instructions at https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/CHATGPT_START.txt . Read CURRENT and the full Director View yourself. Verify the atomic identity; search Actors, Layers, Effects, UI, Animations and Audio; check eligibility flags when needed; inspect real pageImageUrl pixels before visual choices; use exact current IDs; validate against the matching contract; and keep prefab internals, gameplay scripts, colliders and physics out of the creative authoring vocabulary. If direct access genuinely fails, download the atomic fallback pack from '+fallback+'. Then create a NEW cutscene from my request.';
    await navigator.clipboard.writeText(message);copy.textContent='COPIED';setTimeout(()=>copy.textContent='COPY FOR CHAT',1400);
   };
  }catch(e){byId('state').style.display='none';byId('error').textContent='Could not load Director CURRENT: '+e.message;}
