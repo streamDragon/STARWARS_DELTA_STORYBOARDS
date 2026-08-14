@@ -8,6 +8,12 @@ https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-curre
 FULL VISUAL INDEX:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/FULL_VISUAL_INDEX.json
 
+VISUAL GAP REPORT:
+https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/VISUAL_UNAVAILABLE.json
+
+FALLBACK DOWNLOAD ZIP:
+https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/STARWARS_DELTA_CHATGPT_VISUAL_CURRENT.zip
+
 AUTHORING CATALOG SUBSET:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/CATALOG_SUBSET.json
 
@@ -24,9 +30,13 @@ RULES:
 7. Animation visuals are intentionally deduplicated. One representative image per animation family is enough to understand what the animation depicts; do NOT request or require every frame.
 8. Use exact assetId values from the current Catalog subset/full Catalog.
 9. Use the current Instruction Book/Instruction subset for authoring lessons and known BAD/GOLDEN patterns.
-10. If visual evidence for an asset is unavailable, state that it is visually unverified instead of inventing its appearance.
+10. Check VISUAL_UNAVAILABLE.json when an asset cannot be resolved visually. Never infer the appearance of an entry listed there. It means the Unity publisher did not export pixel evidence for that visual identity.
 11. Debora's normal job is only to describe the cutscene she wants. Retrieve and use CURRENT yourself.
-12. ZIP upload is fallback only when direct access genuinely fails.
+12. If direct CURRENT browsing fails, download STARWARS_DELTA_CHATGPT_VISUAL_CURRENT.zip from the stable fallback URL above. It contains the current compact authoring data, visual indexes and representative sheets. It intentionally does not contain every animation frame.
+13. Do not ask Debora to locate versioned files or pair Catalog/Instruction versions manually. The fallback ZIP is CURRENT and atomic.
 
 NORMAL FLOW:
 DEBORA DESCRIBES CUTSCENE -> READ CURRENT -> SEARCH CATEGORY/FULL VISUAL INDEX -> OPEN pageImageUrl -> INSPECT REAL PIXELS -> PLAN STORY/SHOTS -> CHOOSE VERIFIED ASSETS -> CREATE NEW JSON -> UNITY PREVIEW.
+
+FALLBACK FLOW ONLY IF DIRECT ACCESS FAILS:
+DOWNLOAD THE STABLE CURRENT ZIP -> USE ITS OPEN_CURRENT + CATALOG + INSTRUCTION + VISUAL INDEX/SHEETS -> CONTINUE THE SAME AUTHORING TASK.
