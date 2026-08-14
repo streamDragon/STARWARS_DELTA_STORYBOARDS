@@ -50,11 +50,21 @@ jobs:
           root = pathlib.Path('site/designer-ai/open-current')
           current = json.loads((root / 'OPEN_CURRENT.json').read_text(encoding='utf-8'))
           director = json.loads((root / 'director-view' / 'DIRECTOR_VIEW.json').read_text(encoding='utf-8'))
+          atlas_manifest = json.loads((root / 'full-visual-sheets' / 'VISUAL_ATLAS_CURRENT.json').read_text(encoding='utf-8'))
+          atlas = root / 'full-visual-sheets' / 'STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf'
           assert current['status'] == 'CURRENT_VERIFIED_OPEN'
           assert current['directorView']['requestScoped'] is False
           assert director['sourceCatalogRecordCount'] > 20000
           assert (root / 'STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip').is_file()
+          assert atlas.is_file() and atlas.stat().st_size > 0
+          assert current['visualAtlas']['status'] == 'CURRENT_VERIFIED_VISUAL_ATLAS'
+          assert current['visualAtlas']['pdfUrl'] == atlas_manifest['pdfUrl']
+          assert current['visualAtlas']['publishTransactionId'] == current['publishTransactionId']
+          assert atlas_manifest['representativeCount'] > 0
+          assert atlas_manifest['totalPages'] > 0
           print('PAGES_DIRECTOR_CURRENT_VALIDATED')
+          print('VISUAL_ATLAS_PAGES', atlas_manifest['totalPages'])
+          print('VISUAL_ATLAS_REPRESENTATIVES', atlas_manifest['representativeCount'])
           PY
 
       - name: Commit Pages CURRENT
