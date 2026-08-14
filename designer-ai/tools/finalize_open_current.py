@@ -12,7 +12,6 @@ TOKEN = os.environ["GITHUB_TOKEN"]
 ROOT = pathlib.Path("_open_current_stage")
 CURRENT = json.loads(pathlib.Path("designer-ai/current.json").read_text(encoding="utf-8"))
 PAGES_BASE = "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current"
-DOWNLOAD_NAME = "STARWARS_DELTA_CHATGPT_VISUAL_CURRENT.zip"
 
 
 def get_json(url):
@@ -52,8 +51,7 @@ def main():
             represented_visual_refs.add(entry["visualReferenceId"])
 
     with tempfile.TemporaryDirectory() as temp_raw:
-        temp = pathlib.Path(temp_raw)
-        visual_zip = temp / "visual-library.zip"
+        visual_zip = pathlib.Path(temp_raw) / "visual-library.zip"
         download(release_assets[visual_asset_name]["browser_download_url"], visual_zip)
         with zipfile.ZipFile(visual_zip) as archive:
             manifest = json.loads(archive.read("visual_library_manifest.json").decode("utf-8-sig"))
@@ -84,8 +82,11 @@ def main():
                 "entityClassification": asset.get("entityClassification"),
                 "sourceKind": asset.get("sourceKind"),
                 "sourcePath": asset.get("sourcePath"),
-                "reason": "NO_PIXEL_EVIDENCE_EXPORTED",
-                "requiredFix": "Unity Designer AI Visual Library publisher must render/export one representative preview for this visual identity.",
+                "representativePurposes": asset.get("representativePurposes", []),
+                "compatibleAnimationIds": asset.get("compatibleAnimationIds", []),
+                "reason": "NO_DIRECT_PIXEL_EVIDENCE_EXPORTED",
+                "interpretation": "This is a Visual Library preview gap only. It is not automatically a missing movie asset and must be reclassified by the Director View.",
+                "requiredFix": "Unity Visual Library publisher should export one deterministic preview only when this is a safe, recommendable Director visual identity.",
             }
         )
 
@@ -93,14 +94,15 @@ def main():
     coverage_percent = round((covered_visual_identity_count / source_count) * 100.0, 2) if source_count else 100.0
     unavailable_payload = {
         "schema": "STARWARS_DELTA_CHATGPT_VISUAL_UNAVAILABLE",
-        "schemaVersion": 1,
-        "status": "VISUAL_GAPS_REPORTED",
+        "schemaVersion": 2,
+        "status": "VISUAL_LIBRARY_DIRECT_PREVIEW_GAPS_REPORTED",
         "publishTransactionId": transaction_id,
         "sourceVisualIdentityCount": source_count,
-        "coveredVisualIdentityCount": covered_visual_identity_count,
-        "unavailableVisualIdentityCount": len(unavailable),
-        "coveragePercent": coverage_percent,
-        "rule": "Never infer appearance for these entries from displayName or metadata. They are visually unverified until the Unity publisher exports pixels.",
+        "directPixelEvidenceCount": covered_visual_identity_count,
+        "directPixelEvidenceMissingCount": len(unavailable),
+        "directPreviewCoveragePercent": coverage_percent,
+        "scopeWarning": "This percentage measures direct previews inside the Visual Library only. It is not total Catalog coverage, not Director readiness, and not Audio or Animation availability.",
+        "rule": "Never infer appearance from displayName or metadata. The Director View decides whether a gap is recommendable and sends only legitimate safe gaps to its completion queue.",
         "assets": unavailable,
     }
     (ROOT / "VISUAL_UNAVAILABLE.json").write_text(
@@ -109,51 +111,24 @@ def main():
 
     open_path = ROOT / "OPEN_CURRENT.json"
     open_manifest = json.loads(open_path.read_text(encoding="utf-8"))
-    open_manifest["schemaVersion"] = max(int(open_manifest.get("schemaVersion", 0)), 5)
-    open_manifest["visualCoverage"] = {
+    open_manifest["schemaVersion"] = max(int(open_manifest.get("schemaVersion", 0)), 6)
+    open_manifest["visualLibraryPreviewCoverage"] = {
         "sourceVisualIdentityCount": source_count,
-        "coveredVisualIdentityCount": covered_visual_identity_count,
-        "unavailableVisualIdentityCount": len(unavailable),
-        "coveragePercent": coverage_percent,
+        "directPixelEvidenceCount": covered_visual_identity_count,
+        "directPixelEvidenceMissingCount": len(unavailable),
+        "directPreviewCoveragePercent": coverage_percent,
+        "scopeWarning": "Visual Library direct-preview metric only; do not present it as total Director or Catalog coverage.",
         "unavailableManifestUrl": f"{PAGES_BASE}/VISUAL_UNAVAILABLE.json",
     }
-    open_manifest["download"] = {
-        "chatgptVisualCurrentZipUrl": f"{PAGES_BASE}/{DOWNLOAD_NAME}",
-        "purpose": "Fallback download for Debora/ChatGPT. Contains the compact current authoring data, visual indexes, and representative visual sheets. It intentionally does not contain every animation frame.",
-    }
     open_manifest.setdefault("usage", {})["missingPixels"] = (
-        "If an asset is listed in VISUAL_UNAVAILABLE.json, do not invent its appearance. Request/fix a new Unity Visual Library publish."
+        "VISUAL_UNAVAILABLE.json is raw evidence. Use the Director completion queue to decide which missing previews actually require a Unity fix."
     )
     open_path.write_text(json.dumps(open_manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    bundle_path = ROOT / DOWNLOAD_NAME
-    include_roots = [
-        "OPEN_CURRENT.json",
-        "SOURCE_CURRENT.json",
-        "CHATGPT_VISUAL_INDEX.json",
-        "FULL_VISUAL_INDEX.json",
-        "ASSET_VISUAL_LOOKUP.json",
-        "VISUAL_UNAVAILABLE.json",
-        "authoring/CATALOG_SUBSET.json",
-        "authoring/INSTRUCTION_SUBSET.json",
-        "authoring/VISUAL_PACK/proof_manifest.json",
-    ]
-    with zipfile.ZipFile(bundle_path, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=7) as bundle:
-        for relative in include_roots:
-            path = ROOT / relative
-            if path.is_file():
-                bundle.write(path, relative)
-        for directory in (ROOT / "full-visual-index", ROOT / "full-visual-sheets"):
-            if directory.exists():
-                for path in sorted(directory.rglob("*")):
-                    if path.is_file():
-                        bundle.write(path, str(path.relative_to(ROOT)).replace(os.sep, "/"))
-
-    print("VISUAL_SOURCE_COUNT", source_count)
-    print("VISUAL_COVERED_COUNT", covered_visual_identity_count)
-    print("VISUAL_UNAVAILABLE_COUNT", len(unavailable))
-    print("VISUAL_COVERAGE_PERCENT", coverage_percent)
-    print("DEBORA_DOWNLOAD_ZIP_BYTES", bundle_path.stat().st_size)
+    print("VISUAL_LIBRARY_IDENTITY_COUNT", source_count)
+    print("DIRECT_PIXEL_EVIDENCE_COUNT", covered_visual_identity_count)
+    print("DIRECT_PIXEL_EVIDENCE_MISSING", len(unavailable))
+    print("DIRECT_PREVIEW_COVERAGE_PERCENT", coverage_percent)
 
 
 if __name__ == "__main__":
