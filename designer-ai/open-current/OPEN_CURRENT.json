@@ -1,6 +1,6 @@
 {
   "schema": "STARWARS_DELTA_DESIGNER_AI_OPEN_CURRENT",
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "status": "CURRENT_VERIFIED_OPEN",
   "publishTransactionId": "20260813-212754773-ff89e3c3",
   "publishedUtc": "2026-08-13T21:34:05.2577254Z",
@@ -9,8 +9,9 @@
   "schemaHash": "96BE087805BCA5E07AC0BDDCAA2FAE3DBFC81FCA5BA56E179D0D8158926167FC",
   "sourceCurrentPath": "SOURCE_CURRENT.json",
   "chatgptVisualIndexPath": "CHATGPT_VISUAL_INDEX.json",
-  "visualContactSheetPath": "VISUAL_CONTACT_SHEET.pdf",
-  "visualContactSheetUrl": "https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/designer-ai-open-current/VISUAL_CONTACT_SHEET.pdf",
+  "fullVisualIndexPath": "FULL_VISUAL_INDEX.json",
+  "fullVisualIndexUrl": "https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/designer-ai-open-current/FULL_VISUAL_INDEX.json",
+  "fullVisualSheetsRoot": "https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/designer-ai-open-current/full-visual-sheets/",
   "groups": {
     "authoring": [
       "authoring/AUTHORING_REQUEST.txt",
@@ -66,9 +67,7 @@
     ]
   },
   "usage": {
-    "rule": "Inspect actual image pixels in VISUAL_CONTACT_SHEET.pdf or previewUrl before making visual claims or storyboards.",
-    "authoring": "Use authoring/ for compact ChatGPT-ready catalog, instruction, and visual references.",
-    "visualProof": "Use visual-proof/ for published visual QA evidence.",
-    "chatgpt": "Start with CHATGPT_VISUAL_INDEX.json and VISUAL_CONTACT_SHEET.pdf. Metadata alone is not visual evidence."
+    "rule": "Before visual claims, asset selection, or storyboarding, inspect the relevant full-visual-sheets PDF page identified by FULL_VISUAL_INDEX.json. Names and metadata are not substitutes for pixels.",
+    "animation": "One representative image per animation family is intentional; do not require every frame."
   }
 }
