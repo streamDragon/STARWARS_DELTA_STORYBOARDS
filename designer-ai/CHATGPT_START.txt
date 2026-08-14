@@ -5,11 +5,11 @@ Use the STARWARS_DELTA CURRENT authoring sources directly. Do not ask Debora to 
 START HERE:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/OPEN_CURRENT.json
 
-VISUAL INDEX:
-https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/CHATGPT_VISUAL_INDEX.json
+FULL VISUAL INDEX:
+https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/FULL_VISUAL_INDEX.json
 
-VISUAL CONTACT SHEET:
-https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/VISUAL_CONTACT_SHEET.pdf
+QUICK VISUAL PROOF INDEX:
+https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/CHATGPT_VISUAL_INDEX.json
 
 AUTHORING CATALOG SUBSET:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/CATALOG_SUBSET.json
@@ -21,13 +21,15 @@ RULES:
 1. Verify OPEN_CURRENT.json status is CURRENT_VERIFIED_OPEN.
 2. Treat its publishTransactionId as the only current authoring snapshot.
 3. Never mix old Catalogs, remembered asset IDs, old JSON, or another publish transaction.
-4. Before making visual claims, choosing a visual asset, or drawing a storyboard, inspect actual pixels in VISUAL_CONTACT_SHEET.pdf or the preview assets listed in CHATGPT_VISUAL_INDEX.json.
-5. Metadata, file names, semantic labels, and displayName are not substitutes for looking at the image.
-6. Use exact assetId values from the current Catalog subset/full Catalog.
-7. Use the current Instruction Book/Instruction subset for authoring lessons and known BAD/GOLDEN patterns.
-8. If visual evidence for an asset is unavailable, say that it is visually unverified instead of inventing its appearance.
-9. Debora's normal job is only to describe the cutscene she wants. Retrieve and use CURRENT yourself.
-10. ZIP upload is fallback only when direct access genuinely fails.
+4. For visual authoring, start with FULL_VISUAL_INDEX.json. It maps each published visual representative to a category PDF, page, and slot, and maps Catalog asset IDs back to that representative.
+5. Before making a visual claim, choosing a visual asset, or drawing a storyboard, open the relevant full-visual-sheets PDF page and inspect the actual pixels.
+6. Metadata, file names, semantic labels, and displayName are not substitutes for looking at the image.
+7. Animation visuals are intentionally deduplicated. One representative image per animation family is enough to understand what the animation depicts; do NOT request or require every frame.
+8. Use exact assetId values from the current Catalog subset/full Catalog.
+9. Use the current Instruction Book/Instruction subset for authoring lessons and known BAD/GOLDEN patterns.
+10. If visual evidence for an asset is unavailable, say that it is visually unverified instead of inventing its appearance.
+11. Debora's normal job is only to describe the cutscene she wants. Retrieve and use CURRENT yourself.
+12. ZIP upload is fallback only when direct access genuinely fails.
 
 NORMAL FLOW:
-DEBORA DESCRIBES CUTSCENE -> READ CURRENT -> INSPECT REAL VISUALS -> PLAN STORY/SHOTS -> CHOOSE VERIFIED ASSETS -> CREATE NEW JSON -> UNITY PREVIEW.
+DEBORA DESCRIBES CUTSCENE -> READ CURRENT -> SEARCH FULL_VISUAL_INDEX -> OPEN RELEVANT SHEET/PAGE -> INSPECT REAL PIXELS -> PLAN STORY/SHOTS -> CHOOSE VERIFIED ASSETS -> CREATE NEW JSON -> UNITY PREVIEW.
