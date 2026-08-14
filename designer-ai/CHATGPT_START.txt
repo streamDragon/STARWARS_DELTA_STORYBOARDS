@@ -19,6 +19,9 @@ https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-curre
 DIRECTOR COMPLETION QUEUE:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/completion-queue.json
 
+DIRECTOR ELIGIBILITY AUDIT:
+https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/eligibility-audit.json
+
 VISUAL EVIDENCE INDEX:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/FULL_VISUAL_INDEX.json
 
@@ -36,7 +39,7 @@ https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-curre
 
 RULES:
 1. Verify OPEN_CURRENT.json has status CURRENT_VERIFIED_OPEN.
-2. Treat its publishTransactionId, catalogRevision, contractRevision and schemaHash as one atomic authoring snapshot.
+2. Treat publishTransactionId, catalogRevision, snapshotContentHash, contractRevision and schemaHash as one atomic authoring identity. Do not author if those identities disagree across CURRENT, Director View or fallback pack.
 3. Start authoring from director-view/DIRECTOR_VIEW.json. It is a complete projection of the current full Catalog, not the old request-scoped 717-record candidate subset.
 4. Never mix old Catalogs, remembered asset IDs, old JSON, old Instruction Books or another publish transaction.
 5. Use the relevant Director category file to search Actors, Layers, Effects, UI, Animations or Audio.
@@ -48,13 +51,14 @@ RULES:
 11. Prefab internals are not Director vocabulary. A safe Prefab may appear only as a CanonicalActor or PreviewSafeVisualComposite. Do not expose gameplay scripts, colliders, physics or prefab hierarchy in the cutscene plan.
 12. Materials, technical textures, fonts, gameplay helpers and unsafe records are dependencies or excluded evidence, not normal creative choices.
 13. VISUAL_UNAVAILABLE.json is raw Visual Library evidence only. Use director-view/completion-queue.json to decide which missing previews actually require a Unity fix.
-14. If a recommendable asset lacks verified pixels, do not invent its appearance. Use another verified asset or clearly report the completion item.
-15. Use the Instruction Book for cinematic lessons, BAD/GOLDEN cases and authoring invariants.
-16. If direct Pages browsing genuinely fails, download STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip from the stable URL above and continue from that same atomic snapshot.
-17. Do not ask Debora to assemble packages manually. The fallback ZIP already contains the Director View, authoring contract, Instruction Book, visual indexes and representative sheets.
+14. A missing preview does not prove that a legitimate film asset is missing. Check director-view/eligibility-audit.json first. Entries flagged as sample/demo/generated/technical-looking require Unity source eligibility review before preview generation; GitHub does not silently delete them to improve coverage metrics.
+15. If a recommendable asset lacks verified pixels, do not invent its appearance. Use another verified asset or clearly report the completion item.
+16. Use the Instruction Book for cinematic lessons, BAD/GOLDEN cases and authoring invariants.
+17. If direct Pages browsing genuinely fails, download STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip from the stable URL above and continue from that same atomic snapshot.
+18. Do not ask Debora to assemble packages manually. The fallback ZIP already contains the Director View, authoring contract, Instruction Book, visual indexes and representative sheets.
 
 NORMAL FLOW:
-DEBORA DESCRIBES CUTSCENE -> READ OPEN CURRENT -> SEARCH DIRECTOR CATEGORY FILES -> INSPECT VERIFIED PIXELS -> PLAN STORY/SHOTS -> CHOOSE EXACT VERIFIED ASSETS + ANIMATIONS + AUDIO -> VALIDATE AGAINST CURRENT CONTRACT -> CREATE NEW JSON -> UNITY PREVIEW.
+DEBORA DESCRIBES CUTSCENE -> READ OPEN CURRENT -> VERIFY ATOMIC IDENTITY -> SEARCH DIRECTOR CATEGORY FILES -> CHECK ELIGIBILITY WHEN NEEDED -> INSPECT VERIFIED PIXELS -> PLAN STORY/SHOTS -> CHOOSE EXACT VERIFIED ASSETS + ANIMATIONS + AUDIO -> VALIDATE AGAINST CURRENT CONTRACT -> CREATE NEW JSON -> UNITY PREVIEW.
 
 FALLBACK FLOW ONLY IF DIRECT ACCESS FAILS:
-DOWNLOAD THE STABLE DIRECTOR CURRENT ZIP -> READ CHATGPT_READ_FIRST.txt -> USE THE SAME DIRECTOR/CONTRACT/INSTRUCTION/VISUAL FILES -> CONTINUE THE SAME AUTHORING TASK.
+DOWNLOAD THE STABLE DIRECTOR CURRENT ZIP -> READ CHATGPT_READ_FIRST.txt -> VERIFY THE SAME ATOMIC IDENTITY -> USE THE SAME DIRECTOR/CONTRACT/INSTRUCTION/VISUAL FILES -> CONTINUE THE SAME AUTHORING TASK.
