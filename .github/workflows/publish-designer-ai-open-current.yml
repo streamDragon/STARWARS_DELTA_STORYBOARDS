@@ -24,6 +24,9 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Install contact-sheet dependency
+        run: python3 -m pip install --disable-pip-version-check pillow
+
       - name: Build open CURRENT payload
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -38,6 +41,7 @@ jobs:
           import tempfile
           import urllib.request
           import zipfile
+          from PIL import Image, ImageDraw, ImageFont, ImageOps
 
           repo = os.environ['REPOSITORY']
           token = os.environ['GITHUB_TOKEN']
@@ -106,13 +110,92 @@ jobs:
                       for p in out.rglob('*') if p.is_file()
                   )
 
+          proof_manifest_path = root / 'authoring' / 'VISUAL_PACK' / 'proof_manifest.json'
+          proof = json.loads(proof_manifest_path.read_text(encoding='utf-8-sig'))
+          proof_assets = [a for a in proof.get('assets', []) if a.get('proofFilePath')]
+
+          raw_base = f'https://raw.githubusercontent.com/{repo}/designer-ai-open-current'
+          visual_index_assets = []
+          for a in proof_assets:
+              relative = 'authoring/VISUAL_PACK/' + a['proofFilePath'].replace('\\', '/')
+              visual_index_assets.append({
+                  'visualReferenceId': a.get('visualReferenceId'),
+                  'assetId': a.get('assetId'),
+                  'displayName': a.get('displayName'),
+                  'category': a.get('category'),
+                  'representativePurpose': a.get('representativePurpose'),
+                  'pixelQuality': a.get('pixelQuality'),
+                  'previewPath': relative,
+                  'previewUrl': raw_base + '/' + relative,
+              })
+
+          page_w, page_h = 1240, 1754
+          margin = 54
+          cols, rows = 2, 4
+          cell_w = (page_w - margin * 2) // cols
+          cell_h = (page_h - margin * 2 - 86) // rows
+          font_path = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+          bold_path = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
+          title_font = ImageFont.truetype(bold_path, 30)
+          name_font = ImageFont.truetype(bold_path, 18)
+          meta_font = ImageFont.truetype(font_path, 12)
+          pages = []
+
+          for offset in range(0, len(proof_assets), cols * rows):
+              page = Image.new('RGB', (page_w, page_h), 'white')
+              draw = ImageDraw.Draw(page)
+              draw.text((margin, 28), f'STARWARS_DELTA Visual Contact Sheet | CURRENT {tx}', fill='black', font=title_font)
+              batch = proof_assets[offset:offset + cols * rows]
+              for i, a in enumerate(batch):
+                  r, c = divmod(i, cols)
+                  x = margin + c * cell_w
+                  y = margin + 70 + r * cell_h
+                  draw.rectangle((x, y, x + cell_w - 18, y + cell_h - 18), outline='black', width=2)
+                  img_path = root / 'authoring' / 'VISUAL_PACK' / a['proofFilePath']
+                  try:
+                      with Image.open(img_path) as src:
+                          src = src.convert('RGBA')
+                          bg = Image.new('RGBA', src.size, 'white')
+                          bg.alpha_composite(src)
+                          src = bg.convert('RGB')
+                          thumb = ImageOps.contain(src, (cell_w - 50, cell_h - 112), Image.Resampling.LANCZOS)
+                          px = x + (cell_w - 18 - thumb.width) // 2
+                          py = y + 18
+                          page.paste(thumb, (px, py))
+                  except Exception as exc:
+                      draw.text((x + 18, y + 40), f'Preview unavailable: {exc}', fill='black', font=meta_font)
+                  text_y = y + cell_h - 100
+                  name = str(a.get('displayName') or '(unnamed)')[:62]
+                  draw.text((x + 14, text_y), name, fill='black', font=name_font)
+                  draw.text((x + 14, text_y + 25), f"{a.get('category','')} | {a.get('representativePurpose','')}", fill='black', font=meta_font)
+                  draw.text((x + 14, text_y + 43), str(a.get('assetId') or ''), fill='black', font=meta_font)
+              pages.append(page)
+
+          pdf_path = root / 'VISUAL_CONTACT_SHEET.pdf'
+          if pages:
+              pages[0].save(pdf_path, 'PDF', resolution=150, save_all=True, append_images=pages[1:])
+
+          visual_index = {
+              'schema': 'STARWARS_DELTA_CHATGPT_VISUAL_INDEX',
+              'schemaVersion': 1,
+              'status': 'CURRENT_VERIFIED_OPEN',
+              'publishTransactionId': tx,
+              'assetCount': len(visual_index_assets),
+              'contactSheetPdfUrl': raw_base + '/VISUAL_CONTACT_SHEET.pdf',
+              'openCurrentManifestUrl': raw_base + '/OPEN_CURRENT.json',
+              'assets': visual_index_assets,
+          }
+          (root / 'CHATGPT_VISUAL_INDEX.json').write_text(
+              json.dumps(visual_index, indent=2, ensure_ascii=False) + '\n', encoding='utf-8'
+          )
+
           (root / 'SOURCE_CURRENT.json').write_text(
               json.dumps(current, indent=2, ensure_ascii=False) + '\n', encoding='utf-8'
           )
 
           manifest = {
               'schema': 'STARWARS_DELTA_DESIGNER_AI_OPEN_CURRENT',
-              'schemaVersion': 1,
+              'schemaVersion': 2,
               'status': 'CURRENT_VERIFIED_OPEN',
               'publishTransactionId': tx,
               'publishedUtc': current.get('publishedUtc'),
@@ -120,19 +203,23 @@ jobs:
               'contractRevision': current.get('contractRevision'),
               'schemaHash': current.get('schemaHash'),
               'sourceCurrentPath': 'SOURCE_CURRENT.json',
+              'chatgptVisualIndexPath': 'CHATGPT_VISUAL_INDEX.json',
+              'visualContactSheetPath': 'VISUAL_CONTACT_SHEET.pdf',
+              'visualContactSheetUrl': raw_base + '/VISUAL_CONTACT_SHEET.pdf',
               'groups': files_by_group,
               'usage': {
-                  'rule': 'Inspect actual image pixels/contact sheets before making visual claims or storyboards.',
-                  'authoring': 'Use authoring/ for compact ChatGPT-ready catalog/instruction/visual references.',
-                  'visualProof': 'Use visual-proof/ for published visual QA/contact-sheet evidence.'
+                  'rule': 'Inspect actual image pixels in VISUAL_CONTACT_SHEET.pdf or previewUrl before making visual claims or storyboards.',
+                  'authoring': 'Use authoring/ for compact ChatGPT-ready catalog, instruction, and visual references.',
+                  'visualProof': 'Use visual-proof/ for published visual QA evidence.',
+                  'chatgpt': 'Start with CHATGPT_VISUAL_INDEX.json and VISUAL_CONTACT_SHEET.pdf. Metadata alone is not visual evidence.'
               }
           }
           (root / 'OPEN_CURRENT.json').write_text(
               json.dumps(manifest, indent=2, ensure_ascii=False) + '\n', encoding='utf-8'
           )
           print(f'Prepared open CURRENT {tx}')
-          print(f"Authoring files: {len(files_by_group['authoring'])}")
-          print(f"Visual proof files: {len(files_by_group['visual-proof'])}")
+          print(f"Visual assets: {len(visual_index_assets)}")
+          print(f"Contact sheet pages: {len(pages)}")
           PY
 
       - name: Publish clean open-current branch
