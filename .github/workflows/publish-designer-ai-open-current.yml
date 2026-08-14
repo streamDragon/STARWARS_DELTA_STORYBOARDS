@@ -34,28 +34,18 @@ jobs:
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import json
-          import os
-          import pathlib
-          import shutil
-          import tempfile
-          import urllib.request
-          import zipfile
+          import json, os, pathlib, re, shutil, tempfile, urllib.request, zipfile
+          from collections import defaultdict
           from PIL import Image, ImageDraw, ImageFont, ImageOps
 
           repo = os.environ['REPOSITORY']
           token = os.environ['GITHUB_TOKEN']
-          current_path = pathlib.Path('designer-ai/current.json')
-          current = json.loads(current_path.read_text(encoding='utf-8'))
-
+          current = json.loads(pathlib.Path('designer-ai/current.json').read_text(encoding='utf-8'))
           if current.get('status') != 'CURRENT_VERIFIED':
               raise SystemExit('designer-ai/current.json is not CURRENT_VERIFIED')
 
-          tx = current.get('publishTransactionId')
-          release_url = current.get('releaseUrl', '')
-          if not tx or '/releases/tag/' not in release_url:
-              raise SystemExit('CURRENT is missing publishTransactionId or releaseUrl')
-
+          tx = current['publishTransactionId']
+          release_url = current['releaseUrl']
           tag = release_url.rsplit('/releases/tag/', 1)[1]
           api_url = f'https://api.github.com/repos/{repo}/releases/tags/{tag}'
           headers = {
@@ -67,159 +57,215 @@ jobs:
 
           def get_json(url):
               req = urllib.request.Request(url, headers=headers)
-              with urllib.request.urlopen(req, timeout=120) as r:
-                  return json.load(r)
+              with urllib.request.urlopen(req, timeout=120) as r: return json.load(r)
 
           def download(url, dst):
               req = urllib.request.Request(url, headers={'User-Agent': headers['User-Agent']})
-              with urllib.request.urlopen(req, timeout=300) as r, open(dst, 'wb') as f:
+              with urllib.request.urlopen(req, timeout=600) as r, open(dst, 'wb') as f:
                   shutil.copyfileobj(r, f)
 
           release = get_json(api_url)
-          assets = {a['name']: a for a in release.get('assets', [])}
-          wanted = {
-              'authoring': 'STARWARS_DELTA_CHATGPT_AUTHORING_PACKAGE_CURRENT.zip',
-              'visual-proof': 'STARWARS_DELTA_DESIGNER_AI_VISUAL_PROOF_CURRENT.zip',
-          }
-
-          missing = [name for name in wanted.values() if name not in assets]
-          if missing:
-              raise SystemExit('Release is missing required ChatGPT open-current assets: ' + ', '.join(missing))
+          release_assets = {a['name']: a for a in release.get('assets', [])}
+          required = [
+              'STARWARS_DELTA_CHATGPT_AUTHORING_PACKAGE_CURRENT.zip',
+              'STARWARS_DELTA_DESIGNER_AI_VISUAL_PROOF_CURRENT.zip',
+              'STARWARS_DELTA_DESIGNER_AI_VISUAL_LIBRARY_CURRENT.zip',
+          ]
+          missing = [n for n in required if n not in release_assets]
+          if missing: raise SystemExit('Missing release assets: ' + ', '.join(missing))
 
           root = pathlib.Path('_open_current_stage')
-          if root.exists():
-              shutil.rmtree(root)
+          if root.exists(): shutil.rmtree(root)
           root.mkdir(parents=True)
+          raw_base = f'https://raw.githubusercontent.com/{repo}/designer-ai-open-current'
 
-          files_by_group = {}
-          with tempfile.TemporaryDirectory() as td:
-              td = pathlib.Path(td)
-              for group, asset_name in wanted.items():
-                  zip_path = td / asset_name
-                  download(assets[asset_name]['browser_download_url'], zip_path)
+          with tempfile.TemporaryDirectory() as td_raw:
+              td = pathlib.Path(td_raw)
+
+              # Keep the compact ChatGPT package and proof unpacked as before.
+              compact = {
+                  'authoring': 'STARWARS_DELTA_CHATGPT_AUTHORING_PACKAGE_CURRENT.zip',
+                  'visual-proof': 'STARWARS_DELTA_DESIGNER_AI_VISUAL_PROOF_CURRENT.zip',
+              }
+              files_by_group = {}
+              for group, asset_name in compact.items():
+                  zp = td / asset_name
+                  download(release_assets[asset_name]['browser_download_url'], zp)
                   out = root / group
                   out.mkdir(parents=True)
-                  with zipfile.ZipFile(zip_path) as z:
-                      for member in z.infolist():
-                          target = (out / member.filename).resolve()
-                          if not str(target).startswith(str(out.resolve()) + os.sep) and target != out.resolve():
-                              raise SystemExit(f'Unsafe ZIP path: {member.filename}')
+                  with zipfile.ZipFile(zp) as z:
                       z.extractall(out)
-                  files_by_group[group] = sorted(
-                      str(p.relative_to(root)).replace(os.sep, '/')
-                      for p in out.rglob('*') if p.is_file()
-                  )
+                  files_by_group[group] = sorted(str(p.relative_to(root)).replace(os.sep, '/') for p in out.rglob('*') if p.is_file())
 
+              # Open the full Visual Library only while building compact contact sheets.
+              full_zip_path = td / 'visual-library.zip'
+              download(release_assets['STARWARS_DELTA_DESIGNER_AI_VISUAL_LIBRARY_CURRENT.zip']['browser_download_url'], full_zip_path)
+              with zipfile.ZipFile(full_zip_path) as vz:
+                  manifest = json.loads(vz.read('visual_library_manifest.json').decode('utf-8-sig'))
+                  source_assets = manifest.get('assets', [])
+
+                  def animation_family_name(a):
+                      name = str(a.get('displayName') or '').strip()
+                      purposes = [str(x).lower() for x in a.get('representativePurposes', [])]
+                      is_animation = bool(a.get('representativeFrames')) or any('animation' in p for p in purposes)
+                      if not is_animation:
+                          return None
+                      # Collapse only a trailing frame number. SpaceRobot04 remains intact; "Launch 005" becomes "Launch".
+                      collapsed = re.sub(r'(?:[ _-]+)\d{1,4}$', '', name).strip()
+                      return collapsed or name
+
+                  grouped = {}
+                  merged_ids = defaultdict(list)
+                  merged_visual_refs = defaultdict(list)
+                  for a in source_assets:
+                      family = animation_family_name(a)
+                      if family:
+                          key = ('animation', str(a.get('category') or 'Other'), family.lower())
+                      else:
+                          key = ('visual', str(a.get('visualReferenceId') or a.get('assetId') or id(a)))
+                      merged_ids[key].extend(a.get('catalogAssetIds') or ([a.get('assetId')] if a.get('assetId') else []))
+                      if a.get('visualReferenceId'): merged_visual_refs[key].append(a['visualReferenceId'])
+                      candidate_path = a.get('primaryPreview') or a.get('thumbnailPath')
+                      if key not in grouped or (candidate_path and candidate_path in vz.namelist() and not grouped[key].get('_previewExists')):
+                          b = dict(a)
+                          b['_previewExists'] = bool(candidate_path and candidate_path in vz.namelist())
+                          b['_animationFamily'] = family
+                          grouped[key] = b
+
+                  reps = []
+                  for key, a in grouped.items():
+                      preview = a.get('primaryPreview') or a.get('thumbnailPath')
+                      if not preview or preview not in vz.namelist():
+                          continue
+                      a['_allCatalogAssetIds'] = sorted(set(x for x in merged_ids[key] if x))
+                      a['_allVisualReferenceIds'] = sorted(set(merged_visual_refs[key]))
+                      reps.append(a)
+
+                  reps.sort(key=lambda a: (str(a.get('category') or 'Other').lower(), str(a.get('_animationFamily') or a.get('displayName') or '').lower()))
+                  by_category = defaultdict(list)
+                  for a in reps: by_category[str(a.get('category') or 'Other')].append(a)
+
+                  sheets_root = root / 'full-visual-sheets'
+                  sheets_root.mkdir(parents=True)
+                  page_w, page_h = 1240, 1754
+                  margin, cols, rows = 44, 3, 4
+                  per_page = cols * rows
+                  cell_w = (page_w - margin * 2) // cols
+                  cell_h = (page_h - margin * 2 - 72) // rows
+                  font_path = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+                  bold_path = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
+                  title_font = ImageFont.truetype(bold_path, 24)
+                  name_font = ImageFont.truetype(bold_path, 13)
+                  meta_font = ImageFont.truetype(font_path, 9)
+                  index_entries = []
+                  sheet_manifest = []
+
+                  def slug(s):
+                      out = re.sub(r'[^A-Za-z0-9._-]+', '-', s).strip('-').lower()
+                      return out or 'other'
+
+                  for category, items in sorted(by_category.items(), key=lambda kv: kv[0].lower()):
+                      pages = []
+                      category_slug = slug(category)
+                      pdf_name = f'{category_slug}.pdf'
+                      pdf_path = sheets_root / pdf_name
+                      for offset in range(0, len(items), per_page):
+                          page_number = len(pages) + 1
+                          page = Image.new('RGB', (page_w, page_h), 'white')
+                          draw = ImageDraw.Draw(page)
+                          draw.text((margin, 22), f'STARWARS_DELTA | {category} | CURRENT {tx} | page {page_number}', fill='black', font=title_font)
+                          batch = items[offset:offset + per_page]
+                          for slot, a in enumerate(batch):
+                              rr, cc = divmod(slot, cols)
+                              x = margin + cc * cell_w
+                              y = margin + 58 + rr * cell_h
+                              draw.rectangle((x, y, x + cell_w - 10, y + cell_h - 10), outline='black', width=1)
+                              preview_path = a.get('primaryPreview') or a.get('thumbnailPath')
+                              try:
+                                  import io
+                                  with Image.open(io.BytesIO(vz.read(preview_path))) as src:
+                                      src = src.convert('RGBA')
+                                      bg = Image.new('RGBA', src.size, 'white')
+                                      bg.alpha_composite(src)
+                                      thumb = ImageOps.contain(bg.convert('RGB'), (cell_w - 28, cell_h - 78), Image.Resampling.LANCZOS)
+                                      page.paste(thumb, (x + (cell_w - 10 - thumb.width)//2, y + 8))
+                              except Exception as exc:
+                                  draw.text((x + 8, y + 25), 'Preview unavailable', fill='black', font=meta_font)
+                              label = str(a.get('_animationFamily') or a.get('displayName') or '(unnamed)')[:46]
+                              text_y = y + cell_h - 68
+                              draw.text((x + 7, text_y), label, fill='black', font=name_font)
+                              purposes = ', '.join(str(p) for p in a.get('representativePurposes', [])[:2])
+                              draw.text((x + 7, text_y + 18), purposes[:52], fill='black', font=meta_font)
+                              draw.text((x + 7, text_y + 31), str(a.get('assetId') or '')[:52], fill='black', font=meta_font)
+
+                              entry = {
+                                  'visualReferenceId': a.get('visualReferenceId'),
+                                  'visualReferenceIds': a['_allVisualReferenceIds'],
+                                  'assetId': a.get('assetId'),
+                                  'catalogAssetIds': a['_allCatalogAssetIds'],
+                                  'displayName': a.get('displayName'),
+                                  'animationFamily': a.get('_animationFamily'),
+                                  'category': category,
+                                  'entityClassification': a.get('entityClassification'),
+                                  'cutscenePrimaryUse': a.get('cutscenePrimaryUse'),
+                                  'representativePurposes': a.get('representativePurposes', []),
+                                  'semanticStates': a.get('semanticStates', []),
+                                  'compatibleAnimationIds': a.get('compatibleAnimationIds', []),
+                                  'sourceKind': a.get('sourceKind'),
+                                  'visualDescription': a.get('visualDescription'),
+                                  'sheetFile': 'full-visual-sheets/' + pdf_name,
+                                  'sheetUrl': raw_base + '/full-visual-sheets/' + pdf_name,
+                                  'page': page_number,
+                                  'slot': slot + 1,
+                              }
+                              index_entries.append(entry)
+                          pages.append(page)
+                      if pages:
+                          pages[0].save(pdf_path, 'PDF', resolution=120, save_all=True, append_images=pages[1:], quality=78)
+                          sheet_manifest.append({'category': category, 'file': 'full-visual-sheets/' + pdf_name, 'url': raw_base + '/full-visual-sheets/' + pdf_name, 'pages': len(pages), 'representatives': len(items)})
+
+                  asset_lookup = {}
+                  for i, entry in enumerate(index_entries):
+                      for aid in entry['catalogAssetIds']:
+                          asset_lookup[aid] = i
+
+                  full_index = {
+                      'schema': 'STARWARS_DELTA_CHATGPT_FULL_VISUAL_INDEX',
+                      'schemaVersion': 1,
+                      'status': 'CURRENT_VERIFIED_OPEN',
+                      'publishTransactionId': tx,
+                      'sourceVisualIdentityCount': manifest.get('visualIdentityCount'),
+                      'representativeCount': len(index_entries),
+                      'animationPolicy': 'One representative image per animation family; trailing frame numbers are collapsed. Non-animation content uses one image per Visual Library identity.',
+                      'sheets': sheet_manifest,
+                      'assets': index_entries,
+                      'assetIdToEntryIndex': asset_lookup,
+                  }
+                  (root / 'FULL_VISUAL_INDEX.json').write_text(json.dumps(full_index, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+
+          # Keep the small proof index for quick smoke checks.
           proof_manifest_path = root / 'authoring' / 'VISUAL_PACK' / 'proof_manifest.json'
           proof = json.loads(proof_manifest_path.read_text(encoding='utf-8-sig'))
           proof_assets = [a for a in proof.get('assets', []) if a.get('proofFilePath')]
-
-          raw_base = f'https://raw.githubusercontent.com/{repo}/designer-ai-open-current'
-          visual_index_assets = []
+          quick_assets = []
           for a in proof_assets:
               relative = 'authoring/VISUAL_PACK/' + a['proofFilePath'].replace('\\', '/')
-              visual_index_assets.append({
-                  'visualReferenceId': a.get('visualReferenceId'),
-                  'assetId': a.get('assetId'),
-                  'displayName': a.get('displayName'),
-                  'category': a.get('category'),
-                  'representativePurpose': a.get('representativePurpose'),
-                  'pixelQuality': a.get('pixelQuality'),
-                  'previewPath': relative,
-                  'previewUrl': raw_base + '/' + relative,
-              })
+              quick_assets.append({'visualReferenceId': a.get('visualReferenceId'), 'assetId': a.get('assetId'), 'displayName': a.get('displayName'), 'category': a.get('category'), 'representativePurpose': a.get('representativePurpose'), 'pixelQuality': a.get('pixelQuality'), 'previewPath': relative, 'previewUrl': raw_base + '/' + relative})
+          (root / 'CHATGPT_VISUAL_INDEX.json').write_text(json.dumps({'schema':'STARWARS_DELTA_CHATGPT_VISUAL_INDEX','schemaVersion':1,'status':'CURRENT_VERIFIED_OPEN','publishTransactionId':tx,'assetCount':len(quick_assets),'fullVisualIndexUrl':raw_base + '/FULL_VISUAL_INDEX.json','assets':quick_assets}, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
 
-          page_w, page_h = 1240, 1754
-          margin = 54
-          cols, rows = 2, 4
-          cell_w = (page_w - margin * 2) // cols
-          cell_h = (page_h - margin * 2 - 86) // rows
-          font_path = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
-          bold_path = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
-          title_font = ImageFont.truetype(bold_path, 30)
-          name_font = ImageFont.truetype(bold_path, 18)
-          meta_font = ImageFont.truetype(font_path, 12)
-          pages = []
-
-          for offset in range(0, len(proof_assets), cols * rows):
-              page = Image.new('RGB', (page_w, page_h), 'white')
-              draw = ImageDraw.Draw(page)
-              draw.text((margin, 28), f'STARWARS_DELTA Visual Contact Sheet | CURRENT {tx}', fill='black', font=title_font)
-              batch = proof_assets[offset:offset + cols * rows]
-              for i, a in enumerate(batch):
-                  r, c = divmod(i, cols)
-                  x = margin + c * cell_w
-                  y = margin + 70 + r * cell_h
-                  draw.rectangle((x, y, x + cell_w - 18, y + cell_h - 18), outline='black', width=2)
-                  img_path = root / 'authoring' / 'VISUAL_PACK' / a['proofFilePath']
-                  try:
-                      with Image.open(img_path) as src:
-                          src = src.convert('RGBA')
-                          bg = Image.new('RGBA', src.size, 'white')
-                          bg.alpha_composite(src)
-                          src = bg.convert('RGB')
-                          thumb = ImageOps.contain(src, (cell_w - 50, cell_h - 112), Image.Resampling.LANCZOS)
-                          px = x + (cell_w - 18 - thumb.width) // 2
-                          py = y + 18
-                          page.paste(thumb, (px, py))
-                  except Exception as exc:
-                      draw.text((x + 18, y + 40), f'Preview unavailable: {exc}', fill='black', font=meta_font)
-                  text_y = y + cell_h - 100
-                  name = str(a.get('displayName') or '(unnamed)')[:62]
-                  draw.text((x + 14, text_y), name, fill='black', font=name_font)
-                  draw.text((x + 14, text_y + 25), f"{a.get('category','')} | {a.get('representativePurpose','')}", fill='black', font=meta_font)
-                  draw.text((x + 14, text_y + 43), str(a.get('assetId') or ''), fill='black', font=meta_font)
-              pages.append(page)
-
-          pdf_path = root / 'VISUAL_CONTACT_SHEET.pdf'
-          if pages:
-              pages[0].save(pdf_path, 'PDF', resolution=150, save_all=True, append_images=pages[1:])
-
-          visual_index = {
-              'schema': 'STARWARS_DELTA_CHATGPT_VISUAL_INDEX',
-              'schemaVersion': 1,
-              'status': 'CURRENT_VERIFIED_OPEN',
-              'publishTransactionId': tx,
-              'assetCount': len(visual_index_assets),
-              'contactSheetPdfUrl': raw_base + '/VISUAL_CONTACT_SHEET.pdf',
-              'openCurrentManifestUrl': raw_base + '/OPEN_CURRENT.json',
-              'assets': visual_index_assets,
+          (root / 'SOURCE_CURRENT.json').write_text(json.dumps(current, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+          open_manifest = {
+              'schema':'STARWARS_DELTA_DESIGNER_AI_OPEN_CURRENT','schemaVersion':3,'status':'CURRENT_VERIFIED_OPEN','publishTransactionId':tx,
+              'publishedUtc':current.get('publishedUtc'),'releaseUrl':release_url,'contractRevision':current.get('contractRevision'),'schemaHash':current.get('schemaHash'),
+              'sourceCurrentPath':'SOURCE_CURRENT.json','chatgptVisualIndexPath':'CHATGPT_VISUAL_INDEX.json','fullVisualIndexPath':'FULL_VISUAL_INDEX.json',
+              'fullVisualIndexUrl':raw_base + '/FULL_VISUAL_INDEX.json','fullVisualSheetsRoot':raw_base + '/full-visual-sheets/',
+              'groups':files_by_group,
+              'usage':{'rule':'Before visual claims, asset selection, or storyboarding, inspect the relevant full-visual-sheets PDF page identified by FULL_VISUAL_INDEX.json. Names and metadata are not substitutes for pixels.','animation':'One representative image per animation family is intentional; do not require every frame.'}
           }
-          (root / 'CHATGPT_VISUAL_INDEX.json').write_text(
-              json.dumps(visual_index, indent=2, ensure_ascii=False) + '\n', encoding='utf-8'
-          )
-
-          (root / 'SOURCE_CURRENT.json').write_text(
-              json.dumps(current, indent=2, ensure_ascii=False) + '\n', encoding='utf-8'
-          )
-
-          manifest = {
-              'schema': 'STARWARS_DELTA_DESIGNER_AI_OPEN_CURRENT',
-              'schemaVersion': 2,
-              'status': 'CURRENT_VERIFIED_OPEN',
-              'publishTransactionId': tx,
-              'publishedUtc': current.get('publishedUtc'),
-              'releaseUrl': release_url,
-              'contractRevision': current.get('contractRevision'),
-              'schemaHash': current.get('schemaHash'),
-              'sourceCurrentPath': 'SOURCE_CURRENT.json',
-              'chatgptVisualIndexPath': 'CHATGPT_VISUAL_INDEX.json',
-              'visualContactSheetPath': 'VISUAL_CONTACT_SHEET.pdf',
-              'visualContactSheetUrl': raw_base + '/VISUAL_CONTACT_SHEET.pdf',
-              'groups': files_by_group,
-              'usage': {
-                  'rule': 'Inspect actual image pixels in VISUAL_CONTACT_SHEET.pdf or previewUrl before making visual claims or storyboards.',
-                  'authoring': 'Use authoring/ for compact ChatGPT-ready catalog, instruction, and visual references.',
-                  'visualProof': 'Use visual-proof/ for published visual QA evidence.',
-                  'chatgpt': 'Start with CHATGPT_VISUAL_INDEX.json and VISUAL_CONTACT_SHEET.pdf. Metadata alone is not visual evidence.'
-              }
-          }
-          (root / 'OPEN_CURRENT.json').write_text(
-              json.dumps(manifest, indent=2, ensure_ascii=False) + '\n', encoding='utf-8'
-          )
-          print(f'Prepared open CURRENT {tx}')
-          print(f"Visual assets: {len(visual_index_assets)}")
-          print(f"Contact sheet pages: {len(pages)}")
+          (root / 'OPEN_CURRENT.json').write_text(json.dumps(open_manifest, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+          print('SOURCE_VISUAL_IDENTITIES', full_index['sourceVisualIdentityCount'])
+          print('PUBLISHED_REPRESENTATIVES', full_index['representativeCount'])
+          print('SHEET_COUNT', len(full_index['sheets']))
           PY
 
       - name: Publish clean open-current branch
@@ -227,16 +273,13 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-
           STAGE="$(pwd)/_open_current_stage"
           TMP="$(mktemp -d)"
           cp -a "$STAGE/." "$TMP/"
-
           git checkout --orphan designer-ai-open-current-tmp
           git rm -rf . >/dev/null 2>&1 || true
           find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
           cp -a "$TMP/." .
-
           git add -A
           git commit -m "Publish Designer AI open CURRENT"
           git push --force origin HEAD:designer-ai-open-current
