@@ -51,6 +51,7 @@ NORMAL USER FLOW:
 4. ChatGPT first plans the story and visual world, then uses FULL_VISUAL_INDEX to resolve atlasPage + atlasSlot and actually inspects the pixels in the single CURRENT Visual Atlas PDF before choosing important visual assets.
 5. If ChatGPT cannot actually render the Atlas pixels from the public URL, it MUST STOP visual asset selection and ask Debora for exactly one file: STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf. Debora downloads it from the button named DOWNLOAD VISUAL ATLAS PDF and uploads that one PDF directly to the chat.
 6. After the PDF upload, ChatGPT continues using the same CURRENT Director metadata. Do not ask Debora for Catalog ZIPs, Instruction Book ZIPs, the 300MB Visual Library archive, or four separate category PDFs for ordinary visual access.
+7. After the final JSON is complete and validated, ChatGPT keeps the JSON payload clean and then gives the user a short decision summary outside the JSON: WHAT I USED, WHAT WOULD IMPROVE THIS, and the choice to USE THIS JSON NOW or IMPROVE AND REGENERATE.
 
 RULES:
 1. Verify OPEN_CURRENT.json has status CURRENT_VERIFIED_OPEN.
@@ -80,6 +81,7 @@ RULES:
 25. Plan shot rhythm by dramatic function. Do not default narrative films to equal mechanical durations.
 26. Express camera purpose semantically first. Avoid raw camera-number micromanagement where semantic camera intent is available.
 27. Before delivering JSON, run the mandatory FILM PREFLIGHT below, then validate against the CURRENT contract.
+28. Do not hide optional quality gaps from the user. After a usable JSON is finished, report only concrete gaps or uncertainties that could materially improve the result. Never block delivery merely because optional improvements exist.
 
 MANDATORY FILM PREFLIGHT:
 A. Story reads coherently without JSON.
@@ -98,6 +100,16 @@ M. Final JSON validates against this exact CURRENT atomic identity.
 
 If any preflight item fails, fix the plan before producing final JSON.
 
+POST-JSON DECISION SUMMARY - REQUIRED:
+After the JSON has been fully authored and validated, keep the JSON artifact/payload standalone and valid. Do not put this report inside the JSON.
+Then present a short human-facing summary with exactly these ideas:
+- WHAT I USED: the important CURRENT assets and systems actually used, grouped briefly by relevant categories such as Layers, Actors, Effects, Audio, Animation and Dialogue/UI. Mention exact asset names when useful; do not dump the whole Catalog.
+- WHAT WOULD IMPROVE THIS: only concrete missing, unavailable, unverified or uncertain items that would materially improve this specific cutscene. Examples include a missing verified visual, missing compatible animation, missing audio/metadata, missing dialogue portrait, unresolved eligibility review, or a visual option that could not be pixel-verified. Do not invent a generic wish list.
+- YOUR CHOICE: explicitly offer two paths: USE THIS JSON NOW, or IMPROVE AND REGENERATE after completing/choosing the missing items.
+If nothing material is missing, say clearly that nothing material is missing and recommend using the current JSON.
+Never withhold a valid usable JSON because optional improvements remain. The user must be able to choose between accepting the current version and investing in another improvement pass.
+The POST-JSON DECISION SUMMARY is chat text only and must never be pasted into Unity's JSON importer or serialized into unsupported package fields.
+
 WHAT THE VISUAL ATLAS CONTAINS:
 - Actor sheets: characters, robots, ships and other world actors.
 - Effect sheets: explosions, flashes, atmosphere and VFX.
@@ -107,7 +119,7 @@ Animations are selected using Director compatibility IDs and representative fami
 Audio is selected from Director metadata and is non-visual.
 
 NORMAL FLOW:
-DEBORA DESCRIBES CUTSCENE -> READ OPEN CURRENT -> VERIFY ATOMIC IDENTITY -> READ FILM AUTHORING GUIDE -> PLAN STORY + VISUAL WORLD -> SEARCH DIRECTOR -> RESOLVE ASSET IN FULL_VISUAL_INDEX -> INSPECT REAL ATLAS PIXELS AT atlasPage/atlasSlot -> CHECK STYLE/PERSPECTIVE/RUNTIME ROLE -> PLAN SHOTS + AUDIO -> RUN FILM PREFLIGHT -> VALIDATE CURRENT CONTRACT -> CREATE JSON -> UNITY REPRESENTATIVE PREVIEW.
+DEBORA DESCRIBES CUTSCENE -> READ OPEN CURRENT -> VERIFY ATOMIC IDENTITY -> READ FILM AUTHORING GUIDE -> PLAN STORY + VISUAL WORLD -> SEARCH DIRECTOR -> RESOLVE ASSET IN FULL_VISUAL_INDEX -> INSPECT REAL ATLAS PIXELS AT atlasPage/atlasSlot -> CHECK STYLE/PERSPECTIVE/RUNTIME ROLE -> PLAN SHOTS + AUDIO -> RUN FILM PREFLIGHT -> VALIDATE CURRENT CONTRACT -> CREATE CLEAN JSON -> DELIVER JSON -> POST-JSON DECISION SUMMARY -> USER CHOOSES USE NOW OR IMPROVE AND REGENERATE -> UNITY REPRESENTATIVE PREVIEW.
 
 VISUAL ACCESS FALLBACK:
 IF CHATGPT CANNOT RENDER ATLAS PIXELS FROM URL -> ASK FOR ONE FILE: STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf -> USER UPLOADS IT TO CHAT -> INSPECT PIXELS -> CONTINUE SAME CURRENT AUTHORING TASK.
