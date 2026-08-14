@@ -32,6 +32,9 @@ https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-curre
 INSTRUCTION BOOK:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/instruction-book/
 
+FILM AUTHORING GUIDE:
+https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/FILM_AUTHORING_GUIDE_CURRENT.md
+
 DIRECTOR COMPLETION QUEUE:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/completion-queue.json
 
@@ -44,8 +47,8 @@ https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-curre
 NORMAL USER FLOW:
 1. Debora presses COPY FOR CHAT on the Debora page and pastes the message into ChatGPT.
 2. Debora describes the cutscene she wants.
-3. ChatGPT reads CURRENT, Director, Contract and Instruction Book itself.
-4. ChatGPT uses FULL_VISUAL_INDEX to resolve atlasPage + atlasSlot and actually inspects the pixels in the single CURRENT Visual Atlas PDF before choosing important visual assets.
+3. ChatGPT reads CURRENT, Director, Contract, Instruction Book and Film Authoring Guide itself.
+4. ChatGPT first plans the story and visual world, then uses FULL_VISUAL_INDEX to resolve atlasPage + atlasSlot and actually inspects the pixels in the single CURRENT Visual Atlas PDF before choosing important visual assets.
 5. If ChatGPT cannot actually render the Atlas pixels from the public URL, it MUST STOP visual asset selection and ask Debora for exactly one file: STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf. Debora downloads it from the button named DOWNLOAD VISUAL ATLAS PDF and uploads that one PDF directly to the chat.
 6. After the PDF upload, ChatGPT continues using the same CURRENT Director metadata. Do not ask Debora for Catalog ZIPs, Instruction Book ZIPs, the 300MB Visual Library archive, or four separate category PDFs for ordinary visual access.
 
@@ -63,13 +66,37 @@ RULES:
 11. The Director ZIP is an advanced metadata fallback only when direct Pages access to CURRENT/Director/Contract actually fails. Do not use it merely because visual rendering of the Atlas URL failed.
 12. Individual actor.pdf/effect.pdf/layer.pdf/ui.pdf files and JPEG pageImageUrl sheets are diagnostics/transport fallbacks. Do not ask the ordinary user to assemble or upload them when the unified Atlas exists.
 13. Animation visuals are intentionally deduplicated. One representative image per animation family is enough to understand the action. Never request or require every frame.
-14. Audio is a first-class Director input. It is non-visual and must never be treated as a visual coverage gap.
+14. Audio is a first-class Director input. It is non-visual and must never be treated as a visual coverage gap. Narrative cutscenes require an Audio pass when suitable CURRENT audio exists.
 15. Prefab internals are not Director vocabulary. A safe Prefab may appear only as a CanonicalActor or PreviewSafeVisualComposite. Do not expose gameplay scripts, colliders, physics or prefab hierarchy in the cutscene plan.
 16. Materials, technical textures, fonts, gameplay helpers and unsafe records are dependencies or excluded evidence, not normal creative choices.
 17. A missing preview does not prove that a legitimate film asset is missing. Check director-view/eligibility-audit.json and director-view/completion-queue.json.
 18. If a recommendable visual asset lacks verified pixels, use another verified asset or clearly report the completion item. Never guess its appearance.
 19. Use the Instruction Book for cinematic lessons, BAD/GOLDEN cases and authoring invariants.
-20. Before delivering JSON, validate against the CURRENT contract and keep all visual claims tied to actual inspected evidence.
+20. `recommendable` does not mean suitable for every shot or cast role. Inspect style, perspective, composition, runtime form and role capability before choosing an asset.
+21. If `systemManagedProportions=true`, authored scale defaults to 1.0. Do not use scale to compensate for source image dimensions; Unity owns semantic normalization.
+22. Background / FarBackground source dimensions are not an authoring problem. Choose the right environment and let Unity own Cover/framing through camera motion.
+23. Prefer location continuity and visual-world consistency over literal keyword matches. A top-down/pixel asset should not be composited into an eye-level painterly scene unless the contrast is deliberate.
+24. Principal/required visuals must have a representative materialization path. A diagnostic placeholder is not a successful principal preview.
+25. Plan shot rhythm by dramatic function. Do not default narrative films to equal mechanical durations.
+26. Express camera purpose semantically first. Avoid raw camera-number micromanagement where semantic camera intent is available.
+27. Before delivering JSON, run the mandatory FILM PREFLIGHT below, then validate against the CURRENT contract.
+
+MANDATORY FILM PREFLIGHT:
+A. Story reads coherently without JSON.
+B. Shot rhythm follows dramatic purpose.
+C. Location continuity is intentional.
+D. Every important visual choice was inspected as real pixels.
+E. Style, perspective and composition fit across each shot.
+F. Cast role capability and authoringRuntimeForm are valid.
+G. System-managed actors use authored scale 1.0 by default.
+H. Background coverage is delegated to Unity, not fixed with arbitrary scale.
+I. Principal visuals do not rely on diagnostic fallback.
+J. Narrative scenes received an Audio pass.
+K. Camera instructions express semantic purpose/composition.
+L. Effects have an explicit dramatic depth/purpose where relevant.
+M. Final JSON validates against this exact CURRENT atomic identity.
+
+If any preflight item fails, fix the plan before producing final JSON.
 
 WHAT THE VISUAL ATLAS CONTAINS:
 - Actor sheets: characters, robots, ships and other world actors.
@@ -80,7 +107,7 @@ Animations are selected using Director compatibility IDs and representative fami
 Audio is selected from Director metadata and is non-visual.
 
 NORMAL FLOW:
-DEBORA DESCRIBES CUTSCENE -> READ OPEN CURRENT -> VERIFY ATOMIC IDENTITY -> SEARCH DIRECTOR -> RESOLVE ASSET IN FULL_VISUAL_INDEX -> INSPECT REAL ATLAS PIXELS AT atlasPage/atlasSlot -> PLAN STORY/SHOTS -> CHOOSE EXACT VERIFIED ASSETS + ANIMATIONS + AUDIO -> VALIDATE CURRENT CONTRACT -> CREATE JSON -> UNITY PREVIEW.
+DEBORA DESCRIBES CUTSCENE -> READ OPEN CURRENT -> VERIFY ATOMIC IDENTITY -> READ FILM AUTHORING GUIDE -> PLAN STORY + VISUAL WORLD -> SEARCH DIRECTOR -> RESOLVE ASSET IN FULL_VISUAL_INDEX -> INSPECT REAL ATLAS PIXELS AT atlasPage/atlasSlot -> CHECK STYLE/PERSPECTIVE/RUNTIME ROLE -> PLAN SHOTS + AUDIO -> RUN FILM PREFLIGHT -> VALIDATE CURRENT CONTRACT -> CREATE JSON -> UNITY REPRESENTATIVE PREVIEW.
 
 VISUAL ACCESS FALLBACK:
 IF CHATGPT CANNOT RENDER ATLAS PIXELS FROM URL -> ASK FOR ONE FILE: STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf -> USER UPLOADS IT TO CHAT -> INSPECT PIXELS -> CONTINUE SAME CURRENT AUTHORING TASK.
