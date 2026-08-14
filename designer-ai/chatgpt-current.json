@@ -1,6 +1,6 @@
 {
   "schema": "STARWARS_DELTA_CHATGPT_CURRENT_POINTER",
-  "schemaVersion": 5,
+  "schemaVersion": 6,
   "status": "CURRENT_VERIFIED_OPEN",
   "currentManifestUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/current.json",
   "currentPageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/",
@@ -18,12 +18,14 @@
   "instructionBookRootUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/instruction-book/",
   "fallbackDirectorPackUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip",
   "authoringRule": "Start from the full Director View. Shortlist with current metadata, resolve the exact asset in FULL_VISUAL_INDEX.json, then visually inspect its atlasPage and atlasSlot in the single CURRENT Visual Atlas PDF before any visual claim, asset choice or storyboard.",
-  "visualRule": "The single CURRENT Visual Atlas PDF is the preferred pixel source. JPEG pageImageUrl sheets remain transport/debug fallbacks only. Never infer appearance from names or metadata.",
+  "visualRule": "The single CURRENT Visual Atlas PDF is the preferred pixel source. Never infer appearance from names or metadata. Binary/Base64 access without pixel rendering is not visual inspection.",
+  "visualAccessFallbackRule": "If ChatGPT cannot actually render and inspect the public Atlas URL, it must stop visual asset selection and ask the user to download and upload exactly one file from the Debora page: STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf. Continue with the same CURRENT metadata after upload.",
+  "ordinaryUserDownloadRule": "No download is normally required. For ordinary visual-access fallback, request only the single CURRENT Visual Atlas PDF. Do not ask for Catalog ZIPs, Instruction Book ZIPs, the 300MB Visual Library, or four category PDFs.",
   "atomicRule": "Verify publishTransactionId, catalogRevision, snapshotContentHash, contractRevision and schemaHash as one atomic identity before authoring.",
   "eligibilityRule": "A missing preview does not prove a missing film asset. Check the eligibility audit and completion queue; flagged sample, generated or technical-looking records require Unity source review before preview generation.",
   "animationRule": "Use exact AnimationClip IDs with one representative image per animation family. Do not require every frame.",
   "audioRule": "Audio is a first-class non-visual Director input and must not be counted as a visual gap.",
   "prefabRule": "Prefab internals are not authoring vocabulary. Only safe CanonicalActor or PreviewSafeVisualComposite projections may be selected; gameplay scripts, colliders and physics remain hidden.",
-  "deboraRule": "Debora opens deboraPageUrl, presses COPY FOR CHAT, pastes the message, and describes the cutscene. Her ChatGPT reads CURRENT itself and uses the single Visual Atlas for pixel inspection.",
-  "fallbackRule": "If direct Pages or Visual Atlas access genuinely fails, use fallbackDirectorPackUrl. Never mix transactions or manually pair older packages."
+  "deboraRule": "Debora opens deboraPageUrl, presses COPY FOR CHAT, pastes the message, and describes the cutscene. If ChatGPT cannot render the Atlas from the web, Debora uses the page's DOWNLOAD VISUAL ATLAS PDF button and uploads that single PDF to the chat.",
+  "fallbackRule": "Use fallbackDirectorPackUrl only when direct Pages access to CURRENT metadata genuinely fails. Never use the Director ZIP merely because Atlas pixel rendering failed, and never mix transactions or manually pair older packages."
 }
