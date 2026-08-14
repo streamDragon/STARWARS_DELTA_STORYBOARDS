@@ -3,116 +3,61 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"><title>STARWARS_DELTA - Debora Cutscene Start</title>
 <style>
-:root{color-scheme:dark;font-family:Inter,Segoe UI,Arial,sans-serif;background:#0b1018;color:#eef4ff}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 20% 0,#1b3452,#0b1018 50%)}main{width:min(860px,calc(100% - 28px));padding:24px}.card{background:#121b28;border:1px solid #2a4059;border-radius:20px;padding:28px;box-shadow:0 20px 60px #0008}.eyebrow{color:#7fd5ff;font-size:12px;font-weight:800;letter-spacing:.16em}h1{font-size:clamp(32px,7vw,44px);margin:8px 0 8px}h2{font-size:19px;margin:0 0 8px}p{color:#a9b7ca;line-height:1.55}.status{display:inline-block;padding:8px 12px;border-radius:999px;background:#143526;color:#9ef0bd;border:1px solid #286a49;font-weight:800;margin:10px 0 12px}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin:14px 0}.metric{background:#0d1622;border:1px solid #26384d;border-radius:11px;padding:10px}.metric b{display:block;font-size:20px}.metric span{color:#8294aa;font-size:11px;text-transform:uppercase;letter-spacing:.06em}.step{background:#0e1724;border:1px solid #2b415b;border-radius:14px;padding:18px;margin-top:14px}.step.primary{border-color:#397e58;background:#102219}.step.visual{border-color:#2d709e;background:#0e1d2b}.stepnum{font-size:11px;color:#87a1bb;font-weight:900;letter-spacing:.12em}.titleline{font-size:20px;font-weight:900;margin:5px 0}.helper{font-size:13px;color:#91a4ba;margin:5px 0 0}.warning{background:#2a2110;border:1px solid #6d5725;color:#ffe6a0;padding:12px 14px;border-radius:10px;font-size:13px;line-height:1.45;margin-top:12px}.scope{background:#0e1621;border-left:3px solid #7fd5ff;padding:10px 12px;border-radius:8px;color:#a9b7ca;font-size:13px;line-height:1.45}.inside{margin-top:12px;background:#0b131d;border:1px solid #26384d;border-radius:10px;padding:12px 14px;font-size:13px;color:#9eb0c4;line-height:1.5}.inside b{color:#eef4ff}.range{display:grid;grid-template-columns:1fr auto;gap:6px 16px;margin-top:8px}.range span:nth-child(even){color:#7fd5ff}button,a{display:block;width:100%;text-align:center;border:0;border-radius:12px;padding:16px 18px;font-weight:900;font-size:16px;text-decoration:none;margin-top:12px;cursor:pointer}.copy{background:#8ce7ad;color:#07150d}.atlas{background:#173d5c;color:#bfe9ff;border:1px solid #2d709e}.advancedButton{background:#1c2a3c;color:#dbe9f8;border:1px solid #314762}.secondary{background:#172334;color:#d9e6f4;border:1px solid #2a4059}.fallback{background:#332b16;color:#ffe69a;border:1px solid #6b5925}.small{font-size:12px;color:#71859c}.error{color:#ffaaa5;margin-bottom:8px}button:disabled{opacity:.45;cursor:not-allowed}details{margin-top:16px}summary{cursor:pointer;list-style:none}.advanced{padding-top:4px}.hide{display:none}
+:root{color-scheme:dark;font-family:Inter,Segoe UI,Arial,sans-serif;background:#0b1018;color:#eef4ff}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 20% 0,#1b3452,#0b1018 50%)}main{width:min(900px,calc(100% - 28px));padding:24px}.card{background:#121b28;border:1px solid #2a4059;border-radius:20px;padding:28px;box-shadow:0 20px 60px #0008}.eyebrow{color:#7fd5ff;font-size:12px;font-weight:800;letter-spacing:.16em}h1{font-size:clamp(32px,7vw,44px);margin:8px 0 8px}p{color:#a9b7ca;line-height:1.55}.status{display:inline-block;padding:8px 12px;border-radius:999px;background:#143526;color:#9ef0bd;border:1px solid #286a49;font-weight:800;margin:10px 0 12px}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin:14px 0}.metric{background:#0d1622;border:1px solid #26384d;border-radius:11px;padding:10px}.metric b{display:block;font-size:20px}.metric span{color:#8294aa;font-size:11px;text-transform:uppercase;letter-spacing:.06em}.step{background:#0e1724;border:1px solid #2b415b;border-radius:14px;padding:18px;margin-top:14px}.step.primary{border-color:#397e58;background:#102219}.step.visual{border-color:#2d709e;background:#0e1d2b}.stepnum{font-size:11px;color:#87a1bb;font-weight:900;letter-spacing:.12em}.titleline{font-size:20px;font-weight:900;margin:5px 0}.helper{font-size:13px;color:#91a4ba;margin:5px 0 0}.scope{background:#0e1621;border-left:3px solid #7fd5ff;padding:10px 12px;border-radius:8px;color:#a9b7ca;font-size:13px;line-height:1.45}.inside{margin-top:12px;background:#0b131d;border:1px solid #26384d;border-radius:10px;padding:12px 14px;font-size:13px;color:#9eb0c4;line-height:1.5}.inside b{color:#eef4ff}.warning{background:#2a2110;border:1px solid #6d5725;color:#ffe6a0;padding:12px 14px;border-radius:10px;font-size:13px;line-height:1.45;margin-top:12px}.range{display:grid;grid-template-columns:1fr auto;gap:6px 16px;margin-top:8px}button,a{display:block;width:100%;text-align:center;border:0;border-radius:12px;padding:16px 18px;font-weight:900;font-size:16px;text-decoration:none;margin-top:12px;cursor:pointer}.copy{background:#8ce7ad;color:#07150d}.atlas{background:#173d5c;color:#bfe9ff;border:1px solid #2d709e}.secondary{background:#172334;color:#d9e6f4;border:1px solid #2a4059}.fallback{background:#332b16;color:#ffe69a;border:1px solid #6b5925}.small{font-size:12px;color:#71859c}.error{color:#ffaaa5;margin-bottom:8px}button:disabled{opacity:.45;cursor:not-allowed}details{margin-top:16px}summary{cursor:pointer;list-style:none}
 </style>
 </head>
 <body><main><div class="card">
 <div class="eyebrow">STARWARS_DELTA · DESIGNER AI</div>
 <h1>Debora Cutscene Start</h1>
-<p>Create a cutscene in one normal step. If ChatGPT cannot actually see the current art through the web, it will ask you for one PDF. No Catalog juggling, no package archaeology, no ritual sacrifice to version numbers.</p>
-<div id="status" class="status">CHECKING CURRENT...</div>
-<div id="error" class="error"></div>
+<p>Describe the movie you want. ChatGPT reads the CURRENT Director, real Visual Atlas, contract, Instruction Book and Film Authoring Guide. It should choose art by what it actually sees, then pass a cinematic preflight before giving you JSON.</p>
+<div id="status" class="status">CHECKING CURRENT...</div><div id="error" class="error"></div>
 <div id="metrics" class="metrics" hidden>
-<div class="metric"><b id="actors">-</b><span>Actors</span></div>
-<div class="metric"><b id="layers">-</b><span>Layers</span></div>
-<div class="metric"><b id="effects">-</b><span>Effects</span></div>
-<div class="metric"><b id="ui">-</b><span>UI</span></div>
-<div class="metric"><b id="animations">-</b><span>Animations</span></div>
-<div class="metric"><b id="audio">-</b><span>Audio</span></div>
+<div class="metric"><b id="actors">-</b><span>Actors</span></div><div class="metric"><b id="layers">-</b><span>Layers</span></div><div class="metric"><b id="effects">-</b><span>Effects</span></div><div class="metric"><b id="ui">-</b><span>UI</span></div><div class="metric"><b id="animations">-</b><span>Animations</span></div><div class="metric"><b id="audio">-</b><span>Audio</span></div>
 </div>
 <div id="scope" class="scope" hidden></div>
-
-<section class="step primary">
-<div class="stepnum">STEP 1 · START HERE</div>
-<div class="titleline">Copy the CURRENT setup into ChatGPT</div>
-<p class="helper">Paste it into ChatGPT, then describe the cutscene you want. ChatGPT reads the CURRENT Director, Contract and Instruction Book itself.</p>
-<button id="copy" class="copy" disabled>COPY FOR CHAT</button>
-</section>
-
-<section class="step visual">
-<div class="stepnum">STEP 2 · ONLY IF CHATGPT ASKS</div>
-<div class="titleline">Upload one Visual Atlas PDF</div>
-<p class="helper">This PDF contains the real visual sheets ChatGPT uses to inspect pixels before choosing Actors, Layers, Effects or UI. You do not normally need to download it.</p>
-<a id="atlas" class="atlas" href="open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf" download>DOWNLOAD VISUAL ATLAS PDF</a>
-<div id="atlasInfo" class="inside">Checking Atlas contents...</div>
-<div class="warning"><b>Important:</b> if ChatGPT cannot render this Atlas from the public URL, upload this one PDF to the chat. Do not upload the 300MB Visual Library, old Catalog ZIPs, or four separate category PDFs unless you are diagnosing a technical problem.</div>
-</section>
-
-<details id="advancedDetails">
-<summary><div class="advancedButton">ADVANCED / TROUBLESHOOTING</div></summary>
-<div class="advanced">
+<section class="step primary"><div class="stepnum">STEP 1 · START HERE</div><div class="titleline">Copy the CURRENT filmmaking setup into ChatGPT</div><p class="helper">Paste it into ChatGPT, then describe the film in normal language. ChatGPT must plan story, visual continuity, camera intent and sound before final JSON.</p><button id="copy" class="copy" disabled>COPY FOR CHAT</button></section>
+<section class="step visual"><div class="stepnum">STEP 2 · ONLY IF CHATGPT ASKS</div><div class="titleline">Upload one Visual Atlas PDF</div><p class="helper">The Atlas contains the real pixels used to judge appearance, perspective and style. Do not choose important visuals from names alone.</p><a id="atlas" class="atlas" href="open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf" download>DOWNLOAD VISUAL ATLAS PDF</a><div id="atlasInfo" class="inside">Checking Atlas contents...</div><div class="warning"><b>Important:</b> if ChatGPT cannot render Atlas pixels from the public URL, upload this one PDF. Do not upload old Catalog ZIPs or the 300MB Visual Library for normal authoring.</div></section>
+<details><summary><div class="secondary">ADVANCED / TROUBLESHOOTING</div></summary><div>
+<a id="filmGuide" class="secondary" href="FILM_AUTHORING_GUIDE_CURRENT.md" target="_blank" rel="noopener">OPEN FILM AUTHORING GUIDE</a>
 <a id="download" class="fallback" href="open-current/STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip" download>DOWNLOAD FULL DIRECTOR PACK · METADATA FALLBACK</a>
 <a id="director" class="secondary" href="open-current/director-view/DIRECTOR_VIEW.json" target="_blank" rel="noopener">OPEN CURRENT DIRECTOR VIEW</a>
 <a id="completion" class="secondary" href="open-current/director-view/completion-queue.json" target="_blank" rel="noopener">OPEN CURRENT COMPLETION QUEUE</a>
 <a id="instructions" class="secondary" href="CHATGPT_START.txt" target="_blank" rel="noopener">OPEN CHATGPT START INSTRUCTIONS</a>
-<p class="small">Advanced tools are for diagnostics and maintenance. The normal creative workflow is COPY FOR CHAT, then one Visual Atlas PDF only if ChatGPT explicitly asks for pixel access.</p>
-</div>
-</details>
+<p class="small">Normal flow remains simple: COPY FOR CHAT, describe the film, upload the one Atlas PDF only if ChatGPT asks. Advanced files are for diagnostics.</p>
+</div></details>
 </div></main>
 <script>
-(async()=>{
- const byId=id=>document.getElementById(id),status=byId('status'),err=byId('error'),copy=byId('copy'),download=byId('download'),atlas=byId('atlas'),atlasInfo=byId('atlasInfo');
- const humanBytes=n=>{if(!Number.isFinite(n)||n<=0)return 'size unavailable';const u=['B','KB','MB','GB'];let i=0,v=n;while(v>=1024&&i<u.length-1){v/=1024;i++}return (i===0?Math.round(v):v.toFixed(v>=10?1:2))+' '+u[i]};
- try{
-  const r=await fetch('open-current/OPEN_CURRENT.json?t='+Date.now(),{cache:'no-store'});
-  if(!r.ok)throw new Error('CURRENT HTTP '+r.status);
-  const x=await r.json();
-  if(x.status!=='CURRENT_VERIFIED_OPEN')throw new Error('CURRENT is not verified open');
-  if(!x.directorView||x.directorView.requestScoped!==false)throw new Error('Full Director View is not active');
-  if(!x.visualAtlas||x.visualAtlas.status!=='CURRENT_VERIFIED_VISUAL_ATLAS'||!x.visualAtlas.pdfUrl)throw new Error('Unified Visual Atlas is not active');
-  if(x.visualAtlas.publishTransactionId!==x.publishTransactionId)throw new Error('Visual Atlas transaction mismatch');
-  status.textContent='CURRENT VERIFIED · '+x.publishTransactionId;
-  const c=x.directorView.counts||{};
-  for(const key of ['actors','layers','effects','ui','animations','audio'])byId(key).textContent=String(c[key]??0);
-  byId('metrics').hidden=false;
-  byId('scope').hidden=false;
-  byId('scope').textContent='Catalog source: '+String(x.directorView.sourceCatalogRecordCount||0)+' records · Visual representatives: '+String(x.visualAtlas.representativeCount??0)+' · Atlas pages: '+String(x.visualAtlas.totalPages??0)+'. Missing direct previews stay in the completion queue and are never permission to guess.';
-  if(x.download&&x.download.chatgptDirectorCurrentZipUrl)download.href=x.download.chatgptDirectorCurrentZipUrl;
-  atlas.href=x.visualAtlas.pdfUrl;
-  if(x.directorView.url)byId('director').href=x.directorView.url;
-  if(x.directorView.root)byId('completion').href=x.directorView.root+'completion-queue.json';
-
-  const ranges=Array.isArray(x.visualAtlas.categoryRanges)?x.visualAtlas.categoryRanges:[];
-  const rangeHtml=ranges.map(v=>'<span><b>'+v.category+'</b></span><span>pages '+v.atlasStartPage+'-'+v.atlasEndPage+'</span>').join('');
-  atlasInfo.innerHTML='<b>What this file contains</b><br>Real visual sheets for Actors, Effects, Layers and UI. Animations use Director compatibility IDs; Audio is non-visual.<div class="range">'+rangeHtml+'</div><div style="margin-top:8px">'+String(x.visualAtlas.totalPages??0)+' pages · '+String(x.visualAtlas.representativeCount??0)+' verified visual representatives · '+humanBytes(Number(x.visualAtlas.fileSizeBytes||0))+'</div>';
-
-  copy.disabled=false;
-  copy.onclick=async()=>{
-   const atlasUrl=x.visualAtlas.pdfUrl;
-   const visualIndex=x.fullVisualIndexUrl||'https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/FULL_VISUAL_INDEX.json';
-   const directorUrl=x.directorView.url;
-   const contractUrl=x.catalogContract&&x.catalogContract.rootUrl;
-   const instructionUrl=x.instructionBook&&x.instructionBook.rootUrl;
-   const msg=[
-    'Use only this STARWARS_DELTA CURRENT publish: '+x.publishTransactionId+'.',
-    'Open CURRENT: https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/OPEN_CURRENT.json',
-    'Director: '+directorUrl,
-    'FULL_VISUAL_INDEX: '+visualIndex,
-    'Visual Atlas PDF: '+atlasUrl,
-    'Contract: '+contractUrl,
-    'Instruction Book: '+instructionUrl,
-    '',
-    'AUTHORING RULES:',
-    '1. Read CURRENT and the relevant Director category files yourself.',
-    '2. Use exact CURRENT IDs and current compatibility only. Never mix old snapshots or remembered IDs.',
-    '3. For every important visual choice, shortlist candidates from Director metadata, resolve atlasPage + atlasSlot in FULL_VISUAL_INDEX, and ACTUALLY INSPECT the pixels in the Visual Atlas PDF before choosing the asset or drawing a storyboard.',
-    '4. Metadata, filename, tags and descriptions are not visual evidence.',
-    '5. If you cannot actually render and inspect the Atlas pixels from the URL, STOP visual asset selection and DO NOT GUESS. Ask me to click DOWNLOAD VISUAL ATLAS PDF on the Debora page and upload that single PDF to this chat.',
-    '6. After I upload the Atlas PDF, continue with the same CURRENT Director metadata. Do not ask for Catalog ZIPs, Instruction Book ZIPs, the 300MB Visual Library or multiple category PDFs for ordinary visual access.',
-    '7. If a recommendable asset has no verified pixel evidence, use another verified asset or report the missing preview. Never invent its appearance.',
-    '8. Validate the final cutscene JSON against the CURRENT contract before delivery.',
-    '',
-    'Now create a NEW cutscene from my request.'
-   ].join('\n');
-   await navigator.clipboard.writeText(msg);
-   copy.textContent='COPIED · PASTE INTO CHATGPT';
-   setTimeout(()=>copy.textContent='COPY FOR CHAT',1800);
-  };
- }catch(e){
-  status.textContent='CURRENT PUBLISH INCOMPLETE';
-  err.textContent=e.message+' · COPY FOR CHAT is disabled until CURRENT is consistent.';
-  copy.disabled=true;
-  atlasInfo.textContent='Visual Atlas metadata is not currently verified.';
- }
-})();
+(async()=>{const byId=id=>document.getElementById(id),status=byId('status'),err=byId('error'),copy=byId('copy'),download=byId('download'),atlas=byId('atlas'),atlasInfo=byId('atlasInfo');
+const humanBytes=n=>{if(!Number.isFinite(n)||n<=0)return 'size unavailable';const u=['B','KB','MB','GB'];let i=0,v=n;while(v>=1024&&i<u.length-1){v/=1024;i++}return (i===0?Math.round(v):v.toFixed(v>=10?1:2))+' '+u[i]};
+try{const r=await fetch('open-current/OPEN_CURRENT.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('CURRENT HTTP '+r.status);const x=await r.json();if(x.status!=='CURRENT_VERIFIED_OPEN')throw new Error('CURRENT is not verified open');if(!x.directorView||x.directorView.requestScoped!==false)throw new Error('Full Director View is not active');if(!x.visualAtlas||x.visualAtlas.status!=='CURRENT_VERIFIED_VISUAL_ATLAS'||!x.visualAtlas.pdfUrl)throw new Error('Unified Visual Atlas is not active');if(x.visualAtlas.publishTransactionId!==x.publishTransactionId)throw new Error('Visual Atlas transaction mismatch');
+status.textContent='FULL DIRECTOR + VISUAL ATLAS VERIFIED · '+x.publishTransactionId;const c=x.directorView.counts||{};for(const key of ['actors','layers','effects','ui','animations','audio'])byId(key).textContent=String(c[key]??0);byId('metrics').hidden=false;byId('scope').hidden=false;byId('scope').textContent='Catalog source: '+String(x.directorView.sourceCatalogRecordCount||0)+' records · Verified visual representatives: '+String(x.visualAtlas.representativeCount??0)+' across '+String(x.visualAtlas.totalPages??0)+' atlas pages. Exact IDs + pixels are required, but final authoring must also pass the Film Preflight.';
+if(x.download&&x.download.chatgptDirectorCurrentZipUrl)download.href=x.download.chatgptDirectorCurrentZipUrl;atlas.href=x.visualAtlas.pdfUrl;if(x.directorView.url)byId('director').href=x.directorView.url;if(x.directorView.root)byId('completion').href=x.directorView.root+'completion-queue.json';
+const ranges=Array.isArray(x.visualAtlas.categoryRanges)?x.visualAtlas.categoryRanges:[];atlasInfo.innerHTML='<b>What this file contains</b><br>Real pixel sheets for Actors, Effects, Layers and UI. Use them to judge appearance, style and perspective.<div class="range">'+ranges.map(v=>'<span><b>'+v.category+'</b></span><span>pages '+v.atlasStartPage+'-'+v.atlasEndPage+'</span>').join('')+'</div><div style="margin-top:8px">'+String(x.visualAtlas.totalPages??0)+' pages · '+String(x.visualAtlas.representativeCount??0)+' verified representatives · '+humanBytes(Number(x.visualAtlas.fileSizeBytes||0))+'</div>';
+copy.disabled=false;copy.onclick=async()=>{const msg=[
+'Use only this STARWARS_DELTA CURRENT publish: '+x.publishTransactionId+'.',
+'Open CURRENT: https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/OPEN_CURRENT.json',
+'Director: '+x.directorView.url,
+'FULL_VISUAL_INDEX: '+(x.fullVisualIndexUrl||'https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/FULL_VISUAL_INDEX.json'),
+'Visual Atlas PDF: '+x.visualAtlas.pdfUrl,
+'Contract: '+(x.catalogContract&&x.catalogContract.rootUrl),
+'Instruction Book: '+(x.instructionBook&&x.instructionBook.rootUrl),
+'Film Authoring Guide: https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/FILM_AUTHORING_GUIDE_CURRENT.md','',
+'AUTHORING RULES:',
+'1. Read CURRENT, relevant Director files, Instruction Book and Film Authoring Guide yourself.',
+'2. Verify the atomic CURRENT identity and use exact CURRENT IDs only.',
+'3. PLAN THE FILM BEFORE JSON: story progression, visual world/location continuity, variable shot rhythm, semantic camera purpose and an audio pass.',
+'4. For every important visual, shortlist from Director, resolve atlasPage/atlasSlot, and ACTUALLY INSPECT the pixels. Names/metadata are not visual evidence.',
+'5. Judge style, perspective, view angle, lighting and composition compatibility. Prefer a coherent visual world over literal keyword matching.',
+'6. Recommendable does not mean valid for every cast role. Verify required role capability and authoringRuntimeForm before assigning Hero/Supporting roles.',
+'7. If systemManagedProportions=true, authored scale defaults to 1.0. Never use scale to compensate for source texture dimensions.',
+'8. Background/FarBackground coverage is Unity-owned. Do not repair source dimensions in JSON; choose the environment and author composition intent.',
+'9. Principal assets may not rely on diagnostic placeholders. A required fallback means the preview is degraded/non-representative, not successful.',
+'10. Narrative cutscenes require an Audio pass when suitable CURRENT audio exists.',
+'11. Prefer semantic camera intent to raw camera-number micromanagement where supported.',
+'12. Before final JSON run FILM PREFLIGHT: coherent story; dramatic rhythm; location continuity; real pixel inspection; style/perspective fit; role/runtime validity; system-managed scale=1 default; Unity-owned background Cover; representative principal materialization; audio pass; semantic camera; effect depth/purpose; exact contract validation.',
+'13. If you cannot render Atlas pixels from the URL, STOP visual selection and ask me to upload exactly one file: STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf. Do not guess.',
+'14. Validate final cutscene JSON against the CURRENT contract before delivery.','',
+'Now create a NEW cutscene from my request.'
+].join('\n');await navigator.clipboard.writeText(msg);copy.textContent='COPIED · PASTE INTO CHATGPT';setTimeout(()=>copy.textContent='COPY FOR CHAT',1800);};
+}catch(e){status.textContent='CURRENT PUBLISH INCOMPLETE';err.textContent=e.message+' · COPY FOR CHAT is disabled until CURRENT is consistent.';copy.disabled=true;atlasInfo.textContent='Visual Atlas metadata is not currently verified.';}})();
 </script></body></html>
