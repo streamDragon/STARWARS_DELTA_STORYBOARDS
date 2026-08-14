@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Deep audit Director catalog coverage
+      - name: Audit Director metadata completeness and current authoring scope
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
@@ -23,7 +23,7 @@ jobs:
           set -euo pipefail
           python3 - <<'PY'
           import json, os, pathlib, tempfile, urllib.request, zipfile
-          from collections import Counter, defaultdict
+          from collections import Counter
 
           repo = os.environ['REPOSITORY']
           token = os.environ['GITHUB_TOKEN']
@@ -33,15 +33,15 @@ jobs:
               'Accept':'application/vnd.github+json',
               'Authorization':f'Bearer {token}',
               'X-GitHub-Api-Version':'2022-11-28',
-              'User-Agent':'STARWARS-DELTA-director-auditor'
+              'User-Agent':'STARWARS-DELTA-metadata-auditor'
           }
           req = urllib.request.Request(f'https://api.github.com/repos/{repo}/releases/tags/{tag}', headers=headers)
           with urllib.request.urlopen(req, timeout=120) as r:
               release = json.load(r)
-          release_assets = {a['name']: a for a in release['assets']}
+          assets = {a['name']: a for a in release['assets']}
 
           def download(name, dst):
-              req = urllib.request.Request(release_assets[name]['browser_download_url'], headers={'User-Agent':'STARWARS-DELTA-director-auditor'})
+              req = urllib.request.Request(assets[name]['browser_download_url'], headers={'User-Agent':'STARWARS-DELTA-metadata-auditor'})
               with urllib.request.urlopen(req, timeout=600) as r, open(dst, 'wb') as f:
                   while True:
                       chunk = r.read(1024 * 1024)
@@ -49,19 +49,17 @@ jobs:
                           break
                       f.write(chunk)
 
-          def norm_use(record):
-              return str(record.get('cutscenePrimaryUse') or '(none)')
+          def nonempty(record, key):
+              value = record.get(key)
+              return value not in (None, '', [], {})
 
-          def record_type(record):
-              return str(record.get('type') or record.get('kind') or '(none)')
+          def use(record):
+              return str(record.get('cutscenePrimaryUse') or '(none)')
 
           with tempfile.TemporaryDirectory() as td0:
               td = pathlib.Path(td0)
               catalog_zip = td / 'catalog.zip'
-              visual_zip = td / 'visual.zip'
               download('STARWARS_DELTA_CHATGPT_CATALOG_CURRENT.zip', catalog_zip)
-              download('STARWARS_DELTA_DESIGNER_AI_VISUAL_LIBRARY_CURRENT.zip', visual_zip)
-
               with zipfile.ZipFile(catalog_zip) as z:
                   summary = json.loads(z.read('catalog_summary.json').decode('utf-8-sig'))
                   diagnostics = json.loads(z.read('diagnostics_summary.json').decode('utf-8-sig'))
@@ -72,186 +70,99 @@ jobs:
                           if raw:
                               records.append(json.loads(raw.decode('utf-8-sig')))
 
-              by_id = {str(r.get('assetId')): r for r in records if r.get('assetId')}
-              family_members = defaultdict(list)
-              for r in records:
-                  family = str(r.get('familyId') or r.get('family') or '')
-                  if family:
-                      family_members[family].append(r)
-
-              print('=== CATALOG IDENTITY ===')
-              print('CURRENT_TRANSACTION', current.get('publishTransactionId'))
+              print('=== FRESHNESS ===')
+              print('PUBLISH_TRANSACTION', current.get('publishTransactionId'))
               print('PUBLISHED_UTC', current.get('publishedUtc'))
               print('LAST_COMPLETED_SCAN_UTC', summary.get('lastCompletedScanUtc'))
               print('CATALOG_GENERATED_UTC', summary.get('generatedUtc'))
               print('CATALOG_RECORDS', len(records))
               print('ANNOTATED', diagnostics.get('annotated'))
               print('REVIEWED', diagnostics.get('reviewed'))
-              print('STALE', diagnostics.get('stale'))
               print('NEEDS_REVIEW', diagnostics.get('needsReview'))
-              print('CUTSCENE_READY', diagnostics.get('cutsceneReady'))
-              print('PRODUCTION_READY', diagnostics.get('productionReady'))
-              print('FAMILIES', diagnostics.get('familyCount'))
-              print('COLLECTIONS', diagnostics.get('collectionCount'))
+              print('STALE', diagnostics.get('stale'))
 
-              print('=== RECORD SHAPE ===')
-              print('TYPE_COUNTS', json.dumps(Counter(record_type(r) for r in records).most_common(), ensure_ascii=False))
-              print('PRIMARY_USE_COUNTS', json.dumps(Counter(norm_use(r) for r in records).most_common(), ensure_ascii=False))
-              print('VISION_REVIEW_COUNTS', json.dumps(Counter(str(r.get('visionReviewState') or '(none)') for r in records).most_common(), ensure_ascii=False))
-              print('REVIEW_STATE_COUNTS', json.dumps(Counter(str(r.get('reviewState') or '(none)') for r in records).most_common(), ensure_ascii=False))
-              print('ENTITY_KIND_COUNTS', json.dumps(Counter(str(r.get('entityKind') or '(none)') for r in records).most_common(), ensure_ascii=False))
+              all_keys = sorted({key for r in records for key in r.keys()})
+              print('RECORD_KEYS', json.dumps(all_keys, ensure_ascii=False))
+              interesting = [key for key in all_keys if any(t in key.lower() for t in ('annot','vision','review','stale','scan','utc','presentation','location','scene','lighting'))]
+              print('INTERESTING_KEYS', json.dumps(interesting, ensure_ascii=False))
 
-              animation_frames = []
-              for r in records:
-                  tokens = [str(x).lower() for x in (r.get('roles') or []) + (r.get('tags') or [])]
-                  if any('animation frame' in x or 'animation-frame' in x or 'sequence-frame' in x for x in tokens):
-                      animation_frames.append(r)
-              animation_families = set(str(r.get('familyId') or r.get('family') or r.get('displayName')) for r in animation_frames)
-              print('ANIMATION_FRAME_RECORDS', len(animation_frames))
-              print('ANIMATION_FRAME_FAMILIES', len(animation_families))
+              director_uses = ['Actor','Layer','Effect','Ui','Animation','Audio']
+              fields = [
+                  'description','roles','tags','capabilities','family','familyId','collections',
+                  'cutsceneSemanticFacets','cutscenePresentationDescription','cutsceneLocationType',
+                  'cutsceneSceneState','cutsceneLightingMood','cutsceneProportionClass',
+                  'compatibleAnimationIds','compatibleDialogueVisualIds'
+              ]
 
-              def type_matches(fragment):
-                  fragment = fragment.lower()
-                  return sum(1 for r in records if fragment in record_type(r).lower())
-              print('SPRITE_RECORDS', type_matches('sprite'))
-              print('AUDIO_RECORDS', sum(1 for r in records if 'audio' in record_type(r).lower() or norm_use(r).lower() == 'audio' or 'Cutscene.Audio' in (r.get('capabilities') or [])))
-              print('ANIMATION_ASSET_RECORDS', sum(1 for r in records if 'animation' in record_type(r).lower() and 'sprite' not in record_type(r).lower()))
-              print('MATERIAL_RECORDS', type_matches('material'))
-              print('TEXTURE_RECORDS', type_matches('texture'))
-              print('PREFAB_RECORDS', sum(1 for r in records if record_type(r).lower() in ('prefab','gameobject')))
+              print('=== METADATA COMPLETENESS BY DIRECTOR USE ===')
+              for name in director_uses:
+                  subset = [r for r in records if use(r).lower() == name.lower()]
+                  out = {'use':name,'total':len(subset)}
+                  for field in fields:
+                      out[field] = sum(1 for r in subset if nonempty(r, field))
+                  out['visionReviewed'] = sum(1 for r in subset if str(r.get('visionReviewState') or '').lower() == 'reviewed')
+                  out['visionNeedsReview'] = sum(1 for r in subset if str(r.get('visionReviewState') or '').lower() == 'needsreview')
+                  out['visionUnreviewed'] = sum(1 for r in subset if str(r.get('visionReviewState') or '').lower() in ('','unreviewed','unknown'))
+                  out['entityKnown'] = sum(1 for r in subset if str(r.get('entityKind') or '').lower() not in ('','unknown'))
+                  out['safeForPreview'] = sum(1 for r in subset if bool(r.get('cutsceneSafeForPreview')))
+                  out['safeForPublish'] = sum(1 for r in subset if bool(r.get('cutsceneSafeForPublish')))
+                  out['presentationConfidencePositive'] = sum(1 for r in subset if float(r.get('cutscenePresentationConfidence') or 0) > 0)
+                  print(json.dumps(out, ensure_ascii=False))
 
-              with zipfile.ZipFile(visual_zip) as z:
-                  manifest = json.loads(z.read('visual_library_manifest.json').decode('utf-8-sig'))
-                  visuals = manifest.get('assets', [])
-                  mapping = manifest.get('assetToVisualReference') or {}
-                  names = set(z.namelist())
-                  mapped_ids = set(mapping.keys()) if isinstance(mapping, dict) else set()
-                  if not mapped_ids:
-                      for v in visuals:
-                          mapped_ids.update(str(x) for x in (v.get('catalogAssetIds') or []) if x)
+              print('=== GLOBAL PRESENTATION METADATA ===')
+              for field in ('cutsceneFitMode','cutsceneBackgroundCoverage','cutsceneLocationType','cutsceneSceneState','cutsceneLightingMood'):
+                  print(field, json.dumps(Counter(str(r.get(field) or '(empty)') for r in records).most_common(30), ensure_ascii=False))
+              print('PRESENTATION_DESCRIPTION_NONEMPTY', sum(1 for r in records if nonempty(r,'cutscenePresentationDescription')))
+              print('PRESENTATION_CONFIDENCE_POSITIVE', sum(1 for r in records if float(r.get('cutscenePresentationConfidence') or 0) > 0))
+              print('SEMANTIC_FACETS_NONEMPTY', sum(1 for r in records if nonempty(r,'cutsceneSemanticFacets')))
 
-                  visual_by_ref = {str(v.get('visualReferenceId')): v for v in visuals}
-                  id_to_visual = {}
-                  if isinstance(mapping, dict):
-                      for aid, ref in mapping.items():
-                          if isinstance(ref, str):
-                              id_to_visual[str(aid)] = visual_by_ref.get(ref)
-                          elif isinstance(ref, dict):
-                              rid = ref.get('visualReferenceId') or ref.get('id')
-                              id_to_visual[str(aid)] = visual_by_ref.get(str(rid)) if rid else None
-                  for v in visuals:
-                      for aid in v.get('catalogAssetIds') or []:
-                          id_to_visual.setdefault(str(aid), v)
+              print('=== CANONICAL ACTOR AND ANIMATION KNOWLEDGE ===')
+              actor_records = [r for r in records if use(r).lower() == 'actor']
+              animation_records = [r for r in records if use(r).lower() == 'animation']
+              print('ACTOR_TOTAL', len(actor_records))
+              print('PREFERRED_ACTOR_IDENTITIES', sum(1 for r in actor_records if bool(r.get('isPreferredActorIdentity'))))
+              print('ACTOR_WITH_PREFERRED_ACTOR_ID', sum(1 for r in actor_records if nonempty(r,'preferredActorAssetId')))
+              print('ACTOR_WITH_COMPATIBLE_ANIMATIONS', sum(1 for r in actor_records if nonempty(r,'compatibleAnimationIds')))
+              print('ANIMATION_TOTAL', len(animation_records))
+              animation_keys = sorted({k for r in animation_records[:100] for k in r.keys()})
+              print('ANIMATION_RECORD_KEYS', json.dumps(animation_keys, ensure_ascii=False))
+              print('ANIMATION_SAMPLE')
+              for r in animation_records[:3]:
+                  print(json.dumps({k:r.get(k) for k in ('assetId','displayName','path','description','roles','tags','capabilities','family','familyId','collections','visionReviewState','cutsceneWarnings','compatibleAnimationIds')}, ensure_ascii=False))
 
-                  def has_pixels(v):
-                      if not v:
-                          return False
-                      p = v.get('primaryPreview') or v.get('thumbnailPath')
-                      return bool(p and p in names)
+              print('=== AUDIO KNOWLEDGE ===')
+              audio_records = [r for r in records if use(r).lower() == 'audio']
+              print('AUDIO_TOTAL', len(audio_records))
+              print('AUDIO_TYPE_COUNTS', json.dumps(Counter(str(r.get('type') or '(none)') for r in audio_records), ensure_ascii=False))
+              print('AUDIO_WITH_DESCRIPTION', sum(1 for r in audio_records if nonempty(r,'description')))
+              print('AUDIO_WITH_ROLES', sum(1 for r in audio_records if nonempty(r,'roles')))
+              print('AUDIO_WITH_TAGS', sum(1 for r in audio_records if nonempty(r,'tags')))
+              print('AUDIO_WITH_COLLECTIONS', sum(1 for r in audio_records if nonempty(r,'collections')))
+              print('AUDIO_SAFE_PREVIEW', sum(1 for r in audio_records if bool(r.get('cutsceneSafeForPreview'))))
+              audio_keys = sorted({k for r in audio_records for k in r.keys()})
+              print('AUDIO_RECORD_KEYS', json.dumps(audio_keys, ensure_ascii=False))
+              print('AUDIO_SAMPLE')
+              for r in audio_records[:5]:
+                  print(json.dumps({k:r.get(k) for k in ('assetId','displayName','path','description','roles','tags','capabilities','family','collections','visionReviewState','cutsceneWarnings')}, ensure_ascii=False))
 
-                  image_infos = [i for i in z.infolist() if i.filename.lower().endswith(('.png','.jpg','.jpeg','.webp'))]
-                  atlas_infos = [i for i in image_infos if i.filename.startswith('atlases/')]
-                  preview_infos = [i for i in image_infos if '/preview.' in i.filename]
-                  other_infos = [i for i in image_infos if i not in atlas_infos and i not in preview_infos]
-                  def mib(n): return round(n / (1024*1024), 2)
-                  print('=== 300MB VISUAL LIBRARY ===')
-                  print('VISUAL_IDENTITIES', len(visuals))
-                  print('CATALOG_RECORD_COUNT_DECLARED', manifest.get('catalogRecordCount'))
-                  print('IMAGE_FILES', len(image_infos))
-                  print('ATLASES', len(atlas_infos), 'UNCOMPRESSED_MIB', mib(sum(i.file_size for i in atlas_infos)), 'COMPRESSED_MIB', mib(sum(i.compress_size for i in atlas_infos)))
-                  print('PREVIEW_IMAGES', len(preview_infos), 'UNCOMPRESSED_MIB', mib(sum(i.file_size for i in preview_infos)), 'COMPRESSED_MIB', mib(sum(i.compress_size for i in preview_infos)))
-                  print('OTHER_IMAGES', len(other_infos), 'UNCOMPRESSED_MIB', mib(sum(i.file_size for i in other_infos)), 'COMPRESSED_MIB', mib(sum(i.compress_size for i in other_infos)))
-                  print('VISUAL_CATEGORY_COUNTS', json.dumps(Counter(str(v.get('category') or 'Other') for v in visuals), ensure_ascii=False))
-                  print('VISUAL_SOURCE_KIND_COUNTS', json.dumps(Counter(str(v.get('sourceKind') or 'Unknown') for v in visuals), ensure_ascii=False))
-
-                  unmapped = [r for r in records if str(r.get('assetId')) not in mapped_ids]
-                  print('=== RECORDS NOT IN VISUAL LIBRARY ===')
-                  print('UNMAPPED_RECORDS', len(unmapped))
-                  print('UNMAPPED_TYPE_COUNTS', json.dumps(Counter(record_type(r) for r in unmapped).most_common(), ensure_ascii=False))
-                  print('UNMAPPED_PRIMARY_USE_COUNTS', json.dumps(Counter(norm_use(r) for r in unmapped).most_common(), ensure_ascii=False))
-                  print('UNMAPPED_CAPABILITY_TOP', json.dumps(Counter(str(c) for r in unmapped for c in (r.get('capabilities') or [])).most_common(30), ensure_ascii=False))
-
-                  print('=== DIRECTOR USE COVERAGE ===')
-                  director_uses = ['Actor','Layer','Effect','Ui','Audio','Animation']
-                  for use in director_uses:
-                      subset = [r for r in records if norm_use(r).lower() == use.lower()]
-                      mapped = [r for r in subset if str(r.get('assetId')) in mapped_ids]
-                      pixels = [r for r in subset if has_pixels(id_to_visual.get(str(r.get('assetId'))))]
-                      print('USE', use, 'TOTAL', len(subset), 'MAPPED', len(mapped), 'PIXELS', len(pixels), 'UNMAPPED', len(subset)-len(mapped))
-
-                  # Missing visual identities are not automatically holes. Check whether their Catalog family has another pixel-backed member.
-                  missing_visuals = [v for v in visuals if not has_pixels(v)]
-                  proxyable = []
-                  true_holes = []
-                  for v in missing_visuals:
-                      catalog_ids = [str(x) for x in (v.get('catalogAssetIds') or [])]
-                      related_records = [by_id[x] for x in catalog_ids if x in by_id]
-                      families = set(str(r.get('familyId') or r.get('family') or '') for r in related_records if (r.get('familyId') or r.get('family')))
-                      proxy_candidates = []
-                      for fam in families:
-                          for r in family_members.get(fam, []):
-                              vv = id_to_visual.get(str(r.get('assetId')))
-                              if has_pixels(vv):
-                                  proxy_candidates.append(r)
-                                  break
-                          if proxy_candidates:
-                              break
-                      if proxy_candidates:
-                          proxyable.append((v, proxy_candidates[0]))
-                      else:
-                          true_holes.append(v)
-
-                  print('=== 279 MISSING PREVIEWS RECLASSIFIED ===')
-                  print('MISSING_VISUAL_IDENTITIES', len(missing_visuals))
-                  print('SAME_FAMILY_PIXEL_PROXY_AVAILABLE', len(proxyable))
-                  print('NO_SAME_FAMILY_PIXEL_PROXY', len(true_holes))
-                  print('TRUE_HOLE_CATEGORY_COUNTS', json.dumps(Counter(str(v.get('category') or 'Other') for v in true_holes), ensure_ascii=False))
-                  print('TRUE_HOLE_SOURCE_KIND_COUNTS', json.dumps(Counter(str(v.get('sourceKind') or 'Unknown') for v in true_holes), ensure_ascii=False))
-                  print('TRUE_HOLE_SAMPLE')
-                  for v in true_holes[:40]:
-                      print(json.dumps({
-                          'assetId': v.get('assetId'),
-                          'displayName': v.get('displayName'),
-                          'category': v.get('category'),
-                          'sourceKind': v.get('sourceKind'),
-                          'sourcePath': v.get('sourcePath'),
-                          'representativePurposes': v.get('representativePurposes'),
-                          'compatibleAnimationIds': v.get('compatibleAnimationIds'),
-                      }, ensure_ascii=False))
-
-                  # What movie-relevant records still have neither direct pixels nor a family proxy?
-                  movie_uses = {'actor','layer','effect','ui'}
-                  unresolved_movie_records = []
-                  for r in records:
-                      if norm_use(r).lower() not in movie_uses:
-                          continue
-                      aid = str(r.get('assetId'))
-                      if has_pixels(id_to_visual.get(aid)):
-                          continue
-                      fam = str(r.get('familyId') or r.get('family') or '')
-                      family_has_pixels = any(has_pixels(id_to_visual.get(str(x.get('assetId')))) for x in family_members.get(fam, [])) if fam else False
-                      if not family_has_pixels:
-                          unresolved_movie_records.append(r)
-                  print('=== ACTUAL MOVIE-INPUT GAPS ===')
-                  print('UNRESOLVED_MOVIE_RECORDS', len(unresolved_movie_records))
-                  print('UNRESOLVED_MOVIE_TYPE_COUNTS', json.dumps(Counter(record_type(r) for r in unresolved_movie_records).most_common(), ensure_ascii=False))
-                  print('UNRESOLVED_MOVIE_USE_COUNTS', json.dumps(Counter(norm_use(r) for r in unresolved_movie_records).most_common(), ensure_ascii=False))
-                  print('UNRESOLVED_MOVIE_FAMILY_COUNT', len(set(str(r.get('familyId') or r.get('family') or r.get('displayName')) for r in unresolved_movie_records)))
-
-                  # Audio is intentionally non-visual; show its actual readiness instead of calling it a hole.
-                  audio_records = [r for r in records if norm_use(r).lower() == 'audio' or 'Cutscene.Audio' in (r.get('capabilities') or [])]
-                  print('=== AUDIO ===')
-                  print('DIRECTOR_AUDIO_RECORDS', len(audio_records))
-                  print('AUDIO_TYPE_COUNTS', json.dumps(Counter(record_type(r) for r in audio_records).most_common(), ensure_ascii=False))
-                  print('AUDIO_READY', sum(1 for r in audio_records if r.get('ready') or str(r.get('readiness') or '').upper() == 'READY'))
-                  print('AUDIO_CUTSCENE_SAFE_PREVIEW', sum(1 for r in audio_records if r.get('cutsceneSafeForPreview')))
-
-                  # Annotation freshness by the records themselves.
-                  print('=== ANNOTATION STATUS ===')
-                  print('ANNOTATED_DIAGNOSTIC', diagnostics.get('annotated'))
-                  print('REVIEWED_DIAGNOSTIC', diagnostics.get('reviewed'))
-                  print('STALE_DIAGNOSTIC', diagnostics.get('stale'))
-                  print('VISION_REVIEWED_RECORDS', sum(1 for r in records if str(r.get('visionReviewState') or '').lower() == 'reviewed'))
-                  print('VISION_UNREVIEWED_RECORDS', sum(1 for r in records if str(r.get('visionReviewState') or '').lower() in ('','unreviewed','unknown')))
+              print('=== CURRENT DIRECT CHATGPT AUTHORING PACKAGE ===')
+              authoring_manifest = json.loads(pathlib.Path('designer-ai/open-current/authoring/MANIFEST.json').read_text(encoding='utf-8')) if pathlib.Path('designer-ai/open-current/authoring/MANIFEST.json').exists() else None
+              subset_path = pathlib.Path('designer-ai/open-current/CATALOG_SUBSET.json')
+              if not subset_path.exists():
+                  subset_path = pathlib.Path('designer-ai/open-current/authoring/CATALOG_SUBSET.json')
+              subset = json.loads(subset_path.read_text(encoding='utf-8-sig')) if subset_path.exists() else None
+              print('AUTHORING_MANIFEST_PRESENT', bool(authoring_manifest))
+              if authoring_manifest:
+                  print('AUTHORING_MANIFEST', json.dumps(authoring_manifest, ensure_ascii=False))
+              print('CATALOG_SUBSET_PRESENT', bool(subset))
+              if subset:
+                  subset_records = subset.get('records') or []
+                  print('CATALOG_SUBSET_SCOPE', subset.get('scope'))
+                  print('CATALOG_SUBSET_RECORDS', len(subset_records))
+                  print('CATALOG_SUBSET_USE_COUNTS', json.dumps(Counter(use(r) for r in subset_records).most_common(), ensure_ascii=False))
+                  print('CATALOG_SUBSET_TYPE_COUNTS', json.dumps(Counter(str(r.get('type') or r.get('kind') or '(none)') for r in subset_records).most_common(), ensure_ascii=False))
+                  print('CATALOG_SUBSET_AUDIO', sum(1 for r in subset_records if use(r).lower() == 'audio'))
+                  print('CATALOG_SUBSET_ANIMATION', sum(1 for r in subset_records if use(r).lower() == 'animation'))
+                  print('CATALOG_SUBSET_PREFERRED_ACTORS', sum(1 for r in subset_records if bool(r.get('isPreferredActorIdentity'))))
 
           PY
