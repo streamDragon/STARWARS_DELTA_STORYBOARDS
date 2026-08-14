@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"><title>STARWARS_DELTA - Debora Cutscene Start</title>
 <style>
-:root{color-scheme:dark;font-family:Inter,Segoe UI,Arial,sans-serif;background:#0b1018;color:#eef4ff}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 20% 0,#1b3452,#0b1018 50%)}main{width:min(840px,calc(100% - 32px));padding:28px}.card{background:#121b28;border:1px solid #2a4059;border-radius:20px;padding:28px;box-shadow:0 20px 60px #0008}.eyebrow{color:#7fd5ff;font-size:12px;font-weight:800;letter-spacing:.16em}h1{font-size:clamp(32px,7vw,44px);margin:8px 0 8px}p{color:#a9b7ca;line-height:1.55}.status{display:inline-block;padding:8px 12px;border-radius:999px;background:#143526;color:#9ef0bd;border:1px solid #286a49;font-weight:800;margin:10px 0 12px}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:14px 0}.metric{background:#0d1622;border:1px solid #26384d;border-radius:11px;padding:10px}.metric b{display:block;font-size:20px}.metric span{color:#8294aa;font-size:11px;text-transform:uppercase;letter-spacing:.06em}button,a{display:block;width:100%;text-align:center;border:0;border-radius:12px;padding:16px 18px;font-weight:900;font-size:16px;text-decoration:none;margin-top:12px;cursor:pointer}.copy{background:#8ce7ad;color:#07150d}.fallback{background:#332b16;color:#ffe69a;border:1px solid #6b5925}.secondary{background:#1c2a3c;color:#eaf5ff;border:1px solid #314762}.small{font-size:13px;color:#8193aa}.error{color:#ffaaa5}.scope{background:#0e1621;border-left:3px solid #7fd5ff;padding:10px 12px;border-radius:8px;color:#a9b7ca;font-size:13px;line-height:1.45}button:disabled{opacity:.45;cursor:not-allowed}</style>
+:root{color-scheme:dark;font-family:Inter,Segoe UI,Arial,sans-serif;background:#0b1018;color:#eef4ff}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 20% 0,#1b3452,#0b1018 50%)}main{width:min(840px,calc(100% - 32px));padding:28px}.card{background:#121b28;border:1px solid #2a4059;border-radius:20px;padding:28px;box-shadow:0 20px 60px #0008}.eyebrow{color:#7fd5ff;font-size:12px;font-weight:800;letter-spacing:.16em}h1{font-size:clamp(32px,7vw,44px);margin:8px 0 8px}p{color:#a9b7ca;line-height:1.55}.status{display:inline-block;padding:8px 12px;border-radius:999px;background:#143526;color:#9ef0bd;border:1px solid #286a49;font-weight:800;margin:10px 0 12px}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:14px 0}.metric{background:#0d1622;border:1px solid #26384d;border-radius:11px;padding:10px}.metric b{display:block;font-size:20px}.metric span{color:#8294aa;font-size:11px;text-transform:uppercase;letter-spacing:.06em}button,a{display:block;width:100%;text-align:center;border:0;border-radius:12px;padding:16px 18px;font-weight:900;font-size:16px;text-decoration:none;margin-top:12px;cursor:pointer}.copy{background:#8ce7ad;color:#07150d}.atlas{background:#173d5c;color:#bfe9ff;border:1px solid #2d709e}.fallback{background:#332b16;color:#ffe69a;border:1px solid #6b5925}.secondary{background:#1c2a3c;color:#eaf5ff;border:1px solid #314762}.small{font-size:13px;color:#8193aa}.error{color:#ffaaa5}.scope{background:#0e1621;border-left:3px solid #7fd5ff;padding:10px 12px;border-radius:8px;color:#a9b7ca;font-size:13px;line-height:1.45}button:disabled{opacity:.45;cursor:not-allowed}</style>
 </head>
 <body><main><div class="card">
 <div class="eyebrow">STARWARS_DELTA · DESIGNER AI</div>
 <h1>Debora Cutscene Start</h1>
-<p>Normal use is deliberately boring: press <b>COPY FOR CHAT</b>, paste it into ChatGPT, and describe the film you want. ChatGPT reads the current full Director View, Instruction Book, visual evidence, animations and audio itself.</p>
+<p>Press <b>COPY FOR CHAT</b>, paste it into ChatGPT, and describe the film you want. ChatGPT reads the current Director, Instruction Book, animations and audio itself, then uses one unified Visual Atlas PDF to actually inspect the art before choosing it.</p>
 <div id="status" class="status">CHECKING CURRENT...</div>
 <div id="error" class="error"></div>
 <div id="metrics" class="metrics" hidden>
@@ -21,35 +21,40 @@
 </div>
 <div id="scope" class="scope" hidden></div>
 <button id="copy" class="copy" disabled>COPY FOR CHAT</button>
+<a id="atlas" class="atlas" href="open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf" target="_blank" rel="noopener">OPEN CURRENT VISUAL ATLAS PDF</a>
 <a id="download" class="fallback" href="open-current/STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip" download>DOWNLOAD CURRENT DIRECTOR PACK · FALLBACK</a>
 <a id="director" class="secondary" href="open-current/director-view/DIRECTOR_VIEW.json" target="_blank" rel="noopener">OPEN CURRENT DIRECTOR VIEW</a>
 <a id="completion" class="secondary" href="open-current/director-view/completion-queue.json" target="_blank" rel="noopener">OPEN CURRENT COMPLETION QUEUE</a>
 <a class="secondary" href="CHATGPT_START.txt" target="_blank" rel="noopener">OPEN CHATGPT START INSTRUCTIONS</a>
-<p class="small">The 300MB Visual Library is an evidence archive, not the normal workflow. The fallback Director Pack is compact, atomic, and already contains the matching Director View, contract, Instruction Book and representative visual sheets.</p>
+<p class="small">The large Visual Library archive is evidence storage, not the normal workflow. The preferred visual source is now one CURRENT Atlas PDF. The fallback Director Pack stays atomic and contains the matching Director, contract, Instruction Book, indexes, sheets and atlas.</p>
 </div></main>
 <script>
 (async()=>{
- const byId=id=>document.getElementById(id),status=byId('status'),err=byId('error'),copy=byId('copy'),download=byId('download');
+ const byId=id=>document.getElementById(id),status=byId('status'),err=byId('error'),copy=byId('copy'),download=byId('download'),atlas=byId('atlas');
  try{
   const r=await fetch('open-current/OPEN_CURRENT.json?t='+Date.now(),{cache:'no-store'});
   if(!r.ok)throw new Error('CURRENT HTTP '+r.status);
   const x=await r.json();
   if(x.status!=='CURRENT_VERIFIED_OPEN')throw new Error('CURRENT is not verified open');
   if(!x.directorView||x.directorView.requestScoped!==false)throw new Error('Full Director View is not active');
-  status.textContent='FULL DIRECTOR CURRENT VERIFIED · '+x.publishTransactionId;
+  if(!x.visualAtlas||x.visualAtlas.status!=='CURRENT_VERIFIED_VISUAL_ATLAS'||!x.visualAtlas.pdfUrl)throw new Error('Unified Visual Atlas is not active');
+  status.textContent='FULL DIRECTOR + VISUAL ATLAS VERIFIED · '+x.publishTransactionId;
   const c=x.directorView.counts||{};
   for(const key of ['actors','layers','effects','ui','animations','audio'])byId(key).textContent=String(c[key]??0);
   byId('metrics').hidden=false;
   const raw=x.visualLibraryPreviewCoverage||{};
   byId('scope').hidden=false;
-  byId('scope').textContent='Catalog source: '+String(x.directorView.sourceCatalogRecordCount||0)+' records. Direct visual previews: '+String(raw.directPixelEvidenceCount??0)+' / '+String(raw.sourceVisualIdentityCount??0)+' Visual Library identities. This preview number is evidence coverage only, not total Director coverage; Audio and Animation are available through their own Director files.';
+  byId('scope').textContent='Catalog source: '+String(x.directorView.sourceCatalogRecordCount||0)+' records. Verified visual representatives: '+String(x.visualAtlas.representativeCount??raw.directPixelEvidenceCount??0)+' across '+String(x.visualAtlas.totalPages??0)+' atlas pages. Missing direct previews remain completion work and do not block verified assets.';
   if(x.download&&x.download.chatgptDirectorCurrentZipUrl)download.href=x.download.chatgptDirectorCurrentZipUrl;
+  atlas.href=x.visualAtlas.pdfUrl;
   if(x.directorView.url)byId('director').href=x.directorView.url;
   if(x.directorView.root)byId('completion').href=x.directorView.root+'completion-queue.json';
   copy.disabled=false;
   copy.onclick=async()=>{
    const fallback=(x.download&&x.download.chatgptDirectorCurrentZipUrl)||'https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip';
-   const msg='Use the STARWARS_DELTA FULL DIRECTOR CURRENT instructions at https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/CHATGPT_START.txt . Read OPEN_CURRENT and the full Director View yourself. Search the Director category files for Actors, Layers, Effects, UI, Animations and Audio. Inspect actual pageImageUrl pixels before visual choices or storyboards. Use exact current asset IDs and validate against the current contract. Do not expose prefab internals, gameplay scripts, colliders or physics as authoring vocabulary. If direct access genuinely fails, download the atomic fallback pack yourself from '+fallback+'. Then create a NEW cutscene from my request.';
+   const atlasUrl=x.visualAtlas.pdfUrl;
+   const visualIndex=x.fullVisualIndexUrl||'https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/FULL_VISUAL_INDEX.json';
+   const msg='Use the STARWARS_DELTA FULL DIRECTOR CURRENT instructions at https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/CHATGPT_START.txt . Read OPEN_CURRENT and the full Director View yourself. Search the Director category files for Actors, Layers, Effects, UI, Animations and Audio. For every important visual choice, resolve the exact asset in '+visualIndex+', then open the SINGLE CURRENT VISUAL ATLAS PDF at '+atlasUrl+' and inspect the exact atlasPage + atlasSlot pixels before choosing it or drawing a storyboard. Do not infer appearance from names or metadata. Use exact current asset IDs and validate against the current contract. If direct Pages or Atlas access genuinely fails, use the atomic fallback pack from '+fallback+'. Then create a NEW cutscene from my request.';
    await navigator.clipboard.writeText(msg);
    copy.textContent='COPIED - PASTE INTO CHATGPT';
    setTimeout(()=>copy.textContent='COPY FOR CHAT',1800);
