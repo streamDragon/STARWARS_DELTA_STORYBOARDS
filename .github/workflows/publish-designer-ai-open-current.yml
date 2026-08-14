@@ -9,6 +9,7 @@ on:
       - 'designer-ai/tools/build_open_current.py'
       - 'designer-ai/tools/finalize_open_current.py'
       - 'designer-ai/tools/build_director_view.py'
+      - 'designer-ai/tools/finalize_director_current.py'
       - '.github/workflows/publish-designer-ai-open-current.yml'
 
 permissions:
@@ -48,6 +49,9 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/build_director_view.py
 
+      - name: Finalize atomic Director identity and eligibility audit
+        run: python3 designer-ai/tools/finalize_director_current.py
+
       - name: Validate final CURRENT payload
         run: |
           set -euo pipefail
@@ -59,20 +63,42 @@ jobs:
           root = pathlib.Path('_open_current_stage')
           current = json.loads((root / 'OPEN_CURRENT.json').read_text(encoding='utf-8'))
           director = json.loads((root / 'director-view' / 'DIRECTOR_VIEW.json').read_text(encoding='utf-8'))
+          queue = json.loads((root / 'director-view' / 'completion-queue.json').read_text(encoding='utf-8'))
+          audit = json.loads((root / 'director-view' / 'eligibility-audit.json').read_text(encoding='utf-8'))
+          manifest = json.loads((root / 'DIRECTOR_PACK_MANIFEST.json').read_text(encoding='utf-8'))
           pack = root / 'STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip'
+
+          expected_identity = {
+              'publishTransactionId': director['publishTransactionId'],
+              'catalogRevision': director['catalogRevision'],
+              'snapshotContentHash': director['snapshotContentHash'],
+              'contractRevision': director['contractRevision'],
+              'schemaHash': director['schemaHash'],
+          }
 
           assert current['status'] == 'CURRENT_VERIFIED_OPEN'
           assert current['directorView']['status'] == 'CURRENT_FULL_CATALOG_PROJECTION'
           assert current['directorView']['requestScoped'] is False
           assert director['sourceCatalogRecordCount'] > 20000
+          assert current['directorView']['sourceCatalogRecordCount'] == director['sourceCatalogRecordCount']
           assert director['counts']['animations'] > 0
           assert director['counts']['audio'] > 0
+          assert current['catalogRevision'] == director['catalogRevision']
+          assert current['snapshotContentHash'] == director['snapshotContentHash']
+          assert current['atomicIdentity'] == expected_identity
+          assert director['atomicIdentity'] == expected_identity
+          assert manifest['atomicIdentity'] == expected_identity
+          assert audit['publishTransactionId'] == director['publishTransactionId']
+          assert audit['catalogRevision'] == director['catalogRevision']
+          assert queue['eligibilityAuditUrl'] == current['eligibilityAudit']['url']
+          assert queue['visualPreviewCount'] == len(queue['visualPreviews'])
           assert pack.is_file() and pack.stat().st_size > 0
 
           with zipfile.ZipFile(pack) as archive:
               names = set(archive.namelist())
               required = {
                   'CHATGPT_READ_FIRST.txt',
+                  'DIRECTOR_PACK_MANIFEST.json',
                   'OPEN_CURRENT.json',
                   'director-view/DIRECTOR_VIEW.json',
                   'director-view/actors.json',
@@ -81,14 +107,29 @@ jobs:
                   'director-view/ui.json',
                   'director-view/animations.json',
                   'director-view/audio.json',
+                  'director-view/completion-queue.json',
+                  'director-view/eligibility-audit.json',
                   'catalog-contract/CUTSCENE_AUTHORING_CONTRACT.json',
               }
               missing = sorted(required - names)
               assert not missing, f'Missing Director pack files: {missing}'
 
+              zip_current = json.loads(archive.read('OPEN_CURRENT.json').decode('utf-8-sig'))
+              zip_director = json.loads(archive.read('director-view/DIRECTOR_VIEW.json').decode('utf-8-sig'))
+              zip_manifest = json.loads(archive.read('DIRECTOR_PACK_MANIFEST.json').decode('utf-8-sig'))
+              zip_audit = json.loads(archive.read('director-view/eligibility-audit.json').decode('utf-8-sig'))
+              zip_queue = json.loads(archive.read('director-view/completion-queue.json').decode('utf-8-sig'))
+              assert zip_current['atomicIdentity'] == expected_identity
+              assert zip_director['atomicIdentity'] == expected_identity
+              assert zip_manifest['atomicIdentity'] == expected_identity
+              assert zip_audit['publishTransactionId'] == expected_identity['publishTransactionId']
+              assert zip_audit['catalogRevision'] == expected_identity['catalogRevision']
+              assert zip_queue['eligibilityAuditUrl'] == current['eligibilityAudit']['url']
+
           print('DIRECTOR_CURRENT_VALIDATED')
           print('SOURCE_CATALOG_RECORDS', director['sourceCatalogRecordCount'])
           print('DIRECTOR_COUNTS', director['counts'])
+          print('ELIGIBILITY_REVIEW', audit['flaggedDirectorVisualCount'])
           print('PACK_BYTES', pack.stat().st_size)
           PY
 
