@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Audit current Catalog and Visual Library
+      - name: Locate full Catalog and audit Current
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
@@ -25,135 +25,87 @@ jobs:
           import json, os, pathlib, tempfile, urllib.request, zipfile
           from collections import Counter
 
-          repo = os.environ['REPOSITORY']
-          token = os.environ['GITHUB_TOKEN']
-          current = json.loads(pathlib.Path('designer-ai/current.json').read_text(encoding='utf-8'))
-          tag = current['releaseUrl'].rsplit('/releases/tag/', 1)[1]
-          headers = {
-              'Accept': 'application/vnd.github+json',
-              'Authorization': f'Bearer {token}',
-              'X-GitHub-Api-Version': '2022-11-28',
-              'User-Agent': 'STARWARS-DELTA-current-auditor',
-          }
-          req = urllib.request.Request(f'https://api.github.com/repos/{repo}/releases/tags/{tag}', headers=headers)
-          with urllib.request.urlopen(req, timeout=120) as r:
-              release = json.load(r)
-          assets = {a['name']: a for a in release['assets']}
+          repo=os.environ['REPOSITORY']; token=os.environ['GITHUB_TOKEN']
+          current=json.loads(pathlib.Path('designer-ai/current.json').read_text(encoding='utf-8'))
+          tag=current['releaseUrl'].rsplit('/releases/tag/',1)[1]
+          headers={'Accept':'application/vnd.github+json','Authorization':f'Bearer {token}','X-GitHub-Api-Version':'2022-11-28','User-Agent':'STARWARS-DELTA-current-auditor'}
+          req=urllib.request.Request(f'https://api.github.com/repos/{repo}/releases/tags/{tag}',headers=headers)
+          with urllib.request.urlopen(req,timeout=120) as r: release=json.load(r)
+          assets={a['name']:a for a in release['assets']}
 
-          def download_release(name, destination):
-              a = assets[name]
-              req = urllib.request.Request(a['browser_download_url'], headers={'User-Agent': 'STARWARS-DELTA-current-auditor'})
-              with urllib.request.urlopen(req, timeout=600) as r, open(destination, 'wb') as f:
+          def dl(name,dst):
+              req=urllib.request.Request(assets[name]['browser_download_url'],headers={'User-Agent':'STARWARS-DELTA-current-auditor'})
+              with urllib.request.urlopen(req,timeout=600) as r,open(dst,'wb') as f:
                   while True:
-                      b = r.read(1024 * 1024)
-                      if not b:
-                          break
+                      b=r.read(1024*1024)
+                      if not b: break
                       f.write(b)
 
-          def count(records, key, empty='(empty)'):
-              return Counter(str(r.get(key)) if r.get(key) not in (None, '') else empty for r in records)
+          with tempfile.TemporaryDirectory() as td0:
+              td=pathlib.Path(td0)
+              cz=td/'catalog.zip'; dl('STARWARS_DELTA_CHATGPT_CATALOG_CURRENT.zip',cz)
+              with zipfile.ZipFile(cz) as z:
+                  print('CATALOG_PACKAGE_FILES')
+                  for n in z.namelist(): print('FILE',n,'SIZE',z.getinfo(n).file_size)
+                  for n in ('catalog_summary.json','diagnostics_summary.json','collections.json','capabilities.json','families.json'):
+                      if n in z.namelist():
+                          try:
+                              data=json.loads(z.read(n).decode('utf-8-sig'))
+                              print('SUMMARY',n,json.dumps(data,ensure_ascii=False)[:20000])
+                          except Exception as e: print('SUMMARY_PARSE_FAIL',n,type(e).__name__)
 
-          with tempfile.TemporaryDirectory() as td_raw:
-              td = pathlib.Path(td_raw)
+              vz=td/'visual.zip'; dl('STARWARS_DELTA_DESIGNER_AI_VISUAL_LIBRARY_CURRENT.zip',vz)
+              with zipfile.ZipFile(vz) as z:
+                  m=json.loads(z.read('visual_library_manifest.json').decode('utf-8-sig'))
+                  visuals=m.get('assets',[]); names=set(z.namelist())
+                  print('VISUAL_META',json.dumps({k:v for k,v in m.items() if k not in ('assets','assetToVisualReference','qualityWarnings','compactVisualGuide')},ensure_ascii=False))
+                  print('VISUAL_CATEGORY_COUNTS',dict(Counter(str(a.get('category') or 'Other') for a in visuals)))
+                  print('VISUAL_SOURCE_KIND_COUNTS',dict(Counter(str(a.get('sourceKind') or 'Unknown') for a in visuals)))
+                  print('VISUAL_ENTITY_COUNTS',dict(Counter(str(a.get('entityClassification') or 'Unknown') for a in visuals)))
+                  print('VISUAL_PRIMARY_USE_COUNTS',dict(Counter(str(a.get('cutscenePrimaryUse') or 'Unknown') for a in visuals)))
+                  print('VISUAL_WITH_PREVIEW',sum(1 for a in visuals if (a.get('primaryPreview') or a.get('thumbnailPath')) in names))
+                  print('VISUAL_WITHOUT_PREVIEW',sum(1 for a in visuals if not (a.get('primaryPreview') or a.get('thumbnailPath')) or (a.get('primaryPreview') or a.get('thumbnailPath')) not in names))
 
-              # ---- FULL CATALOG ----
-              catalog_zip = td / 'catalog.zip'
-              download_release('STARWARS_DELTA_CHATGPT_CATALOG_CURRENT.zip', catalog_zip)
-              with zipfile.ZipFile(catalog_zip) as z:
-                  json_names = [n for n in z.namelist() if n.lower().endswith('.json')]
-                  print('CATALOG_ZIP_FILE_COUNT', len(z.namelist()))
-                  print('CATALOG_JSON_FILES', json_names)
-                  catalog_name = None
-                  catalog = None
-                  for n in sorted(json_names, key=lambda x: z.getinfo(x).file_size, reverse=True):
+              bz=td/'bundle.zip'; dl(next(n for n in assets if n.startswith('STARWARS_DELTA_DESIGNER_AI_BUNDLE_')),bz)
+              with zipfile.ZipFile(bz) as z:
+                  files=z.namelist()
+                  print('BUNDLE_FILE_COUNT',len(files))
+                  candidates=[]
+                  for n in files:
+                      low=n.lower(); info=z.getinfo(n)
+                      if any(t in low for t in ('catalog','snapshot','record','asset')) and info.file_size>1000000:
+                          candidates.append((info.file_size,n))
+                  print('BUNDLE_LARGE_CATALOG_CANDIDATES')
+                  for size,n in sorted(candidates,reverse=True)[:40]: print('CANDIDATE',size,n)
+                  for size,n in sorted(candidates,reverse=True)[:12]:
+                      if not n.lower().endswith(('.json','.jsonl','.txt')) or size>120000000: continue
                       try:
-                          data = json.loads(z.read(n).decode('utf-8-sig'))
-                      except Exception:
-                          continue
-                      if isinstance(data, dict) and isinstance(data.get('records'), list):
-                          catalog_name, catalog = n, data
-                          break
-                  if catalog is None:
-                      raise SystemExit('Could not find catalog JSON with records[]')
+                          raw=z.read(n)
+                          text=raw.decode('utf-8-sig')
+                          if n.lower().endswith('.json'):
+                              data=json.loads(text)
+                              if isinstance(data,dict): print('CANDIDATE_KEYS',n,list(data.keys())[:80])
+                              if isinstance(data,dict) and isinstance(data.get('records'),list):
+                                  records=data['records']; print('FOUND_FULL_RECORDS',n,len(records));
+                                  print('RECORD_KEYS',list(records[0].keys()) if records else [])
+                                  print('TYPE_COUNTS',dict(Counter(str(r.get('type') or '(empty)') for r in records)))
+                                  print('PRIMARY_USE_COUNTS',dict(Counter(str(r.get('cutscenePrimaryUse') or '(empty)') for r in records)))
+                                  print('VISION_REVIEW_COUNTS',dict(Counter(str(r.get('visionReviewState') or '(empty)') for r in records)))
+                                  print('REVIEW_STATE_COUNTS',dict(Counter(str(r.get('reviewState') or '(empty)') for r in records)))
+                                  print('ENTITY_KIND_COUNTS',dict(Counter(str(r.get('entityKind') or '(empty)') for r in records)))
+                                  frames=[r for r in records if any('animation frame' in str(v).lower() or 'sequence-frame' in str(v).lower() for v in (r.get('roles') or [])+(r.get('tags') or []))]
+                                  print('ANIMATION_FRAME_RECORDS',len(frames)); print('ANIMATION_FAMILIES',len(set((r.get('familyId') or r.get('family') or r.get('displayName')) for r in frames)))
+                                  print('SPRITES',sum(1 for r in records if str(r.get('type','')).lower()=='sprite'))
+                                  print('PREFABS',sum(1 for r in records if str(r.get('type','')).lower() in ('prefab','gameobject')))
+                                  print('AUDIO',sum(1 for r in records if 'audio' in str(r.get('type','')).lower() or str(r.get('cutscenePrimaryUse','')).lower()=='audio'))
+                                  print('MATERIALS',sum(1 for r in records if str(r.get('type','')).lower()=='material'))
+                                  print('TEXTURES',sum(1 for r in records if 'texture' in str(r.get('type','')).lower()))
+                                  print('ANIMATION_CLIPS',sum(1 for r in records if 'animation' in str(r.get('type','')).lower() and str(r.get('type','')).lower()!='sprite'))
+                                  print('BLANK_PRESENTATION',sum(1 for r in records if not r.get('cutscenePresentationDescription')))
+                                  print('BLANK_LOCATION',sum(1 for r in records if not r.get('cutsceneLocationType')))
+                                  raise SystemExit(0)
+                      except SystemExit: raise
+                      except Exception as e: print('CANDIDATE_READ_FAIL',n,type(e).__name__,str(e)[:120])
 
-                  records = catalog['records']
-                  print('CATALOG_MAIN_JSON', catalog_name)
-                  print('CATALOG_ROOT_KEYS', list(catalog.keys()))
-                  print('CATALOG_RECORD_COUNT', len(records))
-                  print('CATALOG_META', json.dumps({k:v for k,v in catalog.items() if k != 'records' and not isinstance(v,(list,dict))}, ensure_ascii=False))
-                  if records:
-                      print('CATALOG_RECORD_KEYS', list(records[0].keys()))
-                      interesting_keys = sorted({k for r in records[:500] for k in r.keys() if any(t in k.lower() for t in ('vision','annot','review','scan','utc','modified','classif'))})
-                      print('CATALOG_ANNOTATION_REVIEW_KEYS', interesting_keys)
-
-                  print('TYPE_COUNTS', dict(count(records, 'type').most_common()))
-                  print('KIND_COUNTS', dict(count(records, 'kind').most_common()))
-                  print('PRIMARY_USE_COUNTS', dict(count(records, 'cutscenePrimaryUse').most_common()))
-                  print('ENTITY_KIND_COUNTS', dict(count(records, 'entityKind').most_common()))
-                  print('VISION_REVIEW_COUNTS', dict(count(records, 'visionReviewState').most_common()))
-                  print('REVIEW_STATE_COUNTS', dict(count(records, 'reviewState').most_common()))
-                  print('READINESS_COUNTS', dict(count(records, 'readiness').most_common()))
-                  print('SAFE_PREVIEW', dict(Counter(str(bool(r.get('cutsceneSafeForPreview'))) for r in records)))
-                  print('SAFE_PUBLISH', dict(Counter(str(bool(r.get('cutsceneSafeForPublish'))) for r in records)))
-                  print('NEEDS_HUMAN_REVIEW', dict(Counter(str(bool(r.get('cutsceneNeedsHumanReview'))) for r in records)))
-                  print('PREFERRED_ACTOR_IDENTITIES', sum(1 for r in records if r.get('isPreferredActorIdentity')))
-                  print('WITH_COMPATIBLE_ANIMATIONS', sum(1 for r in records if r.get('compatibleAnimationIds')))
-
-                  animation_frames = [r for r in records if any('animation frame' in str(v).lower() or 'sequence-frame' in str(v).lower() for v in (r.get('roles') or []) + (r.get('tags') or []))]
-                  print('ANIMATION_FRAME_RECORDS', len(animation_frames))
-                  print('ANIMATION_FRAME_UNIQUE_FAMILIES', len(set((r.get('familyId') or r.get('family') or r.get('displayName')) for r in animation_frames)))
-
-                  print('AUDIO_RECORDS', sum(1 for r in records if str(r.get('type','')).lower() in ('audioclip','audio') or str(r.get('cutscenePrimaryUse','')).lower() == 'audio'))
-                  print('MATERIAL_RECORDS', sum(1 for r in records if str(r.get('type','')).lower() == 'material'))
-                  print('TEXTURE_RECORDS', sum(1 for r in records if 'texture' in str(r.get('type','')).lower()))
-                  print('SPRITE_RECORDS', sum(1 for r in records if str(r.get('type','')).lower() == 'sprite'))
-                  print('PREFAB_RECORDS', sum(1 for r in records if str(r.get('type','')).lower() in ('prefab','gameobject')))
-                  print('ANIMATION_CLIP_RECORDS', sum(1 for r in records if 'animationclip' in str(r.get('type','')).lower() or str(r.get('type','')).lower() == 'animation'))
-                  print('GENERATED_PATH_RECORDS', sum(1 for r in records if '/generated/' in str(r.get('path','')).lower()))
-
-                  roots = Counter()
-                  for r in records:
-                      p = str(r.get('path') or '')
-                      if p.startswith('Assets/_PKG/'):
-                          roots['_PKG'] += 1
-                      elif p.startswith('Assets/MY_ART/'):
-                          roots['MY_ART'] += 1
-                      elif p.startswith('Assets/_Game/'):
-                          roots['_Game'] += 1
-                      elif p.startswith('Assets/'):
-                          roots['Assets/other'] += 1
-                      else:
-                          roots['other'] += 1
-                  print('PATH_ROOT_COUNTS', dict(roots))
-
-                  blank_presentation = sum(1 for r in records if not r.get('cutscenePresentationDescription'))
-                  blank_location = sum(1 for r in records if not r.get('cutsceneLocationType'))
-                  print('BLANK_PRESENTATION_DESCRIPTION', blank_presentation)
-                  print('BLANK_LOCATION_TYPE', blank_location)
-
-              # ---- VISUAL LIBRARY ----
-              visual_zip = td / 'visual.zip'
-              download_release('STARWARS_DELTA_DESIGNER_AI_VISUAL_LIBRARY_CURRENT.zip', visual_zip)
-              with zipfile.ZipFile(visual_zip) as z:
-                  names = z.namelist()
-                  manifest = json.loads(z.read('visual_library_manifest.json').decode('utf-8-sig'))
-                  visuals = manifest.get('assets', [])
-                  direct = []
-                  missing = []
-                  name_set = set(names)
-                  for a in visuals:
-                      preview = a.get('primaryPreview') or a.get('thumbnailPath')
-                      (direct if preview and preview in name_set else missing).append(a)
-                  print('VISUAL_ZIP_FILE_COUNT', len(names))
-                  print('VISUAL_IMAGE_COUNT', sum(1 for n in names if n.lower().endswith(('.png','.jpg','.jpeg','.webp'))))
-                  print('VISUAL_IDENTITY_COUNT', len(visuals))
-                  print('VISUAL_CATEGORY_COUNTS', dict(Counter(str(a.get('category') or 'Other') for a in visuals)))
-                  print('VISUAL_SOURCE_KIND_COUNTS', dict(Counter(str(a.get('sourceKind') or 'Unknown') for a in visuals)))
-                  print('VISUAL_WITH_DIRECT_PREVIEW', len(direct))
-                  print('VISUAL_WITHOUT_DIRECT_PREVIEW', len(missing))
-                  print('VISUAL_MISSING_BY_CATEGORY', dict(Counter(str(a.get('category') or 'Other') for a in missing)))
-                  print('VISUAL_MANIFEST_META', json.dumps({k:v for k,v in manifest.items() if k not in ('assets','assetToVisualReference','qualityWarnings','compactVisualGuide')}, ensure_ascii=False))
-
-          print('CURRENT_TRANSACTION', current.get('publishTransactionId'))
-          print('CURRENT_PUBLISHED_UTC', current.get('publishedUtc'))
+          print('FULL_RECORDS_NOT_FOUND')
           PY
