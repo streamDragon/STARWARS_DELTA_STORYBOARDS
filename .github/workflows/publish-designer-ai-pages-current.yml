@@ -46,10 +46,12 @@ jobs:
           cp "$SRC/SOURCE_CURRENT.json" "$DEST/SOURCE_CURRENT.json"
           cp "$SRC/CHATGPT_VISUAL_INDEX.json" "$DEST/CHATGPT_VISUAL_INDEX.json"
           cp "$SRC/FULL_VISUAL_INDEX.json" "$DEST/FULL_VISUAL_INDEX.json"
+          cp "$SRC/ASSET_VISUAL_LOOKUP.json" "$DEST/ASSET_VISUAL_LOOKUP.json"
           cp "$SRC/authoring/CATALOG_SUBSET.json" "$DEST/CATALOG_SUBSET.json"
           cp "$SRC/authoring/INSTRUCTION_SUBSET.json" "$DEST/INSTRUCTION_SUBSET.json"
           cp "$SRC/authoring/VISUAL_PACK/proof_manifest.json" "$DEST/authoring/VISUAL_PACK/proof_manifest.json"
           cp -a "$SRC/authoring/VISUAL_PACK/assets" "$DEST/authoring/VISUAL_PACK/assets"
+          cp -a "$SRC/full-visual-index" "$DEST/full-visual-index"
           cp -a "$SRC/full-visual-sheets" "$DEST/full-visual-sheets"
 
       - name: Commit Pages CURRENT
@@ -63,6 +65,6 @@ jobs:
             echo 'Pages CURRENT already up to date.'
             exit 0
           fi
-          git commit -m 'Publish Designer AI full visual CURRENT for ChatGPT'
+          git commit -m 'Publish Designer AI direct visual CURRENT for ChatGPT'
           git pull --rebase origin main
           git push origin main
