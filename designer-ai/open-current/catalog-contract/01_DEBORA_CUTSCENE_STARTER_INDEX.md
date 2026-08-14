@@ -9,70 +9,74 @@ Exported record count: 22506
 ## Actors
 Actor-primary records that are safe for Preview.
 Count: 30
-- `051e0b3854f08b94d8b988ff8a23c4ac:3110914309453802679` — Delta7 Starfighter
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-1113357152` — player 6
   - Animation count: 0; sample IDs: none
-- `1cb6108c17cb046408f158f6ba798416:1755457364051241212` — Delta7 Starfighter Hunyuan
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-1142697123` — player 23
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-1204267923` — player 20
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-1316810141` — player 4
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-1416467039` — player 2
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-1472282018` — player 16
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-147685235` — player 10
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-1718851435` — player 11
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-1907959319` — player 14
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-2022430009` — player 5
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-2041228250` — player 15
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-214228986` — player 7
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-281316472` — player 24
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-350461071` — player 9
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-455829103` — player 27
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-469583944` — player 13
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-575801896` — player 1
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:-947702702` — player 21
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:1011885465` — player 17
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:1036674334` — player 12
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:167504257` — player 8
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:1739014201` — player 19
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:1854569756` — player 22
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:2115370165` — player 18
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:255827085` — player 3
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:298805213` — player 0
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:633558873` — player 25
+  - Animation count: 0; sample IDs: none
+- `08f2f3394e7f7c4478721c3ecf02e5d4:928039468` — player 26
   - Animation count: 0; sample IDs: none
 - `0a936ae5d70c6c14ab943882f62e0a7a:21300000` — TitleBorder
   - Animation count: 0; sample IDs: none
 - `0aeee19417c9d5a41ac7045edd5bb550:21300000` — Instruct z
   - Animation count: 0; sample IDs: none
-- `0ebd1e936c26d074e99bdd9f2650ba9a:21300000` — BallPurple
-  - Animation count: 0; sample IDs: none
-- `0f9b17191ff06694dbaab67b86e24ac4:21300000` — missile boss
-  - Animation count: 0; sample IDs: none
-- `16f269fbacf08e74ebf7b07584724f62:21300000` — Instruct x
-  - Animation count: 0; sample IDs: none
-- `19c4d2e44046fae44a48ada4ef3eea55:21300000` — TruckWheelSprite
-  - Animation count: 0; sample IDs: none
-- `1ce2d400ed8c6604082202cb30d01dc7:21300000` — powerup
-  - Animation count: 0; sample IDs: none
-- `2043cefaaaf560729a0e0add8125c68e:21300000` — meteorite 02
-  - Animation count: 0; sample IDs: none
-- `27044ab0329411a4f8906b81499cf824:21300000` — ConcentricCircles
-  - Animation count: 0; sample IDs: none
-- `2969d90b86698124696637a6df64a112:21300000` — Info
-  - Animation count: 0; sample IDs: none
-- `3372ee62b47d0033aaad979ef49af036:21300000` — meteorite 03
-  - Animation count: 0; sample IDs: none
-- `3ab69feb94450ca8487c26ce598fd3ad:21300000` — meteorite 01
-  - Animation count: 0; sample IDs: none
-- `3ec569f3f3136dd4993ff11571ce61d1:21300000` — Instruct burst
-  - Animation count: 0; sample IDs: none
-- `4029ecf14233cea4980157b99d0cbc26:21300000` — Fog 0
-  - Animation count: 0; sample IDs: none
-- `4029ecf14233cea4980157b99d0cbc26:21300002` — Fog 1
-  - Animation count: 0; sample IDs: none
-- `4029ecf14233cea4980157b99d0cbc26:21300004` — Fog 2
-  - Animation count: 0; sample IDs: none
-- `4029ecf14233cea4980157b99d0cbc26:21300006` — Fog 3
-  - Animation count: 0; sample IDs: none
-- `4029ecf14233cea4980157b99d0cbc26:21300008` — Fog 4
-  - Animation count: 0; sample IDs: none
-- `4029ecf14233cea4980157b99d0cbc26:21300010` — Fog 5
-  - Animation count: 0; sample IDs: none
-- `4029ecf14233cea4980157b99d0cbc26:21300012` — Fog 6
-  - Animation count: 0; sample IDs: none
-- `4029ecf14233cea4980157b99d0cbc26:21300014` — Fog 7
-  - Animation count: 0; sample IDs: none
-- `4029ecf14233cea4980157b99d0cbc26:21300016` — Fog 8
-  - Animation count: 0; sample IDs: none
-- `4029ecf14233cea4980157b99d0cbc26:21300018` — Fog 9
-  - Animation count: 0; sample IDs: none
-- `4029ecf14233cea4980157b99d0cbc26:21300020` — Fog 10
-  - Animation count: 0; sample IDs: none
-- `43dfe842c05a3074081f71937c94cb39:21300000` — BallWhite
-  - Animation count: 0; sample IDs: none
-- `498049f5e8733c64ebb3d5214b19f821:21300000` — Pointer
-  - Animation count: 0; sample IDs: none
-- `4c1d2e5eaebf5a2469d3192ed9186dd2:21300000` — Instruct space
-  - Animation count: 0; sample IDs: none
-- `57b470e25ec211c4ba10a38badd70c0d:21300000` — arrow
-  - Animation count: 0; sample IDs: none
 
 ## Actors with verified animations
 Actor-primary records that are safe for Preview and have verified compatibleAnimationIds.
 Count: 30
+- `cf0035e2e21be4f48ba6e6a012e9204e:-5082840419902793436` — player ship topview 1
+  - Animation count: 1; sample IDs: `f5d57ba7880468944af99db61c42a333:7400000`
+- `cf0035e2e21be4f48ba6e6a012e9204e:-948810827438414497` — player ship topview 0
+  - Animation count: 1; sample IDs: `f5d57ba7880468944af99db61c42a333:7400000`
 - `004c4fbdbf7ac384d8ecaa1b146bc47d:21300000` — Moss2 animation 10
   - Animation count: 1; sample IDs: `d3f995024d4866e43b09f6a0a7e46309:7400000`
 - `0082b9469b2503645aa50a4d800d03bf:21300000` — Moss3 animation 51
@@ -129,10 +133,6 @@ Count: 30
   - Animation count: 1; sample IDs: `d3f995024d4866e43b09f6a0a7e46309:7400000`
 - `277b5274059872a40b23838acfce8ed0:21300000` — 33
   - Animation count: 1; sample IDs: `d371cac449dd1fc4ca5c74f6219845b2:7400000`
-- `27da3b0effaed664d98acb97e8876c9c:21300000` — Moss2 animation 35
-  - Animation count: 1; sample IDs: `d3f995024d4866e43b09f6a0a7e46309:7400000`
-- `27f905f5c9393714a8adffea5ed6d842:21300000` — Moss3 animation 55
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
 
 ## Layers
 Layer-primary records that are safe for Preview.
@@ -229,12 +229,12 @@ Count: 30
 - `bb887fbf41c3c21479e09241603d1b1d:21300000` — MaskedLaserBlast1
 - `be7db3bcd8324a54ab6d9276324ce609:21300000` — WarpLaserBlast2
 - `c0cebaf4bc9c82a41b9717ded54021de:21300000` — Engine Thrust
-- `c1d831ced0541be438b945f729393226:21300000` — portal glow
 - `c4ff6c32086c4a1a8ee15772489e0e2f:21300000` — SpinLaserBlast4
 - `c61acca6522f4b838606e78470aa9d37:21300000` — RoBlast1
 - `d7f49a2350eb45af8db7d67388f5dec4:21300000` — RoBlast3
 - `dec5cdd8106daa04fab0e513db7f92b7:21300000` — MaskedLaserBlast2
 - `ea65d7786d483fd4bbe4bdc480a45c33:21300000` — card 1
+- `ff9da68a5b3949288d8a86df251c5d0e:21300000` — WarpLaserBlast3
 
 ## Audio
 Audio-primary records that are safe for Preview.

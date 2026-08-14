@@ -9,8 +9,8 @@ Read `00_CHATGPT_READ_FIRST.txt` first. It is the required ChatGPT entrypoint; t
 
 IRONCLAD RULE: `cutscenePrimaryUse` is the authoritative placement of each asset.
 Do not infer placement from the filename, path, picture, general capabilities, or creative intention.
-- Contract revision: 82ACB76B4A67F4570B463DE3C2189C13E418E1CABE83A9A9C8D867DFB6698360
-- Schema hash: 96BE087805BCA5E07AC0BDDCAA2FAE3DBFC81FCA5BA56E179D0D8158926167FC
+- Contract revision: 3BE709BD8B9143E9E6F52BDADAF1671F15B60805CC7DB33D34A2AC38D08072A1
+- Schema hash: F7CA124AA3417E02F078796144AF0274284D91CA721DD311C6432587ED54193F
 - Semantic classification revision: ENTITY_KIND_V1
 For Actor records, entityKind is semantic metadata only. It never decides whether an item belongs in cast, layers, effects, or ui; use cutscenePrimaryUse for ownership.
 Unknown is legal when evidence is insufficient or contradictory. Do not guess from broad filename or description keywords.

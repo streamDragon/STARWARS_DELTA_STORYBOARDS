@@ -2,7 +2,7 @@
   "schema": "STARWARS_DELTA_CUTSCENE_AUTHORING_CONTRACT",
   "schemaVersion": 5,
   "authoringContractVersion": 1,
-  "contractRevision": "82ACB76B4A67F4570B463DE3C2189C13E418E1CABE83A9A9C8D867DFB6698360",
+  "contractRevision": "3BE709BD8B9143E9E6F52BDADAF1671F15B60805CC7DB33D34A2AC38D08072A1",
   "rule": "Write only exact canonical closed values. Never write numeric enum values. Ordinary import is read-only; use explicit migration for aliases, omitted legacy defaults, or stale contract identity.",
   "enums": [
     {
@@ -710,6 +710,12 @@
         },
         "Hero": {
           "replacement": "Reveal",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Hold": {
+          "replacement": "Static",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."

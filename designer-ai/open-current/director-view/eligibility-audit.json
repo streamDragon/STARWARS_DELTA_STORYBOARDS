@@ -2,11 +2,11 @@
   "schema": "STARWARS_DELTA_DIRECTOR_ELIGIBILITY_AUDIT",
   "schemaVersion": 1,
   "status": "SOURCE_REVIEW_REQUIRED",
-  "publishTransactionId": "20260813-212754773-ff89e3c3",
+  "publishTransactionId": "20260814-120406075-d1d97323",
   "catalogRevision": 7625331408923133048,
   "sourceCatalogRecordCount": 22506,
-  "flaggedDirectorVisualCount": 47,
-  "flaggedCompletionVisualCount": 20,
+  "flaggedDirectorVisualCount": 25,
+  "flaggedCompletionVisualCount": 0,
   "policy": "This is a conservative Git-side audit only. Flagged entries are not silently removed from the authoritative Catalog or Director projection. Unity must confirm eligibility/exclusion at source and atomically republish.",
   "signals": {
     "sample_or_demo_path": "Source path looks like sample, example or demo content.",
@@ -15,20 +15,6 @@
     "generic_technical_name": "Display name is a generic helper/geometry term and needs source eligibility review."
   },
   "items": [
-    {
-      "category": "Actor",
-      "displayName": "Animated Cameron",
-      "authoringAssetId": "970e9f2326c0d445f8c78ae675268945:5822944720597535731",
-      "visualReferenceId": "visual_afb912dafaec34cf170d",
-      "sourcePaths": [
-        "Assets/Samples/Cinemachine/3.0.0-pre.9/Shared Assets/Prefabs/Animated Cameron.prefab",
-        "Assets/Samples/Cinemachine/3.0.0-pre.9/Shared Assets/Prefabs/Enemy.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
-    },
     {
       "category": "Actor",
       "displayName": "Asteroid lg",
@@ -40,69 +26,6 @@
         "Assets/_Game/MY_VARIA/Art/SpaceShooter/Asteroid_md.png",
         "Assets/_Game/MY_VARIA/Art/Sprites/Demo/Images/SpaceShooter/Asteroid_md.png",
         "Assets/_Game/MY_VARIA/Art/SpaceShooter/Asteroid_sm.png"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_VERIFIED"
-    },
-    {
-      "category": "Actor",
-      "displayName": "Capsule",
-      "authoringAssetId": "c86abfae434615b42b75a210ebf0e768:3171646703521399634",
-      "visualReferenceId": "visual_53bc0ffc78c7ec3eb075",
-      "sourcePaths": [
-        "Assets/Shield Shader FREE/Prefabs/Capsule.prefab"
-      ],
-      "reasons": [
-        "generic_technical_name"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
-    },
-    {
-      "category": "Actor",
-      "displayName": "EndWall",
-      "authoringAssetId": "a53fe34087284794dbe0aad895670634:1000742671741720",
-      "visualReferenceId": "visual_ab2d5323b2a9ad79b4be",
-      "sourcePaths": [
-        "Assets/Shared/Environment/Prefabs/EndWall.prefab"
-      ],
-      "reasons": [
-        "generic_technical_name"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
-    },
-    {
-      "category": "Actor",
-      "displayName": "Lane",
-      "authoringAssetId": "cb2ad19a440512b469ff0d5f39a8075d:6339991416171302776",
-      "visualReferenceId": "visual_8bbaad7b4f5219ed02cc",
-      "sourcePaths": [
-        "Assets/Samples/Cinemachine/3.0.0-pre.9/Shared Assets/Prefabs/Lane.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path",
-        "generic_technical_name"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
-    },
-    {
-      "category": "Actor",
-      "displayName": "Robot Spawner Tower 1",
-      "authoringAssetId": "cb9fe869662c07041bbc22bd7626250c:21300000",
-      "visualReferenceId": "visual_54c8ec23075adf6d8d02",
-      "sourcePaths": [
-        "Assets/_Game/MY_Core/MY_Sprites/HAGGAI_STUFF/Robot_Shooting_Tower.png",
-        "Assets/_Game/MY_Core/MY_Sprites/HAGGAI_STUFF/Robot_Spawner_Tower 1.png",
-        "Assets/_Game/MY_Core/MY_Sprites/HAGGAI_STUFF/Robot_Spawner_Tower.png",
-        "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_TURRET_ENEMY/_TowerVariants/Cannon_Right_Alpha_Trimmed 1.png",
-        "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_TURRET_ENEMY/_TowerVariants/ChatGPT Image Jul 1, 2026, 07_38_28 PM.png",
-        "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_TURRET_ENEMY/_TowerVariants/Tower_Upright_Alpha_Trimmed.png",
-        "Assets/_Game/MY_VARIA/Art/General/BlockTurret.png",
-        "Assets/_Game/MY_VARIA/Art/General/LaserCannon.png",
-        "Assets/_Game/MY_VARIA/Art/SpaceShooter/Cannon.png",
-        "Assets/_Game/MY_VARIA/Art/Sprites/Demo/Images/TankShooter/TankTurret.png",
-        "Assets/_Game/MY_VARIA/Art/TankShooter/TankTurret.png"
       ],
       "reasons": [
         "sample_or_demo_path"
@@ -149,16 +72,24 @@
     },
     {
       "category": "Actor",
-      "displayName": "Tile Palette",
-      "authoringAssetId": "4309edd4d13c9dd45b77ed9e8936d11d:3211983173688998903",
-      "visualReferenceId": "visual_854cb8b8212366c953f2",
+      "displayName": "TankTurret",
+      "authoringAssetId": "cb9fe869662c07041bbc22bd7626250c:21300000",
+      "visualReferenceId": "visual_54c8ec23075adf6d8d02",
       "sourcePaths": [
-        "Assets/Samples/Cinemachine/3.1.6/2D Samples/2D Platformer/Environment/Tile Palette.prefab"
+        "Assets/_Game/MY_Core/MY_Sprites/HAGGAI_STUFF/Robot_Shooting_Tower.png",
+        "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_TURRET_ENEMY/_TowerVariants/Cannon_Right_Alpha_Trimmed 1.png",
+        "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_TURRET_ENEMY/_TowerVariants/ChatGPT Image Jul 1, 2026, 07_38_28 PM.png",
+        "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_TURRET_ENEMY/_TowerVariants/Tower_Upright_Alpha_Trimmed.png",
+        "Assets/_Game/MY_VARIA/Art/General/BlockTurret.png",
+        "Assets/_Game/MY_VARIA/Art/General/LaserCannon.png",
+        "Assets/_Game/MY_VARIA/Art/SpaceShooter/Cannon.png",
+        "Assets/_Game/MY_VARIA/Art/Sprites/Demo/Images/TankShooter/TankTurret.png",
+        "Assets/_Game/MY_VARIA/Art/TankShooter/TankTurret.png"
       ],
       "reasons": [
         "sample_or_demo_path"
       ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
+      "pixelStatus": "PIXELS_VERIFIED"
     },
     {
       "category": "Actor",
@@ -175,23 +106,6 @@
       "pixelStatus": "PIXELS_VERIFIED"
     },
     {
-      "category": "Layer",
-      "displayName": "TileFloatingRightEdge",
-      "authoringAssetId": "cbb2fe4d69e24da4db5d9340b9a78b41:21300000",
-      "visualReferenceId": "visual_10967e4ea962139c47a1",
-      "sourcePaths": [
-        "Assets/Samples/Cinemachine/3.1.6/2D Samples/2D Platformer/Environment/Sprites/TileFloatingLeftEdge.png",
-        "Assets/Samples/Cinemachine/3.1.6/2D Samples/2D Platformer/Environment/Sprites/TileFloatingMiddle.png",
-        "Assets/Samples/Cinemachine/3.1.6/2D Samples/2D Platformer/Environment/Sprites/TileFloatingRightEdge.png",
-        "Assets/Samples/Cinemachine/3.1.6/2D Samples/2D Platformer/Environment/Sprites/TileGround.png",
-        "Assets/Samples/Cinemachine/3.1.6/2D Samples/2D Platformer/Environment/Sprites/TileGroundTop.png"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_VERIFIED"
-    },
-    {
       "category": "Effect",
       "displayName": "BurstFlame3",
       "authoringAssetId": "7e50817b8e02403490cf15b8b701c39d:21300000",
@@ -203,77 +117,6 @@
         "sample_or_demo_path"
       ],
       "pixelStatus": "PIXELS_VERIFIED"
-    },
-    {
-      "category": "Effect",
-      "displayName": "DustMotesEffect",
-      "authoringAssetId": "23a176441953aa2479755367b192e031:1000012882023006",
-      "visualReferenceId": "visual_bfa2359946cd0c5f992d",
-      "sourcePaths": [
-        "Assets/Samples/Timeline/1.8.12/Gameplay Sequence Demo/Particles/DustMotesEffect.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
-    },
-    {
-      "category": "Effect",
-      "displayName": "GoopSprayEffect",
-      "authoringAssetId": "f8ffddbe2499fac4a869b64776ca7d62:1000012909287652",
-      "visualReferenceId": "visual_135097558105ea8e524a",
-      "sourcePaths": [
-        "Assets/Samples/Timeline/1.8.12/Gameplay Sequence Demo/Particles/GoopSprayEffect.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
-    },
-    {
-      "category": "Effect",
-      "displayName": "SandSwirlsEffect",
-      "authoringAssetId": "9416eca26c208e94bb97ebaaa34c4232:1000010715882420",
-      "visualReferenceId": "visual_9fa0c47cbc03f6c4f0a2",
-      "sourcePaths": [
-        "Assets/Samples/Timeline/1.8.12/Gameplay Sequence Demo/Particles/SandSwirlsEffect.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
-    },
-    {
-      "category": "Effect",
-      "displayName": "SmallDustPuff 0",
-      "authoringAssetId": "2f0c9494489aed04789cce7fcb0428e7:21300000",
-      "visualReferenceId": "visual_673392f5410ec697f2cd",
-      "sourcePaths": [
-        "Assets/FX/UnitAbilities/Dragon/Textures/Sprite_Fire_Additive.png",
-        "Assets/FX/UnitAbilities/Dragon/Textures/Sprite_Fire_Threshold.png",
-        "Assets/Samples/Timeline/1.8.12/Gameplay Sequence Demo/Particles/Misc Effects/Textures/DustMote.png",
-        "Assets/Samples/Timeline/1.8.12/Gameplay Sequence Demo/Particles/Misc Effects/Textures/DustPuffSmall.png",
-        "Assets/Shared/Textures/DustPuffSmallParticleSheet.png",
-        "Assets/_Game/MY_Prefabs/PowerUpPrefab/Textures/SoftRadialGlow.png",
-        "Assets/_Game/MY_Prefabs/PowerUpPrefab/Textures/SoftRadialGlow_V2.png"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_VERIFIED"
-    },
-    {
-      "category": "Effect",
-      "displayName": "SparksEffect",
-      "authoringAssetId": "0ba0871060ee12c44b3a83e3ae149370:1000011945391522",
-      "visualReferenceId": "visual_00d070652361641150d5",
-      "sourcePaths": [
-        "Assets/Samples/Timeline/1.8.12/Gameplay Sequence Demo/Particles/SparksEffect.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
     },
     {
       "category": "Ui",
@@ -299,45 +142,6 @@
         "sample_or_demo_path"
       ],
       "pixelStatus": "PIXELS_VERIFIED"
-    },
-    {
-      "category": "Ui",
-      "displayName": "Building01",
-      "authoringAssetId": "6a66325e898ab4273bee82f283e4ad63:5589270418618203356",
-      "visualReferenceId": "visual_25e29f464c0ee70ddbed",
-      "sourcePaths": [
-        "Assets/Samples/Splines/2.6.1/Spline Examples (requires Shader Graph package)/Prefabs/Building01.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
-    },
-    {
-      "category": "Ui",
-      "displayName": "Building02",
-      "authoringAssetId": "af8c05f460615498ab5ba311b170de2b:5589270418618203356",
-      "visualReferenceId": "visual_b7987ef515c04313cee0",
-      "sourcePaths": [
-        "Assets/Samples/Splines/2.6.1/Spline Examples (requires Shader Graph package)/Prefabs/Building02.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
-    },
-    {
-      "category": "Ui",
-      "displayName": "Car",
-      "authoringAssetId": "ab40c314f304f4cb1a2224c77315a7e1:3804467156646280974",
-      "visualReferenceId": "visual_6408c1108acf2cd0cf63",
-      "sourcePaths": [
-        "Assets/Samples/Splines/2.6.1/Spline Examples (requires Shader Graph package)/Prefabs/Car.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
     },
     {
       "category": "Ui",
@@ -376,19 +180,6 @@
     },
     {
       "category": "Ui",
-      "displayName": "Cobblestones",
-      "authoringAssetId": "2db28c9d924424397ab5058be1ffc216:2920901381030909661",
-      "visualReferenceId": "visual_3d68885319de03e9bf41",
-      "sourcePaths": [
-        "Assets/Samples/Splines/2.6.1/Spline Examples (requires Shader Graph package)/Prefabs/Cobblestones.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
-    },
-    {
-      "category": "Ui",
       "displayName": "documentation",
       "authoringAssetId": "99b77d53c4f0f624097be62634cda371:21300000",
       "visualReferenceId": "visual_9c4b198cc9397f536f53",
@@ -399,19 +190,6 @@
         "editor_test_or_debug_path"
       ],
       "pixelStatus": "PIXELS_VERIFIED"
-    },
-    {
-      "category": "Ui",
-      "displayName": "Fence",
-      "authoringAssetId": "fe7c43dd55bdd5346916165b9dd49219:910316695966149018",
-      "visualReferenceId": "visual_689a3d8d2f6d22367c9a",
-      "sourcePaths": [
-        "Assets/Samples/Splines/2.6.1/Spline Examples (requires Shader Graph package)/Prefabs/Fence.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
     },
     {
       "category": "Ui",
@@ -435,45 +213,6 @@
         "sample_or_demo_path"
       ],
       "pixelStatus": "PIXELS_VERIFIED"
-    },
-    {
-      "category": "Ui",
-      "displayName": "Grass01",
-      "authoringAssetId": "26dbc7014fd294eb1b2079a38e478991:8740100965752483109",
-      "visualReferenceId": "visual_161a43a1fcfd255bcf8a",
-      "sourcePaths": [
-        "Assets/Samples/Splines/2.6.1/Spline Examples (requires Shader Graph package)/Prefabs/Grass01.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
-    },
-    {
-      "category": "Ui",
-      "displayName": "Grass02",
-      "authoringAssetId": "67600716996ad4221beec76055f6aa30:307392461673742335",
-      "visualReferenceId": "visual_70c74320f5dea40e7856",
-      "sourcePaths": [
-        "Assets/Samples/Splines/2.6.1/Spline Examples (requires Shader Graph package)/Prefabs/Grass02.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
-    },
-    {
-      "category": "Ui",
-      "displayName": "Ground",
-      "authoringAssetId": "671bcfd7bf2b144e4add057781029f3f:3810227601282005025",
-      "visualReferenceId": "visual_d289bf3d98868c5884ee",
-      "sourcePaths": [
-        "Assets/Samples/Splines/2.6.1/Spline Examples (requires Shader Graph package)/Prefabs/Ground.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
     },
     {
       "category": "Ui",
@@ -901,8 +640,6 @@
         "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Component/Icon_FunctionIcons(x2)/64/Icon_Vibration.Png",
         "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Component/Icon_FunctionIcons(x2)/64/Icon_Video.Png",
         "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Component/Icon_FunctionIcons(x2)/64/Icon_Voice.Png",
-        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Component/Icon_FunctionIcons(x2)/64/Icon_Volume_Off.Png",
-        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Component/Icon_FunctionIcons(x2)/64/Icon_Volume_On.Png",
         "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Component/Icon_FunctionIcons(x2)/64/Icon_Walkie_Talkie.Png",
         "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Component/Icon_FunctionIcons(x2)/64/Icon_Warning.Png",
         "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Component/Icon_FunctionIcons(x2)/64/Icon_Water.Png",
@@ -1232,7 +969,6 @@
         "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_Frame_Deco2.png",
         "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_Frame_Deco3.png",
         "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_Frame_Deco4.png",
-        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_Frame_Route.png",
         "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_Frame_bg.png",
         "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_Icon_Frame.png",
         "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_Icon_Skull.png",
@@ -1331,19 +1067,6 @@
     },
     {
       "category": "Ui",
-      "displayName": "StreetSign",
-      "authoringAssetId": "956243722139b4f5cbd0a2cb6f4d447a:7737711325764827436",
-      "visualReferenceId": "visual_3bab2499ec6dba5dde1c",
-      "sourcePaths": [
-        "Assets/Samples/Splines/2.6.1/Spline Examples (requires Shader Graph package)/Prefabs/StreetSign.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
-    },
-    {
-      "category": "Ui",
       "displayName": "thumb   background generator",
       "authoringAssetId": "3184f720144515b47a39fb3a7ae57baa:21300000",
       "visualReferenceId": "visual_c1803c5c4dc933ada66e",
@@ -1389,32 +1112,6 @@
         "editor_test_or_debug_path"
       ],
       "pixelStatus": "PIXELS_VERIFIED"
-    },
-    {
-      "category": "Ui",
-      "displayName": "TreeBig",
-      "authoringAssetId": "b4ea18b6bf2400f4ea9613f65a35e0ea:4271905167138607669",
-      "visualReferenceId": "visual_573a5c4f6adcfe742b5f",
-      "sourcePaths": [
-        "Assets/Samples/Splines/2.6.1/Spline Examples (requires Shader Graph package)/Prefabs/TreeBig.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
-    },
-    {
-      "category": "Ui",
-      "displayName": "TreeMedium",
-      "authoringAssetId": "5c77a5f32e9acb24d8b79355ab7550f9:8046017033776796326",
-      "visualReferenceId": "visual_c705679c97d372223f64",
-      "sourcePaths": [
-        "Assets/Samples/Splines/2.6.1/Spline Examples (requires Shader Graph package)/Prefabs/TreeMedium.prefab"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE"
     }
   ]
 }
