@@ -14,6 +14,7 @@ on:
       - 'designer-ai/tools/finalize_open_current.py'
       - 'designer-ai/tools/build_director_view.py'
       - 'designer-ai/tools/finalize_director_current.py'
+      - 'designer-ai/tools/run_director_finalization.py'
       - '.github/workflows/publish-designer-ai-open-current.yml'
 
 permissions:
@@ -56,11 +57,11 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/build_director_view.py
 
-      - name: Finalize atomic Director identity, recommendation states, completion queue and eligibility audit
+      - name: Finalize Director recommendation policy, compatibility aliases, completion queue and fallback pack
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
-        run: python3 designer-ai/tools/finalize_director_current.py
+        run: python3 designer-ai/tools/run_director_finalization.py
 
       - name: Validate final CURRENT payload
         run: |
@@ -106,6 +107,8 @@ jobs:
           assert audit['catalogRevision'] == director['catalogRevision']
           assert queue['visualPreviewCount'] == len(queue['visualPreviews'])
           assert queue['visualPreviewGenerationCount'] + queue['visualEligibilityReviewCount'] == queue['visualPreviewCount']
+          assert queue['eligibilityReviewCount'] == len(queue['eligibilityReviews'])
+          assert queue['eligibilityReviewCount'] == audit['flaggedDirectorVisualCount']
           assert current['eligibilityAudit']['url'] == director['eligibilityAuditUrl']
           assert pack.is_file() and pack.stat().st_size > 0
 
@@ -131,21 +134,31 @@ jobs:
           }
           assert visual_entries
           assert all(entry.get('recommendationStatus') in valid_states for entry in visual_entries)
+          assert all(bool(entry.get('recommendable')) == (entry.get('recommendationStatus') == 'RECOMMENDABLE') for entry in visual_entries)
           verified = [entry for entry in visual_entries if entry.get('visualEvidence', {}).get('status') == 'PIXELS_VERIFIED']
           assert all(entry.get('visualEvidence', {}).get('atlasPage') and entry.get('visualEvidence', {}).get('atlasSlot') for entry in verified)
           assert director['quality']['verifiedVisualEntryCount'] == len(verified)
           assert director['quality']['atlasMappedVerifiedVisualEntryCount'] == len(verified)
+          assert sum(director['quality']['recommendationStatusCounts'].values()) == len(visual_entries)
 
           animations = json.loads((root / 'director-view' / 'animations.json').read_text(encoding='utf-8'))['assets']
           audio = json.loads((root / 'director-view' / 'audio.json').read_text(encoding='utf-8'))['assets']
           assert not any(item.get('unknownCompatibleActorAssetIds') for item in animations)
+          assert all('recommendableCompatibleActorAssetIds' in item for item in animations)
           assert all('blockingCompletionNeeded' in item and 'qualityCompletionNeeded' in item for item in animations)
           assert all('blockingCompletionNeeded' in item and 'qualityCompletionNeeded' in item for item in audio)
+
+          assert (root / 'CHATGPT_START.txt').is_file()
+          assert (root / 'FILM_AUTHORING_GUIDE_CURRENT.md').is_file()
+          assert manifest['chatgptInstructions'] == 'CHATGPT_START.txt'
+          assert manifest['filmAuthoringGuide'] == 'FILM_AUTHORING_GUIDE_CURRENT.md'
 
           with zipfile.ZipFile(pack) as archive:
               names = set(archive.namelist())
               required = {
                   'CHATGPT_READ_FIRST.txt',
+                  'CHATGPT_START.txt',
+                  'FILM_AUTHORING_GUIDE_CURRENT.md',
                   'DIRECTOR_PACK_MANIFEST.json',
                   'OPEN_CURRENT.json',
                   'FULL_VISUAL_INDEX.json',
@@ -176,6 +189,7 @@ jobs:
               assert zip_audit['publishTransactionId'] == expected_identity['publishTransactionId']
               assert zip_audit['catalogRevision'] == expected_identity['catalogRevision']
               assert zip_queue['visualPreviewGenerationCount'] + zip_queue['visualEligibilityReviewCount'] == zip_queue['visualPreviewCount']
+              assert zip_queue['eligibilityReviewCount'] == len(zip_queue['eligibilityReviews'])
               assert zip_current['visualAtlas']['pdfUrl'] == current['visualAtlas']['pdfUrl']
 
           print('DIRECTOR_CURRENT_VALIDATED')
