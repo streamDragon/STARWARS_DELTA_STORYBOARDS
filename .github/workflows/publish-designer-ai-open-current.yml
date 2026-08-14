@@ -8,6 +8,7 @@ on:
       - 'designer-ai/current.json'
       - 'designer-ai/tools/build_open_current.py'
       - 'designer-ai/tools/finalize_open_current.py'
+      - 'designer-ai/tools/build_director_view.py'
       - '.github/workflows/publish-designer-ai-open-current.yml'
 
 permissions:
@@ -29,17 +30,67 @@ jobs:
       - name: Install visual builder dependency
         run: python3 -m pip install --disable-pip-version-check pillow
 
-      - name: Build open CURRENT payload
+      - name: Build visual evidence CURRENT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/build_open_current.py
 
-      - name: Audit coverage and build Debora download bundle
+      - name: Report raw Visual Library preview gaps
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/finalize_open_current.py
+
+      - name: Build full Catalog Director View and fallback pack
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        run: python3 designer-ai/tools/build_director_view.py
+
+      - name: Validate final CURRENT payload
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import pathlib
+          import zipfile
+
+          root = pathlib.Path('_open_current_stage')
+          current = json.loads((root / 'OPEN_CURRENT.json').read_text(encoding='utf-8'))
+          director = json.loads((root / 'director-view' / 'DIRECTOR_VIEW.json').read_text(encoding='utf-8'))
+          pack = root / 'STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip'
+
+          assert current['status'] == 'CURRENT_VERIFIED_OPEN'
+          assert current['directorView']['status'] == 'CURRENT_FULL_CATALOG_PROJECTION'
+          assert current['directorView']['requestScoped'] is False
+          assert director['sourceCatalogRecordCount'] > 20000
+          assert director['counts']['animations'] > 0
+          assert director['counts']['audio'] > 0
+          assert pack.is_file() and pack.stat().st_size > 0
+
+          with zipfile.ZipFile(pack) as archive:
+              names = set(archive.namelist())
+              required = {
+                  'CHATGPT_READ_FIRST.txt',
+                  'OPEN_CURRENT.json',
+                  'director-view/DIRECTOR_VIEW.json',
+                  'director-view/actors.json',
+                  'director-view/layers.json',
+                  'director-view/effects.json',
+                  'director-view/ui.json',
+                  'director-view/animations.json',
+                  'director-view/audio.json',
+                  'catalog-contract/CUTSCENE_AUTHORING_CONTRACT.json',
+              }
+              missing = sorted(required - names)
+              assert not missing, f'Missing Director pack files: {missing}'
+
+          print('DIRECTOR_CURRENT_VALIDATED')
+          print('SOURCE_CATALOG_RECORDS', director['sourceCatalogRecordCount'])
+          print('DIRECTOR_COUNTS', director['counts'])
+          print('PACK_BYTES', pack.stat().st_size)
+          PY
 
       - name: Publish clean open-current branch
         run: |
