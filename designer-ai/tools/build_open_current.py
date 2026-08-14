@@ -16,8 +16,7 @@ REPO = os.environ["REPOSITORY"]
 TOKEN = os.environ["GITHUB_TOKEN"]
 ROOT = pathlib.Path("_open_current_stage")
 CURRENT_PATH = pathlib.Path("designer-ai/current.json")
-RAW_BASE = f"https://raw.githubusercontent.com/{REPO}/designer-ai-open-current"
-PAGES_BASE = f"https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current"
+PAGES_BASE = "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current"
 
 
 def load_current():
@@ -47,15 +46,6 @@ def download(url, destination):
         shutil.copyfileobj(response, output)
 
 
-def safe_extract(archive, destination):
-    destination = destination.resolve()
-    for member in archive.infolist():
-        target = (destination / member.filename).resolve()
-        if target != destination and not str(target).startswith(str(destination) + os.sep):
-            raise SystemExit(f"Unsafe ZIP path: {member.filename}")
-    archive.extractall(destination)
-
-
 def slug(value):
     result = re.sub(r"[^A-Za-z0-9._-]+", "-", str(value)).strip("-").lower()
     return result or "other"
@@ -67,7 +57,6 @@ def animation_family_name(asset):
     is_animation = bool(asset.get("representativeFrames")) or any("animation" in purpose for purpose in purposes)
     if not is_animation:
         return None
-    # Collapse only a trailing frame number. "SpaceRobot04 Launch 005" -> "SpaceRobot04 Launch".
     collapsed = re.sub(r"(?:[ _-]+)\d{1,4}$", "", name).strip()
     return collapsed or name
 
@@ -249,7 +238,7 @@ def build_full_visual_sheets(visual_zip, transaction_id):
             filename = f"full-visual-index/{category_slug}.json"
             payload = {
                 "schema": "STARWARS_DELTA_CHATGPT_VISUAL_CATEGORY_INDEX",
-                "schemaVersion": 1,
+                "schemaVersion": 2,
                 "status": "CURRENT_VERIFIED_OPEN",
                 "publishTransactionId": transaction_id,
                 "category": category,
@@ -269,7 +258,7 @@ def build_full_visual_sheets(visual_zip, transaction_id):
         lookup_file = "ASSET_VISUAL_LOOKUP.json"
         lookup_payload = {
             "schema": "STARWARS_DELTA_CHATGPT_ASSET_VISUAL_LOOKUP",
-            "schemaVersion": 1,
+            "schemaVersion": 2,
             "status": "CURRENT_VERIFIED_OPEN",
             "publishTransactionId": transaction_id,
             "assetIdToEntryIndex": asset_lookup,
@@ -278,12 +267,14 @@ def build_full_visual_sheets(visual_zip, transaction_id):
 
         full_index = {
             "schema": "STARWARS_DELTA_CHATGPT_FULL_VISUAL_INDEX",
-            "schemaVersion": 2,
+            "schemaVersion": 3,
             "status": "CURRENT_VERIFIED_OPEN",
             "publishTransactionId": transaction_id,
             "sourceVisualIdentityCount": manifest.get("visualIdentityCount"),
+            "sourceCatalogRecordCount": manifest.get("catalogRecordCount"),
             "representativeCount": len(index_entries),
             "animationPolicy": "One representative image per animation family; trailing frame numbers are collapsed. Non-animation content uses one image per Visual Library identity.",
+            "scopeRule": "This is pixel evidence, not the complete authoring Catalog. Use the generated Director View for authoring and exact Catalog IDs.",
             "sheets": sheet_manifest,
             "categoryIndexes": category_indexes,
             "assetLookupFile": lookup_file,
@@ -300,80 +291,23 @@ def main():
     tag = current["releaseUrl"].rsplit("/releases/tag/", 1)[1]
     release = get_json(f"https://api.github.com/repos/{REPO}/releases/tags/{tag}")
     release_assets = {asset["name"]: asset for asset in release.get("assets", [])}
-    required = [
-        "STARWARS_DELTA_CHATGPT_AUTHORING_PACKAGE_CURRENT.zip",
-        "STARWARS_DELTA_DESIGNER_AI_VISUAL_PROOF_CURRENT.zip",
-        "STARWARS_DELTA_DESIGNER_AI_VISUAL_LIBRARY_CURRENT.zip",
-    ]
-    missing = [name for name in required if name not in release_assets]
-    if missing:
-        raise SystemExit("Missing release assets: " + ", ".join(missing))
+    visual_library_name = "STARWARS_DELTA_DESIGNER_AI_VISUAL_LIBRARY_CURRENT.zip"
+    if visual_library_name not in release_assets:
+        raise SystemExit(f"Missing release asset: {visual_library_name}")
 
     if ROOT.exists():
         shutil.rmtree(ROOT)
     ROOT.mkdir(parents=True)
 
     with tempfile.TemporaryDirectory() as temp_raw:
-        temp = pathlib.Path(temp_raw)
-        compact = {
-            "authoring": "STARWARS_DELTA_CHATGPT_AUTHORING_PACKAGE_CURRENT.zip",
-            "visual-proof": "STARWARS_DELTA_DESIGNER_AI_VISUAL_PROOF_CURRENT.zip",
-        }
-        files_by_group = {}
-        for group, archive_name in compact.items():
-            zip_path = temp / archive_name
-            download(release_assets[archive_name]["browser_download_url"], zip_path)
-            output = ROOT / group
-            output.mkdir(parents=True)
-            with zipfile.ZipFile(zip_path) as archive:
-                safe_extract(archive, output)
-            files_by_group[group] = sorted(
-                str(path.relative_to(ROOT)).replace(os.sep, "/") for path in output.rglob("*") if path.is_file()
-            )
-
-        visual_zip = temp / "visual-library.zip"
-        download(release_assets["STARWARS_DELTA_DESIGNER_AI_VISUAL_LIBRARY_CURRENT.zip"]["browser_download_url"], visual_zip)
+        visual_zip = pathlib.Path(temp_raw) / visual_library_name
+        download(release_assets[visual_library_name]["browser_download_url"], visual_zip)
         full_index = build_full_visual_sheets(visual_zip, transaction_id)
-
-    proof = json.loads((ROOT / "authoring" / "VISUAL_PACK" / "proof_manifest.json").read_text(encoding="utf-8-sig"))
-    quick_assets = []
-    for asset in [value for value in proof.get("assets", []) if value.get("proofFilePath")]:
-        relative = "authoring/VISUAL_PACK/" + asset["proofFilePath"].replace("\\", "/")
-        quick_assets.append(
-            {
-                "visualReferenceId": asset.get("visualReferenceId"),
-                "assetId": asset.get("assetId"),
-                "displayName": asset.get("displayName"),
-                "category": asset.get("category"),
-                "representativePurpose": asset.get("representativePurpose"),
-                "pixelQuality": asset.get("pixelQuality"),
-                "previewPath": relative,
-                "previewUrl": f"{PAGES_BASE}/{relative}",
-            }
-        )
-
-    (ROOT / "CHATGPT_VISUAL_INDEX.json").write_text(
-        json.dumps(
-            {
-                "schema": "STARWARS_DELTA_CHATGPT_VISUAL_INDEX",
-                "schemaVersion": 2,
-                "status": "CURRENT_VERIFIED_OPEN",
-                "publishTransactionId": transaction_id,
-                "assetCount": len(quick_assets),
-                "fullVisualIndexUrl": f"{PAGES_BASE}/FULL_VISUAL_INDEX.json",
-                "assets": quick_assets,
-            },
-            indent=2,
-            ensure_ascii=False,
-        )
-        + "\n",
-        encoding="utf-8",
-    )
 
     (ROOT / "SOURCE_CURRENT.json").write_text(json.dumps(current, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     open_manifest = {
         "schema": "STARWARS_DELTA_DESIGNER_AI_OPEN_CURRENT",
-        "schemaVersion": 4,
+        "schemaVersion": 6,
         "status": "CURRENT_VERIFIED_OPEN",
         "publishTransactionId": transaction_id,
         "publishedUtc": current.get("publishedUtc"),
@@ -381,14 +315,12 @@ def main():
         "contractRevision": current.get("contractRevision"),
         "schemaHash": current.get("schemaHash"),
         "sourceCurrentPath": "SOURCE_CURRENT.json",
-        "chatgptVisualIndexPath": "CHATGPT_VISUAL_INDEX.json",
         "fullVisualIndexPath": "FULL_VISUAL_INDEX.json",
         "fullVisualIndexUrl": f"{PAGES_BASE}/FULL_VISUAL_INDEX.json",
         "assetVisualLookupUrl": f"{PAGES_BASE}/ASSET_VISUAL_LOOKUP.json",
         "fullVisualSheetsRoot": f"{PAGES_BASE}/full-visual-sheets/",
-        "groups": files_by_group,
         "usage": {
-            "rule": "Before visual claims, asset selection, or storyboarding, resolve the asset in FULL_VISUAL_INDEX/category index and inspect pageImageUrl. Names and metadata are not substitutes for pixels.",
+            "rule": "The visual index is evidence only. Build authoring choices from the full Director View, then inspect pageImageUrl pixels before visual claims.",
             "animation": "One representative image per animation family is intentional; do not require every frame.",
             "preferredVisualFormat": "Open pageImageUrl JPEG first. PDF is a secondary archive/fallback format.",
         },
