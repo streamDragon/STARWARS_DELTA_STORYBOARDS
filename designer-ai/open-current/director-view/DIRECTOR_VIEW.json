@@ -1,6 +1,6 @@
 {
   "schema": "STARWARS_DELTA_DIRECTOR_VIEW",
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "status": "CURRENT_FULL_CATALOG_PROJECTION",
   "sourceOfTruth": "Projection only. The atomic full Catalog remains authoritative for exact IDs, compatibility and validation.",
   "publishTransactionId": "20260813-212754773-ff89e3c3",
@@ -38,7 +38,8 @@
     "audio": "Audio is a first-class Director input and does not require visual evidence.",
     "prefabs": "Prefab internals are not authoring vocabulary. Safe Prefabs appear only as CanonicalActor or PreviewSafeVisualComposite; gameplay scripts, colliders and physics are not exposed to the director.",
     "technicalAssets": "Materials, technical textures, fonts, gameplay helpers and unsafe records are dependencies or excluded evidence, not normal Director choices.",
-    "unsafe": "Unsafe Catalog records are excluded from Director recommendations."
+    "unsafe": "Unsafe Catalog records are excluded from Director recommendations.",
+    "eligibility": "Obvious sample/demo/generated/technical signals are surfaced for Unity source review, never silently filtered on GitHub."
   },
   "categoryFiles": [
     {
@@ -82,5 +83,13 @@
   "completionQueueUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/completion-queue.json",
   "visualIndexUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/FULL_VISUAL_INDEX.json",
   "instructionBookRootUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/instruction-book/",
-  "catalogContractRootUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/catalog-contract/"
+  "catalogContractRootUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/catalog-contract/",
+  "atomicIdentity": {
+    "publishTransactionId": "20260813-212754773-ff89e3c3",
+    "catalogRevision": 7625331408923133048,
+    "snapshotContentHash": "3853703AE0C6416630E4434C4AFE28AAE460C52131B5B2374A7BADCB2A4D50E7",
+    "contractRevision": "82ACB76B4A67F4570B463DE3C2189C13E418E1CABE83A9A9C8D867DFB6698360",
+    "schemaHash": "96BE087805BCA5E07AC0BDDCAA2FAE3DBFC81FCA5BA56E179D0D8158926167FC"
+  },
+  "eligibilityAuditUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/eligibility-audit.json"
 }
