@@ -1,10 +1,15 @@
 STARWARS_DELTA CHATGPT DIRECTOR CURRENT
 
-This is an atomic fallback for publish transaction 20260814-175853667-c5e41554.
+Atomic publish transaction: 20260814-175853667-c5e41554
 Start with OPEN_CURRENT.json, then director-view/DIRECTOR_VIEW.json.
 Use the Director category files for Actors, Layers, Effects, UI, Animations and Audio.
-Inspect actual visual sheet pixels before visual claims.
+Use only recommendationStatus=RECOMMENDABLE by default.
+Do not use entries pending source eligibility review or pixel completion as ordinary recommendations.
+Inspect actual Visual Atlas pixels before visual claims.
 One representative image per animation family is intentional.
 Audio is first-class and does not require an image.
-Do not expose prefab internals, gameplay scripts, colliders or physics as authoring vocabulary.
+Prefab internals, gameplay scripts, colliders and physics are not authoring vocabulary.
+The completion queue is engineering work data, not a designer upload list.
 Do not mix this package with older Catalog, Instruction Book or visual packages.
+
+This fallback also contains CHATGPT_START.txt and FILM_AUTHORING_GUIDE_CURRENT.md. The completion queue and eligibility audit are engineering work data, not a designer upload list.

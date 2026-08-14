@@ -1,6 +1,6 @@
 {
   "schema": "STARWARS_DELTA_DESIGNER_AI_OPEN_CURRENT",
-  "schemaVersion": 10,
+  "schemaVersion": 11,
   "status": "CURRENT_VERIFIED_OPEN",
   "publishTransactionId": "20260814-175853667-c5e41554",
   "publishedUtc": "2026-08-14T18:04:43.7128354Z",
@@ -22,7 +22,9 @@
     "director": "Start with director-view/DIRECTOR_VIEW.json. Search the relevant category file, inspect exact pageImageUrl pixels, then validate exact IDs against catalog-contract.",
     "audio": "Use director-view/audio.json. Audio is non-visual and must never be counted as a visual gap.",
     "animations": "Use director-view/animations.json. One representative image per animation family is intentional.",
-    "fallback": "Use STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip only when direct Pages access genuinely fails."
+    "fallback": "Use STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip only when direct Pages access genuinely fails.",
+    "recommendation": "Use only Director entries with recommendationStatus=RECOMMENDABLE by default. PIXEL_COMPLETION_REQUIRED and DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW are engineering states, not ordinary creative choices.",
+    "completionQueue": "The Director completion queue is for the Unity engineering pipeline. Do not ask Debora/the designer to solve or upload its items."
   },
   "visualAtlas": {
     "schema": "STARWARS_DELTA_CHATGPT_VISUAL_ATLAS",
@@ -124,7 +126,40 @@
       "syntheticCatalogVisualEntriesNotPresentInVisualLibrary": 0
     },
     "sourceCatalogRecordCount": 22506,
-    "requestScoped": false
+    "requestScoped": false,
+    "quality": {
+      "verifiedVisualEntryCount": 925,
+      "atlasMappedVerifiedVisualEntryCount": 925,
+      "missingVisualEntryCount": 174,
+      "actionablePreviewGenerationCount": 155,
+      "sourceEligibilityReviewBeforePreviewCount": 19,
+      "recommendationStatusCounts": {
+        "RECOMMENDABLE": 890,
+        "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW": 54,
+        "PIXEL_COMPLETION_REQUIRED": 155
+      },
+      "animationUnknownActorLinkCount": 0,
+      "animationCompletionCount": 523,
+      "audioCompletionCount": 225,
+      "presentationCoverageByCategory": {
+        "Actor": {
+          "total": 508,
+          "fitModes": 508
+        },
+        "Layer": {
+          "total": 91,
+          "fitModes": 91
+        },
+        "Effect": {
+          "total": 277,
+          "fitModes": 277
+        },
+        "Ui": {
+          "total": 223,
+          "fitModes": 223
+        }
+      }
+    }
   },
   "instructionBook": {
     "rootUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/instruction-book/",
@@ -137,7 +172,14 @@
   },
   "download": {
     "chatgptDirectorCurrentZipUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip",
-    "purpose": "Stable compact fallback containing the full Director projection, exact authoring contract, Instruction Book, visual indexes and representative sheets. It does not contain every animation frame or the 300MB Visual Library archive."
+    "purpose": "Stable compact fallback containing the full Director projection, exact authoring contract, Instruction Book, visual indexes and representative sheets. It does not contain every animation frame or the 300MB Visual Library archive.",
+    "selfContainedFiles": [
+      "CHATGPT_START.txt",
+      "FILM_AUTHORING_GUIDE_CURRENT.md",
+      "director-view/DIRECTOR_VIEW.json",
+      "director-view/completion-queue.json",
+      "director-view/eligibility-audit.json"
+    ]
   },
   "deprecations": [
     "The old 717-record CURRENT_VISUAL_PROOF_CANDIDATES subset was request-scoped evidence, not a general authoring Catalog, and is no longer the primary direct source.",
@@ -154,8 +196,8 @@
   },
   "eligibilityAudit": {
     "url": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/eligibility-audit.json",
-    "flaggedDirectorVisualCount": 25,
-    "flaggedCompletionVisualCount": 0,
-    "policy": "Review at Unity source before preview generation; do not hide Catalog defects in the Git projection."
+    "flaggedDirectorVisualCount": 54,
+    "flaggedCompletionVisualCount": 19,
+    "policy": "Do not recommend flagged entries by default. Correct or confirm them at Unity source and republish."
   }
 }

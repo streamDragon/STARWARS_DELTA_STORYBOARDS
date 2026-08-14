@@ -1,6 +1,6 @@
 {
   "schema": "STARWARS_DELTA_CHATGPT_DIRECTOR_PACK",
-  "schemaVersion": 2,
+  "schemaVersion": 4,
   "status": "CURRENT_FULL_CATALOG_PROJECTION",
   "publishTransactionId": "20260814-175853667-c5e41554",
   "catalogRevision": 7625331408923133048,
@@ -29,5 +29,41 @@
     "schemaHash": "F7CA124AA3417E02F078796144AF0274284D91CA721DD311C6432587ED54193F"
   },
   "sourceCatalogRecordCount": 22506,
-  "eligibilityAudit": "director-view/eligibility-audit.json"
+  "eligibilityAudit": "director-view/eligibility-audit.json",
+  "quality": {
+    "verifiedVisualEntryCount": 925,
+    "atlasMappedVerifiedVisualEntryCount": 925,
+    "missingVisualEntryCount": 174,
+    "actionablePreviewGenerationCount": 155,
+    "sourceEligibilityReviewBeforePreviewCount": 19,
+    "recommendationStatusCounts": {
+      "RECOMMENDABLE": 890,
+      "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW": 54,
+      "PIXEL_COMPLETION_REQUIRED": 155
+    },
+    "animationUnknownActorLinkCount": 0,
+    "animationCompletionCount": 523,
+    "audioCompletionCount": 225,
+    "presentationCoverageByCategory": {
+      "Actor": {
+        "total": 508,
+        "fitModes": 508
+      },
+      "Layer": {
+        "total": 91,
+        "fitModes": 91
+      },
+      "Effect": {
+        "total": 277,
+        "fitModes": 277
+      },
+      "Ui": {
+        "total": 223,
+        "fitModes": 223
+      }
+    }
+  },
+  "chatgptInstructions": "CHATGPT_START.txt",
+  "filmAuthoringGuide": "FILM_AUTHORING_GUIDE_CURRENT.md",
+  "completionQueue": "director-view/completion-queue.json"
 }
