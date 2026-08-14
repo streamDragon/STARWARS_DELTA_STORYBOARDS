@@ -1,0 +1,87 @@
+name: Inspect Designer AI Visual Library
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/inspect-designer-ai-visual-library.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect visual library ZIP without publishing it
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, pathlib, tempfile, urllib.request, zipfile
+
+          repo = os.environ['REPOSITORY']
+          token = os.environ['GITHUB_TOKEN']
+          current = json.loads(pathlib.Path('designer-ai/current.json').read_text(encoding='utf-8'))
+          tag = current['releaseUrl'].rsplit('/releases/tag/', 1)[1]
+          api = f'https://api.github.com/repos/{repo}/releases/tags/{tag}'
+          headers = {
+              'Accept': 'application/vnd.github+json',
+              'Authorization': f'Bearer {token}',
+              'X-GitHub-Api-Version': '2022-11-28',
+              'User-Agent': 'STARWARS-DELTA-visual-inspector',
+          }
+          req = urllib.request.Request(api, headers=headers)
+          with urllib.request.urlopen(req, timeout=120) as r:
+              release = json.load(r)
+          asset = next(a for a in release['assets'] if a['name'] == 'STARWARS_DELTA_DESIGNER_AI_VISUAL_LIBRARY_CURRENT.zip')
+          with tempfile.TemporaryDirectory() as td:
+              zp = pathlib.Path(td) / 'visual.zip'
+              req = urllib.request.Request(asset['browser_download_url'], headers={'User-Agent': 'STARWARS-DELTA-visual-inspector'})
+              with urllib.request.urlopen(req, timeout=600) as r, zp.open('wb') as f:
+                  while True:
+                      b = r.read(1024 * 1024)
+                      if not b: break
+                      f.write(b)
+              with zipfile.ZipFile(zp) as z:
+                  names = z.namelist()
+                  print('ZIP_FILE_COUNT', len(names))
+                  print('ZIP_FIRST_FILES')
+                  for n in names[:100]: print(n)
+                  json_names = [n for n in names if n.lower().endswith('.json')]
+                  print('JSON_CANDIDATES', len(json_names))
+                  for n in json_names[:40]:
+                      info = z.getinfo(n)
+                      print('JSON', n, 'SIZE', info.file_size)
+                      if info.file_size > 12_000_000:
+                          print('SKIP_LARGE_JSON')
+                          continue
+                      try:
+                          data = json.loads(z.read(n).decode('utf-8-sig'))
+                      except Exception as exc:
+                          print('PARSE_FAIL', type(exc).__name__, str(exc)[:160])
+                          continue
+                      if isinstance(data, dict):
+                          print('ROOT_KEYS', list(data.keys())[:40])
+                          for key, val in data.items():
+                              if isinstance(val, list) and val and isinstance(val[0], dict):
+                                  print('LIST_FIELD', key, 'COUNT', len(val), 'ENTRY_KEYS', list(val[0].keys())[:60])
+                                  sample = val[0]
+                                  for k,v in sample.items():
+                                      lk = k.lower()
+                                      if any(t in lk for t in ('path','preview','animation','visual','assetid','display','category','purpose','source')):
+                                          print('SAMPLE', k, repr(v)[:500])
+                                  break
+                      elif isinstance(data, list):
+                          print('ROOT_LIST_COUNT', len(data))
+                          if data and isinstance(data[0], dict):
+                              print('ENTRY_KEYS', list(data[0].keys())[:60])
+                  pngs = [n for n in names if n.lower().endswith(('.png','.jpg','.jpeg','.webp'))]
+                  print('IMAGE_COUNT', len(pngs))
+                  print('IMAGE_SAMPLES')
+                  for n in pngs[:60]: print(n)
+          PY
