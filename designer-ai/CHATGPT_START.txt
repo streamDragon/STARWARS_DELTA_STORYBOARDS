@@ -26,23 +26,28 @@ VISUAL EVIDENCE INDEX + ASSET TO ATLAS LOOKUP:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/FULL_VISUAL_INDEX.json
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/ASSET_VISUAL_LOOKUP.json
 
-DIRECTOR COMPLETION QUEUE:
-https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/completion-queue.json
-
-DIRECTOR ELIGIBILITY AUDIT:
-https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/eligibility-audit.json
-
-RAW VISUAL-LIBRARY PREVIEW GAP REPORT:
-https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/VISUAL_UNAVAILABLE.json
-
 AUTHORING CONTRACT AND SCHEMA:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/catalog-contract/
 
 INSTRUCTION BOOK:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/instruction-book/
 
-STABLE FALLBACK DOWNLOAD:
+DIRECTOR COMPLETION QUEUE:
+https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/completion-queue.json
+
+DIRECTOR ELIGIBILITY AUDIT:
+https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/eligibility-audit.json
+
+STABLE ADVANCED FALLBACK DOWNLOAD:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip
+
+NORMAL USER FLOW:
+1. Debora presses COPY FOR CHAT on the Debora page and pastes the message into ChatGPT.
+2. Debora describes the cutscene she wants.
+3. ChatGPT reads CURRENT, Director, Contract and Instruction Book itself.
+4. ChatGPT uses FULL_VISUAL_INDEX to resolve atlasPage + atlasSlot and actually inspects the pixels in the single CURRENT Visual Atlas PDF before choosing important visual assets.
+5. If ChatGPT cannot actually render the Atlas pixels from the public URL, it MUST STOP visual asset selection and ask Debora for exactly one file: STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf. Debora downloads it from the button named DOWNLOAD VISUAL ATLAS PDF and uploads that one PDF directly to the chat.
+6. After the PDF upload, ChatGPT continues using the same CURRENT Director metadata. Do not ask Debora for Catalog ZIPs, Instruction Book ZIPs, the 300MB Visual Library archive, or four separate category PDFs for ordinary visual access.
 
 RULES:
 1. Verify OPEN_CURRENT.json has status CURRENT_VERIFIED_OPEN.
@@ -52,21 +57,33 @@ RULES:
 5. Use the relevant Director category file to search Actors, Layers, Effects, UI, Animations or Audio.
 6. Use exact authoringAssetId / canonicalActorAssetId / Animation assetId / Audio assetId values. Validate final JSON against catalog-contract.
 7. VISUAL WORKFLOW: shortlist from Director metadata, resolve the exact asset in FULL_VISUAL_INDEX.json, then open the SINGLE CURRENT VISUAL ATLAS PDF and visually inspect the exact atlasPage and atlasSlot before making a visual claim, choosing an asset or drawing a storyboard.
-8. The Visual Atlas PDF is the preferred pixel source because ChatGPT can render PDF pages directly. Individual pageImageUrl JPEG sheets remain transport/debug fallbacks only.
-9. Metadata, file names, tags and displayName are never substitutes for looking at the pixels. If atlas pixels cannot be inspected, do not invent appearance.
-10. Animation visuals are intentionally deduplicated. One representative image per animation family is enough to understand the action. Never request or require every frame.
-11. Audio is a first-class Director input. It is non-visual and must never be treated as a visual coverage gap.
-12. Prefab internals are not Director vocabulary. A safe Prefab may appear only as a CanonicalActor or PreviewSafeVisualComposite. Do not expose gameplay scripts, colliders, physics or prefab hierarchy in the cutscene plan.
-13. Materials, technical textures, fonts, gameplay helpers and unsafe records are dependencies or excluded evidence, not normal creative choices.
-14. VISUAL_UNAVAILABLE.json is raw Visual Library evidence only. Use director-view/completion-queue.json to decide which missing previews actually require a Unity fix.
-15. A missing preview does not prove that a legitimate film asset is missing. Check director-view/eligibility-audit.json first. Entries flagged as sample/demo/generated/technical-looking require Unity source eligibility review before preview generation; GitHub does not silently delete them to improve coverage metrics.
-16. If a recommendable asset lacks verified pixels, use another verified asset or clearly report the completion item. Do not guess its appearance.
-17. Use the Instruction Book for cinematic lessons, BAD/GOLDEN cases and authoring invariants.
-18. If direct Pages or Visual Atlas access genuinely fails, download STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip from the stable URL above and continue from that same atomic snapshot.
-19. Do not ask Debora to assemble packages manually. The fallback ZIP already contains the Director View, authoring contract, Instruction Book, visual indexes, representative sheets and the unified Visual Atlas PDF.
+8. Metadata, file names, tags, descriptions and displayName are never substitutes for looking at the pixels.
+9. If the Atlas URL is reachable only as binary/Base64 or otherwise cannot be rendered into actual pixels by the current ChatGPT tool path, that is NOT visual inspection. Do not claim to see the asset.
+10. If Atlas pixel rendering fails, ask the user to upload only STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf from the Debora page. Continue the same task after upload. This is the normal visual-access fallback.
+11. The Director ZIP is an advanced metadata fallback only when direct Pages access to CURRENT/Director/Contract actually fails. Do not use it merely because visual rendering of the Atlas URL failed.
+12. Individual actor.pdf/effect.pdf/layer.pdf/ui.pdf files and JPEG pageImageUrl sheets are diagnostics/transport fallbacks. Do not ask the ordinary user to assemble or upload them when the unified Atlas exists.
+13. Animation visuals are intentionally deduplicated. One representative image per animation family is enough to understand the action. Never request or require every frame.
+14. Audio is a first-class Director input. It is non-visual and must never be treated as a visual coverage gap.
+15. Prefab internals are not Director vocabulary. A safe Prefab may appear only as a CanonicalActor or PreviewSafeVisualComposite. Do not expose gameplay scripts, colliders, physics or prefab hierarchy in the cutscene plan.
+16. Materials, technical textures, fonts, gameplay helpers and unsafe records are dependencies or excluded evidence, not normal creative choices.
+17. A missing preview does not prove that a legitimate film asset is missing. Check director-view/eligibility-audit.json and director-view/completion-queue.json.
+18. If a recommendable visual asset lacks verified pixels, use another verified asset or clearly report the completion item. Never guess its appearance.
+19. Use the Instruction Book for cinematic lessons, BAD/GOLDEN cases and authoring invariants.
+20. Before delivering JSON, validate against the CURRENT contract and keep all visual claims tied to actual inspected evidence.
+
+WHAT THE VISUAL ATLAS CONTAINS:
+- Actor sheets: characters, robots, ships and other world actors.
+- Effect sheets: explosions, flashes, atmosphere and VFX.
+- Layer sheets: backgrounds, environments and scenery.
+- UI sheets: portraits, dialogue frames, screens and interface visuals.
+Animations are selected using Director compatibility IDs and representative family evidence.
+Audio is selected from Director metadata and is non-visual.
 
 NORMAL FLOW:
-DEBORA DESCRIBES CUTSCENE -> READ OPEN CURRENT -> VERIFY ATOMIC IDENTITY -> SEARCH DIRECTOR CATEGORY FILES -> RESOLVE EXACT ASSET IN FULL_VISUAL_INDEX -> OPEN SINGLE VISUAL ATLAS PDF AT atlasPage/atlasSlot -> INSPECT PIXELS -> PLAN STORY/SHOTS -> CHOOSE EXACT VERIFIED ASSETS + ANIMATIONS + AUDIO -> VALIDATE AGAINST CURRENT CONTRACT -> CREATE NEW JSON -> UNITY PREVIEW.
+DEBORA DESCRIBES CUTSCENE -> READ OPEN CURRENT -> VERIFY ATOMIC IDENTITY -> SEARCH DIRECTOR -> RESOLVE ASSET IN FULL_VISUAL_INDEX -> INSPECT REAL ATLAS PIXELS AT atlasPage/atlasSlot -> PLAN STORY/SHOTS -> CHOOSE EXACT VERIFIED ASSETS + ANIMATIONS + AUDIO -> VALIDATE CURRENT CONTRACT -> CREATE JSON -> UNITY PREVIEW.
 
-FALLBACK FLOW ONLY IF DIRECT ACCESS FAILS:
-DOWNLOAD THE STABLE DIRECTOR CURRENT ZIP -> READ CHATGPT_READ_FIRST.txt -> VERIFY THE SAME ATOMIC IDENTITY -> USE THE SAME DIRECTOR/CONTRACT/INSTRUCTION/VISUAL ATLAS FILES -> CONTINUE THE SAME AUTHORING TASK.
+VISUAL ACCESS FALLBACK:
+IF CHATGPT CANNOT RENDER ATLAS PIXELS FROM URL -> ASK FOR ONE FILE: STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf -> USER UPLOADS IT TO CHAT -> INSPECT PIXELS -> CONTINUE SAME CURRENT AUTHORING TASK.
+
+ADVANCED METADATA FALLBACK ONLY IF DIRECT PAGES ACCESS FAILS:
+DOWNLOAD THE STABLE DIRECTOR CURRENT ZIP -> READ CHATGPT_READ_FIRST.txt -> VERIFY THE SAME ATOMIC IDENTITY -> CONTINUE THE SAME AUTHORING TASK.
