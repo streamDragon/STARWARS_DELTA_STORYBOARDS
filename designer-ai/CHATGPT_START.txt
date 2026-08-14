@@ -16,14 +16,21 @@ https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-curre
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/animations.json
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/audio.json
 
+SINGLE CURRENT VISUAL ATLAS PDF - PREFERRED PIXEL SOURCE:
+https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf
+
+VISUAL ATLAS MANIFEST:
+https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/VISUAL_ATLAS_CURRENT.json
+
+VISUAL EVIDENCE INDEX + ASSET TO ATLAS LOOKUP:
+https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/FULL_VISUAL_INDEX.json
+https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/ASSET_VISUAL_LOOKUP.json
+
 DIRECTOR COMPLETION QUEUE:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/completion-queue.json
 
 DIRECTOR ELIGIBILITY AUDIT:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/eligibility-audit.json
-
-VISUAL EVIDENCE INDEX:
-https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/FULL_VISUAL_INDEX.json
 
 RAW VISUAL-LIBRARY PREVIEW GAP REPORT:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/VISUAL_UNAVAILABLE.json
@@ -40,25 +47,26 @@ https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-curre
 RULES:
 1. Verify OPEN_CURRENT.json has status CURRENT_VERIFIED_OPEN.
 2. Treat publishTransactionId, catalogRevision, snapshotContentHash, contractRevision and schemaHash as one atomic authoring identity. Do not author if those identities disagree across CURRENT, Director View or fallback pack.
-3. Start authoring from director-view/DIRECTOR_VIEW.json. It is a complete projection of the current full Catalog, not the old request-scoped 717-record candidate subset.
+3. Start authoring from director-view/DIRECTOR_VIEW.json. It is a complete projection of the current full Catalog, not an old request-scoped candidate subset.
 4. Never mix old Catalogs, remembered asset IDs, old JSON, old Instruction Books or another publish transaction.
 5. Use the relevant Director category file to search Actors, Layers, Effects, UI, Animations or Audio.
 6. Use exact authoringAssetId / canonicalActorAssetId / Animation assetId / Audio assetId values. Validate final JSON against catalog-contract.
-7. Before making a visual claim, choosing a visual asset or drawing a storyboard, resolve its visualEvidence and inspect the actual pageImageUrl pixels.
-8. Metadata, file names, tags and displayName are not substitutes for looking at the image.
-9. Animation visuals are intentionally deduplicated. One representative image per animation family is enough to understand the action. Never request or require every frame.
-10. Audio is a first-class Director input. It is non-visual and must never be treated as a visual coverage gap.
-11. Prefab internals are not Director vocabulary. A safe Prefab may appear only as a CanonicalActor or PreviewSafeVisualComposite. Do not expose gameplay scripts, colliders, physics or prefab hierarchy in the cutscene plan.
-12. Materials, technical textures, fonts, gameplay helpers and unsafe records are dependencies or excluded evidence, not normal creative choices.
-13. VISUAL_UNAVAILABLE.json is raw Visual Library evidence only. Use director-view/completion-queue.json to decide which missing previews actually require a Unity fix.
-14. A missing preview does not prove that a legitimate film asset is missing. Check director-view/eligibility-audit.json first. Entries flagged as sample/demo/generated/technical-looking require Unity source eligibility review before preview generation; GitHub does not silently delete them to improve coverage metrics.
-15. If a recommendable asset lacks verified pixels, do not invent its appearance. Use another verified asset or clearly report the completion item.
-16. Use the Instruction Book for cinematic lessons, BAD/GOLDEN cases and authoring invariants.
-17. If direct Pages browsing genuinely fails, download STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip from the stable URL above and continue from that same atomic snapshot.
-18. Do not ask Debora to assemble packages manually. The fallback ZIP already contains the Director View, authoring contract, Instruction Book, visual indexes and representative sheets.
+7. VISUAL WORKFLOW: shortlist from Director metadata, resolve the exact asset in FULL_VISUAL_INDEX.json, then open the SINGLE CURRENT VISUAL ATLAS PDF and visually inspect the exact atlasPage and atlasSlot before making a visual claim, choosing an asset or drawing a storyboard.
+8. The Visual Atlas PDF is the preferred pixel source because ChatGPT can render PDF pages directly. Individual pageImageUrl JPEG sheets remain transport/debug fallbacks only.
+9. Metadata, file names, tags and displayName are never substitutes for looking at the pixels. If atlas pixels cannot be inspected, do not invent appearance.
+10. Animation visuals are intentionally deduplicated. One representative image per animation family is enough to understand the action. Never request or require every frame.
+11. Audio is a first-class Director input. It is non-visual and must never be treated as a visual coverage gap.
+12. Prefab internals are not Director vocabulary. A safe Prefab may appear only as a CanonicalActor or PreviewSafeVisualComposite. Do not expose gameplay scripts, colliders, physics or prefab hierarchy in the cutscene plan.
+13. Materials, technical textures, fonts, gameplay helpers and unsafe records are dependencies or excluded evidence, not normal creative choices.
+14. VISUAL_UNAVAILABLE.json is raw Visual Library evidence only. Use director-view/completion-queue.json to decide which missing previews actually require a Unity fix.
+15. A missing preview does not prove that a legitimate film asset is missing. Check director-view/eligibility-audit.json first. Entries flagged as sample/demo/generated/technical-looking require Unity source eligibility review before preview generation; GitHub does not silently delete them to improve coverage metrics.
+16. If a recommendable asset lacks verified pixels, use another verified asset or clearly report the completion item. Do not guess its appearance.
+17. Use the Instruction Book for cinematic lessons, BAD/GOLDEN cases and authoring invariants.
+18. If direct Pages or Visual Atlas access genuinely fails, download STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip from the stable URL above and continue from that same atomic snapshot.
+19. Do not ask Debora to assemble packages manually. The fallback ZIP already contains the Director View, authoring contract, Instruction Book, visual indexes, representative sheets and the unified Visual Atlas PDF.
 
 NORMAL FLOW:
-DEBORA DESCRIBES CUTSCENE -> READ OPEN CURRENT -> VERIFY ATOMIC IDENTITY -> SEARCH DIRECTOR CATEGORY FILES -> CHECK ELIGIBILITY WHEN NEEDED -> INSPECT VERIFIED PIXELS -> PLAN STORY/SHOTS -> CHOOSE EXACT VERIFIED ASSETS + ANIMATIONS + AUDIO -> VALIDATE AGAINST CURRENT CONTRACT -> CREATE NEW JSON -> UNITY PREVIEW.
+DEBORA DESCRIBES CUTSCENE -> READ OPEN CURRENT -> VERIFY ATOMIC IDENTITY -> SEARCH DIRECTOR CATEGORY FILES -> RESOLVE EXACT ASSET IN FULL_VISUAL_INDEX -> OPEN SINGLE VISUAL ATLAS PDF AT atlasPage/atlasSlot -> INSPECT PIXELS -> PLAN STORY/SHOTS -> CHOOSE EXACT VERIFIED ASSETS + ANIMATIONS + AUDIO -> VALIDATE AGAINST CURRENT CONTRACT -> CREATE NEW JSON -> UNITY PREVIEW.
 
 FALLBACK FLOW ONLY IF DIRECT ACCESS FAILS:
-DOWNLOAD THE STABLE DIRECTOR CURRENT ZIP -> READ CHATGPT_READ_FIRST.txt -> VERIFY THE SAME ATOMIC IDENTITY -> USE THE SAME DIRECTOR/CONTRACT/INSTRUCTION/VISUAL FILES -> CONTINUE THE SAME AUTHORING TASK.
+DOWNLOAD THE STABLE DIRECTOR CURRENT ZIP -> READ CHATGPT_READ_FIRST.txt -> VERIFY THE SAME ATOMIC IDENTITY -> USE THE SAME DIRECTOR/CONTRACT/INSTRUCTION/VISUAL ATLAS FILES -> CONTINUE THE SAME AUTHORING TASK.
