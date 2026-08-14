@@ -1,6 +1,6 @@
 {
   "schema": "STARWARS_DELTA_DESIGNER_AI_OPEN_CURRENT",
-  "schemaVersion": 8,
+  "schemaVersion": 9,
   "status": "CURRENT_VERIFIED_OPEN",
   "publishTransactionId": "20260814-120406075-d1d97323",
   "publishedUtc": "2026-08-14T12:09:39.5039162Z",
@@ -13,14 +13,67 @@
   "assetVisualLookupUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/ASSET_VISUAL_LOOKUP.json",
   "fullVisualSheetsRoot": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/",
   "usage": {
-    "rule": "The visual index is evidence only. Build authoring choices from the full Director View, then inspect pageImageUrl pixels before visual claims.",
+    "rule": "Author from the full Director View. For visual decisions, resolve the chosen asset in FULL_VISUAL_INDEX.json and inspect the actual pixels in STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf at atlasPage/atlasSlot.",
     "animation": "One representative image per animation family is intentional; do not require every frame.",
-    "preferredVisualFormat": "Open pageImageUrl JPEG first. PDF is a secondary archive/fallback format.",
+    "preferredVisualFormat": "Use the single CURRENT Visual Atlas PDF for pixel inspection. JPEG sheets remain transport/debug fallbacks only.",
     "missingPixels": "VISUAL_UNAVAILABLE.json is raw evidence. Use the Director completion queue to decide which missing previews actually require a Unity fix.",
     "director": "Start with director-view/DIRECTOR_VIEW.json. Search the relevant category file, inspect exact pageImageUrl pixels, then validate exact IDs against catalog-contract.",
     "audio": "Use director-view/audio.json. Audio is non-visual and must never be counted as a visual gap.",
     "animations": "Use director-view/animations.json. One representative image per animation family is intentional.",
     "fallback": "Use STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip only when direct Pages access genuinely fails."
+  },
+  "visualAtlas": {
+    "schema": "STARWARS_DELTA_CHATGPT_VISUAL_ATLAS",
+    "schemaVersion": 1,
+    "status": "CURRENT_VERIFIED_VISUAL_ATLAS",
+    "publishTransactionId": "20260814-120406075-d1d97323",
+    "pdfFile": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
+    "pdfUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
+    "manifestUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/VISUAL_ATLAS_CURRENT.json",
+    "totalPages": 84,
+    "representativeCount": 987,
+    "sourceVisualIdentityCount": 1173,
+    "categoryRanges": [
+      {
+        "category": "Actor",
+        "sourcePdfFile": "full-visual-sheets/actor.pdf",
+        "sourcePdfUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor.pdf",
+        "sourcePageCount": 47,
+        "atlasStartPage": 1,
+        "atlasEndPage": 47
+      },
+      {
+        "category": "Effect",
+        "sourcePdfFile": "full-visual-sheets/effect.pdf",
+        "sourcePdfUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect.pdf",
+        "sourcePageCount": 12,
+        "atlasStartPage": 48,
+        "atlasEndPage": 59
+      },
+      {
+        "category": "Layer",
+        "sourcePdfFile": "full-visual-sheets/layer.pdf",
+        "sourcePdfUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/layer.pdf",
+        "sourcePageCount": 8,
+        "atlasStartPage": 60,
+        "atlasEndPage": 67
+      },
+      {
+        "category": "Ui",
+        "sourcePdfFile": "full-visual-sheets/ui.pdf",
+        "sourcePdfUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/ui.pdf",
+        "sourcePageCount": 17,
+        "atlasStartPage": 68,
+        "atlasEndPage": 84
+      }
+    ],
+    "lookup": {
+      "fullVisualIndexFile": "FULL_VISUAL_INDEX.json",
+      "fullVisualIndexUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/FULL_VISUAL_INDEX.json",
+      "assetLookupFile": "ASSET_VISUAL_LOOKUP.json",
+      "assetLookupUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/ASSET_VISUAL_LOOKUP.json"
+    },
+    "usage": "Use Director metadata to shortlist assets, resolve the asset in FULL_VISUAL_INDEX.json, then open this PDF and visually inspect the exact atlasPage and atlasSlot before any visual claim, asset choice or storyboard."
   },
   "visualLibraryPreviewCoverage": {
     "sourceVisualIdentityCount": 1173,
