@@ -1,6 +1,6 @@
 {
   "schema": "STARWARS_DELTA_DESIGNER_AI_OPEN_CURRENT",
-  "schemaVersion": 9,
+  "schemaVersion": 10,
   "status": "CURRENT_VERIFIED_OPEN",
   "publishTransactionId": "20260814-120406075-d1d97323",
   "publishedUtc": "2026-08-14T12:09:39.5039162Z",
@@ -16,6 +16,8 @@
     "rule": "Author from the full Director View. For visual decisions, resolve the chosen asset in FULL_VISUAL_INDEX.json and inspect the actual pixels in STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf at atlasPage/atlasSlot.",
     "animation": "One representative image per animation family is intentional; do not require every frame.",
     "preferredVisualFormat": "Use the single CURRENT Visual Atlas PDF for pixel inspection. JPEG sheets remain transport/debug fallbacks only.",
+    "visualAccessFallback": "If ChatGPT cannot render the Atlas URL as pixels, do not guess. Ask the user to download and upload the single CURRENT Visual Atlas PDF from the Debora page. Continue with the same CURRENT Director after upload.",
+    "normalUserDownload": "No download is normally required. If ChatGPT asks for visual access, the only normal user download is the single CURRENT Visual Atlas PDF. The Director ZIP is advanced metadata fallback, not the normal visual-access download.",
     "missingPixels": "VISUAL_UNAVAILABLE.json is raw evidence. Use the Director completion queue to decide which missing previews actually require a Unity fix.",
     "director": "Start with director-view/DIRECTOR_VIEW.json. Search the relevant category file, inspect exact pageImageUrl pixels, then validate exact IDs against catalog-contract.",
     "audio": "Use director-view/audio.json. Audio is non-visual and must never be counted as a visual gap.",
@@ -24,15 +26,27 @@
   },
   "visualAtlas": {
     "schema": "STARWARS_DELTA_CHATGPT_VISUAL_ATLAS",
-    "schemaVersion": 1,
+    "schemaVersion": 2,
     "status": "CURRENT_VERIFIED_VISUAL_ATLAS",
     "publishTransactionId": "20260814-120406075-d1d97323",
     "pdfFile": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
+    "pdfFileName": "STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
     "pdfUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
     "manifestUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/VISUAL_ATLAS_CURRENT.json",
+    "fileSizeBytes": 18419292,
     "totalPages": 84,
     "representativeCount": 987,
     "sourceVisualIdentityCount": 1173,
+    "contains": [
+      "Actor visual sheets: characters, robots, ships and other world actors",
+      "Effect visual sheets: explosions, flashes, atmosphere and VFX",
+      "Layer visual sheets: backgrounds, environments and scenery",
+      "Ui visual sheets: portraits, dialogue frames, screens and interface visuals"
+    ],
+    "doesNotNeedPixelSheets": [
+      "Animations use exact Director compatibility IDs with representative family visuals",
+      "Audio is selected from Director metadata and is non-visual"
+    ],
     "categoryRanges": [
       {
         "category": "Actor",
@@ -73,7 +87,17 @@
       "assetLookupFile": "ASSET_VISUAL_LOOKUP.json",
       "assetLookupUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/ASSET_VISUAL_LOOKUP.json"
     },
-    "usage": "Use Director metadata to shortlist assets, resolve the asset in FULL_VISUAL_INDEX.json, then open this PDF and visually inspect the exact atlasPage and atlasSlot before any visual claim, asset choice or storyboard."
+    "usage": "Use Director metadata to shortlist assets, resolve the asset in FULL_VISUAL_INDEX.json, then inspect the real pixels in this PDF at atlasPage and atlasSlot before any visual claim, asset choice or storyboard.",
+    "visualAccessFallback": {
+      "rule": "If ChatGPT cannot actually render and inspect this PDF from the public URL, it must not guess from metadata. Ask the user to download this single PDF from the Debora page and upload it directly to the chat, then continue using the same CURRENT Director metadata and asset IDs.",
+      "userFileToUpload": "STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
+      "doNotRequest": [
+        "Catalog ZIP for ordinary visual access",
+        "Instruction Book ZIP for ordinary visual access",
+        "Full Visual Library archive for ordinary visual access",
+        "Multiple category PDFs when the unified Atlas PDF is available"
+      ]
+    }
   },
   "visualLibraryPreviewCoverage": {
     "sourceVisualIdentityCount": 1173,
