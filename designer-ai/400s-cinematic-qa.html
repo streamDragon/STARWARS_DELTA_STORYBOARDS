@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate">
+<title>STARWARS_DELTA - 400s Cinematic QA</title>
+<style>
+:root{color-scheme:dark;font-family:Inter,Segoe UI,Arial,sans-serif;background:#081019;color:#eef5ff}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 18% 0,#203c5f,#081019 52%)}main{width:min(920px,calc(100% - 28px));padding:24px}.card{background:#111c2a;border:1px solid #2b4562;border-radius:20px;padding:28px;box-shadow:0 20px 65px #0009}.eyebrow{color:#82d8ff;font-size:12px;font-weight:900;letter-spacing:.16em}h1{font-size:clamp(32px,7vw,48px);line-height:1.05;margin:10px 0}.sub{color:#aec0d4;line-height:1.6;max-width:760px}.status{display:inline-block;margin:12px 0;padding:8px 12px;border-radius:999px;background:#173827;color:#a4f1c0;border:1px solid #2e7551;font-weight:900}.box{margin-top:16px;padding:15px;border-radius:12px;background:#0b1520;border:1px solid #2a4057;color:#9eb1c7;line-height:1.55}.box b{color:#eef5ff}.warning{border-color:#715b27;background:#2b2210;color:#ffe6a1}button,a{display:block;width:100%;padding:16px 18px;margin-top:12px;border:0;border-radius:12px;text-align:center;text-decoration:none;font-weight:900;font-size:16px;cursor:pointer}.copy{background:#8ce7ad;color:#07150d}.secondary{background:#1b2a3d;color:#e8f5ff;border:1px solid #35506e}.atlas{background:#173f5f;color:#c5ecff;border:1px solid #3276a5}button:disabled{opacity:.5;cursor:not-allowed}.small{font-size:12px;color:#748ba3;margin-top:14px;line-height:1.5}.error{color:#ffaaa5;white-space:pre-wrap}
+</style>
+</head>
+<body><main><div class="card">
+<div class="eyebrow">STARWARS_DELTA · PRODUCTION QA</div>
+<h1>400-Second Cinematic System Proof</h1>
+<p class="sub">One execution prompt for the Unity/Codex agent. It enforces real-pixel storyboard first, exact CURRENT IDs, a representative vertical slice, full V5/context-V3 materialization, fresh visual QA, and storyboard-versus-Unity comparison.</p>
+<div id="status" class="status">CHECKING CURRENT...</div>
+<div id="error" class="error"></div>
+<div id="identity" class="box">Loading CURRENT identity...</div>
+<button id="copy" class="copy" disabled>COPY COMPLETE 400S QA PROMPT</button>
+<a class="secondary" href="CODEX_400S_CINEMATIC_STORYBOARD_FIRST_QA_CURRENT.txt" target="_blank" rel="noopener">OPEN PROMPT AS TEXT</a>
+<a class="secondary" href="open-current/STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip" download>DOWNLOAD CURRENT DIRECTOR PACK</a>
+<a class="atlas" href="open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf" download>DOWNLOAD CURRENT VISUAL ATLAS PDF</a>
+<div class="box warning"><b>Non-negotiable:</b> no generated concept art may be presented as Catalog evidence. If pixels cannot actually be inspected, the agent must say so immediately instead of inventing visual verification, a popular human tradition that this project can survive without.</div>
+<p class="small">The prompt is stored once in <code>CODEX_400S_CINEMATIC_STORYBOARD_FIRST_QA_CURRENT.txt</code>. This page only copies that source; it does not maintain a second instruction list.</p>
+</div></main>
+<script>
+(async()=>{const status=document.getElementById('status'),err=document.getElementById('error'),identity=document.getElementById('identity'),copy=document.getElementById('copy');try{const [currentResponse,promptResponse]=await Promise.all([fetch('open-current/OPEN_CURRENT.json?t='+Date.now(),{cache:'no-store'}),fetch('CODEX_400S_CINEMATIC_STORYBOARD_FIRST_QA_CURRENT.txt?t='+Date.now(),{cache:'no-store'})]);if(!currentResponse.ok)throw new Error('CURRENT HTTP '+currentResponse.status);if(!promptResponse.ok)throw new Error('PROMPT HTTP '+promptResponse.status);const current=await currentResponse.json();const prompt=await promptResponse.text();if(current.status!=='CURRENT_VERIFIED_OPEN')throw new Error('CURRENT is not verified open');if(!prompt.includes('COMPLETE 400S VISUAL STORYBOARD')||!prompt.includes('STORYBOARD/RESULT COMPARISON'))throw new Error('400s prompt is incomplete');status.textContent='CURRENT VERIFIED · '+current.publishTransactionId;const a=current.atomicIdentity||{};identity.innerHTML='<b>Atomic authoring identity</b><br>Catalog '+String(a.catalogRevision||current.catalogRevision||'')+'<br>Contract '+String(a.contractRevision||current.contractRevision||'')+'<br>Schema '+String(a.schemaHash||current.schemaHash||'');copy.disabled=false;copy.onclick=async()=>{await navigator.clipboard.writeText(prompt);copy.textContent='COPIED · PASTE INTO UNITY/CODEX AGENT';setTimeout(()=>copy.textContent='COPY COMPLETE 400S QA PROMPT',1900);};}catch(e){status.textContent='CURRENT OR PROMPT INCOMPLETE';err.textContent=e.message;identity.textContent='Copy is disabled until CURRENT and the single prompt source are consistent.';copy.disabled=true;}})();
+</script>
+</body>
+</html>
