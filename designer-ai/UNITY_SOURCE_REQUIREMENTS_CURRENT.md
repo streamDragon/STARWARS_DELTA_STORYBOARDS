@@ -1,134 +1,152 @@
 # STARWARS_DELTA Designer AI - Unity Source Requirements CURRENT
 
-This document is an engineering handoff for the Unity-side implementation agent. It is **not** a second Catalog, not an authoring source, and not a substitute for the atomic Unity publish.
+This document is the Unity-side engineering handoff. It is not a second Catalog and must not be used to patch generated `open-current` output by hand.
 
-## Current baseline
+## Current atomic baseline
 
-- `publishTransactionId`: `20260813-212754773-ff89e3c3`
-- Public `OPEN_CURRENT`: `CURRENT_VERIFIED_OPEN`
-- Director projection source: **22,506 Catalog records**
-- Director categories currently published: **548 Actors, 100 Layers, 363 Effects, 247 UI, 566 AnimationClips, 237 AudioClips**
-- Raw Visual Library identities: **1,340**
-- Direct pixel evidence: **1,061**
-- Raw direct-preview gaps: **279**
-- Director visual completion entries after Actor canonical merging: **278**
-- Animation metadata completion entries: **566**
-- Audio metadata completion entries: **237**
+Public CURRENT verified on 2026-08-14:
 
-The public GitHub/Pages pipeline is intentionally reporting these gaps rather than fabricating data.
+- `publishTransactionId`: `20260814-120406075-d1d97323`
+- `catalogRevision`: `7625331408923133048`
+- `snapshotContentHash`: `C16953971274B89AB99AA31E14CF4DB4CFA7EA39A2D226C10D98E9D0A25F70C4`
+- `contractRevision`: `3BE709BD8B9143E9E6F52BDADAF1671F15B60805CC7DB33D34A2AC38D08072A1`
+- `schemaHash`: `F7CA124AA3417E02F078796144AF0274284D91CA721DD311C6432587ED54193F`
+- Catalog source: 22,506 records
+- Director: 505 Actors, 90 Layers, 275 Effects, 223 UI, 523 Animations, 225 Audio
+- Visual identities: 1,173
+- Direct pixel evidence: 999
+- Direct preview gaps: 174
+- Director pixel-verified visual entries: 987
+- eligibility audit currently flags 25 Director visual entries and 0 completion entries
 
-## Important interpretation
+The unified Visual Atlas is active and was successfully used to inspect real pixels before authoring.
 
-`1,061 / 1,340` is only the Visual Library direct-preview metric. It is **not** total Catalog coverage and it is **not** total Director readiness. Audio is non-visual. Animation availability is represented by exact AnimationClip IDs plus representative family evidence.
+## New evidence: Mars Cafe homecoming proof
 
-## Unity-side requirements for the next atomic publish
+A real 60-second V5 cutscene was authored from CURRENT Atlas pixels and exact IDs. The normal Studio path accepted the JSON and materialized several real assets, including Mars environments and the cafe exterior/interior. This proves the core chain works:
 
-### 1. Fix Director eligibility at the Catalog/publisher source
+`CURRENT -> Director -> Atlas pixels -> exact IDs -> Studio validation -> materializer -> Unity preview`.
 
-Do not blindly render previews for all 278 current completion entries. First classify whether each candidate is actually legitimate cinematic content.
+The same proof exposed representative-preview failures that must now be fixed at source/runtime rather than worked around in JSON.
 
-The current completion queue still contains obvious examples of source-classification leakage such as Cinemachine/sample or generic helper content, including entries such as `Animated Cameron`, `Lane`, `Capsule`, and `EndWall`. These should not be silently treated as missing film assets just because the current Catalog marks them preview-safe.
+## Work packets
 
-The Unity source projection should provide deterministic eligibility/exclusion reasons for:
+The GitHub issues are the authoritative engineering split:
 
-- sample/demo content (`Assets/Samples/**` and equivalent package sample roots)
-- Editor/test/debug helpers
-- generated Cutscene output
-- generic geometry/helpers/camera zones/spline helpers
-- gameplay-only Prefabs
-- technical textures/material dependencies
-- unsafe or non-deterministic Prefabs
+- **WP1 / Issue #2 - Unity Studio representative-preview invariants**
+- **WP2 / Issue #3 - Director filmmaking metadata and runtime-readiness projection**
+- **WP3 / Issue #4 - Debora / ChatGPT cinematic authoring preflight**
+- **WP4 / Issue #5 - Mars Cafe regression fixture and GOLDEN promotion gate**
 
-Legitimate cinematic Particle/VFX Prefabs must remain eligible when they can be sanitized and rendered deterministically.
+WP3 has already begun on the Git/Pages side through `FILM_AUTHORING_GUIDE_CURRENT.md`, `CHATGPT_START.txt`, `chatgpt-current.json` and `debora.html`. Unity-owned Instruction Book source/curation still needs the corresponding source-side lesson updates before the next atomic publish.
 
-### 2. Complete deterministic pixel evidence for eligible visuals
+## Priority 1 - Studio representative-preview invariants
 
-For every Director-eligible Actor, Layer, Effect or UI visual identity, export one deterministic representative preview unless it intentionally shares one representative animation-family frame.
+### Role capability must be enforced before Build Editable Preview
 
-Requirements:
+The Mars proof accepted a visual as `role=Hero` even though its Director capability set did not provide the required `Cutscene.Actor` capability.
 
-- real pixels, not filename inference
-- readable framing and scale
-- deterministic ParticleSystem sampling and random seeds
-- no active gameplay scripts/colliders/physics/network logic in preview instances
-- transparent/neutral preview background where appropriate
-- invalid/magenta principal render is a blocker, not an acceptable preview
-- one representative image per animation family, not every frame
+Required behavior:
+- validate cast role against exact Director capability/runtime form at import boundary
+- block invalid Hero/Supporting role assignments before generation
+- do not rely on runtime fallback to reveal this error
 
-### 3. Complete AnimationClip metadata
+### Principal fallback is not GREEN
 
-The current Director projection exposes all **566** current AnimationClip IDs, but the completion queue still flags metadata gaps across the set.
+`MediumStarship Blue 01/02` appeared as yellow diagnostic squares in normal Designer Preview.
 
-Unity should export, where available and verified:
+Required preview states:
+- GREEN: representative principal visuals, sane coverage/proportions, no required diagnostic fallback
+- YELLOW: optional/non-principal degradation only
+- RED: principal/required actor fallback, invalid role capability, broken location-critical background, missing required materialization
 
-- exact compatible Actor IDs
-- semantic action/family
-- duration and frame rate
-- loop/start/end/one-shot phase
-- representative visual-family evidence
-- review state and uncertainty
+Diagnostic yellow placeholders should be Advanced/Debug only in the normal designer path.
 
-Compatibility must remain exact: `Actor -> compatibleAnimationIds -> AnimationClip`.
+### Semantic proportions must be owned by Unity
 
-### 4. Complete Audio metadata
+The preview reported a system-managed ship at roughly `3.9%` screen-space. For `systemManagedProportions=true`:
+- authored scale is a multiplier around `1.0`
+- Unity normalizes to semantic size
+- do not run ordinary screen-band QA on a diagnostic fallback square as if it were the intended renderer
+- emit a dedicated materialization-fallback diagnostic first
 
-The current Director projection exposes all **237** AudioClip IDs, but current Catalog metadata does not provide the Director fields needed for useful selection.
+Add a validation warning/blocker for extreme authored multipliers (roughly outside 0.75-1.35) unless an explicit deliberate reason is supported.
 
-Unity should export directly from source/import metadata where possible:
+### Background Cover must survive camera motion
 
-- duration
-- channels / frequency
-- loop metadata / loop recommendation
-- purpose: Music / Ambience / Sfx / Alert / Ui / Voice where applicable
-- description
-- mood / intensity with explicit uncertainty when semantic evidence is weak
+Mars backgrounds rendered as postage-stamp rectangles with black around them in Game view.
 
-Audio must never be counted as a visual gap.
+Background/FarBackground must cover at least 95% of the active camera frame through Hold and camera motion, including Push/Pull/zoom. Compute coverage for the largest required camera view, not only initial materialization.
 
-### 5. Complete presentation metadata for eligible film assets
+### Effect materialization must be proven
 
-The current Catalog has useful descriptions/tags/roles/families, but Director presentation fields are still largely unpopulated. Prioritize Director-eligible visuals rather than annotating every technical asset.
+The Mars JSON authored distant explosion effects, but screenshots did not prove visible effect materialization. Add focused tests and explicit degraded status when a required VFX cannot materialize.
 
-Needed fields include the equivalent of:
+## Priority 2 - Director filmmaking metadata
 
-- presentation description
-- location type
-- scene/environment state
-- lighting mood
-- background coverage
-- fit/composition guidance
-- foreground / midground / background role
-- portrait/world presentation suitability
+Exact pixels and IDs are necessary but insufficient for film selection. Export machine-readable presentation evidence for Director-eligible assets where verified or explicitly uncertain:
 
-Avoid a global `Stretch`-style fallback when the visual requires semantic framing.
+- `visualStyle`
+- `viewAngle` / camera perspective
+- orientation
+- `locationType` / environment family
+- scene state / lighting mood
+- foreground/midground/background role
+- `authoringRuntimeForm`
+- role capability suitability
+- background fit/coverage guidance
+- system-managed proportions / target screen fraction / scale basis
+- materialization confidence or known fallback risk where source evidence supports it
 
-### 6. Keep Generated output out of the source Catalog
+Selection should prefer location/style/perspective continuity over literal filename matching. A top-down concept/reference ship should not rank as an equal grounded eye-level Hero simply because it has the desired identity name.
 
-A clean rebuild must explicitly exclude generated Cutscene output roots before the next baseline is considered clean. Do not let generated films recursively become authoring source assets.
+## Priority 3 - Audio and camera semantics
 
-### 7. Republish atomically
+Audio remains first-class. Continue completing Director audio metadata and require narrative authoring to perform an Audio pass when suitable clips exist.
 
-After source fixes and annotation completion, build a new atomic Designer AI publish. Do not update timestamps on the old content and call it new.
+For V3, preserve the existing architecture:
 
-The next publish must keep the Catalog, Visual Library, Instruction Book/contract, hashes and `publishTransactionId` coherent. Only after that publish succeeds should `designer-ai/current.json` advance.
+`Performance/Blocking -> Camera Intent -> V3 Cinemachine Planner -> Cinemachine/Timeline`.
 
-## Git-side contract already in place
+Authoring should expose semantic purpose/composition rather than forcing ChatGPT to micromanage raw orthographic values.
 
-The GitHub side now expects and publishes:
+For VFX, add semantic depth/purpose when the contract evolves, e.g. Background/Midground/Foreground or `DistantBattle`, so authors do not fake depth only through tiny scale values.
 
-- `OPEN_CURRENT.json`
-- `director-view/DIRECTOR_VIEW.json`
-- Actor / Layer / Effect / UI / Animation / Audio Director category files
-- `director-view/completion-queue.json`
-- current Catalog contract/schema
-- current Instruction Book
-- full representative visual index/sheets
-- compact `STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip`
+## Priority 4 - Regression and learning
 
-The old request-scoped 717-record candidate package is not the general authoring source anymore.
+Preserve the first Mars Cafe proof as immutable BAD evidence, conceptually `MARS_CAFE_HOMECOMING_V1_BAD`.
 
-Do **not** manually edit generated `open-current` output to hide Unity source defects. Fix the Unity source/publisher, create a new atomic CURRENT, and let the Git workflow regenerate the projection.
+Regression coverage must include:
+- invalid Hero role capability rejected
+- Blue ship actors materialize as real renderers or explicit degraded/blocked status
+- background coverage >=95% through camera motion
+- system-managed actor with authored multiplier 1.0 lands inside semantic band
+- successful normal preview contains no diagnostic placeholders
+- required VFX materialization is proven or degraded explicitly
+- importer continues through the normal Studio path
 
-## Acceptance signal for this document
+Do not convert the BAD case in place. Create a separate corrected GOLDEN only after automated invariants and a manual canonical visual review pass.
 
-This handoff can be retired when a newer atomic CURRENT is public and verified, Director eligibility no longer leaks obvious sample/technical junk, legitimate visual completion gaps are materially reduced, Animation and Audio metadata are populated, and presentation metadata is useful for filmmaking.
+## Existing source requirements still apply
+
+- keep sample/demo/editor/test/debug/generated/technical helpers out of normal Director eligibility
+- keep Generated cutscene output out of the Catalog source
+- complete deterministic preview evidence for legitimate visual assets
+- preserve exact Actor -> compatibleAnimationIds -> AnimationClip compatibility
+- continue Animation and Audio metadata completion
+- do not expose prefab scripts/colliders/physics as authoring vocabulary
+- republish atomically after Unity source fixes; do not update timestamps on old content
+
+## Acceptance for the next atomic publish
+
+A new publish is ready for Mars Cafe re-authoring only when:
+
+1. WP1 representative-preview invariants compile and focused tests pass.
+2. Principal diagnostic fallback cannot appear as normal GREEN success.
+3. Background Cover survives camera motion.
+4. Role capability is enforced before generation.
+5. Director exposes materially better filmmaking/runtime-readiness metadata.
+6. Instruction Book source includes the recurring Mars lessons without overwriting raw BAD evidence.
+7. Catalog/Director/Atlas/contract/book are published atomically under one new transaction.
+
+Only after that should the corrected Mars Cafe JSON be used as the next visual acceptance proof.
