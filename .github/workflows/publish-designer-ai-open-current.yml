@@ -7,6 +7,7 @@ on:
     paths:
       - 'designer-ai/current.json'
       - 'designer-ai/tools/build_open_current.py'
+      - 'designer-ai/tools/finalize_open_current.py'
       - '.github/workflows/publish-designer-ai-open-current.yml'
 
 permissions:
@@ -33,6 +34,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/build_open_current.py
+
+      - name: Audit coverage and build Debora download bundle
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        run: python3 designer-ai/tools/finalize_open_current.py
 
       - name: Publish clean open-current branch
         run: |
