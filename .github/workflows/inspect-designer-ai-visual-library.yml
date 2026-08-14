@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Inspect visual library ZIP without publishing it
+      - name: Inspect missing visual preview fallbacks
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
@@ -23,6 +23,7 @@ jobs:
           set -euo pipefail
           python3 - <<'PY'
           import json, os, pathlib, tempfile, urllib.request, zipfile
+          from collections import Counter
 
           repo = os.environ['REPOSITORY']
           token = os.environ['GITHUB_TOKEN']
@@ -39,49 +40,103 @@ jobs:
           with urllib.request.urlopen(req, timeout=120) as r:
               release = json.load(r)
           asset = next(a for a in release['assets'] if a['name'] == 'STARWARS_DELTA_DESIGNER_AI_VISUAL_LIBRARY_CURRENT.zip')
+
           with tempfile.TemporaryDirectory() as td:
               zp = pathlib.Path(td) / 'visual.zip'
               req = urllib.request.Request(asset['browser_download_url'], headers={'User-Agent': 'STARWARS-DELTA-visual-inspector'})
               with urllib.request.urlopen(req, timeout=600) as r, zp.open('wb') as f:
                   while True:
                       b = r.read(1024 * 1024)
-                      if not b: break
+                      if not b:
+                          break
                       f.write(b)
+
               with zipfile.ZipFile(zp) as z:
-                  names = z.namelist()
-                  print('ZIP_FILE_COUNT', len(names))
-                  print('ZIP_FIRST_FILES')
-                  for n in names[:100]: print(n)
-                  json_names = [n for n in names if n.lower().endswith('.json')]
-                  print('JSON_CANDIDATES', len(json_names))
-                  for n in json_names[:40]:
-                      info = z.getinfo(n)
-                      print('JSON', n, 'SIZE', info.file_size)
-                      if info.file_size > 12_000_000:
-                          print('SKIP_LARGE_JSON')
-                          continue
-                      try:
-                          data = json.loads(z.read(n).decode('utf-8-sig'))
-                      except Exception as exc:
-                          print('PARSE_FAIL', type(exc).__name__, str(exc)[:160])
-                          continue
-                      if isinstance(data, dict):
-                          print('ROOT_KEYS', list(data.keys())[:40])
-                          for key, val in data.items():
-                              if isinstance(val, list) and val and isinstance(val[0], dict):
-                                  print('LIST_FIELD', key, 'COUNT', len(val), 'ENTRY_KEYS', list(val[0].keys())[:60])
-                                  sample = val[0]
-                                  for k,v in sample.items():
-                                      lk = k.lower()
-                                      if any(t in lk for t in ('path','preview','animation','visual','assetid','display','category','purpose','source')):
-                                          print('SAMPLE', k, repr(v)[:500])
+                  names = set(z.namelist())
+                  manifest = json.loads(z.read('visual_library_manifest.json').decode('utf-8-sig'))
+                  assets = manifest.get('assets', [])
+                  print('VISUAL_IDENTITIES', len(assets))
+
+                  direct = []
+                  missing = []
+                  for a in assets:
+                      preview = a.get('primaryPreview') or a.get('thumbnailPath')
+                      if preview and preview in names:
+                          direct.append(a)
+                      else:
+                          missing.append(a)
+
+                  print('DIRECT_PREVIEW', len(direct))
+                  print('MISSING_DIRECT_PREVIEW', len(missing))
+                  print('MISSING_BY_CATEGORY', dict(Counter(str(a.get('category') or 'Other') for a in missing)))
+                  print('MISSING_BY_SOURCE_KIND', dict(Counter(str(a.get('sourceKind') or 'Unknown') for a in missing)))
+
+                  def pathish(value):
+                      if isinstance(value, str):
+                          return value if value in names else None
+                      if isinstance(value, dict):
+                          for key in ('path','file','filePath','previewPath','imagePath','contactSheetPath','atlasPath'):
+                              candidate = value.get(key)
+                              if isinstance(candidate, str) and candidate in names:
+                                  return candidate
+                      return None
+
+                  fallback_counts = Counter()
+                  examples = []
+                  for a in missing:
+                      fallback = None
+                      reason = None
+
+                      contact = pathish(a.get('contactSheet'))
+                      if contact:
+                          fallback, reason = contact, 'contactSheet'
+
+                      if not fallback:
+                          atlas = pathish(a.get('atlas'))
+                          if atlas:
+                              fallback, reason = atlas, 'atlasPath'
+
+                      if not fallback:
+                          atlas_id = a.get('atlasId')
+                          if atlas_id:
+                              candidates = [
+                                  f'atlases/atlas_{atlas_id}.png',
+                                  f'atlases/{atlas_id}.png',
+                              ]
+                              for candidate in candidates:
+                                  if candidate in names:
+                                      fallback, reason = candidate, 'atlasId'
+                                      break
+
+                      if not fallback:
+                          frames = a.get('representativeFrames') or []
+                          for frame in frames:
+                              candidate = pathish(frame)
+                              if candidate:
+                                  fallback, reason = candidate, 'representativeFrame'
                                   break
-                      elif isinstance(data, list):
-                          print('ROOT_LIST_COUNT', len(data))
-                          if data and isinstance(data[0], dict):
-                              print('ENTRY_KEYS', list(data[0].keys())[:60])
-                  pngs = [n for n in names if n.lower().endswith(('.png','.jpg','.jpeg','.webp'))]
-                  print('IMAGE_COUNT', len(pngs))
-                  print('IMAGE_SAMPLES')
-                  for n in pngs[:60]: print(n)
+
+                      fallback_counts[reason or 'none'] += 1
+                      if len(examples) < 30:
+                          examples.append({
+                              'displayName': a.get('displayName'),
+                              'category': a.get('category'),
+                              'sourceKind': a.get('sourceKind'),
+                              'assetId': a.get('assetId'),
+                              'thumbnailPath': a.get('thumbnailPath'),
+                              'primaryPreview': a.get('primaryPreview'),
+                              'contactSheet': a.get('contactSheet'),
+                              'atlas': a.get('atlas'),
+                              'atlasId': a.get('atlasId'),
+                              'atlasRect': a.get('atlasRect'),
+                              'representativeFrames': a.get('representativeFrames'),
+                              'fallbackReason': reason,
+                              'fallbackPath': fallback,
+                          })
+
+                  print('FALLBACK_COUNTS', dict(fallback_counts))
+                  print('EXAMPLES_BEGIN')
+                  for e in examples:
+                      print(json.dumps(e, ensure_ascii=False))
+                  print('EXAMPLES_END')
           PY
