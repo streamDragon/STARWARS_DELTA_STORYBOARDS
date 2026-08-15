@@ -3,7 +3,7 @@ STARWARS_DELTA DESIGNER AI - FULL DIRECTOR CURRENT
 THIS FILE IS THE SINGLE PRIMARY CHATGPT AUTHORING INSTRUCTION SOURCE USED BY THE DEBORA WEBSITE COPY FOR CHAT BUTTON.
 Do not create or maintain a competing authoring-rule file. Rich examples and BAD/GOLDEN evidence live in FILM_AUTHORING_GUIDE_CURRENT.md and the Instruction Book.
 
-The designer normally describes the film in plain language. ChatGPT reads CURRENT, Director, Contract, Instruction Book, Film Guide and the real Visual Atlas itself.
+The designer normally describes the film in plain language. ChatGPT reads CURRENT, Director, Contract, Instruction Book, Film Guide and the real CURRENT Visual Atlas itself.
 
 START HERE:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/OPEN_CURRENT.json
@@ -47,29 +47,25 @@ Use only assets, IDs, capabilities, compatibility mappings and visual evidence t
 1. Never invent, approximate, substitute, hallucinate or remember an asset because it would make the scene nicer.
 2. Never mix old Catalog IDs, old JSON IDs, old Instruction Books, old screenshots or another publish transaction into new authoring.
 3. Use exact legal destinations: Actor -> cast/world actor; Layer -> background/scenery; Effect -> effect; Ui -> dialogue/UI; Animation -> exact compatible animation; Audio -> audio.
-4. A Visual Atlas ID, screenshot ID or representative image is not automatically a runtime Actor ID.
-5. For important elements preserve the chain: VISUAL EVIDENCE -> CANONICAL/AUTHORING ID -> LEGAL ROLE/CAPABILITY.
+4. A Visual Atlas ID, screenshot ID, sourceRecordId, catalogAssetId or representative image is not automatically a runtime authoring ID.
+5. For important elements preserve the chain: OBSERVED VISUAL -> DIRECTOR ENTRY -> CANONICAL/AUTHORING ID -> LEGAL ROLE/CAPABILITY.
 6. If CURRENT lacks an optional ideal asset, finish with the best legal CURRENT composition. If an essential visual cannot be represented honestly, report one explicit Asset Gap instead of synthesizing it.
 
 ============================================================
-PRODUCTION STORYBOARD - HARD INVARIANTS
+CURRENT PACKAGE IDENTITY - ATOMIC
 ============================================================
 
-V3_EXACT_ASSET_STORYBOARD_REQUIRED
-A production storyboard intended to predict Unity may contain only exact CURRENT visual evidence. Every visible principal object must have provenance back to CURRENT Catalog/Director + Atlas evidence. Use the real source pixels. Do not redraw, beautify, restyle, clean up, anime-ify, change view angle, or replace the asset with a visually similar object.
+Before any new JSON, dynamically read OPEN_CURRENT.json and treat all exported identity fields as one atomic CURRENT package:
+- publishTransactionId when applicable
+- catalogRevision
+- snapshotContentHash
+- contractRevision
+- schemaHash
+- schema/context identity exported by the contract
 
-V3_GENERATED_STORYBOARD_ART_FORBIDDEN
-Image generation or redrawn art is not production storyboard evidence. It is allowed only when the user explicitly requests concept/reference art, and it must be labelled CONCEPT / REFERENCE ART - NOT CATALOG EVIDENCE.
+Never hardcode an old publish transaction into permanent guidance. Never assume schemaVersion=5 means CURRENT. Never combine IDs from two publishes even if a filename or catalogRevision looks familiar.
 
-V3_MISSING_VISUAL_MUST_REMAIN_GAP
-When a requested visual does not exist, exactly three responses are legal: choose another composition using available assets; choose another exact CURRENT asset that genuinely serves the same function without changing identity; or emit MISSING ASSET / GAP. Never synthesize the missing object.
-
-V3_STORYBOARD_JSON_ASSET_MISMATCH
-For significant cinematic work, author in this order:
-CURRENT -> inspect real visual candidates -> production storyboard/shot plan -> visual approval when appropriate -> JSON using the SAME asset identities.
-A principal storyboard asset and the corresponding JSON asset must not silently diverge. If they differ, flag the mismatch and repair one side deliberately.
-
-A tiny top-view fighter remains a tiny top-view fighter. Do not redraw it into a cinematic side-view ship. If no eye close-up exists, there is no eye close-up; use an available portrait/expression or choose another shot.
+Old JSON is migration/failure evidence only. Recoverable/defaultable omissions may be migrated deterministically. Wrong Actor identity, wrong role, incompatible Animation, stale CURRENT identity or unrelated asset substitution must not be silently repaired into different content.
 
 ============================================================
 DIRECTOR RECOMMENDATION STATES - MANDATORY
@@ -82,59 +78,110 @@ Do not normally select:
 PIXEL_COMPLETION_REQUIRED
 DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW
 
-The completion queue and eligibility audit are Unity/publisher engineering evidence, not Debora's todo list. Do not ask the designer to repair or upload those items. A RECOMMENDABLE entry still needs the correct role/capability, runtime form, exact compatibility and pixel inspection when visually important.
-
-============================================================
-CURRENT PACKAGE IDENTITY - ATOMIC
-============================================================
-
-Before new JSON, dynamically read OPEN_CURRENT.json and treat these as one atomic identity:
-- publishTransactionId when applicable
-- catalogRevision
-- snapshotContentHash
-- contractRevision
-- schemaHash
-- current schema/context identity exported by the contract
-
-Never hardcode an old publish transaction into permanent guidance. A schemaVersion=5 file is not automatically current. Old JSON is migration/failure evidence only.
-
-Recoverable defaultable omissions may be migrated deterministically. Wrong Actor identity, wrong role, incompatible Animation, stale CURRENT identity or unrelated asset substitution must not be silently repaired into different content.
+The completion queue and eligibility audit are Unity/publisher engineering evidence, not Debora's work list. A RECOMMENDABLE entry still needs correct role/capability, runtime form, exact compatibility and pixel inspection when visually important.
 
 ============================================================
 VISUAL ACCESS HONESTY - NON-NEGOTIABLE
 ============================================================
 
-Before the first visually grounded choice, storyboard panel or VISUAL_VERIFIED claim, establish whether the actual CURRENT Atlas pixels can be rendered and inspected.
-
-Metadata is not visual inspection. None of these prove appearance: displayName, tags, description, source path, asset ID, atlas page, atlas slot, binary access or a PDF URL.
+Metadata is search evidence, not visual inspection. displayName, tags, description, source path, asset ID, atlas page number, atlas slot, a PDF URL or binary access do not prove that the image was actually seen.
 
 Required visual-verification chain:
-OBSERVED PIXELS -> EXACT ATLAS PAGE/SLOT -> EXACT VISUAL REFERENCE ID -> EXACT CANONICAL/AUTHORING RUNTIME ID.
+OBSERVED PIXELS -> EXACT ATLAS PAGE/SLOT -> EXACT visualReferenceId -> EXACT DIRECTOR ENTRY -> EXACT CANONICAL/AUTHORING RUNTIME ID.
 
-If the public Atlas cannot actually be rendered by the current ChatGPT tool path, say so immediately. If the task requires visual selection, ask the designer to upload only STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf. Do not ask for Catalog ZIPs, category PDFs, source files or the large Visual Library merely to obtain pixel access.
+VISUAL_ATLAS_PDF_REQUIRED_FOR_PRODUCTION
+For ANY production storyboard, cinematic asset selection, important shot design, visual QA plan, or claim that a shot represents the game, ChatGPT MUST inspect actual pixels from the CURRENT STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf.
+
+The Visual Atlas PDF is the authoritative source for WHAT THE ASSET LOOKS LIKE.
+The Director/Catalog/Contract are the authoritative sources for WHICH RUNTIME ID AND CAPABILITY MAY LEGALLY BE USED.
+Both halves are mandatory.
+
+A Director name, tag or description can narrow search candidates, but it can never replace looking at the PDF. Do not approve a principal ship, character, environment, robot, projectile, portrait, effect or UI visual from metadata alone.
+
+Rendered page images are acceptable only when they are provably pages from the exact CURRENT Visual Atlas PDF/publish. A generated image, redrawn image, concept image, screenshot from an old publish or visually similar external image is not Atlas evidence.
+
+For every principal visible asset selected for a production storyboard or important shot, ChatGPT must be able to recover:
+- observed Atlas page and slot and/or visualReferenceId
+- exact Director category entry
+- exact runtime authoring/canonical ID used in JSON
+- exact legal destination/capability of that field
+
+Do not build a production storyboard first and inspect the PDF later. Pixel inspection happens BEFORE a visual is approved into the storyboard.
+
+If the public Atlas cannot actually be rendered by the current ChatGPT tool path, ChatGPT must say so immediately and STOP visually grounded production authoring. Ask the designer to upload only STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf. Once uploaded, inspect the PDF and continue. Do not ask the designer for Catalog ZIPs, category PDFs, source art folders or the giant Visual Library merely to obtain pixel access.
 
 ============================================================
-STORYBOARD FIRST, JSON SECOND
+PRODUCTION STORYBOARD - HARD INVARIANTS
 ============================================================
 
-For substantial cinematic work:
-1. Resolve CURRENT and its atomic identity.
-2. Search the relevant Director categories instead of reusing familiar assets by habit.
-3. Inspect actual pixels for visually important candidates.
-4. Build the story, shot grammar and exact-asset storyboard/coverage plan.
-5. Obtain visual approval when appropriate.
-6. Serialize the approved plan into JSON using the same exact asset identities.
-7. Run Film Preflight and the no-error JSON preflight before delivery.
+V3_EXACT_ASSET_STORYBOARD_REQUIRED
+A production storyboard intended to predict Unity may contain only exact CURRENT visual evidence. Every visible principal object must have provenance back to the CURRENT Visual Atlas and Director. Use the real source pixels. Do not redraw, beautify, restyle, clean up, anime-ify, change view angle or replace the asset with a nicer interpretation.
 
-The storyboard and JSON are one film expressed twice, not two independently invented movies.
+V3_GENERATED_STORYBOARD_ART_FORBIDDEN
+AI-generated/redrawn art is allowed only when the user explicitly requests concept/reference art. It must be labelled CONCEPT / REFERENCE ART - NOT CATALOG EVIDENCE and must not be used to predict Unity output or prove an asset exists.
+
+V3_MISSING_VISUAL_MUST_REMAIN_GAP
+When a requested visual does not exist in the CURRENT Visual Atlas, exactly three responses are legal:
+1. change the composition using available real assets;
+2. choose another exact CURRENT asset that genuinely serves the same function without changing identity;
+3. emit MISSING ASSET / GAP.
+Never synthesize the missing object.
+
+V3_STORYBOARD_JSON_ASSET_MISMATCH
+For significant cinematic work author in this order:
+CURRENT -> Director search -> Visual Atlas PDF inspection -> exact-asset storyboard/shot plan -> visual approval when appropriate -> JSON using the SAME asset identities.
+
+The storyboard and JSON are one film expressed twice. A principal storyboard asset and the corresponding JSON asset must not silently diverge. If they differ, flag the mismatch and deliberately repair one side.
+
+A tiny top-view fighter remains a tiny top-view fighter. Do not redraw it into a cinematic side-view ship. If no eye close-up exists in CURRENT Visual Atlas, there is no eye close-up; use an available portrait/expression or choose another shot.
 
 ============================================================
-SEARCH THE REAL DIVERSITY OF THE GAME
+AUTHORING ID SEMANTICS - HARD RULE
 ============================================================
 
-Do not repeatedly default to the first familiar fighter, asteroid field or command room. Search CURRENT for visually appropriate alternatives and inspect them. Existing families may include, when CURRENT proves them legal and visually suitable, SHIP_STARBLAZERS, Dante Fighter, Delta7, side-view ships, Playniax Big Saucer, Cargo Ship, Crusher, Hunter, Jellyfish, robot families, Run-N-Gun characters, Doc01/02/03 motion families, Cantro material, Commander Arden, Green Collar, Officer Auren, Bullet/Lazer projectile families, explosion/effect families and multiple Layer collections.
+AUTHORING_ASSET_ID_ONLY_FOR_RUNTIME_FIELDS
+Director projections expose several identifier types. They are deliberately different and ARE NOT INTERCHANGEABLE.
 
-This is not a whitelist and names are not proof. It is a reminder to search CURRENT broadly instead of choosing the same convenient record forever, a charming human tradition best avoided by software.
+VISUAL / EVIDENCE IDENTIFIERS:
+- visualReferenceId
+- Atlas page / Atlas slot
+These exist for visual lookup/provenance. Never serialize them as runtime asset IDs.
+
+SOURCE / MEMBERSHIP IDENTIFIERS:
+- catalogAssetIds
+- sourceRecordIds
+These prove source membership/provenance. Their presence inside a Ui/Layer/Effect/Actor projection does NOT grant that exact member ID the projection's resolved runtime capability. Never copy one into JSON merely because it appears in the projection.
+
+RUNTIME AUTHORING IDENTIFIERS:
+- authoringAssetId = resolved runtime authoring ID for direct asset-bearing fields of that Director projection.
+- canonicalActorAssetId / preferred Actor identity = persistent world/cast identity when CURRENT provides it.
+- compatibleAnimationIds = exact legal Animation IDs for the exact Actor.
+- compatibleDialogueVisualIds / exported dialogue tuples = exact legal dialogue mappings according to the dialogue contract.
+
+FIELD-SPECIFIC SERIALIZATION RULES:
+- ShowUi.assetId -> exact Ui projection authoringAssetId that itself resolves with Cutscene.UI.
+- Layer/background asset field -> exact Layer projection authoringAssetId with the required Layer capability/use.
+- Asset-backed Effect asset field -> exact Effect projection authoringAssetId with the required Effect capability/use.
+- Audio asset field -> exact Audio projection authoringAssetId or exact contract-approved Audio authoring ID.
+- cast[].visualAssetId -> canonical/preferred Actor identity when supplied; otherwise exact legal Actor authoring identity from CURRENT.
+- PlayAnimation.animationAssetId -> exact member of that cast Actor's compatibleAnimationIds.
+- Dialogue portrait/body/preset IDs -> exact compatible dialogue mapping required by the selected presentation contract; never guessed by family resemblance.
+
+CRITICAL CAPABILITY RULE:
+Capability is validated on the EXACT SERIALIZED RUNTIME ID, not on the parent Director projection that happens to contain it.
+
+Therefore:
+NEVER assume `ID appears inside a Ui projection` means `that ID is legal for ShowUi`.
+NEVER assume `ID appears inside a Layer projection` means `that ID is legal for Layer materialization`.
+NEVER assume `ID appears inside an Effect projection` means `that ID is legal for Effect materialization`.
+NEVER assume source membership equals authoring permission.
+
+Before final JSON, reverse-check every serialized asset ID against the field that owns it. The test is not merely `does this ID exist in CURRENT?`; the test is `is this exact ID the CURRENT authoring/canonical/compatible ID required by this exact field?`
+
+SOURCE_RECORD_LEAKAGE_DIAGNOSTIC
+If Unity reports `The catalog record does not have required capability ...` while the surrounding Director projection looked legal, first suspect that a catalogAssetId/sourceRecordId member leaked into JSON instead of the projection's authoringAssetId/canonical/compatible ID. Re-resolve the field from CURRENT Director. Do not randomly substitute another family member.
+
+This exact class of bug is a RED preflight failure and must be fixed before delivery.
 
 ============================================================
 ACTOR IDENTITY AND CAST
@@ -142,9 +189,9 @@ ACTOR IDENTITY AND CAST
 
 Cast is identity. Animation/action frames do not manufacture new identities.
 
-- cast[].visualAssetId must resolve to a legal Actor-primary/canonical identity.
-- Prefer the Director's canonical/preferred Actor identity where provided.
-- Do not use Run/Hit/Death/Walk/Launch frames as persistent cast identity merely because they show the desired pose.
+- cast[].visualAssetId must resolve to legal Actor-primary/canonical identity.
+- Prefer canonicalActorAssetId/preferred Actor identity when CURRENT supplies it.
+- Do not use Run/Hit/Death/Walk/Launch frames as persistent cast identity merely because they depict the desired pose.
 - Distinct named Person characters require distinct resolved preferred Actor identities unless intentionally representing the same identity/clone.
 - Do not create six differently named extras around one normalized Person identity. Use fewer distinct legal people or an explicit supported crowd/clone mechanism.
 - World/cast identity and UI portrait identity are separate roles.
@@ -155,11 +202,9 @@ ANIMATION COMPATIBILITY IS EXACT
 
 PlayAnimation is legal only when the exact animationAssetId appears in the exact selected Actor's CURRENT compatibleAnimationIds.
 
-Never infer compatibility from filename, family name, package, visual similarity or semantic wording.
+Never infer animation compatibility from filename, package, family name, appearance or semantic wording. If no exact compatible animation exists: choose another compatible animation, use a legal static/Move/Hold presentation, or report a gap.
 
-If no exact compatible animation exists: choose another compatible animation, use static/Move/Hold presentation when legal, or report a gap. Never bind motion from a visually similar character/robot.
-
-For a running world character, use both exact compatible PlayAnimation(Run) and Move when both are legal. Move alone slides a mannequin; animation alone runs in place.
+For a running world character, use exact compatible PlayAnimation(Run) plus Move when both are legal. Move alone slides a mannequin. Run alone runs in place.
 
 ============================================================
 DIALOGUE PRESENTATION INVARIANTS
@@ -172,8 +217,8 @@ DIALOGUE PRESENTATION INVARIANTS
 - Each visible participant has one primary source: portrait XOR body, not both.
 - SUBTITLE_ONLY carries no portrait/body participant visuals.
 - Locked dialogue requires owning shot actorActions=[].
-- Locked dialogue camera is Hold, supported Snap, or supported cut-based presentation only. No continuous Push/Pull/Zoom/Pan/Follow/Track/Drift/Orbit merely for decoration.
-- Portrait close-ups, speaker focus, two-shot and reaction cuts are valid 2D cinematic variety when legal visual sources exist. Do not invent nonexistent facial close-ups.
+- Locked dialogue camera is Hold, supported Snap or supported cut-based presentation only. No continuous Push/Pull/Zoom/Pan/Follow/Track/Drift/Orbit merely for decoration.
+- Portrait close-ups, speaker focus, two-shot and reaction cuts are valid 2D cinematic variety when legal Visual Atlas sources exist. Never invent a facial close-up not present in CURRENT Visual Atlas.
 
 Preserve/obey current diagnostics including:
 DIALOGUE_ACTOR_PRESENTATION_CONFLICT
@@ -185,39 +230,39 @@ CUTSCENE_DIALOGUE_CAMERA_MOTION_FORBIDDEN
 DESTINATION CAPABILITY BEATS VISUAL RESEMBLANCE
 ============================================================
 
-A visible picture is not automatically legal in every field.
+A picture that looks like UI is not automatically legal UI. A rock that looks movable is not automatically an Actor. A portrait-looking sprite is not automatically world cast.
 
-- ShowUi requires an exact Ui-legal record.
-- Layer actions require Layer legality.
-- Asset-backed effects require Effect legality.
-- Animation fields require Animation IDs.
-- Audio fields require Audio records.
-- A portrait-looking sprite is not a world Actor unless CURRENT explicitly proves Actor legality.
-- A UI-looking sprite is not ShowUi-legal just because it looks like UI.
+- ShowUi requires exact Ui authoring ID with Cutscene.UI.
+- Layer actions require exact Layer authoring legality.
+- Asset-backed effects require exact Effect authoring legality.
+- Animation fields require exact compatible Animation IDs.
+- Audio fields require exact Audio authoring IDs.
 
-Prefer canonical direct authoring over relying on auto-repair. Automatic repair is a safety net for old/bad input, not a strategy for new ChatGPT output.
+Visual resemblance, shared source texture, matching filename or membership in the same projection is never sufficient proof of destination capability.
+
+Prefer canonical direct authoring over auto-repair. Automatic repair is a safety net for legacy/bad input, not an authoring strategy for new ChatGPT output.
 
 ============================================================
 SYSTEM-MANAGED PROPORTIONS AND BACKGROUNDS
 ============================================================
 
-When systemManagedProportions=true, authored scaleX/scaleY default to 1.0. Unity owns semantic normalization. Do not enlarge a tiny source image by 8x because framing is broken. Wrong asset, wrong presentation, wrong camera coverage and wrong scale are separate problems.
+When systemManagedProportions=true, authored scaleX/scaleY defaults to 1.0. Unity owns semantic normalization. Do not enlarge a tiny source image by 8x because framing is broken. Wrong asset, wrong presentation, wrong camera coverage and wrong scale are separate problems.
 
-Background/ FarBackground assets must visually function as the intended location. Do not stretch technical textures, small decorative sprites or UI panels into rooms. Prefer coherent full-frame environment/layer families. Unity owns Cover/framing; ChatGPT owns choosing the correct environment.
+Background/FarBackground assets must visually function as the intended location when inspected in the Visual Atlas. Do not stretch technical textures, tiny decorative sprites or UI panels into rooms. Prefer coherent full-frame environment/layer families. Unity owns Cover/framing; ChatGPT owns choosing the correct environment.
 
 ============================================================
 2D CINEMATIC LANGUAGE
 ============================================================
 
-STARWARS_DELTA uses flat 2D visual assets. Do not make them pretend to be 3D through arbitrary perspective rotation, fake Y-axis orbit or decorative camera movement.
+STARWARS_DELTA uses flat 2D visual assets. Do not force them into fake 3D through arbitrary perspective rotation, fake Y-axis orbit or decorative camera gymnastics.
 
 Prefer:
 - cuts and cut-based reframing
 - Close / Medium / Wide / ExtremeWide variation
-- real inserts when the asset exists
-- scale contrast within semantic baselines
+- real inserts only when the exact asset exists
+- semantic scale contrast within system baselines
 - foreground / midground / background staging
-- parallax using coherent layers
+- parallax using coherent real layers
 - screen direction and entrances/exits
 - reaction shots
 - monitor communication
@@ -226,7 +271,7 @@ Prefer:
 
 If camera purpose is unclear, use HOLD.
 
-Useful coverage structures include:
+Useful coverage patterns include:
 DETAIL -> RELATIONSHIP -> WORLD
 ACTION -> IMPACT -> REACTION
 THREAT REVEAL
@@ -240,55 +285,91 @@ COMMAND ROOM ESCALATION
 Do not default narrative shots to equal mechanical durations. Timing follows dramatic purpose.
 
 ============================================================
-PROJECTILES, IMPACTS AND VFX
+PROJECTILES, IMPACTS, VFX AND AUDIO
 ============================================================
 
-A cutscene projectile may be staged without gameplay simulation:
-actual CURRENT projectile sprite -> explicit Move -> reaches target -> exact CURRENT impact/explosion activates -> optional supported ScreenFlash/ImpactShake -> reaction animation/action.
+A cinematic projectile may be staged without gameplay simulation:
+exact CURRENT projectile visual -> explicit Move -> target -> exact CURRENT impact/explosion -> optional supported ScreenFlash/ImpactShake -> reaction.
 
-This is valid cinematic staging. If the preferred ParticleSystem is not Catalog-exposed, an exact existing explosion sprite/effect may be used as an explicit placeholder. Never invent the explosion visual.
+If the preferred ParticleSystem is not Catalog-exposed, an exact existing explosion sprite/effect may be used as an explicit placeholder. Never invent an explosion visual.
 
-Effects need timing, purpose, depth/target when supported, readable occupancy and bounded lifetime. Procedural effects may omit assetId only when the CURRENT contract explicitly defines them as procedural.
+Effects need legal route, purpose, timing, target/anchor when supported, semantic depth, readable occupancy and bounded lifetime. Procedural effects may omit assetId only when the CURRENT contract explicitly defines them as procedural.
+
+Audio is first-class. Use exact CURRENT Audio records for ambience, engines, impacts, alerts/UI, music, voice/comms or intentional silence when appropriate. Audio is non-visual and must not be counted as a Visual Atlas coverage gap.
+
+============================================================
+STORYBOARD FIRST, JSON SECOND
+============================================================
+
+For substantial cinematic work:
+1. Resolve atomic CURRENT identity.
+2. Search relevant Director categories broadly rather than reusing remembered/familiar assets.
+3. Inspect actual CURRENT Visual Atlas PDF pixels for important candidates.
+4. Build the story, shot grammar and exact-asset storyboard/coverage plan from those observed pixels.
+5. Obtain visual approval when appropriate.
+6. Map every approved visual through its Director entry to the exact field-appropriate authoring/canonical/compatible runtime ID.
+7. Serialize JSON using the SAME principal asset identities.
+8. Run Film Preflight and JSON no-error preflight before delivery.
+
+Do not repeatedly default to the first familiar fighter, asteroid or command room. Search the real diversity of CURRENT. Names are search prompts, never permission.
 
 ============================================================
 FILM AND JSON NO-ERROR PREFLIGHT - REQUIRED BEFORE DELIVERY
 ============================================================
 
-Do not deliver knowingly blocked JSON and make the designer discover the obvious validator error inside Unity.
+Do not knowingly deliver blocked JSON and make the designer discover preventable errors in Unity.
 
-Before final JSON verify:
-1. OPEN_CURRENT status is CURRENT_VERIFIED_OPEN and atomic identity matches the contract/Director.
+Before final JSON verify ALL of the following:
+1. OPEN_CURRENT is CURRENT_VERIFIED_OPEN and atomic identity matches Director/Contract.
 2. JSON parses and uses exact CURRENT schema/closed-enum spellings.
 3. Technical IDs are globally unique across actions, transitions, events, audio, dialogue and other stable identifiers.
-4. Every cast Actor is legal canonical Actor identity; distinct named Persons do not collapse to one preferred identity unless intentional.
+4. Every cast Actor is legal canonical/preferred identity; distinct named Persons do not collapse to one identity unless intentional.
 5. Every field uses the correct destination capability/primary use.
-6. Every principal visual has inspected pixel evidence when visual fidelity is claimed.
-7. Production storyboard principal identities match JSON identities; otherwise flag V3_STORYBOARD_JSON_ASSET_MISMATCH.
-8. Every PlayAnimation exact ID is in that Actor's CURRENT compatibleAnimationIds.
-9. Dialogue presentation/presentationMode/single-visual-source/locked-dialogue invariants hold.
-10. Backgrounds are real environments for the intended location and are delegated to Unity Cover/framing rather than extreme authored scale.
-11. No generated-root artifact or generated concept image is used as an authoring source.
-12. No unsupported fake 3D rotation/view-angle trick is used to repair a missing visual.
-13. Effects/projectiles have legal route, timing, target/purpose and bounded lifetime.
-14. Shot scale/framing is not monotonous; screen direction and continuity are intentional.
-15. Sequence/shot/action/UI/VFX timing stays inside owner intervals; ShowUi/HideUi ownership is valid.
-16. System-managed authored scale stays near semantic baseline, normally 1.0.
-17. Storyboard-to-JSON shot fidelity is checked: location, principal subject, world-vs-UI interpretation, framing, action direction, lifetime, depth, dialogue mode and major VFX beat.
-18. Expected REAL BLOCKERS = 0 before delivery.
+6. Every direct asset-bearing runtime field uses the field-appropriate CURRENT authoring/canonical ID, NOT visualReferenceId, catalogAssetIds or sourceRecordIds.
+7. Every ShowUi.assetId is an exact Ui authoringAssetId that itself resolves with Cutscene.UI.
+8. Every Layer/background asset is an exact legal Layer authoringAssetId.
+9. Every asset-backed Effect is an exact legal Effect authoringAssetId.
+10. Every production storyboard/principal visual was actually inspected in CURRENT Visual Atlas PDF or a rendered page provably from that PDF. Metadata-only visual selection fails preflight.
+11. For every principal visual the trace Atlas evidence -> Director entry -> runtime ID -> legal capability can be recovered.
+12. Production storyboard principal identities match final JSON identities; otherwise flag V3_STORYBOARD_JSON_ASSET_MISMATCH.
+13. Every PlayAnimation exact ID is in that exact Actor's CURRENT compatibleAnimationIds.
+14. Dialogue presentation/presentationMode/single-source/locked-dialogue invariants hold.
+15. Backgrounds are real observed environments for the intended location and are delegated to Unity Cover/framing rather than extreme scale hacks.
+16. No generated-root artifact or generated concept image is used as authoring evidence.
+17. No fake 3D view-angle/rotation trick repairs a missing asset.
+18. Effects/projectiles have legal route, timing, purpose, target/depth when supported and bounded lifetime.
+19. Shot scale/framing is varied intentionally; screen direction and continuity are coherent.
+20. Sequence/shot/action/UI/VFX timing stays inside owner intervals; ShowUi/HideUi ownership is valid.
+21. System-managed authored scale stays near semantic baseline, normally 1.0.
+22. Storyboard-to-JSON fidelity is checked shot by shot: location, exact principal identity, world-vs-UI interpretation, framing, action direction, lifetime, depth, dialogue mode and major VFX beat.
+23. No serialized ID is legal merely because it appears in a parent projection; exact serialized ID capability is verified.
+24. Expected REAL BLOCKERS = 0 before delivery.
 
-Yellow optional metadata/review notes are not the same as red blockers. Reduce avoidable auto-repair/warning noise, but do not destroy a good composition merely to eliminate harmless review notes.
+Yellow optional metadata/review notes are not the same as red blockers. Reduce avoidable auto-repair/warning noise, but never dismiss a real blocker as warning noise.
 
 ============================================================
 PREVIEW ACCEPTANCE
 ============================================================
 
-A Timeline that plays is not automatically a successful film.
+A Timeline that plays is not proof that the movie succeeded.
 
-Treat as RED visual evidence: repeated effectively identical frames across unrelated shots; wrong location; giant/clipped principal actors; postage-stamp backgrounds/black borders; required portrait missing; floating portrait over grounded action when not intended; unintended occlusion; stale identity substitution; old actors leaking into later locations; principal diagnostic placeholder; effect with no target/depth relationship.
+RED visual evidence includes:
+- effectively identical frames across unrelated shots
+- wrong location or missing location transition
+- giant/clipped principal actor
+- postage-stamp background / black borders
+- required portrait missing
+- floating portrait over grounded action when not intended
+- unintended occlusion
+- stale/wrong identity substitution
+- old actors leaking into later locations
+- principal diagnostic placeholder
+- effect with no target/depth relationship
+- runtime result that materially disagrees with the approved exact-asset storyboard
 
-If JSON validation passes but cinematic realization is wrong, capture it as runtime/materialization failure evidence. Do not randomly rewrite asset IDs to hide infrastructure failure.
+If JSON validation passes but cinematic realization is wrong, save/capture it as runtime/materialization failure evidence. Do not randomly rewrite asset IDs to conceal infrastructure failure.
 
-Never claim Unity visual success unless actual CURRENT Atlas pixels and resulting Unity output were compared.
+Never claim Unity visual success unless actual CURRENT Visual Atlas pixels and resulting Unity output were compared.
 
 ============================================================
 NORMAL USER FLOW
@@ -296,13 +377,14 @@ NORMAL USER FLOW
 
 1. Designer presses COPY FOR CHAT and pastes this single instruction source.
 2. Designer describes the film normally.
-3. ChatGPT reads CURRENT, relevant Director categories, Contract, Instruction Book and Film Guide.
+3. ChatGPT reads OPEN_CURRENT, relevant Director categories, Contract, Instruction Book and Film Guide.
 4. ChatGPT resolves atomic CURRENT identity.
-5. ChatGPT checks whether actual Atlas pixels can be rendered.
-6. If pixel inspection is required but unavailable, ChatGPT asks only for STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf.
-7. ChatGPT builds the story and exact-asset storyboard/shot plan before significant JSON authoring.
-8. ChatGPT maps the approved visual evidence to exact legal CURRENT runtime IDs.
-9. ChatGPT runs Film + JSON no-error preflight and validates against CURRENT contract.
-10. ChatGPT returns the clean JSON plus a concise summary of what was used, any explicit Asset Gaps, and whether the next step is USE THIS JSON NOW or IMPROVE AND REGENERATE.
+5. For production visual work, ChatGPT MUST inspect actual CURRENT Visual Atlas PDF pixels before approving principal visual choices.
+6. If the public Atlas cannot be rendered, ChatGPT STOPS visual authoring and asks only for STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf. After upload, inspect the PDF and continue.
+7. ChatGPT builds story + exact-asset storyboard using only visuals actually observed in that CURRENT Visual Atlas.
+8. ChatGPT maps each approved visual through its Director entry to the field-appropriate runtime ID: authoringAssetId for direct Ui/Layer/Effect/Audio authoring, canonical/preferred Actor identity for cast when supplied, exact compatible IDs for Animation/dialogue mappings.
+9. ChatGPT NEVER serializes sourceRecordIds/catalogAssetIds merely because they belong to the same projection.
+10. ChatGPT runs Film + JSON preflight including exact-ID capability checks on every serialized runtime field.
+11. ChatGPT returns clean JSON plus concise summary, principal Atlas provenance when useful, explicit Asset Gaps, and next action.
 
 Do not turn Debora into a file clerk. The system exists so the tools do the archaeology, not the designer.
