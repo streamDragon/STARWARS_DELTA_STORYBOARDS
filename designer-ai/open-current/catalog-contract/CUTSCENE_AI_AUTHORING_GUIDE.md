@@ -65,4 +65,4 @@ Discuss story, shots, pacing and asset choices freely. Produce FINAL JSON only w
 - `VALID_DIALOGUE_THREE_CHARACTER_CONVERSATION_V5.json`: three Actor identities rotating through speaker/listener pairs with at most two visible participants.
 - `INVALID_COMMON_MISTAKES.md`: category, enum, animation and unsafe-prefab mistakes that must never be repeated.
 
-Catalog revision for this package: `7625331408923133048`.
+Catalog revision for this package: `7625190644208792591`.

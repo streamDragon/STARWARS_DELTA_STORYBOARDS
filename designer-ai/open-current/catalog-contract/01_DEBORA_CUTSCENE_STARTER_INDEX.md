@@ -3,8 +3,8 @@
 This is a convenience shortlist for fast Cutscene planning, not a replacement for the full authoritative catalog.
 Use catalog_records.jsonl for the complete exported snapshot. An omitted asset may still be legal; verify every exact assetId there before authoring.
 Do not infer animation compatibility. Use only exact compatibleAnimationIds from the actor record.
-Catalog revision: 7625331408923133048
-Exported record count: 22506
+Catalog revision: 7625190644208792591
+Exported record count: 22603
 
 ## Actors
 Actor-primary records that are safe for Preview.
@@ -267,6 +267,6 @@ Count: 30
 - `51a4f1157b7ff1449b5e5cf064d584c7:8300000` — 4. Track 4
 - `559c232a43caebe41870ce54786f604e:8300000` — 3. Track 3
 - `577ccc6deef2ba945b055af97533037c:8300000` — agneton fire in the sky EL9dDhpB
+- `5ae4d298ed547ba4c88587effb75d7e1:8300000` — Earthquake 3   Big
 - `62b2032b111d8489aadd6b3e1b476a8d:8300000` — AudioClip Music MorganaRides
-- `686dcd8b39034ed418eefb024ef40fb6:8300000` — Tropical moments   loop version
 

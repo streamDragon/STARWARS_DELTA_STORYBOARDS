@@ -1,42 +1,15 @@
 STARWARS_DELTA CHATGPT DIRECTOR CURRENT
 
-Atomic publish transaction: resolve dynamically from OPEN_CURRENT.json. Do not copy a transaction ID from this text into new JSON.
+Atomic publish transaction: 20260815-132131181-a7aab305
+Start with OPEN_CURRENT.json, then director-view/DIRECTOR_VIEW.json.
+Use the Director category files for Actors, Layers, Effects, UI, Animations and Audio.
+Use only recommendationStatus=RECOMMENDABLE by default.
+Do not use entries pending source eligibility review or pixel completion as ordinary recommendations.
+Inspect actual Visual Atlas pixels before visual claims.
+One representative image per animation family is intentional.
+Audio is first-class and does not require an image.
+Prefab internals, gameplay scripts, colliders and physics are not authoring vocabulary.
+The completion queue is engineering work data, not a designer upload list.
+Do not mix this package with older Catalog, Instruction Book or visual packages.
 
-START ORDER
-1. Read OPEN_CURRENT.json.
-2. Read director-view/DIRECTOR_VIEW.json and relevant category files.
-3. Read the Catalog contract/schema and CHATGPT_START.txt.
-4. Read FILM_AUTHORING_GUIDE_CURRENT.md / Instruction Book when relevant.
-5. For any production storyboard or visually grounded cinematic choice, inspect actual pixels from the exact CURRENT STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf before approving the visual.
-
-VISUAL RULE
-The Visual Atlas PDF is authoritative for what an asset actually looks like. Director/Catalog/Contract metadata is authoritative for legal runtime identity/capability. Both are required. Names, tags, paths, IDs, atlas page numbers or descriptions are not a substitute for seeing pixels.
-
-If the public Atlas cannot actually be rendered by the current ChatGPT tool path, stop visually grounded production authoring and ask only for STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf. Do not invent, redraw, restyle or approximate missing visuals. Production storyboards use exact CURRENT pixels. Generated/redrawn art is concept/reference only.
-
-RUNTIME-ID RULE
-Director identifier types are not interchangeable:
-- visualReferenceId / Atlas page / slot = visual evidence only.
-- catalogAssetIds / sourceRecordIds = provenance/source membership only. Never serialize them merely because they appear inside a legal projection.
-- authoringAssetId = direct runtime authoring ID for that Director projection.
-- canonicalActorAssetId / preferred Actor identity = persistent cast/world identity when supplied.
-- compatibleAnimationIds = exact legal animations for that exact Actor.
-- compatibleDialogueVisualIds / exported dialogue tuples = exact legal dialogue presentation mappings.
-
-Field examples:
-- ShowUi.assetId must use exact Ui authoringAssetId that itself resolves with Cutscene.UI.
-- Layer/background fields use exact legal Layer authoringAssetId.
-- Asset-backed Effect fields use exact legal Effect authoringAssetId.
-- Audio uses exact Audio authoring ID.
-- cast[].visualAssetId uses canonical/preferred Actor identity when supplied.
-- PlayAnimation.animationAssetId must be an exact member of that Actor's compatibleAnimationIds.
-
-If Unity says `The catalog record does not have required capability ...`, first suspect SOURCE_RECORD_LEAKAGE: a catalogAssetId/sourceRecordId was serialized instead of the projection's authoring/canonical/compatible ID.
-
-Use only recommendationStatus=RECOMMENDABLE by default. Do not use entries pending source eligibility review or pixel completion as ordinary recommendations.
-
-Do not mix this package with older Catalog, Instruction Book, Visual Atlas or JSON IDs. Treat publishTransactionId, catalogRevision, snapshotContentHash, contractRevision, schemaHash and current schema/context identity as one atomic CURRENT identity.
-
-One representative image per animation family is intentional. Audio is first-class and does not require an image. Prefab internals, gameplay scripts, colliders and physics are not authoring vocabulary. The completion queue is engineering work data, not a designer upload list.
-
-Before final JSON, run the full CHATGPT_START no-error preflight. Expected REAL BLOCKERS = 0 before handing the file to the designer.
+This fallback also contains CHATGPT_START.txt and FILM_AUTHORING_GUIDE_CURRENT.md. The completion queue and eligibility audit are engineering work data, not a designer upload list.
