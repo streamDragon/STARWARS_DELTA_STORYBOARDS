@@ -456,6 +456,15 @@
       "badPattern": "Globally forbid FACE_TO_FACE participants from cast entries with spawnWorldActor=true, or allow a world route to remain active during the portrait shot.",
       "goodPattern": "Use DialoguePortrait for portrait-only actors, WorldActor for world-only actors, and explicitly authored Both (for example {\"role\":\"SupportingCharacter\",\"displayName\":\"Commander\",\"presentationMode\":\"Both\",\"spawnWorldActor\":true}) when world-action and portrait intervals are temporally isolated. Put world action before/after the locked dialogue shot; during FACE_TO_FACE use actorActions=[] and Hold or supported cut-based framing.",
       "lesson": "Locked FACE_TO_FACE requires portrait-only presentation during that shot. An actor may use an explicitly authored Both presentation in other world-action shots, but world and portrait representations must never overlap."
+    },
+    {
+      "id": "IB052",
+      "type": "PROTOCOL",
+      "title": "Directing intent compiles through a semantic firewall",
+      "whenToUse": "Expressing shot purpose, camera intent, composition, motion, dialogue tone or dialogue pace in V3 authoring.",
+      "badPattern": "Write semantic directing words directly into CURRENT shotType, cameraAction, actorAction or dialogue enum fields, or invent a value when CURRENT has no exact enum.",
+      "goodPattern": "Author only the V3 semantic vocabulary; let the deterministic CURRENT compiler choose legal CURRENT values, record any fallback, and preserve sequence/shot/intent provenance.",
+      "lesson": "Semantic intent describes what the audience should feel and see; the CURRENT compiler owns how that intent is serialized into the closed production contract."
     }
   ],
   "goldenExamples": [
@@ -476,7 +485,7 @@
     "curation": "Raw cases never modify the active Instruction Book automatically. Periodically export the inbox, classify each case, fix the correct subsystem, and distill only reusable lessons.",
     "promotion": "A corrected full JSON becomes GOLDEN only after real Unity LOAD -> NORMALIZE -> VALIDATE -> BUILD EDITABLE PREVIEW plus visual acceptance."
   },
-  "authoringContractRevision": "3BE709BD8B9143E9E6F52BDADAF1671F15B60805CC7DB33D34A2AC38D08072A1",
-  "schemaHash": "F7CA124AA3417E02F078796144AF0274284D91CA721DD311C6432587ED54193F",
+  "authoringContractRevision": "6DD935DC788F7C864F934D86E19F94ED729C6E5474E7F2F9F013AB11A2E127C1",
+  "schemaHash": "1650F215E400952EC5CC8F80B4CB770841126530AFA97B6140171D50F82330AB",
   "goldenExampleCount": 1
 }

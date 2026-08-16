@@ -848,6 +848,41 @@
       }
     },
     {
+      "curationId": "CUR_V3_SEMANTIC_DIRECTING_INTENT",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "Current",
+      "sourceContractRevision": "2BA35EAB50BB921D1E78B475846510E77D8B02E47A9EF37A5E9B1F102A134495",
+      "sourceCaseIds": [
+        "case_v3_semantic_compiler_first_pass"
+      ],
+      "priority": "P0",
+      "classification": [
+        "directing",
+        "semantic-ir",
+        "v3-compiler"
+      ],
+      "lesson": {
+        "id": "IB052",
+        "v3InvariantId": "LESSON_V3_SEMANTIC_DIRECTING_INTENT",
+        "type": "PROTOCOL",
+        "title": "Directing intent compiles through a semantic firewall",
+        "whenToUse": "Expressing shot purpose, camera intent, composition, motion, dialogue tone or dialogue pace in V3 authoring.",
+        "badPattern": "Write semantic directing words directly into CURRENT shotType, cameraAction, actorAction or dialogue enum fields, or invent a value when CURRENT has no exact enum.",
+        "goodPattern": "Author only the V3 semantic vocabulary; let the deterministic CURRENT compiler choose legal CURRENT values, record any fallback, and preserve sequence/shot/intent provenance.",
+        "lesson": "Semantic intent describes what the audience should feel and see; the CURRENT compiler owns how that intent is serialized into the closed production contract.",
+        "rootCause": "Authoring and serialization vocabularies were treated as one enum space.",
+        "canonicalRule": "No semantic enum value may be emitted unchecked into a CURRENT serialization field; every mapping must be legal or fail deterministically.",
+        "expectedDiagnostic": "V3_SEMANTIC_UNKNOWN_INTENT / V3_CURRENT_ENUM_ILLEGAL",
+        "compilerInvariant": "The V3 compiler validates semantic input, maps to current enum definitions, rejects unknown intents, and emits provenance for mapping and fallback decisions.",
+        "regressionTestReference": "CutsceneV3SemanticCurrentCompilerTests.SemanticImpact_ProducesLegalCurrentShotType; UnknownSemanticIntent_FailsDeterministically; CompilerNeverEmitsUnknownCurrentEnum",
+        "provenance": "First-pass V3 semantic IR compiler contract and focused deterministic tests.",
+        "confidence": "High",
+        "badExcerpt": "shotType=IMPACT or cameraAction=FOLLOW when those are not CURRENT enum values",
+        "goldenExcerpt": "shotIntent=IMPACT + cameraIntent=FOLLOW -> legal CURRENT shotType/cameraAction with compiler provenance"
+      }
+    },
+    {
       "curationId": "CUR_MARS_CAFE_FILM_PREFLIGHT",
       "entryType": "LESSON",
       "status": "Approved",
