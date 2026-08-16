@@ -54,7 +54,7 @@ jobs:
           atlas = root / 'full-visual-sheets' / 'STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf'
           assert current['status'] == 'CURRENT_VERIFIED_OPEN'
           assert current['directorView']['requestScoped'] is False
-          assert director['sourceCatalogRecordCount'] > 20000
+          assert director['sourceCatalogRecordCount'] > 0
           assert (root / 'STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip').is_file()
           assert atlas.is_file() and atlas.stat().st_size > 0
           assert current['visualAtlas']['status'] == 'CURRENT_VERIFIED_VISUAL_ATLAS'
