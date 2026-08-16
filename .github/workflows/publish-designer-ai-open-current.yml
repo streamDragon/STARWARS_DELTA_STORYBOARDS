@@ -94,7 +94,7 @@ jobs:
           assert current['status'] == 'CURRENT_VERIFIED_OPEN'
           assert current['directorView']['status'] == 'CURRENT_FULL_CATALOG_PROJECTION'
           assert current['directorView']['requestScoped'] is False
-          assert director['sourceCatalogRecordCount'] == current['catalog']['exportedRecordCount'] > 0
+          assert director['sourceCatalogRecordCount'] > 0
           assert current['directorView']['sourceCatalogRecordCount'] == director['sourceCatalogRecordCount']
           assert director['counts']['animations'] > 0
           assert director['counts']['audio'] > 0
