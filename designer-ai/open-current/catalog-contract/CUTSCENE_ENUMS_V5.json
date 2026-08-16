@@ -2,7 +2,7 @@
   "schema": "STARWARS_DELTA_CUTSCENE_AUTHORING_CONTRACT",
   "schemaVersion": 5,
   "authoringContractVersion": 1,
-  "contractRevision": "6DD935DC788F7C864F934D86E19F94ED729C6E5474E7F2F9F013AB11A2E127C1",
+  "contractRevision": "771AD65DED1F8CB93F7137F1884E3AAD3837928DA5605A65828453B5A38646D9",
   "rule": "Write only exact canonical closed values. Never write numeric enum values. Ordinary import is read-only; use explicit migration for aliases, omitted legacy defaults, or stale contract identity.",
   "enums": [
     {
@@ -162,10 +162,94 @@
           "migration": "EXPLICIT_ONLY",
           "safeForNewAuthoring": false,
           "reason": "Legacy compatibility spelling; do not author new packages with it."
+        },
+        "Boss": {
+          "replacement": "Antagonist",
+          "migration": "EXPLICIT_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Legacy compatibility spelling; do not author new packages with it."
+        },
+        "Captain": {
+          "replacement": "SupportingCharacter",
+          "migration": "EXPLICIT_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Legacy compatibility spelling; do not author new packages with it."
+        },
+        "Civilian": {
+          "replacement": "SupportingCharacter",
+          "migration": "EXPLICIT_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Legacy compatibility spelling; do not author new packages with it."
+        },
+        "Commander": {
+          "replacement": "SupportingCharacter",
+          "migration": "EXPLICIT_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Legacy compatibility spelling; do not author new packages with it."
+        },
+        "Enemy": {
+          "replacement": "Antagonist",
+          "migration": "EXPLICIT_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Legacy compatibility spelling; do not author new packages with it."
+        },
+        "EnemyCommander": {
+          "replacement": "Antagonist",
+          "migration": "EXPLICIT_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Legacy compatibility spelling; do not author new packages with it."
+        },
+        "Pilot": {
+          "replacement": "SupportingCharacter",
+          "migration": "EXPLICIT_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Legacy compatibility spelling; do not author new packages with it."
+        },
+        "Prisoner": {
+          "replacement": "SupportingCharacter",
+          "migration": "EXPLICIT_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Legacy compatibility spelling; do not author new packages with it."
+        },
+        "Protagonist": {
+          "replacement": "Hero",
+          "migration": "EXPLICIT_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Legacy compatibility spelling; do not author new packages with it."
+        },
+        "RemoteAnalyst": {
+          "replacement": "SupportingCharacter",
+          "migration": "EXPLICIT_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Legacy compatibility spelling; do not author new packages with it."
+        },
+        "RemoteOfficer": {
+          "replacement": "SupportingCharacter",
+          "migration": "EXPLICIT_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Legacy compatibility spelling; do not author new packages with it."
+        },
+        "Scientist": {
+          "replacement": "SupportingCharacter",
+          "migration": "EXPLICIT_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Legacy compatibility spelling; do not author new packages with it."
+        },
+        "Villain": {
+          "replacement": "Antagonist",
+          "migration": "EXPLICIT_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Legacy compatibility spelling; do not author new packages with it."
+        },
+        "Wingman": {
+          "replacement": "SupportingCharacter",
+          "migration": "EXPLICIT_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Legacy compatibility spelling; do not author new packages with it."
         }
       },
       "safeInputAliasesAcceptedOnImport": {
-        "Ally": {
+        "BackgroundActor": {
           "replacement": "SupportingCharacter",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
@@ -183,19 +267,13 @@
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
         },
+        "Civilian": {
+          "replacement": "SupportingCharacter",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
         "Commander": {
-          "replacement": "SupportingCharacter",
-          "normalization": "IMPORT_BOUNDARY_ONLY",
-          "safeForNewAuthoring": false,
-          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
-        },
-        "Companion": {
-          "replacement": "SupportingCharacter",
-          "normalization": "IMPORT_BOUNDARY_ONLY",
-          "safeForNewAuthoring": false,
-          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
-        },
-        "Crew": {
           "replacement": "SupportingCharacter",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
@@ -207,13 +285,19 @@
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
         },
-        "HeroShip": {
-          "replacement": "Hero",
+        "EnemyCommander": {
+          "replacement": "Antagonist",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
         },
         "Pilot": {
+          "replacement": "SupportingCharacter",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Prisoner": {
           "replacement": "SupportingCharacter",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
@@ -225,13 +309,19 @@
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
         },
-        "Squad": {
+        "RemoteAnalyst": {
           "replacement": "SupportingCharacter",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
         },
-        "SupportShip": {
+        "RemoteOfficer": {
+          "replacement": "SupportingCharacter",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Scientist": {
           "replacement": "SupportingCharacter",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
@@ -239,6 +329,12 @@
         },
         "Villain": {
           "replacement": "Antagonist",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Wingman": {
+          "replacement": "SupportingCharacter",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
@@ -2710,13 +2806,49 @@
       ],
       "legacyAliasesAcceptedOnExplicitMigrationOnly": {},
       "safeInputAliasesAcceptedOnImport": {
+        "Afraid": {
+          "replacement": "Shock",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Calm": {
+          "replacement": "Serious",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
         "Concerned": {
           "replacement": "Serious",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
         },
+        "Confused": {
+          "replacement": "Perplexed",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
         "Determined": {
+          "replacement": "Serious",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Focused": {
+          "replacement": "Serious",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Furious": {
+          "replacement": "Anger",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Neutral": {
           "replacement": "Serious",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
@@ -2734,8 +2866,113 @@
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
         },
+        "Surprised": {
+          "replacement": "Shock",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Upset": {
+          "replacement": "Sad",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
         "Worried": {
           "replacement": "Perplexed",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        }
+      }
+    },
+    {
+      "enum": "MY_CutsceneDialoguePaceV1",
+      "serialization": "STRING_NAME_ONLY",
+      "numericValuesExposed": false,
+      "canonicalValues": [
+        "Slow",
+        "Medium",
+        "Fast"
+      ],
+      "values": [
+        {
+          "value": "Slow",
+          "description": "Dialogue Pace V1 value Slow.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "Medium",
+          "description": "Dialogue Pace V1 value Medium.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "Fast",
+          "description": "Dialogue Pace V1 value Fast.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        }
+      ],
+      "legacyAliasesAcceptedOnExplicitMigrationOnly": {},
+      "safeInputAliasesAcceptedOnImport": {
+        "Conversational": {
+          "replacement": "Medium",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Hesitant": {
+          "replacement": "Slow",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Measured": {
+          "replacement": "Medium",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Natural": {
+          "replacement": "Medium",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Normal": {
+          "replacement": "Medium",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Quick": {
+          "replacement": "Fast",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Rapid": {
+          "replacement": "Fast",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Urgent": {
+          "replacement": "Fast",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
@@ -4909,16 +5146,16 @@
     {
       "jsonPath": "$.sequences[].dialogue[].delivery.pace",
       "name": "pace",
-      "type": "String",
+      "type": "closed-string-enum:MY_CutsceneDialoguePaceV1",
       "required": true,
-      "description": "Open designer-authored creative text.",
-      "hint": "Keep the author’s wording; no normalizer rewrites this text.",
+      "description": "Closed runtime-driving value for Dialogue Pace V1.",
+      "hint": "Choose an exact canonical value; aliases require explicit migration.",
       "introducedIn": 1,
       "defaultSafeValue": "",
-      "migrationRule": "PRESERVE",
+      "migrationRule": "EXPLICIT_ONLY",
       "validationId": "CUTSCENE_FIELD_PACE",
-      "closedEnum": "",
-      "openCreativeText": true
+      "closedEnum": "MY_CutsceneDialoguePaceV1",
+      "openCreativeText": false
     },
     {
       "jsonPath": "$.sequences[].dialogue[].delivery.pauseAfter",
@@ -5077,15 +5314,15 @@
     {
       "jsonPath": "$.sequences[].dialogue[].performance.listenerPose",
       "name": "listenerPose",
-      "type": "String",
+      "type": "closed-string-enum:MY_CutsceneDialoguePoseV1",
       "required": true,
-      "description": "Typed cutscene package field.",
-      "hint": "Use the serialized field type and preserve approved values.",
+      "description": "Closed runtime-driving value for Dialogue Pose V1.",
+      "hint": "Choose an exact canonical value; aliases require explicit migration.",
       "introducedIn": 1,
       "defaultSafeValue": "",
-      "migrationRule": "PRESERVE",
+      "migrationRule": "EXPLICIT_ONLY",
       "validationId": "CUTSCENE_FIELD_LISTENER_POSE",
-      "closedEnum": "",
+      "closedEnum": "MY_CutsceneDialoguePoseV1",
       "openCreativeText": false
     },
     {
@@ -5119,15 +5356,15 @@
     {
       "jsonPath": "$.sequences[].dialogue[].performance.speakerPose",
       "name": "speakerPose",
-      "type": "String",
+      "type": "closed-string-enum:MY_CutsceneDialoguePoseV1",
       "required": true,
-      "description": "Typed cutscene package field.",
-      "hint": "Use the serialized field type and preserve approved values.",
+      "description": "Closed runtime-driving value for Dialogue Pose V1.",
+      "hint": "Choose an exact canonical value; aliases require explicit migration.",
       "introducedIn": 1,
       "defaultSafeValue": "",
-      "migrationRule": "PRESERVE",
+      "migrationRule": "EXPLICIT_ONLY",
       "validationId": "CUTSCENE_FIELD_SPEAKER_POSE",
-      "closedEnum": "",
+      "closedEnum": "MY_CutsceneDialoguePoseV1",
       "openCreativeText": false
     },
     {
@@ -7527,16 +7764,16 @@
     {
       "jsonPath": "$.sequences[].shots[].dialogue[].delivery.pace",
       "name": "pace",
-      "type": "String",
+      "type": "closed-string-enum:MY_CutsceneDialoguePaceV1",
       "required": true,
-      "description": "Open designer-authored creative text.",
-      "hint": "Keep the author’s wording; no normalizer rewrites this text.",
+      "description": "Closed runtime-driving value for Dialogue Pace V1.",
+      "hint": "Choose an exact canonical value; aliases require explicit migration.",
       "introducedIn": 1,
       "defaultSafeValue": "",
-      "migrationRule": "PRESERVE",
+      "migrationRule": "EXPLICIT_ONLY",
       "validationId": "CUTSCENE_FIELD_PACE",
-      "closedEnum": "",
-      "openCreativeText": true
+      "closedEnum": "MY_CutsceneDialoguePaceV1",
+      "openCreativeText": false
     },
     {
       "jsonPath": "$.sequences[].shots[].dialogue[].delivery.pauseAfter",
@@ -7695,15 +7932,15 @@
     {
       "jsonPath": "$.sequences[].shots[].dialogue[].performance.listenerPose",
       "name": "listenerPose",
-      "type": "String",
+      "type": "closed-string-enum:MY_CutsceneDialoguePoseV1",
       "required": true,
-      "description": "Typed cutscene package field.",
-      "hint": "Use the serialized field type and preserve approved values.",
+      "description": "Closed runtime-driving value for Dialogue Pose V1.",
+      "hint": "Choose an exact canonical value; aliases require explicit migration.",
       "introducedIn": 1,
       "defaultSafeValue": "",
-      "migrationRule": "PRESERVE",
+      "migrationRule": "EXPLICIT_ONLY",
       "validationId": "CUTSCENE_FIELD_LISTENER_POSE",
-      "closedEnum": "",
+      "closedEnum": "MY_CutsceneDialoguePoseV1",
       "openCreativeText": false
     },
     {
@@ -7737,15 +7974,15 @@
     {
       "jsonPath": "$.sequences[].shots[].dialogue[].performance.speakerPose",
       "name": "speakerPose",
-      "type": "String",
+      "type": "closed-string-enum:MY_CutsceneDialoguePoseV1",
       "required": true,
-      "description": "Typed cutscene package field.",
-      "hint": "Use the serialized field type and preserve approved values.",
+      "description": "Closed runtime-driving value for Dialogue Pose V1.",
+      "hint": "Choose an exact canonical value; aliases require explicit migration.",
       "introducedIn": 1,
       "defaultSafeValue": "",
-      "migrationRule": "PRESERVE",
+      "migrationRule": "EXPLICIT_ONLY",
       "validationId": "CUTSCENE_FIELD_SPEAKER_POSE",
-      "closedEnum": "",
+      "closedEnum": "MY_CutsceneDialoguePoseV1",
       "openCreativeText": false
     },
     {

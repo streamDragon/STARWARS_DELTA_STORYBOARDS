@@ -11,9 +11,12 @@ ANIMATION: PlayAnimation is legal only when the exact animationAssetId appears i
 DIALOGUE: normally show only speaker + listener and rotate pairs for larger conversations. Use current canonical layout enums. If any line in a shot has stage.lockStaging=true, that shot's actorActions must be empty: no Hold, Move, Enter, Exit or PlayAnimation.
 PREFER SIMPLE COMPOSITIONS: use the fewest fragile dependencies that tell the story. Preview-safe records may produce yellow review notes even when not publish-safe; simplify or omit optional elements instead of inventing unsupported data.
 Return canonical enum spellings only. Do not copy an example when it conflicts with these rules; these rules are authoritative.
+SEMANTIC FIREWALL: descriptive semantic language is not automatically legal V5 vocabulary. Creative intent flows through semantic IR, explicit CURRENT mapping and canonical validation before serialization. Never assign a semantic string directly to a closed V5 field.
+BAD: { role: RemoteOfficer, listenerEmotion: Neutral }
+GOOD: { role: SupportingCharacter, entityKind: Person, entitySubKind: RemoteOfficer, listenerEmotion: Serious }
 STRUCTURED CREATIVE INTENT: creativeIntent is always an object with summary, style and mood string fields. Never serialize creativeIntent as a plain string.
 CLOSED-FIELD GUARDRAILS: never put a story job, rank, species, ship class or beat label into a structural enum field.
-- cast[].role is only Hero, SupportingCharacter, Antagonist, Prop, Environment or Ui. Commander/Pilot/Squad/SupportShip are SupportingCharacter; Enemy/Boss are Antagonist; HeroShip is Hero. Keep the specific narrative label in displayName, entityKind/entitySubKind or intention.
+- cast[].role is only Hero, SupportingCharacter, Antagonist, Prop, Environment or Ui. Commander/Pilot/RemoteOfficer/RemoteAnalyst are SupportingCharacter; EnemyCommander/Villain/Boss are Antagonist. Keep the specific narrative label in entitySubKind or intention.
 - shotType is camera grammar only: Establishing, CloseUp, Medium, Wide, ExtremeCloseUp, TwoShot, OverTheShoulder, Reaction, Insert, Reveal, Tracking, Follow or Static. Put Launch/Chase/Threat/Counterattack and other beat names in intention; choose shotType from framing and camera behavior.
 - layer role uses Midground, never MidBackground. Dialogue emotion and expression are separate closed vocabularies: Serious is an emotion; Determined/Concerned/Urgent/Relieved are expressions.
 FINAL CLOSED-FIELD CHECK: before returning JSON, compare every closed value with CONTRACT/CUTSCENE_ENUMS_V5.json. Never serialize an import alias even when Unity can recover it for Editable Preview.
@@ -33,10 +36,10 @@ Copy exact assetId values and exact compatibleAnimationIds values. Never infer c
 EXISTING CUTSCENE REVISION
 Use ADD CATALOG + PRESENT STATE OF THE CUTSCENE + the natural-language requested change. Present State is current Cutscene state only; ADD CATALOG remains the global rules/assets source.
 
-Contract revision: 6DD935DC788F7C864F934D86E19F94ED729C6E5474E7F2F9F013AB11A2E127C1
-Schema hash: 1650F215E400952EC5CC8F80B4CB770841126530AFA97B6140171D50F82330AB
-Snapshot content hash: DE75D747110C7EF189E124A0EDFD30B65224A8C46A085CC8CE0014D5E96080B5
-Snapshot identity: catalogRevision=7625190644208792591;contractRevision=6DD935DC788F7C864F934D86E19F94ED729C6E5474E7F2F9F013AB11A2E127C1;schemaHash=1650F215E400952EC5CC8F80B4CB770841126530AFA97B6140171D50F82330AB;snapshotContentHash=DE75D747110C7EF189E124A0EDFD30B65224A8C46A085CC8CE0014D5E96080B5
+Contract revision: 771AD65DED1F8CB93F7137F1884E3AAD3837928DA5605A65828453B5A38646D9
+Schema hash: B64AE9C01736B2FD40CB3591869E0F8A49C07A81C9631FE62E14F215A50EF308
+Snapshot content hash: 010944DF3E29C63CD9FFDA6DB5E463D708A5FEC5CC2B8CD635B1DF384EA5C5AF
+Snapshot identity: catalogRevision=7625688587840773972;contractRevision=771AD65DED1F8CB93F7137F1884E3AAD3837928DA5605A65828453B5A38646D9;schemaHash=B64AE9C01736B2FD40CB3591869E0F8A49C07A81C9631FE62E14F215A50EF308;snapshotContentHash=010944DF3E29C63CD9FFDA6DB5E463D708A5FEC5CC2B8CD635B1DF384EA5C5AF
 Do not treat catalogRevision alone as proof that two snapshots are equivalent. Compare the complete snapshot identity: catalogRevision, contractRevision, schemaHash and snapshotContentHash.
 Supported Cutscene package version: 5
 
@@ -96,6 +99,7 @@ Do not author defensive cleanup merely to stop generated content at its owner bo
 
 DIALOGUE EMOTION VS EXPRESSION
 stage.speakerEmotion, stage.listenerEmotion and delivery.emotion use only: Serious, Shock, Anger, Perplexed, Sad, Happy.
+delivery.pace uses only CURRENT values Slow, Medium or Fast. Semantic Slow/Measured/Conversational/Natural/Hesitant/Rapid/Urgent values are mapped before serialization.
 Use speakerExpression/listenerExpression/reaction.expression for acting choices such as Determined, Concerned, Shocked or Relieved. Do not put those expression words into emotion fields.
 
 ACTOR IDENTITY AND PROPORTIONS
@@ -153,6 +157,7 @@ MY_CutsceneDialogueTypewriterSpeed: Slow, Normal, Fast
 MY_CutsceneDialogueAdvanceMode: Automatic, WaitForContinue
 MY_CutsceneDialogueTextDirection: Auto, LTR, RTL
 MY_CutsceneDialogueEmotionV1: Serious, Shock, Anger, Perplexed, Sad, Happy
+MY_CutsceneDialoguePaceV1: Slow, Medium, Fast
 MY_CutsceneDialoguePoseV1: IdleListening, Speaking, WorkingAtConsole, RunningAction, BracingAlert
 MY_CutsceneDialogueShotGrammar: DialogueWide, DialogueCloseup, DialogueTwoShot, AlertInsert, RevealWide
 MY_CutsceneDialoguePresentationPreset: RADIO_COMMUNICATION, FACE_TO_FACE_PORTRAITS, COMMAND_SCREEN, SUBTITLE_ONLY, EMERGENCY_BROADCAST, CAPTAIN_LOG
@@ -183,10 +188,10 @@ SMALL VALID JSON EXAMPLE
   "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
   "schemaVersion": 5,
   "contextVersion": 3,
-  "contractRevision": "6DD935DC788F7C864F934D86E19F94ED729C6E5474E7F2F9F013AB11A2E127C1",
-  "schemaHash": "1650F215E400952EC5CC8F80B4CB770841126530AFA97B6140171D50F82330AB",
+  "contractRevision": "771AD65DED1F8CB93F7137F1884E3AAD3837928DA5605A65828453B5A38646D9",
+  "schemaHash": "B64AE9C01736B2FD40CB3591869E0F8A49C07A81C9631FE62E14F215A50EF308",
   "contextId": "NEW_CUTSCENE_CONTEXT",
-  "catalogRevision": "7625190644208792591",
+  "catalogRevision": "7625688587840773972",
   "projectId": "",
   "planId": "plan_example_minimal",
   "baseRevision": 0,

@@ -3,170 +3,170 @@
 This is a convenience shortlist for fast Cutscene planning, not a replacement for the full authoritative catalog.
 Use catalog_records.jsonl for the complete exported snapshot. An omitted asset may still be legal; verify every exact assetId there before authoring.
 Do not infer animation compatibility. Use only exact compatibleAnimationIds from the actor record.
-Catalog revision: 7625190644208792591
-Exported record count: 22603
+Catalog revision: 7625688587840773972
+Exported record count: 19711
 
 ## Actors
 Actor-primary records that are safe for Preview.
 Count: 30
-- `051e0b3854f08b94d8b988ff8a23c4ac:3110914309453802679` — Delta7 Starfighter
+- `390ea82ac73566748a5fc9d9d862ee5b:-1075228918` — Asteroids 4x4 05
   - Animation count: 0; sample IDs: none
-- `1cb6108c17cb046408f158f6ba798416:1755457364051241212` — Delta7 Starfighter Hunyuan
+- `390ea82ac73566748a5fc9d9d862ee5b:-1379671711` — Asteroids 4x4 02
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-1113357152` — player 6
+- `390ea82ac73566748a5fc9d9d862ee5b:-1584956664` — Asteroids 4x4 14
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-1142697123` — player 23
+- `390ea82ac73566748a5fc9d9d862ee5b:-181575495` — Asteroids 4x4 07
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-1204267923` — player 20
+- `390ea82ac73566748a5fc9d9d862ee5b:-1949889549` — Asteroids 4x4 11
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-1316810141` — player 4
+- `390ea82ac73566748a5fc9d9d862ee5b:-260948901` — Asteroids 4x4 15
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-1416467039` — player 2
+- `390ea82ac73566748a5fc9d9d862ee5b:-921112653` — Asteroids 4x4 10
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-1472282018` — player 16
+- `390ea82ac73566748a5fc9d9d862ee5b:11536729` — Asteroids 4x4 09
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-147685235` — player 10
+- `390ea82ac73566748a5fc9d9d862ee5b:1377265027` — Asteroids 4x4 06
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-1718851435` — player 11
+- `390ea82ac73566748a5fc9d9d862ee5b:14554913` — Asteroids 4x4 12
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-1907959319` — player 14
+- `390ea82ac73566748a5fc9d9d862ee5b:1609977743` — Asteroids 4x4 01
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-2022430009` — player 5
+- `390ea82ac73566748a5fc9d9d862ee5b:1880030621` — Asteroids 4x4 16
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-2041228250` — player 15
+- `390ea82ac73566748a5fc9d9d862ee5b:251471100` — Asteroids 4x4 04
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-214228986` — player 7
+- `390ea82ac73566748a5fc9d9d862ee5b:31377091` — Asteroids 4x4 08
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-281316472` — player 24
+- `390ea82ac73566748a5fc9d9d862ee5b:341747586` — Asteroids 4x4 13
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-350461071` — player 9
+- `390ea82ac73566748a5fc9d9d862ee5b:646690509` — Asteroids 4x4 03
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-455829103` — player 27
+- `af8408a73afb4194fbd43494a7a41259:-1267736179` — Debris 5x5 16
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-469583944` — player 13
+- `af8408a73afb4194fbd43494a7a41259:-145162055` — Debris 5x5 06
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-575801896` — player 1
+- `af8408a73afb4194fbd43494a7a41259:-1460935444` — Debris 5x5 10
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:-947702702` — player 21
+- `af8408a73afb4194fbd43494a7a41259:-1646075935` — Debris 5x5 13
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:1011885465` — player 17
+- `af8408a73afb4194fbd43494a7a41259:-372594397` — Debris 5x5 21
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:1036674334` — player 12
+- `af8408a73afb4194fbd43494a7a41259:-469875021` — Debris 5x5 04
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:167504257` — player 8
+- `af8408a73afb4194fbd43494a7a41259:-487858334` — Debris 5x5 20
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:1739014201` — player 19
+- `af8408a73afb4194fbd43494a7a41259:-501845237` — Debris 5x5 01
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:1854569756` — player 22
+- `af8408a73afb4194fbd43494a7a41259:-544729806` — Debris 5x5 11
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:2115370165` — player 18
+- `af8408a73afb4194fbd43494a7a41259:-787525546` — Debris 5x5 19
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:255827085` — player 3
+- `af8408a73afb4194fbd43494a7a41259:108277011` — Debris 5x5 08
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:298805213` — player 0
+- `af8408a73afb4194fbd43494a7a41259:1089663274` — Debris 5x5 03
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:633558873` — player 25
+- `af8408a73afb4194fbd43494a7a41259:113961983` — Debris 5x5 22
   - Animation count: 0; sample IDs: none
-- `08f2f3394e7f7c4478721c3ecf02e5d4:928039468` — player 26
+- `af8408a73afb4194fbd43494a7a41259:1287059297` — Debris 5x5 15
   - Animation count: 0; sample IDs: none
 
 ## Actors with verified animations
 Actor-primary records that are safe for Preview and have verified compatibleAnimationIds.
 Count: 30
+- `9cc75fd03b94e374eb244ca5b7e7b46f:21300000` — SpaceRobot03 Walk Loop 026
+  - Animation count: 1; sample IDs: `66f3e66b9347e1941a0f4fad217bf346:7400000`
+- `cd21c318b496daf469e4cf2c4f9412ea:21300000` — SpaceRobot02 Shield Stance 030
+  - Animation count: 2; sample IDs: `4cfc150d41279704c8f64dab03d7f8a2:7400000`, `a8f685f2c27bb5f4b92e0e72d2a8ce4f:7400000`
+- `3054c45bb7c04a36a80fb7b19a4e52f7:-310000001` — PUSH MECHA IDLE 00
+  - Animation count: 1; sample IDs: `8bf955c50dec4a208c589579b982e114:7400000`
+- `3054c45bb7c04a36a80fb7b19a4e52f7:-310000002` — PUSH MECHA IDLE 01
+  - Animation count: 1; sample IDs: `8bf955c50dec4a208c589579b982e114:7400000`
+- `3054c45bb7c04a36a80fb7b19a4e52f7:-310000003` — PUSH MECHA IDLE 02
+  - Animation count: 1; sample IDs: `8bf955c50dec4a208c589579b982e114:7400000`
+- `3054c45bb7c04a36a80fb7b19a4e52f7:-310000004` — PUSH MECHA IDLE 03
+  - Animation count: 1; sample IDs: `8bf955c50dec4a208c589579b982e114:7400000`
+- `3054c45bb7c04a36a80fb7b19a4e52f7:-310000005` — PUSH MECHA IDLE 04
+  - Animation count: 1; sample IDs: `8bf955c50dec4a208c589579b982e114:7400000`
+- `3054c45bb7c04a36a80fb7b19a4e52f7:-310000006` — PUSH MECHA IDLE 05
+  - Animation count: 1; sample IDs: `8bf955c50dec4a208c589579b982e114:7400000`
+- `58e3ab6f95c54c43b2d083de401b51e6:-320000001` — PUSH MECHA WALK 00
+  - Animation count: 1; sample IDs: `86c5678fe034401da58eb82b4d75e890:7400000`
+- `58e3ab6f95c54c43b2d083de401b51e6:-320000002` — PUSH MECHA WALK 01
+  - Animation count: 1; sample IDs: `86c5678fe034401da58eb82b4d75e890:7400000`
+- `58e3ab6f95c54c43b2d083de401b51e6:-320000003` — PUSH MECHA WALK 02
+  - Animation count: 1; sample IDs: `86c5678fe034401da58eb82b4d75e890:7400000`
+- `58e3ab6f95c54c43b2d083de401b51e6:-320000004` — PUSH MECHA WALK 03
+  - Animation count: 1; sample IDs: `86c5678fe034401da58eb82b4d75e890:7400000`
+- `58e3ab6f95c54c43b2d083de401b51e6:-320000005` — PUSH MECHA WALK 04
+  - Animation count: 1; sample IDs: `86c5678fe034401da58eb82b4d75e890:7400000`
+- `58e3ab6f95c54c43b2d083de401b51e6:-320000006` — PUSH MECHA WALK 05
+  - Animation count: 1; sample IDs: `86c5678fe034401da58eb82b4d75e890:7400000`
+- `66430fcef59346f9ba0c640c533ec323:-340000001` — PUSH MECHA DEATH 00
+  - Animation count: 1; sample IDs: `38454761e1424cb78082800dc8947732:7400000`
+- `66430fcef59346f9ba0c640c533ec323:-340000002` — PUSH MECHA DEATH 01
+  - Animation count: 1; sample IDs: `38454761e1424cb78082800dc8947732:7400000`
+- `66430fcef59346f9ba0c640c533ec323:-340000003` — PUSH MECHA DEATH 02
+  - Animation count: 1; sample IDs: `38454761e1424cb78082800dc8947732:7400000`
+- `66430fcef59346f9ba0c640c533ec323:-340000004` — PUSH MECHA DEATH 03
+  - Animation count: 1; sample IDs: `38454761e1424cb78082800dc8947732:7400000`
+- `66430fcef59346f9ba0c640c533ec323:-340000005` — PUSH MECHA DEATH 04
+  - Animation count: 1; sample IDs: `38454761e1424cb78082800dc8947732:7400000`
+- `66430fcef59346f9ba0c640c533ec323:-340000006` — PUSH MECHA DEATH 05
+  - Animation count: 1; sample IDs: `38454761e1424cb78082800dc8947732:7400000`
+- `91fc1f4d703f4d65b8bff07dd7d1834b:-330000001` — PUSH MECHA SHOOT 00
+  - Animation count: 1; sample IDs: `0b9da1b7c8ed4ca998ed09fe1bd154fb:7400000`
+- `91fc1f4d703f4d65b8bff07dd7d1834b:-330000002` — PUSH MECHA SHOOT 01
+  - Animation count: 1; sample IDs: `0b9da1b7c8ed4ca998ed09fe1bd154fb:7400000`
+- `91fc1f4d703f4d65b8bff07dd7d1834b:-330000003` — PUSH MECHA SHOOT 02
+  - Animation count: 1; sample IDs: `0b9da1b7c8ed4ca998ed09fe1bd154fb:7400000`
+- `91fc1f4d703f4d65b8bff07dd7d1834b:-330000004` — PUSH MECHA SHOOT 03
+  - Animation count: 1; sample IDs: `0b9da1b7c8ed4ca998ed09fe1bd154fb:7400000`
+- `91fc1f4d703f4d65b8bff07dd7d1834b:-330000005` — PUSH MECHA SHOOT 04
+  - Animation count: 1; sample IDs: `0b9da1b7c8ed4ca998ed09fe1bd154fb:7400000`
+- `91fc1f4d703f4d65b8bff07dd7d1834b:-330000006` — PUSH MECHA SHOOT 05
+  - Animation count: 1; sample IDs: `0b9da1b7c8ed4ca998ed09fe1bd154fb:7400000`
+- `91fc1f4d703f4d65b8bff07dd7d1834b:-330000007` — PUSH MECHA SHOOT 06
+  - Animation count: 1; sample IDs: `0b9da1b7c8ed4ca998ed09fe1bd154fb:7400000`
+- `91fc1f4d703f4d65b8bff07dd7d1834b:-330000008` — PUSH MECHA SHOOT 07
+  - Animation count: 1; sample IDs: `0b9da1b7c8ed4ca998ed09fe1bd154fb:7400000`
 - `cf0035e2e21be4f48ba6e6a012e9204e:-5082840419902793436` — player ship topview 1
   - Animation count: 1; sample IDs: `f5d57ba7880468944af99db61c42a333:7400000`
 - `cf0035e2e21be4f48ba6e6a012e9204e:-948810827438414497` — player ship topview 0
   - Animation count: 1; sample IDs: `f5d57ba7880468944af99db61c42a333:7400000`
-- `004c4fbdbf7ac384d8ecaa1b146bc47d:21300000` — Moss2 animation 10
-  - Animation count: 1; sample IDs: `d3f995024d4866e43b09f6a0a7e46309:7400000`
-- `0082b9469b2503645aa50a4d800d03bf:21300000` — Moss3 animation 51
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `00956814ccb758c48b335d1931d5aad7:21300000` — Moss3 animation 28
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `0244a7863d875f54d8fc1f7285f7483c:21300000` — Algae1 animation 44
-  - Animation count: 1; sample IDs: `be061723cf002d943b5021692d89c45e:7400000`
-- `0486f62859c45d8448bf0fc73ef63c6a:21300000` — Moss2 animation 47
-  - Animation count: 1; sample IDs: `d3f995024d4866e43b09f6a0a7e46309:7400000`
-- `0566eeb7dd2de9641a6622e10e459302:21300000` — Moss3 animation 3
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `05c05d333d4540089b28b3b4438b1588:21300000` — gem0002
-  - Animation count: 1; sample IDs: `878037963f1d4e529909d85432c5d3f6:7400000`
-- `093079815cf286e489ed12559935e43d:21300000` — Moss2 animation 52
-  - Animation count: 1; sample IDs: `d3f995024d4866e43b09f6a0a7e46309:7400000`
-- `09abc83b58ddd5b489b415d22ce08116:21300000` — Moss3 animation 25
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `0a6b15376f5841abacb7d46c15a2926b:21300000` — gem0007
-  - Animation count: 1; sample IDs: `878037963f1d4e529909d85432c5d3f6:7400000`
-- `0c26c52778cb13b43b425d666652c49a:21300000` — Moss3 animation 29
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `0dffbe6d90e5c0543810197362663740:21300000` — 36
-  - Animation count: 1; sample IDs: `d371cac449dd1fc4ca5c74f6219845b2:7400000`
-- `0ea86d4d18a28de4fb8f8cf356f3ed07:21300000` — Moss3 animation 0
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `10352fd900559e742954c46e9312eed7:21300000` — 35
-  - Animation count: 1; sample IDs: `d371cac449dd1fc4ca5c74f6219845b2:7400000`
-- `1176e60d22164c448df625994bb00441:21300000` — gem0012
-  - Animation count: 1; sample IDs: `878037963f1d4e529909d85432c5d3f6:7400000`
-- `11c4e671aa6ca964fb8ca317c587c7f1:21300000` — Moss2 animation 11
-  - Animation count: 1; sample IDs: `d3f995024d4866e43b09f6a0a7e46309:7400000`
-- `124666ed34f595d47b4bdb6efb5cc45d:21300000` — Moss3 animation 10
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `138df89ea5b72b14e81688a5fe1fe19a:21300000` — Algae1 animation 24
-  - Animation count: 1; sample IDs: `be061723cf002d943b5021692d89c45e:7400000`
-- `145803b821bd91543a8d1b559a8f326f:21300000` — Moss3 animation 59
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `1483bf641351a5340bec6cd641a562af:21300000` — Algae1 animation 3
-  - Animation count: 1; sample IDs: `be061723cf002d943b5021692d89c45e:7400000`
-- `1a8edbb7b4cd8a84b8ce738f8c867161:21300000` — 28
-  - Animation count: 1; sample IDs: `d371cac449dd1fc4ca5c74f6219845b2:7400000`
-- `1ad8fb1a685125b4faa1edf7416c244e:21300000` — Moss3 animation 15
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `21dd4670152e480da247cb3bbcd57f30:21300000` — gem0003
-  - Animation count: 1; sample IDs: `878037963f1d4e529909d85432c5d3f6:7400000`
-- `23857a15c1907454eb91f379ae1d979c:21300000` — Moss3 animation 17
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `245b9da1730ba5b47916d35c53319ca5:21300000` — 39
-  - Animation count: 1; sample IDs: `d371cac449dd1fc4ca5c74f6219845b2:7400000`
-- `26705da1aee38264798f27f861a84e58:21300000` — Moss2 animation 21
-  - Animation count: 1; sample IDs: `d3f995024d4866e43b09f6a0a7e46309:7400000`
-- `2778c306f92c66f42a3197df88a9d0c8:21300000` — Moss2 animation 7
-  - Animation count: 1; sample IDs: `d3f995024d4866e43b09f6a0a7e46309:7400000`
-- `277b5274059872a40b23838acfce8ed0:21300000` — 33
-  - Animation count: 1; sample IDs: `d371cac449dd1fc4ca5c74f6219845b2:7400000`
 
 ## Layers
 Layer-primary records that are safe for Preview.
 Count: 30
-- `0a09eec6876c94e498483416cdf5eb18:21300000` — Nebula Blue
-- `1f2dbfef7aaa9d94f88dfecc65df6f50:21300000` — Galaxy 10
-- `21c8050a7f4ad6d4a82d35de3af56419:21300000` — Stars Small 1
-- `2e71981b563024b4dbd5b105e53b2126:21300000` — Galaxy 08
-- `375a7d5cac1d0ca4cb9161b5a2c3d9ad:21300000` — Galaxy 07
-- `49e28169119a3ea45ae691dacfdd6b31:21300000` — Nebula Red
-- `54d6307a2f2e6c04a946bd016fabc35a:21300000` — Galaxy 03
-- `6b26e03d7ba4131468210d376424c059:21300000` — Galaxy 06
-- `756d5125e980e4838801726ba57efcc7:21300000` — Background Cave
-- `88e685fac0d1d37489b7d79b44b4c83c:21300000` — Galaxy 09
-- `8e1c081d7caf3f440a96e2ca7e553a70:21300000` — Nebula Aqua Pink
-- `a2a79110b304d304abdf054b3599a02b:21300000` — Galaxy 02
-- `a351a0b27e67d654a83bc3d461c3d087:21300000` — Galaxy 05
-- `bae7dd6b1d2289643aab58a06a573227:21300000` — Stars Big 1
-- `e35de283f6d110b4bb164d04f6547746:21300000` — Galaxy 01
-- `040e5f48ef9514588b861b23306e7ef6:21300000` — back rocks02
-- `056786b22e8d04470bc020fcb97787cf:21300000` — back asteroids
-- `06659d90a2acc436da3e9f54d4fe6089:21300000` — fore top end right
-- `1702d8a92e31e450caa35a5cd7ebe6c4:21300000` — fore top tile
-- `3da4ba0dcbd374bf8844f9ce7be8b26c:21300000` — back rocks03
-- `4922442581c08461bacef178c15d722f:21300000` — back rocks04
-- `63f54db09773a483fad38ca16b37181b:21300000` — fore bottom end left
-- `bc2513817254d4ac586f4993f71df18a:21300000` — fore bottom single
-- `c9d56ce2e3d364c1da7c0385665909fb:21300000` — fore bottom end right
-- `ca504a09a3c5940ff9df45fc33c73cab:21300000` — planet
-- `cccd3f80dc1184500add6a0b0bafa706:21300000` — fore top end left
-- `dff9a28edfc164655b24cfd088461125:21300000` — fore bot end left
-- `eab18b10543f94258abd2b94651f6e68:21300000` — fore bottom tile
-- `f73cbb56fd02c4a66b6dea972c450544:21300000` — fore top single
-- `fb3f0be225e6b41ec9cf9c5fe5b0481d:21300000` — back rocks01
+- `3d7cd108710576a4692a2849853edca9:21300000` — NebulaBlue Wide 01
+- `50e3c155cb2b73540bc5501d4947e804:21300000` — NebulaBlue Wide 03
+- `ec51c7f3e99fdc94ea3fea550545c553:21300000` — NebulaBlue Wide 02
+- `6cbde1828785b2445aa4e4dc182c601a:-1301319232` — Planets 4x1 04
+- `6cbde1828785b2445aa4e4dc182c601a:-1348047822` — Planets 4x1 01
+- `6cbde1828785b2445aa4e4dc182c601a:-1698564276` — Planets 4x1 02
+- `6cbde1828785b2445aa4e4dc182c601a:1947497287` — Planets 4x1 03
+- `02b250b3e0ec7ea4887248c94565d715:21300000` — Debris 01
+- `0697b8cb49fabc44cbe99d3db3ed60a2:21300000` — Asteroid 09
+- `0bfa1de2365f92b4ebfa8041ab7accb1:21300000` — Debris 09
+- `0c99c1e2c039a504cb3210e084e89423:21300000` — Debris 08
+- `0ffcb5acb359fee42807eda65867d8a0:21300000` — Planet 04
+- `0ffe614877f405d4f8bd86edf139a6a6:21300000` — Debris 03
+- `16264ad8a6438b348998938f2fde3dc8:21300000` — Debris 23
+- `1b538d772a3cbd34a8989f14d13400b8:21300000` — Asteroid 03
+- `1fa976ca6f8e2e749b9f3d252636e58e:21300000` — Asteroid 01
+- `1fd6833eb6641b4439d7bb17561514a2:21300000` — Asteroid 06
+- `22e2f23247b5a2f44bbaafd73aafd9dc:21300000` — Debris 16
+- `253dfed79c76d3a4db5c77e329577186:21300000` — Debris 02
+- `2c43d002920887141b566e0d9d586512:21300000` — Planet 02
+- `375dfe4e82297d941a1c2f30b79f30df:21300000` — Asteroid 16
+- `3d5c48f0f685e8842893dd77b636e149:21300000` — Asteroid 05
+- `3dedfea9783b28e4abe0fcfd983208f6:21300000` — Planet 03
+- `3e9fa183a0805e547aae7c20292d69d1:21300000` — Debris 19
+- `413100b4e46d39040bda3476ef96e5ba:21300000` — Debris 25
+- `43f5c9523ca5bc046b294caecc97a5ec:21300000` — Debris 12
+- `505ffbb056a5c14479708ff75918f5f6:21300000` — Asteroid 13
+- `51418307e434bf149be88b650571bdd5:21300000` — Planet 01
+- `5801acc0c8c9f5c46a43a84773491787:21300000` — Debris 18
+- `5d9a8229086042a44be37ae69a0df3d5:21300000` — Asteroid 10
 
 ## Ui
 Ui-primary records that are safe for Preview.
@@ -200,41 +200,41 @@ Count: 30
 - `040b101f1b94e4606ac137715f1b533d:21300000` — Item Icon Box
 - `040dc38d3bb2b4b97b743e4c80155c69:21300000` — Frame ItemFrame10 Black2
 - `0451b82d1df5b438e962e7983eebbd7f:21300000` — Frame Frame02 Red
-- `04d00602aab2e4180b4dcbd0e5fc2ce8:21300000` — Frame ListFrame02 Demo01 Navy s
+- `04a9049d36f22864fa6549be993d3c56:-1178474312` — UI Holographic CommandProjection
 
 ## Effects
 Effect-primary records that are safe for Preview.
 Count: 30
-- `0acaff452f8453347bd2d61397c33d3a:21300000` — MaskedLaserBlast4
-- `0eae1d42b8c7401fb9460cdd32bca308:21300000` — RoBlast2
-- `212a75f68add4289ae1718934d771e05:21300000` — WarpLaserBlast4
-- `290c0ce0c0044b5b9e21de808a2cb13f:21300000` — HiBlast2
-- `302bb81fff4f42fca73278729ded3483:21300000` — HiBlast3
-- `3ea827a911cc72341bea53eadb845bca:21300000` — HiBlast3 1
-- `50df10d7eef14f03b352bf24f53ab567:21300000` — RoBlast4
-- `542505687051f4f46974ae3ba4cffb0f:21300000` — MaskedLaserBlast3
-- `7441b34d78254664a90ecb755a7a0235:21300000` — SpinLaserBlast1
-- `75b4f81aecce4a77867d9a0002fd7b54:21300000` — LoBlast3
-- `7eae5c425c802b24b8d076f7217d7576:21300000` — MaskedLaserBlast2
-- `8716b7303c8102b449ba939ebf39007b:21300000` — MaskedLaserBlast3
-- `8fc7e8abc8f223b4ea97803e3c6fd013:21300000` — Laser Glow
-- `93e2d8b1323542c485091793396cdd82:21300000` — WarpLaserBlast1
-- `94fcf86c243740b0bbe09e468bf19c15:21300000` — LoBlast2
-- `99f9484f857edb841a1cf1382876e478:21300000` — MaskedLaserBlast1
-- `a33b89da511fd064e9f2efab5697cd05:21300000` — card 2
-- `a3c68123ff1d4a04870141f6d5d8e448:21300000` — LoBlast1
-- `b20070e3e3fb40598cbb7998b6fd8089:21300000` — SpinLaserBlast3
-- `b4e5c04717534f3797d1203ed981ca54:21300000` — SpinLaserBlast2
-- `b9693781a210458f81613f75f8973a72:21300000` — HiBlast1
-- `bb887fbf41c3c21479e09241603d1b1d:21300000` — MaskedLaserBlast1
-- `be7db3bcd8324a54ab6d9276324ce609:21300000` — WarpLaserBlast2
-- `c0cebaf4bc9c82a41b9717ded54021de:21300000` — Engine Thrust
-- `c4ff6c32086c4a1a8ee15772489e0e2f:21300000` — SpinLaserBlast4
-- `c61acca6522f4b838606e78470aa9d37:21300000` — RoBlast1
-- `d7f49a2350eb45af8db7d67388f5dec4:21300000` — RoBlast3
-- `dec5cdd8106daa04fab0e513db7f92b7:21300000` — MaskedLaserBlast2
-- `ea65d7786d483fd4bbe4bdc480a45c33:21300000` — card 1
-- `ff9da68a5b3949288d8a86df251c5d0e:21300000` — WarpLaserBlast3
+- `26ef4508acfc81e49b336e76f85584fb:-1493310878` — GlowCores 4x2 03
+- `26ef4508acfc81e49b336e76f85584fb:-315122529` — GlowCores 4x2 02
+- `26ef4508acfc81e49b336e76f85584fb:1149347465` — GlowCores 4x2 05
+- `26ef4508acfc81e49b336e76f85584fb:1272635297` — GlowCores 4x2 04
+- `26ef4508acfc81e49b336e76f85584fb:188662295` — GlowCores 4x2 01
+- `26ef4508acfc81e49b336e76f85584fb:1993805260` — GlowCores 4x2 08
+- `26ef4508acfc81e49b336e76f85584fb:2034869457` — GlowCores 4x2 07
+- `26ef4508acfc81e49b336e76f85584fb:248462910` — GlowCores 4x2 06
+- `862ab43578c01934bbc116c8a30fa059:-1328138627` — ImpactBursts 4x3 11
+- `862ab43578c01934bbc116c8a30fa059:-1746575917` — ImpactBursts 4x3 10
+- `862ab43578c01934bbc116c8a30fa059:-1963559816` — ImpactBursts 4x3 08
+- `862ab43578c01934bbc116c8a30fa059:-2002783523` — ImpactBursts 4x3 12
+- `862ab43578c01934bbc116c8a30fa059:-534346052` — ImpactBursts 4x3 01
+- `862ab43578c01934bbc116c8a30fa059:-725287576` — ImpactBursts 4x3 03
+- `862ab43578c01934bbc116c8a30fa059:-746043494` — ImpactBursts 4x3 09
+- `862ab43578c01934bbc116c8a30fa059:1154898636` — ImpactBursts 4x3 04
+- `862ab43578c01934bbc116c8a30fa059:1232169825` — ImpactBursts 4x3 07
+- `862ab43578c01934bbc116c8a30fa059:1392203655` — ImpactBursts 4x3 06
+- `862ab43578c01934bbc116c8a30fa059:1434738212` — ImpactBursts 4x3 05
+- `862ab43578c01934bbc116c8a30fa059:2121983303` — ImpactBursts 4x3 02
+- `cee5bf3df5c32364b950fe63f9c92238:-1777981361` — ShockRings 3x3 03
+- `cee5bf3df5c32364b950fe63f9c92238:-1983606819` — ShockRings 3x3 02
+- `cee5bf3df5c32364b950fe63f9c92238:-2019342399` — ShockRings 3x3 06
+- `cee5bf3df5c32364b950fe63f9c92238:-590724008` — ShockRings 3x3 01
+- `cee5bf3df5c32364b950fe63f9c92238:-771852795` — ShockRings 3x3 05
+- `cee5bf3df5c32364b950fe63f9c92238:10566617` — ShockRings 3x3 07
+- `cee5bf3df5c32364b950fe63f9c92238:1373084870` — ShockRings 3x3 09
+- `cee5bf3df5c32364b950fe63f9c92238:1747475319` — ShockRings 3x3 04
+- `cee5bf3df5c32364b950fe63f9c92238:927909780` — ShockRings 3x3 08
+- `ee43e040ed94c414ab737230b869e5d6:-2139711621` — EngineTrails Blue 4x1 04
 
 ## Audio
 Audio-primary records that are safe for Preview.

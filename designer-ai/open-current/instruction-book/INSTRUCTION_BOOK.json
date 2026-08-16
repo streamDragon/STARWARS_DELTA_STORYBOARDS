@@ -259,11 +259,17 @@
     {
       "id": "IB028",
       "type": "BAD_TO_GOOD",
-      "title": "Dialogue emotion and expression are different vocabularies",
-      "whenToUse": "Any dialogue line with stage emotions, delivery emotion or expression/reaction fields.",
-      "badPattern": "Put Determined, Concerned, Shocked or Relieved into stage.speakerEmotion, stage.listenerEmotion or delivery.emotion.",
-      "goodPattern": "Emotion fields use only Serious, Shock, Anger, Perplexed, Sad or Happy. Put Determined/Concerned/Shocked/Relieved-style acting choices in speakerExpression, listenerExpression or reaction.expression.",
-      "fallback": "V2.2 safely normalizes a small set of unambiguous imported emotion aliases, but canonical ChatGPT output should use the correct vocabulary directly."
+      "title": "V5 strict enums require semantic mapping",
+      "whenToUse": "Any semantic authoring path that materializes a CURRENT V5 package.",
+      "badPattern": "Copy descriptive vocabulary directly into closed fields: role = RemoteOfficer, listenerEmotion = Neutral or delivery.pace = Conversational.",
+      "goodPattern": "Run semantic intent through the CURRENT mapper: role = SupportingCharacter with entitySubKind = RemoteOfficer, listenerEmotion = Serious and delivery.pace = Medium.",
+      "lesson": "V5 enum-controlled fields are closed vocabulary. Rich semantic intent must pass through explicit CURRENT mapping before serialization; unknown or ambiguous values block generation.",
+      "examples": {
+        "badRole": "RemoteOfficer",
+        "goodRole": "SupportingCharacter + entitySubKind RemoteOfficer",
+        "badEmotion": "Neutral",
+        "goodEmotion": "Serious"
+      }
     },
     {
       "id": "IB029",
@@ -485,7 +491,7 @@
     "curation": "Raw cases never modify the active Instruction Book automatically. Periodically export the inbox, classify each case, fix the correct subsystem, and distill only reusable lessons.",
     "promotion": "A corrected full JSON becomes GOLDEN only after real Unity LOAD -> NORMALIZE -> VALIDATE -> BUILD EDITABLE PREVIEW plus visual acceptance."
   },
-  "authoringContractRevision": "6DD935DC788F7C864F934D86E19F94ED729C6E5474E7F2F9F013AB11A2E127C1",
-  "schemaHash": "1650F215E400952EC5CC8F80B4CB770841126530AFA97B6140171D50F82330AB",
+  "authoringContractRevision": "771AD65DED1F8CB93F7137F1884E3AAD3837928DA5605A65828453B5A38646D9",
+  "schemaHash": "B64AE9C01736B2FD40CB3591869E0F8A49C07A81C9631FE62E14F215A50EF308",
   "goldenExampleCount": 1
 }
