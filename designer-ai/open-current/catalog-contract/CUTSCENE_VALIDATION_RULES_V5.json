@@ -4,7 +4,7 @@
   "rules": [
     {
       "ruleId": "PACKAGE_SHAPE",
-      "text": "Return one complete schemaVersion 5 object with every required top-level field. No patches, fragments, duplicate properties or unknown fields."
+      "text": "Return one complete schemaVersion 5 object with every required top-level field. The top-level schema must be exactly STARWARS_DELTA_CUTSCENE_PACKAGE. Never invent schema aliases such as STARWARS_DELTA_CUTSCENE_PACKAGE_V5_BEST_EFFORT. No patches, fragments, duplicate properties or unknown fields."
     },
     {
       "ruleId": "ENUM_SERIALIZATION",

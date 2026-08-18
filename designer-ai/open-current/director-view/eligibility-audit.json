@@ -2,24 +2,25 @@
   "schema": "STARWARS_DELTA_DIRECTOR_ELIGIBILITY_AUDIT",
   "schemaVersion": 2,
   "status": "SOURCE_REVIEW_REQUIRED",
-  "publishTransactionId": "20260816-193047370-b215eec0",
-  "catalogRevision": 7625687720571785059,
-  "sourceCatalogRecordCount": 19711,
-  "flaggedDirectorVisualCount": 37,
-  "flaggedCompletionVisualCount": 3,
+  "publishTransactionId": "20260818-165400647-63c8b628",
+  "catalogRevision": 7625567326969721596,
+  "sourceCatalogRecordCount": 19088,
+  "flaggedDirectorVisualCount": 58,
+  "flaggedCompletionVisualCount": 16,
   "flaggedByCategory": {
-    "Actor": 11,
-    "Effect": 5,
-    "Ui": 21
+    "Actor": 20,
+    "Effect": 7,
+    "Ui": 31
   },
   "flaggedByReason": {
     "catalog_semantics_exclude_direct_authoring": 7,
-    "sample_or_demo_path": 17,
-    "probable_effect_misclassified_as_actor": 2,
-    "probable_ui_misclassified_as_actor": 1,
-    "generic_technical_or_primitive_identity": 6,
+    "probable_effect_misclassified_as_actor": 10,
+    "probable_layer_or_tileset_misclassified_as_actor": 1,
+    "generic_technical_or_primitive_identity": 10,
+    "sample_or_demo_path": 16,
     "editor_test_or_debug_path": 6,
-    "documentation_or_package_tooling_path": 1
+    "documentation_or_package_tooling_path": 1,
+    "probable_effect_misclassified_as_ui": 10
   },
   "policy": "This is a conservative Git-side audit. Flagged entries remain visible as evidence but must not be recommended by default. Unity must correct or confirm source eligibility and classification, then atomically republish.",
   "signals": {
@@ -48,25 +49,6 @@
       ],
       "reasons": [
         "catalog_semantics_exclude_direct_authoring"
-      ],
-      "pixelStatus": "PIXELS_VERIFIED",
-      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
-    },
-    {
-      "category": "Actor",
-      "displayName": "Asteroid lg",
-      "authoringAssetId": "1b074eb43c9f44d0950307a15e241027:21300000",
-      "canonicalActorAssetId": "1b074eb43c9f44d0950307a15e241027:21300000",
-      "visualReferenceId": "visual_e21d210bb785bc37751a",
-      "sourcePaths": [
-        "Assets/_Game/MY_VARIA/Art/SpaceShooter/Asteroid_lg.png",
-        "Assets/_Game/MY_VARIA/Art/Sprites/Demo/Images/SpaceShooter/Asteroid_lg.png",
-        "Assets/_Game/MY_VARIA/Art/SpaceShooter/Asteroid_md.png",
-        "Assets/_Game/MY_VARIA/Art/Sprites/Demo/Images/SpaceShooter/Asteroid_md.png",
-        "Assets/_Game/MY_VARIA/Art/SpaceShooter/Asteroid_sm.png"
-      ],
-      "reasons": [
-        "sample_or_demo_path"
       ],
       "pixelStatus": "PIXELS_VERIFIED",
       "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
@@ -114,17 +96,137 @@
     },
     {
       "category": "Actor",
-      "displayName": "Letterbox",
-      "authoringAssetId": "b3537b033fc9a0743a543d1823f52260:21300000",
-      "canonicalActorAssetId": "b3537b033fc9a0743a543d1823f52260:21300000",
-      "visualReferenceId": "visual_4b4ba9f69ba1b85e386b",
+      "displayName": "Keep Mining Tileset",
+      "authoringAssetId": "ee8bf418df6e8e34cb2dcf656e6dfdd0:8430733782381768338",
+      "canonicalActorAssetId": "ee8bf418df6e8e34cb2dcf656e6dfdd0:8430733782381768338",
+      "visualReferenceId": "visual_dd1456c6da793505745d",
       "sourcePaths": [
-        "Assets/_Game/MY_VARIA/Art/General/Letterbox.png"
+        "Assets/_PKG/PKG_Playniax/Essentials/Textures/Retro/Boulderdash/Keep Mining Tileset.prefab"
       ],
       "reasons": [
-        "probable_ui_misclassified_as_actor"
+        "probable_layer_or_tileset_misclassified_as_actor"
       ],
       "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "KittensLaserBeam",
+      "authoringAssetId": "788078eda1ec4044ba65a2c20c9eec37:8410062182727664078",
+      "canonicalActorAssetId": "788078eda1ec4044ba65a2c20c9eec37:8410062182727664078",
+      "visualReferenceId": "visual_af88f4f8adfa80adac16",
+      "sourcePaths": [
+        "Assets/_Game/MY_Prefabs/Laser_Parts/KittensLaserBeam.prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Nautolan Ship   Bomber   Engine Effect",
+      "authoringAssetId": "67dbcad2c4d62324dac42c3443248863:-2253911629886400664",
+      "canonicalActorAssetId": "67dbcad2c4d62324dac42c3443248863:-2253911629886400664",
+      "visualReferenceId": "visual_3c7648a9c3ce5e11be72",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Bomber - Engine Effect.aseprite"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Nautolan Ship   Dreadnought   Engine Effect",
+      "authoringAssetId": "dca7a9a6002b4bd4a8262e7b96c3fb70:-2253911629886400664",
+      "canonicalActorAssetId": "dca7a9a6002b4bd4a8262e7b96c3fb70:-2253911629886400664",
+      "visualReferenceId": "visual_5fc170b338b0caa0d176",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Dreadnought - Engine Effect.aseprite"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Nautolan Ship   Fighter   Engine Effect",
+      "authoringAssetId": "94c365bfde4452b4db0683aa63f8cbea:-2253911629886400664",
+      "canonicalActorAssetId": "94c365bfde4452b4db0683aa63f8cbea:-2253911629886400664",
+      "visualReferenceId": "visual_2fbb49a3a651cfff9c84",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Fighter - Engine Effect.aseprite"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Nautolan Ship   Frigate   Engine Effect",
+      "authoringAssetId": "a28164283e163c142ab82c554db2254d:-2253911629886400664",
+      "canonicalActorAssetId": "a28164283e163c142ab82c554db2254d:-2253911629886400664",
+      "visualReferenceId": "visual_ad36cbf2bcaa6702eda1",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Frigate - Engine Effect.aseprite"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Nautolan Ship   Scout   Engine Effect",
+      "authoringAssetId": "024f1510474d6a945bf0d4eb1ea58862:-2253911629886400664",
+      "canonicalActorAssetId": "024f1510474d6a945bf0d4eb1ea58862:-2253911629886400664",
+      "visualReferenceId": "visual_ec555f970dfef3b333da",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Scout - Engine Effect.aseprite"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Nautolan Ship   Support   Engine Effect",
+      "authoringAssetId": "ef41aab2286fa334c863299493c88346:-2253911629886400664",
+      "canonicalActorAssetId": "ef41aab2286fa334c863299493c88346:-2253911629886400664",
+      "visualReferenceId": "visual_1766d9f11a2fe8790fb0",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Support - Engine Effect.aseprite"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Nautolan Ship   Torpedo Ship   Engine Effect",
+      "authoringAssetId": "390a35d4277d51b4c9e78341bf988b5e:-2253911629886400664",
+      "canonicalActorAssetId": "390a35d4277d51b4c9e78341bf988b5e:-2253911629886400664",
+      "visualReferenceId": "visual_449eb66258f288cf1551",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Torpedo Ship - Engine Effect.aseprite"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
       "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
     },
     {
@@ -138,6 +240,21 @@
       ],
       "reasons": [
         "catalog_semantics_exclude_direct_authoring"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "sphere 0",
+      "authoringAssetId": "8689a610ae0c88b428207a9ec6a8476f:21300020",
+      "canonicalActorAssetId": "8689a610ae0c88b428207a9ec6a8476f:21300020",
+      "visualReferenceId": "visual_d4c9a1fbe6ceb1c9994e",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 01/Textures/Enemies/sphere.png"
+      ],
+      "reasons": [
+        "generic_technical_or_primitive_identity"
       ],
       "pixelStatus": "PIXELS_VERIFIED",
       "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
@@ -195,18 +312,47 @@
     },
     {
       "category": "Actor",
+      "displayName": "Sphere UV",
+      "authoringAssetId": "c72e1411e2e4ff84a87796edeb13556e:2447226645435551360",
+      "canonicalActorAssetId": "c72e1411e2e4ff84a87796edeb13556e:2447226645435551360",
+      "visualReferenceId": "visual_ee7fb228edf8c886f6a8",
+      "sourcePaths": [
+        "Assets/Shield Shader FREE/Prefabs/Sphere UV.prefab"
+      ],
+      "reasons": [
+        "generic_technical_or_primitive_identity"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
       "displayName": "Square",
-      "authoringAssetId": "0b99c73492222154ba6f83204f250181:7482667652216324306",
-      "canonicalActorAssetId": "0b99c73492222154ba6f83204f250181:7482667652216324306",
+      "authoringAssetId": "3041a259bfbe1204399a62f47be47c5d:7482667652216324306",
+      "canonicalActorAssetId": "3041a259bfbe1204399a62f47be47c5d:7482667652216324306",
       "visualReferenceId": "visual_792907251964700c20d8",
       "sourcePaths": [
         "Assets/Sprites/square.png",
         "Assets/Square 1.png",
-        "Assets/Square.png",
-        "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/Square.png"
+        "Assets/Square.png"
       ],
       "reasons": [
         "catalog_semantics_exclude_direct_authoring",
+        "generic_technical_or_primitive_identity"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Step",
+      "authoringAssetId": "21f4ee7b875c5614bae545ccd6c7652e:1847307792383872",
+      "canonicalActorAssetId": "21f4ee7b875c5614bae545ccd6c7652e:1847307792383872",
+      "visualReferenceId": "visual_5fa7cb495f8a8c96a223",
+      "sourcePaths": [
+        "Assets/Shared/Environment/Prefabs/Step.prefab"
+      ],
+      "reasons": [
         "generic_technical_or_primitive_identity"
       ],
       "pixelStatus": "PIXELS_UNAVAILABLE",
@@ -248,21 +394,6 @@
       "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
     },
     {
-      "category": "Actor",
-      "displayName": "White 1x1",
-      "authoringAssetId": "c33871c8638eb4c41bfb4577f3b58627:21300000",
-      "canonicalActorAssetId": "c33871c8638eb4c41bfb4577f3b58627:21300000",
-      "visualReferenceId": "visual_956161165f92114fa31c",
-      "sourcePaths": [
-        "Assets/_/Stuff/CodeMonkey/Assets/White_1x1.psd"
-      ],
-      "reasons": [
-        "generic_technical_or_primitive_identity"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE",
-      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
-    },
-    {
       "category": "Effect",
       "displayName": "BurstFlame3",
       "authoringAssetId": "7e50817b8e02403490cf15b8b701c39d:21300000",
@@ -280,7 +411,7 @@
     {
       "category": "Effect",
       "displayName": "CDVGDFXGV 410",
-      "authoringAssetId": "e6189dffbd2d0f54a9c3e569bc3bb957:1736115633",
+      "authoringAssetId": "e6189dffbd2d0f54a9c3e569bc3bb957:664547545",
       "canonicalActorAssetId": null,
       "visualReferenceId": "visual_dc2dcd35f18cb7875d5a",
       "sourcePaths": [
@@ -294,15 +425,27 @@
     },
     {
       "category": "Effect",
+      "displayName": "sphere 12pl",
+      "authoringAssetId": "7a776e20afe793646a5c6d06ac259276:2704951945538928513",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_f2765e2dcfc797904c7a",
+      "sourcePaths": [
+        "Assets/Eric VFX Studio/Free Game VFX/Prefab/Mesh/sphere_12pl.prefab"
+      ],
+      "reasons": [
+        "generic_technical_or_primitive_identity"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Effect",
       "displayName": "Sphere 32",
-      "authoringAssetId": "6b63a4514894c6a4f92281a7b6219a08:21300000",
+      "authoringAssetId": "d946e3b1b1741e94a8d24cbaf370a499:21300000",
       "canonicalActorAssetId": null,
       "visualReferenceId": "visual_415b457c5142a6233688",
       "sourcePaths": [
-        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/color/Sphere_128.png",
         "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/color/Sphere_16.png",
-        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/color/Sphere_32.png",
-        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/color/Sphere_64.png",
         "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/color/Sphere_8.png"
       ],
       "reasons": [
@@ -314,20 +457,32 @@
     {
       "category": "Effect",
       "displayName": "Sphere 64",
-      "authoringAssetId": "aff27102f78e31e49a1447d6c693ffdc:21300000",
+      "authoringAssetId": "d6abc79196639304ca3f1ec2662caecb:21300000",
       "canonicalActorAssetId": null,
       "visualReferenceId": "visual_f7713e8d06f351345491",
       "sourcePaths": [
-        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/grey/Sphere_128.png",
         "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/grey/Sphere_16.png",
-        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/grey/Sphere_32.png",
-        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/grey/Sphere_64.png",
         "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/grey/Sphere_8.png"
       ],
       "reasons": [
         "generic_technical_or_primitive_identity"
       ],
       "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Effect",
+      "displayName": "sphere 8pl",
+      "authoringAssetId": "bfc9269708317e1469c37e9b4ae1c777:4707592553822528649",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_eaa0ff3c9409cc84b968",
+      "sourcePaths": [
+        "Assets/Eric VFX Studio/Free Game VFX/Prefab/Mesh/sphere_8pl.prefab"
+      ],
+      "reasons": [
+        "generic_technical_or_primitive_identity"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
       "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
     },
     {
@@ -416,8 +571,8 @@
     },
     {
       "category": "Ui",
-      "displayName": "ChatGPT Image Aug 6, 2026, 01 25 19 AM 10",
-      "authoringAssetId": "22a3819cd493379438162c922c1691c2:2109560084",
+      "displayName": "ChatGPT Image Aug 6, 2026, 01 25 19 AM",
+      "authoringAssetId": "22a3819cd493379438162c922c1691c2:-1192150396",
       "canonicalActorAssetId": null,
       "visualReferenceId": "visual_0b67229a3c9fca95914d",
       "sourcePaths": [
@@ -443,6 +598,156 @@
         "documentation_or_package_tooling_path"
       ],
       "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Blastwave",
+      "authoringAssetId": "7256fa04884c7e4418957446b28f897e:797004117377278665",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_90b336261a59b8e732e7",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Blastwave.prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Fire (Blue)",
+      "authoringAssetId": "0e87990d0bdd2974a85e0754f3206749:8829224107769179892",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_abbc1b4eeea67ec9d691",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Fire (Blue).prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Fire (Green)",
+      "authoringAssetId": "39e2fac385fbd654f93098057212d967:4409570714669825406",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_08e3c9626453dd039770",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Fire (Green).prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Fire (Purple)",
+      "authoringAssetId": "c801cc0d248ab814ba7815015442c56e:4883353929313934802",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_b8f49b9c37eada5752ad",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Fire (Purple).prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Fire (Red)",
+      "authoringAssetId": "36edbbb7606dfc540942c39ed8250402:2106495340177213135",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_520238b34f7b301ca26e",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Fire (Red).prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Flash (Blue)",
+      "authoringAssetId": "c9530f87b0e9b0f46bcb530fd254a306:6713654900140887690",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_9a6ca346947b9d4a5ef3",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Flash (Blue).prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Flash (Green)",
+      "authoringAssetId": "27a68c142a6e499469d46bf40dd4492d:5999626652926643232",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_20ad64d20dd4ea2b1e07",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Flash (Green).prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Flash (Purple)",
+      "authoringAssetId": "489e095bf217ebc4d9ad82c485c35510:8967160327478727487",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_d875907f77fec9da51fd",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Flash (Purple).prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Flash (Red)",
+      "authoringAssetId": "3219264ff126fd948a68be20b948b724:8625168273583106452",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_b7505e5c9c52fd609690",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Flash (Red).prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Smoke",
+      "authoringAssetId": "75ba59a5cb594fc44b847f27171fca66:2801301447712279546",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_38d743b428b28ce57c85",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Smoke.prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
       "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
     },
     {
