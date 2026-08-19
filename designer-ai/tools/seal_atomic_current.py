@@ -66,12 +66,39 @@ def seal_chatgpt_start(path, revision):
             raise SystemExit("CHATGPT_START title marker is missing")
         text = text.replace(marker, marker + revision_line, 1)
 
-    if "- authoringRuleRegistryRevision" not in text:
-        needle = "- schemaHash\n- schema/context identity exported by the contract"
-        replacement = "- schemaHash\n- authoringRuleRegistryRevision\n- schema/context identity exported by the contract"
-        if needle not in text:
-            raise SystemExit("CHATGPT_START atomic identity list marker is missing")
-        text = text.replace(needle, replacement, 1)
+    old_identity_block = """============================================================
+CURRENT PACKAGE IDENTITY - ATOMIC
+============================================================
+
+Before any new JSON, dynamically read OPEN_CURRENT.json and treat all exported identity fields as one atomic CURRENT package:
+- publishTransactionId when applicable
+- catalogRevision
+- snapshotContentHash
+- contractRevision
+- schemaHash
+- schema/context identity exported by the contract
+
+Never hardcode an old publish transaction into permanent guidance. Never assume schemaVersion=5 means CURRENT. Never combine IDs from two publishes even if a filename or catalogRevision looks familiar.
+"""
+    new_identity_block = """============================================================
+CURRENT AUTHORING COMPATIBILITY - REQUIRED CURRENT
+============================================================
+
+Before any NEW, REVISE or REPAIR JSON, dynamically read OPEN_CURRENT.json and compare OPEN_CURRENT.requiredCurrent:
+- catalogRevision
+- contractRevision
+- schemaHash
+- snapshotContentHash
+- authoringRuleRegistryRevision
+
+All five compatibility fingerprints must match. publishTransactionId belongs to OPEN_CURRENT.provenance and is not part of the normal Studio authoring-compatibility gate. A republish of identical authoring content may have a different publishTransactionId without creating a different authoring universe.
+
+Never hardcode an old publish transaction into permanent guidance. Never assume schemaVersion=5 means CURRENT. Never combine Catalog, Contract, Schema, snapshot or Rule Registry data from different requiredCurrent identities.
+"""
+    if old_identity_block in text:
+        text = text.replace(old_identity_block, new_identity_block, 1)
+    elif new_identity_block not in text:
+        raise SystemExit("CHATGPT_START CURRENT identity block marker is missing")
 
     compatibility_guard = (
         "For Studio NEW/REVISE/REPAIR compatibility, compare OPEN_CURRENT.requiredCurrent only: "
