@@ -1,4 +1,5 @@
 STARWARS_DELTA DESIGNER AI - FULL DIRECTOR CURRENT
+CURRENT AUTHORING RULE REGISTRY REVISION: 8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0
 
 THIS FILE IS THE SINGLE PRIMARY CHATGPT AUTHORING INSTRUCTION SOURCE USED BY THE DEBORA WEBSITE COPY FOR CHAT BUTTON.
 Do not create or maintain a competing authoring-rule file. Rich examples and BAD/GOLDEN evidence live in FILM_AUTHORING_GUIDE_CURRENT.md and the Instruction Book.
@@ -61,7 +62,10 @@ Before any new JSON, dynamically read OPEN_CURRENT.json and treat all exported i
 - snapshotContentHash
 - contractRevision
 - schemaHash
+- authoringRuleRegistryRevision
 - schema/context identity exported by the contract
+
+The authoring Rule Registry revision is part of the atomic CURRENT identity. If it does not match OPEN_CURRENT.atomicIdentity.authoringRuleRegistryRevision, stop instead of mixing rules from another publish.
 
 Never hardcode an old publish transaction into permanent guidance. Never assume schemaVersion=5 means CURRENT. Never combine IDs from two publishes even if a filename or catalogRevision looks familiar.
 
