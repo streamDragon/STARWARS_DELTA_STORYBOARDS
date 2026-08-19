@@ -32,6 +32,48 @@ def unique(values):
     return result
 
 
+def presentation_status_from_coverage(coverage):
+    required_fields = (
+        "description",
+        "locationTypes",
+        "sceneStates",
+        "lightingMoods",
+        "backgroundCoverageKnown",
+        "fitModes",
+    )
+    missing_by_category = {}
+    for category, counts in (coverage or {}).items():
+        total = int(counts.get("total") or 0)
+        missing = {}
+        for field in required_fields:
+            present = int(counts.get(field) or 0)
+            if present < total:
+                missing[field] = total - present
+        if missing:
+            missing_by_category[category] = missing
+
+    if not missing_by_category:
+        return {
+            "complete": True,
+            "currentState": "Director presentation metadata coverage is complete for all required visual fields.",
+            "requiredFix": None,
+            "missingByCategory": {},
+        }
+
+    summary = "; ".join(
+        f"{category}: " + ", ".join(f"{field}={count}" for field, count in sorted(missing.items()))
+        for category, missing in sorted(missing_by_category.items())
+    )
+    return {
+        "complete": False,
+        "currentState": f"Director presentation metadata has explicit coverage gaps: {summary}.",
+        "requiredFix": (
+            "Populate only the listed missing Director presentation metadata fields in Unity, then republish through the atomic CURRENT pipeline."
+        ),
+        "missingByCategory": missing_by_category,
+    }
+
+
 def union(records, key):
     values = []
     for record in records:
@@ -229,6 +271,12 @@ def postprocess_output():
     open_manifest = BASE.read_json(open_path)
     pack_manifest = BASE.read_json(manifest_path)
 
+    presentation_metadata = queue.setdefault("presentationMetadata", {})
+    coverage = presentation_metadata.get("coverageByCategory", {})
+    presentation_status = presentation_status_from_coverage(coverage)
+    presentation_metadata.update(presentation_status)
+    queue.setdefault("summary", {})["presentationMetadataComplete"] = presentation_status["complete"]
+
     eligibility_reviews = []
     for item in audit.get("items", []):
         eligibility_reviews.append(
@@ -314,6 +362,7 @@ def postprocess_output():
         if missing:
             raise SystemExit(f"Self-contained Director pack is missing: {missing}")
 
+    print("DIRECTOR_POLICY_PRESENTATION_COMPLETE", presentation_status["complete"])
     print("DIRECTOR_POLICY_ELIGIBILITY_REVIEW", len(eligibility_reviews))
     print("DIRECTOR_POLICY_SELF_CONTAINED_PACK", pack.stat().st_size)
 
