@@ -3,136 +3,136 @@
 This is a convenience shortlist for fast Cutscene planning, not a replacement for the full authoritative catalog.
 Use catalog_records.jsonl for the complete exported snapshot. An omitted asset may still be legal; verify every exact assetId there before authoring.
 Do not infer animation compatibility. Use only exact compatibleAnimationIds from the actor record.
-Catalog revision: 7625567326969721596
-Exported record count: 19088
+Catalog revision: 7625541441843202476
+Exported record count: 20623
 
 ## Actors
-Actor-primary records that are safe for Preview.
+Canonical preferred Actor identities that are safe for Preview.
 Count: 30
-- `2ece1488092154985a4fc4d2f362963a:-1122894538114790475` — neck
+- `d3047a91c5d64b547a2c468cc06a309d:-2253911629886400664` — Nautolan   Ships Preview
+  - Animation count: 1; sample IDs: `d3047a91c5d64b547a2c468cc06a309d:-5555771835393788929`
+- `9b1486991d273f44dbfb34339d4ec50d:1350081824` — MAN 1 0
   - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:-1151125887281254003` — shoulder plate R
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:-1782573920121814979` — arm L
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:-2738633176036518410` — PSB Character Skeleton
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:-4894661906749227659` — leg R
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:-5707246141625547801` — hair back
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:-5923279259791792892` — shoulder plate L
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:-8093658627442914233` — eye R open
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:-8139520306211246910` — leg L
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:-8371560938474789107` — coat front
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:-8531319653309433899` — head
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:-8622448547541158960` — neck element
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:-8673387509053711522` — eye L open
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:1379294060872288596` — hair front
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:3920708050374018330` — coat back
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:453713858776121418` — eye L closed
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:5765554430304484911` — mouth teeth
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:5986868564341688611` — torso
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:6840234404796783302` — mouth open
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:7259002135578531099` — hand L top
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:7260666204632754585` — mouth normal
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:7518962988976763692` — hand R bottom
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:7746000823198413279` — arm R
-  - Animation count: 0; sample IDs: none
-- `2ece1488092154985a4fc4d2f362963a:8127074125880648195` — eye R closed
-  - Animation count: 0; sample IDs: none
-- `4cc20fc9be0c84e15b7b0361be6891c3:-3756690060151926601` — arm R
-  - Animation count: 0; sample IDs: none
-- `4cc20fc9be0c84e15b7b0361be6891c3:-4382557323903935050` — shoulder plate L
-  - Animation count: 0; sample IDs: none
-- `4cc20fc9be0c84e15b7b0361be6891c3:-4683725147076078185` — neck
-  - Animation count: 0; sample IDs: none
-- `4cc20fc9be0c84e15b7b0361be6891c3:-4748260828920387371` — eye L open
-  - Animation count: 0; sample IDs: none
-- `4cc20fc9be0c84e15b7b0361be6891c3:-5703552728371827126` — leg L
-  - Animation count: 0; sample IDs: none
-- `4cc20fc9be0c84e15b7b0361be6891c3:-6253124846438698816` — torso
-  - Animation count: 0; sample IDs: none
+- `024f1510474d6a945bf0d4eb1ea58862:-2253911629886400664` — Nautolan Ship   Scout   Engine Effect
+  - Animation count: 1; sample IDs: `024f1510474d6a945bf0d4eb1ea58862:-5791397693451769397`
+- `15d88be265474984393c6cbedc0dc642:-2253911629886400664` — Nautolan Ship   Frigate
+  - Animation count: 1; sample IDs: `15d88be265474984393c6cbedc0dc642:4958091945749414629`
+- `24a29d7aefd035b4dba1cdce1de88c06:-2253911629886400664` — Nautolan Ship   Fighter
+  - Animation count: 1; sample IDs: `24a29d7aefd035b4dba1cdce1de88c06:973500001444083961`
+- `31f4f5ac7805fc244997072014c6e73f:-2253911629886400664` — Nautolan Ship   Torpedo Ship   Shield
+  - Animation count: 1; sample IDs: `31f4f5ac7805fc244997072014c6e73f:-284317974779316769`
+- `390a35d4277d51b4c9e78341bf988b5e:-2253911629886400664` — Nautolan Ship   Torpedo Ship   Engine Effect
+  - Animation count: 1; sample IDs: `390a35d4277d51b4c9e78341bf988b5e:-2593615426939727264`
+- `436d36e11caf13e4bb79355609e64f4d:-2253911629886400664` — Nautolan Ship   Torpedo Ship
+  - Animation count: 1; sample IDs: `436d36e11caf13e4bb79355609e64f4d:856863630656513830`
+- `49037eaa6ae80ac449a613d98f9ea6d9:-2253911629886400664` — Nautolan Ship   Dreadnought   Shield
+  - Animation count: 1; sample IDs: `49037eaa6ae80ac449a613d98f9ea6d9:-671197839612582281`
+- `4de0bc4beb6afdd439823432bee52257:-2253911629886400664` — Nautolan Ship   Scout
+  - Animation count: 1; sample IDs: `4de0bc4beb6afdd439823432bee52257:-5459544787293971440`
+- `67dbcad2c4d62324dac42c3443248863:-2253911629886400664` — Nautolan Ship   Bomber   Engine Effect
+  - Animation count: 1; sample IDs: `67dbcad2c4d62324dac42c3443248863:-3138328677374333056`
+- `8e667a1454c831744bf929f52b2a0b45:-2253911629886400664` — Nautolan Ship   Support
+  - Animation count: 1; sample IDs: `8e667a1454c831744bf929f52b2a0b45:8968304776707366589`
+- `94c365bfde4452b4db0683aa63f8cbea:-2253911629886400664` — Nautolan Ship   Fighter   Engine Effect
+  - Animation count: 1; sample IDs: `94c365bfde4452b4db0683aa63f8cbea:8144243333074327370`
+- `a061c417c7bd7ae4096b3354de05cfa7:-2253911629886400664` — Nautolan Ship   Bomber
+  - Animation count: 1; sample IDs: `a061c417c7bd7ae4096b3354de05cfa7:-7131467842445305060`
+- `a28164283e163c142ab82c554db2254d:-2253911629886400664` — Nautolan Ship   Frigate   Engine Effect
+  - Animation count: 1; sample IDs: `a28164283e163c142ab82c554db2254d:-5755808545380100570`
+- `b79aa9c1bd197b2439affa793ab62681:-2253911629886400664` — Nautolan Ship   Fighter   Shield
+  - Animation count: 1; sample IDs: `b79aa9c1bd197b2439affa793ab62681:3325289048018035101`
+- `ba485a25e1ff80940a3e23d4ce535cc1:-2253911629886400664` — Nautolan Ship   Bomber   Shield
+  - Animation count: 1; sample IDs: `ba485a25e1ff80940a3e23d4ce535cc1:633930132312202297`
+- `d6ce2079df3c37c4b88c432cf2ef0f08:-2253911629886400664` — Nautolan Ship   Frigate   Shield
+  - Animation count: 1; sample IDs: `d6ce2079df3c37c4b88c432cf2ef0f08:5162767186412572890`
+- `d9bf78198f4f08049827a917d758aba9:-2253911629886400664` — Nautolan Ship   Dreadnought
+  - Animation count: 1; sample IDs: `d9bf78198f4f08049827a917d758aba9:1699345327761842024`
+- `dca7a9a6002b4bd4a8262e7b96c3fb70:-2253911629886400664` — Nautolan Ship   Dreadnought   Engine Effect
+  - Animation count: 1; sample IDs: `dca7a9a6002b4bd4a8262e7b96c3fb70:4273347853899650863`
+- `ef41aab2286fa334c863299493c88346:-2253911629886400664` — Nautolan Ship   Support   Engine Effect
+  - Animation count: 1; sample IDs: `ef41aab2286fa334c863299493c88346:6710199737049801180`
+- `f69d7725d66bf8e498ef38ea03095652:-2253911629886400664` — Nautolan Ship   Scout   Shield
+  - Animation count: 1; sample IDs: `f69d7725d66bf8e498ef38ea03095652:-450284675636174923`
+- `1560ea936d7437141ae7d442fed88240:-2253911629886400664` — Nautolan   Bomb
+  - Animation count: 1; sample IDs: `1560ea936d7437141ae7d442fed88240:6712057059061845136`
+- `2045744723e86c745a14534eaf363c75:-2253911629886400664` — Nautolan Ship   Torpedo Ship   Weapons
+  - Animation count: 1; sample IDs: `2045744723e86c745a14534eaf363c75:8323557825059234084`
+- `2dc0c9277773e35479970ebabcd17f62:-2253911629886400664` — Nautolan Ship   Frigate   Weapons
+  - Animation count: 1; sample IDs: `2dc0c9277773e35479970ebabcd17f62:6385852548208323621`
+- `316ef3490a0455745982d5e6da211f81:-2253911629886400664` — Nautolan   Bullet
+  - Animation count: 1; sample IDs: `316ef3490a0455745982d5e6da211f81:-3556338021302022173`
+- `53a6affd7e15a424da2604860c469cbf:-2253911629886400664` — Nautolan   Ray
+  - Animation count: 1; sample IDs: `53a6affd7e15a424da2604860c469cbf:-1074739700028658783`
+- `7abf2bb443260284a8e431d8fede3beb:-2253911629886400664` — Nautolan   Rocket
+  - Animation count: 1; sample IDs: `7abf2bb443260284a8e431d8fede3beb:5001470675742164109`
+- `7c84241963b98b94bad55664c49f0a94:-2253911629886400664` — Nautolan Ship   Fighter   Weapons
+  - Animation count: 1; sample IDs: `7c84241963b98b94bad55664c49f0a94:284976500027296151`
+- `ab3982fb65d467f4993bfcaef9d9c202:-2253911629886400664` — Nautolan   Spinning Bullet
+  - Animation count: 1; sample IDs: `ab3982fb65d467f4993bfcaef9d9c202:6903600050961212432`
 
 ## Actors with verified animations
-Actor-primary records that are safe for Preview and have verified compatibleAnimationIds.
+Canonical preferred Actor identities that are safe for Preview and have verified compatibleAnimationIds.
 Count: 30
-- `3054c45bb7c04a36a80fb7b19a4e52f7:-310000001` — PUSH MECHA IDLE
-  - Animation count: 1; sample IDs: `8bf955c50dec4a208c589579b982e114:7400000`
-- `58e3ab6f95c54c43b2d083de401b51e6:-320000001` — PUSH MECHA WALK
-  - Animation count: 1; sample IDs: `86c5678fe034401da58eb82b4d75e890:7400000`
-- `66430fcef59346f9ba0c640c533ec323:-340000001` — PUSH MECHA DEATH
-  - Animation count: 1; sample IDs: `38454761e1424cb78082800dc8947732:7400000`
-- `91fc1f4d703f4d65b8bff07dd7d1834b:-330000001` — PUSH MECHA SHOOT
-  - Animation count: 1; sample IDs: `0b9da1b7c8ed4ca998ed09fe1bd154fb:7400000`
-- `cf0035e2e21be4f48ba6e6a012e9204e:-5082840419902793436` — player ship topview 1
-  - Animation count: 1; sample IDs: `f5d57ba7880468944af99db61c42a333:7400000`
-- `cf0035e2e21be4f48ba6e6a012e9204e:-948810827438414497` — player ship topview 0
-  - Animation count: 1; sample IDs: `f5d57ba7880468944af99db61c42a333:7400000`
-- `004c4fbdbf7ac384d8ecaa1b146bc47d:21300000` — Moss2 animation
-  - Animation count: 1; sample IDs: `d3f995024d4866e43b09f6a0a7e46309:7400000`
-- `0082b9469b2503645aa50a4d800d03bf:21300000` — Moss3 animation 51
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `00956814ccb758c48b335d1931d5aad7:21300000` — Moss3 animation 28
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `0244a7863d875f54d8fc1f7285f7483c:21300000` — Algae1 animation 44
-  - Animation count: 1; sample IDs: `be061723cf002d943b5021692d89c45e:7400000`
-- `0486f62859c45d8448bf0fc73ef63c6a:21300000` — Moss2 animation 47
-  - Animation count: 1; sample IDs: `d3f995024d4866e43b09f6a0a7e46309:7400000`
-- `0566eeb7dd2de9641a6622e10e459302:21300000` — Moss3 animation 3
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `05c05d333d4540089b28b3b4438b1588:21300000` — gem0002
-  - Animation count: 1; sample IDs: `878037963f1d4e529909d85432c5d3f6:7400000`
-- `093079815cf286e489ed12559935e43d:21300000` — Moss2 animation 52
-  - Animation count: 1; sample IDs: `d3f995024d4866e43b09f6a0a7e46309:7400000`
-- `09abc83b58ddd5b489b415d22ce08116:21300000` — Moss3 animation 25
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `0a6b15376f5841abacb7d46c15a2926b:21300000` — gem0007
-  - Animation count: 1; sample IDs: `878037963f1d4e529909d85432c5d3f6:7400000`
-- `0c26c52778cb13b43b425d666652c49a:21300000` — Moss3 animation 29
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `0dffbe6d90e5c0543810197362663740:21300000` — 36
-  - Animation count: 1; sample IDs: `d371cac449dd1fc4ca5c74f6219845b2:7400000`
-- `0ea86d4d18a28de4fb8f8cf356f3ed07:21300000` — Moss3 animation 0
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `10352fd900559e742954c46e9312eed7:21300000` — 35
-  - Animation count: 1; sample IDs: `d371cac449dd1fc4ca5c74f6219845b2:7400000`
-- `1176e60d22164c448df625994bb00441:21300000` — gem0012
-  - Animation count: 1; sample IDs: `878037963f1d4e529909d85432c5d3f6:7400000`
-- `11c4e671aa6ca964fb8ca317c587c7f1:21300000` — Moss2 animation 11
-  - Animation count: 1; sample IDs: `d3f995024d4866e43b09f6a0a7e46309:7400000`
-- `124666ed34f595d47b4bdb6efb5cc45d:21300000` — Moss3 animation
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `138df89ea5b72b14e81688a5fe1fe19a:21300000` — Algae1 animation 24
-  - Animation count: 1; sample IDs: `be061723cf002d943b5021692d89c45e:7400000`
-- `145803b821bd91543a8d1b559a8f326f:21300000` — Moss3 animation 59
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `1483bf641351a5340bec6cd641a562af:21300000` — Algae1 animation 3
-  - Animation count: 1; sample IDs: `be061723cf002d943b5021692d89c45e:7400000`
-- `1a8edbb7b4cd8a84b8ce738f8c867161:21300000` — 28
-  - Animation count: 1; sample IDs: `d371cac449dd1fc4ca5c74f6219845b2:7400000`
-- `1ad8fb1a685125b4faa1edf7416c244e:21300000` — Moss3 animation 15
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
-- `21dd4670152e480da247cb3bbcd57f30:21300000` — gem0003
-  - Animation count: 1; sample IDs: `878037963f1d4e529909d85432c5d3f6:7400000`
-- `23857a15c1907454eb91f379ae1d979c:21300000` — Moss3 animation 17
-  - Animation count: 1; sample IDs: `3a35bfd33ef09084abb2402f3f5ddbcf:7400000`
+- `d3047a91c5d64b547a2c468cc06a309d:-2253911629886400664` — Nautolan   Ships Preview
+  - Animation count: 1; sample IDs: `d3047a91c5d64b547a2c468cc06a309d:-5555771835393788929`
+- `024f1510474d6a945bf0d4eb1ea58862:-2253911629886400664` — Nautolan Ship   Scout   Engine Effect
+  - Animation count: 1; sample IDs: `024f1510474d6a945bf0d4eb1ea58862:-5791397693451769397`
+- `15d88be265474984393c6cbedc0dc642:-2253911629886400664` — Nautolan Ship   Frigate
+  - Animation count: 1; sample IDs: `15d88be265474984393c6cbedc0dc642:4958091945749414629`
+- `24a29d7aefd035b4dba1cdce1de88c06:-2253911629886400664` — Nautolan Ship   Fighter
+  - Animation count: 1; sample IDs: `24a29d7aefd035b4dba1cdce1de88c06:973500001444083961`
+- `31f4f5ac7805fc244997072014c6e73f:-2253911629886400664` — Nautolan Ship   Torpedo Ship   Shield
+  - Animation count: 1; sample IDs: `31f4f5ac7805fc244997072014c6e73f:-284317974779316769`
+- `390a35d4277d51b4c9e78341bf988b5e:-2253911629886400664` — Nautolan Ship   Torpedo Ship   Engine Effect
+  - Animation count: 1; sample IDs: `390a35d4277d51b4c9e78341bf988b5e:-2593615426939727264`
+- `436d36e11caf13e4bb79355609e64f4d:-2253911629886400664` — Nautolan Ship   Torpedo Ship
+  - Animation count: 1; sample IDs: `436d36e11caf13e4bb79355609e64f4d:856863630656513830`
+- `49037eaa6ae80ac449a613d98f9ea6d9:-2253911629886400664` — Nautolan Ship   Dreadnought   Shield
+  - Animation count: 1; sample IDs: `49037eaa6ae80ac449a613d98f9ea6d9:-671197839612582281`
+- `4de0bc4beb6afdd439823432bee52257:-2253911629886400664` — Nautolan Ship   Scout
+  - Animation count: 1; sample IDs: `4de0bc4beb6afdd439823432bee52257:-5459544787293971440`
+- `67dbcad2c4d62324dac42c3443248863:-2253911629886400664` — Nautolan Ship   Bomber   Engine Effect
+  - Animation count: 1; sample IDs: `67dbcad2c4d62324dac42c3443248863:-3138328677374333056`
+- `8e667a1454c831744bf929f52b2a0b45:-2253911629886400664` — Nautolan Ship   Support
+  - Animation count: 1; sample IDs: `8e667a1454c831744bf929f52b2a0b45:8968304776707366589`
+- `94c365bfde4452b4db0683aa63f8cbea:-2253911629886400664` — Nautolan Ship   Fighter   Engine Effect
+  - Animation count: 1; sample IDs: `94c365bfde4452b4db0683aa63f8cbea:8144243333074327370`
+- `a061c417c7bd7ae4096b3354de05cfa7:-2253911629886400664` — Nautolan Ship   Bomber
+  - Animation count: 1; sample IDs: `a061c417c7bd7ae4096b3354de05cfa7:-7131467842445305060`
+- `a28164283e163c142ab82c554db2254d:-2253911629886400664` — Nautolan Ship   Frigate   Engine Effect
+  - Animation count: 1; sample IDs: `a28164283e163c142ab82c554db2254d:-5755808545380100570`
+- `b79aa9c1bd197b2439affa793ab62681:-2253911629886400664` — Nautolan Ship   Fighter   Shield
+  - Animation count: 1; sample IDs: `b79aa9c1bd197b2439affa793ab62681:3325289048018035101`
+- `ba485a25e1ff80940a3e23d4ce535cc1:-2253911629886400664` — Nautolan Ship   Bomber   Shield
+  - Animation count: 1; sample IDs: `ba485a25e1ff80940a3e23d4ce535cc1:633930132312202297`
+- `d6ce2079df3c37c4b88c432cf2ef0f08:-2253911629886400664` — Nautolan Ship   Frigate   Shield
+  - Animation count: 1; sample IDs: `d6ce2079df3c37c4b88c432cf2ef0f08:5162767186412572890`
+- `d9bf78198f4f08049827a917d758aba9:-2253911629886400664` — Nautolan Ship   Dreadnought
+  - Animation count: 1; sample IDs: `d9bf78198f4f08049827a917d758aba9:1699345327761842024`
+- `dca7a9a6002b4bd4a8262e7b96c3fb70:-2253911629886400664` — Nautolan Ship   Dreadnought   Engine Effect
+  - Animation count: 1; sample IDs: `dca7a9a6002b4bd4a8262e7b96c3fb70:4273347853899650863`
+- `ef41aab2286fa334c863299493c88346:-2253911629886400664` — Nautolan Ship   Support   Engine Effect
+  - Animation count: 1; sample IDs: `ef41aab2286fa334c863299493c88346:6710199737049801180`
+- `f69d7725d66bf8e498ef38ea03095652:-2253911629886400664` — Nautolan Ship   Scout   Shield
+  - Animation count: 1; sample IDs: `f69d7725d66bf8e498ef38ea03095652:-450284675636174923`
+- `1560ea936d7437141ae7d442fed88240:-2253911629886400664` — Nautolan   Bomb
+  - Animation count: 1; sample IDs: `1560ea936d7437141ae7d442fed88240:6712057059061845136`
+- `2045744723e86c745a14534eaf363c75:-2253911629886400664` — Nautolan Ship   Torpedo Ship   Weapons
+  - Animation count: 1; sample IDs: `2045744723e86c745a14534eaf363c75:8323557825059234084`
+- `2dc0c9277773e35479970ebabcd17f62:-2253911629886400664` — Nautolan Ship   Frigate   Weapons
+  - Animation count: 1; sample IDs: `2dc0c9277773e35479970ebabcd17f62:6385852548208323621`
+- `316ef3490a0455745982d5e6da211f81:-2253911629886400664` — Nautolan   Bullet
+  - Animation count: 1; sample IDs: `316ef3490a0455745982d5e6da211f81:-3556338021302022173`
+- `53a6affd7e15a424da2604860c469cbf:-2253911629886400664` — Nautolan   Ray
+  - Animation count: 1; sample IDs: `53a6affd7e15a424da2604860c469cbf:-1074739700028658783`
+- `7abf2bb443260284a8e431d8fede3beb:-2253911629886400664` — Nautolan   Rocket
+  - Animation count: 1; sample IDs: `7abf2bb443260284a8e431d8fede3beb:5001470675742164109`
+- `7c84241963b98b94bad55664c49f0a94:-2253911629886400664` — Nautolan Ship   Fighter   Weapons
+  - Animation count: 1; sample IDs: `7c84241963b98b94bad55664c49f0a94:284976500027296151`
+- `ab3982fb65d467f4993bfcaef9d9c202:-2253911629886400664` — Nautolan   Spinning Bullet
+  - Animation count: 1; sample IDs: `ab3982fb65d467f4993bfcaef9d9c202:6903600050961212432`
+- `bde165a34b66def42ae843f224329d6a:-2253911629886400664` — Nautolan Ship   Scout   Weapons
+  - Animation count: 1; sample IDs: `bde165a34b66def42ae843f224329d6a:1886723993829068709`
 
 ## Layers
 Layer-primary records that are safe for Preview.
@@ -159,14 +159,14 @@ Count: 30
 - `3da4ba0dcbd374bf8844f9ce7be8b26c:21300000` — back rocks03
 - `4922442581c08461bacef178c15d722f:21300000` — back rocks04
 - `63f54db09773a483fad38ca16b37181b:21300000` — fore bottom end left
+- `6cbde1828785b2445aa4e4dc182c601a:-1301319232` — Planets 4x1 04
+- `6cbde1828785b2445aa4e4dc182c601a:-1348047822` — Planets 4x1
+- `6cbde1828785b2445aa4e4dc182c601a:-1698564276` — Planets 4x1 02
+- `6cbde1828785b2445aa4e4dc182c601a:1947497287` — Planets 4x1 03
 - `bc2513817254d4ac586f4993f71df18a:21300000` — fore bottom single
 - `c9d56ce2e3d364c1da7c0385665909fb:21300000` — fore bottom end right
 - `ca504a09a3c5940ff9df45fc33c73cab:21300000` — planet
 - `cccd3f80dc1184500add6a0b0bafa706:21300000` — fore top end left
-- `dff9a28edfc164655b24cfd088461125:21300000` — fore bot end left
-- `eab18b10543f94258abd2b94651f6e68:21300000` — fore bottom tile
-- `f73cbb56fd02c4a66b6dea972c450544:21300000` — fore top single
-- `fb3f0be225e6b41ec9cf9c5fe5b0481d:21300000` — back rocks01
 
 ## Ui
 Ui-primary records that are safe for Preview.
@@ -185,7 +185,7 @@ Count: 30
 - `01545acaf21014c4aba80dbf7074f4f6:21300000` — Btn IconTextButton SlantSquare02 White4
 - `0155577a2f49b409f8a7efc67da87a6f:21300000` — Icon Laurel
 - `01815a8992c8340c89abe04575d35af6:21300000` — Frame SideFrame02 White3
-- `01898280bfe364ed788a740ae3df98ae:21300000` — Frame ItemFrame06 00
+- `01898280bfe364ed788a740ae3df98ae:21300000` — Frame ItemFrame06
 - `01c51c2a8dfe243ccb81fb3004ecf572:21300000` — Frame Itemframe02 N Orange
 - `01c7a3878023f4896a07c1484eaf96eb:21300000` — Frame ItemFrame09 s White5
 - `021a247f577164eea8f4f97d2e30c5f8:21300000` — Icon Caution
@@ -205,36 +205,36 @@ Count: 30
 ## Effects
 Effect-primary records that are safe for Preview.
 Count: 30
+- `26ef4508acfc81e49b336e76f85584fb:-1493310878` — GlowCores 4x2 03
+- `26ef4508acfc81e49b336e76f85584fb:-315122529` — GlowCores 4x2 02
+- `26ef4508acfc81e49b336e76f85584fb:1149347465` — GlowCores 4x2 05
+- `26ef4508acfc81e49b336e76f85584fb:1272635297` — GlowCores 4x2 04
 - `26ef4508acfc81e49b336e76f85584fb:188662295` — GlowCores 4x2
+- `26ef4508acfc81e49b336e76f85584fb:1993805260` — GlowCores 4x2 08
+- `26ef4508acfc81e49b336e76f85584fb:2034869457` — GlowCores 4x2 07
+- `26ef4508acfc81e49b336e76f85584fb:248462910` — GlowCores 4x2 06
+- `862ab43578c01934bbc116c8a30fa059:-1328138627` — ImpactBursts 4x3 11
+- `862ab43578c01934bbc116c8a30fa059:-1746575917` — ImpactBursts 4x3 10
+- `862ab43578c01934bbc116c8a30fa059:-1963559816` — ImpactBursts 4x3 08
+- `862ab43578c01934bbc116c8a30fa059:-2002783523` — ImpactBursts 4x3 12
 - `862ab43578c01934bbc116c8a30fa059:-534346052` — ImpactBursts 4x3
+- `862ab43578c01934bbc116c8a30fa059:-725287576` — ImpactBursts 4x3 03
+- `862ab43578c01934bbc116c8a30fa059:-746043494` — ImpactBursts 4x3 09
+- `862ab43578c01934bbc116c8a30fa059:1154898636` — ImpactBursts 4x3 04
+- `862ab43578c01934bbc116c8a30fa059:1232169825` — ImpactBursts 4x3 07
+- `862ab43578c01934bbc116c8a30fa059:1392203655` — ImpactBursts 4x3 06
+- `862ab43578c01934bbc116c8a30fa059:1434738212` — ImpactBursts 4x3 05
+- `862ab43578c01934bbc116c8a30fa059:2121983303` — ImpactBursts 4x3 02
+- `cee5bf3df5c32364b950fe63f9c92238:-1777981361` — ShockRings 3x3 03
+- `cee5bf3df5c32364b950fe63f9c92238:-1983606819` — ShockRings 3x3 02
+- `cee5bf3df5c32364b950fe63f9c92238:-2019342399` — ShockRings 3x3 06
 - `cee5bf3df5c32364b950fe63f9c92238:-590724008` — ShockRings 3x3
-- `ee43e040ed94c414ab737230b869e5d6:2143505766` — EngineTrails Blue 4x1
-- `0acaff452f8453347bd2d61397c33d3a:21300000` — MaskedLaserBlast4
-- `0eae1d42b8c7401fb9460cdd32bca308:21300000` — RoBlast2
-- `212a75f68add4289ae1718934d771e05:21300000` — WarpLaserBlast4
-- `290c0ce0c0044b5b9e21de808a2cb13f:21300000` — HiBlast2
-- `302bb81fff4f42fca73278729ded3483:21300000` — HiBlast3
-- `330fd9b49a589b74f95429c8d4bef834:21300000` — Red Laser
-- `3ea827a911cc72341bea53eadb845bca:21300000` — HiBlast3 1
-- `3f63d11ee5bec0e428ec2061d04a61c3:21300000` — Laser (Yellow)
-- `4b9b77183d56414428a07b3397155f72:21300000` — Laser (Green)
-- `4eaef8033ec537e45962141fd656868b:21300000` — Purple Laser
-- `4fe13cc6492dbc849b55bf8202ab3a60:21300000` — Laser (Red)
-- `50df10d7eef14f03b352bf24f53ab567:21300000` — RoBlast4
-- `542505687051f4f46974ae3ba4cffb0f:21300000` — MaskedLaserBlast3
-- `6129ed6f6be3f9a4f91e127a82888415:21300000` — Laser (Purple)
-- `7441b34d78254664a90ecb755a7a0235:21300000` — SpinLaserBlast1
-- `75b4f81aecce4a77867d9a0002fd7b54:21300000` — LoBlast3
-- `7eae5c425c802b24b8d076f7217d7576:21300000` — MaskedLaserBlast2
-- `8716b7303c8102b449ba939ebf39007b:21300000` — MaskedLaserBlast3
-- `8f372f91d32323248bb8692895ed4ed9:21300000` — Green Laser
-- `8fc7e8abc8f223b4ea97803e3c6fd013:21300000` — Laser Glow
-- `93e2d8b1323542c485091793396cdd82:21300000` — WarpLaserBlast1
-- `94fcf86c243740b0bbe09e468bf19c15:21300000` — LoBlast2
-- `99f9484f857edb841a1cf1382876e478:21300000` — MaskedLaserBlast1
-- `a33b89da511fd064e9f2efab5697cd05:21300000` — card 2
-- `a3c68123ff1d4a04870141f6d5d8e448:21300000` — LoBlast1
-- `b20070e3e3fb40598cbb7998b6fd8089:21300000` — SpinLaserBlast3
+- `cee5bf3df5c32364b950fe63f9c92238:-771852795` — ShockRings 3x3 05
+- `cee5bf3df5c32364b950fe63f9c92238:10566617` — ShockRings 3x3 07
+- `cee5bf3df5c32364b950fe63f9c92238:1373084870` — ShockRings 3x3 09
+- `cee5bf3df5c32364b950fe63f9c92238:1747475319` — ShockRings 3x3 04
+- `cee5bf3df5c32364b950fe63f9c92238:927909780` — ShockRings 3x3 08
+- `ee43e040ed94c414ab737230b869e5d6:-2139711621` — EngineTrails Blue 4x1 04
 
 ## Audio
 Audio-primary records that are safe for Preview.

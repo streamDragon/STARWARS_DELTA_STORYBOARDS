@@ -35,7 +35,50 @@
     ],
     "localSlowMotion": "LocalSlowMotion requires finite speed greater than 0 and at most 1. Never change global Time.timeScale.",
     "anchorRule": "anchorId may be non-empty only when the owning sequence selects a usable Kit exposing that exact anchorId.",
-    "animationRule": "animationAssetId must be an exact compatible Cutscene.Animation record when non-empty; author PlayAnimation only when the exact ID appears in the actor record's exported compatibleAnimationIds list. Never infer compatibility from filename, folder, naming, or visual similarity. When verified options are supplied, prefer the exact matching Run, Walk, Hit or Idle animation requested by the story. Move controls world movement and PlayAnimation controls visual animation; a running person normally uses both. Without verified animation proof, use Move, Turn, Hold or another non-animation action."
+    "animationRule": "animationAssetId must be an exact compatible Cutscene.Animation record when non-empty; author PlayAnimation only when the exact ID appears in the actor record's exported compatibleAnimationIds list. Never infer compatibility from filename, folder, naming, or visual similarity. When verified options are supplied, prefer the exact matching Run, Walk, Hit or Idle animation requested by the story. Move controls world movement and PlayAnimation controls visual animation; a running person normally uses both. Without verified animation proof, use Move, Turn, Hold or another non-animation action.",
+    "motionRule": "Use Move for straight or diagonal travel, Curve for one-control-point quadratic curved travel, Orbit for circular/elliptical travel around a stationary actor or point, and FollowPath for advanced explicit keyframes. A motion action can animate position, Z rotation and fitted-baseline scale together; do not simulate requested object approach/recede only with camera Zoom.",
+    "coordinateSpaceRule": "motionSpace=AbsoluteStage interprets x/y, controlX/controlY, centerX/centerY and FollowPath keyframes as stage coordinates. motionSpace=RelativeToStart interprets them as offsets from the actor position at action start. Prefer RelativeToStart for instructions such as 'move right', 'go diagonally up-left' or 'curve forward'.",
+    "orientationRule": "For newly authored moving objects, use orientationMode=FollowMotion by default so Z rotation follows the path tangent. Use PreserveRotation only when the object must keep its current facing, FaceTarget to point at targetActorId or the explicit center, and Keyframed when FollowPath keyframe.rotation values or action.rotation intentionally drive rotation.",
+    "scaleRule": "Set animateScale=true and author scaleX/scaleY from 0.2 through 8.0 to make the object itself appear farther/smaller or closer/larger. Values are multipliers of Unity's fitted actor baseline: 1.0 preserves fitted size, 0.2 is the minimum and 8.0 is the maximum. Position, rotation and scale may change in the same action.",
+    "orbitRule": "Orbit v1 requires a stationary center. Set targetActorId to a stationary cast actor, or omit it and provide centerX/centerY. radiusX and radiusY must be positive; orbitDegrees is non-zero, positive for anticlockwise and negative for clockwise travel.",
+    "presets": {
+      "straightOrDiagonal": "Move + destination x/y",
+      "oneControlPointCurve": "Curve + controlX/controlY + destination x/y",
+      "stationaryCenterOrbit": "Orbit + targetActorId or centerX/centerY + radiusX/radiusY + orbitDegrees",
+      "advancedPoints": "FollowPath + ordered keyframes"
+    },
+    "examples": [
+      {
+        "intent": "Move diagonally up-right while becoming closer/larger",
+        "type": "Move",
+        "motionSpace": "RelativeToStart",
+        "orientationMode": "FollowMotion",
+        "animateScale": true,
+        "x": 6.0,
+        "y": 3.0,
+        "scaleX": 2.0,
+        "scaleY": 2.0
+      },
+      {
+        "intent": "Curve around an obstacle",
+        "type": "Curve",
+        "motionSpace": "RelativeToStart",
+        "orientationMode": "FollowMotion",
+        "controlX": 3.0,
+        "controlY": 4.0,
+        "x": 7.0,
+        "y": 0.0
+      },
+      {
+        "intent": "Orbit a stationary Earth actor once clockwise",
+        "type": "Orbit",
+        "targetActorId": "earth",
+        "orientationMode": "FollowMotion",
+        "radiusX": 5.0,
+        "radiusY": 3.0,
+        "orbitDegrees": -360.0
+      }
+    ]
   },
   "layerActions": {
     "backgroundRoles": [
@@ -83,7 +126,9 @@
         "VisualDamageReaction",
         "Hold",
         "FreezePose",
-        "LocalSlowMotion"
+        "LocalSlowMotion",
+        "Curve",
+        "Orbit"
       ],
       "authoringRule": "When any dialogue line in a shot has stage.lockStaging=true, the owning shot.actorActions MUST be empty. Do not use Hold, FreezePose, Enter, Exit, Move, PlayAnimation, or any other world-actor action to keep a dialogue actor static. Dialogue visuals are controlled by the dialogue presentation fields only; place world-actor activity in a separate action shot before or after the locked dialogue shot."
     }

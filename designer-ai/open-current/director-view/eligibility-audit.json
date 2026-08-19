@@ -2,21 +2,22 @@
   "schema": "STARWARS_DELTA_DIRECTOR_ELIGIBILITY_AUDIT",
   "schemaVersion": 2,
   "status": "SOURCE_REVIEW_REQUIRED",
-  "publishTransactionId": "20260818-165400647-63c8b628",
-  "catalogRevision": 7625567326969721596,
-  "sourceCatalogRecordCount": 19088,
-  "flaggedDirectorVisualCount": 58,
+  "publishTransactionId": "20260819-044457333-08e78bc4",
+  "catalogRevision": 7625541441843202476,
+  "sourceCatalogRecordCount": 20623,
+  "flaggedDirectorVisualCount": 57,
   "flaggedCompletionVisualCount": 16,
   "flaggedByCategory": {
-    "Actor": 20,
+    "Actor": 12,
+    "Layer": 7,
     "Effect": 7,
     "Ui": 31
   },
   "flaggedByReason": {
-    "catalog_semantics_exclude_direct_authoring": 7,
-    "probable_effect_misclassified_as_actor": 10,
+    "probable_effect_misclassified_as_actor": 9,
     "probable_layer_or_tileset_misclassified_as_actor": 1,
     "generic_technical_or_primitive_identity": 10,
+    "catalog_semantics_exclude_direct_authoring": 7,
     "sample_or_demo_path": 16,
     "editor_test_or_debug_path": 6,
     "documentation_or_package_tooling_path": 1,
@@ -38,23 +39,6 @@
   "items": [
     {
       "category": "Actor",
-      "displayName": "7a game screen",
-      "authoringAssetId": "3eccc61ae08493a4a9a60a349c33f24f:21300000",
-      "canonicalActorAssetId": "3eccc61ae08493a4a9a60a349c33f24f:21300000",
-      "visualReferenceId": "visual_a2fec8a36c6afab7ed8a",
-      "sourcePaths": [
-        "Assets/_Game/MY_Core/MY_Art/7a game-screen.jpg",
-        "Assets/_Game/MY_Core/MY_Art/argo1.jpg",
-        "Assets/_Game/MY_Core/MY_Art/argo2.png"
-      ],
-      "reasons": [
-        "catalog_semantics_exclude_direct_authoring"
-      ],
-      "pixelStatus": "PIXELS_VERIFIED",
-      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
-    },
-    {
-      "category": "Actor",
       "displayName": "explosion6",
       "authoringAssetId": "9d58b015dfd4bc34bbecb9b9bc948ee2:21300000",
       "canonicalActorAssetId": "9d58b015dfd4bc34bbecb9b9bc948ee2:21300000",
@@ -72,21 +56,6 @@
         "Assets/_PKG/PKG_Robot_Shooting_Game/Explosion/explosion7.png",
         "Assets/_PKG/PKG_Robot_Shooting_Game/Explosion/explosion8.png",
         "Assets/_PKG/PKG_Robot_Shooting_Game/Explosion/explosion9.png"
-      ],
-      "reasons": [
-        "probable_effect_misclassified_as_actor"
-      ],
-      "pixelStatus": "PIXELS_VERIFIED",
-      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
-    },
-    {
-      "category": "Actor",
-      "displayName": "Fog 0",
-      "authoringAssetId": "4029ecf14233cea4980157b99d0cbc26:21300000",
-      "canonicalActorAssetId": "4029ecf14233cea4980157b99d0cbc26:21300000",
-      "visualReferenceId": "visual_4dd57e25f15e4131c8c4",
-      "sourcePaths": [
-        "Assets/_PKG/PKG_Free_2D_Handcrafted_Art/Sprite/Fog.psd"
       ],
       "reasons": [
         "probable_effect_misclassified_as_actor"
@@ -231,10 +200,57 @@
     },
     {
       "category": "Actor",
+      "displayName": "Sphere UV",
+      "authoringAssetId": "c72e1411e2e4ff84a87796edeb13556e:2447226645435551360",
+      "canonicalActorAssetId": "c72e1411e2e4ff84a87796edeb13556e:2447226645435551360",
+      "visualReferenceId": "visual_ee7fb228edf8c886f6a8",
+      "sourcePaths": [
+        "Assets/Shield Shader FREE/Prefabs/Sphere UV.prefab"
+      ],
+      "reasons": [
+        "generic_technical_or_primitive_identity"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Step",
+      "authoringAssetId": "21f4ee7b875c5614bae545ccd6c7652e:1847307792383872",
+      "canonicalActorAssetId": "21f4ee7b875c5614bae545ccd6c7652e:1847307792383872",
+      "visualReferenceId": "visual_5fa7cb495f8a8c96a223",
+      "sourcePaths": [
+        "Assets/Shared/Environment/Prefabs/Step.prefab"
+      ],
+      "reasons": [
+        "generic_technical_or_primitive_identity"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Layer",
+      "displayName": "7a game screen",
+      "authoringAssetId": "3eccc61ae08493a4a9a60a349c33f24f:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_499dfa64d36a7adeab93",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/7a game-screen.jpg",
+        "Assets/_Game/MY_Core/MY_Art/argo1.jpg",
+        "Assets/_Game/MY_Core/MY_Art/argo2.png"
+      ],
+      "reasons": [
+        "catalog_semantics_exclude_direct_authoring"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Layer",
       "displayName": "New Sprite",
       "authoringAssetId": "7f4cfc138b98e65489a653c2c988aa32:21300000",
-      "canonicalActorAssetId": "7f4cfc138b98e65489a653c2c988aa32:21300000",
-      "visualReferenceId": "visual_5bc0b5fbf672d0fd76e2",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_a88dd2e5645abc68fa71",
       "sourcePaths": [
         "Assets/New Sprite.png"
       ],
@@ -245,11 +261,11 @@
       "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
     },
     {
-      "category": "Actor",
+      "category": "Layer",
       "displayName": "sphere 0",
       "authoringAssetId": "8689a610ae0c88b428207a9ec6a8476f:21300020",
-      "canonicalActorAssetId": "8689a610ae0c88b428207a9ec6a8476f:21300020",
-      "visualReferenceId": "visual_d4c9a1fbe6ceb1c9994e",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_2139bc7d2f2a7a87a50b",
       "sourcePaths": [
         "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 01/Textures/Enemies/sphere.png"
       ],
@@ -260,11 +276,11 @@
       "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
     },
     {
-      "category": "Actor",
+      "category": "Layer",
       "displayName": "sphere ring0007",
       "authoringAssetId": "82655b161db84941af968aeed89a6b9b:21300000",
-      "canonicalActorAssetId": "82655b161db84941af968aeed89a6b9b:21300000",
-      "visualReferenceId": "visual_e30a37e4db5e458e569f",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_0432d4f5e9610cae61d8",
       "sourcePaths": [
         "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0000.png",
         "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0001.png",
@@ -311,26 +327,11 @@
       "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
     },
     {
-      "category": "Actor",
-      "displayName": "Sphere UV",
-      "authoringAssetId": "c72e1411e2e4ff84a87796edeb13556e:2447226645435551360",
-      "canonicalActorAssetId": "c72e1411e2e4ff84a87796edeb13556e:2447226645435551360",
-      "visualReferenceId": "visual_ee7fb228edf8c886f6a8",
-      "sourcePaths": [
-        "Assets/Shield Shader FREE/Prefabs/Sphere UV.prefab"
-      ],
-      "reasons": [
-        "generic_technical_or_primitive_identity"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE",
-      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
-    },
-    {
-      "category": "Actor",
+      "category": "Layer",
       "displayName": "Square",
       "authoringAssetId": "3041a259bfbe1204399a62f47be47c5d:7482667652216324306",
-      "canonicalActorAssetId": "3041a259bfbe1204399a62f47be47c5d:7482667652216324306",
-      "visualReferenceId": "visual_792907251964700c20d8",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_0f0b8637b23852fd4b07",
       "sourcePaths": [
         "Assets/Sprites/square.png",
         "Assets/Square 1.png",
@@ -344,26 +345,11 @@
       "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
     },
     {
-      "category": "Actor",
-      "displayName": "Step",
-      "authoringAssetId": "21f4ee7b875c5614bae545ccd6c7652e:1847307792383872",
-      "canonicalActorAssetId": "21f4ee7b875c5614bae545ccd6c7652e:1847307792383872",
-      "visualReferenceId": "visual_5fa7cb495f8a8c96a223",
-      "sourcePaths": [
-        "Assets/Shared/Environment/Prefabs/Step.prefab"
-      ],
-      "reasons": [
-        "generic_technical_or_primitive_identity"
-      ],
-      "pixelStatus": "PIXELS_UNAVAILABLE",
-      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
-    },
-    {
-      "category": "Actor",
+      "category": "Layer",
       "displayName": "Tank",
       "authoringAssetId": "3182336aba0b4b38ad766685c16b4b78:21300000",
-      "canonicalActorAssetId": "3182336aba0b4b38ad766685c16b4b78:21300000",
-      "visualReferenceId": "visual_baf625b6d672b55641c1",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_f8d84fa843c4fa6e0877",
       "sourcePaths": [
         "Assets/_Game/MY_VARIA/Art/Sprites/Demo/Images/General/Block.png",
         "Assets/_Game/MY_VARIA/Art/Sprites/Demo/Images/General/Brick.png",
@@ -378,11 +364,11 @@
       "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
     },
     {
-      "category": "Actor",
+      "category": "Layer",
       "displayName": "tryouts 0",
       "authoringAssetId": "d47f5b2a090a09049b1372624764c6f5:21300000",
-      "canonicalActorAssetId": "d47f5b2a090a09049b1372624764c6f5:21300000",
-      "visualReferenceId": "visual_8bf72e51380e6b1c5767",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_ca44691a6db8d1e080c2",
       "sourcePaths": [
         "Assets/_Game/MY_Core/MY_Art/DGraphics/tryouts.png",
         "Assets/_Game/MY_Core/MY_Art/Debug/ParallaxPreviewDisc.png"
@@ -445,7 +431,10 @@
       "canonicalActorAssetId": null,
       "visualReferenceId": "visual_415b457c5142a6233688",
       "sourcePaths": [
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/color/Sphere_128.png",
         "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/color/Sphere_16.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/color/Sphere_32.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/color/Sphere_64.png",
         "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/color/Sphere_8.png"
       ],
       "reasons": [
@@ -461,7 +450,10 @@
       "canonicalActorAssetId": null,
       "visualReferenceId": "visual_f7713e8d06f351345491",
       "sourcePaths": [
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/grey/Sphere_128.png",
         "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/grey/Sphere_16.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/grey/Sphere_32.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/grey/Sphere_64.png",
         "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/grey/Sphere_8.png"
       ],
       "reasons": [

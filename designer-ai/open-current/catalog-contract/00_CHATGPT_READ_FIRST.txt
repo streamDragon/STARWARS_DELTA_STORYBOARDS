@@ -36,10 +36,11 @@ Copy exact assetId values and exact compatibleAnimationIds values. Never infer c
 EXISTING CUTSCENE REVISION
 Use ADD CATALOG + PRESENT STATE OF THE CUTSCENE + the natural-language requested change. Present State is current Cutscene state only; ADD CATALOG remains the global rules/assets source.
 
-Contract revision: 771AD65DED1F8CB93F7137F1884E3AAD3837928DA5605A65828453B5A38646D9
-Schema hash: B64AE9C01736B2FD40CB3591869E0F8A49C07A81C9631FE62E14F215A50EF308
-Snapshot content hash: 435C155CFD24F3756F6E6EA7AB66857095146C949881C77265C91E249CEFD6C2
-Snapshot identity: catalogRevision=7625567326969721596;contractRevision=771AD65DED1F8CB93F7137F1884E3AAD3837928DA5605A65828453B5A38646D9;schemaHash=B64AE9C01736B2FD40CB3591869E0F8A49C07A81C9631FE62E14F215A50EF308;snapshotContentHash=435C155CFD24F3756F6E6EA7AB66857095146C949881C77265C91E249CEFD6C2
+Contract revision: 424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF
+Schema hash: 7D3743BC09A41110901B3A2B4D2206725A7FBD19D14D275223C66ACAA9FE0CAB
+Authoring rule registry revision: 8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0
+Snapshot content hash: 1E0F47BB76E622802BD9BFD4F1E08E0458D79389EA3057C7A3958DB5F4C2E8BA
+Snapshot identity: catalogRevision=7625541441843202476;contractRevision=424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF;schemaHash=7D3743BC09A41110901B3A2B4D2206725A7FBD19D14D275223C66ACAA9FE0CAB;snapshotContentHash=1E0F47BB76E622802BD9BFD4F1E08E0458D79389EA3057C7A3958DB5F4C2E8BA
 Do not treat catalogRevision alone as proof that two snapshots are equivalent. Compare the complete snapshot identity: catalogRevision, contractRevision, schemaHash and snapshotContentHash.
 Supported Cutscene package version: 5
 
@@ -143,7 +144,9 @@ MY_CutsceneEasing: Linear, EaseIn, EaseOut, EaseInOut, SmoothStep
 MY_CutsceneCameraActionType: Hold, Snap, Zoom, Pan, Push, Pull, Follow, Track, Focus, Drift, Shake, ImpactShake, Recoil, ReturnToNeutral
 MY_CutsceneLayerActionType: Activate, Deactivate, Set, Swap, Crossfade, Move, Scroll, Parallax, Tint, Brightness, Fade
 MY_CutsceneLayerRole: FarBackground, Background, Midground, Actor, Foreground, Atmosphere, Overlay, Ui
-MY_CutsceneActorActionType: Activate, Deactivate, Enter, Exit, Move, MoveToMark, FollowPath, Face, Turn, SetSorting, SetScale, Formation, PlayAnimation, VisualWeaponAction, VisualDamageReaction, Hold, FreezePose, LocalSlowMotion
+MY_CutsceneActorActionType: Activate, Deactivate, Enter, Exit, Move, MoveToMark, FollowPath, Face, Turn, SetSorting, SetScale, Formation, PlayAnimation, VisualWeaponAction, VisualDamageReaction, Hold, FreezePose, LocalSlowMotion, Curve, Orbit
+MY_CutsceneMotionSpace: AbsoluteStage, RelativeToStart
+MY_CutsceneMotionOrientation: PreserveRotation, FollowMotion, FaceTarget, Keyframed
 MY_CutsceneEffectType: Activate, Explosion, Impact, MuzzleFlash, EnergyPulse, Glow, Lightning, Shield, Smoke, Fire, Debris, Sparks, Dust, SpeedLines, Vignette, ScreenFlash, ColorFlash, Silhouette, Overlay
 MY_CutsceneAudioActionType: Play, Stop, FadeIn, FadeOut, SetVolume
 MY_CutsceneAudioBus: Music, Ambience, Dialogue, Sfx, Ui
@@ -188,10 +191,10 @@ SMALL VALID JSON EXAMPLE
   "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
   "schemaVersion": 5,
   "contextVersion": 3,
-  "contractRevision": "771AD65DED1F8CB93F7137F1884E3AAD3837928DA5605A65828453B5A38646D9",
-  "schemaHash": "B64AE9C01736B2FD40CB3591869E0F8A49C07A81C9631FE62E14F215A50EF308",
+  "contractRevision": "424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF",
+  "schemaHash": "7D3743BC09A41110901B3A2B4D2206725A7FBD19D14D275223C66ACAA9FE0CAB",
   "contextId": "NEW_CUTSCENE_CONTEXT",
-  "catalogRevision": "7625567326969721596",
+  "catalogRevision": "7625541441843202476",
   "projectId": "",
   "planId": "plan_example_minimal",
   "baseRevision": 0,
