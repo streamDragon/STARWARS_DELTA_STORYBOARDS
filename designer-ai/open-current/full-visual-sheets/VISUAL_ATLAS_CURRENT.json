@@ -1,6 +1,6 @@
 {
   "schema": "STARWARS_DELTA_CHATGPT_VISUAL_ATLAS",
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "status": "CURRENT_VERIFIED_VISUAL_ATLAS",
   "publishTransactionId": "20260819-044457333-08e78bc4",
   "pdfFile": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
@@ -24,35 +24,31 @@
   "categoryRanges": [
     {
       "category": "Actor",
-      "sourcePdfFile": "full-visual-sheets/actor.pdf",
-      "sourcePdfUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor.pdf",
       "sourcePageCount": 32,
       "atlasStartPage": 1,
-      "atlasEndPage": 32
+      "atlasEndPage": 32,
+      "pageImageRoot": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/"
     },
     {
       "category": "Effect",
-      "sourcePdfFile": "full-visual-sheets/effect.pdf",
-      "sourcePdfUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect.pdf",
       "sourcePageCount": 12,
       "atlasStartPage": 33,
-      "atlasEndPage": 44
+      "atlasEndPage": 44,
+      "pageImageRoot": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/"
     },
     {
       "category": "Layer",
-      "sourcePdfFile": "full-visual-sheets/layer.pdf",
-      "sourcePdfUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/layer.pdf",
       "sourcePageCount": 30,
       "atlasStartPage": 45,
-      "atlasEndPage": 74
+      "atlasEndPage": 74,
+      "pageImageRoot": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/layer/"
     },
     {
       "category": "Ui",
-      "sourcePdfFile": "full-visual-sheets/ui.pdf",
-      "sourcePdfUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/ui.pdf",
       "sourcePageCount": 19,
       "atlasStartPage": 75,
-      "atlasEndPage": 93
+      "atlasEndPage": 93,
+      "pageImageRoot": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/ui/"
     }
   ],
   "lookup": {
@@ -61,6 +57,7 @@
     "assetLookupFile": "ASSET_VISUAL_LOOKUP.json",
     "assetLookupUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/ASSET_VISUAL_LOOKUP.json"
   },
+  "transportFallback": "Per-page JPEG images remain available only as transport/debug fallback. Per-category PDFs and per-category visual-index shards are build intermediates and are not published.",
   "usage": "Use Director metadata to shortlist assets, resolve the asset in FULL_VISUAL_INDEX.json, then inspect the real pixels in this PDF at atlasPage and atlasSlot before any visual claim, asset choice or storyboard.",
   "visualAccessFallback": {
     "rule": "If ChatGPT cannot actually render and inspect this PDF from the public URL, it must not guess from metadata. Ask the user to download this single PDF from the Debora page and upload it directly to the chat, then continue using the same CURRENT Director metadata and asset IDs.",
