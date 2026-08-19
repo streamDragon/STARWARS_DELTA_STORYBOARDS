@@ -8,20 +8,32 @@ Normal users, Debora and ChatGPT consume only:
 
 - `designer-ai/open-current/OPEN_CURRENT.json`
 - `designer-ai/open-current/CHATGPT_START.txt`
-- the Director, Contract, Instruction Book and Visual Atlas referenced by that same atomic CURRENT identity
+- the Director, Contract, Instruction Book and Visual Atlas referenced by that same published CURRENT
 
 `designer-ai/debora.html` is the normal human entry point.
 
-The public atomic identity is the tuple:
+## Authoring compatibility identity
 
-- `publishTransactionId`
+Studio NEW, REVISE and REPAIR envelopes compare only `requiredCurrent`:
+
 - `catalogRevision`
-- `snapshotContentHash`
 - `contractRevision`
 - `schemaHash`
+- `snapshotContentHash`
 - `authoringRuleRegistryRevision`
 
-Never mix files from different identities.
+All five must match.
+
+`publishTransactionId` is publication provenance. It identifies which publish produced an artifact, but it is not part of normal authoring compatibility. Republishing identical authoring content may legitimately produce a different transaction ID without creating a different authoring universe.
+
+Public CURRENT therefore exposes both:
+
+- `requiredCurrent`: the five compatibility fingerprints
+- `provenance`: publish transaction and release/build provenance
+
+Generated artifacts may also retain a strict `atomicIdentity` including `publishTransactionId` for publication-integrity checks inside one published transaction. Do not use that six-field publication identity as the Studio request compatibility gate.
+
+Never mix Contract, Catalog, Schema, Rule Registry or snapshot content from different `requiredCurrent` identities.
 
 ## Internal publisher inputs
 
