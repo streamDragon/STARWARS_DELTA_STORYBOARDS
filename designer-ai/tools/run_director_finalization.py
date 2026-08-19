@@ -17,6 +17,41 @@ SPEC.loader.exec_module(BASE)
 ORIGINAL_ENRICH_VISUAL_ENTRY = BASE.enrich_visual_entry
 ORIGINAL_ENRICH_ANIMATION = BASE.enrich_animation
 
+ACTOR_DESCRIPTION_CONTRADICTION = "actor_description_contradicts_identity"
+ACTOR_IDENTITY_TERMS = (
+    "character",
+    "person",
+    "people",
+    "human",
+    "humanoid",
+    "robot",
+    "android",
+    "alien",
+    "creature",
+    "monster",
+    "pilot",
+    "commander",
+    "captain",
+    "officer",
+    "soldier",
+    "figure",
+    "cat",
+    "dog",
+    "ship",
+    "spaceship",
+    "spacecraft",
+    "vehicle",
+    "fighter",
+    "bomber",
+)
+ACTOR_NON_IDENTITY_DESCRIPTION_PATTERNS = (
+    re.compile(r"^(?:soft\s+pastel\s+)?(?:mountain\s+)?landscape\b.*\bbackground\b", re.I),
+    re.compile(r"^(?:environment|scenery|background|backdrop|tileset)\b", re.I),
+    re.compile(r"^(?:line\s+of\s+)?hanging\s+(?:garments|clothes|fabric)\b", re.I),
+    re.compile(r"\bsuitable\s+as\s+(?:an?\s+)?(?:settlement[\s/]+)?environment\s+prop\b", re.I),
+    re.compile(r"^(?:engine\s+trails?|explosion|impact\s+effect|muzzle\s+flash|laser\s+beam|particle\s+effect)\b", re.I),
+)
+
 
 def unique(values):
     result = []
@@ -86,6 +121,21 @@ def union(records, key):
 
 def matches_path(path, needles):
     return any(needle in path for needle in needles)
+
+
+def actor_description_contradicts_identity(entry):
+    descriptions = []
+    if entry.get("description"):
+        descriptions.append(str(entry.get("description")))
+    descriptions.extend(str(value) for value in entry.get("selectedDescriptions", []) if value)
+    description = " ".join(unique(descriptions)).strip().lower()
+    if not description:
+        return False
+
+    if any(re.search(rf"\b{re.escape(term)}\b", description, re.I) for term in ACTOR_IDENTITY_TERMS):
+        return False
+
+    return any(pattern.search(description) for pattern in ACTOR_NON_IDENTITY_DESCRIPTION_PATTERNS)
 
 
 def refined_eligibility_signals(entry):
@@ -160,6 +210,9 @@ def refined_eligibility_signals(entry):
     if name in exact_technical_names or re.match(r"^(square|cube|sphere|capsule|plane|quad|white[_ -]?1x1)(\b|[_ -])", name):
         reasons.append("generic_technical_or_primitive_identity")
 
+    if category == "Actor" and actor_description_contradicts_identity(entry):
+        reasons.append(ACTOR_DESCRIPTION_CONTRADICTION)
+
     if category == "Actor" and entity_kind in ("", "unknown"):
         if any(token in name for token in ("laserbeam", "laser beam", "trail", "explosion", "flash", "aura", "fog", "smoke", "particle", "effect")):
             reasons.append("probable_effect_misclassified_as_actor")
@@ -172,6 +225,47 @@ def refined_eligibility_signals(entry):
         reasons.append("probable_effect_misclassified_as_ui")
 
     return unique(reasons)
+
+
+def validate_eligibility_regressions():
+    cases = (
+        (
+            {
+                "authoringAssetId": "c8630c61ccf71ef4491c95dfa85a41fe:-454151143",
+                "displayName": "ALIEN 10 0",
+                "category": "Actor",
+                "entityKind": "Person",
+                "description": "Soft pastel mountain landscape background with layered haze at sunrise or sunset.",
+            },
+            True,
+        ),
+        (
+            {
+                "authoringAssetId": "dbe3d2492500ad744b4a6582c8aafd4d:-1163873368",
+                "displayName": "CAT 5 0",
+                "category": "Actor",
+                "entityKind": "Person",
+                "description": "Line of hanging garments and fabric pieces, suitable as a settlement/environment prop.",
+            },
+            True,
+        ),
+        (
+            {
+                "authoringAssetId": "regression:legitimate-person",
+                "displayName": "Pilot",
+                "category": "Actor",
+                "entityKind": "Person",
+                "description": "Pilot character standing in front of a blue cockpit background.",
+            },
+            False,
+        ),
+    )
+    for entry, expected in cases:
+        actual = ACTOR_DESCRIPTION_CONTRADICTION in refined_eligibility_signals(entry)
+        if actual != expected:
+            raise SystemExit(
+                f"Actor description eligibility regression failed for {entry.get('authoringAssetId')}: expected={expected} actual={actual}"
+            )
 
 
 def patched_enrich_visual_entry(entry, by_id, by_reference, by_asset):
@@ -187,6 +281,7 @@ def patched_enrich_visual_entry(entry, by_id, by_reference, by_asset):
     entry["selectedCapabilities"] = union(selected_records, "capabilities")
     entry["selectedRoles"] = union(selected_records, "roles")
     entry["selectedTags"] = union(selected_records, "tags")
+    entry["selectedDescriptions"] = union(selected_records, "description")
     entry["sourceProjectionRecommendable"] = bool(entry.get("recommendable"))
 
     result = ORIGINAL_ENRICH_VISUAL_ENTRY(entry, by_id, by_reference, by_asset)
@@ -277,6 +372,11 @@ def postprocess_output():
     presentation_metadata.update(presentation_status)
     queue.setdefault("summary", {})["presentationMetadataComplete"] = presentation_status["complete"]
 
+    audit.setdefault("signals", {})[ACTOR_DESCRIPTION_CONTRADICTION] = (
+        "Actor classification conflicts with strong source-description evidence that the selected identity is a background, environment prop, or effect."
+    )
+    BASE.write_json(audit_path, audit)
+
     eligibility_reviews = []
     for item in audit.get("items", []):
         eligibility_reviews.append(
@@ -340,6 +440,7 @@ def postprocess_output():
 
     modified = [
         queue_path,
+        audit_path,
         director_path,
         open_path,
         manifest_path,
@@ -368,6 +469,7 @@ def postprocess_output():
 
 
 def main():
+    validate_eligibility_regressions()
     BASE.eligibility_signals = refined_eligibility_signals
     BASE.enrich_visual_entry = patched_enrich_visual_entry
     BASE.enrich_animation = patched_enrich_animation
