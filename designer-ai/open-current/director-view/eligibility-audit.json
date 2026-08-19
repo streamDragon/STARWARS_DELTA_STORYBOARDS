@@ -5,15 +5,16 @@
   "publishTransactionId": "20260819-225635487-e483d75d",
   "catalogRevision": 7625541441843202476,
   "sourceCatalogRecordCount": 20623,
-  "flaggedDirectorVisualCount": 57,
+  "flaggedDirectorVisualCount": 59,
   "flaggedCompletionVisualCount": 16,
   "flaggedByCategory": {
-    "Actor": 12,
+    "Actor": 14,
     "Layer": 7,
     "Effect": 7,
     "Ui": 31
   },
   "flaggedByReason": {
+    "actor_description_contradicts_identity": 2,
     "probable_effect_misclassified_as_actor": 9,
     "probable_layer_or_tileset_misclassified_as_actor": 1,
     "generic_technical_or_primitive_identity": 10,
@@ -34,9 +35,40 @@
     "probable_effect_misclassified_as_actor": "Actor classification conflicts with effect-like naming.",
     "probable_ui_misclassified_as_actor": "Actor classification conflicts with UI-like naming.",
     "probable_layer_or_tileset_misclassified_as_actor": "Actor classification conflicts with background/tileset naming.",
-    "probable_effect_misclassified_as_ui": "UI classification conflicts with effect-like naming."
+    "probable_effect_misclassified_as_ui": "UI classification conflicts with effect-like naming.",
+    "actor_description_contradicts_identity": "Actor classification conflicts with strong source-description evidence that the selected identity is a background, environment prop, or effect."
   },
   "items": [
+    {
+      "category": "Actor",
+      "displayName": "ALIEN 10 0",
+      "authoringAssetId": "c8630c61ccf71ef4491c95dfa85a41fe:-454151143",
+      "canonicalActorAssetId": "c8630c61ccf71ef4491c95dfa85a41fe:-454151143",
+      "visualReferenceId": "visual_85e93e2e6f163dc2632d",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/DGraphics/MISTWORLD/ALIEN_10.png"
+      ],
+      "reasons": [
+        "actor_description_contradicts_identity"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "CAT 5 0",
+      "authoringAssetId": "dbe3d2492500ad744b4a6582c8aafd4d:-1163873368",
+      "canonicalActorAssetId": "dbe3d2492500ad744b4a6582c8aafd4d:-1163873368",
+      "visualReferenceId": "visual_4611757e1ceecdb4c2fd",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/DGraphics/MISTWORLD/CAT_5.png"
+      ],
+      "reasons": [
+        "actor_description_contradicts_identity"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
     {
       "category": "Actor",
       "displayName": "explosion6",
