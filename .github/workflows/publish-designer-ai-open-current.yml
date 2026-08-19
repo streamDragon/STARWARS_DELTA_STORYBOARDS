@@ -15,6 +15,7 @@ on:
       - 'designer-ai/tools/build_director_view.py'
       - 'designer-ai/tools/finalize_director_current.py'
       - 'designer-ai/tools/run_director_finalization.py'
+      - 'designer-ai/tools/seal_atomic_current.py'
       - '.github/workflows/publish-designer-ai-open-current.yml'
 
 permissions:
@@ -63,6 +64,9 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/run_director_finalization.py
 
+      - name: Seal Rule Registry into atomic CURRENT identity
+        run: python3 designer-ai/tools/seal_atomic_current.py
+
       - name: Validate final CURRENT payload
         run: |
           set -euo pipefail
@@ -73,6 +77,7 @@ jobs:
           from pypdf import PdfReader
 
           root = pathlib.Path('_open_current_stage')
+          source_current = json.loads(pathlib.Path('designer-ai/current.json').read_text(encoding='utf-8-sig'))
           current = json.loads((root / 'OPEN_CURRENT.json').read_text(encoding='utf-8'))
           director = json.loads((root / 'director-view' / 'DIRECTOR_VIEW.json').read_text(encoding='utf-8'))
           queue = json.loads((root / 'director-view' / 'completion-queue.json').read_text(encoding='utf-8'))
@@ -83,12 +88,17 @@ jobs:
           atlas = root / 'full-visual-sheets' / 'STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf'
           pack = root / 'STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip'
 
+          rule_revision = source_current.get('authoringRuleRegistryRevision')
+          assert rule_revision
+          assert source_current.get('authoringRuleRegistry', {}).get('revision') == rule_revision
+
           expected_identity = {
               'publishTransactionId': director['publishTransactionId'],
               'catalogRevision': director['catalogRevision'],
               'snapshotContentHash': director['snapshotContentHash'],
               'contractRevision': director['contractRevision'],
               'schemaHash': director['schemaHash'],
+              'authoringRuleRegistryRevision': rule_revision,
           }
 
           assert current['status'] == 'CURRENT_VERIFIED_OPEN'
@@ -100,6 +110,9 @@ jobs:
           assert director['counts']['audio'] > 0
           assert current['catalogRevision'] == director['catalogRevision']
           assert current['snapshotContentHash'] == director['snapshotContentHash']
+          assert current['authoringRuleRegistryRevision'] == rule_revision
+          assert director['authoringRuleRegistryRevision'] == rule_revision
+          assert manifest['authoringRuleRegistryRevision'] == rule_revision
           assert current['atomicIdentity'] == expected_identity
           assert director['atomicIdentity'] == expected_identity
           assert manifest['atomicIdentity'] == expected_identity
@@ -126,6 +139,7 @@ jobs:
           for filename in ('actors.json', 'layers.json', 'effects.json', 'ui.json'):
               payload = json.loads((root / 'director-view' / filename).read_text(encoding='utf-8'))
               assert payload['count'] == len(payload['assets'])
+              assert payload['atomicIdentity'] == expected_identity
               visual_entries.extend(payload['assets'])
           valid_states = {
               'RECOMMENDABLE',
@@ -141,17 +155,35 @@ jobs:
           assert director['quality']['atlasMappedVerifiedVisualEntryCount'] == len(verified)
           assert sum(director['quality']['recommendationStatusCounts'].values()) == len(visual_entries)
 
-          animations = json.loads((root / 'director-view' / 'animations.json').read_text(encoding='utf-8'))['assets']
-          audio = json.loads((root / 'director-view' / 'audio.json').read_text(encoding='utf-8'))['assets']
+          animations_payload = json.loads((root / 'director-view' / 'animations.json').read_text(encoding='utf-8'))
+          audio_payload = json.loads((root / 'director-view' / 'audio.json').read_text(encoding='utf-8'))
+          assert animations_payload['atomicIdentity'] == expected_identity
+          assert audio_payload['atomicIdentity'] == expected_identity
+          animations = animations_payload['assets']
+          audio = audio_payload['assets']
           assert not any(item.get('unknownCompatibleActorAssetIds') for item in animations)
           assert all('recommendableCompatibleActorAssetIds' in item for item in animations)
           assert all('blockingCompletionNeeded' in item and 'qualityCompletionNeeded' in item for item in animations)
           assert all('blockingCompletionNeeded' in item and 'qualityCompletionNeeded' in item for item in audio)
 
+          assert queue['atomicIdentity'] == expected_identity
+          assert audit['atomicIdentity'] == expected_identity
           assert (root / 'CHATGPT_START.txt').is_file()
           assert (root / 'FILM_AUTHORING_GUIDE_CURRENT.md').is_file()
+          instructions = (root / 'CHATGPT_START.txt').read_text(encoding='utf-8')
+          assert f'CURRENT AUTHORING RULE REGISTRY REVISION: {rule_revision}' in instructions
+          assert '- authoringRuleRegistryRevision' in instructions
           assert manifest['chatgptInstructions'] == 'CHATGPT_START.txt'
           assert manifest['filmAuthoringGuide'] == 'FILM_AUTHORING_GUIDE_CURRENT.md'
+
+          forbidden_paths = [
+              root / 'full-visual-sheets' / 'actor.pdf',
+              root / 'full-visual-sheets' / 'effect.pdf',
+              root / 'full-visual-sheets' / 'layer.pdf',
+              root / 'full-visual-sheets' / 'ui.pdf',
+              root / 'full-visual-index',
+          ]
+          assert not any(path.exists() for path in forbidden_paths)
 
           with zipfile.ZipFile(pack) as archive:
               names = set(archive.namelist())
@@ -177,6 +209,17 @@ jobs:
               }
               missing = sorted(required - names)
               assert not missing, f'Missing Director pack files: {missing}'
+              forbidden = {
+                  'full-visual-sheets/actor.pdf',
+                  'full-visual-sheets/effect.pdf',
+                  'full-visual-sheets/layer.pdf',
+                  'full-visual-sheets/ui.pdf',
+                  'full-visual-index/actor.json',
+                  'full-visual-index/effect.json',
+                  'full-visual-index/layer.json',
+                  'full-visual-index/ui.json',
+              }
+              assert not (forbidden & names)
 
               zip_current = json.loads(archive.read('OPEN_CURRENT.json').decode('utf-8-sig'))
               zip_director = json.loads(archive.read('director-view/DIRECTOR_VIEW.json').decode('utf-8-sig'))
@@ -186,13 +229,14 @@ jobs:
               assert zip_current['atomicIdentity'] == expected_identity
               assert zip_director['atomicIdentity'] == expected_identity
               assert zip_manifest['atomicIdentity'] == expected_identity
-              assert zip_audit['publishTransactionId'] == expected_identity['publishTransactionId']
-              assert zip_audit['catalogRevision'] == expected_identity['catalogRevision']
+              assert zip_audit['atomicIdentity'] == expected_identity
+              assert zip_queue['atomicIdentity'] == expected_identity
               assert zip_queue['visualPreviewGenerationCount'] + zip_queue['visualEligibilityReviewCount'] == zip_queue['visualPreviewCount']
               assert zip_queue['eligibilityReviewCount'] == len(zip_queue['eligibilityReviews'])
               assert zip_current['visualAtlas']['pdfUrl'] == current['visualAtlas']['pdfUrl']
 
           print('DIRECTOR_CURRENT_VALIDATED')
+          print('AUTHORING_RULE_REGISTRY_REVISION', rule_revision)
           print('SOURCE_CATALOG_RECORDS', director['sourceCatalogRecordCount'])
           print('DIRECTOR_COUNTS', director['counts'])
           print('DIRECTOR_QUALITY', director['quality'])
