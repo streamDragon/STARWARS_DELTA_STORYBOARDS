@@ -314,10 +314,8 @@ def actor_alias_map(actors_by_id):
     return expanded
 
 
-def patched_enrich_animation(animation, by_id, actors_by_id, by_reference, by_asset):
-    expanded = actor_alias_map(actors_by_id)
-    result = ORIGINAL_ENRICH_ANIMATION(animation, by_id, expanded, by_reference, by_asset)
-
+def apply_animation_compatibility_policy(result, source_compatible, expanded):
+    source_compatible = unique(str(value) for value in source_compatible if value)
     compatible = [str(value) for value in result.get("compatibleActorAssetIds", []) if value]
     recommendable = [
         asset_id
@@ -343,12 +341,74 @@ def patched_enrich_animation(animation, by_id, actors_by_id, by_reference, by_as
     result["actorAppearanceFallback"] = fallback
 
     blocking = list(result.get("blockingCompletionNeeded", []))
-    if compatible and not recommendable:
-        blocking.append("recommendableCompatibleActorAssetIds")
+    quality = list(result.get("qualityCompletionNeeded", []))
+    explicit_actor_binding = bool(source_compatible)
+    result["compatibilityRequirement"] = "EXPLICIT_ACTOR_BOUND" if explicit_actor_binding else "UNSPECIFIED_OR_GENERIC"
+
+    if not explicit_actor_binding:
+        blocking = [
+            item
+            for item in blocking
+            if item not in ("compatibleActorAssetIds", "unknownCompatibleActorAssetIds", "recommendableCompatibleActorAssetIds")
+        ]
+        if "compatibleActorAssetIds" not in quality:
+            quality.append("compatibleActorAssetIds")
+        result["compatibilityEvidenceStatus"] = "UNSPECIFIED_NON_BLOCKING"
+    else:
+        result["compatibilityEvidenceStatus"] = "EXPLICIT"
+        if compatible and not recommendable:
+            blocking.append("recommendableCompatibleActorAssetIds")
+
     result["blockingCompletionNeeded"] = unique(blocking)
-    result["metadataCompletionNeeded"] = unique(blocking + list(result.get("qualityCompletionNeeded", [])))
-    result["selectionStatus"] = "BLOCKED_COMPATIBILITY" if blocking else "CATALOG_COMPATIBLE_RECOMMENDABLE"
+    result["qualityCompletionNeeded"] = unique(quality)
+    result["metadataCompletionNeeded"] = unique(blocking + quality)
+    if blocking:
+        result["selectionStatus"] = "BLOCKED_COMPATIBILITY"
+    elif explicit_actor_binding:
+        result["selectionStatus"] = "CATALOG_COMPATIBLE_RECOMMENDABLE"
+    else:
+        result["selectionStatus"] = "CATALOG_COMPATIBILITY_UNSPECIFIED_USABLE"
     return result
+
+
+def validate_animation_blocker_regressions():
+    generic = {
+        "compatibleActorAssetIds": [],
+        "blockingCompletionNeeded": ["compatibleActorAssetIds"],
+        "qualityCompletionNeeded": ["durationSeconds"],
+    }
+    generic = apply_animation_compatibility_policy(generic, [], {})
+    if generic["blockingCompletionNeeded"]:
+        raise SystemExit("Generic animation regression: unspecified Actor compatibility must not block authoring")
+    if generic["selectionStatus"] != "CATALOG_COMPATIBILITY_UNSPECIFIED_USABLE":
+        raise SystemExit("Generic animation regression: unexpected selection status")
+
+    actor = {"recommendationStatus": "RECOMMENDABLE", "visualEvidence": {"status": "PIXELS_VERIFIED"}}
+    explicit_valid = {
+        "compatibleActorAssetIds": ["actor:1"],
+        "blockingCompletionNeeded": [],
+        "qualityCompletionNeeded": [],
+    }
+    explicit_valid = apply_animation_compatibility_policy(explicit_valid, ["actor:1"], {"actor:1": actor})
+    if explicit_valid["blockingCompletionNeeded"]:
+        raise SystemExit("Explicit compatible animation regression: valid recommendable Actor must not block")
+
+    explicit_invalid = {
+        "compatibleActorAssetIds": [],
+        "unknownCompatibleActorAssetIds": ["actor:missing"],
+        "blockingCompletionNeeded": ["compatibleActorAssetIds", "unknownCompatibleActorAssetIds"],
+        "qualityCompletionNeeded": [],
+    }
+    explicit_invalid = apply_animation_compatibility_policy(explicit_invalid, ["actor:missing"], {})
+    if not explicit_invalid["blockingCompletionNeeded"]:
+        raise SystemExit("Explicit incompatible animation regression: missing Actor binding must remain blocking")
+
+
+def patched_enrich_animation(animation, by_id, actors_by_id, by_reference, by_asset):
+    expanded = actor_alias_map(actors_by_id)
+    source_compatible = [str(value) for value in animation.get("compatibleActorAssetIds", []) if value]
+    result = ORIGINAL_ENRICH_ANIMATION(animation, by_id, expanded, by_reference, by_asset)
+    return apply_animation_compatibility_policy(result, source_compatible, expanded)
 
 
 def postprocess_output():
@@ -470,6 +530,7 @@ def postprocess_output():
 
 def main():
     validate_eligibility_regressions()
+    validate_animation_blocker_regressions()
     BASE.eligibility_signals = refined_eligibility_signals
     BASE.enrich_visual_entry = patched_enrich_visual_entry
     BASE.enrich_animation = patched_enrich_animation
