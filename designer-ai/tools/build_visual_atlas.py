@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import json
 import pathlib
+import shutil
 
 from pypdf import PdfReader, PdfWriter
 
@@ -54,6 +55,7 @@ def main():
     writer = PdfWriter()
     offsets = {}
     ranges = []
+    source_pdf_paths = []
     atlas_page_count = 0
 
     for sheet in sheets:
@@ -64,6 +66,7 @@ def main():
         source_path = ROOT / source_file
         if not source_path.is_file():
             raise SystemExit(f"Visual sheet PDF is missing: {source_file}")
+        source_pdf_paths.append(source_path)
 
         reader = PdfReader(str(source_path))
         page_count = len(reader.pages)
@@ -84,14 +87,15 @@ def main():
         sheet["atlasPdfUrl"] = ATLAS_URL
         sheet["atlasStartPage"] = start_page
         sheet["atlasEndPage"] = end_page
+        sheet.pop("file", None)
+        sheet.pop("url", None)
         ranges.append(
             {
                 "category": category,
-                "sourcePdfFile": source_file,
-                "sourcePdfUrl": sheet.get("url"),
                 "sourcePageCount": page_count,
                 "atlasStartPage": start_page,
                 "atlasEndPage": end_page,
+                "pageImageRoot": sheet.get("pageImageRoot"),
             }
         )
 
@@ -108,6 +112,10 @@ def main():
     for entry in full_index.get("assets", []):
         if augment_visual_entry(entry, offsets):
             augmented += 1
+        # The unified Atlas is the only published PDF source. Category PDF links were
+        # build intermediates and must not survive as competing visual sources.
+        entry.pop("sheetFile", None)
+        entry.pop("sheetUrl", None)
 
     representative_count = int(full_index.get("representativeCount") or 0)
     if representative_count and augmented != representative_count:
@@ -117,7 +125,7 @@ def main():
 
     atlas_summary = {
         "schema": "STARWARS_DELTA_CHATGPT_VISUAL_ATLAS",
-        "schemaVersion": 2,
+        "schemaVersion": 3,
         "status": "CURRENT_VERIFIED_VISUAL_ATLAS",
         "publishTransactionId": transaction_id,
         "pdfFile": ATLAS_RELATIVE,
@@ -145,6 +153,10 @@ def main():
             "assetLookupFile": full_index.get("assetLookupFile"),
             "assetLookupUrl": full_index.get("assetLookupUrl"),
         },
+        "transportFallback": (
+            "Per-page JPEG images remain available only as transport/debug fallback. "
+            "Per-category PDFs and per-category visual-index shards are build intermediates and are not published."
+        ),
         "usage": (
             "Use Director metadata to shortlist assets, resolve the asset in FULL_VISUAL_INDEX.json, "
             "then inspect the real pixels in this PDF at atlasPage and atlasSlot before any visual claim, "
@@ -166,36 +178,24 @@ def main():
         },
     }
 
-    full_index["schemaVersion"] = max(int(full_index.get("schemaVersion", 0)), 4)
+    full_index["schemaVersion"] = max(int(full_index.get("schemaVersion", 0)), 5)
     full_index["visualAtlas"] = atlas_summary
+    # These shards are useful while composing the Atlas but duplicate FULL_VISUAL_INDEX
+    # in the final CURRENT projection. Keep one lookup surface instead of four stale-able ones.
+    full_index.pop("categoryIndexes", None)
     write_json(full_index_path, full_index)
 
-    for category_index in full_index.get("categoryIndexes", []):
-        relative = category_index.get("file")
-        if not relative:
-            continue
-        category_path = ROOT / relative
-        if not category_path.is_file():
-            raise SystemExit(f"Missing visual category index: {relative}")
-        payload = read_json(category_path)
-        category_augmented = 0
-        for entry in payload.get("assets", []):
-            if augment_visual_entry(entry, offsets):
-                category_augmented += 1
-        payload["schemaVersion"] = max(int(payload.get("schemaVersion", 0)), 3)
-        payload["visualAtlas"] = {
-            "pdfFile": ATLAS_RELATIVE,
-            "pdfUrl": ATLAS_URL,
-            "manifestUrl": ATLAS_MANIFEST_URL,
-            "category": payload.get("category"),
-            "categoryRange": next(
-                (item for item in ranges if item["category"] == payload.get("category")), None
-            ),
-        }
-        write_json(category_path, payload)
-        category_index["atlasMappedCount"] = category_augmented
-
     write_json(ROOT / ATLAS_MANIFEST_RELATIVE, atlas_summary)
+
+    # Strip build-only PDF/index artifacts only after the unified PDF and index have
+    # both been written successfully. JPEG page images intentionally remain as the
+    # transport/debug fallback used by pageImageUrl.
+    for source_path in source_pdf_paths:
+        if source_path.exists() and source_path.resolve() != atlas_path.resolve():
+            source_path.unlink()
+    category_index_root = ROOT / "full-visual-index"
+    if category_index_root.exists():
+        shutil.rmtree(category_index_root)
 
     open_current["schemaVersion"] = max(int(open_current.get("schemaVersion", 0)), 10)
     open_current["visualAtlas"] = atlas_summary
@@ -215,12 +215,23 @@ def main():
         "No download is normally required. If ChatGPT asks for visual access, the only normal user download is the single CURRENT "
         "Visual Atlas PDF. The Director ZIP is advanced metadata fallback, not the normal visual-access download."
     )
+    usage["publishedVisualArtifacts"] = (
+        "One unified Visual Atlas PDF plus FULL_VISUAL_INDEX/ASSET_VISUAL_LOOKUP and per-page JPEG transport fallbacks. "
+        "Category PDFs and category index shards are intentionally stripped before publish."
+    )
     write_json(open_current_path, open_current)
+
+    for source_path in source_pdf_paths:
+        if source_path.exists():
+            raise SystemExit(f"Build-only category PDF leaked into publish stage: {source_path}")
+    if category_index_root.exists():
+        raise SystemExit("Build-only category visual indexes leaked into publish stage")
 
     print("VISUAL_ATLAS_FILE", ATLAS_RELATIVE)
     print("VISUAL_ATLAS_PAGES", atlas_page_count)
     print("VISUAL_ATLAS_REPRESENTATIVES", augmented)
     print("VISUAL_ATLAS_BYTES", atlas_bytes)
+    print("VISUAL_BUILD_ONLY_ARTIFACTS_STRIPPED", len(source_pdf_paths))
 
 
 if __name__ == "__main__":
