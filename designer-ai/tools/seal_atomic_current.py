@@ -73,15 +73,30 @@ def seal_chatgpt_start(path, revision):
             raise SystemExit("CHATGPT_START atomic identity list marker is missing")
         text = text.replace(needle, replacement, 1)
 
-    guard = (
+    compatibility_guard = (
+        "For Studio NEW/REVISE/REPAIR compatibility, compare OPEN_CURRENT.requiredCurrent only: "
+        "catalogRevision, contractRevision, schemaHash, snapshotContentHash and authoringRuleRegistryRevision. "
+        "publishTransactionId is publication provenance and must not invalidate an otherwise identical authoring CURRENT."
+    )
+    if compatibility_guard not in text:
+        needle = "Never hardcode an old publish transaction into permanent guidance."
+        if needle not in text:
+            raise SystemExit("CHATGPT_START compatibility guard marker is missing")
+        text = text.replace(needle, compatibility_guard + "\n\n" + needle, 1)
+
+    registry_guard = (
+        "The authoring Rule Registry revision must match OPEN_CURRENT.requiredCurrent.authoringRuleRegistryRevision. "
+        "If it does not match, stop instead of mixing rules from another authoring CURRENT."
+    )
+    old_guard = (
         "The authoring Rule Registry revision is part of the atomic CURRENT identity. "
         "If it does not match OPEN_CURRENT.atomicIdentity.authoringRuleRegistryRevision, stop instead of mixing rules from another publish."
     )
-    if guard not in text:
-        needle = "Never hardcode an old publish transaction into permanent guidance."
-        if needle not in text:
-            raise SystemExit("CHATGPT_START atomic guard marker is missing")
-        text = text.replace(needle, guard + "\n\n" + needle, 1)
+    if old_guard in text:
+        text = text.replace(old_guard, registry_guard, 1)
+    elif registry_guard not in text:
+        needle = compatibility_guard
+        text = text.replace(needle, registry_guard + "\n\n" + needle, 1)
 
     path.write_text(text, encoding="utf-8")
 
@@ -118,34 +133,62 @@ def main():
     if director.get("schemaHash") != current.get("schemaHash"):
         raise SystemExit("Director schemaHash does not match CURRENT")
 
-    expected_identity = {
-        "publishTransactionId": current.get("publishTransactionId"),
+    required_current = {
         "catalogRevision": director.get("catalogRevision"),
-        "snapshotContentHash": director.get("snapshotContentHash"),
         "contractRevision": current.get("contractRevision"),
         "schemaHash": current.get("schemaHash"),
+        "snapshotContentHash": director.get("snapshotContentHash"),
         "authoringRuleRegistryRevision": registry_revision,
     }
-    if not expected_identity["publishTransactionId"] or expected_identity["catalogRevision"] is None or not expected_identity["snapshotContentHash"]:
-        raise SystemExit("Atomic CURRENT identity is incomplete")
+    provenance = {
+        "publishTransactionId": current.get("publishTransactionId"),
+        "publishedUtc": current.get("publishedUtc"),
+        "publisherVersion": current.get("publisherVersion"),
+    }
+    bundle = current.get("bundle") or {}
+    if bundle.get("sha256"):
+        provenance["bundleIdentity"] = bundle.get("sha256")
+
+    # Publication integrity remains strict: every generated artifact in one publish must
+    # come from the same transaction. This is intentionally separate from Studio authoring
+    # compatibility, which is defined only by required_current above.
+    expected_identity = {
+        "publishTransactionId": provenance["publishTransactionId"],
+        **required_current,
+    }
+    if not provenance["publishTransactionId"] or required_current["catalogRevision"] is None or not required_current["snapshotContentHash"]:
+        raise SystemExit("CURRENT identity is incomplete")
+    if any(value in (None, "") for value in required_current.values()):
+        raise SystemExit("requiredCurrent compatibility identity is incomplete")
 
     changed = []
 
     director["authoringRuleRegistryRevision"] = registry_revision
+    director["requiredCurrent"] = required_current
+    director["provenance"] = provenance
     director["atomicIdentity"] = expected_identity
     write_json(director_path, director)
     changed.append(director_path)
 
     open_manifest["authoringRuleRegistryRevision"] = registry_revision
+    open_manifest["requiredCurrent"] = required_current
+    open_manifest["provenance"] = provenance
     open_manifest["atomicIdentity"] = expected_identity
-    open_manifest.setdefault("usage", {})["atomicIdentity"] = (
-        "Treat publishTransactionId, catalogRevision, snapshotContentHash, contractRevision, schemaHash and "
-        "authoringRuleRegistryRevision as one atomic CURRENT identity. Never mix projections or rules across identities."
+    usage = open_manifest.setdefault("usage", {})
+    usage["currentCompatibility"] = (
+        "Studio NEW/REVISE/REPAIR envelopes match only requiredCurrent: catalogRevision, contractRevision, schemaHash, "
+        "snapshotContentHash and authoringRuleRegistryRevision. publishTransactionId is provenance only."
+    )
+    usage["atomicIdentity"] = (
+        "atomicIdentity is strict publication-integrity metadata for one generated CURRENT transaction. "
+        "Do not use publishTransactionId as the normal Studio authoring-compatibility gate; use requiredCurrent."
     )
     write_json(open_path, open_manifest)
     changed.append(open_path)
 
     pack_manifest["authoringRuleRegistryRevision"] = registry_revision
+    pack_manifest["requiredCurrent"] = required_current
+    pack_manifest["provenance"] = provenance
     pack_manifest["atomicIdentity"] = expected_identity
     write_json(manifest_path, pack_manifest)
     changed.append(manifest_path)
@@ -155,6 +198,8 @@ def main():
             continue
         payload = read_json(path)
         payload["authoringRuleRegistryRevision"] = registry_revision
+        payload["requiredCurrent"] = required_current
+        payload["provenance"] = provenance
         payload["atomicIdentity"] = expected_identity
         compact = path.name == "asset-lookup.json"
         write_json(path, payload, compact=compact)
@@ -171,7 +216,12 @@ def main():
             read_first = read_first.replace(tx_line, tx_line + revision_line, 1)
         else:
             read_first = revision_line + read_first
-        read_first_path.write_text(read_first, encoding="utf-8")
+    compatibility_line = (
+        "Authoring compatibility: compare requiredCurrent only; publishTransactionId is provenance.\n"
+    )
+    if compatibility_line not in read_first:
+        read_first += "\n" + compatibility_line
+    read_first_path.write_text(read_first, encoding="utf-8")
     changed.append(read_first_path)
 
     # The unified Visual Atlas is the only published PDF. Category PDFs and the
@@ -206,9 +256,15 @@ def main():
         for label, payload in (("OPEN_CURRENT", zip_open), ("DIRECTOR_VIEW", zip_director), ("DIRECTOR_PACK_MANIFEST", zip_manifest)):
             if payload.get("atomicIdentity") != expected_identity:
                 raise SystemExit(f"{label} in Director pack has stale atomic identity")
+            if payload.get("requiredCurrent") != required_current:
+                raise SystemExit(f"{label} in Director pack has stale requiredCurrent")
+            if payload.get("provenance", {}).get("publishTransactionId") != provenance["publishTransactionId"]:
+                raise SystemExit(f"{label} in Director pack has stale publication provenance")
 
     print("ATOMIC_CURRENT_SEALED")
     print("AUTHORING_RULE_REGISTRY_REVISION", registry_revision)
+    print("REQUIRED_CURRENT", json.dumps(required_current, sort_keys=True))
+    print("PUBLICATION_PROVENANCE", json.dumps(provenance, sort_keys=True))
     print("ATOMIC_IDENTITY", json.dumps(expected_identity, sort_keys=True))
     print("DIRECTOR_PACK_BYTES", pack_path.stat().st_size)
 
