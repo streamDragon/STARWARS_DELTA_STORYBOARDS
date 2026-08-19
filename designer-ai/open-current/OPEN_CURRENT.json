@@ -26,7 +26,8 @@
     "fallback": "Use STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip only when direct Pages access genuinely fails.",
     "recommendation": "Use only Director entries with recommendationStatus=RECOMMENDABLE by default. PIXEL_COMPLETION_REQUIRED and DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW are engineering states, not ordinary creative choices.",
     "completionQueue": "The Director completion queue is for the Unity engineering pipeline. Do not ask Debora/the designer to solve or upload its items.",
-    "atomicIdentity": "Treat publishTransactionId, catalogRevision, snapshotContentHash, contractRevision, schemaHash and authoringRuleRegistryRevision as one atomic CURRENT identity. Never mix projections or rules across identities."
+    "currentCompatibility": "Studio NEW/REVISE/REPAIR envelopes match only requiredCurrent: catalogRevision, contractRevision, schemaHash, snapshotContentHash and authoringRuleRegistryRevision. publishTransactionId is provenance only.",
+    "atomicIdentity": "atomicIdentity is strict publication-integrity metadata for one generated CURRENT transaction. Do not use publishTransactionId as the normal Studio authoring-compatibility gate; use requiredCurrent."
   },
   "visualAtlas": {
     "schema": "STARWARS_DELTA_CHATGPT_VISUAL_ATLAS",
@@ -209,9 +210,9 @@
   "atomicIdentity": {
     "publishTransactionId": "20260819-225635487-e483d75d",
     "catalogRevision": 7625541441843202476,
-    "snapshotContentHash": "1E0F47BB76E622802BD9BFD4F1E08E0458D79389EA3057C7A3958DB5F4C2E8BA",
     "contractRevision": "424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF",
     "schemaHash": "7D3743BC09A41110901B3A2B4D2206725A7FBD19D14D275223C66ACAA9FE0CAB",
+    "snapshotContentHash": "1E0F47BB76E622802BD9BFD4F1E08E0458D79389EA3057C7A3958DB5F4C2E8BA",
     "authoringRuleRegistryRevision": "8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0"
   },
   "eligibilityAudit": {
@@ -220,5 +221,18 @@
     "flaggedCompletionVisualCount": 16,
     "policy": "Do not recommend flagged entries by default. Correct or confirm them at Unity source and republish."
   },
-  "authoringRuleRegistryRevision": "8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0"
+  "authoringRuleRegistryRevision": "8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0",
+  "requiredCurrent": {
+    "catalogRevision": 7625541441843202476,
+    "contractRevision": "424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF",
+    "schemaHash": "7D3743BC09A41110901B3A2B4D2206725A7FBD19D14D275223C66ACAA9FE0CAB",
+    "snapshotContentHash": "1E0F47BB76E622802BD9BFD4F1E08E0458D79389EA3057C7A3958DB5F4C2E8BA",
+    "authoringRuleRegistryRevision": "8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0"
+  },
+  "provenance": {
+    "publishTransactionId": "20260819-225635487-e483d75d",
+    "publishedUtc": "2026-08-19T23:04:50.8720565Z",
+    "publisherVersion": "2.10.0",
+    "bundleIdentity": "9785DA8AC45DEF57520082E72FFB5BE2D4111563DA61B1FA31984C280528A5CA"
+  }
 }
