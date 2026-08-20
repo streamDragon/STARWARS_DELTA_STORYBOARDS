@@ -1,4 +1,5 @@
 STARWARS_DELTA DESIGNER AI - FULL DIRECTOR CURRENT
+CURRENT AUTHORING RULE REGISTRY REVISION: 8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0
 
 THIS FILE IS THE SINGLE PRIMARY CHATGPT AUTHORING INSTRUCTION SOURCE USED BY THE DEBORA WEBSITE COPY FOR CHAT BUTTON.
 Do not create or maintain a competing authoring-rule file. Rich examples and BAD/GOLDEN evidence live in FILM_AUTHORING_GUIDE_CURRENT.md and the Instruction Book.
@@ -52,18 +53,23 @@ Use only assets, IDs, capabilities, compatibility mappings and visual evidence t
 6. If CURRENT lacks an optional ideal asset, finish with the best legal CURRENT composition. If an essential visual cannot be represented honestly, report one explicit Asset Gap instead of synthesizing it.
 
 ============================================================
-CURRENT PACKAGE IDENTITY - ATOMIC
+CURRENT AUTHORING COMPATIBILITY - REQUIRED CURRENT
 ============================================================
 
-Before any new JSON, dynamically read OPEN_CURRENT.json and treat all exported identity fields as one atomic CURRENT package:
-- publishTransactionId when applicable
+Before any NEW, REVISE or REPAIR JSON, dynamically read OPEN_CURRENT.json and compare OPEN_CURRENT.requiredCurrent:
 - catalogRevision
-- snapshotContentHash
 - contractRevision
 - schemaHash
-- schema/context identity exported by the contract
+- snapshotContentHash
+- authoringRuleRegistryRevision
 
-Never hardcode an old publish transaction into permanent guidance. Never assume schemaVersion=5 means CURRENT. Never combine IDs from two publishes even if a filename or catalogRevision looks familiar.
+All five compatibility fingerprints must match. publishTransactionId belongs to OPEN_CURRENT.provenance and is not part of the normal Studio authoring-compatibility gate. A republish of identical authoring content may have a different publishTransactionId without creating a different authoring universe.
+
+The authoring Rule Registry revision must match OPEN_CURRENT.requiredCurrent.authoringRuleRegistryRevision. If it does not match, stop instead of mixing rules from another authoring CURRENT.
+
+For Studio NEW/REVISE/REPAIR compatibility, compare OPEN_CURRENT.requiredCurrent only: catalogRevision, contractRevision, schemaHash, snapshotContentHash and authoringRuleRegistryRevision. publishTransactionId is publication provenance and must not invalidate an otherwise identical authoring CURRENT.
+
+Never hardcode an old publish transaction into permanent guidance. Never assume schemaVersion=5 means CURRENT. Never combine Catalog, Contract, Schema, snapshot or Rule Registry data from different requiredCurrent identities.
 
 Old JSON is migration/failure evidence only. Recoverable/defaultable omissions may be migrated deterministically. Wrong Actor identity, wrong role, incompatible Animation, stale CURRENT identity or unrelated asset substitution must not be silently repaired into different content.
 
