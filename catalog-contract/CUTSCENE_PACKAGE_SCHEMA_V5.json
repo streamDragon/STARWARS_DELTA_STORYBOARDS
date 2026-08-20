@@ -1,0 +1,1989 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "STARWARS_DELTA_CUTSCENE_PACKAGE"
+    },
+    "schemaVersion": {
+      "type": "integer",
+      "const": 5
+    },
+    "contextVersion": {
+      "type": "integer",
+      "const": 3
+    },
+    "contractRevision": {
+      "type": "string"
+    },
+    "schemaHash": {
+      "type": "string"
+    },
+    "contextId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "catalogRevision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "projectId": {
+      "type": "string",
+      "minLength": 0
+    },
+    "planId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "baseRevision": {
+      "type": "integer"
+    },
+    "displayName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "duration": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "creativeIntent": {
+      "$ref": "#/$defs/MY_CutsceneCreativeIntentSpec"
+    },
+    "selectedKits": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/MY_CutsceneKitUseSpec"
+      }
+    },
+    "cast": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/MY_CutsceneCastSpec"
+      }
+    },
+    "sequences": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/MY_CutsceneSequenceSpecV5"
+      }
+    },
+    "missingAssets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/MY_CutsceneMissingAssetRequest"
+      }
+    },
+    "handoff": {
+      "$ref": "#/$defs/MY_CutsceneHandoffSpecV5"
+    },
+    "extensions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/MY_CutsceneExtensionSpec"
+      }
+    }
+  },
+  "required": [
+    "schema",
+    "schemaVersion",
+    "contextVersion",
+    "contextId",
+    "catalogRevision",
+    "planId",
+    "displayName",
+    "duration",
+    "creativeIntent",
+    "selectedKits",
+    "cast",
+    "sequences",
+    "missingAssets",
+    "handoff",
+    "extensions"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "STARWARS_DELTA_CUTSCENE_PACKAGE_V5",
+  "title": "STARWARS_DELTA Cutscene Package v5",
+  "description": "Machine-readable shape generated from the current Unity schema-v5 DTO. Semantic rules are in the companion contract files.",
+  "x-enumContractRevision": "424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF",
+  "x-authoringRuleRegistryRevision": "8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0",
+  "x-authoringRuleRegistry": {
+    "revision": "8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0",
+    "rules": [
+      {
+        "ruleId": "ACTOR_IDENTITY_COLLISION",
+        "category": "Identity",
+        "severity": "Blocker",
+        "diagnosticCode": "ACTOR_IDENTITY_COLLISION",
+        "description": "One serialized identity cannot ambiguously represent different Actors.",
+        "defaultPolicy": "Do not infer which Actor was intended.",
+        "normalizationPolicy": "Check all identity evidence before materialization.",
+        "autoRepairPolicy": "No automatic repair.",
+        "validationPolicy": "Block ambiguous identity collisions.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Choose one canonical Actor identity explicitly.",
+        "studioMessage": "Actor identity collides with another canonical Actor.",
+        "regressionTestId": "ACTOR_IDENTITY_COLLISION"
+      },
+      {
+        "ruleId": "ACTOR_PRIMARY_IDENTITY",
+        "category": "Identity",
+        "severity": "Blocker",
+        "diagnosticCode": "ACTOR_PRIMARY_IDENTITY",
+        "description": "Actor visuals must resolve to the canonical Actor-primary identity.",
+        "defaultPolicy": "Animation frames and portraits are not identity defaults.",
+        "normalizationPolicy": "Resolve against current Catalog capability and identity evidence.",
+        "autoRepairPolicy": "No automatic identity substitution.",
+        "validationPolicy": "Block unproven or conflicting Actor identity.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Use the Actor-primary canonical identity from CURRENT.",
+        "studioMessage": "Actor identity is not proven by this serialized value.",
+        "regressionTestId": "ACTOR_PRIMARY_IDENTITY"
+      },
+      {
+        "ruleId": "ANIMATION_COMPATIBILITY",
+        "category": "Compatibility",
+        "severity": "Blocker",
+        "diagnosticCode": "ANIMATION_COMPATIBILITY",
+        "description": "Explicit animation IDs must belong to the selected Actor compatibility set.",
+        "defaultPolicy": "Only an underspecified semantic request may use a safe static fallback.",
+        "normalizationPolicy": "Resolve the exact serialized animation ID against CURRENT.",
+        "autoRepairPolicy": "Never replace an explicit illegal animation with a guessed animation.",
+        "validationPolicy": "Block explicit incompatible animation IDs.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Use an animation ID listed as compatible for the Actor.",
+        "studioMessage": "Animation is not compatible with the selected Actor.",
+        "regressionTestId": "ANIMATION_COMPATIBILITY"
+      },
+      {
+        "ruleId": "DIALOGUE_ACTOR_PRESENTATION_CONFLICT",
+        "category": "Dialogue",
+        "severity": "Blocker",
+        "diagnosticCode": "DIALOGUE_ACTOR_PRESENTATION_CONFLICT",
+        "description": "Dialogue-only portraits cannot overlap an active world presentation without legal isolation.",
+        "defaultPolicy": "Do not infer Both from simultaneous references.",
+        "normalizationPolicy": "Validate presentation and temporal isolation before materialization.",
+        "autoRepairPolicy": "No silent presentation fallback.",
+        "validationPolicy": "Block illegal world/portrait overlap.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Use dialogue-only presentation for FACE_TO_FACE_PORTRAITS.",
+        "studioMessage": "Dialogue actor presentation conflicts with world staging.",
+        "regressionTestId": "DIALOGUE_ACTOR_PRESENTATION_CONFLICT"
+      },
+      {
+        "ruleId": "DIALOGUE_VISUAL_SOURCE_CONFLICT",
+        "category": "Dialogue",
+        "severity": "Blocker",
+        "diagnosticCode": "DIALOGUE_VISUAL_SOURCE_CONFLICT",
+        "description": "Each dialogue participant has one primary visual source per presentation context.",
+        "defaultPolicy": "Portrait and body are not silently merged.",
+        "normalizationPolicy": "Validate visual source relationships after resolution.",
+        "autoRepairPolicy": "No automatic source substitution.",
+        "validationPolicy": "Block portrait/body source conflicts.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Choose one visual source for each participant context.",
+        "studioMessage": "Dialogue participant has conflicting visual sources.",
+        "regressionTestId": "DIALOGUE_VISUAL_SOURCE_CONFLICT"
+      },
+      {
+        "ruleId": "DIALOGUE_VISUAL_SOURCE_UNSUPPORTED",
+        "category": "Dialogue",
+        "severity": "Blocker",
+        "diagnosticCode": "DIALOGUE_VISUAL_SOURCE_UNSUPPORTED",
+        "description": "SUBTITLE_ONLY cannot acquire an unsupported portrait through fallback.",
+        "defaultPolicy": "Unsupported optional presentation is not repaired into another mode.",
+        "normalizationPolicy": "Validate preset capability against CURRENT.",
+        "autoRepairPolicy": "No silent portrait fallback.",
+        "validationPolicy": "Block explicit unsupported portrait requests.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Use an explicit portrait-capable preset or keep subtitles only.",
+        "studioMessage": "Dialogue visual source is unsupported by the preset.",
+        "regressionTestId": "DIALOGUE_VISUAL_SOURCE_UNSUPPORTED"
+      },
+      {
+        "ruleId": "GENERATED_ROOT_EXCLUSION",
+        "category": "Synchronization",
+        "severity": "Blocker",
+        "diagnosticCode": "GENERATED_ROOT_EXCLUSION",
+        "description": "Generated Cutscene output must not become authoritative Catalog input.",
+        "defaultPolicy": "Generated-root paths are excluded from Catalog source scans.",
+        "normalizationPolicy": "Validate the scan candidate boundary.",
+        "autoRepairPolicy": "No repair after contamination; fail the consistency gate.",
+        "validationPolicy": "Block generated-root contamination.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Generated Cutscene output is runtime output, not authoring source.",
+        "studioMessage": "Authoritative Catalog scan includes generated Cutscene output.",
+        "regressionTestId": "GENERATED_ROOT_EXCLUSION"
+      },
+      {
+        "ruleId": "LIFETIME_OWNERSHIP",
+        "category": "Ownership",
+        "severity": "Blocker",
+        "diagnosticCode": "LIFETIME_OWNERSHIP",
+        "description": "Generated entities belong to an explicit shot, sequence, location, or persistent owner.",
+        "defaultPolicy": "Default lifetime is the owning shot or sequence.",
+        "normalizationPolicy": "Apply ownership before materialization and cleanup planning.",
+        "autoRepairPolicy": "No automatic persistence beyond the owner.",
+        "validationPolicy": "Block invalid location/lifetime leakage.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Declare persistence explicitly when an entity must outlive its owner.",
+        "studioMessage": "Generated entity ownership is invalid or leaks across owners.",
+        "regressionTestId": "LIFETIME_OWNERSHIP"
+      },
+      {
+        "ruleId": "MECHANICAL_DUPLICATE_ID",
+        "category": "Identifiers",
+        "severity": "AutoRepair",
+        "diagnosticCode": "MECHANICAL_DUPLICATE_ID",
+        "description": "Mechanical IDs use deterministic owner namespacing.",
+        "defaultPolicy": "Generated IDs are deterministic from sequence/shot/entity context.",
+        "normalizationPolicy": "Normalize IDs before semantic validation.",
+        "autoRepairPolicy": "Repair only when all references are unambiguous.",
+        "validationPolicy": "Block ambiguous duplicate references.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Let Unity generate mechanical IDs; do not invent identity IDs.",
+        "studioMessage": "Mechanical duplicate ID was deterministically repaired.",
+        "regressionTestId": "MECHANICAL_DUPLICATE_ID"
+      },
+      {
+        "ruleId": "PRESENTATION_MODE_AMBIGUOUS",
+        "category": "Dialogue",
+        "severity": "Blocker",
+        "diagnosticCode": "PRESENTATION_MODE_AMBIGUOUS",
+        "description": "Both requires explicit intent and legal temporal isolation.",
+        "defaultPolicy": "Legacy fields migrate only when the result is unambiguous.",
+        "normalizationPolicy": "Infer only a single deterministic presentation mode.",
+        "autoRepairPolicy": "Do not infer Both.",
+        "validationPolicy": "Block ambiguous presentation mode.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Specify WorldActor, DialoguePortrait, or explicitly isolated Both.",
+        "studioMessage": "Presentation mode is ambiguous.",
+        "regressionTestId": "PRESENTATION_MODE_AMBIGUOUS"
+      },
+      {
+        "ruleId": "SOURCE_RECORD_LEAKAGE",
+        "category": "Identity",
+        "severity": "Blocker",
+        "diagnosticCode": "SOURCE_RECORD_LEAKAGE",
+        "description": "Authoring fields must contain exact authoring IDs, not source/projection IDs.",
+        "defaultPolicy": "No default is safe for an explicitly serialized identity leak.",
+        "normalizationPolicy": "Inspect the serialized token before deserialization/materialization.",
+        "autoRepairPolicy": "No automatic repair because identity meaning is ambiguous.",
+        "validationPolicy": "Block sourceRecordId, preview, catalog, and internal projection IDs in authoring fields.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Use the exact Catalog authoring ID.",
+        "studioMessage": "Serialized ID is not an authoring ID.",
+        "regressionTestId": "SOURCE_RECORD_LEAKAGE"
+      },
+      {
+        "ruleId": "SYSTEM_SCALE_AND_BACKGROUND_POLICY",
+        "category": "Composition",
+        "severity": "Default",
+        "diagnosticCode": "SYSTEM_SCALE_AND_BACKGROUND_POLICY",
+        "description": "Unity owns baseline scale/proportion and background Cover framing.",
+        "defaultPolicy": "Authored scale defaults to 1.0; system-managed proportions apply where supported.",
+        "normalizationPolicy": "Normalize scale and background policy before visual QA.",
+        "autoRepairPolicy": "Do not repair extreme explicit scale into a creative replacement.",
+        "validationPolicy": "Report extreme authored scale and visual framing separately.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Do not compensate for framing with arbitrary scale.",
+        "studioMessage": "System-managed scale/proportion/background policy applied.",
+        "regressionTestId": "SYSTEM_SCALE_AND_BACKGROUND_POLICY"
+      },
+      {
+        "ruleId": "V3_DEFAULT_OPTIONAL_COLLECTIONS",
+        "category": "Defaults",
+        "severity": "Default",
+        "diagnosticCode": "V3_DEFAULT_OPTIONAL_COLLECTIONS",
+        "description": "Optional authoring collections are deterministic empty collections.",
+        "defaultPolicy": "Missing optional collections default to [] where the Contract permits.",
+        "normalizationPolicy": "Apply before DTO deserialization and before semantic validation.",
+        "autoRepairPolicy": "Add [] and record the correction.",
+        "validationPolicy": "Reject null only where the Contract requires a value.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Emit empty collections for optional fields.",
+        "studioMessage": "Optional fields default to empty collections.",
+        "regressionTestId": "V3_DEFAULT_OPTIONAL_COLLECTIONS"
+      },
+      {
+        "ruleId": "V3_LOCKED_DIALOGUE_ACTOR_ACTIONS",
+        "category": "Dialogue",
+        "severity": "AutoRepair",
+        "diagnosticCode": "V3_LOCKED_DIALOGUE_ACTOR_ACTIONS",
+        "description": "Locked dialogue without actor actions is dialogue-only.",
+        "defaultPolicy": "lockStaging=true with omitted actorActions defaults to [].",
+        "normalizationPolicy": "Apply the empty collection before locked-dialogue validation.",
+        "autoRepairPolicy": "Add [] and record an auto-repair.",
+        "validationPolicy": "Explicit actor movement/action remains invalid.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Do not author world movement inside locked dialogue.",
+        "studioMessage": "Locked dialogue actorActions defaulted to empty.",
+        "regressionTestId": "V3_LOCKED_DIALOGUE_ACTOR_ACTIONS"
+      },
+      {
+        "ruleId": "V3_LOCKED_DIALOGUE_EXPLICIT_MOVEMENT",
+        "category": "Dialogue",
+        "severity": "Blocker",
+        "diagnosticCode": "CUTSCENE_DIALOGUE_CAMERA_MOTION_FORBIDDEN",
+        "description": "Locked dialogue cannot contain explicit world movement/action.",
+        "defaultPolicy": "No default or fallback changes explicit creative movement intent.",
+        "normalizationPolicy": "Validate after defaults and before materialization.",
+        "autoRepairPolicy": "No automatic repair.",
+        "validationPolicy": "Block explicit movement/action in locked dialogue.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Use portrait staging and HOLD/cut camera framing.",
+        "studioMessage": "Locked dialogue contains explicit movement/action.",
+        "regressionTestId": "V3_LOCKED_DIALOGUE_EXPLICIT_MOVEMENT"
+      }
+    ]
+  },
+  "$defs": {
+    "MY_CutsceneCreativeIntentSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "summary": {
+          "type": "string"
+        },
+        "style": {
+          "type": "string"
+        },
+        "mood": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "summary",
+        "style",
+        "mood"
+      ]
+    },
+    "MY_CutsceneKitUseSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kitUseId": {
+          "type": "string"
+        },
+        "kitId": {
+          "type": "string"
+        },
+        "catalogRevision": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "Primary",
+            "Supporting",
+            "AlternateLocation",
+            "Effects",
+            "Audio",
+            "Ui"
+          ]
+        },
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "kitUseId",
+        "kitId",
+        "catalogRevision",
+        "role",
+        "required"
+      ]
+    },
+    "MY_CutsceneCastSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "entityId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "Hero",
+            "SupportingCharacter",
+            "Antagonist",
+            "Prop",
+            "Environment",
+            "Ui"
+          ]
+        },
+        "entityKind": {
+          "type": "string",
+          "enum": [
+            "Unknown",
+            "Person",
+            "Robot",
+            "Creature",
+            "Spaceship",
+            "Vehicle",
+            "Plant",
+            "Rock",
+            "CelestialBody",
+            "Structure",
+            "Machine",
+            "Weapon",
+            "Projectile",
+            "Object"
+          ]
+        },
+        "entitySubKind": {
+          "type": "string"
+        },
+        "kitUseId": {
+          "type": "string"
+        },
+        "visualAssetId": {
+          "type": "string"
+        },
+        "animationAssetIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "anchorId": {
+          "type": "string"
+        },
+        "spawnWorldActor": {
+          "type": "boolean"
+        },
+        "presentationMode": {
+          "type": "string",
+          "enum": [
+            "WorldActor",
+            "DialoguePortrait",
+            "Both"
+          ]
+        },
+        "useGameplayObject": {
+          "type": "boolean"
+        },
+        "temporaryCinematicClone": {
+          "type": "boolean"
+        },
+        "dialogueProfileAssetId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "entityId",
+        "displayName",
+        "role",
+        "entityKind",
+        "visualAssetId",
+        "animationAssetIds",
+        "useGameplayObject",
+        "temporaryCinematicClone"
+      ]
+    },
+    "MY_CutsceneLayerActionSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "actionId": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Activate",
+            "Deactivate",
+            "Set",
+            "Swap",
+            "Crossfade",
+            "Move",
+            "Scroll",
+            "Parallax",
+            "Tint",
+            "Brightness",
+            "Fade"
+          ]
+        },
+        "layerId": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "FarBackground",
+            "Background",
+            "Midground",
+            "Actor",
+            "Foreground",
+            "Atmosphere",
+            "Overlay",
+            "Ui"
+          ]
+        },
+        "assetId": {
+          "type": "string"
+        },
+        "replacementAssetId": {
+          "type": "string"
+        },
+        "startOffset": {
+          "type": "number"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "fromX": {
+          "type": "number"
+        },
+        "fromY": {
+          "type": "number"
+        },
+        "toX": {
+          "type": "number"
+        },
+        "toY": {
+          "type": "number"
+        },
+        "fromAlpha": {
+          "type": "number"
+        },
+        "toAlpha": {
+          "type": "number"
+        },
+        "parallaxFactor": {
+          "type": "number"
+        },
+        "sortingOrder": {
+          "type": "integer"
+        },
+        "tintR": {
+          "type": "number"
+        },
+        "tintG": {
+          "type": "number"
+        },
+        "tintB": {
+          "type": "number"
+        },
+        "brightness": {
+          "type": "number"
+        },
+        "loop": {
+          "type": "boolean"
+        },
+        "easing": {
+          "type": "string",
+          "enum": [
+            "Linear",
+            "EaseIn",
+            "EaseOut",
+            "EaseInOut",
+            "SmoothStep"
+          ]
+        }
+      },
+      "required": [
+        "actionId",
+        "type",
+        "layerId",
+        "role",
+        "assetId",
+        "startOffset",
+        "duration",
+        "fromX",
+        "fromY",
+        "toX",
+        "toY",
+        "fromAlpha",
+        "toAlpha",
+        "parallaxFactor",
+        "sortingOrder",
+        "tintR",
+        "tintG",
+        "tintB",
+        "brightness",
+        "loop",
+        "easing"
+      ]
+    },
+    "MY_CutsceneVectorKey": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "time": {
+          "type": "number"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "scaleX": {
+          "type": "number"
+        },
+        "scaleY": {
+          "type": "number"
+        },
+        "alpha": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "time",
+        "x",
+        "y",
+        "rotation",
+        "scaleX",
+        "scaleY",
+        "alpha"
+      ]
+    },
+    "MY_CutsceneActorActionSpecV5": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "actionId": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Activate",
+            "Deactivate",
+            "Enter",
+            "Exit",
+            "Move",
+            "MoveToMark",
+            "FollowPath",
+            "Face",
+            "Turn",
+            "SetSorting",
+            "SetScale",
+            "Formation",
+            "PlayAnimation",
+            "VisualWeaponAction",
+            "VisualDamageReaction",
+            "Hold",
+            "FreezePose",
+            "LocalSlowMotion",
+            "Curve",
+            "Orbit"
+          ]
+        },
+        "actorId": {
+          "type": "string"
+        },
+        "targetActorId": {
+          "type": "string"
+        },
+        "anchorId": {
+          "type": "string"
+        },
+        "animationAssetId": {
+          "type": "string"
+        },
+        "animationState": {
+          "type": "string"
+        },
+        "formationId": {
+          "type": "string"
+        },
+        "startOffset": {
+          "type": "number"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "scaleX": {
+          "type": "number"
+        },
+        "scaleY": {
+          "type": "number"
+        },
+        "motionSpace": {
+          "type": "string",
+          "enum": [
+            "AbsoluteStage",
+            "RelativeToStart"
+          ]
+        },
+        "orientationMode": {
+          "type": "string",
+          "enum": [
+            "PreserveRotation",
+            "FollowMotion",
+            "FaceTarget",
+            "Keyframed"
+          ]
+        },
+        "animateScale": {
+          "type": "boolean"
+        },
+        "controlX": {
+          "type": "number"
+        },
+        "controlY": {
+          "type": "number"
+        },
+        "centerX": {
+          "type": "number"
+        },
+        "centerY": {
+          "type": "number"
+        },
+        "radiusX": {
+          "type": "number"
+        },
+        "radiusY": {
+          "type": "number"
+        },
+        "orbitDegrees": {
+          "type": "number"
+        },
+        "speed": {
+          "type": "number"
+        },
+        "sortingOrder": {
+          "type": "integer"
+        },
+        "flipX": {
+          "type": "boolean"
+        },
+        "flipY": {
+          "type": "boolean"
+        },
+        "loop": {
+          "type": "boolean"
+        },
+        "visualOnly": {
+          "type": "boolean"
+        },
+        "easing": {
+          "type": "string",
+          "enum": [
+            "Linear",
+            "EaseIn",
+            "EaseOut",
+            "EaseInOut",
+            "SmoothStep"
+          ]
+        },
+        "keyframes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MY_CutsceneVectorKey"
+          }
+        }
+      },
+      "required": [
+        "actionId",
+        "type",
+        "actorId",
+        "startOffset",
+        "duration",
+        "x",
+        "y",
+        "rotation",
+        "scaleX",
+        "scaleY",
+        "speed",
+        "sortingOrder",
+        "flipX",
+        "flipY",
+        "loop",
+        "visualOnly",
+        "easing",
+        "keyframes"
+      ]
+    },
+    "MY_CutsceneDialogueStageSpecV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "shotGrammar": {
+          "type": "string",
+          "enum": [
+            "DialogueWide",
+            "DialogueCloseup",
+            "DialogueTwoShot",
+            "AlertInsert",
+            "RevealWide"
+          ]
+        },
+        "lockStaging": {
+          "type": "boolean"
+        },
+        "layout": {
+          "type": "string",
+          "enum": [
+            "SPEAKER_FOCUS",
+            "TWO_SHOT",
+            "COMMAND_SCREEN"
+          ]
+        },
+        "speakerSlot": {
+          "type": "string",
+          "enum": [
+            "NearLeft",
+            "FarLeft",
+            "CenterMonitor",
+            "FarRight",
+            "NearRight"
+          ]
+        },
+        "listenerSlot": {
+          "type": "string",
+          "enum": [
+            "NearLeft",
+            "FarLeft",
+            "CenterMonitor",
+            "FarRight",
+            "NearRight"
+          ]
+        },
+        "speakerDistance": {
+          "type": "string",
+          "enum": [
+            "NEAR",
+            "MID",
+            "FAR"
+          ]
+        },
+        "listenerDistance": {
+          "type": "string",
+          "enum": [
+            "NEAR",
+            "MID",
+            "FAR"
+          ]
+        },
+        "uiForm": {
+          "type": "string",
+          "enum": [
+            "FloatingDialogueBox",
+            "ClearPrimaryBox",
+            "CommsMonitor",
+            "HandheldTablet",
+            "AlertPanel"
+          ]
+        },
+        "textMode": {
+          "type": "string",
+          "enum": [
+            "Instant",
+            "Typewriter"
+          ]
+        },
+        "typewriterSpeed": {
+          "type": "string",
+          "enum": [
+            "Slow",
+            "Normal",
+            "Fast"
+          ]
+        },
+        "advanceMode": {
+          "type": "string",
+          "enum": [
+            "Automatic",
+            "WaitForContinue"
+          ]
+        },
+        "textDirection": {
+          "type": "string",
+          "enum": [
+            "Auto",
+            "LTR",
+            "RTL"
+          ]
+        },
+        "speakerEmotion": {
+          "type": "string",
+          "enum": [
+            "Serious",
+            "Shock",
+            "Anger",
+            "Perplexed",
+            "Sad",
+            "Happy"
+          ]
+        },
+        "listenerEmotion": {
+          "type": "string",
+          "enum": [
+            "Serious",
+            "Shock",
+            "Anger",
+            "Perplexed",
+            "Sad",
+            "Happy"
+          ]
+        },
+        "speakerPose": {
+          "type": "string",
+          "enum": [
+            "IdleListening",
+            "Speaking",
+            "WorkingAtConsole",
+            "RunningAction",
+            "BracingAlert"
+          ]
+        },
+        "listenerPose": {
+          "type": "string",
+          "enum": [
+            "IdleListening",
+            "Speaking",
+            "WorkingAtConsole",
+            "RunningAction",
+            "BracingAlert"
+          ]
+        },
+        "backgroundAssetId": {
+          "type": "string"
+        },
+        "speakerBodyAssetId": {
+          "type": "string"
+        },
+        "listenerBodyAssetId": {
+          "type": "string"
+        },
+        "themeAssetId": {
+          "type": "string"
+        },
+        "fontAssetId": {
+          "type": "string"
+        },
+        "typewriterBlipAssetId": {
+          "type": "string"
+        },
+        "continueAudioAssetId": {
+          "type": "string"
+        },
+        "atmosphereVfxAssetIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "shotGrammar",
+        "lockStaging",
+        "layout",
+        "speakerSlot",
+        "listenerSlot",
+        "uiForm",
+        "textMode",
+        "typewriterSpeed",
+        "advanceMode",
+        "textDirection",
+        "speakerEmotion",
+        "listenerEmotion",
+        "speakerPose",
+        "listenerPose"
+      ]
+    },
+    "MY_CutsceneDialogueDeliverySpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "emotion": {
+          "type": "string",
+          "enum": [
+            "Serious",
+            "Shock",
+            "Anger",
+            "Perplexed",
+            "Sad",
+            "Happy"
+          ]
+        },
+        "intensity": {
+          "type": "number"
+        },
+        "pace": {
+          "type": "string",
+          "enum": [
+            "Slow",
+            "Medium",
+            "Fast"
+          ]
+        },
+        "pauseBefore": {
+          "type": "number"
+        },
+        "pauseAfter": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "emotion",
+        "intensity",
+        "pace",
+        "pauseBefore",
+        "pauseAfter"
+      ]
+    },
+    "MY_CutsceneDialoguePerformanceSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "speakerPose": {
+          "type": "string",
+          "enum": [
+            "IdleListening",
+            "Speaking",
+            "WorkingAtConsole",
+            "RunningAction",
+            "BracingAlert"
+          ]
+        },
+        "listenerPose": {
+          "type": "string",
+          "enum": [
+            "IdleListening",
+            "Speaking",
+            "WorkingAtConsole",
+            "RunningAction",
+            "BracingAlert"
+          ]
+        },
+        "speakerLookDirection": {
+          "type": "string"
+        },
+        "listenerLookDirection": {
+          "type": "string"
+        },
+        "mouthMode": {
+          "type": "string",
+          "enum": [
+            "None",
+            "TimedSimple",
+            "VoiceReactiveSimple"
+          ]
+        },
+        "blinkPreset": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "speakerPose",
+        "listenerPose",
+        "speakerLookDirection",
+        "listenerLookDirection",
+        "mouthMode",
+        "blinkPreset"
+      ]
+    },
+    "MY_CutsceneDialogueCameraCueSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "shotPreset": {
+          "type": "string",
+          "enum": [
+            "ESTABLISHING_WIDE",
+            "COCKPIT_WIDE",
+            "CLOSE_UP_SPEAKER",
+            "CLOSE_UP_LISTENER",
+            "TWO_PORTRAIT_SHOT",
+            "REACTION_CLOSE_UP",
+            "RADIO_SCREEN",
+            "HERO_PUSH_IN",
+            "OBJECTIVE_REVEAL"
+          ]
+        },
+        "transition": {
+          "type": "string",
+          "enum": [
+            "HardCut",
+            "CutOnAction",
+            "Crossfade",
+            "FadeIn",
+            "FadeOut",
+            "DipToBlack",
+            "DipToWhite",
+            "Wipe",
+            "ForegroundWipe",
+            "FlashCut",
+            "MatchCut",
+            "SoundLed"
+          ]
+        },
+        "blendDuration": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "shotPreset",
+        "transition",
+        "blendDuration"
+      ]
+    },
+    "MY_CutsceneDialogueReactionSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "actorId": {
+          "type": "string"
+        },
+        "expression": {
+          "type": "string",
+          "enum": [
+            "Neutral",
+            "Listening",
+            "Concerned",
+            "Shocked",
+            "Urgent",
+            "ControlledGrief",
+            "Determined",
+            "Exhausted",
+            "Relieved",
+            "Defiant"
+          ]
+        },
+        "startOffset": {
+          "type": "number"
+        },
+        "holdAfterLine": {
+          "type": "number"
+        },
+        "shotPreset": {
+          "type": "string",
+          "enum": [
+            "ESTABLISHING_WIDE",
+            "COCKPIT_WIDE",
+            "CLOSE_UP_SPEAKER",
+            "CLOSE_UP_LISTENER",
+            "TWO_PORTRAIT_SHOT",
+            "REACTION_CLOSE_UP",
+            "RADIO_SCREEN",
+            "HERO_PUSH_IN",
+            "OBJECTIVE_REVEAL"
+          ]
+        }
+      },
+      "required": [
+        "actorId",
+        "expression",
+        "startOffset",
+        "holdAfterLine",
+        "shotPreset"
+      ]
+    },
+    "MY_CutsceneDialogueActionSpecV5": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lineId": {
+          "type": "string"
+        },
+        "speakerActorId": {
+          "type": "string"
+        },
+        "listenerActorId": {
+          "type": "string"
+        },
+        "speakerName": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "presentationPreset": {
+          "type": "string",
+          "enum": [
+            "RADIO_COMMUNICATION",
+            "FACE_TO_FACE_PORTRAITS",
+            "COMMAND_SCREEN",
+            "SUBTITLE_ONLY",
+            "EMERGENCY_BROADCAST",
+            "CAPTAIN_LOG"
+          ]
+        },
+        "speakerPortraitAssetId": {
+          "type": "string"
+        },
+        "listenerPortraitAssetId": {
+          "type": "string"
+        },
+        "dialogueFrameAssetId": {
+          "type": "string"
+        },
+        "voiceAssetId": {
+          "type": "string"
+        },
+        "speakerExpression": {
+          "type": "string",
+          "enum": [
+            "Neutral",
+            "Listening",
+            "Concerned",
+            "Shocked",
+            "Urgent",
+            "ControlledGrief",
+            "Determined",
+            "Exhausted",
+            "Relieved",
+            "Defiant"
+          ]
+        },
+        "listenerExpression": {
+          "type": "string",
+          "enum": [
+            "Neutral",
+            "Listening",
+            "Concerned",
+            "Shocked",
+            "Urgent",
+            "ControlledGrief",
+            "Determined",
+            "Exhausted",
+            "Relieved",
+            "Defiant"
+          ]
+        },
+        "cockpitOverlayAssetId": {
+          "type": "string"
+        },
+        "continueIndicatorAssetId": {
+          "type": "string"
+        },
+        "startOffset": {
+          "type": "number"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "textRevealSpeed": {
+          "type": "number"
+        },
+        "skippable": {
+          "type": "boolean"
+        },
+        "stage": {
+          "$ref": "#/$defs/MY_CutsceneDialogueStageSpecV1"
+        },
+        "delivery": {
+          "$ref": "#/$defs/MY_CutsceneDialogueDeliverySpec"
+        },
+        "performance": {
+          "$ref": "#/$defs/MY_CutsceneDialoguePerformanceSpec"
+        },
+        "cameraCue": {
+          "$ref": "#/$defs/MY_CutsceneDialogueCameraCueSpec"
+        },
+        "reaction": {
+          "$ref": "#/$defs/MY_CutsceneDialogueReactionSpec"
+        }
+      },
+      "required": [
+        "lineId",
+        "speakerActorId",
+        "listenerActorId",
+        "speakerName",
+        "text",
+        "purpose",
+        "presentationPreset",
+        "startOffset",
+        "duration",
+        "textRevealSpeed",
+        "skippable",
+        "delivery",
+        "performance",
+        "cameraCue",
+        "reaction"
+      ]
+    },
+    "MY_CutsceneEffectActionSpecV5": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "effectId": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Activate",
+            "Explosion",
+            "Impact",
+            "MuzzleFlash",
+            "EnergyPulse",
+            "Glow",
+            "Lightning",
+            "Shield",
+            "Smoke",
+            "Fire",
+            "Debris",
+            "Sparks",
+            "Dust",
+            "SpeedLines",
+            "Vignette",
+            "ScreenFlash",
+            "ColorFlash",
+            "Silhouette",
+            "Overlay"
+          ]
+        },
+        "assetId": {
+          "type": "string"
+        },
+        "parentEntityId": {
+          "type": "string"
+        },
+        "anchorId": {
+          "type": "string"
+        },
+        "startOffset": {
+          "type": "number"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "scaleX": {
+          "type": "number"
+        },
+        "scaleY": {
+          "type": "number"
+        },
+        "intensity": {
+          "type": "number"
+        },
+        "loop": {
+          "type": "boolean"
+        },
+        "visualOnly": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "effectId",
+        "type",
+        "assetId",
+        "startOffset",
+        "duration",
+        "x",
+        "y",
+        "rotation",
+        "scaleX",
+        "scaleY",
+        "intensity",
+        "loop",
+        "visualOnly"
+      ]
+    },
+    "MY_CutsceneAudioActionSpecV5": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "audioId": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Play",
+            "Stop",
+            "FadeIn",
+            "FadeOut",
+            "SetVolume"
+          ]
+        },
+        "bus": {
+          "type": "string",
+          "enum": [
+            "Music",
+            "Ambience",
+            "Dialogue",
+            "Sfx",
+            "Ui"
+          ]
+        },
+        "assetId": {
+          "type": "string"
+        },
+        "startOffset": {
+          "type": "number"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "volume": {
+          "type": "number"
+        },
+        "targetVolume": {
+          "type": "number"
+        },
+        "loop": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "audioId",
+        "type",
+        "bus",
+        "assetId",
+        "startOffset",
+        "duration",
+        "volume",
+        "targetVolume",
+        "loop"
+      ]
+    },
+    "MY_CutsceneEventSpecV5": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventId": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "ActivateObject",
+            "DeactivateObject",
+            "ChangeBackground",
+            "PlayEffect",
+            "TriggerAnimation",
+            "SetSortingOrder",
+            "ChangeCameraTarget",
+            "StartShake",
+            "UpdateDialogue",
+            "ShowUi",
+            "HideUi",
+            "CutsceneSignal",
+            "EnableGameplay",
+            "DisableGameplay",
+            "ShotBoundary",
+            "DramaticBeat",
+            "FreezePose",
+            "LocalSlowMotion"
+          ]
+        },
+        "startOffset": {
+          "type": "number"
+        },
+        "targetEntityId": {
+          "type": "string"
+        },
+        "assetId": {
+          "type": "string"
+        },
+        "stringValue": {
+          "type": "string"
+        },
+        "floatValue": {
+          "type": "number"
+        },
+        "intValue": {
+          "type": "integer"
+        },
+        "boolValue": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "eventId",
+        "type",
+        "startOffset",
+        "stringValue",
+        "floatValue",
+        "intValue",
+        "boolValue"
+      ]
+    },
+    "MY_CutsceneContinuitySpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "previousShotId": {
+          "type": "string"
+        },
+        "preserveScreenDirection": {
+          "type": "boolean"
+        },
+        "matchedEntityIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "preserveScreenDirection",
+        "matchedEntityIds"
+      ]
+    },
+    "MY_CutsceneTransitionSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "transitionId": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "HardCut",
+            "CutOnAction",
+            "Crossfade",
+            "FadeIn",
+            "FadeOut",
+            "DipToBlack",
+            "DipToWhite",
+            "Wipe",
+            "ForegroundWipe",
+            "FlashCut",
+            "MatchCut",
+            "SoundLed"
+          ]
+        },
+        "duration": {
+          "type": "number"
+        },
+        "easing": {
+          "type": "string",
+          "enum": [
+            "Linear",
+            "EaseIn",
+            "EaseOut",
+            "EaseInOut",
+            "SmoothStep"
+          ]
+        },
+        "assetId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "duration",
+        "easing"
+      ]
+    },
+    "MY_CutsceneCameraActionSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "actionId": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Hold",
+            "Snap",
+            "Zoom",
+            "Pan",
+            "Push",
+            "Pull",
+            "Follow",
+            "Track",
+            "Focus",
+            "Drift",
+            "Shake",
+            "ImpactShake",
+            "Recoil",
+            "ReturnToNeutral"
+          ]
+        },
+        "startOffset": {
+          "type": "number"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "targetEntityId": {
+          "type": "string"
+        },
+        "secondaryTargetEntityId": {
+          "type": "string"
+        },
+        "cameraPresetId": {
+          "type": "string"
+        },
+        "fromX": {
+          "type": "number"
+        },
+        "fromY": {
+          "type": "number"
+        },
+        "toX": {
+          "type": "number"
+        },
+        "toY": {
+          "type": "number"
+        },
+        "fromRotation": {
+          "type": "number"
+        },
+        "toRotation": {
+          "type": "number"
+        },
+        "fromOrthographicSize": {
+          "type": "number"
+        },
+        "toOrthographicSize": {
+          "type": "number"
+        },
+        "amplitude": {
+          "type": "number"
+        },
+        "frequency": {
+          "type": "number"
+        },
+        "easing": {
+          "type": "string",
+          "enum": [
+            "Linear",
+            "EaseIn",
+            "EaseOut",
+            "EaseInOut",
+            "SmoothStep"
+          ]
+        }
+      },
+      "required": [
+        "actionId",
+        "type",
+        "startOffset",
+        "duration",
+        "fromX",
+        "fromY",
+        "toX",
+        "toY",
+        "fromRotation",
+        "toRotation",
+        "fromOrthographicSize",
+        "toOrthographicSize",
+        "amplitude",
+        "frequency",
+        "easing"
+      ]
+    },
+    "MY_CutsceneShotSpecV5": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "shotId": {
+          "type": "string"
+        },
+        "startOffset": {
+          "type": "number"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "shotType": {
+          "type": "string",
+          "enum": [
+            "Establishing",
+            "CloseUp",
+            "Medium",
+            "Wide",
+            "ExtremeCloseUp",
+            "TwoShot",
+            "OverTheShoulder",
+            "Reaction",
+            "Insert",
+            "Reveal",
+            "Tracking",
+            "Follow",
+            "Static"
+          ]
+        },
+        "framing": {
+          "type": "string",
+          "enum": [
+            "ExtremeCloseUp",
+            "CloseUp",
+            "Medium",
+            "Wide",
+            "ExtremeWide",
+            "TwoShot",
+            "FullFrame"
+          ]
+        },
+        "intention": {
+          "type": "string"
+        },
+        "emotion": {
+          "type": "string"
+        },
+        "compositionTargetId": {
+          "type": "string"
+        },
+        "continuity": {
+          "$ref": "#/$defs/MY_CutsceneContinuitySpec"
+        },
+        "transitionIn": {
+          "$ref": "#/$defs/MY_CutsceneTransitionSpec"
+        },
+        "transitionOut": {
+          "$ref": "#/$defs/MY_CutsceneTransitionSpec"
+        },
+        "cameraActions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MY_CutsceneCameraActionSpec"
+          }
+        },
+        "layerActions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MY_CutsceneLayerActionSpec"
+          }
+        },
+        "actorActions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MY_CutsceneActorActionSpecV5"
+          }
+        },
+        "dialogue": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MY_CutsceneDialogueActionSpecV5"
+          }
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MY_CutsceneEffectActionSpecV5"
+          }
+        },
+        "audio": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MY_CutsceneAudioActionSpecV5"
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MY_CutsceneEventSpecV5"
+          }
+        }
+      },
+      "required": [
+        "shotId",
+        "startOffset",
+        "duration",
+        "shotType",
+        "framing",
+        "intention",
+        "continuity",
+        "transitionIn",
+        "transitionOut",
+        "cameraActions",
+        "layerActions",
+        "actorActions",
+        "dialogue",
+        "effects",
+        "audio",
+        "events"
+      ]
+    },
+    "MY_CutsceneSequenceSpecV5": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sequenceId": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "number"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "kitUseId": {
+          "type": "string"
+        },
+        "intention": {
+          "type": "string"
+        },
+        "continuityNotes": {
+          "type": "string"
+        },
+        "layers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MY_CutsceneLayerActionSpec"
+          }
+        },
+        "actorActions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MY_CutsceneActorActionSpecV5"
+          }
+        },
+        "dialogue": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MY_CutsceneDialogueActionSpecV5"
+          }
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MY_CutsceneEffectActionSpecV5"
+          }
+        },
+        "audio": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MY_CutsceneAudioActionSpecV5"
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MY_CutsceneEventSpecV5"
+          }
+        },
+        "shots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MY_CutsceneShotSpecV5"
+          }
+        }
+      },
+      "required": [
+        "sequenceId",
+        "startTime",
+        "duration",
+        "intention",
+        "layers",
+        "actorActions",
+        "dialogue",
+        "effects",
+        "audio",
+        "events",
+        "shots"
+      ]
+    },
+    "MY_CutsceneMissingAssetRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "requestId": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "sequenceId": {
+          "type": "string"
+        },
+        "shotId": {
+          "type": "string"
+        },
+        "blocking": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "requestId",
+        "role",
+        "description",
+        "blocking"
+      ]
+    },
+    "MY_CutsceneHandoffSpecV5": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "time": {
+          "type": "number"
+        },
+        "disableCutsceneRoot": {
+          "type": "boolean"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MY_CutsceneEventSpecV5"
+          }
+        }
+      },
+      "required": [
+        "enabled",
+        "time",
+        "disableCutsceneRoot",
+        "events"
+      ]
+    },
+    "MY_CutsceneExtensionSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "extensionId": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "valueJson": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "extensionId",
+        "owner",
+        "valueJson"
+      ]
+    }
+  }
+}

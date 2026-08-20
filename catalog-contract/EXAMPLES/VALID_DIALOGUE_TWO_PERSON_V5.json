@@ -1,0 +1,244 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
+  "schemaVersion": 5,
+  "contextVersion": 3,
+  "contractRevision": "424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF",
+  "schemaHash": "7D3743BC09A41110901B3A2B4D2206725A7FBD19D14D275223C66ACAA9FE0CAB",
+  "contextId": "NEW_CUTSCENE_CONTEXT",
+  "catalogRevision": "7625541441843202476",
+  "projectId": "",
+  "planId": "plan_example_dialogue_two_person",
+  "baseRevision": 0,
+  "displayName": "Valid Dialogue Two Person",
+  "duration": 10.0,
+  "creativeIntent": {
+    "summary": "Two fixed dialogue participants reverse speaker/listener roles across hard-cut framings.",
+    "style": "Project-owned editable 2D cinematic",
+    "mood": "Designer-defined"
+  },
+  "selectedKits": [],
+  "cast": [
+    {
+      "entityId": "pilot",
+      "displayName": "Pilot",
+      "role": "SupportingCharacter",
+      "entityKind": "Person",
+      "visualAssetId": "c64b1a2f6e1d51e4db28cd1337fefc09:2949561940459812151",
+      "animationAssetIds": [],
+      "spawnWorldActor": false,
+      "useGameplayObject": false,
+      "temporaryCinematicClone": false
+    },
+    {
+      "entityId": "commander",
+      "displayName": "Commander",
+      "role": "SupportingCharacter",
+      "entityKind": "Person",
+      "visualAssetId": "c64b1a2f6e1d51e4db28cd1337fefc09:3433286100197543669",
+      "animationAssetIds": [],
+      "spawnWorldActor": false,
+      "useGameplayObject": false,
+      "temporaryCinematicClone": false
+    }
+  ],
+  "sequences": [
+    {
+      "sequenceId": "sequence_main",
+      "startTime": 0.0,
+      "duration": 10.0,
+      "intention": "Two fixed dialogue participants reverse speaker/listener roles across hard-cut framings.",
+      "layers": [],
+      "actorActions": [],
+      "dialogue": [],
+      "effects": [],
+      "audio": [],
+      "events": [],
+      "shots": [
+        {
+          "shotId": "shot_main",
+          "startOffset": 0.0,
+          "duration": 10.0,
+          "shotType": "Establishing",
+          "framing": "Wide",
+          "intention": "Two fixed dialogue participants reverse speaker/listener roles across hard-cut framings.",
+          "continuity": {
+            "preserveScreenDirection": true,
+            "matchedEntityIds": []
+          },
+          "transitionIn": {
+            "transitionId": "plan_example_dialogue_two_person_transition_in",
+            "type": "HardCut",
+            "duration": 0.0,
+            "easing": "Linear"
+          },
+          "transitionOut": {
+            "transitionId": "plan_example_dialogue_two_person_transition_out",
+            "type": "HardCut",
+            "duration": 0.0,
+            "easing": "Linear"
+          },
+          "cameraActions": [
+            {
+              "actionId": "camera_hold",
+              "type": "Hold",
+              "startOffset": 0.0,
+              "duration": 10.0,
+              "fromX": 0.0,
+              "fromY": 0.0,
+              "toX": 0.0,
+              "toY": 0.0,
+              "fromRotation": 0.0,
+              "toRotation": 0.0,
+              "fromOrthographicSize": 8.0,
+              "toOrthographicSize": 8.0,
+              "amplitude": 0.0,
+              "frequency": 0.0,
+              "easing": "Linear"
+            }
+          ],
+          "layerActions": [],
+          "actorActions": [],
+          "dialogue": [
+            {
+              "lineId": "pilot_to_commander",
+              "speakerActorId": "pilot",
+              "listenerActorId": "commander",
+              "speakerName": "Pilot",
+              "text": "The corridor is clear.",
+              "purpose": "Dialogue presentation",
+              "presentationPreset": "FACE_TO_FACE_PORTRAITS",
+              "speakerPortraitAssetId": "c79c03b41a76949aa6bf802f6539b40b:21300000",
+              "listenerPortraitAssetId": "d900564298edd042780d96fefc4d275f:21300000",
+              "dialogueFrameAssetId": "a2aa5e7d1c4c6c92b669ab8d10504f20:21300000",
+              "speakerExpression": "Neutral",
+              "listenerExpression": "Neutral",
+              "startOffset": 0.0,
+              "duration": 4.5,
+              "textRevealSpeed": 30.0,
+              "skippable": true,
+              "stage": {
+                "shotGrammar": "DialogueTwoShot",
+                "lockStaging": true,
+                "layout": "TWO_SHOT",
+                "speakerSlot": "NearLeft",
+                "listenerSlot": "NearRight",
+                "uiForm": "ClearPrimaryBox",
+                "textMode": "Typewriter",
+                "typewriterSpeed": "Normal",
+                "advanceMode": "Automatic",
+                "textDirection": "Auto",
+                "speakerEmotion": "Serious",
+                "listenerEmotion": "Serious",
+                "speakerPose": "Speaking",
+                "listenerPose": "IdleListening",
+                "backgroundAssetId": "756d5125e980e4838801726ba57efcc7:21300000",
+                "atmosphereVfxAssetIds": []
+              },
+              "delivery": {
+                "emotion": "Serious",
+                "intensity": 0.6,
+                "pace": "Slow",
+                "pauseBefore": 0.0,
+                "pauseAfter": 0.0
+              },
+              "performance": {
+                "speakerPose": "Speaking",
+                "listenerPose": "IdleListening",
+                "speakerLookDirection": "TowardListener",
+                "listenerLookDirection": "TowardSpeaker",
+                "mouthMode": "TimedSimple",
+                "blinkPreset": "Slow"
+              },
+              "cameraCue": {
+                "shotPreset": "TWO_PORTRAIT_SHOT",
+                "transition": "HardCut",
+                "blendDuration": 0.0
+              },
+              "reaction": {
+                "actorId": "commander",
+                "expression": "Concerned",
+                "startOffset": 0.0,
+                "holdAfterLine": 0.0,
+                "shotPreset": "REACTION_CLOSE_UP"
+              }
+            },
+            {
+              "lineId": "commander_to_pilot",
+              "speakerActorId": "commander",
+              "listenerActorId": "pilot",
+              "speakerName": "Commander",
+              "text": "Then we move on my mark.",
+              "purpose": "Dialogue presentation",
+              "presentationPreset": "FACE_TO_FACE_PORTRAITS",
+              "speakerPortraitAssetId": "d900564298edd042780d96fefc4d275f:21300000",
+              "listenerPortraitAssetId": "c79c03b41a76949aa6bf802f6539b40b:21300000",
+              "dialogueFrameAssetId": "a2aa5e7d1c4c6c92b669ab8d10504f20:21300000",
+              "speakerExpression": "Neutral",
+              "listenerExpression": "Neutral",
+              "startOffset": 5.0,
+              "duration": 5.0,
+              "textRevealSpeed": 30.0,
+              "skippable": true,
+              "stage": {
+                "shotGrammar": "DialogueCloseup",
+                "lockStaging": true,
+                "layout": "SPEAKER_FOCUS",
+                "speakerSlot": "NearLeft",
+                "listenerSlot": "NearRight",
+                "uiForm": "ClearPrimaryBox",
+                "textMode": "Typewriter",
+                "typewriterSpeed": "Normal",
+                "advanceMode": "Automatic",
+                "textDirection": "Auto",
+                "speakerEmotion": "Serious",
+                "listenerEmotion": "Serious",
+                "speakerPose": "Speaking",
+                "listenerPose": "IdleListening",
+                "backgroundAssetId": "756d5125e980e4838801726ba57efcc7:21300000",
+                "atmosphereVfxAssetIds": []
+              },
+              "delivery": {
+                "emotion": "Serious",
+                "intensity": 0.6,
+                "pace": "Slow",
+                "pauseBefore": 0.0,
+                "pauseAfter": 0.0
+              },
+              "performance": {
+                "speakerPose": "Speaking",
+                "listenerPose": "IdleListening",
+                "speakerLookDirection": "TowardListener",
+                "listenerLookDirection": "TowardSpeaker",
+                "mouthMode": "TimedSimple",
+                "blinkPreset": "Slow"
+              },
+              "cameraCue": {
+                "shotPreset": "CLOSE_UP_SPEAKER",
+                "transition": "HardCut",
+                "blendDuration": 0.0
+              },
+              "reaction": {
+                "actorId": "pilot",
+                "expression": "Concerned",
+                "startOffset": 0.0,
+                "holdAfterLine": 0.0,
+                "shotPreset": "REACTION_CLOSE_UP"
+              }
+            }
+          ],
+          "effects": [],
+          "audio": [],
+          "events": []
+        }
+      ]
+    }
+  ],
+  "missingAssets": [],
+  "handoff": {
+    "enabled": true,
+    "time": 10.0,
+    "disableCutsceneRoot": true,
+    "events": []
+  },
+  "extensions": []
+}

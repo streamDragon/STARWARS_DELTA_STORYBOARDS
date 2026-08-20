@@ -1,0 +1,295 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_AUTHORING_CLOSED_ENUMS",
+  "schemaVersion": 1,
+  "contractRevision": "424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF",
+  "canonicalOnly": true,
+  "roleGuardrail": {
+    "jsonPath": "$.cast[].role",
+    "allowedValues": [
+      "Hero",
+      "SupportingCharacter",
+      "Antagonist",
+      "Prop",
+      "Environment",
+      "Ui"
+    ],
+    "narrativeLabelsBelongIn": [
+      "displayName",
+      "entityKind",
+      "entitySubKind",
+      "intention",
+      "creativeIntent"
+    ],
+    "examplesNotAllowedAsRole": [
+      "Commander",
+      "MissionControl",
+      "Pilot",
+      "Wingman",
+      "Boss",
+      "Support Ship",
+      "Enemy Unit",
+      "Protagonist",
+      "Support"
+    ]
+  },
+  "fields": [
+    {
+      "jsonPaths": [
+        "$.cast[].role"
+      ],
+      "enum": "MY_CutsceneCastRole",
+      "allowedValues": [
+        "Hero",
+        "SupportingCharacter",
+        "Antagonist",
+        "Prop",
+        "Environment",
+        "Ui"
+      ],
+      "rule": "Structural dramatic role only. Narrative job/rank labels belong in displayName, entityKind/entitySubKind or intention."
+    },
+    {
+      "jsonPaths": [
+        "$.cast[].entityKind"
+      ],
+      "enum": "MY_CutsceneEntityKind",
+      "allowedValues": [
+        "Unknown",
+        "Person",
+        "Robot",
+        "Creature",
+        "Spaceship",
+        "Vehicle",
+        "Plant",
+        "Rock",
+        "CelestialBody",
+        "Structure",
+        "Machine",
+        "Weapon",
+        "Projectile",
+        "Object"
+      ],
+      "rule": "Physical semantic kind; do not use it as a dramatic rank or narrative job label."
+    },
+    {
+      "jsonPaths": [
+        "$.cast[].presentationMode"
+      ],
+      "enum": "MY_CutsceneActorPresentationMode",
+      "allowedValues": [
+        "WorldActor",
+        "DialoguePortrait",
+        "Both"
+      ],
+      "rule": "WorldActor is world-only, DialoguePortrait is portrait-only, and Both requires temporally isolated intervals."
+    },
+    {
+      "jsonPaths": [
+        "$.sequences[].shots[].shotType"
+      ],
+      "enum": "MY_CutsceneShotType",
+      "allowedValues": [
+        "Establishing",
+        "CloseUp",
+        "Medium",
+        "Wide",
+        "ExtremeCloseUp",
+        "TwoShot",
+        "OverTheShoulder",
+        "Reaction",
+        "Insert",
+        "Reveal",
+        "Tracking",
+        "Follow",
+        "Static"
+      ],
+      "rule": "Camera grammar only. Keep beat labels such as Launch, Chase, Threat or Counterattack in intention."
+    },
+    {
+      "jsonPaths": [
+        "$.sequences[].shots[].framing"
+      ],
+      "enum": "MY_CutsceneFraming",
+      "allowedValues": [
+        "ExtremeCloseUp",
+        "CloseUp",
+        "Medium",
+        "Wide",
+        "ExtremeWide",
+        "TwoShot",
+        "FullFrame"
+      ],
+      "rule": "Canonical framing value; do not invent synonyms."
+    },
+    {
+      "jsonPaths": [
+        "$.sequences[].layers[].role",
+        "$.sequences[].shots[].layerActions[].role"
+      ],
+      "enum": "MY_CutsceneLayerRole",
+      "allowedValues": [
+        "FarBackground",
+        "Background",
+        "Midground",
+        "Actor",
+        "Foreground",
+        "Atmosphere",
+        "Overlay",
+        "Ui"
+      ],
+      "rule": "Layer role only. Use Midground, never MidBackground; destination primary use still decides ownership."
+    },
+    {
+      "jsonPaths": [
+        "$.sequences[].shots[].transitionIn.type",
+        "$.sequences[].shots[].transitionOut.type"
+      ],
+      "enum": "MY_CutsceneTransitionType",
+      "allowedValues": [
+        "HardCut",
+        "CutOnAction",
+        "Crossfade",
+        "FadeIn",
+        "FadeOut",
+        "DipToBlack",
+        "DipToWhite",
+        "Wipe",
+        "ForegroundWipe",
+        "FlashCut",
+        "MatchCut",
+        "SoundLed"
+      ],
+      "rule": "Use HardCut for a genuine framing reset; Cut is not a canonical output value."
+    },
+    {
+      "jsonPaths": [
+        "$.sequences[].shots[].cameraActions[].type"
+      ],
+      "enum": "MY_CutsceneCameraActionType",
+      "allowedValues": [
+        "Hold",
+        "Snap",
+        "Zoom",
+        "Pan",
+        "Push",
+        "Pull",
+        "Follow",
+        "Track",
+        "Focus",
+        "Drift",
+        "Shake",
+        "ImpactShake",
+        "Recoil",
+        "ReturnToNeutral"
+      ],
+      "rule": "Camera action grammar; targetEntityId is required for target-driven actions such as Follow, Track and Focus."
+    },
+    {
+      "jsonPaths": [
+        "$.sequences[].shots[].dialogue[].presentationPreset"
+      ],
+      "enum": "MY_CutsceneDialoguePresentationPreset",
+      "allowedValues": [
+        "RADIO_COMMUNICATION",
+        "FACE_TO_FACE_PORTRAITS",
+        "COMMAND_SCREEN",
+        "SUBTITLE_ONLY",
+        "EMERGENCY_BROADCAST",
+        "CAPTAIN_LOG"
+      ],
+      "rule": "Choose an explicit dialogue presentation; SUBTITLE_ONLY is never an implicit repair."
+    },
+    {
+      "jsonPaths": [
+        "$.sequences[].shots[].dialogue[].stage.layout"
+      ],
+      "enum": "MY_CutsceneDialogueStageLayout",
+      "allowedValues": [
+        "SPEAKER_FOCUS",
+        "TWO_SHOT",
+        "COMMAND_SCREEN"
+      ],
+      "rule": "Fixed dialogue staging layout; choose a value from the compatible tuple for the selected presentation preset."
+    },
+    {
+      "jsonPaths": [
+        "$.sequences[].shots[].dialogue[].stage.shotGrammar"
+      ],
+      "enum": "MY_CutsceneDialogueShotGrammar",
+      "allowedValues": [
+        "DialogueWide",
+        "DialogueCloseup",
+        "DialogueTwoShot",
+        "AlertInsert",
+        "RevealWide"
+      ],
+      "rule": "Fixed dialogue staging grammar; do not mix it independently with an incompatible layout or camera."
+    },
+    {
+      "jsonPaths": [
+        "$.sequences[].shots[].dialogue[].stage.speakerEmotion",
+        "$.sequences[].shots[].dialogue[].stage.listenerEmotion",
+        "$.sequences[].shots[].dialogue[].delivery.emotion"
+      ],
+      "enum": "MY_CutsceneDialogueEmotionV1",
+      "allowedValues": [
+        "Serious",
+        "Shock",
+        "Anger",
+        "Perplexed",
+        "Sad",
+        "Happy"
+      ],
+      "rule": "Emotion only: Serious, Shock, Anger, Perplexed, Sad or Happy. Acting choices belong in expression fields."
+    },
+    {
+      "jsonPaths": [
+        "$.sequences[].shots[].dialogue[].delivery.pace"
+      ],
+      "enum": "MY_CutsceneDialoguePaceV1",
+      "allowedValues": [
+        "Slow",
+        "Medium",
+        "Fast"
+      ],
+      "rule": "CURRENT delivery pacing only: Slow, Medium or Fast. Semantic pacing is mapped before serialization."
+    },
+    {
+      "jsonPaths": [
+        "$.sequences[].shots[].dialogue[].performance.speakerPose",
+        "$.sequences[].shots[].dialogue[].performance.listenerPose"
+      ],
+      "enum": "MY_CutsceneDialoguePoseV1",
+      "allowedValues": [
+        "IdleListening",
+        "Speaking",
+        "WorkingAtConsole",
+        "RunningAction",
+        "BracingAlert"
+      ],
+      "rule": "CURRENT pose vocabulary only; semantic acting intent must be mapped before serialization."
+    },
+    {
+      "jsonPaths": [
+        "$.sequences[].shots[].dialogue[].speakerExpression",
+        "$.sequences[].shots[].dialogue[].listenerExpression",
+        "$.sequences[].shots[].dialogue[].reaction.expression"
+      ],
+      "enum": "MY_CutsceneDialogueExpression",
+      "allowedValues": [
+        "Neutral",
+        "Listening",
+        "Concerned",
+        "Shocked",
+        "Urgent",
+        "ControlledGrief",
+        "Determined",
+        "Exhausted",
+        "Relieved",
+        "Defiant"
+      ],
+      "rule": "Expression/acting vocabulary, not dialogue emotion."
+    }
+  ],
+  "rule": "Write only the exact allowedValues for the matching structural field. Do not invent enum values or serialize migration aliases."
+}

@@ -1,0 +1,1375 @@
+{
+  "schema": "STARWARS_DELTA_DIRECTOR_ELIGIBILITY_AUDIT",
+  "schemaVersion": 2,
+  "status": "SOURCE_REVIEW_REQUIRED",
+  "publishTransactionId": "20260820-020210752-cd4da05b",
+  "catalogRevision": 7625541441843202476,
+  "sourceCatalogRecordCount": 20623,
+  "flaggedDirectorVisualCount": 59,
+  "flaggedCompletionVisualCount": 5,
+  "flaggedByCategory": {
+    "Actor": 14,
+    "Layer": 7,
+    "Effect": 7,
+    "Ui": 31
+  },
+  "flaggedByReason": {
+    "actor_description_contradicts_identity": 2,
+    "probable_effect_misclassified_as_actor": 9,
+    "probable_layer_or_tileset_misclassified_as_actor": 1,
+    "generic_technical_or_primitive_identity": 10,
+    "catalog_semantics_exclude_direct_authoring": 7,
+    "sample_or_demo_path": 16,
+    "editor_test_or_debug_path": 6,
+    "documentation_or_package_tooling_path": 1,
+    "probable_effect_misclassified_as_ui": 10
+  },
+  "policy": "This is a conservative Git-side audit. Flagged entries remain visible as evidence but must not be recommended by default. Unity must correct or confirm source eligibility and classification, then atomically republish.",
+  "signals": {
+    "sample_or_demo_path": "Source path looks like sample, example or demo content.",
+    "editor_test_or_debug_path": "Source path looks like Editor, test, debug or gizmo tooling.",
+    "generated_cutscene_output": "Source path looks like generated Cutscene output and must not recursively become authoring source.",
+    "documentation_or_package_tooling_path": "Source path looks like documentation or package tooling rather than film content.",
+    "catalog_semantics_exclude_direct_authoring": "Catalog roles/capabilities explicitly describe reference or technical-only content.",
+    "generic_technical_or_primitive_identity": "Identity looks like a generic helper or primitive and requires source review.",
+    "probable_effect_misclassified_as_actor": "Actor classification conflicts with effect-like naming.",
+    "probable_ui_misclassified_as_actor": "Actor classification conflicts with UI-like naming.",
+    "probable_layer_or_tileset_misclassified_as_actor": "Actor classification conflicts with background/tileset naming.",
+    "probable_effect_misclassified_as_ui": "UI classification conflicts with effect-like naming.",
+    "actor_description_contradicts_identity": "Actor classification conflicts with strong source-description evidence that the selected identity is a background, environment prop, or effect."
+  },
+  "items": [
+    {
+      "category": "Actor",
+      "displayName": "ALIEN 10 0",
+      "authoringAssetId": "c8630c61ccf71ef4491c95dfa85a41fe:-454151143",
+      "canonicalActorAssetId": "c8630c61ccf71ef4491c95dfa85a41fe:-454151143",
+      "visualReferenceId": "visual_85e93e2e6f163dc2632d",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/DGraphics/MISTWORLD/ALIEN_10.png"
+      ],
+      "reasons": [
+        "actor_description_contradicts_identity"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "CAT 5 0",
+      "authoringAssetId": "dbe3d2492500ad744b4a6582c8aafd4d:-1163873368",
+      "canonicalActorAssetId": "dbe3d2492500ad744b4a6582c8aafd4d:-1163873368",
+      "visualReferenceId": "visual_4611757e1ceecdb4c2fd",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/DGraphics/MISTWORLD/CAT_5.png"
+      ],
+      "reasons": [
+        "actor_description_contradicts_identity"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "explosion6",
+      "authoringAssetId": "9d58b015dfd4bc34bbecb9b9bc948ee2:21300000",
+      "canonicalActorAssetId": "9d58b015dfd4bc34bbecb9b9bc948ee2:21300000",
+      "visualReferenceId": "visual_2f81717acda60dfb83ee",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Robot_Shooting_Game/Explosion/explosion1.png",
+        "Assets/_PKG/PKG_Robot_Shooting_Game/Explosion/explosion10.png",
+        "Assets/_PKG/PKG_Robot_Shooting_Game/Explosion/explosion11.png",
+        "Assets/_PKG/PKG_Robot_Shooting_Game/Explosion/explosion12.png",
+        "Assets/_PKG/PKG_Robot_Shooting_Game/Explosion/explosion2.png",
+        "Assets/_PKG/PKG_Robot_Shooting_Game/Explosion/explosion3.png",
+        "Assets/_PKG/PKG_Robot_Shooting_Game/Explosion/explosion4.png",
+        "Assets/_PKG/PKG_Robot_Shooting_Game/Explosion/explosion5.png",
+        "Assets/_PKG/PKG_Robot_Shooting_Game/Explosion/explosion6.png",
+        "Assets/_PKG/PKG_Robot_Shooting_Game/Explosion/explosion7.png",
+        "Assets/_PKG/PKG_Robot_Shooting_Game/Explosion/explosion8.png",
+        "Assets/_PKG/PKG_Robot_Shooting_Game/Explosion/explosion9.png"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Keep Mining Tileset",
+      "authoringAssetId": "ee8bf418df6e8e34cb2dcf656e6dfdd0:8430733782381768338",
+      "canonicalActorAssetId": "ee8bf418df6e8e34cb2dcf656e6dfdd0:8430733782381768338",
+      "visualReferenceId": null,
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Essentials/Textures/Retro/Boulderdash/Keep Mining Tileset.prefab"
+      ],
+      "reasons": [
+        "probable_layer_or_tileset_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "KittensLaserBeam",
+      "authoringAssetId": "788078eda1ec4044ba65a2c20c9eec37:8410062182727664078",
+      "canonicalActorAssetId": "788078eda1ec4044ba65a2c20c9eec37:8410062182727664078",
+      "visualReferenceId": "visual_af88f4f8adfa80adac16",
+      "sourcePaths": [
+        "Assets/_Game/MY_Prefabs/Laser_Parts/KittensLaserBeam.prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Nautolan Ship   Bomber   Engine Effect",
+      "authoringAssetId": "67dbcad2c4d62324dac42c3443248863:-2253911629886400664",
+      "canonicalActorAssetId": "67dbcad2c4d62324dac42c3443248863:-2253911629886400664",
+      "visualReferenceId": "visual_3c7648a9c3ce5e11be72",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Bomber - Engine Effect.aseprite"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Nautolan Ship   Dreadnought   Engine Effect",
+      "authoringAssetId": "dca7a9a6002b4bd4a8262e7b96c3fb70:-2253911629886400664",
+      "canonicalActorAssetId": "dca7a9a6002b4bd4a8262e7b96c3fb70:-2253911629886400664",
+      "visualReferenceId": "visual_5fc170b338b0caa0d176",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Dreadnought - Engine Effect.aseprite"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Nautolan Ship   Fighter   Engine Effect",
+      "authoringAssetId": "94c365bfde4452b4db0683aa63f8cbea:-2253911629886400664",
+      "canonicalActorAssetId": "94c365bfde4452b4db0683aa63f8cbea:-2253911629886400664",
+      "visualReferenceId": "visual_2fbb49a3a651cfff9c84",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Fighter - Engine Effect.aseprite"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Nautolan Ship   Frigate   Engine Effect",
+      "authoringAssetId": "a28164283e163c142ab82c554db2254d:-2253911629886400664",
+      "canonicalActorAssetId": "a28164283e163c142ab82c554db2254d:-2253911629886400664",
+      "visualReferenceId": "visual_ad36cbf2bcaa6702eda1",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Frigate - Engine Effect.aseprite"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Nautolan Ship   Scout   Engine Effect",
+      "authoringAssetId": "024f1510474d6a945bf0d4eb1ea58862:-2253911629886400664",
+      "canonicalActorAssetId": "024f1510474d6a945bf0d4eb1ea58862:-2253911629886400664",
+      "visualReferenceId": "visual_ec555f970dfef3b333da",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Scout - Engine Effect.aseprite"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Nautolan Ship   Support   Engine Effect",
+      "authoringAssetId": "ef41aab2286fa334c863299493c88346:-2253911629886400664",
+      "canonicalActorAssetId": "ef41aab2286fa334c863299493c88346:-2253911629886400664",
+      "visualReferenceId": "visual_1766d9f11a2fe8790fb0",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Support - Engine Effect.aseprite"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Nautolan Ship   Torpedo Ship   Engine Effect",
+      "authoringAssetId": "390a35d4277d51b4c9e78341bf988b5e:-2253911629886400664",
+      "canonicalActorAssetId": "390a35d4277d51b4c9e78341bf988b5e:-2253911629886400664",
+      "visualReferenceId": "visual_449eb66258f288cf1551",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Torpedo Ship - Engine Effect.aseprite"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_actor"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Sphere UV",
+      "authoringAssetId": "c72e1411e2e4ff84a87796edeb13556e:2447226645435551360",
+      "canonicalActorAssetId": "c72e1411e2e4ff84a87796edeb13556e:2447226645435551360",
+      "visualReferenceId": null,
+      "sourcePaths": [
+        "Assets/Shield Shader FREE/Prefabs/Sphere UV.prefab"
+      ],
+      "reasons": [
+        "generic_technical_or_primitive_identity"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Actor",
+      "displayName": "Step",
+      "authoringAssetId": "21f4ee7b875c5614bae545ccd6c7652e:1847307792383872",
+      "canonicalActorAssetId": "21f4ee7b875c5614bae545ccd6c7652e:1847307792383872",
+      "visualReferenceId": null,
+      "sourcePaths": [
+        "Assets/Shared/Environment/Prefabs/Step.prefab"
+      ],
+      "reasons": [
+        "generic_technical_or_primitive_identity"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Layer",
+      "displayName": "7a game screen",
+      "authoringAssetId": "3eccc61ae08493a4a9a60a349c33f24f:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_499dfa64d36a7adeab93",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/7a game-screen.jpg",
+        "Assets/_Game/MY_Core/MY_Art/argo1.jpg",
+        "Assets/_Game/MY_Core/MY_Art/argo2.png"
+      ],
+      "reasons": [
+        "catalog_semantics_exclude_direct_authoring"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Layer",
+      "displayName": "New Sprite",
+      "authoringAssetId": "7f4cfc138b98e65489a653c2c988aa32:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_a88dd2e5645abc68fa71",
+      "sourcePaths": [
+        "Assets/New Sprite.png"
+      ],
+      "reasons": [
+        "catalog_semantics_exclude_direct_authoring"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Layer",
+      "displayName": "sphere 0",
+      "authoringAssetId": "8689a610ae0c88b428207a9ec6a8476f:21300020",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_2139bc7d2f2a7a87a50b",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 01/Textures/Enemies/sphere.png"
+      ],
+      "reasons": [
+        "generic_technical_or_primitive_identity"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Layer",
+      "displayName": "sphere ring0007",
+      "authoringAssetId": "82655b161db84941af968aeed89a6b9b:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_0432d4f5e9610cae61d8",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0000.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0001.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0002.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0003.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0004.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0005.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0006.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0007.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0008.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0009.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0010.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0011.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0012.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0013.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0014.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0015.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0016.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0017.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0018.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0019.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0020.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0021.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0022.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0023.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0024.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0025.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0026.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0027.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0028.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0029.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0030.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0031.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0032.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0033.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0034.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0035.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/sphere ring0036.png"
+      ],
+      "reasons": [
+        "generic_technical_or_primitive_identity"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Layer",
+      "displayName": "Square",
+      "authoringAssetId": "3041a259bfbe1204399a62f47be47c5d:7482667652216324306",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_0f0b8637b23852fd4b07",
+      "sourcePaths": [
+        "Assets/Sprites/square.png",
+        "Assets/Square 1.png",
+        "Assets/Square.png"
+      ],
+      "reasons": [
+        "catalog_semantics_exclude_direct_authoring",
+        "generic_technical_or_primitive_identity"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Layer",
+      "displayName": "Tank",
+      "authoringAssetId": "3182336aba0b4b38ad766685c16b4b78:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_f8d84fa843c4fa6e0877",
+      "sourcePaths": [
+        "Assets/_Game/MY_VARIA/Art/Sprites/Demo/Images/General/Block.png",
+        "Assets/_Game/MY_VARIA/Art/Sprites/Demo/Images/General/Brick.png",
+        "Assets/_Game/MY_VARIA/Art/Sprites/Demo/Images/General/Letterbox.png",
+        "Assets/_Game/MY_VARIA/Art/Sprites/Demo/Images/RunNGun/Amoeba5.png",
+        "Assets/_Game/MY_VARIA/Art/Sprites/Demo/Images/TankShooter/Tank.png"
+      ],
+      "reasons": [
+        "sample_or_demo_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Layer",
+      "displayName": "tryouts 0",
+      "authoringAssetId": "d47f5b2a090a09049b1372624764c6f5:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_ca44691a6db8d1e080c2",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/DGraphics/tryouts.png",
+        "Assets/_Game/MY_Core/MY_Art/Debug/ParallaxPreviewDisc.png"
+      ],
+      "reasons": [
+        "editor_test_or_debug_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Effect",
+      "displayName": "BurstFlame3",
+      "authoringAssetId": "7e50817b8e02403490cf15b8b701c39d:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_23a0bca436dbe852e575",
+      "sourcePaths": [
+        "Assets/_Game/MY_VARIA/Art/VFX/Demo/Images/SpaceShooter/BurstFlame3.png"
+      ],
+      "reasons": [
+        "sample_or_demo_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Effect",
+      "displayName": "CDVGDFXGV 410",
+      "authoringAssetId": "e6189dffbd2d0f54a9c3e569bc3bb957:664547545",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_dc2dcd35f18cb7875d5a",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/sprites/CDVGDFXGV.png"
+      ],
+      "reasons": [
+        "catalog_semantics_exclude_direct_authoring"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Effect",
+      "displayName": "sphere 12pl",
+      "authoringAssetId": "7a776e20afe793646a5c6d06ac259276:2704951945538928513",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": null,
+      "sourcePaths": [
+        "Assets/Eric VFX Studio/Free Game VFX/Prefab/Mesh/sphere_12pl.prefab"
+      ],
+      "reasons": [
+        "generic_technical_or_primitive_identity"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Effect",
+      "displayName": "Sphere 32",
+      "authoringAssetId": "d946e3b1b1741e94a8d24cbaf370a499:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_415b457c5142a6233688",
+      "sourcePaths": [
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/color/Sphere_128.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/color/Sphere_16.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/color/Sphere_32.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/color/Sphere_64.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/color/Sphere_8.png"
+      ],
+      "reasons": [
+        "generic_technical_or_primitive_identity"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Effect",
+      "displayName": "Sphere 64",
+      "authoringAssetId": "d6abc79196639304ca3f1ec2662caecb:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_f7713e8d06f351345491",
+      "sourcePaths": [
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/grey/Sphere_128.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/grey/Sphere_16.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/grey/Sphere_32.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/grey/Sphere_64.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/grey/Sphere_8.png"
+      ],
+      "reasons": [
+        "generic_technical_or_primitive_identity"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Effect",
+      "displayName": "sphere 8pl",
+      "authoringAssetId": "bfc9269708317e1469c37e9b4ae1c777:4707592553822528649",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": null,
+      "sourcePaths": [
+        "Assets/Eric VFX Studio/Free Game VFX/Prefab/Mesh/sphere_8pl.prefab"
+      ],
+      "reasons": [
+        "generic_technical_or_primitive_identity"
+      ],
+      "pixelStatus": "PIXELS_UNAVAILABLE",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Effect",
+      "displayName": "Sphere Flash 64 1",
+      "authoringAssetId": "ad3c68872dc52db4cae4f2c099837348:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_71367e3bfd2f86d38df2",
+      "sourcePaths": [
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/SphereFlash/Sphere_Flash_128_1.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/SphereFlash/Sphere_Flash_128_2.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/SphereFlash/Sphere_Flash_128_3.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/SphereFlash/Sphere_Flash_64_1.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/SphereFlash/Sphere_Flash_64_2.png",
+        "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/SphereFlash/Sphere_Flash_64_3.png"
+      ],
+      "reasons": [
+        "generic_technical_or_primitive_identity"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Background 04",
+      "authoringAssetId": "f3e85f2807ffb440887f384d6dad326d:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_2c04ba7b114f4a9b4646",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Backgound/Background_00.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Backgound/Background_01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Backgound/Background_02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Backgound/Background_03.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Backgound/Background_04.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Backgound/Background_05.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Backgound/Background_06.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Backgound/Background_07.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Backgound/Background_08.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Backgound/Background_09.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Backgound/Background_10.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Backgound/Background_11.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Backgound/Background_ScreenGlow.png"
+      ],
+      "reasons": [
+        "sample_or_demo_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Character04 03",
+      "authoringAssetId": "776cef056b4044cec86888a5f6a112ae:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_e6497646cc06a5dd07ac",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character01_01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character01_02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character01_03.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character02_01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character02_02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character03_01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character03_02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character04_01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character04_02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character04_03.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character05_01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character05_02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character06_01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character06_02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character06_03.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character06_04.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character06_05.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character07.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character08_01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character08_02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character08_03.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character08_04.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Character/Character08_05.png"
+      ],
+      "reasons": [
+        "sample_or_demo_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "ChatGPT Image Aug 6, 2026, 01 25 19 AM",
+      "authoringAssetId": "22a3819cd493379438162c922c1691c2:-1192150396",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_0b67229a3c9fca95914d",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/MY_Art/UI/ChatGPT Image Aug 6, 2026, 01_25_19 AM.png"
+      ],
+      "reasons": [
+        "catalog_semantics_exclude_direct_authoring"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "documentation",
+      "authoringAssetId": "99b77d53c4f0f624097be62634cda371:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_9c4b198cc9397f536f53",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Product Navigator/Editor/Icons/documentation.png"
+      ],
+      "reasons": [
+        "editor_test_or_debug_path",
+        "documentation_or_package_tooling_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Blastwave",
+      "authoringAssetId": "7256fa04884c7e4418957446b28f897e:797004117377278665",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_90b336261a59b8e732e7",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Blastwave.prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Fire (Blue)",
+      "authoringAssetId": "0e87990d0bdd2974a85e0754f3206749:8829224107769179892",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_abbc1b4eeea67ec9d691",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Fire (Blue).prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Fire (Green)",
+      "authoringAssetId": "39e2fac385fbd654f93098057212d967:4409570714669825406",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_08e3c9626453dd039770",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Fire (Green).prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Fire (Purple)",
+      "authoringAssetId": "c801cc0d248ab814ba7815015442c56e:4883353929313934802",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_b8f49b9c37eada5752ad",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Fire (Purple).prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Fire (Red)",
+      "authoringAssetId": "36edbbb7606dfc540942c39ed8250402:2106495340177213135",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_520238b34f7b301ca26e",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Fire (Red).prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Flash (Blue)",
+      "authoringAssetId": "c9530f87b0e9b0f46bcb530fd254a306:6713654900140887690",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_9a6ca346947b9d4a5ef3",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Flash (Blue).prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Flash (Green)",
+      "authoringAssetId": "27a68c142a6e499469d46bf40dd4492d:5999626652926643232",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_20ad64d20dd4ea2b1e07",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Flash (Green).prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Flash (Purple)",
+      "authoringAssetId": "489e095bf217ebc4d9ad82c485c35510:8967160327478727487",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_d875907f77fec9da51fd",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Flash (Purple).prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Flash (Red)",
+      "authoringAssetId": "3219264ff126fd948a68be20b948b724:8625168273583106452",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_b7505e5c9c52fd609690",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Flash (Red).prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Explosion Smoke",
+      "authoringAssetId": "75ba59a5cb594fc44b847f27171fca66:2801301447712279546",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_38d743b428b28ce57c85",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Framework/Ignition/Value Pack/Particle Effects/Prefabs/Explosion Smoke.prefab"
+      ],
+      "reasons": [
+        "probable_effect_misclassified_as_ui"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Frame RankBadge 04 Blue",
+      "authoringAssetId": "49e30966db36048eb9f24d2d19408a60:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_624b66c89a1d0d81cd1b",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_RnakBadge/Frame_RankBadge_01_Brown.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_RnakBadge/Frame_RankBadge_02_Gray.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_RnakBadge/Frame_RankBadge_03_Green.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_RnakBadge/Frame_RankBadge_04_Blue.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_RnakBadge/Frame_RankBadge_05_Purple.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_RnakBadge/Frame_RankBadge_06_Orange.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_RnakBadge/Frame_RankBadge_07_Red.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_RnakBadge/Frame_RankBadge_08_Green.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_RnakBadge/Frame_RankBadge_09_Blue.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_RnakBadge/Frame_RankBadge_10_Purple.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_RnakBadge/Frame_RankBadge_11_Red.png"
+      ],
+      "reasons": [
+        "sample_or_demo_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Icon Badge03 Bronze",
+      "authoringAssetId": "11e41c7c21f5c4b10a74b2b13377b8d8:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_1be91e1e0f69294e7091",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_Badge03_Bronze.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_Badge03_Gold.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_Badge03_Silver.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_PictoIcon_Badge.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_PictoIcon_Badge01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_PictoIcon_Badge02.png"
+      ],
+      "reasons": [
+        "sample_or_demo_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Icon MapInfoIcon Icon 5",
+      "authoringAssetId": "73e6fd197fc72406ab8f517566a18f67:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_38d400feed226bdc7a57",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_MapInfoIcon_Gun_Ar.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_MapInfoIcon_Gun_Pistol.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_MapInfoIcon_Gun_Shopgun.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_MapInfoIcon_Gun_Sniper.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_MapInfoIcon_Icon_0.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_MapInfoIcon_Icon_1.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_MapInfoIcon_Icon_2.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_MapInfoIcon_Icon_3.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_MapInfoIcon_Icon_4.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_MapInfoIcon_Icon_5.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_MapInfoIcon_Icon_6.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_MapInfoIcon_Icon_7.Png"
+      ],
+      "reasons": [
+        "sample_or_demo_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Icon MenuIcon08 News",
+      "authoringAssetId": "04f56e224589e40ae99c736e81b98e0e:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_402dda70fc53cafe9768",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon01_Flag01_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon01_Flag02_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon01_Mask_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon01_Ranking_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon01_Shop_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon02_Camp_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon02_Mask_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon03_Grenade_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon03_Gun_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon03_Knife_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon03_Uniform_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon04_Badge_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon04_Hammer_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon04_Healbox_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon04_Helmet_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon04_Mask_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon04_Setting_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon05_Board_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon05_Calendar_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon05_Honor_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon06_Blacksmith_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon06_Bullet03_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon06_Chest_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon06_Coin_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon06_Gem_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon07_Continue_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon07_Exit_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon07_Restart_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon07_Setting_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon08_Camp.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon08_Friend.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon08_Gift.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon08_Guide.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon08_News.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon08_Reward.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon08_Save.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon08_Special.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_MenuIcon08_Spin.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_MenuIcon/Icon_Tabs_FocusLine.png"
+      ],
+      "reasons": [
+        "sample_or_demo_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Icon PictoIcon Gun03 04 s",
+      "authoringAssetId": "e3c8d0864d3b64fe8b5dc4265151341c:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_1e9167cc01f40b47c779",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_PictoIcon_Gun01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_PictoIcon_Gun02_01_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_PictoIcon_Gun02_02_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_PictoIcon_Gun02_03_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_PictoIcon_Gun02_04_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_PictoIcon_Gun03_01_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_PictoIcon_Gun03_02_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_PictoIcon_Gun03_03_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_PictoIcon_Gun03_04_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_PictoIcon_Gun03_White.png"
+      ],
+      "reasons": [
+        "sample_or_demo_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Icon PictureIcon Tv1",
+      "authoringAssetId": "158530b3e42784376a4003884f325025:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_d2aa3ea59bc259d29ab2",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Icon_PictureIcon_Tv1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Icon_PictureIcon_Tv2.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Icon_PictureIcon_Tv3.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Icon_PictureIcon_Tv4.png"
+      ],
+      "reasons": [
+        "sample_or_demo_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Icon TutorialIcon  Hand",
+      "authoringAssetId": "0978156623320436b9482a478d3353bc:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_df6507504ff178aee2e2",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_TutorialIcon_Circle01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_TutorialIcon_Circle02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_TutorialIcon_Circle03.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_TutorialIcon_Square01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_TutorialIcon_Square02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_TutorialIcon_Square03.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Icon/Icon_TutorialIcon__Hand.png"
+      ],
+      "reasons": [
+        "sample_or_demo_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Image Deco Circle01 1",
+      "authoringAssetId": "912b94882ec2f4b9f9d110f92972d4b1:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_2cb1c6392ba548b92562",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Common_4pixel_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Deco_Circle01_1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Deco_Circle01_2.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Deco_Circle01_3.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Deco_LIne2.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Deco_Line1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Deco_Line3.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Deco_Triangle01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Deco_Triangle02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Sample01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Sample02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Sample03.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Sample03_1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Sample03_2.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_TextTitle.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Tiled_Grid.png"
+      ],
+      "reasons": [
+        "sample_or_demo_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Image Effect Lihgt",
+      "authoringAssetId": "66793fc039c044ae2b1fed4b9a15a0c8:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_da4440cc083684d7d207",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Effect_Dust01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Effect_Dust02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Effect_Dust03.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Effect_Lihgt.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Effect_Rotate_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Effect_Sparkle01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Effect_Sparkle02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Effect_Sparkle03.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Effect_Sparkle04_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Effect_Sparkle05_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Effect_Sparkle06_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Effect_Sparkle07_Sample.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Effect_Sparkle08_Sample.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Glow_Circle01_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Glow_Circle02_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Glow_Circle03_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Glow_DropBothSides_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Glow_DropDown01_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Glow_DropDown02_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Glow_DropDown03_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Glow_DropUp_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Image/Image_Glow_PanelBottom.png"
+      ],
+      "reasons": [
+        "sample_or_demo_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Item Shopicon Bullet06",
+      "authoringAssetId": "fe1dd89b6d7ae4853a145dca9fd5a1f5:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_2770dcd284a24bb3d9a9",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Coin02.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Coin03.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Battery.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Book.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Bottlecap.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_BulletGold.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_BulletSilver.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_CoinC.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_CoinV.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Corn.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Fence.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Friend.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Gasoline.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Health.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Heart.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Parts.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Serum.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Survivor.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Tv.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Uniform.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Video.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Water.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Middle_Wood.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Small_Bottlecap.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Small_BulletGold.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Small_Fence.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Small_Health.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Icon_ItemIcon_Small_Parts.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_CarIcon_01_1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_CarIcon_01_2.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_CarIcon_02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_CarIcon_03.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_GunIcon_01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_GunIcon_Large_Ar.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_GunIcon_Large_Pistol.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_GunIcon_Large_Shotgun.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_GunIcon_Large_Sniper.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_GunIcon_Small_Ar.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_GunIcon_Small_Pistol.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_RewardChest_Close.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_RewardChest_Open.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_RewardChest_Open_Glow.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_RewardIcon_Bullet01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_RewardIcon_Bullet02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_RewardIcon_Bullet03.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_ShopIcon_Bullet01.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_ShopIcon_BulletBox01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_ShopIcon_BulletBox02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_ShopIcon_Chest01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_ShopIcon_Chest02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_ShopIcon_Coin01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_ShopIcon_Coin02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_ShopIcon_Coin03.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_ShopIcon_Fence.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_Shopicon_Bullet02.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_Shopicon_Bullet03.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_Shopicon_Bullet04.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_Shopicon_Bullet05.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_ItemIcon/Item_Shopicon_Bullet06.Png"
+      ],
+      "reasons": [
+        "sample_or_demo_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "NavMeshSurface Icon",
+      "authoringAssetId": "68ad4f5d6fe957c4789aedd21ff67ced:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_d19bb7f3894fdbef53d0",
+      "sourcePaths": [
+        "Assets/_Game/MY_Core/NavMeshPlus_master/Gizmos/NavMeshLink Icon.png",
+        "Assets/_Game/MY_Core/NavMeshPlus_master/Gizmos/NavMeshSurface Icon.png",
+        "Assets/_Game/MY_Core/NavMeshPlus_master/Gizmos/NavMeshSurface2d Icon.png",
+        "Assets/_Game/MY_Core/NavMeshPlus_master/Gizmos/NavMeshSurfaceGears Icon.png"
+      ],
+      "reasons": [
+        "editor_test_or_debug_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Play Roulette item Focus",
+      "authoringAssetId": "baef5c00c6666442bbb1d0a531ad4569:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_353a6c1ce2d4f4035401",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Frame_IconFrame_Hexagon01_Purple.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Frame_IconFrame_Hexagon01_White1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Frame_IconFrame_Hexagon01_White2.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Frame_IconFrame_Hexagon01_White3.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Frame_IconFrame_Hexagon01_White4.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Frame_IconFrame_Hexagon02_Transpar.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Frame_IconFrame_Hexagon04_Gold1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Frame_IconFrame_Hexagon04_Gold2.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Frame_IconFrame_Hexagon04_Gold3.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Frame_IconFrame_Hexagon04_Gold4.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Frame_StageFrame_Hexagon05_d.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Frame_StageFrame_Hexagon05_s1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Frame_StageFrame_Hexagon05_s2.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_ActionText00_Glow.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_ActionText01_LIne1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_ActionText01_LIne2.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_ActionText02_LIne1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_ActionText02_LIne2.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_ActionText03_LIne1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_ActionText03_LIne3.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_ActionText04_LIne1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_ActionText04_LIne2.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_ActionText05_LIne1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_ActionText05_LIne2.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Attack_00_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Attack_01_White1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Attack_01_White2.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Attack_02_White1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Attack_02_White2.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Attack_02_White3.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Direction01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Direction02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Direction03_01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Direction03_02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Direction03_03.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Direction03_04.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Direction04.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Icon_Attack_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Icon_Grenade_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Icon_Magazine_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Icon_Rolling_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Skill_00_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Skill_01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Skill_Slider_01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Skill_Slider_02_Blue.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Skill_Slider_02_Orange.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Joystick_Skill_Slider_02_White.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_CharacterFrame_BackFrame.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_CharacterFrame_Blue.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_CharacterFrame_Red.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_Frame_Deco1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_Frame_Deco2.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_Frame_Deco3.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_Frame_Deco4.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_Frame_bg.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_Icon_Frame.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_Icon_Skull.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_Icon_Warning.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_UserDirection01.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_UserDirection02.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_UserDirection03.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Minimap_UserDirection04.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Roulette_Btn.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Roulette_Btn_Frame.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Roulette_Btn_Info.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Roulette_Frame.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Roulette_Inside.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Roulette_Item_Bg_Circle_s.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_Play/Play_Roulette_item_Focus.png"
+      ],
+      "reasons": [
+        "sample_or_demo_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "Smicon Languageflag Small02 Esp",
+      "authoringAssetId": "fe67edba0e85a4b6fa1ccf0a131cf0e1:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_1f9311ab9dee7fa515db",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Brz.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Chn.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Deu.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Eng.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Esp.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Fra.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Gre.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Ind.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Ita.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Jpn.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Kor.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Pol-1.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Pol.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Prt.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Rou.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Rus.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Tha.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Tur.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Twn.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Large_Ukr.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Brz.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Chn.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Deu.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Eng.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Esp.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Fra.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Gre.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Ind.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Ita.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Jpn.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Kor.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Pol-1.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Pol.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Prt.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Rou.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Rus.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Tha.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Tur.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Twn.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_LanguageFlag_Small01_Ukr.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_Language_Large_Focus.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_Language_Large_Frame.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Icon_Language_Small_Frmae.png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Brz.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Chn.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Deu.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Eng.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Esp.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Fra.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Gre.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Ind.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Ita.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Jpn.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Kor.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Pol-1.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Pol.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Prt.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Rou.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Rus.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Tha.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Tur.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Twn.Png",
+        "Assets/_PKG/PKG_GUI_PRO_Kit_Sci_Fi_Survival/ResourcesData/Sprite/Demo/Demo_LanguageFlag/Smicon_Languageflag_Small02_Ukr.Png"
+      ],
+      "reasons": [
+        "sample_or_demo_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "thumb   background generator",
+      "authoringAssetId": "3184f720144515b47a39fb3a7ae57baa:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_c1803c5c4dc933ada66e",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Editor/Icons/thumb - background generator.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Editor/Icons/thumb - basic.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Editor/Icons/thumb-background generator.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 02/Editor/Icons/thumb-basic.png"
+      ],
+      "reasons": [
+        "editor_test_or_debug_path",
+        "catalog_semantics_exclude_direct_authoring"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "thumb   pyro",
+      "authoringAssetId": "73721b8d0e706404f8dfc820d0f945ac:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_4902e29e06a8e44902a2",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Prototyping/Editor/Icons/thumb - player dash 1.png",
+        "Assets/_PKG/PKG_Playniax/Prototyping/Editor/Icons/thumb - player dash 2.png",
+        "Assets/_PKG/PKG_Playniax/Prototyping/Editor/Icons/thumb - pyro.png",
+        "Assets/_PKG/PKG_Playniax/Prototyping/Editor/Icons/thumb - scroller.png"
+      ],
+      "reasons": [
+        "editor_test_or_debug_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "thumb   techno",
+      "authoringAssetId": "69eacc534685946478a833c871025100:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_85faf618dbfca64105a5",
+      "sourcePaths": [
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 01/Editor/Icons/thumb - basic.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 01/Editor/Icons/thumb - crystals.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 01/Editor/Icons/thumb - rocks.png",
+        "Assets/_PKG/PKG_Playniax/Space Shooter Art Pack 01/Editor/Icons/thumb - techno.png"
+      ],
+      "reasons": [
+        "editor_test_or_debug_path"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    },
+    {
+      "category": "Ui",
+      "displayName": "UIToolkitSample",
+      "authoringAssetId": "bd81cf71a2f30484bb8be7647f7ea574:21300000",
+      "canonicalActorAssetId": null,
+      "visualReferenceId": "visual_c604964d450e5c7d3f3b",
+      "sourcePaths": [
+        "Assets/_Game/MY_Prefabs/UI_UXML/Textures/Misc/EBookGraphicTemp.jpg",
+        "Assets/_Game/MY_Prefabs/UI_UXML/Textures/Misc/UIToolkitSample.png"
+      ],
+      "reasons": [
+        "catalog_semantics_exclude_direct_authoring"
+      ],
+      "pixelStatus": "PIXELS_VERIFIED",
+      "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+    }
+  ],
+  "authoringRuleRegistryRevision": "8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0",
+  "requiredCurrent": {
+    "catalogRevision": 7625541441843202476,
+    "contractRevision": "424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF",
+    "schemaHash": "7D3743BC09A41110901B3A2B4D2206725A7FBD19D14D275223C66ACAA9FE0CAB",
+    "snapshotContentHash": "1E0F47BB76E622802BD9BFD4F1E08E0458D79389EA3057C7A3958DB5F4C2E8BA",
+    "authoringRuleRegistryRevision": "8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0"
+  },
+  "provenance": {
+    "publishTransactionId": "20260820-020210752-cd4da05b",
+    "publishedUtc": "2026-08-20T02:10:54.8595252Z",
+    "publisherVersion": "2.10.1",
+    "bundleIdentity": "748381E4DB03CE22288127CA9C906A3576D8663FE7D823D892571A86D22C141E"
+  },
+  "atomicIdentity": {
+    "publishTransactionId": "20260820-020210752-cd4da05b",
+    "catalogRevision": 7625541441843202476,
+    "contractRevision": "424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF",
+    "schemaHash": "7D3743BC09A41110901B3A2B4D2206725A7FBD19D14D275223C66ACAA9FE0CAB",
+    "snapshotContentHash": "1E0F47BB76E622802BD9BFD4F1E08E0458D79389EA3057C7A3958DB5F4C2E8BA",
+    "authoringRuleRegistryRevision": "8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0"
+  }
+}
