@@ -1,0 +1,30 @@
+{
+  "packageType": "STARWARS_DELTA_CUTSCENE_PACKAGE",
+  "packageVersion": 5,
+  "packageId": "cutscene-preview-current-90s-test",
+  "title": "Roadblock Signal",
+  "language": "en",
+  "totalDurationSeconds": 90,
+  "handoff": {
+    "intent": "Browser preview QA for CURRENT renderer",
+    "notes": [
+      "Uses visual names/IDs already known to resolve in FULL_VISUAL_INDEX.",
+      "Exercises backgrounds, robot/bus actors, VFX, dialogue, timing and unresolved diagnostics."
+    ]
+  },
+  "cast": [
+    {"entityId":"robot01","displayName":"Rook","visualAssetId":"SpaceRobot1"},
+    {"entityId":"bus01","displayName":"Evac Bus","visualAssetId":"EVAC CITY BUS V2"}
+  ],
+  "shots": [
+    {"shotId":"qa90_s01_orbit","startOffset":0,"duration":10,"shotType":"Wide","cameraIntent":"Establishing","intention":"Quiet orbit before the emergency signal.","backgroundAssetId":"SPACE 9","actorActions":[{"actorId":"robot01","animation":"hover_idle","movement":"slow drift"}],"dialogue":[{"speaker":"Rook","emotion":"calm","text":"Signal lock. Surface channel is still alive."}]},
+    {"shotId":"qa90_s02_command","startOffset":10,"duration":10,"shotType":"Medium","cameraIntent":"Push","intention":"Command center receives the road warning.","backgroundAssetId":"CUTSCENE BG CommandCenter Calm 3x2 4","actorActions":[{"actorId":"robot01","animation":"look_up","emotion":"concerned","movement":"small forward lean"}],"dialogue":[{"speaker":"Rook","emotion":"concerned","text":"Evac route seven just went dark."}]},
+    {"shotId":"qa90_s03_launch","startOffset":20,"duration":10,"shotType":"Wide","cameraIntent":"Tracking","intention":"The bus is dispatched while a warning flare fires.","backgroundAssetId":"LaunchActivity DualPad","actorActions":[{"actorId":"bus01","animation":"drive_start","movement":"left to right"},{"actorId":"robot01","animation":"turn_and_point","emotion":"urgent"}],"effects":[{"effectId":"launch_flash","effectAssetId":"93e2db81323542c485091793396cdd82:21300000","animation":"pulse"}],"dialogue":[{"speaker":"Rook","emotion":"urgent","text":"Bus One, move. I will clear the road."}]},
+    {"shotId":"qa90_s04_road","startOffset":30,"duration":10,"shotType":"Wide","cameraIntent":"Follow","intention":"The evacuation bus crosses the red route.","backgroundAssetId":"LaunchActivity DualPad","actorActions":[{"actorId":"bus01","animation":"drive_loop","movement":"steady rightward travel"}],"dialogue":[{"speaker":"Evac Bus","emotion":"neutral","text":"Route speed stable. Forty seconds to shelter."}]},
+    {"shotId":"qa90_s05_block","startOffset":40,"duration":10,"shotType":"Medium","cameraIntent":"Reveal","intention":"Rook reaches the roadblock first.","backgroundAssetId":"LaunchActivity DualPad","actorActions":[{"actorId":"robot01","animation":"brace","emotion":"focused","movement":"steps into foreground"},{"actorId":"bus01","animation":"brake","movement":"stops behind robot"}],"dialogue":[{"speaker":"Rook","emotion":"focused","text":"Stop here. Something is buried under the road."}]},
+    {"shotId":"qa90_s06_impact","startOffset":50,"duration":10,"shotType":"CloseUp","cameraIntent":"Impact","intention":"The trap fires. Explosion and impact VFX test overlap.","backgroundAssetId":"LaunchActivity DualPad","actorActions":[{"actorId":"robot01","animation":"impact_recoil","emotion":"alarm","movement":"short backward hit"},{"actorId":"bus01","animation":"brake_hold","movement":"stationary"}],"effects":[{"effectId":"laser","effectAssetId":"93e2db81323542c485091793396cdd82:21300000","animation":"burst"},{"effectId":"explosion","effectAssetId":"e1b08032bec16ba4eb1ae23cbd572664:1121192042590650","animation":"expand_shockwave"}],"dialogue":[{"speaker":"Rook","emotion":"alarm","text":"Contact!"}]},
+    {"shotId":"qa90_s07_choice","startOffset":60,"duration":10,"shotType":"Medium","cameraIntent":"Reaction","intention":"Rook chooses the dangerous route so the bus can continue.","backgroundAssetId":"LaunchActivity DualPad","actorActions":[{"actorId":"robot01","animation":"turn_to_bus","emotion":"determined","movement":"steps away from bus"},{"actorId":"bus01","animation":"idle","movement":"stationary"}],"dialogue":[{"speaker":"Rook","emotion":"determined","text":"Take the lower route. I will draw the next shot."},{"speaker":"Evac Bus","emotion":"worried","text":"That leaves you alone."}]},
+    {"shotId":"qa90_s08_run","startOffset":70,"duration":10,"shotType":"Tracking","cameraIntent":"Follow","intention":"Robot runs while the bus escapes in the opposite direction.","backgroundAssetId":"LaunchActivity DualPad","actorActions":[{"actorId":"robot01","animation":"run","emotion":"fierce","movement":"rightward sprint"},{"actorId":"bus01","animation":"drive_loop","movement":"leftward exit"}],"effects":[{"effectId":"trail_flash","effectAssetId":"93e2db81323542c485091793396cdd82:21300000","animation":"streak_repeat"}],"dialogue":[{"speaker":"Rook","emotion":"fierce","text":"Keep moving!"}]},
+    {"shotId":"qa90_s09_safe","startOffset":80,"duration":10,"shotType":"Wide","cameraIntent":"ClosingImage","intention":"The bus reaches safety. The signal remains alive.","backgroundAssetId":"SPACE 9","actorActions":[{"actorId":"bus01","animation":"slow_stop","movement":"gentle stop"},{"actorId":"robot01","animation":"stand_tired","emotion":"relieved","movement":"small breathing motion"}],"dialogue":[{"speaker":"Evac Bus","emotion":"relieved","text":"Shelter reached."},{"speaker":"Rook","emotion":"relieved","text":"Then the route stays open."}]}
+  ]
+}
