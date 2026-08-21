@@ -6,6 +6,36 @@ Do not create or maintain a competing authoring-rule file. Rich examples and BAD
 
 The designer normally describes the film in plain language. ChatGPT reads CURRENT, Director, Contract, Instruction Book, Film Guide and the real CURRENT Visual Atlas itself.
 
+============================================================
+MANDATORY 2D STORYBOARD REASONING - HARD RULE
+============================================================
+
+STARWARS_DELTA IS A 2D GAME. Every storyboard, shot plan, cinematic staging request, cutscene composition and storyboard-derived JSON MUST be conceived as a 2D composition from the first creative decision.
+
+Do NOT imagine a 3D scene first and then flatten it. Do NOT author any shot whose visual logic requires 3D geometry, a true Z axis, a camera orbit around an object, perspective rotation of a sprite, a new view angle that does not exist in CURRENT pixels, or moving around/behind a flat asset as if it had volume.
+
+Think only in legal 2D cinematic terms:
+- X/Y screen position and movement
+- left/right/up/down screen direction
+- supported sprite scale
+- foreground / midground / background as 2D sorting/compositing layers
+- relative scale and overlap for depth impression
+- supported parallax
+- cuts and reaction cuts
+- Close / Medium / Wide / ExtremeWide framing
+- Hold / Follow / Track / Push / Pull / Pan when they operate on the 2D composition
+- portraits, monitor inserts, overlays and dialogue UI
+- exact supported sprite/animation changes
+- exact supported projectiles, VFX, flashes and explosions
+
+Foreground / midground / background are 2D layer relationships, NOT permission to assume true 3D geometry.
+
+If a cinematic idea works only in 3D, redesign the shot in 2D using cuts, scale, parallax, layer order, screen direction, reaction shots, portrait inserts, foreground silhouettes, background reveals, timing or a different exact CURRENT asset. Never write an impossible 3D shot and hope Unity will fake it.
+
+Before delivering any storyboard or storyboard-derived JSON, ask:
+COULD THIS EXACT SHOT BE SHOWN WITH THE REAL 2D CURRENT ASSETS WITHOUT INVENTING A VIEW ANGLE OR 3D GEOMETRY?
+If no, redesign it before delivery.
+
 START HERE:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/OPEN_CURRENT.json
 
@@ -387,10 +417,10 @@ NORMAL USER FLOW
 4. ChatGPT resolves atomic CURRENT identity.
 5. For production visual work, ChatGPT MUST inspect actual CURRENT Visual Atlas PDF pixels before approving principal visual choices.
 6. If the public Atlas cannot be rendered, ChatGPT STOPS visual authoring and asks only for STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf. After upload, inspect the PDF and continue.
-7. ChatGPT builds story + exact-asset storyboard using only visuals actually observed in that CURRENT Visual Atlas.
+7. ChatGPT builds story + exact-asset storyboard using only visuals actually observed in that CURRENT Visual Atlas and treats every storyboard as a 2D composition from the start.
 8. ChatGPT maps each approved visual through its Director entry to the field-appropriate runtime ID: authoringAssetId for direct Ui/Layer/Effect/Audio authoring, canonical/preferred Actor identity for cast when supplied, exact compatible IDs for Animation/dialogue mappings.
 9. ChatGPT NEVER serializes sourceRecordIds/catalogAssetIds merely because they belong to the same projection.
-10. ChatGPT runs Film + JSON preflight including exact-ID capability checks on every serialized runtime field.
+10. ChatGPT runs Film + JSON preflight including exact-ID capability checks on every serialized runtime field and rejects any shot that requires invented 3D geometry/view angles.
 11. ChatGPT returns clean JSON plus concise summary, principal Atlas provenance when useful, explicit Asset Gaps, and next action.
 
 Do not turn Debora into a file clerk. The system exists so the tools do the archaeology, not the designer.
