@@ -101,6 +101,8 @@ def main():
                 "visualReferenceId": entry.get("visualReferenceId"),
                 "atlasPage": visual.get("atlasPage"),
                 "atlasSlot": visual.get("atlasSlot"),
+                "pageImageUrl": visual.get("pageImageUrl"),
+                "atlasPdfUrl": visual.get("atlasPdfUrl"),
                 "compatibleAnimationIds": entry.get("compatibleAnimationIds") or [],
                 "compatibleDialogueVisualIds": entry.get("compatibleDialogueVisualIds") or [],
             })
@@ -121,7 +123,16 @@ def main():
                 "screenWidthFraction": "visible width fraction of current cutscene camera view",
                 "screenHeightFraction": "visible height fraction of current cutscene camera view"
             },
-            "compilerRule": "Final world scale is derived from natural asset bounds + actual cutscene camera visible bounds + requested screen fraction. Do not interpret words such as giant/small as raw Unity scale values."
+            "orthographicViewRule": {
+                "visibleHeight": "orthographicSize * 2",
+                "visibleWidth": "visibleHeight * cameraAspect",
+                "left": "cameraX - visibleWidth / 2",
+                "right": "cameraX + visibleWidth / 2",
+                "bottom": "cameraY - visibleHeight / 2",
+                "top": "cameraY + visibleHeight / 2"
+            },
+            "compilerRule": "Final world scale is derived from natural asset Renderer bounds + actual cutscene camera visible bounds + requested screen fraction. Do not interpret words such as giant/small as raw Unity scale values.",
+            "unityExistingBridge": "V3 already measures Renderer bounds through WorldToViewportPoint and supports requestedScreenHeightFraction/targetScreenHeightFraction. CUTSCENE_SCRIPT_V1 should adapt into that existing spatial system instead of creating a second scale engine."
         }
     }
     OUT_PATH.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
