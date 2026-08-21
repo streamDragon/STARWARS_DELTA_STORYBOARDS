@@ -36,6 +36,17 @@ def runtime_id(entry, route):
     return entry.get("authoringAssetId")
 
 
+def runtime_hash(value):
+    return hashlib.sha1(str(value or "").encode("utf-8")).hexdigest()[:8]
+
+
+def stable_handle(display, rid):
+    # The human-readable prefix is intentionally non-authoritative. Unity resolves
+    # the exact local CURRENT runtime identity from the short SHA-1 suffix. This
+    # keeps handles stable even if Director display labels are later improved.
+    return f"{slug(display)}__{runtime_hash(rid)}"
+
+
 def is_eligible(entry, route):
     if entry.get("recommendationStatus") != "RECOMMENDABLE":
         return False
@@ -56,7 +67,7 @@ def is_eligible(entry, route):
 
 def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    for name in ("CUTSCENE_SCRIPT_V1.schema.json", "EXAMPLE_FALSE_VICTORY.json"):
+    for name in ("CUTSCENE_SCRIPT_V1.schema.json", "EXAMPLE_FALSE_VICTORY.json", "ARCHITECTURE.md"):
         src = SOURCE_SIMPLE / name
         if src.is_file():
             shutil.copy2(src, OUT_DIR / name)
@@ -76,15 +87,18 @@ def main():
                 continue
             rid = runtime_id(entry, route)
             display = entry.get("displayName") or rid
-            base = slug(display)
-            handle = base
-            if handle in used:
-                suffix = hashlib.sha1(str(rid).encode("utf-8")).hexdigest()[:8]
-                handle = f"{base}_{suffix}"
-            used.add(handle)
+            handle = stable_handle(display, rid)
+            # Same runtime route/identity may be projected by more than one source
+            # record. Publish one handle, not aliases that could make authoring
+            # selection look ambiguous.
+            identity_key = (route, rid)
+            if identity_key in used:
+                continue
+            used.add(identity_key)
             visual = entry.get("visualEvidence") or {}
             entries.append({
                 "handle": handle,
+                "runtimeHash": runtime_hash(rid),
                 "displayName": display,
                 "route": route,
                 "runtimeId": rid,
@@ -111,6 +125,13 @@ def main():
         "schema": "STARWARS_DELTA_AUTHORING_HANDLES",
         "schemaVersion": 1,
         "purpose": "Semantic authoring handles for CUTSCENE_SCRIPT_V1. ChatGPT uses handles; Unity/compiler owns runtime IDs and V5 serialization.",
+        "handleContract": {
+            "format": "<readable_slug>__<8-char lowercase sha1(runtimeId)>",
+            "authoritativePart": "runtimeHash suffix",
+            "resolution": "Unity recomputes the same short SHA-1 from exact local CURRENT runtime identities. It never fuzzy-matches the readable prefix.",
+            "unknownHandle": "REAL BLOCKER",
+            "ambiguousRuntimeHash": "REAL BLOCKER"
+        },
         "requiredCurrent": identity,
         "count": len(entries),
         "handles": sorted(entries, key=lambda x: (x["route"], x["handle"])),
@@ -132,7 +153,7 @@ def main():
                 "top": "cameraY + visibleHeight / 2"
             },
             "compilerRule": "Final world scale is derived from natural asset Renderer bounds + actual cutscene camera visible bounds + requested screen fraction. Do not interpret words such as giant/small as raw Unity scale values.",
-            "unityExistingBridge": "V3 already measures Renderer bounds through WorldToViewportPoint and supports requestedScreenHeightFraction/targetScreenHeightFraction. CUTSCENE_SCRIPT_V1 should adapt into that existing spatial system instead of creating a second scale engine."
+            "unityExistingBridge": "V3 already measures Renderer bounds through WorldToViewportPoint and supports requestedScreenHeightFraction/targetScreenHeightFraction. CUTSCENE_SCRIPT_V1 adapts into that existing spatial system instead of creating a second scale engine."
         }
     }
     OUT_PATH.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
