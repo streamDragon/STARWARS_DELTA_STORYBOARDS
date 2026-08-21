@@ -385,6 +385,53 @@ For dialogue beats:
 - preserve existing `DialoguePortrait`, `WorldActor`, `Both` and locked-dialogue invariants;
 - use the existing Integrated Import Router behavior of creating dialogue anchors when a participant intentionally has no world actor.
 
+### Dialogue participant identity invariant
+
+A dialogue participant is a valid participant even when it has **no spawned WorldActor**.
+
+The following is a legal and intentional production state:
+
+```text
+presentationMode = DialoguePortrait
+spawnWorldActor = false
+speakerActorId / listenerActorId = valid semantic actor identity
+portrait/body presentation = available through Dialogue Stage
+```
+
+That actor identity must survive the full runtime presentation path:
+
+```text
+speakerActorId / listenerActorId
+-> generated dialogue clip / playable
+-> runtime dialogue line data
+-> Dialogue Presenter
+-> portrait/dialogue participant
+-> expression / pose / portrait presentation
+```
+
+Do not use WorldActor lookup as the sole definition of whether a dialogue actor exists.
+
+Hard requirements:
+
+- supported expressions apply to the resolved dialogue participant even when there is no world actor;
+- speaker/listener portrait identity and world-presence identity remain separate concepts;
+- `backgroundAssetId`, portrait/body assets and expressions must flow through one coherent Dialogue Stage route;
+- sequence-level and shot-level dialogue, when both are legal, must reach the same visual presentation/materialization path;
+- a missing or unsupported expression may remain Yellow and fall back to Neutral/previous valid expression;
+- a valid `speakerActorId` or `listenerActorId` becoming `unknown actor` at runtime is a production bug, not an authoring correction opportunity.
+
+Forbidden workaround:
+
+```text
+DialoguePortrait participant
+-> force spawnWorldActor=true
+-> create hidden/invisible WorldActor just so expressions can resolve
+```
+
+Never do this. Fix participant binding at the existing Dialogue Stage boundary.
+
+Tracked Unity/Plastic runtime work: GitHub Issue #12 in `STARWARS_DELTA_STORYBOARDS` is the external handoff only; the actual runtime change belongs in the canonical Unity/Plastic workspace.
+
 ## 14. Projectiles / transient visuals
 
 `viaHandle` and `effectHandle` are route-sensitive.
@@ -469,5 +516,6 @@ The first implementation slice is complete when a `CUTSCENE_SCRIPT_V1` file can 
 4. `count` is visibly preserved or explicitly rejected;
 5. frame-relative size maps through actual camera bounds;
 6. Story Evidence errors are caught before materialization;
-7. existing normalizer/validator/materializer/Timeline owners remain unchanged except for the narrow entry hook;
-8. a successful result continues through the normal Studio flow with **0 RED BLOCKERS**.
+7. dialogue-only participants remain valid actors for portrait/expression presentation without requiring WorldActor spawn;
+8. existing normalizer/validator/materializer/Timeline owners remain unchanged except for the narrow entry hook;
+9. a successful result continues through the normal Studio flow with **0 RED BLOCKERS**.
