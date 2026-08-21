@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "STARWARS_DELTA_CUTSCENE_SCRIPT_V1",
   "title": "STARWARS_DELTA Cutscene Script V1",
-  "description": "Semantic cutscene authoring format. ChatGPT authors story, visible evidence and frame-relative composition. Unity owns CURRENT fingerprints, runtime IDs, materialization routes, natural asset bounds and final V5 serialization.",
+  "description": "Semantic cutscene authoring format. ChatGPT authors story, narrative identities, visible evidence and frame-relative composition. Unity owns CURRENT fingerprints, runtime IDs, presentation recovery, materialization routes, natural asset bounds and final V5 serialization.",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema", "schemaVersion", "title", "durationSeconds", "beats"],
@@ -17,10 +17,24 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "handle"],
+        "required": ["id", "identityHandle"],
         "properties": {
           "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
-          "handle": { "type": "string", "minLength": 1 },
+          "identityHandle": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Semantic handle for the narrative/canonical identity. This is never silently replaced with another cast member's identity just to improve preview resolution."
+          },
+          "presentationHandle": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Optional preferred portrait/body/world presentation handle. A deterministic same-identity preview fallback may replace presentation, but must not change narrative identity."
+          },
+          "sameIdentityAs": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "description": "Explicit opt-in for an intentional shared identity/clone. Omit for distinct people."
+          },
           "displayName": { "type": "string" }
         }
       }
