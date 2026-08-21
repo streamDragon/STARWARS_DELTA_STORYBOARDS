@@ -9,6 +9,7 @@ on:
       - 'designer-ai/CHATGPT_START.txt'
       - 'designer-ai/FILM_AUTHORING_GUIDE_CURRENT.md'
       - 'designer-ai/chatgpt-current.json'
+      - 'designer-ai/simple-authoring/**'
       - 'designer-ai/tools/build_open_current.py'
       - 'designer-ai/tools/build_visual_atlas.py'
       - 'designer-ai/tools/finalize_open_current.py'
@@ -16,6 +17,7 @@ on:
       - 'designer-ai/tools/finalize_director_current.py'
       - 'designer-ai/tools/run_director_finalization.py'
       - 'designer-ai/tools/seal_atomic_current.py'
+      - 'designer-ai/tools/build_authoring_handles.py'
       - '.github/workflows/publish-designer-ai-open-current.yml'
 
 permissions:
@@ -67,6 +69,9 @@ jobs:
       - name: Seal Rule Registry into atomic CURRENT identity
         run: python3 designer-ai/tools/seal_atomic_current.py
 
+      - name: Build simple authoring handles
+        run: python3 designer-ai/tools/build_authoring_handles.py
+
       - name: Validate final CURRENT payload
         run: |
           set -euo pipefail
@@ -87,6 +92,9 @@ jobs:
           atlas_manifest = json.loads((root / 'full-visual-sheets' / 'VISUAL_ATLAS_CURRENT.json').read_text(encoding='utf-8'))
           atlas = root / 'full-visual-sheets' / 'STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf'
           pack = root / 'STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip'
+          handles_path = root / 'simple-authoring' / 'AUTHORING_HANDLES.json'
+          simple_schema = root / 'simple-authoring' / 'CUTSCENE_SCRIPT_V1.schema.json'
+          simple_example = root / 'simple-authoring' / 'EXAMPLE_FALSE_VICTORY.json'
 
           rule_revision = source_current.get('authoringRuleRegistryRevision')
           assert rule_revision
@@ -166,6 +174,17 @@ jobs:
           assert all('blockingCompletionNeeded' in item and 'qualityCompletionNeeded' in item for item in animations)
           assert all('blockingCompletionNeeded' in item and 'qualityCompletionNeeded' in item for item in audio)
 
+          assert handles_path.is_file()
+          assert simple_schema.is_file()
+          assert simple_example.is_file()
+          handles = json.loads(handles_path.read_text(encoding='utf-8'))
+          assert handles['schema'] == 'STARWARS_DELTA_AUTHORING_HANDLES'
+          assert handles['schemaVersion'] == 1
+          assert handles['count'] == len(handles['handles'])
+          assert handles['count'] > 0
+          assert handles['requiredCurrent'] == current['requiredCurrent']
+          assert handles['cutsceneViewBoundsContract']['cameraOwned'] is True
+
           assert queue['atomicIdentity'] == expected_identity
           assert audit['atomicIdentity'] == expected_identity
           assert (root / 'CHATGPT_START.txt').is_file()
@@ -243,6 +262,7 @@ jobs:
           print('ELIGIBILITY_REVIEW', audit['flaggedDirectorVisualCount'])
           print('VISUAL_ATLAS_PAGES', atlas_manifest['totalPages'])
           print('VISUAL_ATLAS_REPRESENTATIVES', atlas_manifest['representativeCount'])
+          print('AUTHORING_HANDLES', handles['count'])
           print('PACK_BYTES', pack.stat().st_size)
           PY
 
