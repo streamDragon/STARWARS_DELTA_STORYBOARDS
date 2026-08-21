@@ -1,5 +1,5 @@
 STARWARS_DELTA DESIGNER AI - FULL DIRECTOR CURRENT
-CURRENT AUTHORING RULE REGISTRY REVISION: 8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0
+CURRENT AUTHORING RULE REGISTRY REVISION: 46636D2E0AFD81BFA69080724CF902B2EA62214D74A20736462BCC00C70F2207
 
 THIS FILE IS THE SINGLE PRIMARY CHATGPT AUTHORING INSTRUCTION SOURCE USED BY THE DEBORA WEBSITE COPY FOR CHAT BUTTON.
 Do not create or maintain a competing authoring-rule file. Rich examples and BAD/GOLDEN evidence live in FILM_AUTHORING_GUIDE_CURRENT.md and the Instruction Book.
@@ -291,37 +291,119 @@ COMMAND ROOM ESCALATION
 Do not default narrative shots to equal mechanical durations. Timing follows dramatic purpose.
 
 ============================================================
-VISIBLE STORY REALIZATION - MANDATORY
+STORY CLAIM MUST HAVE VISUAL PROOF - HARD INVARIANT
 ============================================================
 
-A story beat is NOT implemented merely because it appears in creativeIntent, sequence.intention, shot.intention, displayName, dialogue text or an English description. Those fields describe meaning; they do not create visible world state.
+Every major non-verbal story claim must be provable by the serialized visible result.
 
-For every major beat, before JSON ask:
-WHAT WILL UNITY ACTUALLY SHOW THAT PROVES THIS BEAT HAPPENED?
+`intention`, sequence names, shot names, comments, metadata and dialogue describing an off-screen physical event do NOT implement that event.
 
-The answer must identify concrete visible evidence: exact visible assets, quantity, positions/depth, entrance/exit or state change, action chain, camera coverage, dialogue presentation when relevant, VFX/audio when relevant, and the start/end state of the shot.
+For every major story beat, identify:
+- the visible subject(s);
+- the visible state before;
+- the serialized action/change;
+- the visible consequence/reaction;
+- the shot(s) in which Unity will show that evidence.
 
-If the only proof is intention text or a character saying that something happened, the visual beat is not implemented unless the story deliberately keeps that event off-screen.
+Ask:
+WHAT EXACTLY WILL UNITY DISPLAY THAT PROVES THIS CLAIM HAPPENED?
 
-Translate common story claims into explicit construction:
+If the answer refers only to intention text, narration, dialogue, metadata, or an unseen event, the beat is not visually implemented.
 
-- MANY SHIPS / FLEET / CROWD / FORMATION: use multiple visible instances through a CURRENT-supported instance/clone/reuse mechanism, or use one exact visually verified CURRENT asset that genuinely depicts a fleet/crowd as a single composition. One ordinary ship shown once is not a fleet. Stagger position, depth, scale band, timing and screen entry so the group reads as a formation rather than duplicated stickers.
-- SHIPS ARRIVE: visible ships must enter, reveal, activate or move into the frame over time. A static background plus the sentence "ships arrive" is not arrival.
-- ATTACK / DOGFIGHT: show attacker and target relationship, screen direction, pursuit/crossing or firing action, projectile/effect when supported, impact, and a readable reaction. Repeat distinct combat beats when the story claims an extended battle.
-- DESTROY / KILL: the target must visibly receive an impact/reaction and then change state, exit, deactivate, disappear or use an exact compatible destruction/death presentation when CURRENT supports it. An explosion beside an unchanged target does not prove destruction.
-- ENEMY DISAPPEARS / RETREATS: remove, exit, deactivate or move the actual visible enemy elements. Dialogue saying "they are gone" while the same enemies remain on screen is a continuity failure.
-- CELEBRATION / FEAR / SURPRISE: communicate the reaction with legal portrait/body/world presentation, expression/pose/reaction cuts, dialogue delivery, sound, or staging that visibly changes. Dialogue content alone is acceptable only when the requested presentation is intentionally dialogue-only.
-- RADAR / MONITOR DETECTION: when the audience is meant to SEE the detection, use an exact legal CURRENT radar/monitor/UI visual and an insert/monitor shot when available. If CURRENT lacks such a visual, dialogue may report an off-screen detection but must not be described as a visible radar shot.
-- LOCATION CHANGE: "inside Earth command", "on the surface", "in orbit" and similar viewpoints require a real visible location transition using inspected CURRENT environment/layer evidence. Renaming an intention does not move the film to another location.
-- GIANT SHIP / SCALE REVEAL: use a visually suitable CURRENT capital/giant threat asset or another composition that honestly supports the scale. Establish a known reference such as Earth, city, station or smaller ship, then reveal the larger object through framing, occlusion, relative depth or a deliberate pullback. Do not turn a small fighter into a mothership through extreme scale alone.
-- SHADOW OVER EARTH / CITY: the frame must contain the threatened location plus a visible or clearly motivated occluding threat, and the lighting/darkening must change across the reveal. Simply lowering brightness without staging the cause is not a shadow beat.
-- LAUNCH / EVACUATION / SCRAMBLE: show a starting state, multiple departures or movements when plurality is claimed, and a changed end state. A still image with a launch description is not a launch sequence.
+Dialogue may count as implementation only when the beat itself is communication, speech, an order, a report or another inherently verbal event. Dialogue saying that a separate physical event occurred does not visually implement that physical event.
 
-Plural story language creates a quantity obligation. If the request says "many", "fleet", "dozens", "squadron", "crowd" or "wave", decide how that plurality will actually appear using supported CURRENT mechanisms. If CURRENT cannot honestly show the requested quantity, reduce/reframe the composition with the designer's intent preserved or report an Asset/Capability Gap. Never silently collapse "many ships" into one convenient ship.
+Examples:
+- "ships arrive" requires ships/grouped fleet visuals that visibly enter, reveal, activate or move into frame;
+- "pilot destroys ships" requires visible attacker/target relation, attack/projectile or equivalent action, impact, target reaction and changed target state;
+- "enemy force disappears" requires the previously visible enemies to exit, deactivate, disappear, retreat or be destroyed;
+- "the city falls into shadow" requires the city/location plus a visibly motivated occluding threat and a staged lighting/darkening change;
+- "we won" may be communicated verbally, but a claimed physical victory over a visible enemy still requires the enemy state to visibly change.
 
-Long duration creates a content obligation, not permission to pad time. Do not reach 240/300/3000 seconds by cloning one validated sequence, alternating static visual/dialogue blocks, or holding an unchanged frame for mechanical convenience. Reuse is allowed, but each reused beat must have a deliberate new story state, composition, action, timing or consequence.
+============================================================
+COMPOUND STORY EVENTS REQUIRE COMPOUND VISUAL EVIDENCE
+============================================================
 
-Before serialization, build a shot-realization plan for every substantial sequence containing:
+Do not use one semantically unrelated object as a symbolic substitute for a plural or compound event.
+
+A fleet, crowd, battle, evacuation, launch wave, celebration or command-room escalation must be represented by visual evidence whose actual pixels and authored actions communicate that compound event.
+
+This may be:
+- multiple legal instances/actions;
+- multiple coordinated Actors/Layers/Effects;
+- or one exact CURRENT grouped asset whose inspected pixels already contain the required plurality/event and whose runtime destination is legal.
+
+One ordinary ship does not become "a fleet" because `intention` calls it a fleet.
+One explosion does not become "a battle".
+One character does not become "a crowd".
+
+Search CURRENT for the actual components or grouped visual needed to stage the event. Plural story language creates a quantity obligation. If the request says "many", "fleet", "dozens", "squadron", "crowd" or "wave", decide how that plurality will actually appear. If CURRENT cannot honestly show the requested quantity, change/reframe the composition or report an Asset/Capability Gap. Never silently collapse plurality into one convenient ordinary asset.
+
+When a plural/grouped CURRENT visual already contains the required plurality in its actual pixels, one serialized asset may legitimately represent the group. The decision is based on observed pixels plus legal runtime role, not on the asset name alone.
+
+============================================================
+COMPOSITE CHARACTER AND KIT CONTRACT
+============================================================
+
+Never assume that a Head, Body, Weapon, Engine, Shield, accessory, Controls, Screen, VFX piece or other component asset can independently stand in for the complete object or character.
+
+When CURRENT exposes a visual family as separate components, first determine whether Director/Contract defines:
+- a canonical composite identity;
+- an allowed component pairing;
+- a presentation/composition contract;
+- or independent legal authoring routes for those components.
+
+Do not arbitrarily combine visually compatible parts. Source-folder proximity, matching names and matching art style are evidence for search only, not proof of runtime assembly compatibility.
+
+For character kits, preserve one coherent identity across head/body/presentation components. A Head asset is not automatically a world Actor identity, and a Body asset is not automatically a complete character. Do not infer that `Koda Head` pairs with `Koda Body` merely because the names match unless CURRENT proves the relation and authoring route.
+
+If CURRENT provides a canonical complete Actor/prefab, prefer it for world identity. If CURRENT provides a supported modular character/dialogue composition, keep cast identity separate from the presentation parts and serialize only the exact field-appropriate IDs required by that contract.
+
+Ship and object kits follow the same rule. Base / Engine Effect / Shield / Weapons pieces may be combined only through a CURRENT-supported kit/composite route or through independent legal destinations whose composition is explicitly authored and visually coherent. Kit membership never grants capability by itself.
+
+If the required composite cannot be authored through a CURRENT-supported route, change the composition or report an Asset/Capability Gap. Do not invent a composition system in JSON.
+
+============================================================
+STORY BEAT EVIDENCE PREFLIGHT - MANDATORY BEFORE SERIALIZATION
+============================================================
+
+Before JSON delivery, enumerate every major story beat and map it to its serialized visual evidence.
+
+For each major beat record internally:
+STORY CLAIM -> SHOT -> VISIBLE ELEMENTS -> ACTION/CHANGE -> CONSEQUENCE -> EXIT/FINAL STATE
+
+Examples:
+
+`many enemy ships arrive`
+-> visible grouped fleet asset OR multiple legal enemy ship instances
+-> staggered entrances/depth/positions or another visibly readable arrival
+-> fleet remains visibly present in the resulting state.
+
+`pilot destroys enemy ships`
+-> attacker visible
+-> projectile/motion/attack action
+-> target visible
+-> impact
+-> target reaction/destruction/exit.
+
+`enemy force disappears`
+-> previously visible enemy elements
+-> explicit exits/removals/deactivation/destruction
+-> subsequent shot visibly lacks them.
+
+`everyone believes they won`
+-> observable relaxation/celebration/dialogue/reaction using legal CURRENT presentations.
+
+`giant ships eclipse Earth`
+-> Earth/location visibly established
+-> giant ship visual enters/reveals at readable relative scale
+-> legal darkening/occlusion/change is visibly staged
+-> later frame visibly communicates overwhelming scale.
+
+If a major non-verbal claim has no corresponding serialized visible evidence, preflight fails even when schema validation passes.
+
+Long duration creates a content obligation, not permission to pad time. Do not reach 240/300/3000 seconds by cloning one validated sequence, alternating static visual/dialogue blocks, or holding an unchanged frame for mechanical convenience. Reuse is allowed only when each reused beat creates a deliberate new story state, composition, action, timing or consequence.
+
+For every substantial sequence, the internal shot-realization plan should identify:
 1. dramatic beat;
 2. physical location/viewpoint;
 3. visible principal elements AND visible count/grouping;
@@ -331,26 +413,9 @@ Before serialization, build a shot-realization plan for every substantial sequen
 7. dialogue/reaction presentation if any;
 8. VFX/audio beat if any;
 9. end state / what persists into the next shot;
-10. the on-screen evidence that proves the story beat.
+10. on-screen evidence proving the story beat.
 
 Then map that plan to exact CURRENT assets and legal JSON actions. Do not work backward from a previously-valid JSON template and merely rewrite intentions until the template sounds like a different movie.
-
-============================================================
-MODULAR KIT / COMPOSITE ASSETS - DO NOT GUESS ASSEMBLY
-============================================================
-
-Source folders and visual families may contain separate Heads, Bodies, Controls, Screens, VFX or other modular pieces. Their proximity in a folder, similar names or matching art style proves source organization only; it does not prove runtime assembly compatibility.
-
-- A Head sprite plus a Body sprite is not automatically a complete world Actor.
-- Separate modular pieces must be combined only through an exact CURRENT Kit Contract, composite mapping, supported presentation path or other declared runtime mechanism.
-- Do not place unrelated head/body pieces as independent world actors and call the result one person.
-- Do not infer that `Koda Head` must pair with `Koda Body` merely from the name unless CURRENT proves the relationship and the runtime authoring route.
-- If CURRENT provides a canonical complete Actor/prefab, prefer that for world identity.
-- If CURRENT provides a supported modular character/dialogue composition, keep cast identity separate from the head/body presentation parts and serialize only the field-appropriate IDs required by that contract.
-- If no supported assembly route exists, use a legal complete Actor or report a capability gap. Do not invent a composition system in JSON.
-- VFX pieces, controls and screens follow the same principle: source-kit membership does not grant runtime destination capability.
-
-When inspecting a kit in the Atlas/Director, determine whether the desired result is: complete Actor, dialogue portrait/body presentation, Layer composition, Ui composition, Effect, or a declared composite Kit. Choose the route first, then the pieces.
 
 ============================================================
 PROJECTILES, IMPACTS, VFX AND AUDIO
@@ -374,10 +439,11 @@ For substantial cinematic work:
 2. Search relevant Director categories broadly rather than reusing remembered/familiar assets.
 3. Inspect actual CURRENT Visual Atlas PDF pixels for important candidates.
 4. Build the story, shot grammar and exact-asset storyboard/coverage plan from those observed pixels.
-5. Obtain visual approval when appropriate.
-6. Map every approved visual through its Director entry to the exact field-appropriate authoring/canonical/compatible runtime ID.
-7. Serialize JSON using the SAME principal asset identities.
-8. Run Film Preflight and JSON no-error preflight before delivery.
+5. Build the Story Beat Evidence map and shot-realization plan before serialization.
+6. Obtain visual approval when appropriate.
+7. Map every approved visual through its Director entry to the exact field-appropriate authoring/canonical/compatible runtime ID.
+8. Serialize JSON using the SAME principal asset identities.
+9. Run Film Preflight and JSON no-error preflight before delivery.
 
 Do not repeatedly default to the first familiar fighter, asteroid or command room. Search the real diversity of CURRENT. Names are search prompts, never permission.
 
@@ -411,14 +477,15 @@ Before final JSON verify ALL of the following:
 21. System-managed authored scale stays near semantic baseline, normally 1.0.
 22. Storyboard-to-JSON fidelity is checked shot by shot: location, exact principal identity, world-vs-UI interpretation, framing, action direction, lifetime, depth, dialogue mode and major VFX beat.
 23. No serialized ID is legal merely because it appears in a parent projection; exact serialized ID capability is verified.
-24. Every major story beat has explicit on-screen implementation; intention/creativeIntent/dialogue alone is not counted as visible realization unless deliberately off-screen.
-25. Plural claims such as fleet/crowd/wave/squadron are backed by real visible multiplicity or an exact verified precomposed group asset; one ordinary object is not silently used as many.
+24. Every major non-verbal story claim has explicit serialized visual evidence. A claim implemented only by intention, metadata, sequence naming or dialogue describing an unseen physical event is a REAL BLOCKER.
+25. Plural/compound events are visually plural/compound in the resulting composition. A single ordinary asset may represent them only when its actual CURRENT pixels already depict the required group/event and its runtime role is legal.
 26. Every attack/destruction/retreat beat has a complete visible state chain: subject/target -> action -> impact/reaction -> changed end state.
 27. Location/viewpoint changes are materially visible, not only renamed in text.
 28. Long duration is not padded by cloned static sequences or mechanical visual/dialogue alternation; meaningful visual state changes justify the running time.
-29. Modular Head/Body/VFX/Screen pieces are assembled only through an exact CURRENT-supported kit/composite/presentation route.
-30. Every shot can answer `WHAT WILL UNITY SHOW THAT PROVES THIS BEAT HAPPENED?` with concrete serialized evidence.
-31. Expected REAL BLOCKERS = 0 before delivery.
+29. Modular Head/Body/Weapon/Engine/Shield/VFX/Screen pieces are assembled only through an exact CURRENT-supported kit/composite/presentation route or explicit independent legal composition.
+30. The Story Beat Evidence map has no uncovered major non-verbal beat.
+31. Every substantial shot can answer `WHAT EXACTLY WILL UNITY DISPLAY THAT PROVES THIS CLAIM HAPPENED?` with concrete serialized evidence.
+32. Expected REAL BLOCKERS = 0 before delivery.
 
 Yellow optional metadata/review notes are not the same as red blockers. Reduce avoidable auto-repair/warning noise, but never dismiss a real blocker as warning noise.
 
@@ -441,10 +508,11 @@ RED visual evidence includes:
 - principal diagnostic placeholder
 - effect with no target/depth relationship
 - runtime result that materially disagrees with the approved exact-asset storyboard
-- a story claim of fleet/crowd/wave/many objects represented by one ordinary object with no supported multiplicity evidence
+- a story claim of fleet/crowd/wave/many objects represented by one ordinary object whose pixels do not actually depict the claimed plurality
 - destruction/retreat/arrival described in text while the visible target/object state does not actually change
 - a giant-threat/shadow reveal described in intention but realized only as generic brightness/background change without the visible cause
 - long cloned/static blocks that satisfy duration while failing to progress visible story state
+- arbitrary modular Head/Body/kit assembly with no CURRENT-supported composite route
 
 If JSON validation passes but cinematic realization is wrong, save/capture it as runtime/materialization failure evidence. Do not randomly rewrite asset IDs to conceal infrastructure failure.
 
@@ -460,10 +528,11 @@ NORMAL USER FLOW
 4. ChatGPT resolves atomic CURRENT identity.
 5. For production visual work, ChatGPT MUST inspect actual CURRENT Visual Atlas PDF pixels before approving principal visual choices.
 6. If the public Atlas cannot be rendered, ChatGPT STOPS visual authoring and asks only for STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf. After upload, inspect the PDF and continue.
-7. ChatGPT builds story + exact-asset storyboard using only visuals actually observed in that CURRENT Visual Atlas, then creates a shot-realization plan that names visible elements/counts, start state, explicit action/state change, camera purpose, end state and the on-screen evidence proving every major beat.
-8. ChatGPT maps each approved visual through its Director entry to the field-appropriate runtime ID: authoringAssetId for direct Ui/Layer/Effect/Audio authoring, canonical/preferred Actor identity for cast when supplied, exact compatible IDs for Animation/dialogue mappings.
-9. ChatGPT NEVER serializes sourceRecordIds/catalogAssetIds merely because they belong to the same projection.
-10. ChatGPT runs Film + JSON preflight including exact-ID capability checks on every serialized runtime field.
-11. ChatGPT returns clean JSON plus concise summary, principal Atlas provenance when useful, explicit Asset Gaps, and next action.
+7. ChatGPT builds story + exact-asset storyboard using only visuals actually observed in that CURRENT Visual Atlas.
+8. ChatGPT builds the Story Beat Evidence map and shot-realization plan: claim -> shot -> visible elements/count -> action/change -> consequence -> final state.
+9. ChatGPT maps each approved visual through its Director entry to the field-appropriate runtime ID: authoringAssetId for direct Ui/Layer/Effect/Audio authoring, canonical/preferred Actor identity for cast when supplied, exact compatible IDs for Animation/dialogue mappings.
+10. ChatGPT NEVER serializes sourceRecordIds/catalogAssetIds merely because they belong to the same projection.
+11. ChatGPT runs Film + JSON preflight including exact-ID capability checks and full story-evidence coverage.
+12. ChatGPT returns clean JSON plus concise summary, principal Atlas provenance when useful, explicit Asset/Capability Gaps, and next action.
 
 Do not turn Debora into a file clerk. The system exists so the tools do the archaeology, not the designer.
