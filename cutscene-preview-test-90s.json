@@ -1,30 +1,173 @@
 {
-  "packageType": "STARWARS_DELTA_CUTSCENE_PACKAGE",
-  "packageVersion": 5,
-  "packageId": "cutscene-preview-current-90s-test",
-  "title": "Roadblock Signal",
+  "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
+  "schemaVersion": 5,
+  "systemVersion": "2.5",
+  "domainCutovers": {"motion": "ATOMIC_ONLY"},
+  "packageId": "cutscene_preview_current_golden_90s",
+  "title": "False Signal: Golden 90s Preview Test",
   "language": "en",
+  "duration": 90,
   "totalDurationSeconds": 90,
   "handoff": {
-    "intent": "Browser preview QA for CURRENT renderer",
+    "intent": "Golden browser preview fixture using exact visual asset IDs from the working 300-second Cutscene package.",
     "notes": [
-      "Uses visual names/IDs already known to resolve in FULL_VISUAL_INDEX.",
-      "Exercises backgrounds, robot/bus actors, VFX, dialogue, timing and unresolved diagnostics."
+      "No guessed visual names are used as asset IDs.",
+      "Covers dialogue portraits, hero fighters, supercarrier, robot, evacuation bus, three backgrounds, impact and explosion VFX.",
+      "Animation asset IDs are metadata for Unity; the browser preview focuses on visual composition and timing."
     ]
   },
   "cast": [
-    {"entityId":"robot01","displayName":"Rook","visualAssetId":"SpaceRobot1"},
-    {"entityId":"bus01","displayName":"Evac Bus","visualAssetId":"EVAC CITY BUS V2"}
+    {"entityId":"delta7","entityType":"actor","role":"HeroFighter","visualAssetId":"051e311f18bc4b4b31c6d22e9453dbd9:30470764"},
+    {"entityId":"dante","entityType":"actor","role":"HeroFighter","visualAssetId":"ac59a259fc26b4450a6828ce6cd37cce:30470764"},
+    {"entityId":"doctor01","entityType":"actor","role":"DialoguePortrait","visualAssetId":"9673db5ede174a8484fd8feab345fb08:21300000"},
+    {"entityId":"doctor02","entityType":"actor","role":"DialoguePortrait","visualAssetId":"71ecb2c18fb4eda8bf074b600b79ae9a:21300000"},
+    {"entityId":"bus01","entityType":"actor","role":"EvacBus","visualAssetId":"eb5a1345f6a9844f3998e5b9947482a:21300000"},
+    {"entityId":"robot01","entityType":"actor","role":"ThreatRobot","visualAssetId":"80bf5a0e314b2ca46b9442dddccaa2f6:126620"},
+    {"entityId":"supercarrier01","entityType":"actor","role":"EnemySupercarrier","visualAssetId":"0151db4130f1439da91ea2977be48c8e:21300000"},
+    {"entityId":"pilot01","entityType":"actor","role":"PilotPortrait","visualAssetId":"dfc1955741b2009434c83d44ce1f6c9:21300000"},
+    {"entityId":"civilian01","entityType":"actor","role":"CivilianFace","visualAssetId":"cf1965741b2009434c83d44ce1f6c9:21300000"},
+    {"entityId":"civilian02","entityType":"actor","role":"CivilianFace","visualAssetId":"f621769dfa654ccd90c77ab95daf96328:21300000"},
+    {"entityId":"lookout01","entityType":"actor","role":"LookoutPortrait","visualAssetId":"0b4d9a2fb8b54f2299a99166679cbdf1:21300000"}
   ],
   "shots": [
-    {"shotId":"qa90_s01_orbit","startOffset":0,"duration":10,"shotType":"Wide","cameraIntent":"Establishing","intention":"Quiet orbit before the emergency signal.","backgroundAssetId":"SPACE 9","actorActions":[{"actorId":"robot01","animation":"hover_idle","movement":"slow drift"}],"dialogue":[{"speaker":"Rook","emotion":"calm","text":"Signal lock. Surface channel is still alive."}]},
-    {"shotId":"qa90_s02_command","startOffset":10,"duration":10,"shotType":"Medium","cameraIntent":"Push","intention":"Command center receives the road warning.","backgroundAssetId":"CUTSCENE BG CommandCenter Calm 3x2 4","actorActions":[{"actorId":"robot01","animation":"look_up","emotion":"concerned","movement":"small forward lean"}],"dialogue":[{"speaker":"Rook","emotion":"concerned","text":"Evac route seven just went dark."}]},
-    {"shotId":"qa90_s03_launch","startOffset":20,"duration":10,"shotType":"Wide","cameraIntent":"Tracking","intention":"The bus is dispatched while a warning flare fires.","backgroundAssetId":"LaunchActivity DualPad","actorActions":[{"actorId":"bus01","animation":"drive_start","movement":"left to right"},{"actorId":"robot01","animation":"turn_and_point","emotion":"urgent"}],"effects":[{"effectId":"launch_flash","effectAssetId":"93e2db81323542c485091793396cdd82:21300000","animation":"pulse"}],"dialogue":[{"speaker":"Rook","emotion":"urgent","text":"Bus One, move. I will clear the road."}]},
-    {"shotId":"qa90_s04_road","startOffset":30,"duration":10,"shotType":"Wide","cameraIntent":"Follow","intention":"The evacuation bus crosses the red route.","backgroundAssetId":"LaunchActivity DualPad","actorActions":[{"actorId":"bus01","animation":"drive_loop","movement":"steady rightward travel"}],"dialogue":[{"speaker":"Evac Bus","emotion":"neutral","text":"Route speed stable. Forty seconds to shelter."}]},
-    {"shotId":"qa90_s05_block","startOffset":40,"duration":10,"shotType":"Medium","cameraIntent":"Reveal","intention":"Rook reaches the roadblock first.","backgroundAssetId":"LaunchActivity DualPad","actorActions":[{"actorId":"robot01","animation":"brace","emotion":"focused","movement":"steps into foreground"},{"actorId":"bus01","animation":"brake","movement":"stops behind robot"}],"dialogue":[{"speaker":"Rook","emotion":"focused","text":"Stop here. Something is buried under the road."}]},
-    {"shotId":"qa90_s06_impact","startOffset":50,"duration":10,"shotType":"CloseUp","cameraIntent":"Impact","intention":"The trap fires. Explosion and impact VFX test overlap.","backgroundAssetId":"LaunchActivity DualPad","actorActions":[{"actorId":"robot01","animation":"impact_recoil","emotion":"alarm","movement":"short backward hit"},{"actorId":"bus01","animation":"brake_hold","movement":"stationary"}],"effects":[{"effectId":"laser","effectAssetId":"93e2db81323542c485091793396cdd82:21300000","animation":"burst"},{"effectId":"explosion","effectAssetId":"e1b08032bec16ba4eb1ae23cbd572664:1121192042590650","animation":"expand_shockwave"}],"dialogue":[{"speaker":"Rook","emotion":"alarm","text":"Contact!"}]},
-    {"shotId":"qa90_s07_choice","startOffset":60,"duration":10,"shotType":"Medium","cameraIntent":"Reaction","intention":"Rook chooses the dangerous route so the bus can continue.","backgroundAssetId":"LaunchActivity DualPad","actorActions":[{"actorId":"robot01","animation":"turn_to_bus","emotion":"determined","movement":"steps away from bus"},{"actorId":"bus01","animation":"idle","movement":"stationary"}],"dialogue":[{"speaker":"Rook","emotion":"determined","text":"Take the lower route. I will draw the next shot."},{"speaker":"Evac Bus","emotion":"worried","text":"That leaves you alone."}]},
-    {"shotId":"qa90_s08_run","startOffset":70,"duration":10,"shotType":"Tracking","cameraIntent":"Follow","intention":"Robot runs while the bus escapes in the opposite direction.","backgroundAssetId":"LaunchActivity DualPad","actorActions":[{"actorId":"robot01","animation":"run","emotion":"fierce","movement":"rightward sprint"},{"actorId":"bus01","animation":"drive_loop","movement":"leftward exit"}],"effects":[{"effectId":"trail_flash","effectAssetId":"93e2db81323542c485091793396cdd82:21300000","animation":"streak_repeat"}],"dialogue":[{"speaker":"Rook","emotion":"fierce","text":"Keep moving!"}]},
-    {"shotId":"qa90_s09_safe","startOffset":80,"duration":10,"shotType":"Wide","cameraIntent":"ClosingImage","intention":"The bus reaches safety. The signal remains alive.","backgroundAssetId":"SPACE 9","actorActions":[{"actorId":"bus01","animation":"slow_stop","movement":"gentle stop"},{"actorId":"robot01","animation":"stand_tired","emotion":"relieved","movement":"small breathing motion"}],"dialogue":[{"speaker":"Evac Bus","emotion":"relieved","text":"Shelter reached."},{"speaker":"Rook","emotion":"relieved","text":"Then the route stays open."}]}
+    {
+      "shotId":"qa90_s01_signal_room","startOffset":0,"duration":10,"shotType":"Wide","framing":"Wide","cameraIntent":"Establishing",
+      "intention":"A calm command center receives a signal that should not exist.",
+      "backgroundAssetId":"560ce56e7f1b561c4b4615d1239494f:920594054",
+      "propAssetId":"fd7b97e30b5830aba6589f8869074526:21300000",
+      "actorActions":[
+        {"actionId":"qa90_s01_doc1","actorId":"doctor01","type":"Hold","animation":"console_idle","emotion":"focused","movement":"small console motion"},
+        {"actionId":"qa90_s01_doc2","actorId":"doctor02","type":"Turn","animation":"look_up","emotion":"concerned","movement":"turns toward the tactical display"}
+      ],
+      "cameraActions":[{"actionId":"qa90_s01_cam","type":"Push","targetActorId":"doctor02","amount":"subtle"}],
+      "dialogue":[
+        {"speaker":"Dr. Mara","speakerActorId":"doctor01","listenerActorId":"doctor02","emotion":"focused","text":"The beacon is transmitting an evacuation code from an empty sector."},
+        {"speaker":"Dr. Vale","speakerActorId":"doctor02","listenerActorId":"doctor01","emotion":"concerned","text":"Then someone wants us to answer it."}
+      ]
+    },
+    {
+      "shotId":"qa90_s02_signal_confirm","startOffset":10,"duration":10,"shotType":"Medium","framing":"Medium","cameraIntent":"Reaction",
+      "intention":"The doctors realize the beacon is bait, but two pilots are already launching.",
+      "backgroundAssetId":"560ce56e7f1b561c4b4615d1239494f:920594054",
+      "actorActions":[
+        {"actionId":"qa90_s02_doc1","actorId":"doctor01","type":"Turn","animation":"sharp_turn","emotion":"alarm","movement":"turns from console"},
+        {"actionId":"qa90_s02_doc2","actorId":"doctor02","type":"Hold","animation":"tense_hold","emotion":"worried","movement":"freezes on the signal"},
+        {"actionId":"qa90_s02_pilot","actorId":"pilot01","type":"Activate","animation":"radio_answer","emotion":"determined","movement":"portrait radio call"}
+      ],
+      "cameraActions":[{"actionId":"qa90_s02_cam","type":"Push","targetActorId":"doctor01","amount":"medium"}],
+      "dialogue":[
+        {"speaker":"Dr. Mara","speakerActorId":"doctor01","listenerActorId":"pilot01","emotion":"alarm","text":"Delta, abort launch. The signal is manufactured."},
+        {"speaker":"Pilot","speakerActorId":"pilot01","listenerActorId":"doctor01","emotion":"determined","text":"Too late. We are already clear of the pad."}
+      ]
+    },
+    {
+      "shotId":"qa90_s03_launch","startOffset":20,"duration":10,"shotType":"Wide","framing":"ExtremeWide","cameraIntent":"Tracking",
+      "intention":"Delta and Dante launch together toward the false beacon.",
+      "backgroundAssetId":"6fe1be24e479924d86f306aa7b14bae:1831985897",
+      "actorActions":[
+        {"actionId":"qa90_s03_delta","actorId":"delta7","type":"Move","animationAssetId":"80b7153507374a94476ef5dd25a54e3:21300000","animation":"launch_boost","emotion":"determined","movement":"fast left-to-right climb"},
+        {"actionId":"qa90_s03_dante","actorId":"dante","type":"Move","animationAssetId":"7763104ba824488795202191278f73e1:21300000","animation":"launch_boost","emotion":"confident","movement":"follows Delta with offset"},
+        {"actionId":"qa90_s03_pilot","actorId":"pilot01","type":"Hold","animation":"radio_focus","emotion":"tense","movement":"cockpit portrait hold"}
+      ],
+      "cameraActions":[{"actionId":"qa90_s03_cam","type":"Follow","targetActorId":"delta7","amount":"wide"}],
+      "dialogue":[{"speaker":"Pilot","speakerActorId":"pilot01","listenerActorId":"delta7","emotion":"tense","text":"Beacon bearing locked. Nothing else is moving out there."}]
+    },
+    {
+      "shotId":"qa90_s04_contact","startOffset":30,"duration":10,"shotType":"Wide","framing":"Wide","cameraIntent":"Reveal",
+      "intention":"The empty lane is not empty. A supercarrier appears behind the beacon.",
+      "backgroundAssetId":"8e1c081d7ca3f440a9e2ca7e553a70:21300000",
+      "actorActions":[
+        {"actionId":"qa90_s04_delta","actorId":"delta7","type":"Move","animation":"bank_left","emotion":"alert","movement":"hard bank across frame"},
+        {"actionId":"qa90_s04_dante","actorId":"dante","type":"Move","animation":"break_right","emotion":"alert","movement":"breaks opposite Delta"},
+        {"actionId":"qa90_s04_carrier","actorId":"supercarrier01","type":"Activate","animation":"emerge","emotion":"menacing","movement":"slow reveal from background"}
+      ],
+      "cameraActions":[{"actionId":"qa90_s04_cam","type":"Pull","targetActorId":"supercarrier01","amount":"large"}],
+      "dialogue":[
+        {"speaker":"Dante","speakerActorId":"dante","listenerActorId":"delta7","emotion":"alarm","text":"Carrier! The beacon was a lure."},
+        {"speaker":"Delta","speakerActorId":"delta7","listenerActorId":"dante","emotion":"focused","text":"Split. Make it choose."}
+      ]
+    },
+    {
+      "shotId":"qa90_s05_first_hit","startOffset":40,"duration":10,"shotType":"Medium","framing":"Medium","cameraIntent":"ImpactShake",
+      "intention":"Delta lands the first hit while Dante crosses the carrier's fire.",
+      "backgroundAssetId":"8e1c081d7ca3f440a9e2ca7e553a70:21300000",
+      "effectAssetId":"862ab3578c01934bbc116c6a30fa059:534346052",
+      "actorActions":[
+        {"actionId":"qa90_s05_delta","actorId":"delta7","type":"Move","animation":"attack_pass","emotion":"fierce","movement":"fast attack pass"},
+        {"actionId":"qa90_s05_dante","actorId":"dante","type":"Move","animation":"evasive_roll","emotion":"strained","movement":"crosses behind impact"},
+        {"actionId":"qa90_s05_carrier","actorId":"supercarrier01","type":"Hold","animation":"recoil","emotion":"menacing","movement":"brief recoil"}
+      ],
+      "effects":[{"eventId":"qa90_s05_impact","effectAssetId":"862ab3578c01934bbc116c6a30fa059:534346052","kind":"Impact","animation":"flash_expand"}],
+      "cameraActions":[{"actionId":"qa90_s05_cam","type":"ImpactShake","targetActorId":"supercarrier01","amount":"medium"}],
+      "dialogue":[{"speaker":"Delta","speakerActorId":"delta7","listenerActorId":"dante","emotion":"fierce","text":"Armor flashed. Same point again."}]
+    },
+    {
+      "shotId":"qa90_s06_explosion","startOffset":50,"duration":10,"shotType":"CloseUp","framing":"CloseUp","cameraIntent":"Impact",
+      "intention":"The second strike opens the carrier and the explosion fills the frame.",
+      "backgroundAssetId":"8e1c081d7ca3f440a9e2ca7e553a70:21300000",
+      "effectAssetId":"e1b08032bec16ba4eb1ae23cbd572664:1121192042590650",
+      "actorActions":[
+        {"actionId":"qa90_s06_delta","actorId":"delta7","type":"Move","animation":"pull_away","emotion":"strained","movement":"pulls away from blast"},
+        {"actionId":"qa90_s06_dante","actorId":"dante","type":"Move","animation":"cross_fast","emotion":"determined","movement":"crosses through foreground"},
+        {"actionId":"qa90_s06_carrier","actorId":"supercarrier01","type":"Deactivate","animation":"break_apart","emotion":"none","movement":"falls behind explosion"}
+      ],
+      "effects":[
+        {"eventId":"qa90_s06_impact","effectAssetId":"862ab3578c01934bbc116c6a30fa059:534346052","kind":"Impact","animation":"flash"},
+        {"eventId":"qa90_s06_explosion","effectAssetId":"e1b08032bec16ba4eb1ae23cbd572664:1121192042590650","kind":"Explosion","animation":"expand_shockwave"}
+      ],
+      "cameraActions":[{"actionId":"qa90_s06_cam","type":"ImpactShake","targetActorId":"supercarrier01","amount":"strong"}],
+      "dialogue":[
+        {"speaker":"Dante","speakerActorId":"dante","listenerActorId":"delta7","emotion":"relieved","text":"Carrier is breaking up."},
+        {"speaker":"Delta","speakerActorId":"delta7","listenerActorId":"dante","emotion":"urgent","text":"The beacon is still transmitting. Follow it down."}
+      ]
+    },
+    {
+      "shotId":"qa90_s07_evac_route","startOffset":60,"duration":10,"shotType":"Wide","framing":"Wide","cameraIntent":"Establishing",
+      "intention":"The false signal leads to an evacuation route where a robot blocks the bus.",
+      "backgroundAssetId":"6fe1be24e479924d86f306aa7b14bae:1831985897",
+      "actorActions":[
+        {"actionId":"qa90_s07_bus","actorId":"bus01","type":"Move","animation":"brake_stop","emotion":"urgent","movement":"bus stops from right"},
+        {"actionId":"qa90_s07_robot","actorId":"robot01","type":"Activate","animation":"step_forward","emotion":"menacing","movement":"robot steps into road"},
+        {"actionId":"qa90_s07_civilian","actorId":"civilian01","type":"Hold","animation":"look_out","emotion":"fear","movement":"portrait reaction"}
+      ],
+      "cameraActions":[{"actionId":"qa90_s07_cam","type":"Push","targetActorId":"robot01","amount":"medium"}],
+      "dialogue":[
+        {"speaker":"Civilian","speakerActorId":"civilian01","listenerActorId":"robot01","emotion":"fear","text":"Why did we stop?"},
+        {"speaker":"Delta","speakerActorId":"delta7","listenerActorId":"bus01","emotion":"urgent","text":"Stay inside. We found the source."}
+      ]
+    },
+    {
+      "shotId":"qa90_s08_breakthrough","startOffset":70,"duration":10,"shotType":"Medium","framing":"Medium","cameraIntent":"Tracking",
+      "intention":"Delta draws the robot aside while the evacuation bus accelerates through.",
+      "backgroundAssetId":"6fe1be24e479924d86f306aa7b14bae:1831985897",
+      "effectAssetId":"862ab3578c01934bbc116c6a30fa059:534346052",
+      "actorActions":[
+        {"actionId":"qa90_s08_robot","actorId":"robot01","type":"Move","animation":"impact_recoil","emotion":"angry","movement":"robot turns away from bus"},
+        {"actionId":"qa90_s08_bus","actorId":"bus01","type":"Move","animation":"drive_fast","emotion":"urgent","movement":"bus accelerates left-to-right"},
+        {"actionId":"qa90_s08_civilian","actorId":"civilian02","type":"Hold","animation":"brace","emotion":"hopeful","movement":"portrait reaction"}
+      ],
+      "effects":[{"eventId":"qa90_s08_impact","effectAssetId":"862ab3578c01934bbc116c6a30fa059:534346052","kind":"Impact","animation":"small_flash"}],
+      "cameraActions":[{"actionId":"qa90_s08_cam","type":"Follow","targetActorId":"bus01","amount":"medium"}],
+      "dialogue":[
+        {"speaker":"Delta","speakerActorId":"delta7","listenerActorId":"bus01","emotion":"urgent","text":"Go now. Do not stop for us."},
+        {"speaker":"Civilian","speakerActorId":"civilian02","listenerActorId":"bus01","emotion":"hopeful","text":"The road is clear!"}
+      ]
+    },
+    {
+      "shotId":"qa90_s09_safe","startOffset":80,"duration":10,"shotType":"Medium","framing":"Medium","cameraIntent":"ClosingImage",
+      "intention":"Command confirms the civilians are safe while the surviving pilots return.",
+      "backgroundAssetId":"560ce56e7f1b561c4b4615d1239494f:920594054",
+      "propAssetId":"fd7b97e30b5830aba6589f8869074526:21300000",
+      "actorActions":[
+        {"actionId":"qa90_s09_doc1","actorId":"doctor01","type":"Hold","animation":"exhale","emotion":"relieved","movement":"relaxes at console"},
+        {"actionId":"qa90_s09_doc2","actorId":"doctor02","type":"Turn","animation":"small_smile","emotion":"hopeful","movement":"turns toward Mara"},
+        {"actionId":"qa90_s09_lookout","actorId":"lookout01","type":"Activate","animation":"radio_confirm","emotion":"relieved","movement":"portrait radio call"}
+      ],
+      "cameraActions":[{"actionId":"qa90_s09_cam","type":"Push","targetActorId":"doctor01","amount":"subtle"}],
+      "dialogue":[
+        {"speaker":"Lookout","speakerActorId":"lookout01","listenerActorId":"doctor01","emotion":"relieved","text":"Evac bus is through. Civilians are inside the shelter."},
+        {"speaker":"Dr. Mara","speakerActorId":"doctor01","listenerActorId":"doctor02","emotion":"relieved","text":"Then the false signal failed."}
+      ]
+    }
   ]
 }
