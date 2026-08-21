@@ -15,10 +15,11 @@ DEVORA THE QUEEN / ChatGPT
 CUTSCENE_SCRIPT_V1
         |
         v
-Simple -> V3 Semantic Adapter
+Simple Authoring Resolver / Adapter
         |
-        v
-MY_CutsceneV3SemanticCurrentCompiler
+        +--> existing V3 Narrative Beat + Cinematic Feature path for multi-entity cinematic beats
+        |
+        +--> existing V3 Semantic Production Entry only for shapes it can represent faithfully
         |
         v
 CURRENT V5 package
@@ -32,13 +33,15 @@ Editable Preview / Timeline
 
 V5 remains the runtime/backend contract. ChatGPT should stop authoring V5 directly for normal NEW film authoring once the adapter is available.
 
+The adapter is intentionally small, but it is NOT a blind `CUTSCENE_SCRIPT_V1 -> old Semantic IR` serializer. The uploaded Unity source proves the old Semantic IR is narrower than the new authoring language and would recreate several of the exact bugs this layer exists to remove.
+
 ## What already exists in Unity
 
 The uploaded Unity source proves the project already contains the hard middle/backend pieces:
 
 - `MY_CutsceneV3SemanticProductionEntry`
   - recognizes `STARWARS_DELTA_CUTSCENE_V3_SEMANTIC_IR`
-  - compiles semantic input into CURRENT V5
+  - compiles representable semantic input into CURRENT V5
   - runs migration and canonical parsing
   - exposes `TryPreflightEditablePreview`
 - `MY_CutsceneV3SemanticCurrentCompiler`
@@ -46,27 +49,50 @@ The uploaded Unity source proves the project already contains the hard middle/ba
   - creates the existing `MY_CutscenePackage`
   - uses CURRENT contract/schema constants
 - `MY_CutsceneStudioWindow`
-  - already routes semantic JSON through `MY_CutsceneV3SemanticProductionEntry` before the normal V5 import flow
-  - already distinguishes blocking asset issues from deterministic Preview recoveries
-- `MY_CutsceneAssetResolutionService`
-  - already restricts Actor preview replacement to canonical/identity-related candidates
+  - already routes V3 Semantic JSON through `MY_CutsceneV3SemanticProductionEntry` before the normal V5 import flow
+- `MY_CutsceneV3BeatSequenceDirector`
+  - converts a `MY_CutsceneV3NarrativeBeatPlan` into V3 cinematic feature selections
+  - owns narrative grammar, camera/energy policy, continuity and participant relationships
+- `MY_CutsceneV3CinematicFeatureCompiler`
+  - compiles participant-rich cinematic features into deterministic staging and the existing V3 materializer boundary
+  - validates exact participant assets and presentation modes
+  - contains no Catalog IDs in its feature definitions and no raw world-coordinate authoring requirement
+- `MY_CutsceneV3IntegratedImportRouter`
+  - already constructs `MY_CutsceneV3NarrativeBeatPlan` and `MY_CutsceneV3CinematicFeaturePlan` from imported package information
+  - preserves dialogue-only participants as non-world anchors instead of forcing every participant to materialize as a world actor
 - V3 spatial staging already exposes `requestedScreenHeightFraction` and bounded semantic scale checks
 - `MY_CutsceneV3PrincipalSetStager` already measures enabled Renderer bounds through `Camera.WorldToViewportPoint`
 - Cinemachine materialization already applies orthographic camera lens state
-- `MY_CutsceneValidator` already blocks distinct Person cast members that collapse onto the same Actor identity
 
-Therefore this project does NOT need a second full compiler, a second fallback system or a second scale engine.
+Therefore this project does NOT need a second full compiler or a second scale engine.
+
+## Important limitation discovered in the old V3 Semantic IR
+
+The existing `STARWARS_DELTA_CUTSCENE_V3_SEMANTIC_IR` is useful, but it is not a universal intermediate representation for `CUTSCENE_SCRIPT_V1`.
+
+The current Semantic IR is narrower in several important ways:
+
+- it requires technical authoring fields such as `catalogRevision`, `projectId`, `contextId` and `planId`;
+- cast entries contain exact `visualAssetId` values;
+- a semantic shot exposes a narrow single-motion shape rather than an arbitrary list of visible participants and actions;
+- it does not naturally express a beat containing many separately staged visible elements;
+- most importantly, the current `MY_CutsceneV3SemanticCurrentCompiler.CopyCast` materializes semantic cast entries as temporary `WorldActor` clones with `spawnWorldActor=true`.
+
+That last behavior means a blind Simple -> Semantic IR conversion would again risk turning dialogue-only participants, projectile visuals or other transient/non-Actor content into world actors. That is precisely the class of error Simple Authoring is supposed to make architecturally impossible.
+
+Therefore:
+
+**Use the existing Semantic Production Entry where the simple beat is faithfully representable. Use the existing Narrative Beat / Cinematic Feature path for richer multi-participant composition and route-sensitive beats. Never force the simple script through one legacy shape merely to avoid writing a small adapter.**
 
 ## The new boundary
 
-`CUTSCENE_SCRIPT_V1` is intentionally smaller than both V3 Semantic IR and V5.
+`CUTSCENE_SCRIPT_V1` is intentionally smaller than both V3 internal representations and V5.
 
 ChatGPT owns:
 
 - story beats
 - visible evidence
 - semantic handles
-- narrative cast identity
 - visible quantity
 - dialogue text and dramatic intent
 - frame-relative position
@@ -85,116 +111,12 @@ ChatGPT does NOT own:
 - Actor vs Effect vs Layer runtime routing
 - canonical Actor resolution
 - compatible animation IDs
+- dialogue world/portrait materialization mechanics
 - mechanical V5 defaults
 - raw Unity world scale
 - arbitrary materialization fallbacks
 
 Those are deterministic system responsibilities.
-
-## Fail-soft first
-
-The normal authoring/import path should be:
-
-```text
-BUILD UNLESS A REAL SEMANTIC CONTRADICTION MAKES BUILDING DISHONEST OR IMPOSSIBLE
-```
-
-Recoverable/defaultable details should not block Editable Preview.
-
-Typical yellow/recoverable cases:
-
-- deterministic dialogue portrait/body Preview fallback for the SAME narrative identity
-- missing optional presentation polish
-- deterministic defaults owned by CURRENT rules
-- non-principal preview visual gap where the system already has a safe recovery
-
-Typical red blockers:
-
-- stale/mixed CURRENT
-- unknown semantic handle with no legal deterministic route
-- wrong destination capability
-- incompatible animation
-- principal world Actor that cannot materialize
-- two distinct narrative characters collapsing to one canonical Actor identity
-- illegal timing/ownership contradiction
-- requested physical story beat with no honest legal representation
-
-The system must never eliminate a yellow warning by changing story identity.
-
-## Narrative identity and presentation are separate
-
-This is a hard architectural invariant.
-
-A cast member has a narrative identity. A portrait/body/world visual is a presentation choice for that identity.
-
-The Simple Script therefore uses:
-
-```text
-id                  local narrative cast ID
-identityHandle      semantic/canonical identity request
-presentationHandle  optional preferred visual presentation
-sameIdentityAs      explicit opt-in for intentional shared identity/clone
-```
-
-Different cast IDs / different named people are distinct identities by default.
-
-### Never repair presentation by merging identities
-
-This is valid and should flow:
-
-```text
-Control One
-identity A
-exact portrait A
-
-Control Two
-identity B
-deterministic Preview fallback for B
-```
-
-This is NOT a valid repair:
-
-```text
-Control One
-identity A
-portrait A
-
-Control Two
-identity A
-portrait A
-```
-
-when Control One and Control Two are intended to be different people.
-
-A yellow Preview fallback for a dialogue-only participant is preferable to a red `DISTINCT_CAST_MEMBERS_SHARE_ACTOR_IDENTITY` identity collapse.
-
-### Same-identity fallback only
-
-A deterministic presentation fallback may change the portrait/body/presentation source only when the existing CURRENT mapping proves that the fallback still represents the same narrative/canonical identity.
-
-A fallback must not borrow another cast member's exact visual just because it resolves more cleanly.
-
-### Intentional clones/shared identity
-
-Sharing a canonical identity is legal only when explicitly authored through `sameIdentityAs` or an equivalent existing V3 identity/clone relation.
-
-Absence of that declaration means identities remain distinct.
-
-## Diagnostics must explain the difference
-
-Diagnostics shown to ChatGPT/designer should distinguish:
-
-```text
-EXACT_VISUAL_RESOLUTION
-PREVIEW_VISUAL_FALLBACK
-CANONICAL_ACTOR_IDENTITY
-INTENTIONALLY_SHARED_IDENTITY
-IDENTITY_COLLAPSE_BLOCKER
-```
-
-A yellow Preview fallback diagnostic should explicitly say that identity is preserved and that the authoring agent should NOT reuse another character's visual to eliminate the warning.
-
-This keeps a recovery warning from becoming bait for a worse automatic repair.
 
 ## AUTHORING_HANDLES
 
@@ -220,11 +142,56 @@ Atlas evidence
 animation/dialogue compatibility
 ```
 
-For an Actor handle, `runtimeId` is the canonical/preferred Actor identity when CURRENT provides it.
-
 ChatGPT serializes the handle. The adapter resolves the exact runtime identity.
 
 An unknown handle is a direct error. The adapter must never guess a similar runtime asset.
+
+The route is authoritative. A handle resolved as Effect is never promoted into cast merely because it moves. A Layer is never promoted into Actor because it depicts a ship. An Actor identity is never inferred from a visual/source membership ID.
+
+## Adapter routing policy
+
+For each `CUTSCENE_SCRIPT_V1` beat, the adapter first resolves all handles and classifies the beat before selecting an existing V3 backend path.
+
+Preferred routing:
+
+```text
+simple beat
+-> resolve exact CURRENT handles and routes
+-> expand requested visible quantity into stable semantic entity instances where needed
+-> construct participant relationships and visible start/end state
+-> choose existing V3 representation that preserves those semantics
+```
+
+Use Narrative Beat / Cinematic Feature planning when the beat contains:
+
+- multiple visible participants;
+- a hero/target/threat/location relationship;
+- a fleet, crowd, formation or other explicit quantity;
+- command/dialogue presentation whose participants must not all spawn in world;
+- reveal/pullback/flyby/location composition;
+- staging that needs participant roles, spatial relationships or continuity.
+
+The old Semantic IR may remain useful for narrow linear cases it can express exactly. It is not the mandatory bottleneck.
+
+## Quantity semantics
+
+`visible[].count` is a real visual obligation.
+
+The adapter must never reduce `count: 6` to one ordinary object because that is easier to serialize.
+
+Legal realization is one of:
+
+1. expand to six stable instances of a legal reusable handle;
+2. use one exact grouped CURRENT asset only when its inspected pixels genuinely represent the requested group and the authoring route allows it;
+3. fail with an explicit quantity/capability gap.
+
+Generated instance IDs should be deterministic, for example:
+
+```text
+enemy -> enemy_01, enemy_02, ... enemy_06
+```
+
+Those are semantic entity IDs, not new Catalog/runtime identities.
 
 ## CUTSCENE VIEW BOUNDS
 
@@ -263,20 +230,11 @@ actual natural Renderer bounds
 
 Do not translate `giant`, `small`, `huge`, `tiny` directly into arbitrary Unity scale values.
 
-The existing V3 implementation already supports the important half of this contract through `requestedScreenHeightFraction`, bounded semantic scale checks and real viewport measurement. The adapter should reuse it.
+The existing V3 implementation already supports the important half of this contract through `requestedScreenHeightFraction`, bounded semantic scale checks and viewport measurement. The adapter should reuse it.
 
-The authoritative runtime check is the existing projection path:
+If `screenWidthFraction` is supplied, the adapter should convert it using actual camera aspect and natural visual aspect once the resolved Renderer/visual bounds are known. Do not approximate it from prose.
 
-```text
-Renderer bounds
--> active Cinemachine/output Camera
--> Camera.WorldToViewportPoint
--> measured viewport occupancy
-```
-
-Do not create a competing approximation when the actual camera is available.
-
-If `screenWidthFraction` is supplied, the adapter may convert it using actual Renderer aspect + camera aspect, or carry it until a width-aware request is added. Do not derive it from prose or arbitrary raw scale.
+Browser preview and Unity must use the same normalized frame semantics. Browser preview is not permitted to invent a different sizing vocabulary merely because CSS percentages are convenient.
 
 ## Story evidence gate
 
@@ -322,9 +280,9 @@ Use these states:
 1. `SCRIPT_VALID`
    - simple JSON parses and matches `CUTSCENE_SCRIPT_V1`
 2. `HANDLE_RESOLVED`
-   - all required identity/presentation/visual handles resolve to legal CURRENT routes
+   - all required handles resolve to legal CURRENT routes
 3. `SEMANTIC_PREFLIGHT_PASS`
-   - adapter/V3 semantic compiler accepts the result
+   - the selected existing V3 path accepts the resolved plan
 4. `UNITY_VALIDATED`
    - normal Studio validation returns zero red blockers
 5. `PREVIEW_ACCEPTED`
@@ -334,20 +292,21 @@ A browser preview may prove composition/evidence intent, but cannot claim `UNITY
 
 ## Minimal Unity work still required
 
-Only a narrow adapter should be added when Unity editing resumes:
+Add one authoring-front-end adapter, not another engine:
 
 ```text
 CUTSCENE_SCRIPT_V1
--> load matching local CURRENT
--> resolve identity/presentation/visual handles
--> preserve distinct narrative identities before any preview fallback
--> create V3 Semantic package / beat structures
--> map screen-relative sizing into existing V3 spatial requests
--> call existing semantic production/compiler path
--> continue through existing Studio flow
+-> read matching local CURRENT automatically
+-> resolve semantic handles to exact legal identities/routes
+-> expand quantity into semantic entity instances or verified grouped assets
+-> create V3 Narrative Beat / Feature contracts for rich beats
+-> use existing Semantic Production Entry only for faithfully representable narrow cases
+-> map frame-relative sizing into existing V3 spatial requests
+-> call existing V3/V5 production path
+-> continue through existing Studio validation and preview flow
 ```
 
-The adapter must not implement a new fallback stack. It asks existing resolution/validation owners to resolve legal presentation, and it carries enough identity information that a fallback cannot silently merge two people.
+The adapter must inject technical CURRENT identity from the active local Studio/Catalog state. ChatGPT never supplies or chooses those values in normal authoring.
 
 Do not create:
 
@@ -359,66 +318,4 @@ Do not create:
 - another materializer
 - another independent scale normalizer
 
-The point of this layer is to delete author-facing complexity, not duplicate backend complexity.
-
-## CURRENT ownership
-
-The Simple Script contains no CURRENT fingerprints.
-
-The active Unity/Studio environment owns CURRENT identity and injects/validates the current envelope through the existing compiler/import path.
-
-The web `AUTHORING_HANDLES.json` is stamped with `requiredCurrent` so the browser can reject stale handle data, but ChatGPT never serializes those fingerprints into the Simple Script.
-
-## Web preview
-
-`cutscene-preview.html` should support both:
-
-- existing V5 packages
-- `CUTSCENE_SCRIPT_V1`
-
-For Simple Script it loads CURRENT `AUTHORING_HANDLES.json` and renders semantic composition directly.
-
-Pre-Unity diagnostics should include at least:
-
-- unknown handle
-- unsupported route/action
-- distinct cast identity collapse
-- exact presentation vs same-identity Preview fallback
-- count/plurality mismatch
-- missing visible evidence
-- invalid frame fraction
-- unresolved visual preview
-- obvious overlap/off-frame composition
-- story claim whose visible state never changes
-
-The browser is a fast authoring check. Unity remains final runtime/materialization authority.
-
-## Migration strategy
-
-Do not rewrite old films and do not remove V5 support.
-
-Transition gradually:
-
-```text
-old path: V5 -> Studio -> Timeline
-new path: CUTSCENE_SCRIPT_V1 -> existing V3/CURRENT compiler -> V5 -> Studio -> Timeline
-```
-
-Both can coexist until the Simple Script path is proven.
-
-## Definition of done for the simplification layer
-
-A normal ChatGPT-authored film should no longer need to know GUIDs, runtime routes, CURRENT fingerprints or raw world scale.
-
-The system should be able to answer:
-
-```text
-Who is this narrative person/entity?
-How should that identity be presented right now?
-What should the audience see?
-What semantic asset is requested?
-How large should it appear in this camera view?
-What changes during the beat?
-```
-
-and deterministically translate that intent into the existing V5/Timeline backend while keeping recoverable presentation gaps yellow, preserving identity, and reserving red blockers for real semantic contradictions.
+The point of this layer is to delete author-facing complexity, not duplicate backend complexity or hide the same route bugs behind a prettier JSON schema.
