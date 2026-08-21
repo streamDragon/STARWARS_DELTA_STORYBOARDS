@@ -16,8 +16,8 @@
       "locationHandle": "earth_orbit",
       "storyClaim": "The pilot destroys the final visible enemy wave.",
       "visible": [
-        { "id": "friendly", "handle": "earth_fighter", "count": 2, "role": "defender", "depth": "mid", "enterFrom": "left", "exitTo": "none" },
-        { "id": "enemy", "handle": "enemy_fighter", "count": 6, "role": "enemy", "depth": "mid", "enterFrom": "right", "exitTo": "destroy" }
+        { "id": "friendly", "handle": "earth_fighter", "count": 2, "role": "defender", "depth": "mid", "screenWidthFraction": 0.11, "screenX": 0.28, "screenY": 0.52, "enterFrom": "left", "exitTo": "none" },
+        { "id": "enemy", "handle": "enemy_fighter", "count": 6, "role": "enemy", "depth": "mid", "screenWidthFraction": 0.08, "screenX": 0.72, "screenY": 0.55, "enterFrom": "right", "exitTo": "destroy" }
       ],
       "actions": [
         { "type": "attack", "subject": "friendly", "target": "enemy", "viaHandle": "defender_projectile", "effectHandle": "ship_impact", "count": 3, "result": "enemy ships visibly disappear after impact" }
@@ -45,8 +45,8 @@
       "locationHandle": "earth_orbit",
       "storyClaim": "A far larger enemy force arrives and casts a shadow over Earth.",
       "visible": [
-        { "id": "earth", "handle": "earth", "count": 1, "role": "scale_reference", "depth": "background", "enterFrom": "none", "exitTo": "none" },
-        { "id": "giants", "handle": "giant_enemy_carrier", "count": 3, "role": "new_threat", "depth": "foreground", "enterFrom": "reveal", "exitTo": "none" }
+        { "id": "earth", "handle": "earth", "count": 1, "role": "scale_reference", "depth": "background", "screenWidthFraction": 0.72, "screenX": 0.50, "screenY": 0.42, "enterFrom": "none", "exitTo": "none" },
+        { "id": "giants", "handle": "giant_enemy_carrier", "count": 3, "role": "new_threat", "depth": "foreground", "screenWidthFraction": 0.38, "screenX": 0.62, "screenY": 0.62, "enterFrom": "reveal", "exitTo": "none" }
       ],
       "actions": [
         { "type": "reveal", "subject": "giants", "result": "giant ships become readable against Earth" },
