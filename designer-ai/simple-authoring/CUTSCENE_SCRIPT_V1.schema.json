@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "STARWARS_DELTA_CUTSCENE_SCRIPT_V1",
   "title": "STARWARS_DELTA Cutscene Script V1",
+  "description": "Semantic cutscene authoring format. ChatGPT authors story, visible evidence and frame-relative composition. Unity owns CURRENT fingerprints, runtime IDs, materialization routes, natural asset bounds and final V5 serialization.",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema", "schemaVersion", "title", "durationSeconds", "beats"],
@@ -86,6 +87,30 @@
         "role": { "type": "string" },
         "state": { "type": "string" },
         "depth": { "enum": ["far", "background", "mid", "foreground", "ui"] },
+        "screenWidthFraction": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1.5,
+          "description": "Desired width relative to the CURRENT cutscene camera view. 0.10 means ten percent of visible frame width. Unity computes world scale from camera view bounds plus natural asset bounds. Values above 1 intentionally crop/overscan."
+        },
+        "screenHeightFraction": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1.5,
+          "description": "Optional desired height relative to visible frame height. Prefer screenWidthFraction unless height is the deliberate composition constraint."
+        },
+        "screenX": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Frame-relative horizontal center. 0=left edge, 0.5=center, 1=right edge."
+        },
+        "screenY": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Frame-relative vertical center. 0=bottom edge, 0.5=center, 1=top edge."
+        },
         "enterFrom": { "enum": ["left", "right", "top", "bottom", "center", "reveal", "none"] },
         "exitTo": { "enum": ["left", "right", "top", "bottom", "center", "hide", "destroy", "none"] }
       }
