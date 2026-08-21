@@ -35,11 +35,18 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#090b12;col
   url.searchParams.set('build',build);
   url.searchParams.set('fresh',Date.now());
   frame.onload=()=>{
-    boot.style.display='none';
     try{
-      const back=frame.contentDocument.querySelector('a[href="./"]');
+      const doc=frame.contentDocument;
+      const back=doc.querySelector('a[href="./"]');
       if(back)back.target='_top';
-    }catch{}
+      const parser=doc.createElement('script');
+      parser.src='cutscene-preview-parser-current.js?build='+encodeURIComponent(build)+'&fresh='+Date.now();
+      parser.onload=()=>{boot.style.display='none'};
+      parser.onerror=()=>{boot.style.display='none'};
+      doc.body.appendChild(parser);
+    }catch{
+      boot.style.display='none';
+    }
   };
   frame.src=url.href;
 })();
