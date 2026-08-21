@@ -119,10 +119,18 @@
       const inferred=visible.filter(v=>v.enterFrom||v.exitTo||v.state||v.motion||v.movement).length+actions.filter(a=>a.type&&!['hold','dialogue'].includes(qLow(a.type))).length+(b.camera?.movement?1:0);
       return{authored,inferred,notes:['Simple Script values are author data. Motion between authored states may be browser-inferred.']};
     }
-    const s=w.shot||{},q=w.seq||{},actors=[...qArr(q.actorActions),...qArr(s.actorActions)],effects=[...qArr(q.effects),...qArr(s.effects)],cams=[...qArr(q.cameraActions),...qArr(s.cameraActions)];
-    const authored=actors.length+effects.length+cams.length+lineCount(w)+(s.backgroundAssetId?1:0)+(s.intention?1:0);
-    const inferred=actors.filter(a=>a.movement||a.animation||a.emotion).length+effects.filter(e=>e.animation||e.kind).length+(!cams.length&&s.cameraIntent?1:0);
-    return{authored,inferred,notes:['Authored = fields present in JSON. Browser inference = motion/timing visualization derived from semantic fields.']};
+    const s=w.shot||{},q=w.seq||{},actors=[...qArr(q.actorActions),...qArr(s.actorActions)],effects=[...qArr(q.effects),...qArr(s.effects)],cams=[...qArr(q.cameraActions),...qArr(s.cameraActions)],lines=[...qArr(q.dialogue),...qArr(q.dialogues),...qArr(q.lines),...qArr(s.dialogue),...qArr(s.dialogues),...qArr(s.lines)];
+    const authoredActors=actors.filter(a=>!a?.previewInference).length;
+    const authoredEffects=effects.filter(e=>!e?.previewInference).length;
+    const authoredLines=lines.filter(l=>!l?.previewInference).length;
+    const authoredCams=cams.filter(c=>!c?.previewInference).length;
+    const authoredBg=(s.backgroundAssetId&&!s.__previewInferredBackground)?1:0;
+    const authored=authoredActors+authoredEffects+authoredCams+authoredLines+authoredBg+(s.intention?1:0);
+    const inferred=actors.filter(a=>a?.previewInference||a?.movement||a?.animation||a?.emotion).length+effects.filter(e=>e?.previewInference||e?.animation||e?.kind).length+lines.filter(l=>l?.previewInference).length+(s.__previewInferredBackground?1:0)+(s.__previewInferredCamera?1:0)+(!cams.length&&s.cameraIntent&&!s.__previewInferredCamera?1:0);
+    const notes=[];
+    if(s.__previewHydrated)notes.push('Flat PREVIEW_SAFE metadata was hydrated by the browser for visualization only.');
+    notes.push('Authored = fields present in the original JSON. Browser inference = motion/timing/temporary visual structure derived from semantic fields.');
+    return{authored,inferred,notes};
   }
 
   function appendTruth(){
