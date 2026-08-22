@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <script>
-window.STORYBOARD_BUILD_ID="20260814-1440-v2.3DIRECTOR";
+window.STORYBOARD_BUILD_ID="20260822-1952-v3.8.0-PREVIEW-HUB";
 (function(){
   const check=()=>fetch('current.json?ts='+Date.now(),{cache:'no-store'})
     .then(r=>r.json())
@@ -24,16 +24,16 @@ window.STORYBOARD_BUILD_ID="20260814-1440-v2.3DIRECTOR";
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>STARWARS_DELTA Tools Hub</title>
-<link rel="stylesheet" href="assets/site.css?build=20260814-1440-v2.3DIRECTOR">
-<link rel="stylesheet" href="assets/hub.css?build=20260814-1440-v2.3DIRECTOR">
-<link rel="stylesheet" href="assets/storyboard-workflow.css?build=20260814-1440-v2.3DIRECTOR">
+<link rel="stylesheet" href="assets/site.css?build=20260822-1952-v3.8.0-PREVIEW-HUB">
+<link rel="stylesheet" href="assets/hub.css?build=20260822-1952-v3.8.0-PREVIEW-HUB">
+<link rel="stylesheet" href="assets/storyboard-workflow.css?build=20260822-1952-v3.8.0-PREVIEW-HUB">
 </head>
 <body>
 <header class="site-header">
   <div>
     <div class="eyebrow">STARWARS_DELTA</div>
     <h1>External Tools Hub <span class="version">CURRENT</span></h1>
-    <p>One permanent place for Storyboards, Designer AI and future tools outside Unity.</p>
+    <p>One permanent place for Storyboards, Cutscene Preview and Designer AI outside Unity.</p>
   </div>
   <div class="badge">ALWAYS CURRENT - NO LOGIN REQUIRED</div>
 </header>
@@ -58,6 +58,21 @@ window.STORYBOARD_BUILD_ID="20260814-1440-v2.3DIRECTOR";
       <div class="hub-actions">
         <a class="button" href="#create-storyboard">NEW STORYBOARD</a>
         <a class="button secondary" href="#storyboards">OPEN LIBRARY</a>
+      </div>
+    </article>
+
+    <article class="hub-card preview">
+      <div class="hub-icon">PR</div>
+      <div class="hub-kicker">Cutscene Preview</div>
+      <div class="hub-status">CURRENT</div>
+      <h2>Cutscene Preview</h2>
+      <p>Load CUTSCENE_SCRIPT_V1 or V5 JSON and inspect the film in the browser before going back into Unity.</p>
+      <div class="hub-meta">
+        <span>Authoring: <b>Simple V1 -> V3 semantic pipeline -> V5 backend</b></span>
+        <span>Preview: <b>2D motion, camera intent, dialogue, VFX and truth diagnostics</b></span>
+      </div>
+      <div class="hub-actions">
+        <a class="button" href="cutscene-preview.html">OPEN CUTSCENE PREVIEW</a>
       </div>
     </article>
 
@@ -170,8 +185,8 @@ window.STORYBOARD_BUILD_ID="20260814-1440-v2.3DIRECTOR";
 </main>
 <footer>STARWARS_DELTA - External Tools Hub - CURRENT</footer>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-<script src="assets/hub.js?build=20260814-1440-v2.3DIRECTOR"></script>
-<script src="assets/storyboard-director.js?build=20260814-1440-v2.3DIRECTOR"></script>
-<script src="assets/storyboards.js?build=20260814-1440-v2.3DIRECTOR"></script>
+<script src="assets/hub.js?build=20260822-1952-v3.8.0-PREVIEW-HUB"></script>
+<script src="assets/storyboard-director.js?build=20260822-1952-v3.8.0-PREVIEW-HUB"></script>
+<script src="assets/storyboards.js?build=20260822-1952-v3.8.0-PREVIEW-HUB"></script>
 </body>
 </html>
