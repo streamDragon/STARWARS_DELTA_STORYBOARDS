@@ -1,3 +1,4 @@
+# Film QA bootstrap retrigger 2026-08-22T03:00Z
 name: Ensure Designer AI CURRENT
 
 on:
@@ -117,8 +118,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          # Temporary bootstrap expires at 2026-08-22 03:06 UTC so the 10-minute keeper
-          # can start Film QA without turning it into a permanent recurring workload.
           now="$(date -u +%s)"
           deadline=1787367960
           if [ "$now" -gt "$deadline" ]; then
