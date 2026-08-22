@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate">
+<title>STARWARS_DELTA - DEVORA THE QUEEN</title>
+<style>
+:root{color-scheme:dark;font-family:Inter,Segoe UI,Arial,sans-serif;background:#0b1018;color:#eef4ff}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 20% 0,#1b3452,#0b1018 50%)}main{width:min(900px,calc(100% - 28px));padding:24px}.card{background:#121b28;border:1px solid #2a4059;border-radius:20px;padding:28px;box-shadow:0 20px 60px #0008}.eyebrow{color:#7fd5ff;font-size:12px;font-weight:800;letter-spacing:.16em}h1{font-size:clamp(32px,7vw,46px);margin:8px 0}p{color:#a9b7ca;line-height:1.55}.status{display:inline-block;padding:8px 12px;border-radius:999px;font-weight:900;margin:10px 0 12px}.ok{background:#143526;color:#9ef0bd;border:1px solid #286a49}.pending{background:#382f16;color:#ffe5a3;border:1px solid #75602a}.bad{background:#401b1b;color:#ffb4ae;border:1px solid #873f3f}.error{color:#ffaaa5;white-space:pre-wrap}.notice{color:#ffe5a3;white-space:pre-wrap}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:14px 0}.metric{background:#0d1622;border:1px solid #26384d;border-radius:11px;padding:10px}.metric b{display:block;font-size:19px}.metric span{color:#8294aa;font-size:10px;text-transform:uppercase}.step{background:#0e1724;border:1px solid #2b415b;border-radius:14px;padding:18px;margin-top:14px}.primary{border-color:#397e58;background:#102219}.visual{border-color:#2d709e;background:#0e1d2b}.framing{border-color:#c77b2b;background:#251a0f}.preview{border-color:#6552a8;background:#17132a}.examples{border-color:#2e8b72;background:#0f211d}.stepnum{font-size:11px;color:#87a1bb;font-weight:900;letter-spacing:.12em}.title{font-size:20px;font-weight:900;margin:5px 0}.helper,.small{font-size:13px;color:#91a4ba;line-height:1.5}.info{margin-top:12px;background:#0b131d;border:1px solid #26384d;border-radius:10px;padding:12px 14px;font-size:13px;color:#9eb0c4;line-height:1.5}.framingrule{margin-top:10px;background:#171109;border:1px solid #7f5427;border-radius:10px;padding:11px 13px;color:#ffd6a1;font-size:13px;line-height:1.5}.dialoguerule{margin-top:10px;background:#0b1d18;border:1px solid #2e8b72;border-radius:10px;padding:11px 13px;color:#c8ffec;font-size:13px;line-height:1.5}button,a{display:block;width:100%;text-align:center;border:0;border-radius:12px;padding:16px 18px;font-weight:900;font-size:16px;text-decoration:none;margin-top:12px;cursor:pointer}.copy{background:#8ce7ad;color:#07150d}.atlas{background:#173d5c;color:#bfe9ff;border:1px solid #2d709e}.framingbtn{background:#86511d;color:#fff1de;border:1px solid #c77b2b}.previewbtn{background:#5b45b8;color:#fff;border:1px solid #826df0}.examplebtn{background:#155847;color:#d6fff3;border:1px solid #2e8b72}.secondary{background:#172334;color:#d9e6f4;border:1px solid #2a4059}button:disabled,.disabled{opacity:.35;cursor:not-allowed;pointer-events:none}details{margin-top:16px}summary{cursor:pointer}
+</style>
+</head>
+<body><main><div class="card">
+<div class="eyebrow">STARWARS_DELTA · DESIGNER AI</div>
+<h1>DEVORA THE QUEEN</h1>
+<p>Cutscene Start · One usable CURRENT only. The last fully verified Open CURRENT remains authoritative until a newer publish is completely built and promoted.</p>
+<div id="status" class="status bad">CHECKING CURRENT...</div><div id="error" class="error"></div>
+<div id="metrics" class="metrics" hidden>
+<div class="metric"><b id="actors">-</b><span>Actors</span></div><div class="metric"><b id="layers">-</b><span>Layers</span></div><div class="metric"><b id="effects">-</b><span>Effects</span></div><div class="metric"><b id="ui">-</b><span>UI</span></div><div class="metric"><b id="animations">-</b><span>Animations</span></div><div class="metric"><b id="audio">-</b><span>Audio</span></div>
+</div>
+<section class="step primary"><div class="stepnum">STEP 1 · COPY FOR CHAT</div><div class="title">Copy the sealed CURRENT instructions</div><p class="helper">Authoring uses only the internally consistent verified Open CURRENT. A newer source publish may build in the background without invalidating the last known-good CURRENT.</p><button id="copy" class="copy" disabled>COPY FOR CHAT</button></section>
+<section class="step visual"><div class="stepnum">STEP 2 · VISUAL SOURCE OF TRUTH</div><div class="title">Use the matching CURRENT Visual Atlas PDF</div><p class="helper">The Atlas must belong to the exact same verified Open CURRENT used by COPY FOR CHAT.</p><a id="atlas" class="atlas disabled" href="#">DOWNLOAD VISUAL ATLAS PDF</a><div id="atlasInfo" class="info">Checking Atlas...</div></section>
+<section class="step framing"><div class="stepnum">STEP 3 · CAMERA-FIRST FRAMING</div><div class="title">Choose the cutscene camera before sprite size</div><p class="helper">For a separate cutscene screen, the active cutscene camera is the sizing reference. Choose the shot camera/framing first, then author each visible object's normalized screen position and desired screen occupancy.</p><div class="framingrule"><b>Hard visual rule:</b> gameplay world bounds are not used to size cutscene sprites. Do not translate “large”, “small”, “huge” or “tiny” into raw Unity scale. Use <code>screenWidthFraction</code> / <code>screenHeightFraction</code>. Unity then measures the resolved sprite's real Renderer bounds and derives the transform scale required for that camera.</div><a class="framingbtn" href="simple-authoring/visual-framing-guide.html" target="_blank" rel="noopener">OPEN 3-PAGE CAMERA-FIRST GUIDE</a></section>
+<section class="step preview"><div class="stepnum">STEP 4 · FAST SIMPLE PREVIEW</div><div class="title">Preview CUTSCENE_SCRIPT_V1 before Unity</div><p class="helper">Load the simple semantic script, resolve CURRENT handles, render requested quantities and frame-relative sizes, and catch story-evidence or route errors before Studio materialization.</p><a class="previewbtn" href="simple-preview.html">OPEN SIMPLE CUTSCENE PREVIEW</a></section>
+<section class="step examples"><div class="stepnum">STEP 5 · GOLDEN SIMPLE AUTHORING EXAMPLES</div><div class="title">Start from schema-valid CURRENT examples</div><p class="helper">These examples use the real <code>CUTSCENE_SCRIPT_V1</code> schema and CURRENT semantic handles. They are reference patterns, not alternate schemas.</p><div class="dialoguerule"><b>Dialogue Near/Far rule:</b> the Dialogue Stage owns the portrait rectangle. During locked face-to-face dialogue, the active speaker is NEAR / larger and the listener remains visible FAR / smaller. Speaker changes reverse the emphasis without changing identity. Locked dialogue uses Hold or cut-based coverage, never decorative continuous camera motion.</div><a class="examplebtn" href="simple-authoring/EXAMPLE_GOLDEN_DIALOGUE_NEAR_FAR.json" target="_blank" rel="noopener">OPEN GOLDEN DIALOGUE NEAR/FAR · 30 SEC</a><div class="info"><b>Camera-first sizing:</b> the same CommandStarship identity is shown at 0.12, 0.24 and 0.42 of frame width. Unity owns conversion from screen fraction + active camera + real Renderer bounds into world transform scale.</div><a class="examplebtn" href="simple-authoring/EXAMPLE_GOLDEN_CAMERA_FRAMING.json" target="_blank" rel="noopener">OPEN GOLDEN CAMERA-FIRST FRAMING</a><a class="secondary" href="simple-authoring/CUTSCENE_SCRIPT_V1.schema.json" target="_blank" rel="noopener">OPEN EXACT CUTSCENE_SCRIPT_V1 SCHEMA</a></section>
+<details><summary><div class="secondary">ADVANCED / ENGINEERING · NOT REQUIRED FOR DEVORA THE QUEEN</div></summary><div><p class="small"><b>DEVORA THE QUEEN does not download or upload anything here for normal cutscene work.</b></p><a id="director" class="secondary" href="open-current/director-view/DIRECTOR_VIEW.json" target="_blank" rel="noopener">OPEN CURRENT DIRECTOR · ENGINEERING</a><a id="completion" class="secondary" href="open-current/director-view/completion-queue.json" target="_blank" rel="noopener">OPEN COMPLETION QUEUE · ENGINEERING</a><a id="catalog" class="secondary" href="#" download>DOWNLOAD FULL CATALOG · ENGINEERING ONLY</a><a id="fallback" class="secondary" href="open-current/STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip" download>DOWNLOAD DIRECTOR FALLBACK PACK · ENGINEERING</a></div></details>
+</div></main>
+<script>
+(async()=>{
+ const id=x=>document.getElementById(x),status=id('status'),error=id('error'),copy=id('copy'),atlas=id('atlas');
+ const keys=['catalogRevision','contractRevision','schemaHash','snapshotContentHash','authoringRuleRegistryRevision'];
+ const nonEmpty=a=>keys.every(k=>String((a||{})[k]??'').length>0);
+ const same=(a,b)=>nonEmpty(a)&&nonEmpty(b)&&keys.every(k=>String(a[k])===String(b[k]));
+ const requiredFromAtomic=a=>Object.fromEntries(keys.map(k=>[k,(a||{})[k]]));
+ try{
+  const stamp=Date.now();
+  const [openRes,instructionsRes,sourceRes]=await Promise.all([
+   fetch('open-current/OPEN_CURRENT.json?t='+stamp,{cache:'no-store'}),
+   fetch('open-current/CHATGPT_START.txt?t='+stamp,{cache:'no-store'}),
+   fetch('current.json?t='+stamp,{cache:'no-store'}).catch(()=>null)
+  ]);
+  if(!openRes.ok)throw new Error('OPEN_CURRENT HTTP '+openRes.status);
+  if(!instructionsRes.ok)throw new Error('CHATGPT_START HTTP '+instructionsRes.status);
+  const open=await openRes.json(),instructions=await instructionsRes.text();
+  if(open.status!=='CURRENT_VERIFIED_OPEN')throw new Error('Open CURRENT is not verified');
+  if(!nonEmpty(open.requiredCurrent))throw new Error('Open CURRENT requiredCurrent is incomplete');
+  if(!same(open.requiredCurrent,requiredFromAtomic(open.atomicIdentity)))throw new Error('Open CURRENT requiredCurrent does not match its atomic identity');
+  const openTx=String(open.provenance?.publishTransactionId||open.publishTransactionId||'');
+  if(!openTx||String(open.atomicIdentity?.publishTransactionId||'')!==openTx)throw new Error('Open CURRENT publication provenance mismatch');
+  const rule=open.requiredCurrent.authoringRuleRegistryRevision;
+  if(!instructions.includes('CURRENT AUTHORING RULE REGISTRY REVISION: '+rule))throw new Error('sealed instructions do not match requiredCurrent Rule Registry');
+  if(!open.visualAtlas||open.visualAtlas.status!=='CURRENT_VERIFIED_VISUAL_ATLAS')throw new Error('Visual Atlas is not verified');
+  if(String(open.visualAtlas.publishTransactionId||'')!==openTx)throw new Error('Visual Atlas publication provenance mismatch');
+  if(!open.directorView||open.directorView.requestScoped!==false)throw new Error('Full Director is not active');
+  let pending=false,pendingFields=[];
+  if(sourceRes&&sourceRes.ok){try{const source=await sourceRes.json();if(source.status==='CURRENT_VERIFIED'&&nonEmpty(source.requiredCurrent)&&!same(source.requiredCurrent,open.requiredCurrent)){pending=true;pendingFields=keys.filter(k=>String(source.requiredCurrent?.[k]??'')!==String(open.requiredCurrent?.[k]??''));}}catch(_){}}
+  status.className='status '+(pending?'pending':'ok');status.textContent=(pending?'CURRENT VERIFIED · NEWER PUBLISH PENDING · ':'CURRENT VERIFIED · ')+openTx;
+  error.className=pending?'notice':'error';error.textContent=pending?'Using the last fully verified atomic CURRENT until promotion completes. Pending fields: '+pendingFields.join(', '):'';
+  const counts=open.directorView.counts||{};for(const k of ['actors','layers','effects','ui','animations','audio'])id(k).textContent=String(counts[k]??0);id('metrics').hidden=false;
+  atlas.href=open.visualAtlas.pdfUrl;atlas.classList.remove('disabled');atlas.setAttribute('download','');
+  id('atlasInfo').textContent=String(open.visualAtlas.totalPages??0)+' pages · '+String(open.visualAtlas.representativeCount??0)+' representatives · requiredCurrent '+String(rule).slice(0,12)+'…';
+  if(open.directorView.url)id('director').href=open.directorView.url;if(open.directorView.root)id('completion').href=open.directorView.root+'completion-queue.json';
+  const catalogUrl=open.catalogContract?.fullCatalogReleaseUrl;if(catalogUrl)id('catalog').href=catalogUrl;else id('catalog').style.display='none';
+  if(open.download?.chatgptDirectorCurrentZipUrl)id('fallback').href=open.download.chatgptDirectorCurrentZipUrl;
+  copy.disabled=false;copy.onclick=async()=>{await navigator.clipboard.writeText(instructions);copy.textContent='COPIED · PASTE INTO CHATGPT';setTimeout(()=>copy.textContent='COPY FOR CHAT',1800)};
+ }catch(e){status.className='status bad';status.textContent='NO VERIFIED ATOMIC CURRENT · DO NOT AUTHOR';error.className='error';error.textContent=String(e.message||e);copy.disabled=true;atlas.classList.add('disabled')}
+})();
+</script>
+</body></html>
