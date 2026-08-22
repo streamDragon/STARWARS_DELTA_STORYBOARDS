@@ -23,14 +23,26 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#090b12;col
   const boot=document.getElementById('boot');
   let implementation='cutscene-preview-current.html';
   let build='current';
+  let preview={};
   try{
     const response=await fetch('current.json?ts='+Date.now(),{cache:'no-store'});
     if(response.ok){
       const current=await response.json();
-      implementation=current?.cutscenePreview?.implementationPath||implementation;
+      preview=current?.cutscenePreview||{};
+      implementation=preview.implementationPath||implementation;
       build=current?.buildId||build;
     }
   }catch{}
+  const patchPaths=[
+    preview.domHotfixPath||'cutscene-preview-dom-hotfix-current.js',
+    preview.parserPatchPath||'cutscene-preview-parser-current.js',
+    preview.handleRecoveryPatchPath||'cutscene-preview-handle-recovery-current.js',
+    preview.filmPatchPath||'cutscene-preview-film-current.js',
+    preview.dialoguePatchPath||'cutscene-preview-dialogue-current.js',
+    preview.qualityPatchPath||'cutscene-preview-quality-current.js',
+    preview.goldenTestPatchPath||'cutscene-preview-golden-test-current.js',
+    preview.playbackPatchPath||'cutscene-preview-playback-current.js'
+  ].filter((src,index,all)=>src&&all.indexOf(src)===index);
   const url=new URL(implementation,location.href);
   url.searchParams.set('build',build);
   url.searchParams.set('fresh',Date.now());
@@ -45,13 +57,7 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#090b12;col
         s.onload=resolve;s.onerror=resolve;doc.body.appendChild(s);
       });
       (async()=>{
-        await inject('cutscene-preview-dom-hotfix-current.js');
-        await inject('cutscene-preview-parser-current.js');
-        await inject('cutscene-preview-handle-recovery-current.js');
-        await inject('cutscene-preview-dialogue-current.js');
-        await inject('cutscene-preview-quality-current.js');
-        await inject('cutscene-preview-golden-test-current.js');
-        await inject('cutscene-preview-playback-current.js');
+        for(const src of patchPaths)await inject(src);
         boot.style.display='none';
       })();
     }catch{
