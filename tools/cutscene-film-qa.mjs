@@ -1,4 +1,5 @@
 // PR probe: intentionally no behavior change; this commit exists to exercise the Film QA workflow.
+// synchronize probe 2
 import { chromium } from 'playwright';
 import fs from 'node:fs/promises';
 import path from 'node:path';
