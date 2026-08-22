@@ -11,6 +11,15 @@ on:
       - 'current.json'
       - 'tools/cutscene-film-qa.mjs'
       - '.github/workflows/cutscene-film-qa.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'cutscene-preview*.html'
+      - 'cutscene-preview*.js'
+      - 'cutscene-preview-golden-40s.json'
+      - 'current.json'
+      - 'tools/cutscene-film-qa.mjs'
+      - '.github/workflows/cutscene-film-qa.yml'
 
 permissions:
   contents: read
