@@ -1,4 +1,4 @@
-# Film QA bootstrap retrigger 2026-08-22T03:00Z
+# Film QA bootstrap retrigger 3
 name: Ensure Designer AI CURRENT
 
 on:
@@ -48,41 +48,23 @@ jobs:
           python3 - <<'PY' >> "$GITHUB_OUTPUT"
           import json
           import pathlib
-
-          keys = (
-              'catalogRevision',
-              'contractRevision',
-              'schemaHash',
-              'snapshotContentHash',
-              'authoringRuleRegistryRevision',
-          )
-
+          keys = ('catalogRevision','contractRevision','schemaHash','snapshotContentHash','authoringRuleRegistryRevision')
           source = json.loads(pathlib.Path('source/designer-ai/current.json').read_text(encoding='utf-8-sig'))
           source_required = source.get('requiredCurrent') or {}
-          if source.get('status') != 'CURRENT_VERIFIED':
-              raise SystemExit('Source current.json is not CURRENT_VERIFIED')
+          if source.get('status') != 'CURRENT_VERIFIED': raise SystemExit('Source current.json is not CURRENT_VERIFIED')
           missing = [key for key in keys if str(source_required.get(key) or '') == '']
-          if missing:
-              raise SystemExit('Source requiredCurrent is incomplete: ' + ', '.join(missing))
-
+          if missing: raise SystemExit('Source requiredCurrent is incomplete: ' + ', '.join(missing))
           active_path = pathlib.Path('active/OPEN_CURRENT.json')
           if not active_path.is_file():
-              print('needs_rebuild=true')
-              print('reason=active branch missing')
-              raise SystemExit(0)
-
+              print('needs_rebuild=true'); print('reason=active branch missing'); raise SystemExit(0)
           active = json.loads(active_path.read_text(encoding='utf-8-sig'))
           active_required = active.get('requiredCurrent') or {}
           mismatch = [key for key in keys if str(source_required.get(key)) != str(active_required.get(key))]
-          if active.get('status') != 'CURRENT_VERIFIED_OPEN':
-              mismatch.append('status')
-
+          if active.get('status') != 'CURRENT_VERIFIED_OPEN': mismatch.append('status')
           if mismatch:
-              print('needs_rebuild=true')
-              print('reason=' + ','.join(mismatch))
+              print('needs_rebuild=true'); print('reason=' + ','.join(mismatch))
           else:
-              print('needs_rebuild=false')
-              print('reason=already-current')
+              print('needs_rebuild=false'); print('reason=already-current')
           PY
 
       - name: Avoid duplicate publisher runs
@@ -120,10 +102,7 @@ jobs:
           set -euo pipefail
           now="$(date -u +%s)"
           deadline=1787367960
-          if [ "$now" -gt "$deadline" ]; then
-            echo 'Film QA bootstrap window expired.'
-            exit 0
-          fi
+          if [ "$now" -gt "$deadline" ]; then echo 'Film QA bootstrap window expired.'; exit 0; fi
           echo 'Dispatching Cutscene Film QA...'
           gh workflow run cutscene-film-qa.yml --repo "$GITHUB_REPOSITORY" --ref main
           run_id=''
@@ -132,9 +111,6 @@ jobs:
             run_id="$(gh run list --repo "$GITHUB_REPOSITORY" --workflow cutscene-film-qa.yml --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId // empty')"
             if [ -n "$run_id" ]; then break; fi
           done
-          if [ -z "$run_id" ]; then
-            echo 'Film QA dispatch succeeded but run id was not discoverable.'
-            exit 1
-          fi
+          if [ -z "$run_id" ]; then echo 'Film QA dispatch succeeded but run id was not discoverable.'; exit 1; fi
           echo "FILM_QA_RUN_ID=$run_id"
           gh pr comment 14 --repo "$GITHUB_REPOSITORY" --body "FILM_QA_RUN_ID=$run_id"
