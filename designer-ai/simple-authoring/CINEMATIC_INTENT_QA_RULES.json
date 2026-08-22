@@ -1,0 +1,152 @@
+{
+  "schema": "STARWARS_DELTA_CINEMATIC_INTENT_QA_RULES",
+  "schemaVersion": 1,
+  "status": "DRAFT_PRE_UNITY",
+  "purpose": "Focused pre-Unity cinematic-intent checks for CURRENT V5 output. These rules do not replace Unity validation and do not claim runtime correctness.",
+  "emotionProjection": {
+    "Neutral": "Serious",
+    "Listening": "Serious",
+    "Concerned": "Perplexed",
+    "Shocked": "Shock",
+    "Urgent": "Serious",
+    "Determined": "Serious",
+    "ControlledGrief": "Sad",
+    "Exhausted": "Sad",
+    "Relieved": "Happy",
+    "Defiant": "Anger",
+    "Angry": "Anger",
+    "Fearful": "Shock",
+    "SpeakingCalm": "Serious",
+    "SpeakingFirm": "Serious",
+    "Commanding": "Serious",
+    "Reassuring": "Happy",
+    "Warning": "Shock",
+    "Thinking": "Perplexed",
+    "Pointing": "Serious",
+    "HandRaised": "Serious",
+    "ArmsCrossed": "Serious",
+    "ConsoleWork": "Serious",
+    "BracingAlert": "Shock",
+    "Vulnerable": "Sad",
+    "LookLeft": "Serious",
+    "LookRight": "Serious",
+    "Injured": "Sad",
+    "Suspicious": "Perplexed",
+    "Hopeful": "Happy",
+    "Resolute": "Serious"
+  },
+  "rules": [
+    {
+      "code": "FOCAL_TARGET_NOT_VISIBLE",
+      "severity": "Warning",
+      "scope": "shot",
+      "description": "compositionTargetId is non-empty but the target has no visible/present evidence anywhere in the shot.",
+      "notes": "A target is legal when it is visible initially or enters/reveals during the shot. Empty compositionTargetId is preferable to a false Hero fallback."
+    },
+    {
+      "code": "CAMERA_TARGET_NOT_VISIBLE",
+      "severity": "Warning",
+      "scope": "cameraAction",
+      "description": "A camera action targets an entity that has no visible/present evidence during the camera action interval.",
+      "notes": "Do not warn when the entity legally enters/reveals during the same action interval."
+    },
+    {
+      "code": "EMOTION_ROUTE_CONFLICT",
+      "severity": "Warning",
+      "scope": "dialogueLine",
+      "description": "Fine-grained expression and coarse Stage/Delivery emotion disagree with the deterministic projection.",
+      "notes": "Expression is the visual source of truth. Stage/Delivery are coarse projections and are not required to contain the same literal."
+    },
+    {
+      "code": "EMPTY_CONTINUITY_SUBJECTS",
+      "severity": "Warning",
+      "scope": "shot",
+      "description": "preserveScreenDirection=true but matchedEntityIds is empty even though the shot contains continuity-bearing moving/present entities.",
+      "notes": "Do not warn on empty/static/location-only shots where no continuity subject exists."
+    },
+    {
+      "code": "FLAT_ACTION_MOTION",
+      "severity": "Warning",
+      "scope": "actorAction",
+      "description": "A cinematic/action movement is materialized as a straight Move with no keyframes or trajectory evidence.",
+      "notes": "Use this for semantically meaningful movement such as flyby, approach, orbit, intercept, bank, pursuit, escort, formation break, rescue approach, circle, landing, takeoff, escape or convoy motion."
+    },
+    {
+      "code": "DIALOGUE_WORLD_EVIDENCE_LOST",
+      "severity": "Warning",
+      "scope": "shot",
+      "description": "Dialogue switches to portrait-only presentation while the shot intention or visible plan depends on important world evidence that is not represented by the dialogue stage.",
+      "notes": "FACE_TO_FACE_PORTRAITS is legal when the intended shot genuinely leaves the world. Prefer overlay/monitor/environment routes when threat/location/action context must remain visible."
+    },
+    {
+      "code": "PRESENTATION_REPETITION",
+      "severity": "Warning",
+      "scope": "sequence",
+      "description": "Three or more consecutive dialogue shots reuse effectively the same background, layout, framing, camera preset and transition.",
+      "notes": "Cinematic warning only, never a schema/runtime blocker."
+    },
+    {
+      "code": "STORY_EVIDENCE_MISSING",
+      "severity": "Warning",
+      "scope": "shot",
+      "description": "The shot intention makes a major physical story claim but the V5 shot contains no corresponding actor/layer/effect/action evidence.",
+      "notes": "Physical events are not satisfied by prose in intention. This browser rule is intentionally conservative and may require Unity-side semantic evidence for final truth."
+    }
+  ],
+  "visibilityModel": {
+    "presentActorEvidence": [
+      "actorActions with Activate/Enter/Move/MoveToMark/FollowPath/Face/Turn/SetSorting/SetScale/Formation/PlayAnimation/VisualWeaponAction/VisualDamageReaction/Hold/FreezePose/LocalSlowMotion",
+      "speakerActorId/listenerActorId for dialogue presentations",
+      "reaction.actorId for dialogue reaction presentation"
+    ],
+    "enterOrRevealEvidence": [
+      "Activate",
+      "Enter",
+      "Move",
+      "MoveToMark",
+      "FollowPath"
+    ],
+    "absenceEvidence": [
+      "Deactivate",
+      "Exit"
+    ]
+  },
+  "motionIntentKeywords": [
+    "flyby",
+    "approach",
+    "orbit",
+    "intercept",
+    "bank",
+    "pursuit",
+    "escort",
+    "formation",
+    "rescue",
+    "circle",
+    "landing",
+    "takeoff",
+    "escape",
+    "convoy",
+    "retreat",
+    "evade",
+    "attack",
+    "charge"
+  ],
+  "worldEvidenceKeywords": [
+    "fleet",
+    "blockade",
+    "enemy",
+    "threat",
+    "mars",
+    "earth",
+    "convoy",
+    "explosion",
+    "fighter",
+    "ship",
+    "formation",
+    "attack",
+    "escape",
+    "dreadnought",
+    "reveal",
+    "arrival"
+  ]
+}
