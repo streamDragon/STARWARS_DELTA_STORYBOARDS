@@ -1,0 +1,64 @@
+name: Cutscene Film QA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'cutscene-preview*.html'
+      - 'cutscene-preview*.js'
+      - 'cutscene-preview-golden-40s.json'
+      - 'current.json'
+      - 'tools/cutscene-film-qa.mjs'
+      - '.github/workflows/cutscene-film-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  film-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Wait for GitHub Pages deploy
+        run: |
+          echo "Waiting briefly for Pages to publish commit $GITHUB_SHA"
+          sleep 35
+
+      - name: Run GOLDEN 40S visual QA
+        env:
+          PREVIEW_URL: https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/cutscene-preview.html
+          MOVIE_BUTTON: GOLDEN 40S
+          EXPECTED_DURATION: '40'
+          FRAME_TIMES: '0,2,4.2,8.2,13.2,18.2,24.2,29.2,35.2,39.0'
+        run: node tools/cutscene-film-qa.mjs
+
+      - name: Publish summary
+        if: always()
+        run: |
+          if [ -f artifacts/cutscene-film-qa/REPORT.md ]; then
+            cat artifacts/cutscene-film-qa/REPORT.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload film QA artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cutscene-film-qa-${{ github.run_number }}
+          path: artifacts/cutscene-film-qa
+          if-no-files-found: warn
+          retention-days: 14
