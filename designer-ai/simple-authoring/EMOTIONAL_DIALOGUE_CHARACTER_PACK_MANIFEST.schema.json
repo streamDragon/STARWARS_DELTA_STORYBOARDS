@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "STARWARS_DELTA_EMOTIONAL_DIALOGUE_CHARACTER_PACK_MANIFEST.schema.json",
+  "title": "STARWARS_DELTA Emotional Dialogue Character Pack Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "schemaVersion",
+    "characterId",
+    "displayName",
+    "masterSheet",
+    "grid",
+    "states"
+  ],
+  "properties": {
+    "schema": {
+      "const": "STARWARS_DELTA_EMOTIONAL_DIALOGUE_CHARACTER_PACK"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "characterId": {
+      "type": "string",
+      "pattern": "^[A-Z0-9_]+$",
+      "minLength": 1
+    },
+    "displayName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "visualMode": {
+      "type": "string",
+      "enum": ["FullPortrait", "Layered2D"],
+      "default": "FullPortrait"
+    },
+    "masterSheet": {
+      "type": "string",
+      "minLength": 1
+    },
+    "grid": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["columns", "rows"],
+      "properties": {
+        "columns": { "type": "integer", "minimum": 1 },
+        "rows": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "defaultExpression": {
+      "type": "string",
+      "default": "Neutral"
+    },
+    "states": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["row", "column", "category", "name", "file"],
+        "properties": {
+          "row": { "type": "integer", "minimum": 0 },
+          "column": { "type": "integer", "minimum": 0 },
+          "category": {
+            "type": "string",
+            "enum": ["Expression", "Pose"]
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "file": {
+            "type": "string",
+            "minLength": 1
+          },
+          "spriteName": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
