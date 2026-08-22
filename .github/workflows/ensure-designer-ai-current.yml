@@ -13,6 +13,8 @@ on:
 permissions:
   contents: read
   actions: write
+  issues: write
+  pull-requests: write
 
 concurrency:
   group: ensure-designer-ai-current
@@ -107,3 +109,33 @@ jobs:
       - name: Report healthy CURRENT
         if: steps.compare.outputs.needs_rebuild == 'false'
         run: echo 'Designer AI CURRENT is already atomic and synchronized.'
+
+      - name: One-shot bootstrap Cutscene Film QA
+        if: github.event_name == 'schedule' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Temporary bootstrap expires at 2026-08-22 03:06 UTC so the 10-minute keeper
+          # can start Film QA without turning it into a permanent recurring workload.
+          now="$(date -u +%s)"
+          deadline=1787367960
+          if [ "$now" -gt "$deadline" ]; then
+            echo 'Film QA bootstrap window expired.'
+            exit 0
+          fi
+          echo 'Dispatching Cutscene Film QA...'
+          gh workflow run cutscene-film-qa.yml --repo "$GITHUB_REPOSITORY" --ref main
+          run_id=''
+          for i in $(seq 1 12); do
+            sleep 5
+            run_id="$(gh run list --repo "$GITHUB_REPOSITORY" --workflow cutscene-film-qa.yml --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId // empty')"
+            if [ -n "$run_id" ]; then break; fi
+          done
+          if [ -z "$run_id" ]; then
+            echo 'Film QA dispatch succeeded but run id was not discoverable.'
+            exit 1
+          fi
+          echo "FILM_QA_RUN_ID=$run_id"
+          gh pr comment 14 --repo "$GITHUB_REPOSITORY" --body "FILM_QA_RUN_ID=$run_id"
