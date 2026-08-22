@@ -25,6 +25,8 @@ on:
 
 permissions:
   contents: read
+  issues: write
+  pull-requests: write
 
 jobs:
   film-qa:
@@ -32,6 +34,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      - name: Publish run id
+        if: github.event_name == 'issue_comment'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr comment ${{ github.event.issue.number }} --repo "$GITHUB_REPOSITORY" --body "FILM_QA_RUN_ID=${{ github.run_id }}"
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
