@@ -2,14 +2,14 @@ import { chromium } from 'playwright';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-const URL = process.env.PREVIEW_URL || 'https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/cutscene-preview.html';
+const PREVIEW_URL = process.env.PREVIEW_URL || 'https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/cutscene-preview.html';
 const OUT = process.env.QA_OUT || 'artifacts/cutscene-film-qa';
 const MOVIE = process.env.MOVIE_BUTTON || 'GOLDEN 40S';
 const DURATION = Number(process.env.EXPECTED_DURATION || 40);
 const TIMES = (process.env.FRAME_TIMES || '0,2,4.2,8.2,13.2,18.2,24.2,29.2,35.2,39').split(',').map(Number).filter(Number.isFinite);
 const SHA = process.env.GITHUB_SHA || Date.now().toString();
 for (const d of ['', 'frames', 'full-page', 'video']) await fs.mkdir(path.join(OUT,d), {recursive:true});
-const report={url:URL,movieButton:MOVIE,buildSha:SHA,startedAt:new Date().toISOString(),consoleErrors:[],pageErrors:[],networkFailures:[],screenshots:[],checks:{},steps:[],summary:'RUNNING'};
+const report={url:PREVIEW_URL,movieButton:MOVIE,buildSha:SHA,startedAt:new Date().toISOString(),consoleErrors:[],pageErrors:[],networkFailures:[],screenshots:[],checks:{},steps:[],summary:'RUNNING'};
 const mark=s=>{console.log('QA_STEP',s);report.steps.push({at:new Date().toISOString(),step:s})};
 const parseClock=t=>{const m=String(t||'').match(/([0-9]+(?:\.[0-9]+)?)\s*\/\s*([0-9]+(?:\.[0-9]+)?)s?/i);return m?{elapsed:+m[1],total:+m[2]}:null};
 
@@ -36,7 +36,7 @@ const context=await browser.newContext({viewport:{width:1600,height:1000},record
 const page=await context.newPage();
 page.on('console',m=>{if(m.type()==='error')report.consoleErrors.push(m.text())});page.on('pageerror',e=>report.pageErrors.push(String(e?.stack||e)));page.on('requestfailed',r=>report.networkFailures.push({url:r.url(),error:r.failure()?.errorText||'failed'}));
 try{
-  mark('goto');const u=new URL(URL);u.searchParams.set('qa',`${SHA}-${Date.now()}`);await page.goto(u.toString(),{waitUntil:'domcontentloaded',timeout:45000});
+  mark('goto');const u=new globalThis.URL(PREVIEW_URL);u.searchParams.set('qa',`${SHA}-${Date.now()}`);await page.goto(u.toString(),{waitUntil:'domcontentloaded',timeout:45000});
   mark('wait-stage');await page.locator('#stage').waitFor({state:'visible',timeout:15000});await page.getByRole('button',{name:MOVIE,exact:true}).waitFor({state:'visible',timeout:15000});
   mark('wait-current');await page.waitForFunction(()=>{const s=document.querySelector('#status')?.textContent||'';return /CURRENT/i.test(s)&&!/Loading CURRENT/i.test(s)},{},{timeout:30000});
   mark('load-movie');await page.getByRole('button',{name:MOVIE,exact:true}).click();await page.waitForFunction(()=>/GOLDEN/i.test(document.querySelector('#drop')?.textContent||'')&&/\/\s*40(?:\.0)?s/i.test(document.querySelector('#time')?.textContent||''),{}, {timeout:30000});await page.waitForTimeout(1200);
