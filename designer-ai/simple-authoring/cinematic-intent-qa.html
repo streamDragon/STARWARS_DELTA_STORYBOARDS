@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>STARWARS_DELTA Cinematic Intent QA</title>
+<style>
+:root{font-family:Inter,system-ui,sans-serif;color-scheme:dark;background:#111;color:#eee}body{margin:0;padding:24px;max-width:1400px;margin:auto}h1{margin:0 0 8px}p{color:#bbb}textarea{width:100%;min-height:360px;background:#181818;color:#eee;border:1px solid #444;border-radius:8px;padding:12px;font-family:ui-monospace,monospace;box-sizing:border-box}.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}button,input[type=file]{background:#222;color:#eee;border:1px solid #555;border-radius:7px;padding:9px 12px}.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0}.card,.issue{border:1px solid #3a3a3a;background:#171717;border-radius:8px;padding:12px}.issue{margin:8px 0}.warning{border-left:4px solid #d7a93d}.error{border-left:4px solid #d65353}.ok{border-left:4px solid #4fa66d}.code{font-family:ui-monospace,monospace;color:#ddd}.muted{color:#999}.shots{margin-top:20px}.shot{border-top:1px solid #333;padding:10px 0}.badge{display:inline-block;padding:2px 7px;border-radius:999px;background:#292929;margin-right:5px;font-size:12px}</style>
+</head>
+<body>
+<h1>Cinematic Intent QA</h1>
+<p>Draft pre-Unity film QA for V5 output. It finds likely intent-loss regressions. It does not replace Unity validation and never reports UNITY_VALIDATED.</p>
+<div class="row"><input id="file" type="file" accept=".json,application/json"><button id="run">Run QA</button><button id="clear">Clear</button></div>
+<textarea id="json" spellcheck="false" placeholder="Paste CURRENT V5 JSON here..."></textarea>
+<div id="summary" class="summary"></div>
+<div id="issues"></div>
+<div id="shots" class="shots"></div>
+<script>
+const EMOTION={Neutral:'Serious',Listening:'Serious',Concerned:'Perplexed',Shocked:'Shock',Urgent:'Serious',Determined:'Serious',ControlledGrief:'Sad',Exhausted:'Sad',Relieved:'Happy',Defiant:'Anger',Angry:'Anger',Fearful:'Shock',SpeakingCalm:'Serious',SpeakingFirm:'Serious',Commanding:'Serious',Reassuring:'Happy',Warning:'Shock',Thinking:'Perplexed',Pointing:'Serious',HandRaised:'Serious',ArmsCrossed:'Serious',ConsoleWork:'Serious',BracingAlert:'Shock',Vulnerable:'Sad',LookLeft:'Serious',LookRight:'Serious',Injured:'Sad',Suspicious:'Perplexed',Hopeful:'Happy',Resolute:'Serious'};
+const MOTION=/flyby|approach|orbit|intercept|bank|pursuit|escort|formation|rescue|circle|landing|takeoff|escape|convoy|retreat|evade|attack|charge/i;
+const WORLD=/fleet|blockade|enemy|threat|mars|earth|convoy|explosion|fighter|ship|formation|attack|escape|dreadnought|reveal|arrival/i;
+const PORTRAIT=new Set(['FACE_TO_FACE_PORTRAITS']);
+const $=id=>document.getElementById(id);
+$('file').addEventListener('change',async e=>{const f=e.target.files[0];if(f)$('json').value=await f.text()});
+$('clear').onclick=()=>{$('json').value='';$('summary').innerHTML='';$('issues').innerHTML='';$('shots').innerHTML=''};
+$('run').onclick=run;
+function run(){let root;try{root=JSON.parse($('json').value)}catch(e){render([{code:'JSON_PARSE_ERROR',severity:'Error',path:'$',message:e.message}],[],null);return}
+ const issues=[], shots=[]; const seqs=Array.isArray(root.sequences)?root.sequences:[];
+ for(const seq of seqs){const ss=Array.isArray(seq.shots)?seq.shots:[]; for(let i=0;i<ss.length;i++){const s=ss[i];const ctx={seq,s,index:i};qaShot(ctx,issues);shots.push(ctx)} qaRepetition(seq,issues)}
+ render(issues,shots,root)
+}
+function actorEvidence(s){const ids=new Set(); for(const a of s.actorActions||[]){if(a&&a.actorId)ids.add(a.actorId)} for(const d of s.dialogue||[]){if(d.speakerActorId)ids.add(d.speakerActorId);if(d.listenerActorId)ids.add(d.listenerActorId);if(d.reaction&&d.reaction.actorId)ids.add(d.reaction.actorId)} return ids}
+function movingEvidence(s){const ids=new Set();for(const a of s.actorActions||[]){if(a&&a.actorId&&['Enter','Move','MoveToMark','FollowPath','Formation','Exit'].includes(a.type))ids.add(a.actorId)}return ids}
+function qaShot({seq,s,index},issues){const path=`$.sequences[${seq.sequenceId||'?'}].shots[${index}]`;const visible=actorEvidence(s),moving=movingEvidence(s);
+ if(s.compositionTargetId&&!visible.has(s.compositionTargetId))push(issues,'FOCAL_TARGET_NOT_VISIBLE','Warning',path+'.compositionTargetId',`compositionTargetId '${s.compositionTargetId}' has no actor/dialogue presence evidence in this shot.`);
+ for(let i=0;i<(s.cameraActions||[]).length;i++){const c=s.cameraActions[i];if(c.targetEntityId&&!visible.has(c.targetEntityId))push(issues,'CAMERA_TARGET_NOT_VISIBLE','Warning',path+`.cameraActions[${i}].targetEntityId`,`Camera ${c.type||'action'} targets '${c.targetEntityId}', which has no presence evidence in the shot.`)}
+ if(s.continuity&&s.continuity.preserveScreenDirection===true&&moving.size>0&&(!Array.isArray(s.continuity.matchedEntityIds)||s.continuity.matchedEntityIds.length===0))push(issues,'EMPTY_CONTINUITY_SUBJECTS','Warning',path+'.continuity',`Screen-direction continuity is requested, ${moving.size} moving subject(s) exist, but matchedEntityIds is empty.`);
+ for(let i=0;i<(s.dialogue||[]).length;i++)qaDialogue(s.dialogue[i],issues,path+`.dialogue[${i}]`);
+ const intent=[s.intention,s.purpose,s.shotType].filter(Boolean).join(' ');
+ for(let i=0;i<(s.actorActions||[]).length;i++){const a=s.actorActions[i];if(a&&a.type==='Move'&&(!Array.isArray(a.keyframes)||a.keyframes.length===0)&&MOTION.test(intent+' '+(a.actionId||'')))push(issues,'FLAT_ACTION_MOTION','Warning',path+`.actorActions[${i}]`,`Cinematic/action motion '${a.actionId||a.actorId||'Move'}' is a straight Move with zero keyframes.`)}
+ const portraitOnly=(s.dialogue||[]).some(d=>PORTRAIT.has(d.presentationPreset)); const hasWorldActors=(s.actorActions||[]).length>0; if(portraitOnly&&WORLD.test(intent)&&!hasWorldActors)push(issues,'DIALOGUE_WORLD_EVIDENCE_LOST','Warning',path,`Shot intention contains important world context but portrait-only dialogue has no actor-action evidence preserving it.`);
+ if(WORLD.test(intent)&&!hasWorldActors&&(s.layerActions||[]).length===0&&(s.effects||[]).length===0&&(s.dialogue||[]).length===0)push(issues,'STORY_EVIDENCE_MISSING','Warning',path,`Physical story claim appears in intention but no actor/layer/effect/dialogue evidence is serialized.`)
+}
+function qaDialogue(d,issues,path){const sx=d.speakerExpression,lx=d.listenerExpression;const se=d.stage&&d.stage.speakerEmotion,le=d.stage&&d.stage.listenerEmotion,de=d.delivery&&d.delivery.emotion;if(sx&&EMOTION[sx]&&se&&EMOTION[sx]!==se)push(issues,'EMOTION_ROUTE_CONFLICT','Warning',path+'.stage.speakerEmotion',`${sx} should project to ${EMOTION[sx]}, received ${se}.`);if(lx&&EMOTION[lx]&&le&&EMOTION[lx]!==le)push(issues,'EMOTION_ROUTE_CONFLICT','Warning',path+'.stage.listenerEmotion',`${lx} should project to ${EMOTION[lx]}, received ${le}.`);if(sx&&EMOTION[sx]&&de&&EMOTION[sx]!==de)push(issues,'EMOTION_ROUTE_CONFLICT','Warning',path+'.delivery.emotion',`${sx} should project to ${EMOTION[sx]}, received ${de}.`)}
+function qaRepetition(seq,issues){const shots=seq.shots||[];let run=[];for(let i=0;i<shots.length;i++){const s=shots[i],d=(s.dialogue||[])[0];if(!d){run=[];continue}const sig=[d.stage&&d.stage.backgroundAssetId,d.stage&&d.stage.layout,s.framing,d.cameraCue&&d.cameraCue.shotPreset,d.cameraCue&&d.cameraCue.transition].join('|');if(run.length&&run[run.length-1].sig===sig)run.push({sig,i});else run=[{sig,i}];if(run.length===3)push(issues,'PRESENTATION_REPETITION','Warning',`$.sequences[${seq.sequenceId||'?'}].shots[${run[0].i}..${i}]`,`Three consecutive dialogue shots reuse the same background/layout/framing/camera/transition signature.`)}}
+function push(arr,code,severity,path,message){arr.push({code,severity,path,message})}
+function render(issues,shots,root){const counts={Error:0,Warning:0};issues.forEach(x=>counts[x.severity]=(counts[x.severity]||0)+1);$('summary').innerHTML=`<div class="card"><b>Status</b><div>${issues.length?'PREFLIGHT ISSUES':'PREFLIGHT CLEAR'}</div></div><div class="card"><b>Errors</b><div>${counts.Error||0}</div></div><div class="card"><b>Warnings</b><div>${counts.Warning||0}</div></div><div class="card"><b>Shots scanned</b><div>${shots.length}</div></div>`;$('issues').innerHTML=issues.length?issues.map(x=>`<div class="issue ${x.severity.toLowerCase()}"><b>${esc(x.code)}</b> <span class="badge">${esc(x.severity)}</span><div class="code">${esc(x.path)}</div><div>${esc(x.message)}</div></div>`).join(''):`<div class="issue ok"><b>No focused cinematic-intent issues detected.</b><div class="muted">This is PRE-UNITY QA only.</div></div>`;$('shots').innerHTML='<h2>Shot overview</h2>'+shots.map(({seq,s,index})=>{const ids=[...actorEvidence(s)];return `<div class="shot"><b>${esc(seq.sequenceId||'sequence')} / ${esc(s.shotId||String(index))}</b><div>${badge('actors '+ids.length)}${badge('dialogue '+(s.dialogue||[]).length)}${badge('actions '+(s.actorActions||[]).length)}${badge('camera '+(s.cameraActions||[]).length)}</div><div class="muted">${esc(s.intention||'')}</div></div>`}).join('')}
+function badge(x){return `<span class="badge">${esc(x)}</span>`}function esc(x){return String(x??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+</script>
+</body>
+</html>
