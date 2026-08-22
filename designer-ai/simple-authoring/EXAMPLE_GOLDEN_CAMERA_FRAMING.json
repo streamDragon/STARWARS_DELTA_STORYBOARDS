@@ -1,0 +1,95 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+  "schemaVersion": 1,
+  "title": "Golden Camera First Framing - One Ship Three Sizes",
+  "durationSeconds": 12,
+  "creativeIntent": "CURRENT-grounded camera-first sizing example. The same CommandStarship asset is shown wide, medium and close by changing screenWidthFraction. Unity must derive world scale from the active cutscene camera and the real Renderer bounds.",
+  "cast": [
+    {
+      "id": "command_ship",
+      "identityHandle": "commandstarship_blue_01__5b13b214",
+      "presentationHandle": "commandstarship_blue_01__5b13b214",
+      "displayName": "CommandStarship Blue 01"
+    }
+  ],
+  "beats": [
+    {
+      "id": "S01",
+      "type": "establishing",
+      "durationSeconds": 4,
+      "locationHandle": "moon_8_0__7de24a27",
+      "storyClaim": "The command ship is small inside a wide outer-space frame.",
+      "visible": [
+        {
+          "id": "command_ship",
+          "handle": "commandstarship_blue_01__5b13b214",
+          "role": "principal ship",
+          "state": "holding",
+          "depth": "mid",
+          "screenX": 0.28,
+          "screenY": 0.55,
+          "screenWidthFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "command_ship",
+        "purpose": "Wide relationship shot. The ship occupies about 12 percent of frame width."
+      },
+      "evidence": "The exact same ship is visibly small relative to the camera frame."
+    },
+    {
+      "id": "S02",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "moon_8_0__7de24a27",
+      "storyClaim": "The same ship becomes the principal subject in a medium frame.",
+      "visible": [
+        {
+          "id": "command_ship",
+          "handle": "commandstarship_blue_01__5b13b214",
+          "role": "principal ship",
+          "state": "holding",
+          "depth": "mid",
+          "screenX": 0.44,
+          "screenY": 0.55,
+          "screenWidthFraction": 0.24
+        }
+      ],
+      "camera": {
+        "framing": "medium",
+        "movement": "cut",
+        "subject": "command_ship",
+        "purpose": "Medium framing. The same asset now occupies about 24 percent of frame width."
+      },
+      "evidence": "The asset identity is unchanged; only its requested screen occupancy changes."
+    },
+    {
+      "id": "S03",
+      "type": "threat_reveal",
+      "durationSeconds": 4,
+      "locationHandle": "moon_8_0__7de24a27",
+      "storyClaim": "A close reveal makes the same ship visually dominant.",
+      "visible": [
+        {
+          "id": "command_ship",
+          "handle": "commandstarship_blue_01__5b13b214",
+          "role": "principal ship",
+          "state": "revealed",
+          "depth": "foreground",
+          "screenX": 0.5,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.42
+        }
+      ],
+      "camera": {
+        "framing": "close",
+        "movement": "cut",
+        "subject": "command_ship",
+        "purpose": "Close reveal. The same asset occupies about 42 percent of frame width."
+      },
+      "evidence": "The close shot is created by camera-relative occupancy, never by authoring an arbitrary raw Unity scale."
+    }
+  ]
+}
