@@ -43,11 +43,20 @@ async function request(url,kind='json',optional=false,timeoutMs=20000){
     const u=new URL(url,location.href);u.searchParams.set('_d',Date.now()+Math.random());
     const r=await fetch(u,{cache:'no-store',signal:controller.signal});
     if(optional&&r.status===404)return null;if(!r.ok)throw new Error(url+' HTTP '+r.status);
-    return kind==='json'?r.json():kind==='blob'?r.blob():r.text();
+    if(kind==='json')return r.json();
+    if(kind==='blob')return r.blob();
+    if(kind==='bytes')return new Uint8Array(await r.arrayBuffer());
+    return r.text();
   }finally{clearTimeout(timer)}
 }
 const git=(path,kind='json',optional=false,timeoutMs=20000)=>request(RAW_ROOT+path.replace(/^\.\//,''),kind,optional,timeoutMs);
 const pages=(path,kind='json',optional=false,timeoutMs=20000)=>request(path,kind,optional,timeoutMs);
+const encoder=new TextEncoder();
+const toBytes=data=>data instanceof Uint8Array?data:encoder.encode(String(data));
+async function sha256Hex(data){const bytes=toBytes(data),hash=await crypto.subtle.digest('SHA-256',bytes);return Array.from(new Uint8Array(hash),b=>b.toString(16).padStart(2,'0')).join('')}
+async function addPackFile(zip,manifestFiles,packPath,sourcePath,data,sourceKind='github-main'){
+  const bytes=toBytes(data);zip.file(packPath,bytes);manifestFiles.push({packPath,sourcePath:sourcePath||null,sourceKind,sizeBytes:bytes.byteLength,sha256:await sha256Hex(bytes)});
+}
 function verifyRepertoire(rep,source,open){return !!rep&&rep.schema==='STARWARS_DELTA_EMOTIONAL_DIALOGUE_CURRENT'&&rep.schemaVersion===1&&rep.status==='CURRENT_VERIFIED_EMOTIONAL_DIALOGUE'&&tx(rep)===tx(source)&&tx(rep)===tx(open)&&same(rep.requiredCurrent,source.requiredCurrent)&&same(rep.requiredCurrent,open.requiredCurrent)}
 let pagesTimer=null,publishIncomplete=false;
 async function checkPagesPropagation(gitTx){
@@ -93,14 +102,29 @@ try{
   packInfo.textContent='Ready from Git main · '+tx(open)+' · '+Number(handles.count||handles.handles?.length||0).toLocaleString()+' authoritative handles · dialogue '+(dialogueReady.length?'ready ('+dialogueReady.length+')':'disabled')+'.';
 }catch(e){setState(currentStatus,'error','CURRENT ERROR',String(e?.name==='AbortError'?'Timed out while loading Git CURRENT.':e?.message||e));setState(pipelineStatus,'error','PIPELINE BLOCKED','Committed Git CURRENT could not be verified.');setState(dialogueStatus,'warning','DIALOGUE DISABLED','Dialogue stays disabled until CURRENT verifies.');packInfo.textContent='Context Pack unavailable until CURRENT is coherent.'}
 const fixedFiles=()=>[
-['03_SOURCE_CURRENT_AT_PUBLISH.json','open-current/SOURCE_CURRENT.json','json'],['04_DIRECTOR_VIEW.json','open-current/director-view/DIRECTOR_VIEW.json','json'],['05_VISUAL_ATLAS_CURRENT.pdf','open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf','blob'],['authoring/AUTHORING_HANDLES.json','open-current/simple-authoring/AUTHORING_HANDLES.json','json'],['director/actors.json','open-current/director-view/actors.json','json'],['director/layers.json','open-current/director-view/layers.json','json'],['director/effects.json','open-current/director-view/effects.json','json'],['director/ui.json','open-current/director-view/ui.json','json'],['director/animations.json','open-current/director-view/animations.json','json'],['director/audio.json','open-current/director-view/audio.json','json'],['visual/ASSET_VISUAL_LOOKUP.json','open-current/ASSET_VISUAL_LOOKUP.json','json'],['site-authoring/CUTSCENE_SCRIPT_V1.schema.json','simple-authoring/CUTSCENE_SCRIPT_V1.schema.json','json'],['site-authoring/CINEMATIC_INTENT_QA_RULES.json','simple-authoring/CINEMATIC_INTENT_QA_RULES.json','json'],['site-authoring/SEMANTIC_CINEMATIC_AUTHORING_GUIDE.md','simple-authoring/SEMANTIC_CINEMATIC_AUTHORING_GUIDE.md','text'],['site-authoring/2D_CAMERA_FIRST_GUIDE.html','simple-authoring/visual-framing-guide.html','text'],['dialogue/EMOTIONAL_DIALOGUE_AUTHORING_POLICY.json','simple-authoring/EMOTIONAL_DIALOGUE_AUTHORING_POLICY.json','json'],['dialogue/EMOTIONAL_DIALOGUE_CURRENT.schema.json','simple-authoring/EMOTIONAL_DIALOGUE_CURRENT.schema.json','json']];
+['03_SOURCE_CURRENT_AT_PUBLISH.json','open-current/SOURCE_CURRENT.json'],['04_DIRECTOR_VIEW.json','open-current/director-view/DIRECTOR_VIEW.json'],['05_VISUAL_ATLAS_CURRENT.pdf','open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf'],['authoring/AUTHORING_HANDLES.json','open-current/simple-authoring/AUTHORING_HANDLES.json'],['director/actors.json','open-current/director-view/actors.json'],['director/layers.json','open-current/director-view/layers.json'],['director/effects.json','open-current/director-view/effects.json'],['director/ui.json','open-current/director-view/ui.json'],['director/animations.json','open-current/director-view/animations.json'],['director/audio.json','open-current/director-view/audio.json'],['visual/ASSET_VISUAL_LOOKUP.json','open-current/ASSET_VISUAL_LOOKUP.json'],['site-authoring/CUTSCENE_SCRIPT_V1.schema.json','simple-authoring/CUTSCENE_SCRIPT_V1.schema.json'],['site-authoring/CINEMATIC_INTENT_QA_RULES.json','simple-authoring/CINEMATIC_INTENT_QA_RULES.json'],['site-authoring/SEMANTIC_CINEMATIC_AUTHORING_GUIDE.md','simple-authoring/SEMANTIC_CINEMATIC_AUTHORING_GUIDE.md'],['site-authoring/2D_CAMERA_FIRST_GUIDE.html','simple-authoring/visual-framing-guide.html'],['dialogue/EMOTIONAL_DIALOGUE_AUTHORING_POLICY.json','simple-authoring/EMOTIONAL_DIALOGUE_AUTHORING_POLICY.json'],['dialogue/EMOTIONAL_DIALOGUE_CURRENT.schema.json','simple-authoring/EMOTIONAL_DIALOGUE_CURRENT.schema.json']];
 bundleBtn.onclick=async()=>{
   if(!source||!open||!handles)return;const old=bundleBtn.textContent;bundleBtn.disabled=true;copyBtn.disabled=true;bundleBtn.textContent='BUILDING VERIFIED PACK…';
-  try{const Zip=await ensureJSZip(),zip=new Zip();zip.file('00_READ_ME_FIRST.txt','STARWARS_DELTA DEVORA CURRENT CONTEXT PACK\n\nUse exact CURRENT handles. Emotional Dialogue is closed-world and may use only dialogue/EMOTIONAL_DIALOGUE_CURRENT.json when present.\n');zip.file('01_CHATGPT_START.txt',START);zip.file('02_OPEN_CURRENT.json',JSON.stringify(open,null,2));
-    const files=fixedFiles();let done=0,total=files.length+(dialogueReady.length?1:0);for(const [name,path,kind] of files){packInfo.textContent='Collecting '+(++done)+'/'+total+' · '+name;const data=await git(path,kind,false,60000);zip.file(name,kind==='json'?JSON.stringify(data,null,2):data)}if(dialogueReady.length)zip.file('dialogue/EMOTIONAL_DIALOGUE_CURRENT.json',JSON.stringify(repertoire,null,2));
-    const [finalOpen,finalSource]=await Promise.all([git('open-current/OPEN_CURRENT.json'),git('current.json')]);if(tx(finalOpen)!==tx(open)||tx(finalSource)!==tx(source)||!same(finalOpen.requiredCurrent,open.requiredCurrent)||!same(finalSource.requiredCurrent,source.requiredCurrent))throw new Error('CURRENT changed while building pack; nothing downloaded.');
-    zip.file('PACK_MANIFEST.json',JSON.stringify({schema:'STARWARS_DELTA_DEVORA_CONTEXT_PACK',schemaVersion:7,status:'CURRENT_VERIFIED_PACK',createdUtc:new Date().toISOString(),publishTransactionId:tx(open),requiredCurrent:open.requiredCurrent,sourceControl:'github-main',dialogue:{closedWorld:true,enabled:dialogueReady.length>0,source:'open-current/EMOTIONAL_DIALOGUE_CURRENT.json',authoringReadyCharacters:dialogueReady.map(c=>c.actorId)}},null,2));
-    const blob=await zip.generateAsync({type:'blob',compression:'DEFLATE',compressionOptions:{level:6}},m=>packInfo.textContent='Compressing · '+Math.round(m.percent)+'%');save(blob,'STARWARS_DELTA_DEVORA_CONTEXT_'+tx(open).replace(/[^A-Za-z0-9_-]/g,'_')+'.zip');bundleBtn.textContent='DOWNLOADED';packInfo.textContent='Done · attach the ZIP to ChatGPT.';
+  try{
+    const Zip=await ensureJSZip(),zip=new Zip(),manifestFiles=[];
+    await addPackFile(zip,manifestFiles,'00_READ_ME_FIRST.txt',null,'STARWARS_DELTA DEVORA CURRENT CONTEXT PACK\n\nPublished artifacts in this pack are copied byte-for-byte from Git main. Use exact CURRENT handles. Emotional Dialogue is closed-world and may use only dialogue/EMOTIONAL_DIALOGUE_CURRENT.json when present.\n','generated-context');
+    await addPackFile(zip,manifestFiles,'01_CHATGPT_START.txt',null,START,'generated-context');
+    const openRaw=await git('open-current/OPEN_CURRENT.json','bytes',false,60000);
+    await addPackFile(zip,manifestFiles,'02_OPEN_CURRENT.json','designer-ai/open-current/OPEN_CURRENT.json',openRaw);
+    const files=fixedFiles();let done=0,total=files.length+(dialogueReady.length?1:0);
+    for(const [name,path] of files){packInfo.textContent='Collecting '+(++done)+'/'+total+' · '+name;const data=await git(path,'bytes',false,60000);await addPackFile(zip,manifestFiles,name,'designer-ai/'+path,data)}
+    if(dialogueReady.length){
+      const dialoguePath='open-current/EMOTIONAL_DIALOGUE_CURRENT.json',dialogueRaw=await git(dialoguePath,'bytes',false,60000),dialogueHash=await sha256Hex(dialogueRaw),meta=source.emotionalDialogue||{};
+      if(meta.sha256&&dialogueHash.toLowerCase()!==String(meta.sha256).toLowerCase())throw new Error('Dialogue mirror SHA256 does not match CURRENT metadata.');
+      if(meta.sizeBytes&&dialogueRaw.byteLength!==Number(meta.sizeBytes))throw new Error('Dialogue mirror size does not match CURRENT metadata.');
+      await addPackFile(zip,manifestFiles,'dialogue/EMOTIONAL_DIALOGUE_CURRENT.json','designer-ai/'+dialoguePath,dialogueRaw);
+    }
+    const [finalOpen,finalSource]=await Promise.all([git('open-current/OPEN_CURRENT.json'),git('current.json')]);
+    if(tx(finalOpen)!==tx(open)||tx(finalSource)!==tx(source)||!same(finalOpen.requiredCurrent,open.requiredCurrent)||!same(finalSource.requiredCurrent,source.requiredCurrent))throw new Error('CURRENT changed while building pack; nothing downloaded.');
+    const dialogueMeta=source.emotionalDialogue||{};
+    const manifest={schema:'STARWARS_DELTA_DEVORA_CONTEXT_PACK',schemaVersion:8,status:'CURRENT_VERIFIED_PACK',createdUtc:new Date().toISOString(),publishTransactionId:tx(open),requiredCurrent:open.requiredCurrent,sourceControl:'github-main',bytePreserving:true,manifestSelfHashExcluded:true,artifacts:manifestFiles,logicalArtifacts:{emotionalDialogue:{logicalId:'EMOTIONAL_DIALOGUE_CURRENT',closedWorld:true,enabled:dialogueReady.length>0,packPath:'dialogue/EMOTIONAL_DIALOGUE_CURRENT.json',webMirrorPath:'designer-ai/open-current/EMOTIONAL_DIALOGUE_CURRENT.json',releaseBundlePath:dialogueMeta.bundleEntryName||'simple-authoring/EMOTIONAL_DIALOGUE_CURRENT.json',sha256:dialogueMeta.sha256||null,sizeBytes:dialogueMeta.sizeBytes||null,authoringReadyCharacters:dialogueReady.map(c=>c.actorId)}}};
+    zip.file('PACK_MANIFEST.json',JSON.stringify(manifest,null,2));
+    const blob=await zip.generateAsync({type:'blob',compression:'DEFLATE',compressionOptions:{level:6}},m=>packInfo.textContent='Compressing · '+Math.round(m.percent)+'%');save(blob,'STARWARS_DELTA_DEVORA_CONTEXT_'+tx(open).replace(/[^A-Za-z0-9_-]/g,'_')+'.zip');bundleBtn.textContent='DOWNLOADED';packInfo.textContent='Done · exact published bytes preserved · attach the ZIP to ChatGPT.';
   }catch(e){packInfo.textContent='PACK BLOCKED · '+String(e?.message||e);bundleBtn.textContent=old}finally{setTimeout(()=>{bundleBtn.textContent=old;bundleBtn.disabled=false;copyBtn.disabled=false},1800)}
 };
 })();
