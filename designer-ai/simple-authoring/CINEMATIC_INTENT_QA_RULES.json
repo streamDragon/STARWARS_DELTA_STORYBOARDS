@@ -2,7 +2,37 @@
   "schema": "STARWARS_DELTA_CINEMATIC_INTENT_QA_RULES",
   "schemaVersion": 2,
   "status": "ACTIVE_SIMPLE_V1_SEMANTIC_EXPANSION",
-  "purpose": "Pre-Unity cinematic-intent QA for CUTSCENE_SCRIPT_V1. These checks protect authoring truth and do not replace Unity validation.",
+  "purpose": "Pre-Unity cinematic-intent QA for CUTSCENE_SCRIPT_V1. These checks protect authoring truth and do not replace Unity validation. Recoverable cinematic or presentation omissions are warnings; RED is reserved for integrity failures that cannot be materialized honestly.",
+  "validationSeverityPolicy": {
+    "defaultForRecoverablePresentationIssues": "Warning",
+    "continueCompilationOnWarnings": true,
+    "redIsReservedFor": [
+      "unknown or ambiguous CURRENT identity/handle",
+      "stale or incompatible CURRENT identity",
+      "destination route/capability mismatch that cannot be materialized legally",
+      "unsupported Emotional Dialogue speaker/listener/identityHandle/expression",
+      "schema or semantic corruption with no deterministic legal repair",
+      "invented visual/3D evidence that contradicts CURRENT"
+    ],
+    "warningExamples": [
+      "missing explicit low-level dialogue-stage background when the backend has a deterministic legal stage default",
+      "missing explicit dialogue frame when the backend has a deterministic legal frame default",
+      "presentation repetition",
+      "camera or continuity polish issues",
+      "recoverable performance intent",
+      "optional cinematic evidence weakness"
+    ],
+    "principle": "Do not turn ordinary authoring incompleteness into RED when the existing backend can repair it deterministically without changing identity or inventing assets. Warn, repair through the existing owner, and continue."
+  },
+  "dialogueStageContract": {
+    "simpleV1Boundary": "Simple V1 authors semantic dialogue, exact curated participants, locationHandle/presentation intent and story context. It does not invent V5 dialogue-frame or stage-background runtime IDs merely to satisfy lower-level staging mechanics.",
+    "backendOwnership": "The existing Adapter/Unity dialogue-stage owner must supply deterministic system-managed FACE_TO_FACE_PORTRAITS stage mechanics, including a legal full-frame background and dialogue frame when that presentation requires them.",
+    "missingExplicitBackgroundSeverity": "Warning",
+    "missingExplicitDialogueFrameSeverity": "Warning",
+    "unresolvableStageSeverity": "Error",
+    "noIdentityFallback": true,
+    "noArbitraryAssetSubstitution": true
+  },
   "simpleV1Semantics": {
     "cinematicMove": "Maps to existing V3 Beat/Feature vocabulary when exact; otherwise preserve visible evidence and lower-level legal actions without lying about a feature.",
     "motionIntent": "Semantic movement vocabulary including flyby, approach, orbit, intercept, pursuit, escort, rescue, landing, takeoff and human movement intents.",
@@ -27,6 +57,9 @@
     { "code": "CONTINUITY_DIRECTION_BREAK", "severity": "Warning", "scope": "sequence", "description": "A matched entity reverses established screen travel without an authored reason or transition." },
     { "code": "IMPACT_WITHOUT_REACTION", "severity": "Warning", "scope": "beat", "description": "An impact/destruction claim has no visible reaction, state change, effect or final-state evidence." },
     { "code": "DIALOGUE_WORLD_EVIDENCE_LOST", "severity": "Warning", "scope": "beat", "description": "Dialogue presentation removes world evidence that the beat still depends on." },
+    { "code": "DIALOGUE_STAGE_BACKGROUND_DEFAULTED", "severity": "Warning", "scope": "dialogue", "description": "A FACE_TO_FACE_PORTRAITS dialogue beat omitted an explicit low-level stage background. The existing dialogue-stage owner may inject its deterministic legal full-frame background and compilation should continue." },
+    { "code": "DIALOGUE_STAGE_FRAME_DEFAULTED", "severity": "Warning", "scope": "dialogue", "description": "A FACE_TO_FACE_PORTRAITS dialogue beat omitted an explicit low-level dialogue frame. The existing dialogue-stage owner may inject its deterministic legal frame and compilation should continue." },
+    { "code": "DIALOGUE_STAGE_UNRESOLVABLE", "severity": "Error", "scope": "dialogue", "description": "The requested dialogue presentation cannot obtain a legal deterministic stage/background/frame through the existing dialogue-stage owner. Do not invent arbitrary Layer/Ui assets or change character identity to silence this error." },
     { "code": "PRESENTATION_REPETITION", "severity": "Warning", "scope": "sequence", "description": "Three or more consecutive dialogue beats reuse effectively the same presentation, framing and transition." },
     { "code": "STORY_EVIDENCE_MISSING", "severity": "Warning", "scope": "beat", "description": "A major physical story claim has no corresponding visible/action/effect evidence." },
     { "code": "CINEMATIC_MOVE_NOT_EVIDENCED", "severity": "Warning", "scope": "beat", "description": "cinematicMove is declared but the beat contains no staging/camera/action evidence that expresses it." }
@@ -37,6 +70,8 @@
     "Simple V1 does not author runtime assetId/GUID/revision/hash fields.",
     "Unknown or ambiguous handles remain RED.",
     "Audio handles must resolve to route Audio.",
+    "Emotional Dialogue actorId/identityHandle/expression legality remains RED when invalid; presentation defaults never weaken identity rules.",
+    "Missing low-level FACE_TO_FACE_PORTRAITS background/frame is WARNING when the existing backend has a deterministic legal stage default; it is RED only when no legal stage can be resolved.",
     "Orbit means legal 2D/2.5D screen/parallax evidence, never invented 3D.",
     "Preview success is not publish readiness when any referenced CURRENT record has safeForPublish=false."
   ]
