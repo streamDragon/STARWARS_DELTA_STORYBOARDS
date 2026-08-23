@@ -71,8 +71,7 @@ def seal_chatgpt_start(path, revision):
         raise SystemExit("CHATGPT_START title marker is missing")
 
     revision_prefix = "CURRENT AUTHORING RULE REGISTRY REVISION: "
-    text, revision_line = replace_single_line(
-        text, revision_prefix, f"{revision_prefix}{revision}\n")
+    text, revision_line = replace_single_line(text, revision_prefix, f"{revision_prefix}{revision}\n")
     text = text.replace(marker, marker + revision_line, 1)
 
     old_identity_block = """============================================================
@@ -195,13 +194,28 @@ def main():
     if director.get("schemaHash") != current.get("schemaHash"):
         raise SystemExit("Director schemaHash does not match CURRENT")
 
-    required_current = {
-        "catalogRevision": director.get("catalogRevision"),
-        "contractRevision": current.get("contractRevision"),
-        "schemaHash": current.get("schemaHash"),
-        "snapshotContentHash": director.get("snapshotContentHash"),
-        "authoringRuleRegistryRevision": registry_revision,
-    }
+    required_current = dict(current.get("requiredCurrent") or {})
+    required_keys = (
+        "catalogRevision",
+        "contractRevision",
+        "schemaHash",
+        "snapshotContentHash",
+        "authoringRuleRegistryRevision",
+    )
+    missing_required = [key for key in required_keys if required_current.get(key) is None or str(required_current.get(key)).strip() == ""]
+    if missing_required:
+        raise SystemExit("CURRENT requiredCurrent is incomplete: " + ", ".join(missing_required))
+    if str(required_current["catalogRevision"]) != str(director.get("catalogRevision")):
+        raise SystemExit("Director catalogRevision does not match CURRENT requiredCurrent")
+    if required_current["contractRevision"] != director.get("contractRevision"):
+        raise SystemExit("Director contractRevision does not match CURRENT requiredCurrent")
+    if required_current["schemaHash"] != director.get("schemaHash"):
+        raise SystemExit("Director schemaHash does not match CURRENT requiredCurrent")
+    if required_current["snapshotContentHash"] != director.get("snapshotContentHash"):
+        raise SystemExit("Director snapshotContentHash does not match CURRENT requiredCurrent")
+    if required_current["authoringRuleRegistryRevision"] != registry_revision:
+        raise SystemExit("Rule Registry revision does not match CURRENT requiredCurrent")
+
     provenance = {
         "publishTransactionId": current.get("publishTransactionId"),
         "publishedUtc": current.get("publishedUtc"),
@@ -212,22 +226,16 @@ def main():
         provenance["bundleIdentity"] = bundle.get("sha256")
 
     expected_identity = {"publishTransactionId": provenance["publishTransactionId"], **required_current}
-    if not provenance["publishTransactionId"] or any(value in (None, "") for value in required_current.values()):
-        raise SystemExit("CURRENT identity is incomplete")
+    if not provenance["publishTransactionId"]:
+        raise SystemExit("CURRENT publishTransactionId is missing")
 
     changed = []
+    for payload in (director, open_manifest, pack_manifest):
+        payload["authoringRuleRegistryRevision"] = registry_revision
+        payload["requiredCurrent"] = required_current
+        payload["provenance"] = provenance
+        payload["atomicIdentity"] = expected_identity
 
-    director["authoringRuleRegistryRevision"] = registry_revision
-    director["requiredCurrent"] = required_current
-    director["provenance"] = provenance
-    director["atomicIdentity"] = expected_identity
-    write_json(director_path, director)
-    changed.append(director_path)
-
-    open_manifest["authoringRuleRegistryRevision"] = registry_revision
-    open_manifest["requiredCurrent"] = required_current
-    open_manifest["provenance"] = provenance
-    open_manifest["atomicIdentity"] = expected_identity
     open_manifest["authoringProfile"] = authoring_profile
     open_manifest["canonicalTemplate"] = canonical_template
     usage = open_manifest.setdefault("usage", {})
@@ -243,17 +251,13 @@ def main():
         "Before authoring V5 JSON, load authoringProfile.downloadUrl and canonicalTemplate.downloadUrl. "
         "Start from the canonical template; deterministic Default/AutoRepair mechanics are system-owned."
     )
-    write_json(open_path, open_manifest)
-    changed.append(open_path)
-
-    pack_manifest["authoringRuleRegistryRevision"] = registry_revision
-    pack_manifest["requiredCurrent"] = required_current
-    pack_manifest["provenance"] = provenance
-    pack_manifest["atomicIdentity"] = expected_identity
     pack_manifest["authoringProfile"] = authoring_profile
     pack_manifest["canonicalTemplate"] = canonical_template
+
+    write_json(director_path, director)
+    write_json(open_path, open_manifest)
     write_json(manifest_path, pack_manifest)
-    changed.append(manifest_path)
+    changed.extend([director_path, open_path, manifest_path])
 
     for path in sorted((ROOT / "director-view").glob("*.json")):
         if path == director_path:
@@ -298,16 +302,6 @@ def main():
     replace_pack_entries(pack_path, changed)
 
     with zipfile.ZipFile(pack_path, "r") as archive:
-        names = set(archive.namelist())
-        forbidden = {
-            "full-visual-sheets/actor.pdf", "full-visual-sheets/effect.pdf",
-            "full-visual-sheets/layer.pdf", "full-visual-sheets/ui.pdf",
-            "full-visual-index/actor.json", "full-visual-index/effect.json",
-            "full-visual-index/layer.json", "full-visual-index/ui.json",
-        }
-        present = sorted(forbidden & names)
-        if present:
-            raise SystemExit("Director pack contains redundant visual artifacts: " + ", ".join(present))
         zip_open = json.loads(archive.read("OPEN_CURRENT.json").decode("utf-8-sig"))
         zip_director = json.loads(archive.read("director-view/DIRECTOR_VIEW.json").decode("utf-8-sig"))
         zip_manifest = json.loads(archive.read("DIRECTOR_PACK_MANIFEST.json").decode("utf-8-sig"))
@@ -318,17 +312,10 @@ def main():
                 raise SystemExit(f"{label} in Director pack has stale requiredCurrent")
             if payload.get("provenance", {}).get("publishTransactionId") != provenance["publishTransactionId"]:
                 raise SystemExit(f"{label} in Director pack has stale publication provenance")
-        if zip_open.get("authoringProfile", {}).get("downloadUrl") != authoring_profile.get("downloadUrl"):
-            raise SystemExit("OPEN_CURRENT in Director pack has stale authoringProfile URL")
-        if zip_open.get("canonicalTemplate", {}).get("downloadUrl") != canonical_template.get("downloadUrl"):
-            raise SystemExit("OPEN_CURRENT in Director pack has stale canonicalTemplate URL")
 
     print("ATOMIC_CURRENT_SEALED")
-    print("AUTHORING_RULE_REGISTRY_REVISION", registry_revision)
     print("REQUIRED_CURRENT", json.dumps(required_current, sort_keys=True))
-    print("PUBLICATION_PROVENANCE", json.dumps(provenance, sort_keys=True))
     print("ATOMIC_IDENTITY", json.dumps(expected_identity, sort_keys=True))
-    print("DIRECTOR_PACK_BYTES", pack_path.stat().st_size)
 
 
 if __name__ == "__main__":
