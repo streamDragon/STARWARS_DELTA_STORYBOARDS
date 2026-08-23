@@ -1,0 +1,139 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+  "schemaVersion": 1,
+  "title": "Golden Semantic Cinematic Move - 2D Orbit Reveal",
+  "durationSeconds": 12,
+  "creativeIntent": "Demonstrate the new optional semantic vocabulary without inventing 3D geometry or runtime IDs.",
+  "cast": [
+    {
+      "id": "command_ship",
+      "identityHandle": "commandstarship_blue_01__5b13b214",
+      "presentationHandle": "commandstarship_blue_01__5b13b214",
+      "displayName": "CommandStarship Blue 01"
+    }
+  ],
+  "beats": [
+    {
+      "id": "S01",
+      "type": "arrival",
+      "durationSeconds": 4,
+      "locationHandle": "moon_8_0__7de24a27",
+      "storyClaim": "The command ship crosses the wide frame while the environment carries subtle depth parallax.",
+      "dramaticFunction": "setup",
+      "energy": "low",
+      "cinematicMove": "ship_flyby",
+      "visible": [
+        {
+          "id": "command_ship",
+          "handle": "commandstarship_blue_01__5b13b214",
+          "role": "principal ship",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.28,
+          "screenY": 0.55,
+          "screenWidthFraction": 0.15,
+          "travelDirection": "left_to_right"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "command_ship",
+          "motionIntent": "flyby",
+          "trajectory": "curve",
+          "travelDirection": "left_to_right",
+          "speed": "medium",
+          "result": "The ship finishes on the right side without reversing screen direction."
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "track",
+        "subject": "command_ship",
+        "direction": "right",
+        "parallax": "subtle",
+        "purpose": "Preserve readable lateral travel and layered 2D depth."
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": ["command_ship"]
+      },
+      "evidence": "The ship visibly travels left-to-right through a wide 2D frame."
+    },
+    {
+      "id": "S02",
+      "type": "threat_reveal",
+      "durationSeconds": 4,
+      "locationHandle": "moon_8_0__7de24a27",
+      "storyClaim": "A small orbit-like camera move makes the same ship feel dimensional using only legal 2D parallax.",
+      "dramaticFunction": "reveal",
+      "energy": "medium",
+      "cinematicMove": "reveal",
+      "visible": [
+        {
+          "id": "command_ship",
+          "handle": "commandstarship_blue_01__5b13b214",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.5,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.32
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "command_ship",
+          "motionIntent": "orbit",
+          "trajectory": "orbit_like",
+          "travelDirection": "clockwise",
+          "speed": "slow",
+          "result": "Screen-space arc and parallax only; the sprite never exposes an invented side or back view."
+        }
+      ],
+      "camera": {
+        "framing": "medium",
+        "movement": "orbit",
+        "subject": "command_ship",
+        "direction": "clockwise",
+        "intensity": "subtle",
+        "parallax": "medium",
+        "purpose": "2D/2.5D orbit-like reveal, not a 3D camera rotation."
+      },
+      "transition": { "style": "crossfade", "durationSeconds": 0.35 },
+      "evidence": "The shot changes depth relationships and screen arc while preserving the same visible sprite evidence."
+    },
+    {
+      "id": "S03",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "moon_8_0__7de24a27",
+      "storyClaim": "The ship settles after the reveal and the sequence releases tension.",
+      "dramaticFunction": "release",
+      "energy": "quiet",
+      "cinematicMove": "aftermath",
+      "visible": [
+        {
+          "id": "command_ship",
+          "handle": "commandstarship_blue_01__5b13b214",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.56,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.24,
+          "performanceIntent": "settle"
+        }
+      ],
+      "camera": {
+        "framing": "medium",
+        "movement": "drift",
+        "subject": "command_ship",
+        "direction": "right",
+        "intensity": "subtle",
+        "purpose": "Quiet visual release after the reveal."
+      },
+      "transition": { "style": "fade_to_black", "durationSeconds": 0.6 },
+      "evidence": "The same ship remains readable and motion reduces rather than escalating into another impact."
+    }
+  ]
+}

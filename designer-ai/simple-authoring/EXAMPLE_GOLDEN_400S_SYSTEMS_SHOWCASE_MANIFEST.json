@@ -1,6 +1,6 @@
 {
   "schema": "STARWARS_DELTA_CUTSCENE_SHOWCASE_MANIFEST",
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "title": "STARWARS_DELTA - 400 SECOND ALL-SYSTEMS CINEMATIC SHOWCASE",
   "durationSeconds": 400,
   "beatCount": 80,
@@ -14,14 +14,14 @@
     "purpose": "Compact transport for the full schema-valid 400-second CUTSCENE_SCRIPT_V1. Decode before preview or Context Pack inclusion."
   },
   "validation": {
-    "schemaValid": true,
+    "schemaValidAtAuthoring": true,
     "strictCurrentChecked": true,
     "handleReferenceCount": 367,
     "uniqueHandleCount": 52,
     "unresolvedHandleCount": 0,
     "needsHumanReviewCount": 0,
     "safeForPublishFalseCount": 0,
-    "rule": "The showcase is reference material grounded to this exact CURRENT transaction. If CURRENT changes, revalidate handles before treating it as a golden example."
+    "rule": "The showcase is grounded to this exact CURRENT transaction. If CURRENT changes, revalidate handles before treating it as golden."
   },
   "coverage": [
     "extreme-wide/wide/medium/close/detail framing",
@@ -40,5 +40,5 @@
     "ruined Earth reveal, medical cave evacuation and Mars arrival",
     "quiet coda after combat rather than nonstop climax"
   ],
-  "authoringNote": "CUTSCENE_SCRIPT_V1 currently has no direct audio lane and no Orbit camera enum. This example does not invent unsupported fields: audio remains backend/pacing intent, while orbit-like shots use legal track/follow plus screen-space arc semantics."
+  "authoringNote": "The 400-second payload was authored before the optional Simple V1 semantic expansion that officially adds direct Audio cues and camera/motion orbit intent. It remains valid and should not be rewritten merely for schema fashion. New authoring may use those optional fields from CUTSCENE_SCRIPT_V1.schema.json; orbit still means legal 2D/2.5D parallax, never invented 3D."
 }

@@ -1,152 +1,43 @@
 {
   "schema": "STARWARS_DELTA_CINEMATIC_INTENT_QA_RULES",
-  "schemaVersion": 1,
-  "status": "DRAFT_PRE_UNITY",
-  "purpose": "Focused pre-Unity cinematic-intent checks for CURRENT V5 output. These rules do not replace Unity validation and do not claim runtime correctness.",
-  "emotionProjection": {
-    "Neutral": "Serious",
-    "Listening": "Serious",
-    "Concerned": "Perplexed",
-    "Shocked": "Shock",
-    "Urgent": "Serious",
-    "Determined": "Serious",
-    "ControlledGrief": "Sad",
-    "Exhausted": "Sad",
-    "Relieved": "Happy",
-    "Defiant": "Anger",
-    "Angry": "Anger",
-    "Fearful": "Shock",
-    "SpeakingCalm": "Serious",
-    "SpeakingFirm": "Serious",
-    "Commanding": "Serious",
-    "Reassuring": "Happy",
-    "Warning": "Shock",
-    "Thinking": "Perplexed",
-    "Pointing": "Serious",
-    "HandRaised": "Serious",
-    "ArmsCrossed": "Serious",
-    "ConsoleWork": "Serious",
-    "BracingAlert": "Shock",
-    "Vulnerable": "Sad",
-    "LookLeft": "Serious",
-    "LookRight": "Serious",
-    "Injured": "Sad",
-    "Suspicious": "Perplexed",
-    "Hopeful": "Happy",
-    "Resolute": "Serious"
+  "schemaVersion": 2,
+  "status": "ACTIVE_SIMPLE_V1_SEMANTIC_EXPANSION",
+  "purpose": "Pre-Unity cinematic-intent QA for CUTSCENE_SCRIPT_V1. These checks protect authoring truth and do not replace Unity validation.",
+  "simpleV1Semantics": {
+    "cinematicMove": "Maps to existing V3 Beat/Feature vocabulary when exact; otherwise preserve visible evidence and lower-level legal actions without lying about a feature.",
+    "motionIntent": "Semantic movement vocabulary including flyby, approach, orbit, intercept, pursuit, escort, rescue, landing, takeoff and human movement intents.",
+    "cameraOrbit": "2D/2.5D orbit-like parallax only. Never synthesize an unseen 3D side/back view.",
+    "performanceIntent": "Resolved through existing performance/animation compatibility, never raw clip IDs.",
+    "audio": "Direct CURRENT Audio handles only. Route, preview safety and publish safety remain authoritative.",
+    "relationships": "Screen-space relationships feed V3 staging/continuity.",
+    "transition": "Compiles to existing cut/crossfade/fade behavior.",
+    "continuity": "Preserves screen direction and named continuity subjects between beats."
   },
   "rules": [
-    {
-      "code": "FOCAL_TARGET_NOT_VISIBLE",
-      "severity": "Warning",
-      "scope": "shot",
-      "description": "compositionTargetId is non-empty but the target has no visible/present evidence anywhere in the shot.",
-      "notes": "A target is legal when it is visible initially or enters/reveals during the shot. Empty compositionTargetId is preferable to a false Hero fallback."
-    },
-    {
-      "code": "CAMERA_TARGET_NOT_VISIBLE",
-      "severity": "Warning",
-      "scope": "cameraAction",
-      "description": "A camera action targets an entity that has no visible/present evidence during the camera action interval.",
-      "notes": "Do not warn when the entity legally enters/reveals during the same action interval."
-    },
-    {
-      "code": "EMOTION_ROUTE_CONFLICT",
-      "severity": "Warning",
-      "scope": "dialogueLine",
-      "description": "Fine-grained expression and coarse Stage/Delivery emotion disagree with the deterministic projection.",
-      "notes": "Expression is the visual source of truth. Stage/Delivery are coarse projections and are not required to contain the same literal."
-    },
-    {
-      "code": "EMPTY_CONTINUITY_SUBJECTS",
-      "severity": "Warning",
-      "scope": "shot",
-      "description": "preserveScreenDirection=true but matchedEntityIds is empty even though the shot contains continuity-bearing moving/present entities.",
-      "notes": "Do not warn on empty/static/location-only shots where no continuity subject exists."
-    },
-    {
-      "code": "FLAT_ACTION_MOTION",
-      "severity": "Warning",
-      "scope": "actorAction",
-      "description": "A cinematic/action movement is materialized as a straight Move with no keyframes or trajectory evidence.",
-      "notes": "Use this for semantically meaningful movement such as flyby, approach, orbit, intercept, bank, pursuit, escort, formation break, rescue approach, circle, landing, takeoff, escape or convoy motion."
-    },
-    {
-      "code": "DIALOGUE_WORLD_EVIDENCE_LOST",
-      "severity": "Warning",
-      "scope": "shot",
-      "description": "Dialogue switches to portrait-only presentation while the shot intention or visible plan depends on important world evidence that is not represented by the dialogue stage.",
-      "notes": "FACE_TO_FACE_PORTRAITS is legal when the intended shot genuinely leaves the world. Prefer overlay/monitor/environment routes when threat/location/action context must remain visible."
-    },
-    {
-      "code": "PRESENTATION_REPETITION",
-      "severity": "Warning",
-      "scope": "sequence",
-      "description": "Three or more consecutive dialogue shots reuse effectively the same background, layout, framing, camera preset and transition.",
-      "notes": "Cinematic warning only, never a schema/runtime blocker."
-    },
-    {
-      "code": "STORY_EVIDENCE_MISSING",
-      "severity": "Warning",
-      "scope": "shot",
-      "description": "The shot intention makes a major physical story claim but the V5 shot contains no corresponding actor/layer/effect/action evidence.",
-      "notes": "Physical events are not satisfied by prose in intention. This browser rule is intentionally conservative and may require Unity-side semantic evidence for final truth."
-    }
+    { "code": "FOCAL_TARGET_NOT_VISIBLE", "severity": "Warning", "scope": "beat", "description": "The camera/creative focal target has no visible or entering evidence in the beat." },
+    { "code": "CAMERA_TARGET_NOT_VISIBLE", "severity": "Warning", "scope": "camera", "description": "A camera move names a subject that is never visibly present during the beat." },
+    { "code": "FLAT_ACTION_MOTION", "severity": "Warning", "scope": "action", "description": "A semantic cinematic move such as flyby, approach, orbit, intercept, pursuit or escort is flattened to a meaningless straight move without trajectory evidence." },
+    { "code": "ORBIT_WITHOUT_PARALLAX_EVIDENCE", "severity": "Warning", "scope": "camera/action", "description": "Orbit intent exists but no legal 2D trajectory/parallax or existing Orbit-capable route can evidence it." },
+    { "code": "FAKE_3D_ORBIT", "severity": "Error", "scope": "camera/action", "description": "Orbit intent invents a 3D viewpoint, back side or model geometry not present in CURRENT visual evidence." },
+    { "code": "AUDIO_HANDLE_ROUTE_MISMATCH", "severity": "Error", "scope": "audio", "description": "audio[].handle does not resolve exactly to CURRENT route Audio." },
+    { "code": "AUDIO_NOT_PUBLISH_READY", "severity": "Warning", "scope": "audio", "description": "Audio is preview-usable but safeForPublish=false. Preview may continue, final publish-ready authoring must not claim readiness." },
+    { "code": "PERFORMANCE_INTENT_UNRESOLVED", "severity": "Warning", "scope": "visible/action/dialogue", "description": "A performance/animation intent has no compatible CURRENT animation or deterministic fallback." },
+    { "code": "RELATIONSHIP_NOT_EVIDENCED", "severity": "Warning", "scope": "beat", "description": "A declared left/right/ahead/behind/faces/threatens/follows/escorts/protects relationship is not reflected in visible staging." },
+    { "code": "EMPTY_CONTINUITY_SUBJECTS", "severity": "Warning", "scope": "beat", "description": "preserveScreenDirection=true but matchedEntityIds is empty even though moving continuity-bearing entities exist." },
+    { "code": "CONTINUITY_DIRECTION_BREAK", "severity": "Warning", "scope": "sequence", "description": "A matched entity reverses established screen travel without an authored reason or transition." },
+    { "code": "IMPACT_WITHOUT_REACTION", "severity": "Warning", "scope": "beat", "description": "An impact/destruction claim has no visible reaction, state change, effect or final-state evidence." },
+    { "code": "DIALOGUE_WORLD_EVIDENCE_LOST", "severity": "Warning", "scope": "beat", "description": "Dialogue presentation removes world evidence that the beat still depends on." },
+    { "code": "PRESENTATION_REPETITION", "severity": "Warning", "scope": "sequence", "description": "Three or more consecutive dialogue beats reuse effectively the same presentation, framing and transition." },
+    { "code": "STORY_EVIDENCE_MISSING", "severity": "Warning", "scope": "beat", "description": "A major physical story claim has no corresponding visible/action/effect evidence." },
+    { "code": "CINEMATIC_MOVE_NOT_EVIDENCED", "severity": "Warning", "scope": "beat", "description": "cinematicMove is declared but the beat contains no staging/camera/action evidence that expresses it." }
   ],
-  "visibilityModel": {
-    "presentActorEvidence": [
-      "actorActions with Activate/Enter/Move/MoveToMark/FollowPath/Face/Turn/SetSorting/SetScale/Formation/PlayAnimation/VisualWeaponAction/VisualDamageReaction/Hold/FreezePose/LocalSlowMotion",
-      "speakerActorId/listenerActorId for dialogue presentations",
-      "reaction.actorId for dialogue reaction presentation"
-    ],
-    "enterOrRevealEvidence": [
-      "Activate",
-      "Enter",
-      "Move",
-      "MoveToMark",
-      "FollowPath"
-    ],
-    "absenceEvidence": [
-      "Deactivate",
-      "Exit"
-    ]
-  },
-  "motionIntentKeywords": [
-    "flyby",
-    "approach",
-    "orbit",
-    "intercept",
-    "bank",
-    "pursuit",
-    "escort",
-    "formation",
-    "rescue",
-    "circle",
-    "landing",
-    "takeoff",
-    "escape",
-    "convoy",
-    "retreat",
-    "evade",
-    "attack",
-    "charge"
-  ],
-  "worldEvidenceKeywords": [
-    "fleet",
-    "blockade",
-    "enemy",
-    "threat",
-    "mars",
-    "earth",
-    "convoy",
-    "explosion",
-    "fighter",
-    "ship",
-    "formation",
-    "attack",
-    "escape",
-    "dreadnought",
-    "reveal",
-    "arrival"
+  "motionIntentKeywords": ["flyby", "approach", "orbit", "intercept", "pass_camera", "bank_away", "pursuit", "escort", "rescue_approach", "formation_break", "landing", "takeoff", "circle_target", "escape", "convoy", "run_to_safety", "gather", "follow", "scatter", "look_up", "help", "enter_shelter"],
+  "hardAuthoringInvariants": [
+    "AUTHORING_HANDLES.json is the only Simple V1 handle source.",
+    "Simple V1 does not author runtime assetId/GUID/revision/hash fields.",
+    "Unknown or ambiguous handles remain RED.",
+    "Audio handles must resolve to route Audio.",
+    "Orbit means legal 2D/2.5D screen/parallax evidence, never invented 3D.",
+    "Preview success is not publish readiness when any referenced CURRENT record has safeForPublish=false."
   ]
 }
