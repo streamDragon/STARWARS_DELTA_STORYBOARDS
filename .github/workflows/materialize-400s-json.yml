@@ -1,0 +1,96 @@
+name: Materialize 400S JSON
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'designer-ai/MATERIALIZE_400S_TRIGGER.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Decode 400S payload and remove browser base64 dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import base64, gzip, json, re
+
+          root = Path('designer-ai')
+          sa = root / 'simple-authoring'
+          payload_path = sa / 'EXAMPLE_GOLDEN_400S_SYSTEMS_SHOWCASE.json.gz.b64'
+          manifest_path = sa / 'EXAMPLE_GOLDEN_400S_SYSTEMS_SHOWCASE_MANIFEST.json'
+          json_path = sa / 'EXAMPLE_GOLDEN_400S_SYSTEMS_SHOWCASE.json'
+
+          raw = payload_path.read_text(encoding='utf-8-sig')
+          compact = re.sub(r'\s+', '', raw).replace('-', '+').replace('_', '/')
+          compact += '=' * ((-len(compact)) % 4)
+          compressed = base64.b64decode(compact, validate=False)
+          decoded = gzip.decompress(compressed).decode('utf-8')
+          obj = json.loads(decoded)
+          if obj.get('schema') != 'STARWARS_DELTA_CUTSCENE_SCRIPT':
+              raise SystemExit('400S decoded schema mismatch')
+          if obj.get('schemaVersion') != 1:
+              raise SystemExit('400S decoded schemaVersion mismatch')
+          if obj.get('durationSeconds') != 400:
+              raise SystemExit('400S decoded duration mismatch')
+          if len(obj.get('beats') or []) != 80:
+              raise SystemExit('400S decoded beat count mismatch')
+          json_path.write_text(json.dumps(obj, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+
+          manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+          manifest['schemaVersion'] = max(int(manifest.get('schemaVersion', 1)), 4)
+          manifest['payload'] = {
+              'file': 'EXAMPLE_GOLDEN_400S_SYSTEMS_SHOWCASE.json',
+              'encoding': 'utf8-json',
+              'decodedSchema': 'STARWARS_DELTA_CUTSCENE_SCRIPT',
+              'decodedSchemaVersion': 1,
+              'purpose': 'Plain JSON transport for the full 400-second CUTSCENE_SCRIPT_V1. No browser base64/gzip decode is required.'
+          }
+          manifest['authoringNote'] = (
+              'The 400-second payload is stored as plain schema-valid JSON. It remains grounded to the recorded CURRENT transaction. '
+              'New Simple V1 optional semantics may be used by new authoring; this golden remains valid without being rewritten merely for schema fashion.'
+          )
+          manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+
+          devora_path = root / 'devora.html'
+          devora = devora_path.read_text(encoding='utf-8')
+          pattern = re.compile(r"async function decode400\(\)\{.*?return \{m,obj\}\}", re.S)
+          replacement = "async function decode400(){const m=await fresh('simple-authoring/EXAMPLE_GOLDEN_400S_SYSTEMS_SHOWCASE_MANIFEST.json','json'),obj=await fresh('simple-authoring/'+m.payload.file,'json');if(obj.schema!=='STARWARS_DELTA_CUTSCENE_SCRIPT'||obj.schemaVersion!==1||obj.durationSeconds!==400||obj.beats?.length!==80)throw new Error('400S payload mismatch');return {m,obj}}"
+          devora2, n = pattern.subn(replacement, devora, count=1)
+          if n != 1:
+              raise SystemExit('Could not patch devora decode400 exactly once')
+          devora_path.write_text(devora2, encoding='utf-8')
+
+          showcase_path = root / 'showcase-400.html'
+          showcase = showcase_path.read_text(encoding='utf-8')
+          pattern2 = re.compile(r"async function decodePayload\(\)\{.*?return \{manifest,obj\};\}", re.S)
+          replacement2 = "async function decodePayload(){const m=await fetch('simple-authoring/EXAMPLE_GOLDEN_400S_SYSTEMS_SHOWCASE_MANIFEST.json?t='+Date.now(),{cache:'no-store'});if(!m.ok)throw new Error('manifest HTTP '+m.status);const manifest=await m.json();const p=await fetch('simple-authoring/'+manifest.payload.file+'?t='+Date.now(),{cache:'no-store'});if(!p.ok)throw new Error('payload HTTP '+p.status);const obj=await p.json();if(obj.schema!=='STARWARS_DELTA_CUTSCENE_SCRIPT'||obj.schemaVersion!==1)throw new Error('payload is not CUTSCENE_SCRIPT_V1');if(obj.durationSeconds!==manifest.durationSeconds||obj.beats?.length!==manifest.beatCount)throw new Error('showcase manifest mismatch');return {manifest,obj};}"
+          showcase2, n2 = pattern2.subn(replacement2, showcase, count=1)
+          if n2 != 1:
+              raise SystemExit('Could not patch showcase decodePayload exactly once')
+          showcase_path.write_text(showcase2, encoding='utf-8')
+
+          # The compressed transport is obsolete once plain JSON exists.
+          payload_path.unlink()
+          # Remove this one-shot machinery from the final repository state.
+          Path('designer-ai/MATERIALIZE_400S_TRIGGER.txt').unlink(missing_ok=True)
+          Path('.github/workflows/materialize-400s-json.yml').unlink(missing_ok=True)
+          print('MATERIALIZED_400S_JSON', json_path.stat().st_size)
+          PY
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Materialize 400s showcase as plain JSON'
+          git pull --rebase origin main
+          git push origin HEAD:main
