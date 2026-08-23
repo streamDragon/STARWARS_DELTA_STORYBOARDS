@@ -21,6 +21,8 @@ CATEGORY_ROUTES = {
     "audio.json": "Audio",
 }
 
+VISUAL_AUTHORING_ROUTES = {"Actor", "Layer", "Effect", "Ui"}
+
 REQUIRED_CURRENT_KEYS = (
     "catalogRevision",
     "contractRevision",
@@ -75,35 +77,68 @@ def stable_handle(display, rid):
     return f"{slug(display)}__{runtime_hash(rid)}"
 
 
+def route_allowed(entry, route):
+    allowed = set(entry.get("allowedUses") or [])
+    return not allowed or route in allowed
+
+
+def audio_authoring_publish_safe(entry):
+    """Certify the non-visual Audio authoring route without requiring Vision review.
+
+    The Catalog's original safeForPublish value is preserved separately on the
+    emitted handle. Simple V1 Audio is publish-safe when CURRENT provides an exact
+    identity, the route is explicitly legal, preview resolution is safe, the
+    Cutscene.Audio capability is present, and no blocking/error severity exists.
+    """
+    rid = runtime_id(entry, "Audio")
+    if not rid or entry.get("safeForPreview") is not True or not route_allowed(entry, "Audio"):
+        return False
+    capabilities = set(entry.get("capabilities") or []) | set(entry.get("selectedCapabilities") or [])
+    if "Cutscene.Audio" not in capabilities:
+        return False
+    severities = list(entry.get("reviewSeverities") or [])
+    if entry.get("reviewSeverity") not in (None, ""):
+        severities.append(entry.get("reviewSeverity"))
+    blocked = {"blocker", "error"}
+    if any(str(value or "").strip().lower() in blocked for value in severities):
+        return False
+    return True
+
+
+def authoring_safe_for_publish(entry, route):
+    if route == "Audio":
+        return audio_authoring_publish_safe(entry)
+    return bool(entry.get("safeForPublish"))
+
+
 def is_eligible(entry, route):
     rid = runtime_id(entry, route)
-    if not rid:
-        return False
-
-    allowed = set(entry.get("allowedUses") or [])
-    if allowed and route not in allowed:
+    if not rid or not route_allowed(entry, route):
         return False
 
     if route == "Audio":
-        # Audio is a non-visual Simple V1 route. It has no Atlas obligation and
-        # currently uses Director selectionStatus instead of recommendationStatus.
-        # Preview-safe CURRENT Audio is authorable even when publish certification
-        # is still false; safeForPublish remains visible on the emitted handle.
+        # Audio is a non-visual Simple V1 route. It has no Atlas obligation.
+        # Director selectionStatus proves exact CURRENT preview resolution; the
+        # handle projection applies the explicit non-visual publish-safety rule.
         if entry.get("safeForPreview") is False:
             return False
         recommendation = str(entry.get("recommendationStatus") or "").strip()
         selection = str(entry.get("selectionStatus") or "").strip()
-        return recommendation == "RECOMMENDABLE" or selection == "CATALOG_VERIFIED_PREVIEW_SAFE"
+        return recommendation == "RECOMMENDABLE" or selection in {
+            "CATALOG_VERIFIED_PREVIEW_SAFE",
+            "CATALOG_VERIFIED_PUBLISH_SAFE",
+        }
 
     if entry.get("recommendationStatus") != "RECOMMENDABLE":
         return False
 
-    if route == "Actor":
-        caps = set(entry.get("capabilities") or []) | set(entry.get("selectedCapabilities") or [])
-        if "Cutscene.Actor" not in caps:
-            return False
-        if entry.get("safeForPreview") is False:
-            return False
+    # Actor is a world-presentation route, not a synonym for the Cutscene.Actor
+    # semantic capability. Ships and props may legally be routed as Actor. Once
+    # Director has marked an entry RECOMMENDABLE and allowedUses contains Actor,
+    # do not reject it merely because its semantic capability is Cutscene.Ship or
+    # Cutscene.Prop instead of Cutscene.Actor.
+    if route == "Actor" and entry.get("safeForPreview") is False:
+        return False
 
     return True
 
@@ -124,6 +159,7 @@ def main():
     entries = []
     used = set()
     eligible_runtime_ids = {route: set() for route in CATEGORY_ROUTES.values()}
+    recommendable_runtime_ids = {route: set() for route in VISUAL_AUTHORING_ROUTES}
 
     for filename, route in CATEGORY_ROUTES.items():
         path = DIRECTOR / filename
@@ -139,6 +175,24 @@ def main():
             )
 
         for entry in payload.get("assets") or []:
+            rid = runtime_id(entry, route)
+            if route in VISUAL_AUTHORING_ROUTES and entry.get("recommendationStatus") == "RECOMMENDABLE":
+                if not rid:
+                    raise SystemExit(
+                        "AUTHORING_HANDLES_RECOMMENDABLE_ID_MISSING: "
+                        + route
+                        + " "
+                        + str(entry.get("displayName") or "<unnamed>")
+                    )
+                if not route_allowed(entry, route) or entry.get("safeForPreview") is False:
+                    raise SystemExit(
+                        "AUTHORING_HANDLES_RECOMMENDABLE_ROUTE_ILLEGAL: "
+                        + route
+                        + " "
+                        + str(entry.get("displayName") or rid)
+                    )
+                recommendable_runtime_ids[route].add(rid)
+
             if not is_eligible(entry, route):
                 continue
             rid = runtime_id(entry, route)
@@ -155,6 +209,8 @@ def main():
             used.add(identity_key)
 
             visual = entry.get("visualEvidence") or {}
+            source_safe_for_publish = entry.get("safeForPublish")
+            projected_safe_for_publish = authoring_safe_for_publish(entry, route)
             entries.append({
                 "handle": handle,
                 "runtimeHash": runtime_hash(rid),
@@ -166,7 +222,9 @@ def main():
                 "capabilities": entry.get("capabilities") or entry.get("selectedCapabilities") or [],
                 "allowedUses": entry.get("allowedUses") or [],
                 "safeForPreview": entry.get("safeForPreview"),
-                "safeForPublish": entry.get("safeForPublish"),
+                "safeForPublish": projected_safe_for_publish,
+                "sourceSafeForPublish": source_safe_for_publish,
+                "publishSafetySource": "AUDIO_NON_VISUAL_EXACT_CURRENT_ROUTE" if route == "Audio" else "DIRECTOR_CURRENT_CONTRACT",
                 "proportionClass": entry.get("proportionClass"),
                 "targetScreenFraction": entry.get("targetScreenFraction"),
                 "scaleBasis": entry.get("scaleBasis"),
@@ -199,6 +257,21 @@ def main():
                 + repr(extra[:10])
             )
 
+    # Stronger authoring invariant: every visual entry advertised by Director as
+    # RECOMMENDABLE must have exactly one writable Simple V1 handle. This is the
+    # contract that previously exposed four attractive but unwritable Actor-route
+    # entries (Bubble, enemy5, player1, rocket0008).
+    for route, expected_ids in recommendable_runtime_ids.items():
+        actual_ids = {entry["runtimeId"] for entry in entries if entry["route"] == route}
+        missing = sorted(expected_ids - actual_ids)
+        if missing:
+            raise SystemExit(
+                "AUTHORING_HANDLES_RECOMMENDABLE_WITHOUT_HANDLE: "
+                + route
+                + " missing="
+                + repr(missing[:10])
+            )
+
     # Hash suffixes are authoritative. A collision is therefore a real publishing
     # blocker, not something a consumer may guess through.
     hash_owner = {}
@@ -228,17 +301,29 @@ def main():
 
     if counts_by_route.get("Audio", 0) <= 0:
         raise SystemExit("AUTHORING_HANDLES_AUDIO_EMPTY: CURRENT exposes no legal Audio handles")
+    unsafe_audio = [
+        entry["runtimeId"]
+        for entry in entries
+        if entry["route"] == "Audio" and entry.get("safeForPublish") is not True
+    ]
+    if unsafe_audio:
+        raise SystemExit(
+            "AUTHORING_HANDLES_AUDIO_NOT_PUBLISH_SAFE: "
+            + repr(unsafe_audio[:10])
+        )
 
     payload = {
         "schema": "STARWARS_DELTA_AUTHORING_HANDLES",
-        "schemaVersion": 2,
+        "schemaVersion": 3,
         "purpose": "Semantic authoring handles for CUTSCENE_SCRIPT_V1. ChatGPT uses handles; Unity/compiler owns runtime IDs and V5 serialization.",
         "handleContract": {
             "format": "<readable_slug>__<8-char lowercase sha1(runtimeId)>",
             "authoritativePart": "runtimeHash suffix",
             "resolution": "Unity recomputes the same short SHA-1 from exact local CURRENT runtime identities. It never fuzzy-matches the readable prefix.",
             "unknownHandle": "REAL BLOCKER",
-            "ambiguousRuntimeHash": "REAL BLOCKER"
+            "ambiguousRuntimeHash": "REAL BLOCKER",
+            "recommendableCoverage": "Every RECOMMENDABLE visual Director identity must resolve to exactly one handle on its allowed route.",
+            "audioPublishSafety": "Audio is non-visual. Exact CURRENT identity + Audio allowedUse + Cutscene.Audio + preview safety + no blocker/error severity is publish-safe without Vision review. sourceSafeForPublish preserves the original Catalog projection."
         },
         "requiredCurrent": required_current,
         "count": len(entries),
