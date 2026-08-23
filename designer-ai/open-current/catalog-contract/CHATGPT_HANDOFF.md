@@ -11,7 +11,7 @@ IRONCLAD RULE: `cutscenePrimaryUse` is the authoritative placement of each asset
 Do not infer placement from the filename, path, picture, general capabilities, or creative intention.
 - Contract revision: 1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2
 - Schema hash: 0C8725A0029CBAB995F851B1D3188495CBEC6E1D3F6143D9355240448CD58734
-- Semantic classification revision: ENTITY_KIND_V1
+- Semantic classification revision: ENTITY_KIND_GENERIC_V1
 For Actor records, entityKind is semantic metadata only. It never decides whether an item belongs in cast, layers, effects, or ui; use cutscenePrimaryUse for ownership.
 Unknown is legal when evidence is insufficient or contradictory. Do not guess from broad filename or description keywords.
 Classification counts, source counts, confidence bands, review states and the prioritized entityKindReviewQueue are in catalog_summary.json.
