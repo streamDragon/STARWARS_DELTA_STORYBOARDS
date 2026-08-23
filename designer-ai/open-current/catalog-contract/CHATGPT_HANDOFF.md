@@ -4,13 +4,13 @@ This ZIP is the permanent authoring contract for ChatGPT and Cutscene Studio.
 Read `00_CHATGPT_READ_FIRST.txt` first. It is the required ChatGPT entrypoint; then use catalog records and supporting schema files.
 
 - Scope: `FULLCATALOG`
-- Catalog revision: `7625021116463057315`
-- Exported records: `22949`
+- Catalog revision: `7625035885705746207`
+- Exported records: `18718`
 
 IRONCLAD RULE: `cutscenePrimaryUse` is the authoritative placement of each asset.
 Do not infer placement from the filename, path, picture, general capabilities, or creative intention.
 - Contract revision: 1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2
-- Schema hash: 0C8725A0029CBAB995F851B1D3188495CBEC6E1D3F6143D9355240448CD58734
+- Schema hash: 90B5DC77CD955BFB5D342E4BF8C3D94BA4A3D51C7920C2E4B816458A69F80C9A
 - Semantic classification revision: ENTITY_KIND_GENERIC_V1
 For Actor records, entityKind is semantic metadata only. It never decides whether an item belongs in cast, layers, effects, or ui; use cutscenePrimaryUse for ownership.
 Unknown is legal when evidence is insufficient or contradictory. Do not guess from broad filename or description keywords.
