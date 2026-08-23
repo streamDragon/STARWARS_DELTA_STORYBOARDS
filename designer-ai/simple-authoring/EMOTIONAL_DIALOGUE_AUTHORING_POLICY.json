@@ -6,9 +6,10 @@
   "defaultWhenMissingOrEmpty": "DIALOGUE_AUTHORING_DISABLED",
   "closedWorld": true,
   "identitySemantics": {
-    "actorId": "Exact curated participant id. Must equal CUTSCENE_SCRIPT_V1 cast[].id and dialogue speaker/listener values.",
-    "identityHandle": "Stable logical Emotional Dialogue identity published by Unity. Not Actor Catalog identity and not Ui/portrait identity.",
-    "presentation": "FullPortrait presentation comes from the same curated CharacterPack and never creates identity.",
+    "caseSensitive": true,
+    "actorId": "Exact curated participant id. Must equal CUTSCENE_SCRIPT_V1 cast[].id and dialogue speaker/listener values with case-sensitive equality.",
+    "identityHandle": "Stable logical Emotional Dialogue identity published by Unity. Must match with case-sensitive equality. It is not Actor Catalog identity and not Ui/portrait identity.",
+    "presentation": "FullPortrait presentation comes from the same curated CharacterPack and never creates identity. defaultPresentationHandle is Unity's exact published GUID:localFileId asset identity.",
     "aliasesAllowed": false,
     "displayNameMatchingAllowed": false,
     "catalogPromotionAllowed": false,
@@ -25,24 +26,28 @@
   "forbiddenDialogueCharacterSources": [
     "Actor Catalog",
     "Ui Catalog",
+    "AUTHORING_HANDLES Actor routes",
     "Director actor projection",
     "Director ui projection",
     "Visual Atlas",
     "filename search",
     "displayName search",
+    "aliases",
     "tag/capability inference",
     "visual similarity"
   ],
   "lineRules": [
-    "speaker and listener are exact actorId values and must have exact matching cast[].id entries.",
-    "The matching cast entry identityHandle must equal the character identityHandle published by the repertoire.",
-    "If expressionIntent is omitted, Unity uses the published defaultExpression.",
-    "If expressionIntent is present, it must exactly match one supportedExpressions value for that speaker.",
+    "speaker and listener are exact case-sensitive actorId values and must have exact matching cast[].id entries.",
+    "The matching cast entry identityHandle must equal the character identityHandle with case-sensitive equality.",
+    "If expressionIntent is absent, null, empty or whitespace-only, Unity uses the published defaultExpression.",
+    "If expressionIntent is present and nonblank, it must exactly and case-sensitively match one supportedExpressions value for that speaker.",
     "Unsupported expressions are blockers. There is no Neutral fallback and no portrait search.",
-    "Listener presentation uses the listener's published defaultExpression unless future CURRENT contract explicitly exposes listener expression authoring."
+    "Listener presentation uses the listener's published defaultExpression unless a future CURRENT contract explicitly exposes listener expression authoring.",
+    "Dialogue presentation preview may use only the repertoire defaultPresentationHandle for identity evidence; it must never resolve a dialogue portrait through general AUTHORING_HANDLES."
   ],
   "expectedRootDiagnostics": [
     "SIMPLE_DIALOGUE_SPEAKER_UNKNOWN",
+    "DIALOGUE_AUTHORING_DISABLED",
     "DIALOGUE_CHARACTER_OUTSIDE_REPERTOIRE",
     "DIALOGUE_EXPRESSION_OUTSIDE_REPERTOIRE"
   ]
