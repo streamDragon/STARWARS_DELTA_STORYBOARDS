@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "STARWARS_DELTA_CUTSCENE_SCRIPT_V1",
   "title": "STARWARS_DELTA Cutscene Script V1",
-  "description": "Backward-compatible semantic cutscene authoring format. ChatGPT authors story, narrative identity, visible evidence, frame-relative composition, cinematic move intent, performance, continuity and legal audio handles. Unity owns CURRENT fingerprints, runtime IDs, exact V3/V5 materialization, camera bounds and final serialization.",
+  "description": "Backward-compatible semantic cutscene authoring format. ChatGPT authors story, narrative identity, visible evidence, frame-relative composition, cinematic move intent, performance, continuity and legal audio handles. General cast identities use authoritative CURRENT Actor handles. Dialogue participants are the deliberate exception: they use only curated identityHandle values published by EMOTIONAL_DIALOGUE_CURRENT.json. Unity owns CURRENT fingerprints, runtime IDs, exact V3/V5 materialization, camera bounds and final serialization.",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema", "schemaVersion", "title", "durationSeconds", "beats"],
@@ -19,9 +19,9 @@
         "additionalProperties": false,
         "required": ["id", "identityHandle"],
         "properties": {
-          "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
-          "identityHandle": { "type": "string", "minLength": 1, "description": "Authoritative CURRENT Actor handle for narrative identity." },
-          "presentationHandle": { "type": "string", "minLength": 1, "description": "Optional CURRENT presentation handle for portrait/body/world evidence. It never changes narrative identity." },
+          "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$", "description": "Narrative identity key. For any cast entry used by dialogue, this value MUST exactly equal that curated Emotional Dialogue character's published actorId. No alias or display-name matching." },
+          "identityHandle": { "type": "string", "minLength": 1, "description": "Authoritative CURRENT narrative identity handle. For normal/non-dialogue cast this must be a legal Actor handle. For cast used as dialogue speaker/listener this must be the exact logical identityHandle published for the same actorId in EMOTIONAL_DIALOGUE_CURRENT.json; it is not required to be an Actor Catalog handle and must never be replaced by a portrait/UI handle." },
+          "presentationHandle": { "type": "string", "minLength": 1, "description": "Optional CURRENT presentation handle for portrait/body/world evidence. It never creates or changes narrative identity. Dialogue identity remains owned by EMOTIONAL_DIALOGUE_CURRENT.json." },
           "sameIdentityAs": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
           "displayName": { "type": "string" }
         }
@@ -105,11 +105,11 @@
       "additionalProperties": false,
       "required": ["speaker", "text"],
       "properties": {
-        "speaker": { "type": "string" },
-        "listener": { "type": "string" },
+        "speaker": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$", "description": "Exact actorId of an authoringReady Emotional Dialogue character and exact matching cast[].id. No aliases or display-name matching." },
+        "listener": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$", "description": "Optional exact actorId of an authoringReady Emotional Dialogue character and exact matching cast[].id. No aliases or display-name matching." },
         "text": { "type": "string", "minLength": 1 },
         "mood": { "type": "string" },
-        "expressionIntent": { "type": "string" },
+        "expressionIntent": { "type": "string", "description": "Exact published supported expression name for the speaker. If omitted Unity uses that character's published defaultExpression. Unsupported values are blockers; there is no Neutral fallback or filename search." },
         "performanceIntent": { "type": "string" },
         "delivery": { "enum": ["quiet", "normal", "urgent", "command", "reassuring", "warning"] },
         "presentation": { "enum": ["auto", "portrait", "radio", "monitor", "environment"] }
