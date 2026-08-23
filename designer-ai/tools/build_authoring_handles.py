@@ -20,9 +20,31 @@ CATEGORY_ROUTES = {
     "audio.json": "Audio",
 }
 
+REQUIRED_CURRENT_KEYS = (
+    "catalogRevision",
+    "contractRevision",
+    "schemaHash",
+    "snapshotContentHash",
+    "authoringRuleRegistryRevision",
+)
+
 
 def read_json(path):
     return json.loads(path.read_text(encoding="utf-8-sig"))
+
+
+def semantic_required_current(payload, label):
+    source = payload.get("requiredCurrent") or payload.get("atomicIdentity") or {}
+    identity = {key: source.get(key) for key in REQUIRED_CURRENT_KEYS}
+    missing = [key for key, value in identity.items() if value is None or str(value).strip() == ""]
+    if missing:
+        raise SystemExit(
+            "AUTHORING_HANDLES_IDENTITY_INCOMPLETE: "
+            + label
+            + " missing "
+            + ", ".join(missing)
+        )
+    return identity
 
 
 def slug(text):
@@ -72,16 +94,27 @@ def main():
         if src.is_file():
             shutil.copy2(src, OUT_DIR / name)
 
+    current_path = ROOT / "OPEN_CURRENT.json"
+    if not current_path.is_file():
+        raise SystemExit("AUTHORING_HANDLES_CURRENT_MISSING: _open_current_stage/OPEN_CURRENT.json")
+    current_payload = read_json(current_path)
+    required_current = semantic_required_current(current_payload, "OPEN_CURRENT")
+
     entries = []
     used = set()
-    identity = None
 
     for filename, route in CATEGORY_ROUTES.items():
         path = DIRECTOR / filename
         if not path.is_file():
             continue
         payload = read_json(path)
-        identity = identity or payload.get("requiredCurrent") or payload.get("atomicIdentity")
+        category_current = semantic_required_current(payload, filename)
+        if category_current != required_current:
+            raise SystemExit(
+                "AUTHORING_HANDLES_IDENTITY_MISMATCH: "
+                + filename
+                + " does not match OPEN_CURRENT.requiredCurrent"
+            )
         for entry in payload.get("assets") or []:
             if not is_eligible(entry, route):
                 continue
@@ -132,7 +165,7 @@ def main():
             "unknownHandle": "REAL BLOCKER",
             "ambiguousRuntimeHash": "REAL BLOCKER"
         },
-        "requiredCurrent": identity,
+        "requiredCurrent": required_current,
         "count": len(entries),
         "handles": sorted(entries, key=lambda x: (x["route"], x["handle"])),
         "cutsceneViewBoundsContract": {
