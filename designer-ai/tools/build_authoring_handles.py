@@ -59,12 +59,8 @@ def runtime_id(entry, route):
     if route == "Actor":
         return entry.get("canonicalActorAssetId") or entry.get("authoringAssetId")
     if route == "Animation":
-        # Animation Director entries use exact assetId as their runtime identity.
         return entry.get("authoringAssetId") or entry.get("assetId") or entry.get("animationId")
     if route == "Audio":
-        # Audio Director projection owns an exact assetId but historically did not
-        # expose authoringAssetId. The exact CURRENT assetId is therefore the
-        # deterministic runtime identity used by the Simple V1 handle contract.
         return entry.get("authoringAssetId") or entry.get("assetId") or entry.get("audioId")
     return entry.get("authoringAssetId")
 
@@ -74,9 +70,6 @@ def runtime_hash(value):
 
 
 def stable_handle(display, rid):
-    # The human-readable prefix is intentionally non-authoritative. Unity resolves
-    # the exact local CURRENT runtime identity from the short SHA-1 suffix. This
-    # keeps handles stable even if Director display labels are later improved.
     return f"{slug(display)}__{runtime_hash(rid)}"
 
 
@@ -86,13 +79,7 @@ def route_allowed(entry, route):
 
 
 def audio_authoring_publish_safe(entry):
-    """Certify the non-visual Audio authoring route without requiring Vision review.
-
-    The Catalog's original safeForPublish value is preserved separately on the
-    emitted handle. Simple V1 Audio is publish-safe when CURRENT provides an exact
-    identity, the route is explicitly legal, preview resolution is safe, the
-    Cutscene.Audio capability is present, and no blocking/error severity exists.
-    """
+    """Certify exact non-visual Audio without requiring visual review."""
     rid = runtime_id(entry, "Audio")
     if not rid or entry.get("safeForPreview") is not True or not route_allowed(entry, "Audio"):
         return False
@@ -102,10 +89,7 @@ def audio_authoring_publish_safe(entry):
     severities = list(entry.get("reviewSeverities") or [])
     if entry.get("reviewSeverity") not in (None, ""):
         severities.append(entry.get("reviewSeverity"))
-    blocked = {"blocker", "error"}
-    if any(str(value or "").strip().lower() in blocked for value in severities):
-        return False
-    return True
+    return not any(str(value or "").strip().lower() in {"blocker", "error"} for value in severities)
 
 
 def authoring_safe_for_publish(entry, route):
@@ -120,9 +104,6 @@ def is_eligible(entry, route):
         return False
 
     if route == "Audio":
-        # Audio is a non-visual Simple V1 route. It has no Atlas obligation.
-        # Director selectionStatus proves exact CURRENT preview resolution; the
-        # handle projection applies the explicit non-visual publish-safety rule.
         if entry.get("safeForPreview") is False:
             return False
         recommendation = str(entry.get("recommendationStatus") or "").strip()
@@ -133,25 +114,19 @@ def is_eligible(entry, route):
         }
 
     if route == "Animation":
-        # Animation is compatibility metadata, not a standalone visual choice.
-        # It intentionally uses selectionStatus/capability rather than the visual
-        # recommendationStatus gate used by Actor/Layer/Effect/Ui.
-        if entry.get("safeForPreview") is False:
+        # An Animation handle names an exact CURRENT clip. Compatibility is a
+        # relationship between that clip and the selected Actor, not a reason to
+        # erase the clip from the vocabulary. Keep every exact preview-safe
+        # Cutscene.Animation handle and publish the pairing evidence with it.
+        if entry.get("safeForPreview") is not True:
             return False
         capabilities = set(entry.get("capabilities") or []) | set(entry.get("selectedCapabilities") or [])
-        if "Cutscene.Animation" not in capabilities:
-            return False
-        selection = str(entry.get("selectionStatus") or "").strip()
-        return bool(selection) and not selection.startswith("BLOCKED")
+        return "Cutscene.Animation" in capabilities
 
     if entry.get("recommendationStatus") != "RECOMMENDABLE":
         return False
 
-    # Actor is a world-presentation route, not a synonym for the Cutscene.Actor
-    # semantic capability. Ships and props may legally be routed as Actor. Once
-    # Director has marked an entry RECOMMENDABLE and allowedUses contains Actor,
-    # do not reject it merely because its semantic capability is Cutscene.Ship or
-    # Cutscene.Prop instead of Cutscene.Actor.
+    # Actor is a world-presentation route. Ships and props may legally occupy it.
     if route == "Actor" and entry.get("safeForPreview") is False:
         return False
 
@@ -215,9 +190,6 @@ def main():
             display = entry.get("displayName") or rid
             handle = stable_handle(display, rid)
 
-            # Same runtime route/identity may be projected by more than one source
-            # record. Publish one handle, not aliases that could make authoring
-            # selection look ambiguous.
             identity_key = (route, rid)
             if identity_key in used:
                 continue
@@ -240,6 +212,12 @@ def main():
                 "safeForPublish": projected_safe_for_publish,
                 "sourceSafeForPublish": source_safe_for_publish,
                 "publishSafetySource": "AUDIO_NON_VISUAL_EXACT_CURRENT_ROUTE" if route == "Audio" else "DIRECTOR_CURRENT_CONTRACT",
+                "selectionStatus": entry.get("selectionStatus"),
+                "compatibilityRequirement": entry.get("compatibilityRequirement") if route == "Animation" else None,
+                "compatibilityEvidenceStatus": entry.get("compatibilityEvidenceStatus") if route == "Animation" else None,
+                "compatibleActorAssetIds": entry.get("compatibleActorAssetIds") or [] if route == "Animation" else [],
+                "recommendableCompatibleActorAssetIds": entry.get("recommendableCompatibleActorAssetIds") or [] if route == "Animation" else [],
+                "blockedCompatibleActorAssetIds": entry.get("blockedCompatibleActorAssetIds") or [] if route == "Animation" else [],
                 "proportionClass": entry.get("proportionClass"),
                 "targetScreenFraction": entry.get("targetScreenFraction"),
                 "scaleBasis": entry.get("scaleBasis"),
@@ -255,9 +233,6 @@ def main():
 
     counts_by_route = Counter(entry["route"] for entry in entries)
 
-    # Builder-owned invariant: every eligible CURRENT runtime identity gets exactly
-    # one handle on its route. Do not let Director claim authorability that the
-    # Simple V1 vocabulary cannot express.
     for route, expected_ids in eligible_runtime_ids.items():
         actual_ids = {entry["runtimeId"] for entry in entries if entry["route"] == route}
         if actual_ids != expected_ids:
@@ -272,10 +247,6 @@ def main():
                 + repr(extra[:10])
             )
 
-    # Stronger authoring invariant: every visual entry advertised by Director as
-    # RECOMMENDABLE must have exactly one writable Simple V1 handle. This is the
-    # contract that previously exposed four attractive but unwritable Actor-route
-    # entries (Bubble, enemy5, player1, rocket0008).
     for route, expected_ids in recommendable_runtime_ids.items():
         actual_ids = {entry["runtimeId"] for entry in entries if entry["route"] == route}
         missing = sorted(expected_ids - actual_ids)
@@ -287,8 +258,6 @@ def main():
                 + repr(missing[:10])
             )
 
-    # Hash suffixes are authoritative. A collision is therefore a real publishing
-    # blocker, not something a consumer may guess through.
     hash_owner = {}
     handle_owner = {}
     for entry in entries:
@@ -340,7 +309,7 @@ def main():
             "unknownHandle": "REAL BLOCKER",
             "ambiguousRuntimeHash": "REAL BLOCKER",
             "recommendableCoverage": "Every RECOMMENDABLE visual Director identity must resolve to exactly one handle on its allowed route.",
-            "animationCoverage": "Animation handles use exact CURRENT animation asset identity and Director selectionStatus/capability, not visual recommendationStatus.",
+            "animationCoverage": "Every exact preview-safe Cutscene.Animation identity remains addressable. Actor compatibility is validated as a pairing rule, never by deleting the animation handle.",
             "audioPublishSafety": "Audio is non-visual. Exact CURRENT identity + Audio allowedUse + Cutscene.Audio + preview safety + no blocker/error severity is publish-safe without Vision review. sourceSafeForPublish preserves the original Catalog projection."
         },
         "requiredCurrent": required_current,
