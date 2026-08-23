@@ -1,38 +1,44 @@
 {
   "schema": "STARWARS_DELTA_CUTSCENE_SHOWCASE_MANIFEST",
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "title": "STARWARS_DELTA - 400 SECOND ALL-SYSTEMS CINEMATIC SHOWCASE",
   "durationSeconds": 400,
-  "creativeIntent": "A CURRENT-grounded 400-second 2D/2.5D cinematic stress-test built from short shots. It intentionally exercises scale progression, distant threat reveal, formation, flyby/intercept/pursuit/escort/retreat semantics, orbit-like 2D parallax, evacuation, civilians, medical movement with semantic animation handles, robots, missiles, lasers, shields, shock rings, explosions, smoke, radar/warning UI, boss escalation, emotional near/far dialogue, Mars arrival and sober aftermath. Audio intent is described in story/pacing language only because CUTSCENE_SCRIPT_V1 currently has no direct audio field; no unsupported audio field is invented.",
+  "beatCount": 80,
+  "castCount": 18,
   "currentPublishTransactionId": "20260823-022704116-4be0475b",
-  "cast": [
-    {"id":"commander_arden","identityHandle":"starwars_delta_commander_arden_cutscene_master_6x5_r5_c3__14b2e1b1","presentationHandle":"starwars_delta_commander_arden_cutscene_master_6x5_r5_c3__14b2e1b1","displayName":"Commander Arden"},
-    {"id":"officer_auren","identityHandle":"starwars_delta_officer_auren_cutscene_master_6x5_r1_c1__dbcd223e","presentationHandle":"starwars_delta_officer_auren_cutscene_master_6x5_r1_c1__dbcd223e","displayName":"Officer Auren"},
-    {"id":"leader_deslok","identityHandle":"chr_leader_deslok_01_dialogue_6x5_0__8566099e","presentationHandle":"chr_leader_deslok_01_dialogue_6x5_0__8566099e","displayName":"Leader Deslok"},
-    {"id":"doctor_01","identityHandle":"doc01_idle__c63e4162","displayName":"Doctor 01"},
-    {"id":"doctor_02","identityHandle":"doc02_idle__0f531dd8","displayName":"Doctor 02"},
-    {"id":"doctor_03","identityHandle":"doc03_idle__8cfa8624","displayName":"Doctor 03"},
-    {"id":"pilot","identityHandle":"pilot_walking0000__ba499d6f","displayName":"Evacuation Pilot"},
-    {"id":"civilian","identityHandle":"evac_civilian_v2__1bdab457","displayName":"Evacuation Civilian"},
-    {"id":"evac_ship","identityHandle":"evac_city_ship_v1__2845ca3f","displayName":"Evac City Ship V1"},
-    {"id":"friendly_fighter","identityHandle":"2dspaceshipsfreetrialatlassideviewgrey_0__5c6ce346","displayName":"Defense Fighter"},
-    {"id":"friendly_fighter_top","identityHandle":"2dspaceshipsfreetrialatlastopviewgrey_0__227ab4ff","displayName":"Defense Fighter Top View"},
-    {"id":"cargo_ship","identityHandle":"cargo_ship__294bbb04","displayName":"Cargo Ship"},
-    {"id":"boss_ship","identityHandle":"spaceship_boss__44e4471f","displayName":"Enemy Boss Ship"},
-    {"id":"omni_ship","identityHandle":"shipomni__712b573d","displayName":"Omni Ship"},
-    {"id":"enemy_saucer","identityHandle":"saucer_2__444a99dd","displayName":"Enemy Saucer"},
-    {"id":"rocket","identityHandle":"rocket0008__7e1e22ef","displayName":"Rocket"},
-    {"id":"space_mine","identityHandle":"mine__eb704a1c","displayName":"Space Mine"},
-    {"id":"ground_robot","identityHandle":"robot11_removebg_preview_4__a3c592d3","displayName":"Ground Robot"}
+  "payload": {
+    "file": "EXAMPLE_GOLDEN_400S_SYSTEMS_SHOWCASE.json.gz.b64",
+    "encoding": "base64+gzip+utf8-json",
+    "decodedSchema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+    "decodedSchemaVersion": 1,
+    "purpose": "Compact transport for the full schema-valid 400-second CUTSCENE_SCRIPT_V1. Decode before preview or Context Pack inclusion."
+  },
+  "validation": {
+    "schemaValid": true,
+    "strictCurrentChecked": true,
+    "handleReferenceCount": 367,
+    "uniqueHandleCount": 52,
+    "unresolvedHandleCount": 0,
+    "needsHumanReviewCount": 0,
+    "safeForPublishFalseCount": 0,
+    "rule": "The showcase is reference material grounded to this exact CURRENT transaction. If CURRENT changes, revalidate handles before treating it as a golden example."
+  },
+  "coverage": [
+    "extreme-wide/wide/medium/close/detail framing",
+    "hold/push/pull/follow/track/cut camera language",
+    "tiny-distant-to-larger approach scale progression",
+    "2D orbit-like parallax arcs without fake 3D rotation",
+    "formation, intercept, pursuit, escort, retreat and launch motion",
+    "evacuation ship, civilians, medical rescue and ruined-city staging",
+    "Doctor 01/02/03 semantic walk/run/interact/hit animation handles",
+    "ground robot threat and visible cause/effect combat",
+    "red laser, green beam, missile, impact, explosion, smoke, shield, shock rings, fireball, flash and engine thrust",
+    "radar, boss alert and ally-in-danger UI evidence",
+    "Commander Arden, Officer Auren and Leader Deslok emotional dialogue",
+    "near/far dialogue staging and speaker emphasis reversal",
+    "boss shield/support-relay tactical escalation",
+    "ruined Earth reveal, medical cave evacuation and Mars arrival",
+    "quiet coda after combat rather than nonstop climax"
   ],
-  "shards": [
-    {"file":"EXAMPLE_GOLDEN_400S_SYSTEMS_SHOWCASE_PART_01.json","part":1,"startSecond":0,"durationSeconds":49,"beatStart":1,"beatEnd":10},
-    {"file":"EXAMPLE_GOLDEN_400S_SYSTEMS_SHOWCASE_PART_02.json","part":2,"startSecond":49,"durationSeconds":50,"beatStart":11,"beatEnd":20},
-    {"file":"EXAMPLE_GOLDEN_400S_SYSTEMS_SHOWCASE_PART_03.json","part":3,"startSecond":99,"durationSeconds":50,"beatStart":21,"beatEnd":30},
-    {"file":"EXAMPLE_GOLDEN_400S_SYSTEMS_SHOWCASE_PART_04.json","part":4,"startSecond":149,"durationSeconds":51,"beatStart":31,"beatEnd":40},
-    {"file":"EXAMPLE_GOLDEN_400S_SYSTEMS_SHOWCASE_PART_05.json","part":5,"startSecond":200,"durationSeconds":49,"beatStart":41,"beatEnd":50},
-    {"file":"EXAMPLE_GOLDEN_400S_SYSTEMS_SHOWCASE_PART_06.json","part":6,"startSecond":249,"durationSeconds":50,"beatStart":51,"beatEnd":60},
-    {"file":"EXAMPLE_GOLDEN_400S_SYSTEMS_SHOWCASE_PART_07.json","part":7,"startSecond":299,"durationSeconds":50,"beatStart":61,"beatEnd":70},
-    {"file":"EXAMPLE_GOLDEN_400S_SYSTEMS_SHOWCASE_PART_08.json","part":8,"startSecond":349,"durationSeconds":51,"beatStart":71,"beatEnd":80}
-  ]
+  "authoringNote": "CUTSCENE_SCRIPT_V1 currently has no direct audio lane and no Orbit camera enum. This example does not invent unsupported fields: audio remains backend/pacing intent, while orbit-like shots use legal track/follow plus screen-space arc semantics."
 }
