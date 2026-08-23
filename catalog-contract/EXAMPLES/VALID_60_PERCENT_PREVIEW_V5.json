@@ -1,0 +1,222 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
+  "schemaVersion": 5,
+  "contextVersion": 3,
+  "contractRevision": "1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2",
+  "schemaHash": "0C8725A0029CBAB995F851B1D3188495CBEC6E1D3F6143D9355240448CD58734",
+  "contextId": "NEW_CUTSCENE_CONTEXT",
+  "catalogRevision": "7624991757430202061",
+  "projectId": "",
+  "planId": "plan_example_60_percent",
+  "baseRevision": 0,
+  "displayName": "Valid 60 Percent Preview",
+  "duration": 16.0,
+  "creativeIntent": {
+    "summary": "A compact first pass using exact Catalog records in their declared placements. For a deeper establishing/action stack, continue with EXAMPLES/VALID_CINEMATIC_MULTILAYER_V5.json.",
+    "style": "Project-owned editable 2D cinematic",
+    "mood": "Designer-defined"
+  },
+  "selectedKits": [],
+  "cast": [
+    {
+      "entityId": "actor_primary",
+      "displayName": "Primary Actor",
+      "role": "SupportingCharacter",
+      "entityKind": "Creature",
+      "entitySubKind": "",
+      "visualAssetId": "88925decd297d4eaaaeb4ec1b87fbc02:8241514803120433850",
+      "animationAssetIds": [],
+      "spawnWorldActor": true,
+      "useGameplayObject": false,
+      "temporaryCinematicClone": true
+    }
+  ],
+  "sequences": [
+    {
+      "sequenceId": "sequence_main",
+      "startTime": 0.0,
+      "duration": 16.0,
+      "intention": "A compact first pass using exact Catalog records in their declared placements. For a deeper establishing/action stack, continue with EXAMPLES/VALID_CINEMATIC_MULTILAYER_V5.json.",
+      "layers": [
+        {
+          "actionId": "layer_background_show",
+          "type": "Activate",
+          "layerId": "layer_background",
+          "role": "Background",
+          "assetId": "756d5125e980e4838801726ba57efcc7:21300000",
+          "startOffset": 0.0,
+          "duration": 16.0,
+          "fromX": 0.0,
+          "fromY": 0.0,
+          "toX": 0.0,
+          "toY": 0.0,
+          "fromAlpha": 1.0,
+          "toAlpha": 1.0,
+          "parallaxFactor": 1.0,
+          "sortingOrder": -50,
+          "tintR": 1.0,
+          "tintG": 1.0,
+          "tintB": 1.0,
+          "brightness": 1.0,
+          "loop": false,
+          "easing": "EaseInOut"
+        }
+      ],
+      "actorActions": [],
+      "dialogue": [],
+      "effects": [],
+      "audio": [
+        {
+          "audioId": "audio_preview",
+          "type": "Play",
+          "bus": "Sfx",
+          "assetId": "3820860ab8205481d880a99a045e0db2:8300000",
+          "startOffset": 0.0,
+          "duration": 16.0,
+          "volume": 0.8,
+          "targetVolume": 1.0,
+          "loop": false
+        }
+      ],
+      "events": [],
+      "shots": [
+        {
+          "shotId": "shot_main",
+          "startOffset": 0.0,
+          "duration": 16.0,
+          "shotType": "Establishing",
+          "framing": "Wide",
+          "intention": "A compact first pass using exact Catalog records in their declared placements. For a deeper establishing/action stack, continue with EXAMPLES/VALID_CINEMATIC_MULTILAYER_V5.json.",
+          "compositionTargetId": "actor_primary",
+          "continuity": {
+            "preserveScreenDirection": true,
+            "matchedEntityIds": []
+          },
+          "transitionIn": {
+            "transitionId": "plan_example_60_percent_transition_in",
+            "type": "HardCut",
+            "duration": 0.0,
+            "easing": "Linear"
+          },
+          "transitionOut": {
+            "transitionId": "plan_example_60_percent_transition_out",
+            "type": "HardCut",
+            "duration": 0.0,
+            "easing": "Linear"
+          },
+          "cameraActions": [
+            {
+              "actionId": "camera_hold",
+              "type": "Hold",
+              "startOffset": 0.0,
+              "duration": 16.0,
+              "targetEntityId": "",
+              "fromX": 0.0,
+              "fromY": 0.0,
+              "toX": 0.0,
+              "toY": 0.0,
+              "fromRotation": 0.0,
+              "toRotation": 0.0,
+              "fromOrthographicSize": 8.0,
+              "toOrthographicSize": 8.0,
+              "amplitude": 0.0,
+              "frequency": 0.0,
+              "easing": "Linear"
+            }
+          ],
+          "layerActions": [],
+          "actorActions": [
+            {
+              "actionId": "actor_primary_enter",
+              "type": "Enter",
+              "actorId": "actor_primary",
+              "startOffset": 0.5,
+              "duration": 1.5,
+              "x": -4.0,
+              "y": -1.0,
+              "rotation": 0.0,
+              "scaleX": 1.0,
+              "scaleY": 1.0,
+              "motionSpace": "AbsoluteStage",
+              "orientationMode": "PreserveRotation",
+              "animateScale": false,
+              "controlX": 0.0,
+              "controlY": 0.0,
+              "centerX": 0.0,
+              "centerY": 0.0,
+              "radiusX": 1.0,
+              "radiusY": 1.0,
+              "orbitDegrees": 360.0,
+              "speed": 1.0,
+              "sortingOrder": 0,
+              "flipX": false,
+              "flipY": false,
+              "loop": false,
+              "visualOnly": true,
+              "easing": "EaseInOut",
+              "keyframes": []
+            },
+            {
+              "actionId": "actor_primary_move",
+              "type": "Move",
+              "actorId": "actor_primary",
+              "startOffset": 3.0,
+              "duration": 6.0,
+              "x": 3.0,
+              "y": -1.0,
+              "rotation": 0.0,
+              "scaleX": 1.0,
+              "scaleY": 1.0,
+              "motionSpace": "AbsoluteStage",
+              "orientationMode": "PreserveRotation",
+              "animateScale": false,
+              "controlX": 0.0,
+              "controlY": 0.0,
+              "centerX": 0.0,
+              "centerY": 0.0,
+              "radiusX": 1.0,
+              "radiusY": 1.0,
+              "orbitDegrees": 360.0,
+              "speed": 1.0,
+              "sortingOrder": 0,
+              "flipX": false,
+              "flipY": false,
+              "loop": false,
+              "visualOnly": true,
+              "easing": "EaseInOut",
+              "keyframes": []
+            }
+          ],
+          "dialogue": [],
+          "effects": [
+            {
+              "effectId": "effect_visual_beat",
+              "type": "Fire",
+              "assetId": "ee43e040ed94c414ab737230b869e5d6:2143505766",
+              "startOffset": 8.0,
+              "duration": 2.0,
+              "x": 2.0,
+              "y": -1.0,
+              "rotation": 0.0,
+              "scaleX": 1.0,
+              "scaleY": 1.0,
+              "intensity": 1.0,
+              "loop": false,
+              "visualOnly": true
+            }
+          ],
+          "audio": [],
+          "events": []
+        }
+      ]
+    }
+  ],
+  "missingAssets": [],
+  "handoff": {
+    "enabled": true,
+    "time": 16.0,
+    "disableCutsceneRoot": true,
+    "events": []
+  },
+  "extensions": []
+}

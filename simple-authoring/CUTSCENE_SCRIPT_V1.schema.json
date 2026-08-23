@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "STARWARS_DELTA_CUTSCENE_SCRIPT_V1",
+  "title": "STARWARS_DELTA Cutscene Script V1",
+  "description": "Semantic cutscene authoring format. ChatGPT authors story, narrative identities, visible evidence and frame-relative composition. Unity owns CURRENT fingerprints, runtime IDs, presentation recovery, materialization routes, natural asset bounds and final V5 serialization.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "schemaVersion", "title", "durationSeconds", "beats"],
+  "properties": {
+    "schema": { "const": "STARWARS_DELTA_CUTSCENE_SCRIPT" },
+    "schemaVersion": { "const": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "durationSeconds": { "type": "number", "exclusiveMinimum": 0 },
+    "creativeIntent": { "type": "string" },
+    "cast": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "identityHandle"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
+          "identityHandle": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Semantic handle for the narrative/canonical identity. This is never silently replaced with another cast member's identity just to improve preview resolution."
+          },
+          "presentationHandle": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Optional preferred portrait/body/world presentation handle. A deterministic same-identity preview fallback may replace presentation, but must not change narrative identity."
+          },
+          "sameIdentityAs": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "description": "Explicit opt-in for an intentional shared identity/clone. Omit for distinct people."
+          },
+          "displayName": { "type": "string" }
+        }
+      }
+    },
+    "beats": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/beat" }
+    }
+  },
+  "$defs": {
+    "beat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
+        "type": {
+          "enum": [
+            "establishing",
+            "arrival",
+            "dialogue",
+            "battle",
+            "destruction",
+            "retreat",
+            "celebration",
+            "threat_reveal",
+            "launch",
+            "evacuation",
+            "transition",
+            "custom"
+          ]
+        },
+        "durationSeconds": { "type": "number", "exclusiveMinimum": 0 },
+        "locationHandle": { "type": "string" },
+        "storyClaim": { "type": "string" },
+        "visible": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/visibleElement" }
+        },
+        "actions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/action" }
+        },
+        "dialogue": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/dialogueLine" }
+        },
+        "camera": { "$ref": "#/$defs/camera" },
+        "evidence": {
+          "type": "string",
+          "description": "Plain-language statement of what Unity must visibly show to prove this beat happened. This is authoring/preflight evidence, not runtime behavior."
+        }
+      }
+    },
+    "visibleElement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "handle"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
+        "handle": { "type": "string", "minLength": 1 },
+        "count": { "type": "integer", "minimum": 1, "default": 1 },
+        "role": { "type": "string" },
+        "state": { "type": "string" },
+        "depth": { "enum": ["far", "background", "mid", "foreground", "ui"] },
+        "screenWidthFraction": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1.5,
+          "description": "Desired width relative to the CURRENT cutscene camera view. 0.10 means ten percent of visible frame width. Unity computes world scale from camera view bounds plus natural asset bounds. Values above 1 intentionally crop/overscan."
+        },
+        "screenHeightFraction": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1.5,
+          "description": "Optional desired height relative to visible frame height. Prefer screenWidthFraction unless height is the deliberate composition constraint."
+        },
+        "screenX": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Frame-relative horizontal center. 0=left edge, 0.5=center, 1=right edge."
+        },
+        "screenY": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Frame-relative vertical center. 0=bottom edge, 0.5=center, 1=top edge."
+        },
+        "enterFrom": { "enum": ["left", "right", "top", "bottom", "center", "reveal", "none"] },
+        "exitTo": { "enum": ["left", "right", "top", "bottom", "center", "hide", "destroy", "none"] }
+      }
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "subject"],
+      "properties": {
+        "type": {
+          "enum": [
+            "enter",
+            "move",
+            "formation",
+            "attack",
+            "fire",
+            "impact",
+            "destroy",
+            "exit",
+            "hide",
+            "reveal",
+            "react",
+            "hold",
+            "darken",
+            "brighten"
+          ]
+        },
+        "subject": { "type": "string" },
+        "target": { "type": "string" },
+        "viaHandle": { "type": "string" },
+        "effectHandle": { "type": "string" },
+        "count": { "type": "integer", "minimum": 1 },
+        "result": { "type": "string" }
+      }
+    },
+    "dialogueLine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["speaker", "text"],
+      "properties": {
+        "speaker": { "type": "string" },
+        "listener": { "type": "string" },
+        "text": { "type": "string", "minLength": 1 },
+        "mood": { "type": "string" }
+      }
+    },
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "framing": { "enum": ["extreme_wide", "wide", "medium", "close", "detail"] },
+        "movement": { "enum": ["hold", "push", "pull", "follow", "track", "cut"] },
+        "subject": { "type": "string" },
+        "purpose": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
+  "schemaVersion": 5,
+  "contextVersion": 3,
+  "contractRevision": "1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2",
+  "schemaHash": "0C8725A0029CBAB995F851B1D3188495CBEC6E1D3F6143D9355240448CD58734",
+  "contextId": "NEW_CUTSCENE_CONTEXT",
+  "catalogRevision": "7624991757430202061",
+  "projectId": "",
+  "planId": "plan_example_safe_fallback",
+  "baseRevision": 0,
+  "displayName": "Valid Safe Fallbacks",
+  "duration": 10.0,
+  "creativeIntent": {
+    "summary": "Optional decoration may be absent while Preview remains editable.",
+    "style": "Project-owned editable 2D cinematic",
+    "mood": "Designer-defined"
+  },
+  "selectedKits": [],
+  "cast": [],
+  "sequences": [
+    {
+      "sequenceId": "sequence_main",
+      "startTime": 0.0,
+      "duration": 10.0,
+      "intention": "Optional decoration may be absent while Preview remains editable.",
+      "layers": [],
+      "actorActions": [],
+      "dialogue": [],
+      "effects": [],
+      "audio": [],
+      "events": [],
+      "shots": [
+        {
+          "shotId": "shot_main",
+          "startOffset": 0.0,
+          "duration": 10.0,
+          "shotType": "Establishing",
+          "framing": "Wide",
+          "intention": "Optional decoration may be absent while Preview remains editable.",
+          "continuity": {
+            "preserveScreenDirection": true,
+            "matchedEntityIds": []
+          },
+          "transitionIn": {
+            "transitionId": "plan_example_safe_fallback_transition_in",
+            "type": "HardCut",
+            "duration": 0.0,
+            "easing": "Linear"
+          },
+          "transitionOut": {
+            "transitionId": "plan_example_safe_fallback_transition_out",
+            "type": "HardCut",
+            "duration": 0.0,
+            "easing": "Linear"
+          },
+          "cameraActions": [
+            {
+              "actionId": "camera_hold",
+              "type": "Hold",
+              "startOffset": 0.0,
+              "duration": 10.0,
+              "fromX": 0.0,
+              "fromY": 0.0,
+              "toX": 0.0,
+              "toY": 0.0,
+              "fromRotation": 0.0,
+              "toRotation": 0.0,
+              "fromOrthographicSize": 8.0,
+              "toOrthographicSize": 8.0,
+              "amplitude": 0.0,
+              "frequency": 0.0,
+              "easing": "Linear"
+            }
+          ],
+          "layerActions": [],
+          "actorActions": [],
+          "dialogue": [],
+          "effects": [
+            {
+              "effectId": "builtin_vignette",
+              "type": "Vignette",
+              "assetId": "",
+              "startOffset": 0.0,
+              "duration": 10.0,
+              "x": 0.0,
+              "y": 0.0,
+              "rotation": 0.0,
+              "scaleX": 1.0,
+              "scaleY": 1.0,
+              "intensity": 0.35,
+              "loop": false,
+              "visualOnly": true
+            }
+          ],
+          "audio": [],
+          "events": []
+        }
+      ]
+    }
+  ],
+  "missingAssets": [
+    {
+      "requestId": "missing_optional_decoration",
+      "role": "Optional Decoration",
+      "description": "No exact suitable decoration was found. The designer may add one in Unity.",
+      "blocking": false
+    }
+  ],
+  "handoff": {
+    "enabled": true,
+    "time": 10.0,
+    "disableCutsceneRoot": true,
+    "events": []
+  },
+  "extensions": []
+}

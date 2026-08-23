@@ -1,0 +1,1039 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_CURATION_SOURCE",
+  "schemaVersion": 1,
+  "curationVersion": "2026-08-14-wp3-film-preflight",
+  "entries": [
+    {
+      "curationId": "CUR_LESSON_045",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [],
+      "canonicalLessonId": "IB024",
+      "lesson": {
+        "id": "IB024",
+        "type": "PROTOCOL",
+        "title": "Raw evidence and curated teaching are separate stores",
+        "whenToUse": "Every validation/build failure, visual issue, or manual BAD/GOLDEN curation pass.",
+        "badPattern": "Rewrite a raw Unity case, paste a manually edited Learning ZIP back into the evidence inbox, or teach an unreviewed failure directly as an active lesson.",
+        "goodPattern": "Library Learning Case Inbox remains immutable raw evidence. Capture and deduplicate cases there; approved reusable lessons/manual cases live in the project-owned Curation source. Exports combine them without mutating raw cases.",
+        "lesson": "Evidence is immutable input; curation is reviewed project knowledge."
+      }
+    },
+    {
+      "curationId": "CUR_LESSON_046",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [
+        "case_10373cc597a4b6d0",
+        "case_d7ae533baa2d5fe9",
+        "case_75f178e12356001e"
+      ],
+      "canonicalLessonId": "IB044",
+      "lesson": {
+        "id": "IB044",
+        "type": "LEARNING_SYSTEM",
+        "title": "Learning evidence preserves contract identity and curation classification",
+        "whenToUse": "Capturing, exporting or reviewing raw failure cases and lessons across Cutscene contract revisions.",
+        "badPattern": "Aggressive dedupe removes distinct Error occurrences, or an old-contract failure is taught as if it proves the current contract is still broken.",
+        "goodPattern": "Dedupe by stable issue identity while preserving distinct occurrences. Keep sourceContractRevision and classify Current, Historical or ContractAgnostic; historical cases stay visible as evidence but do not become current-only authoring rules automatically.",
+        "lesson": "A useful failure is evidence about the contract that produced it, not timeless truth by default."
+      }
+    },
+    {
+      "curationId": "CUR_CASE_COLDTEST_V2_OLD_CONTRACT",
+      "entryType": "MANUAL_CASE",
+      "status": "Approved",
+      "activationPolicy": "HistoricalReference",
+      "sourceContractRevision": "637EAF25C983C65CB3B9A97F3C8D07B62AEC22D22069BCCCD6398E02330DF3E3",
+      "sourceCaseIds": [
+        "case_10373cc597a4b6d0"
+      ],
+      "manualCase": {
+        "title": "Cold Test V2 generated-target build failure",
+        "classification": "Contract/runtime mismatch",
+        "summary": "A package built under the previous contract reached generation and failed on generated UI target semantics. Keep as historical evidence; V2.1 changed ShowUi/HideUi ownership."
+      }
+    },
+    {
+      "curationId": "CUR_CASE_EMOTION_VOCABULARY",
+      "entryType": "MANUAL_CASE",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "FDB211C0E7C8A35AFC709B531D84635A41F3F0E51EDD368C4518367061AC31D6",
+      "sourceCaseIds": [
+        "case_d7ae533baa2d5fe9"
+      ],
+      "manualCase": {
+        "title": "Dialogue Emotion is not Dialogue Expression",
+        "classification": "Authoring contract trap",
+        "summary": "Determined is a DialogueExpression but not a DialogueEmotionV1. Emotion fields use Serious/Shock/Anger/Perplexed/Sad/Happy; expression fields keep Determined/Concerned/Relieved/etc."
+      }
+    },
+    {
+      "curationId": "CUR_CASE_BLACKBOX02_RUNTIME",
+      "entryType": "MANUAL_CASE",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "2CBF6EEA76A38203D01B558F7DCB6FB806B2483DA223ECE13DF147BEB9AB37AB",
+      "sourceCaseIds": [
+        "case_75f178e12356001e"
+      ],
+      "manualCase": {
+        "title": "Black Box 02 temporal state and Editor audio evaluation",
+        "classification": "Runtime architecture",
+        "summary": "Preview exposed actor/layer leakage, PlayableDirector initialization order risk and AudioSource.Play during GenerateAtomic/Evaluate. Runtime state must derive from time; Editor Evaluate never performs real playback."
+      }
+    },
+    {
+      "curationId": "CUR_CASE_BLACKBOX03_COMPOSITION",
+      "entryType": "MANUAL_CASE",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [],
+      "manualCase": {
+        "title": "Black Box 03 legal assets but unreadable black-hole story",
+        "classification": "Composition + normalization + diagnostics",
+        "summary": "Actor sizing improved, but a huge Midground layer dominated the scene and an unidentified gray square persisted. Separate semantic asset selection from layer normalization; every generated visual must be traceable."
+      }
+    },
+    {
+      "curationId": "CUR_CASE_BAKED_DIALOGUE_CONTENT",
+      "entryType": "MANUAL_CASE",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [],
+      "manualCase": {
+        "title": "Do not bake runtime dialogue content into generic backgrounds",
+        "classification": "Content architecture",
+        "summary": "Environment belongs in background art. Reusable frames stay empty. Speaker name, text, portraits and status/message content are rendered at runtime."
+      }
+    },
+    {
+      "curationId": "CUR_UPDATED_L001",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "StillRelevantLesson",
+      "sourceContractRevision": "2CBF6EEA76A38203D01B558F7DCB6FB806B2483DA223ECE13DF147BEB9AB37AB",
+      "sourceCaseIds": [
+        "case_0f5dbd1c901ad5da",
+        "case_f9a3ded59425e62a"
+      ],
+      "sourceCandidateId": "L001",
+      "priority": "P0",
+      "classification": [
+        "normalizer",
+        "validator",
+        "dialogue"
+      ],
+      "canonicalLessonId": "IB039",
+      "lesson": {
+        "id": "IB039",
+        "type": "BAD_TO_GOOD",
+        "title": "Dialogue identity repair must end in a validator-valid presentation",
+        "whenToUse": "A required speaker/listener portrait is incompatible with the Actor identity or unavailable.",
+        "badPattern": "Remove the bad portrait, claim Preview is repaired, then leave FACE_TO_FACE_PORTRAITS or COMMAND_SCREEN requiring that now-missing visual.",
+        "goodPattern": "Use exactly one visual source per participant. An explicit stage body wins and suppresses portrait fallback; when no body exists, try an exact same-identity compatible portrait, then use built-in participant fallback only when the selected preset explicitly exports allowsBuiltInParticipantFallback=true and the cast identity exists. Otherwise choose another exact compatible tuple/preset; if none is legal, return one clear blocker. Never silently downgrade to SUBTITLE_ONLY.",
+        "lesson": "Normalizer and Validator are one contract, not rival departments. A repair is complete only when the canonical validator accepts it."
+      }
+    },
+    {
+      "curationId": "CUR_UPDATED_L002",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "StillRelevantLesson",
+      "sourceContractRevision": "2CBF6EEA76A38203D01B558F7DCB6FB806B2483DA223ECE13DF147BEB9AB37AB",
+      "sourceCaseIds": [
+        "case_0f5dbd1c901ad5da"
+      ],
+      "sourceCandidateId": "L002",
+      "priority": "P0",
+      "classification": [
+        "authoring",
+        "identity",
+        "validator"
+      ],
+      "canonicalLessonId": "IB047",
+      "lesson": {
+        "id": "IB047",
+        "type": "IDENTITY",
+        "title": "Distinct narrative people require distinct preferred Actor identities",
+        "whenToUse": "Two or more named Person cast entries are authored.",
+        "badPattern": "Pilot and Commander resolve to different frames of the same Actor family/preferred identity.",
+        "goodPattern": "Resolve each distinct named person to a distinct Actor-primary preferred identity. Reuse the same identity only when intentionally representing the same narrative identity/clone.",
+        "lesson": "Cast is identity. Animation/action frames do not manufacture new people."
+      }
+    },
+    {
+      "curationId": "CUR_UPDATED_L003",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "StillRelevantLesson",
+      "sourceContractRevision": "2CBF6EEA76A38203D01B558F7DCB6FB806B2483DA223ECE13DF147BEB9AB37AB",
+      "sourceCaseIds": [
+        "manual_baked_dialogue_background"
+      ],
+      "sourceCandidateId": "L003",
+      "priority": "P0",
+      "classification": [
+        "visual-selection",
+        "dialogue",
+        "asset-authoring"
+      ],
+      "canonicalLessonId": "IB043",
+      "lesson": {
+        "id": "IB043",
+        "type": "CONTENT",
+        "title": "Dialogue backgrounds contain zero baked runtime dialogue content",
+        "whenToUse": "Choosing backgrounds, dialogue frames and communication-screen art.",
+        "badPattern": "Use an attractive baked image that already contains a speaker name, sentence, portrait or fixed message, then overlay live dialogue on top.",
+        "goodPattern": "Background = environment. Frame/container = blank reusable presentation. Speaker name, dialogue sentence, subtitle, runtime portrait and dynamic status content are rendered only by the runtime dialogue/UI system.",
+        "lesson": "A visually attractive asset is structurally wrong when it bakes content the runtime owns. Prefer explicit annotation/manual review; do not build an OCR empire for this."
+      }
+    },
+    {
+      "curationId": "CUR_UPDATED_L004",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "StillRelevantLesson",
+      "sourceContractRevision": "2CBF6EEA76A38203D01B558F7DCB6FB806B2483DA223ECE13DF147BEB9AB37AB",
+      "sourceCaseIds": [
+        "manual_vfx_primary_use_conflict"
+      ],
+      "sourceCandidateId": "L004",
+      "priority": "P0",
+      "classification": [
+        "catalog",
+        "effects",
+        "contract"
+      ],
+      "canonicalLessonId": "IB038",
+      "lesson": {
+        "id": "IB038",
+        "type": "PROTOCOL",
+        "title": "Every VFX type has one explicit procedural-or-asset-backed policy",
+        "whenToUse": "SpeedLines, Vignette, ScreenFlash, ColorFlash, Silhouette or Overlay.",
+        "badPattern": "Attach a Ui-primary generated support sprite to an Effect field, or leave assetId empty and rely on an undocumented gray fallback.",
+        "goodPattern": "SpeedLines, Vignette, ScreenFlash, ColorFlash, Silhouette and Overlay are canonical procedural built-ins and omit assetId. Other effect types require an exact Effect-primary asset or a visible diagnostic placeholder.",
+        "lesson": "No hidden assetId=\"\" -> gray sprite path, and no Ui-primary helper pretending to satisfy an Effect-primary destination."
+      }
+    },
+    {
+      "curationId": "CUR_UPDATED_L005",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "StillRelevantLesson",
+      "sourceContractRevision": "2CBF6EEA76A38203D01B558F7DCB6FB806B2483DA223ECE13DF147BEB9AB37AB",
+      "sourceCaseIds": [
+        "case_75f178e12356001e"
+      ],
+      "sourceCandidateId": "L005",
+      "priority": "P0",
+      "classification": [
+        "studio-ux",
+        "build"
+      ],
+      "canonicalLessonId": "IB048",
+      "lesson": {
+        "id": "IB048",
+        "type": "STUDIO_UX",
+        "title": "Editable Preview build is disabled cleanly during Play Mode",
+        "whenToUse": "The designer tries to rebuild while Unity is playing or changing Play Mode.",
+        "badPattern": "Start generation, throw a build failure, and save it as if the JSON were bad.",
+        "goodPattern": "Disable/refuse Build before generation with one concise state message; preserve the existing Cutscene and do not create a JSON learning failure.",
+        "lesson": "Known Editor state is UX, not archaeological evidence."
+      }
+    },
+    {
+      "curationId": "CUR_UPDATED_L006",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "StillRelevantLesson",
+      "sourceContractRevision": "2CBF6EEA76A38203D01B558F7DCB6FB806B2483DA223ECE13DF147BEB9AB37AB",
+      "sourceCaseIds": [
+        "manual_learning_case_dedupe_loss"
+      ],
+      "sourceCandidateId": "L006",
+      "priority": "P0",
+      "classification": [
+        "learning-system",
+        "dedupe"
+      ],
+      "canonicalLessonId": "IB044",
+      "lesson": {
+        "id": "IB044",
+        "type": "LEARNING_SYSTEM",
+        "title": "Learning evidence preserves stable issue occurrences and source contract identity",
+        "whenToUse": "Capturing and exporting raw failure cases across contract revisions.",
+        "badPattern": "Aggressive dedupe removes distinct Error occurrences, or an old failure is reviewed later without knowing which authoring contract produced it.",
+        "goodPattern": "Dedupe by stable issue identity including code + jsonPath + entity/line identity + message (with narrow special handling for duplicate auto-replacement reports). Keep sourceContractRevision and classify Current, StillRelevantLesson or HistoricalFixed.",
+        "lesson": "Two dialogue lines failing the same rule are two pieces of evidence. Old-contract failures stay evidence without masquerading as current regressions."
+      }
+    },
+    {
+      "curationId": "CUR_UPDATED_L007",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "StillRelevantLesson",
+      "sourceContractRevision": "2CBF6EEA76A38203D01B558F7DCB6FB806B2483DA223ECE13DF147BEB9AB37AB",
+      "sourceCaseIds": [
+        "case_75f178e12356001e"
+      ],
+      "sourceCandidateId": "L007",
+      "priority": "P0",
+      "classification": [
+        "authoring",
+        "placement",
+        "catalog"
+      ],
+      "canonicalLessonId": "IB049",
+      "lesson": {
+        "id": "IB049",
+        "type": "PLACEMENT",
+        "title": "Moving debris obeys Layer-vs-Actor placement truth",
+        "whenToUse": "Rocks, meteorites, projectiles or scenery need visible movement.",
+        "badPattern": "Put a Layer-only rock in cast[] merely because the story asks it to move.",
+        "goodPattern": "Use Layer Move/Parallax for Layer-primary scenery/debris. Use Actor actions only with an Actor-primary movable object.",
+        "lesson": "Movement does not override cutscenePrimaryUse."
+      }
+    },
+    {
+      "curationId": "CUR_UPDATED_L008",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "StillRelevantLesson",
+      "sourceContractRevision": "2CBF6EEA76A38203D01B558F7DCB6FB806B2483DA223ECE13DF147BEB9AB37AB",
+      "sourceCaseIds": [],
+      "sourceCandidateId": "L008",
+      "priority": "P1",
+      "classification": [
+        "spatial",
+        "proportions"
+      ],
+      "canonicalLessonId": "IB031",
+      "lesson": {
+        "id": "IB031",
+        "type": "PROTOCOL",
+        "title": "Unity owns semantic proportions; authored scale is a multiplier",
+        "whenToUse": "Placing humans, robots, fighters, rescue ships, capital ships, rocks or props in a world shot.",
+        "badPattern": "Give everything scale=1 and assume source pixel dimensions imply believable relative size, or compensate with arbitrary extreme scale values.",
+        "goodPattern": "Keep authored scale near 1. Runtime uses cutsceneProportionClass, cutsceneScaleBasis and cutsceneTargetScreenFraction separately for Human, Robot, Fighter, Shuttle/Ship, LargeShip, Projectile, Layer and UI categories.",
+        "sourceFile": "CASE_NOTES/015_BLACKBOX_IDENTITY_AND_PROPORTIONS.md",
+        "lesson": "Raw PNG dimensions never define cinematic world size. Low classification confidence is a review note, not permission to fall back to raw texture scale."
+      }
+    },
+    {
+      "curationId": "CUR_UPDATED_L009",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "StillRelevantLesson",
+      "sourceContractRevision": "2CBF6EEA76A38203D01B558F7DCB6FB806B2483DA223ECE13DF147BEB9AB37AB",
+      "sourceCaseIds": [],
+      "sourceCandidateId": "L009",
+      "priority": "P1",
+      "classification": [
+        "studio-ux",
+        "warnings"
+      ],
+      "canonicalLessonId": "IB050",
+      "lesson": {
+        "id": "IB050",
+        "type": "UX",
+        "title": "Blockers first; routine fallbacks are Info or grouped notes",
+        "whenToUse": "Validation produces blockers plus many review/fallback notes.",
+        "badPattern": "Let repeated not-human-reviewed, missing voice, Neutral-expression or empty project story notes bury the real blocker.",
+        "goodPattern": "Show REAL BLOCKERS first. Aggregate repeated review notes. Timed-text voice fallback, Neutral expression fallback, and empty project story idea when creativeIntent exists are Info-level guidance.",
+        "lesson": "A designer should understand the one thing preventing Preview before seeing optional polish notes."
+      }
+    },
+    {
+      "curationId": "CUR_UPDATED_L010",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "StillRelevantLesson",
+      "sourceContractRevision": "2CBF6EEA76A38203D01B558F7DCB6FB806B2483DA223ECE13DF147BEB9AB37AB",
+      "sourceCaseIds": [],
+      "sourceCandidateId": "L010",
+      "priority": "P1",
+      "classification": [
+        "anti-regression"
+      ],
+      "canonicalLessonId": "IB036",
+      "lesson": {
+        "id": "IB036",
+        "type": "PROTOCOL",
+        "title": "Generated Actor and Layer visibility is owner-bound and time deterministic",
+        "whenToUse": "World actors and Layer actions that appear only in one sequence or shot.",
+        "badPattern": "spawnWorldActor=true or a shot-local Layer Activate makes an object visible from time zero or lets it leak into later locations unless ChatGPT authors defensive cleanup everywhere.",
+        "goodPattern": "Generated actors start hidden. A visible world action implicitly activates once for its sequence unless explicitly hidden; Enter/Activate explicitly show; Exit/Deactivate hide. Sequence-owned layers live for the sequence; shot-local layers live for their shot unless they refer to a sequence-owned layer.",
+        "lesson": "Timeline state is derived from current time and owner interval, not callback history."
+      }
+    },
+    {
+      "curationId": "CUR_UPDATED_L011",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "StillRelevantLesson",
+      "sourceContractRevision": "2CBF6EEA76A38203D01B558F7DCB6FB806B2483DA223ECE13DF147BEB9AB37AB",
+      "sourceCaseIds": [],
+      "sourceCandidateId": "L011",
+      "priority": "P1",
+      "classification": [
+        "learning-system",
+        "governance"
+      ],
+      "canonicalLessonId": "IB046",
+      "lesson": {
+        "id": "IB046",
+        "type": "LEARNING_SYSTEM",
+        "title": "Classify teaching by source contract revision",
+        "whenToUse": "A lesson or failure was produced under an older Cutscene contract.",
+        "badPattern": "Teach an old contract failure as if it proves the current contract is still broken.",
+        "goodPattern": "Preserve sourceContractRevision and classify Current, Historical or ContractAgnostic. Historical cases stay visible as evidence but do not become current-only authoring rules automatically.",
+        "lesson": "A useful failure is evidence about the contract that produced it, not timeless truth by default."
+      }
+    },
+    {
+      "curationId": "CUR_UPDATED_L012",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "StillRelevantLesson",
+      "sourceContractRevision": "2CBF6EEA76A38203D01B558F7DCB6FB806B2483DA223ECE13DF147BEB9AB37AB",
+      "sourceCaseIds": [],
+      "sourceCandidateId": "L012",
+      "priority": "P0",
+      "classification": [
+        "architecture"
+      ],
+      "canonicalLessonId": "IB035",
+      "lesson": {
+        "id": "IB035",
+        "type": "ARCHITECTURE",
+        "title": "Catalog, authoring, normalization, validation and runtime share one executable truth",
+        "whenToUse": "Any rule that affects whether a Cutscene package is legal, repairable or renderable.",
+        "badPattern": "Teach ChatGPT one rule, repair to a second shape, validate against a third rule, then let runtime silently interpret a fourth.",
+        "goodPattern": "The exported contract is executable truth. A safe automatic repair either produces a canonical package that the same validator accepts and runtime interprets identically, or returns one clear blocker without leaving a half-repair.",
+        "lesson": "Do not add a repair that creates a new validator failure. Preserve proven migration/binding/UI-duration/rollback fixes while deleting contradictory fallback folklore."
+      }
+    },
+    {
+      "curationId": "CUR_MANUAL_BAKED_DIALOGUE_BACKGROUND",
+      "entryType": "MANUAL_CASE",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [],
+      "sourceCandidateFile": "CURATION_CANDIDATES/MANUAL_CASES/manual_baked_dialogue_background.json",
+      "manualCase": {
+        "caseId": "manual_baked_dialogue_background",
+        "title": "Dialogue/environment background candidates visibly contain baked speaker names and dialogue sentences even though the ru",
+        "classification": "visual-selection/problematic asset authoring",
+        "summary": "Dialogue/environment background candidates visibly contain baked speaker names and dialogue sentences even though the runtime Dialogue system is expected to populate that content dynamically.",
+        "requiredFix": "Environment/dialogue backgrounds contain zero baked runtime dialogue content. Use blank reusable UI frames separately; runtime owns speaker name, dialogue text, subtitle and dynamic portrait content.",
+        "antiRegression": ""
+      }
+    },
+    {
+      "curationId": "CUR_MANUAL_DIALOGUE_REPAIR_SELF_INVALIDATES",
+      "entryType": "MANUAL_CASE",
+      "status": "Approved",
+      "activationPolicy": "HistoricalFixed",
+      "sourceContractRevision": "2CBF6EEA76A38203D01B558F7DCB6FB806B2483DA223ECE13DF147BEB9AB37AB",
+      "sourceCaseIds": [
+        "case_0f5dbd1c901ad5da",
+        "case_f9a3ded59425e62a"
+      ],
+      "sourceCandidateFile": "CURATION_CANDIDATES/MANUAL_CASES/manual_dialogue_repair_self_invalidates.json",
+      "manualCase": {
+        "caseId": "manual_dialogue_repair_self_invalidates",
+        "title": "Identity-safe dialogue repair removes or replaces unproven cross-character portraits, but the repaired package remains F",
+        "classification": "CROSS_LAYER_CONTRACT_FAILURE",
+        "summary": "Identity-safe dialogue repair removes or replaces unproven cross-character portraits, but the repaired package remains FACE_TO_FACE_PORTRAITS with required fixed portraits absent; validation then blocks the same package.",
+        "requiredFix": "Normalization must select exact same-identity compatible visuals, an explicitly legal built-in fallback, or another compatible dialogue tuple. If none is legal, return one clear blocker instead of an invalid repaired package.",
+        "antiRegression": "A package declared repaired/normalized for Preview must pass the same canonical validator rules immediately afterward."
+      }
+    },
+    {
+      "curationId": "CUR_MANUAL_LEARNING_CASE_DEDUPE_LOSS",
+      "entryType": "MANUAL_CASE",
+      "status": "Approved",
+      "activationPolicy": "HistoricalFixed",
+      "sourceContractRevision": "2CBF6EEA76A38203D01B558F7DCB6FB806B2483DA223ECE13DF147BEB9AB37AB",
+      "sourceCaseIds": [],
+      "sourceCandidateFile": "CURATION_CANDIDATES/MANUAL_CASES/manual_learning_case_dedupe_loss.json",
+      "manualCase": {
+        "caseId": "manual_learning_case_dedupe_loss",
+        "title": "Repair context reports two CUTSCENE_DIALOGUE_PORTRAIT_COUNT_INVALID blockers, one for bb02_line_01 and one for bb02_line",
+        "classification": "LEARNING_SYSTEM_EVIDENCE_LOSS",
+        "summary": "Repair context reports two CUTSCENE_DIALOGUE_PORTRAIT_COUNT_INVALID blockers, one for bb02_line_01 and one for bb02_line_02, while the exported current validation cases retain only one portrait-count occurrence.",
+        "requiredFix": "Preserve distinct issue occurrences using code + jsonPath + entityId/lineId + message (or equivalent stable identity), rather than collapsing by code/category.",
+        "antiRegression": ""
+      }
+    },
+    {
+      "curationId": "CUR_MANUAL_VFX_PRIMARY_USE_CONFLICT",
+      "entryType": "MANUAL_CASE",
+      "status": "Approved",
+      "activationPolicy": "HistoricalFixed",
+      "sourceContractRevision": "2CBF6EEA76A38203D01B558F7DCB6FB806B2483DA223ECE13DF147BEB9AB37AB",
+      "sourceCaseIds": [],
+      "sourceCandidateFile": "CURATION_CANDIDATES/MANUAL_CASES/manual_vfx_primary_use_conflict.json",
+      "manualCase": {
+        "caseId": "manual_vfx_primary_use_conflict",
+        "title": "Canonical support assets for SpeedLines, Vignette and ScreenFlash are surfaced with Cutscene.VFX capabilities but Ui-pri",
+        "classification": "CATALOG_CONTRACT_GAP",
+        "summary": "Canonical support assets for SpeedLines, Vignette and ScreenFlash are surfaced with Cutscene.VFX capabilities but Ui-primary metadata while authoring rules say effect destinations require Effect-primary records. Generated effects can therefore remain with empty assetId and produce avoidable warnings.",
+        "requiredFix": "For every effect type, define whether it is procedural or asset-backed. Asset-backed canonical helpers must have primary-use/destination metadata that matches effect authoring; procedural effects must not require an asset during validation.",
+        "antiRegression": ""
+      }
+    },
+    {
+      "curationId": "CUR_V27_DIALOGUE_DEPTH",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "Current",
+      "sourceContractRevision": "2BA35EAB50BB921D1E78B475846510E77D8B02E47A9EF37A5E9B1F102A134495",
+      "sourceCaseIds": [],
+      "priority": "P0",
+      "classification": [
+        "dialogue",
+        "visual-staging",
+        "body-parts",
+        "composition"
+      ],
+      "canonicalLessonId": "IB011",
+      "lesson": {
+        "id": "IB011",
+        "type": "PATTERN",
+        "title": "Two-person dialogue uses speaker-forward visual hierarchy",
+        "whenToUse": "Standard two-person dialogue, briefing or face-to-face exchange.",
+        "badPattern": "Give speaker and listener equal visual weight or manually stack them at the same depth.",
+        "goodPattern": "Use one speaker + one listener and a legal current dialogue tuple. Leave distance fields empty by default: V2.7 foregrounds the active speaker and keeps the listener smaller/behind while remaining readable. Rotate the pair when the speaker changes.",
+        "sourceFile": "CASE_NOTES/031_DIALOGUE_DEPTH_AND_TACTICAL_DATA_INSET.md",
+        "lesson": "The active speaker owns the foreground. The listener supports the exchange rather than competing for the same visual weight."
+      }
+    },
+    {
+      "curationId": "CUR_V27_TACTICAL_DATA_INSET",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "Current",
+      "sourceContractRevision": "2BA35EAB50BB921D1E78B475846510E77D8B02E47A9EF37A5E9B1F102A134495",
+      "sourceCaseIds": [],
+      "priority": "P0",
+      "classification": [
+        "ui",
+        "radar",
+        "dialogue",
+        "briefing"
+      ],
+      "canonicalLessonId": "IB022",
+      "lesson": {
+        "id": "IB022",
+        "type": "BAD_TO_GOOD",
+        "title": "ShowUi tactical content is a compact data-support inset",
+        "whenToUse": "Radar, scanner, targeting or tactical information appears during a shot or dialogue beat.",
+        "badPattern": "Put a large generic UI rectangle in the center of the frame or let tactical UI become the accidental focal object.",
+        "goodPattern": "ShowUi uses an exact Ui-primary asset and deterministic ShowUi/HideUi ownership. Radar/tactical/scanner visuals use the compact upper-right data-inset placement by default and may support a dialogue/briefing shot without covering the active speaker.",
+        "sourceFile": "CASE_NOTES/031_DIALOGUE_DEPTH_AND_TACTICAL_DATA_INSET.md",
+        "lesson": "Tactical UI is semantic data support, not random world geometry and not a substitute for shot composition."
+      }
+    },
+    {
+      "curationId": "CUR_V27_PROPORTION_SAFETY",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "Current",
+      "sourceContractRevision": "2BA35EAB50BB921D1E78B475846510E77D8B02E47A9EF37A5E9B1F102A134495",
+      "sourceCaseIds": [],
+      "priority": "P0",
+      "classification": [
+        "proportions",
+        "ships",
+        "vfx",
+        "composition"
+      ],
+      "canonicalLessonId": "IB031",
+      "lesson": {
+        "id": "IB031",
+        "type": "PROTOCOL",
+        "title": "Unity owns semantic proportions; V2.7 uses conservative ship and VFX safety baselines",
+        "whenToUse": "Placing humans, robots, fighters, ships, capital ships or world VFX.",
+        "badPattern": "Compensate for PNG dimensions with arbitrary extreme scale or make every ship/effect compete for most of the frame.",
+        "goodPattern": "Keep authored scale close to 1. Unity applies semantic screen-space baselines. Ordinary fighters/ships stay compact; capital/fleet actors remain larger but normally below half-frame height; Glow/MuzzleFlash/Sparks are restrained accents and Explosion/Impact remain bounded.",
+        "sourceFile": "CASE_NOTES/032_V27_VISUAL_SAFETY_FROM_REAL_QA.md",
+        "lesson": "Background establishes the world; actors remain readable within it; VFX supports the action instead of becoming the action by accident."
+      }
+    },
+    {
+      "curationId": "CUR_V27_UNKNOWN_VISUAL_TRACE",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "Current",
+      "sourceContractRevision": "2BA35EAB50BB921D1E78B475846510E77D8B02E47A9EF37A5E9B1F102A134495",
+      "sourceCaseIds": [],
+      "priority": "P1",
+      "classification": [
+        "diagnostics",
+        "visual-qa",
+        "generated-content"
+      ],
+      "canonicalLessonId": "IB041",
+      "lesson": {
+        "id": "IB041",
+        "type": "DIAGNOSTICS",
+        "title": "Every generated visual must be traced before it is cosmetically fixed",
+        "whenToUse": "Any unexplained square, overlay, actor, Layer, VFX or UI object appears in Editable Preview.",
+        "badPattern": "Guess that an unexplained gray rectangle is Radar/Glow/Vignette and hard-code a workaround around the guess.",
+        "goodPattern": "Trace generated debug metadata back to category, source action/event/entity ID, assetId, semantic type/preset and owner. Yellow unresolved placeholders remain explicit; unknown non-placeholder visuals are diagnosed before changing content.",
+        "sourceFile": "CASE_NOTES/033_UNKNOWN_VISUALS_REQUIRE_TRACE.md",
+        "lesson": "Do not teach ChatGPT folklore from an unidentified visual artifact. First establish what generated it."
+      }
+    },
+    {
+      "curationId": "CUR_V3_CAST_ACTOR_PRIMARY",
+      "entryType": "REFERENCE",
+      "status": "Approved",
+      "activationPolicy": "Current",
+      "sourceContractRevision": "3BE709BD8B9143E9E6F52BDADAF1671F15B60805CC7DB33D34A2AC38D08072A1",
+      "sourceCaseIds": [
+        "case_46e0998e8cf99315",
+        "case_89e0191c5b011067",
+        "case_ff38d46cd5f54994"
+      ],
+      "priority": "P0",
+      "classification": [
+        "identity",
+        "catalog",
+        "v3-compiler"
+      ],
+      "lesson": {
+        "id": "IB004",
+        "v3InvariantId": "LESSON_V3_CAST_ACTOR_PRIMARY",
+        "type": "BAD_TO_GOOD",
+        "title": "Cast identity is Actor-primary",
+        "whenToUse": "Selecting cast[].visualAssetId for any world actor or dialogue participant.",
+        "badPattern": "Use a Ui-primary portrait/body/frame as cast identity, or guess another asset ID from a filename.",
+        "goodPattern": "Filter candidates by exact destination legality first; cast identity may resolve only to an Actor-primary record.",
+        "lesson": "Cast identity is Actor-primary; Ui-primary presentation assets never become cast.visualAssetId.",
+        "rootCause": "Candidate selection ignored the destination's exact cutscenePrimaryUse.",
+        "canonicalRule": "cast[].visualAssetId must resolve to a record whose cutscenePrimaryUse == Actor.",
+        "expectedDiagnostic": "CUTSCENE_CAST_PRIMARY_USE_INVALID",
+        "compilerInvariant": "V3 materialization filters to exact Actor-primary candidates before assigning cast.visualAssetId.",
+        "regressionTestReference": "CutsceneV3LearningInvariantTests.ActorPrimaryCast_PassesAndFiltersUiPrimaryCandidate; UiPrimaryCast_FailsWithoutEmittingUiIdentity",
+        "provenance": "Current cases 46e0998e8cf99315, 89e0191c5b011067 and ff38d46cd5f54994 represent one repeated root cause.",
+        "confidence": "High",
+        "badExcerpt": "cast[Commander Arden].visualAssetId -> Ui-primary record",
+        "goldenExcerpt": "cast[speaker].visualAssetId -> Actor-primary record"
+      }
+    },
+    {
+      "curationId": "CUR_V3_LOCKED_DIALOGUE_STATIC",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "Current",
+      "sourceContractRevision": "3BE709BD8B9143E9E6F52BDADAF1671F15B60805CC7DB33D34A2AC38D08072A1",
+      "sourceCaseIds": [
+        "case_46e0998e8cf99315",
+        "case_89e0191c5b011067",
+        "case_ff38d46cd5f54994",
+        "case_d3748a6dda36334e"
+      ],
+      "priority": "P0",
+      "classification": [
+        "dialogue",
+        "camera",
+        "v3-compiler"
+      ],
+      "lesson": {
+        "id": "IB006",
+        "v3InvariantId": "LESSON_V3_LOCKED_DIALOGUE_STATIC",
+        "type": "BAD_TO_GOOD",
+        "title": "Locked dialogue is static by construction",
+        "whenToUse": "Any dialogue line whose stage.lockStaging is true.",
+        "badPattern": "Author actorActions or Push, Pull, Zoom, Pan, Follow, Track, Focus, Drift or Shake as base camera motion.",
+        "goodPattern": "Emit actorActions=[] and a static Hold or supported cut-based Snap camera.",
+        "lesson": "Lock staging means the V3 materializer emits no actor motion and only legal static/cut camera behavior.",
+        "rootCause": "Locked dialogue constraints were applied after authoring instead of shaping the materialized shot.",
+        "canonicalRule": "stage.lockStaging=true requires empty owning shot.actorActions and static Hold or supported Snap camera.",
+        "expectedDiagnostic": "CUTSCENE_DIALOGUE_CAMERA_MOTION_FORBIDDEN",
+        "compilerInvariant": "V3 rejects non-empty actorActions and filters forbidden moving camera actions before emission.",
+        "regressionTestReference": "CutsceneV3LearningInvariantTests.LockedDialogueWithActorActions_Fails; LockedDialogueWithHoldCamera_Passes; LockedDialogueWithMovingCamera_Fails",
+        "provenance": "The same current camera-motion failure repeats in four raw cases.",
+        "confidence": "High",
+        "badExcerpt": "lockStaging=true + actorActions=[Hold] + cameraActions=[Push]",
+        "goldenExcerpt": "lockStaging=true + actorActions=[] + cameraActions=[Hold]"
+      }
+    },
+    {
+      "curationId": "CUR_V3_FACE_TO_FACE_DIALOGUE_ONLY",
+      "entryType": "REFERENCE",
+      "status": "Approved",
+      "activationPolicy": "HistoricalFixed",
+      "sourceContractRevision": "3BE709BD8B9143E9E6F52BDADAF1671F15B60805CC7DB33D34A2AC38D08072A1",
+      "sourceCaseIds": [
+        "case_065dc5a4b2e63bdc"
+      ],
+      "priority": "P0",
+      "classification": [
+        "dialogue",
+        "presentation",
+        "v3-compiler"
+      ],
+      "lesson": {
+        "id": "IB032",
+        "v3InvariantId": "LESSON_V3_FACE_TO_FACE_DIALOGUE_ONLY",
+        "type": "BAD_TO_GOOD",
+        "title": "FACE_TO_FACE_PORTRAITS is dialogue-only presentation",
+        "whenToUse": "A locked FACE_TO_FACE_PORTRAITS dialogue line is materialized.",
+        "badPattern": "Set the same cast participants to spawnWorldActor=true and reuse those entries for face-to-face portraits.",
+        "goodPattern": "Use spawnWorldActor=false dialogue-only participants, legal portraits, actorActions=[] and Hold camera. Keep any separate world actor outside those participants.",
+        "lesson": "Dialogue-only portrait representation and spawned world representation are separate ownership modes.",
+        "rootCause": "The Ghost Ship case reused world-actor cast entries as dialogue presentation participants.",
+        "canonicalRule": "FACE_TO_FACE_PORTRAITS participants must not resolve through cast entries authored with spawnWorldActor=true.",
+        "expectedDiagnostic": "DIALOGUE_ACTOR_PRESENTATION_CONFLICT",
+        "compilerInvariant": "V3 rejects a world-spawned participant before face-to-face dialogue presentation is emitted.",
+        "regressionTestReference": "CutsceneV3LearningInvariantTests.FaceToFaceWithWorldSpawnedParticipant_Fails; GoldenFaceToFaceDialogueOnlyParticipants_Passes",
+        "provenance": "Ghost Ship current case 065dc5a4b2e63bdc is deduplicated across its repeated dialogue lines.",
+        "confidence": "High",
+        "badExcerpt": "ghost_lead.spawnWorldActor=true + FACE_TO_FACE_PORTRAITS(ghost_lead, ghost_officer)",
+        "goldenExcerpt": "bb02_pilot.spawnWorldActor=false; bb02_commander.spawnWorldActor=false; FACE_TO_FACE_PORTRAITS + Hold"
+      }
+    },
+    {
+      "curationId": "CUR_V3_FACE_TO_FACE_SHOT_ISOLATION",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "Current",
+      "sourceContractRevision": "3BE709BD8B9143E9E6F52BDADAF1671F15B60805CC7DB33D34A2AC38D08072A1",
+      "sourceCaseIds": [
+        "case_065dc5a4b2e63bdc"
+      ],
+      "priority": "P0",
+      "classification": [
+        "dialogue",
+        "presentation",
+        "v3-compiler",
+        "temporal-isolation"
+      ],
+      "lesson": {
+        "id": "IB051",
+        "v3InvariantId": "LESSON_V3_FACE_TO_FACE_SHOT_ISOLATION",
+        "type": "BAD_TO_GOOD",
+        "title": "FACE_TO_FACE presentation is isolated per shot",
+        "whenToUse": "A locked FACE_TO_FACE_PORTRAITS dialogue line is materialized.",
+        "badPattern": "Globally forbid FACE_TO_FACE participants from cast entries with spawnWorldActor=true, or allow a world route to remain active during the portrait shot.",
+        "goodPattern": "Use DialoguePortrait for portrait-only actors, WorldActor for world-only actors, and explicitly authored Both (presentationMode=Both, spawnWorldActor=true) when world-action and portrait intervals are temporally isolated. Put world action before/after the locked dialogue shot; during FACE_TO_FACE use actorActions=[] and Hold or supported cut-based framing.",
+        "lesson": "Locked FACE_TO_FACE requires portrait-only presentation during that shot. An actor may use an explicitly authored Both presentation in other world-action shots, but world and portrait representations must never overlap.",
+        "rootCause": "The Ghost Ship case proved a world/portrait conflict, but the prior lesson incorrectly generalized that failure into a global ban on world-capable or Both actors.",
+        "canonicalRule": "FACE_TO_FACE participants must be DialoguePortrait or explicitly authored Both; Both is legal only when world actions, lifecycle, and renderer activity do not overlap the locked dialogue interval. Never infer Both.",
+        "expectedDiagnostic": "DIALOGUE_ACTOR_PRESENTATION_CONFLICT",
+        "compilerInvariant": "V3 accepts DialoguePortrait and temporally isolated Both, rejects WorldActor and overlapping Both, and preserves locked actorActions/camera constraints.",
+        "regressionTestReference": "CutsceneV3LearningInvariantTests.DialoguePortraitWithFaceToFace_Passes; WorldActorWithFaceToFace_Fails; BothWithWorldActionBeforeDialogueAndPortraitDuringDialogue_Passes; BothWithWorldActionOverlappingDialogue_Fails",
+        "provenance": "Supersedes the old active lesson while preserving raw case_065dc5a4b2e63bdc as failure evidence.",
+        "confidence": "High",
+        "badExcerpt": "ghost_lead.spawnWorldActor=true + FACE_TO_FACE_PORTRAITS(ghost_lead, ghost_officer) is evidence of overlap, not proof that every world-capable actor is globally forbidden.",
+        "goldenExcerpt": "actor.presentationMode=Both; world action before the locked dialogue shot; FACE_TO_FACE_PORTRAITS uses portraits, actorActions=[], and Hold during the dialogue shot."
+      }
+    },
+    {
+      "curationId": "CUR_V3_DIALOGUE_SINGLE_VISUAL_SOURCE",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "Current",
+      "sourceContractRevision": "3BE709BD8B9143E9E6F52BDADAF1671F15B60805CC7DB33D34A2AC38D08072A1",
+      "sourceCaseIds": [
+        "case_44575fe895549d80"
+      ],
+      "priority": "P0",
+      "classification": [
+        "dialogue",
+        "visual-source",
+        "v3-compiler"
+      ],
+      "lesson": {
+        "id": "IB039",
+        "v3InvariantId": "LESSON_V3_DIALOGUE_SINGLE_VISUAL_SOURCE",
+        "type": "BAD_TO_GOOD",
+        "title": "Each dialogue participant has one primary visual source",
+        "whenToUse": "Supplying a visible speaker or listener body/portrait.",
+        "badPattern": "Supply portrait and body for the same participant.",
+        "goodPattern": "Supply portrait only or body only. An explicit body is authoritative and suppresses portrait fallback.",
+        "lesson": "One visible participant, one primary visual source.",
+        "rootCause": "Materialization treated portrait and body as additive instead of mutually exclusive sources.",
+        "canonicalRule": "A participant must have portrait XOR body, never both.",
+        "expectedDiagnostic": "DIALOGUE_VISUAL_SOURCE_CONFLICT",
+        "compilerInvariant": "V3 rejects a participant with both source fields and emits only the selected source.",
+        "regressionTestReference": "CutsceneV3LearningInvariantTests.PortraitAndBodyConflict_Fails",
+        "provenance": "Current case 44575fe895549d80 repeats the conflict for four dialogue lines.",
+        "confidence": "High",
+        "badExcerpt": "speakerPortraitAssetId + stage.speakerBodyAssetId",
+        "goldenExcerpt": "speakerPortraitAssetId only, or stage.speakerBodyAssetId only"
+      }
+    },
+    {
+      "curationId": "CUR_V3_SUBTITLE_ONLY_NO_PORTRAIT",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "Current",
+      "sourceContractRevision": "3BE709BD8B9143E9E6F52BDADAF1671F15B60805CC7DB33D34A2AC38D08072A1",
+      "sourceCaseIds": [
+        "case_d3748a6dda36334e"
+      ],
+      "priority": "P0",
+      "classification": [
+        "dialogue",
+        "presentation",
+        "v3-compiler"
+      ],
+      "lesson": {
+        "id": "IB021",
+        "v3InvariantId": "LESSON_V3_SUBTITLE_ONLY_NO_PORTRAIT",
+        "type": "BAD_TO_GOOD",
+        "title": "SUBTITLE_ONLY remains subtitle-only",
+        "whenToUse": "A line uses the SUBTITLE_ONLY presentation preset.",
+        "badPattern": "Attach speaker/listener portrait or body visuals to SUBTITLE_ONLY, or silently change another presentation to make it pass.",
+        "goodPattern": "Emit SUBTITLE_ONLY with no participant visual source; choose a compatible visual preset if portraits are required.",
+        "lesson": "Presentation preset semantics are enforced, not negotiated away during repair.",
+        "rootCause": "A visual source was retained after the line's preset had declared participant visuals unsupported.",
+        "canonicalRule": "SUBTITLE_ONLY must not carry speaker/listener portrait or body fields.",
+        "expectedDiagnostic": "DIALOGUE_VISUAL_SOURCE_UNSUPPORTED",
+        "compilerInvariant": "V3 rejects unsupported participant visuals and never silently downgrades the presentation preset.",
+        "regressionTestReference": "CutsceneV3LearningInvariantTests.SubtitleOnlyWithPortrait_Fails; SubtitleOnlyWithoutParticipantVisual_Passes",
+        "provenance": "Current case d3748a6dda36334e contains the direct unsupported-portrait diagnostic.",
+        "confidence": "High",
+        "badExcerpt": "presentation=SUBTITLE_ONLY + speakerPortraitAssetId",
+        "goldenExcerpt": "presentation=SUBTITLE_ONLY + no portrait/body fields"
+      }
+    },
+    {
+      "curationId": "CUR_V3_ANIMATION_EXACT_COMPATIBILITY",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "Current",
+      "sourceContractRevision": "3BE709BD8B9143E9E6F52BDADAF1671F15B60805CC7DB33D34A2AC38D08072A1",
+      "sourceCaseIds": [
+        "case_44575fe895549d80",
+        "case_88907381b79b6b67"
+      ],
+      "priority": "P0",
+      "classification": [
+        "animation",
+        "compatibility",
+        "v3-compiler"
+      ],
+      "lesson": {
+        "id": "IB003",
+        "v3InvariantId": "LESSON_V3_ANIMATION_EXACT_COMPATIBILITY",
+        "type": "PROTOCOL",
+        "title": "PlayAnimation requires exact Actor compatibility",
+        "whenToUse": "Authoring a PlayAnimation action or cast animation list.",
+        "badPattern": "Infer compatibility from name, filename, folder, package, actor family or visual similarity.",
+        "goodPattern": "Emit PlayAnimation only when the exact animationAssetId appears in the exact Actor record's compatibleAnimationIds. Otherwise omit the animation and use Move/Hold when legal.",
+        "lesson": "Compatibility is an exact catalog relationship, not a visual guess.",
+        "rootCause": "Animation selection used unproven semantic similarity instead of exact compatibility metadata.",
+        "canonicalRule": "PlayAnimation is legal only for an exact ID in the exact Actor compatibleAnimationIds list.",
+        "expectedDiagnostic": "CUTSCENE_IRONCLAD_ANIMATION_OMITTED / CUTSCENE_IRONCLAD_ANIMATION_FALLBACK",
+        "compilerInvariant": "V3 never emits an incompatible PlayAnimation action; it rejects/omits it deterministically.",
+        "regressionTestReference": "CutsceneV3LearningInvariantTests.CompatiblePlayAnimation_Passes; IncompatiblePlayAnimation_CannotBeEmitted",
+        "provenance": "Current cases 44575fe895549d80 and 88907381b79b6b67 repeat omitted/fallback animation evidence.",
+        "confidence": "High",
+        "badExcerpt": "Actor compatibleAnimationIds=[idle] + PlayAnimation(animationAssetId=run)",
+        "goldenExcerpt": "Actor compatibleAnimationIds=[run] + PlayAnimation(animationAssetId=run)"
+      }
+    },
+    {
+      "curationId": "CUR_V3_SEMANTIC_DIRECTING_INTENT",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "Current",
+      "sourceContractRevision": "2BA35EAB50BB921D1E78B475846510E77D8B02E47A9EF37A5E9B1F102A134495",
+      "sourceCaseIds": [
+        "case_v3_semantic_compiler_first_pass"
+      ],
+      "priority": "P0",
+      "classification": [
+        "directing",
+        "semantic-ir",
+        "v3-compiler"
+      ],
+      "lesson": {
+        "id": "IB052",
+        "v3InvariantId": "LESSON_V3_SEMANTIC_DIRECTING_INTENT",
+        "type": "PROTOCOL",
+        "title": "Directing intent compiles through a semantic firewall",
+        "whenToUse": "Expressing shot purpose, camera intent, composition, motion, dialogue tone or dialogue pace in V3 authoring.",
+        "badPattern": "Write semantic directing words directly into CURRENT shotType, cameraAction, actorAction or dialogue enum fields, or invent a value when CURRENT has no exact enum.",
+        "goodPattern": "Author only the V3 semantic vocabulary; let the deterministic CURRENT compiler choose legal CURRENT values, record any fallback, and preserve sequence/shot/intent provenance.",
+        "lesson": "Semantic intent describes what the audience should feel and see; the CURRENT compiler owns how that intent is serialized into the closed production contract.",
+        "rootCause": "Authoring and serialization vocabularies were treated as one enum space.",
+        "canonicalRule": "No semantic enum value may be emitted unchecked into a CURRENT serialization field; every mapping must be legal or fail deterministically.",
+        "expectedDiagnostic": "V3_SEMANTIC_UNKNOWN_INTENT / V3_CURRENT_ENUM_ILLEGAL",
+        "compilerInvariant": "The V3 compiler validates semantic input, maps to current enum definitions, rejects unknown intents, and emits provenance for mapping and fallback decisions.",
+        "regressionTestReference": "CutsceneV3SemanticCurrentCompilerTests.SemanticImpact_ProducesLegalCurrentShotType; UnknownSemanticIntent_FailsDeterministically; CompilerNeverEmitsUnknownCurrentEnum",
+        "provenance": "First-pass V3 semantic IR compiler contract and focused deterministic tests.",
+        "confidence": "High",
+        "badExcerpt": "shotType=IMPACT or cameraAction=FOLLOW when those are not CURRENT enum values",
+        "goldenExcerpt": "shotIntent=IMPACT + cameraIntent=FOLLOW -> legal CURRENT shotType/cameraAction with compiler provenance"
+      }
+    },
+    {
+      "curationId": "CUR_MARS_CAFE_FILM_PREFLIGHT",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [
+        "MARS_CAFE_HOMECOMING_V1_BAD"
+      ],
+      "sourceFile": "Assets/_Game/MY_Core/MY_Cutscenes/InstructionBook/CASE_NOTES/034_MARS_CAFE_BAD_EVIDENCE_AND_GOLDEN_GATE.md",
+      "canonicalLessonId": "IB001",
+      "lesson": {
+        "id": "IB001",
+        "type": "PROTOCOL",
+        "title": "Story first, visual world and audio preflight before JSON",
+        "whenToUse": "Every new narrative Cutscene request before final JSON is emitted.",
+        "badPattern": "Start filling schema fields mechanically, use equal-duration shot blocks, and omit the Audio pass while available assets dictate the story.",
+        "goodPattern": "Write the beginning state, dramatic change, ending state, audience feeling, shot purpose and camera intent in plain language first. Build one visual world, vary shot rhythm by dramatic function, perform an Audio pass when suitable CURRENT clips exist, then select exact IDs and serialize only after film preflight and contract validation.",
+        "lesson": "JSON is the serialization of a coherent film plan; story, rhythm, visual continuity and Audio come first."
+      }
+    },
+    {
+      "curationId": "CUR_MARS_CAFE_VISUAL_WORLD",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [
+        "MARS_CAFE_HOMECOMING_V1_BAD"
+      ],
+      "sourceFile": "Assets/_Game/MY_Core/MY_Cutscenes/InstructionBook/CASE_NOTES/034_MARS_CAFE_BAD_EVIDENCE_AND_GOLDEN_GATE.md",
+      "canonicalLessonId": "IB023",
+      "lesson": {
+        "id": "IB023",
+        "type": "VISUAL_SELECTION",
+        "title": "Exact identity still requires one coherent visual world",
+        "whenToUse": "Selecting any important background, environment, actor, ship or effect after exact Catalog eligibility is known.",
+        "badPattern": "Use a keyword-perfect or filename-perfect asset without inspecting its Atlas pixels, even when its style, view angle, perspective, lighting, composition or runtime form breaks the requested world.",
+        "goodPattern": "Inspect important assets as pixels and verify visualStyle, view angle/perspective, orientation, lighting, location/environment continuity, composition and scale relationship. Prefer a slightly less literal asset that belongs to the same visual world over a top-down or concept/reference visual inserted into an eye-level painterly shot. Confirm the requested role has a usable world-actor form and capability before authoring.",
+        "lesson": "Exact IDs and real pixels are necessary but insufficient; location, style, perspective and runtime-form continuity outrank literal filename matches."
+      }
+    },
+    {
+      "curationId": "CUR_MARS_CAFE_SPATIAL_COMPOSITION",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [
+        "MARS_CAFE_HOMECOMING_V1_BAD"
+      ],
+      "sourceFile": "Assets/_Game/MY_Core/MY_Cutscenes/InstructionBook/CASE_NOTES/034_MARS_CAFE_BAD_EVIDENCE_AND_GOLDEN_GATE.md",
+      "canonicalLessonId": "IB027",
+      "lesson": {
+        "id": "IB027",
+        "type": "BAD_TO_GOOD",
+        "title": "Unity owns spatial composition and Background Cover",
+        "whenToUse": "Authoring Background, FarBackground, world actors, camera motion or generated ShowUi visuals.",
+        "badPattern": "Compensate for source texture dimensions with arbitrary scale or transforms, accept postage-stamp backgrounds, or validate coverage only at the initial camera position.",
+        "goodPattern": "Choose the correct legal asset and express deliberate staging intent. Unity owns routine spatial composition, Background/FarBackground Cover and framing; Cover must remain at least 95% through the largest required Hold and Push/Pull/zoom view. Do not use author scale as source-dimension compensation.",
+        "lesson": "Authors choose the world and dramatic composition; Unity owns routine fit, framing and background coverage."
+      }
+    },
+    {
+      "curationId": "CUR_MARS_CAFE_PROPORTIONS",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [
+        "MARS_CAFE_HOMECOMING_V1_BAD"
+      ],
+      "sourceFile": "Assets/_Game/MY_Core/MY_Cutscenes/InstructionBook/CASE_NOTES/034_MARS_CAFE_BAD_EVIDENCE_AND_GOLDEN_GATE.md",
+      "canonicalLessonId": "IB031",
+      "lesson": {
+        "id": "IB031",
+        "type": "PROTOCOL",
+        "title": "System-managed proportions start at authored scale 1.0",
+        "whenToUse": "Placing any actor or VFX with systemManagedProportions=true.",
+        "badPattern": "Read source PNG dimensions as world scale or use extreme authored scale values to correct a system-managed actor after materialization.",
+        "goodPattern": "Author scaleX and scaleY at 1.0 by default. Treat scale as only a small deliberate multiplier around the semantic baseline; values outside roughly 0.75-1.35 require a specific cinematic reason and review. Never use scale to compensate for source dimensions or a diagnostic fallback.",
+        "lesson": "Unity owns semantic proportions; authored scale is a controlled multiplier, not a source-size correction."
+      }
+    },
+    {
+      "curationId": "CUR_MARS_CAFE_MATERIALIZATION",
+      "entryType": "LESSON",
+      "status": "Approved",
+      "activationPolicy": "ContractAgnostic",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [
+        "MARS_CAFE_HOMECOMING_V1_BAD"
+      ],
+      "sourceFile": "Assets/_Game/MY_Core/MY_Cutscenes/InstructionBook/CASE_NOTES/034_MARS_CAFE_BAD_EVIDENCE_AND_GOLDEN_GATE.md",
+      "canonicalLessonId": "IB041",
+      "lesson": {
+        "id": "IB041",
+        "type": "DIAGNOSTICS",
+        "title": "Principal visuals require proven materialization before film success",
+        "whenToUse": "Any principal actor, location-critical background or required Effect is selected for a representative preview.",
+        "badPattern": "Treat a yellow diagnostic placeholder, missing renderer or unproven Effect as successful representative art because JSON import or validation completed.",
+        "goodPattern": "Trace each principal visual through the normal import/materialization path and require real renderer/effect evidence. A required diagnostic fallback, missing materialization or unproven principal Effect is degraded/blocked RED evidence, not normal GREEN success; investigate the source route before changing scale or cosmetically hiding the symptom.",
+        "lesson": "A valid package is not a representative film until every principal visual has a proven materialization route."
+      }
+    },
+    {
+      "curationId": "CUR_CASE_MARS_CAFE_HOMECOMING_V1_BAD",
+      "entryType": "MANUAL_CASE",
+      "status": "Approved",
+      "activationPolicy": "HistoricalReference",
+      "sourceContractRevision": "",
+      "sourceCaseIds": [
+        "MARS_CAFE_HOMECOMING_V1_BAD"
+      ],
+      "sourceFile": "Assets/_Game/MY_Core/MY_Cutscenes/InstructionBook/CASE_NOTES/034_MARS_CAFE_BAD_EVIDENCE_AND_GOLDEN_GATE.md",
+      "manualCase": {
+        "caseId": "MARS_CAFE_HOMECOMING_V1_BAD",
+        "title": "Mars Cafe homecoming proof: BAD evidence and GOLDEN gate",
+        "classification": "Historical visual-authoring reference",
+        "summary": "The first 60-second Mars Cafe proof proved exact-ID import and real cafe materialization, but exposed style/perspective mismatch, manual scale compensation, missing audio pass, mechanical shot rhythm, principal fallback and incomplete preview evidence. Preserve the raw fixture separately; promote only the recurring film-preflight lessons, and require a separate corrected artifact plus manual canonical visual review before GOLDEN promotion."
+      }
+    }
+  ],
+  "goldenExamples": [
+    {
+      "id": "GOLDEN_V3_BLACKBOX_FACE_TO_FACE",
+      "sourceFile": "CUTSCENE_BLACKBOX_STRESS_300_CURRENT_CATALOG.json",
+      "lessons": [
+        "LESSON_V3_FACE_TO_FACE_SHOT_ISOLATION",
+        "LESSON_V3_LOCKED_DIALOGUE_STATIC"
+      ],
+      "excerpt": "DialoguePortrait or explicit Both with temporal isolation; FACE_TO_FACE_PORTRAITS uses actorActions=[] and a static Hold camera with legal speaker/listener portraits."
+    }
+  ],
+  "policy": {
+    "rawCasesMutableByCuration": false,
+    "approvedOnlyInInstructionBook": true,
+    "currentVsHistoricalUsesSourceContractRevision": true,
+    "candidateImportsDefaultToNeedsReview": true,
+    "classificationValues": [
+      "Current",
+      "StillRelevantLesson",
+      "HistoricalFixed",
+      "ContractAgnostic"
+    ],
+    "manualZipEditingRequired": false
+  },
+  "sourceIntegratedPackages": [
+    "STARWARS_DELTA_CUTSCENE_LEARNING_CASES_CURRENT",
+    "CUTSCENE_BLACKBOX_STRESS_300_CURRENT_CATALOG",
+    "STARWARS_DELTA_CUTSCENE_LEARNING_CASES_CURRENT_UPDATED",
+    "STARWARS_DELTA_V27_VISUAL_STAGING_FROM_REAL_QA"
+  ],
+  "goldenExampleCount": 1
+}

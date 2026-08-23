@@ -1,0 +1,69 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+  "schemaVersion": 1,
+  "title": "False Victory",
+  "durationSeconds": 90,
+  "creativeIntent": "Earth defenders celebrate after destroying the visible enemy wave, then a much larger force arrives and darkens the planet.",
+  "cast": [
+    {
+      "id": "pilot",
+      "identityHandle": "pilot_current",
+      "presentationHandle": "pilot_current",
+      "displayName": "Pilot"
+    },
+    {
+      "id": "commander",
+      "identityHandle": "commander_current",
+      "presentationHandle": "commander_current",
+      "displayName": "Commander"
+    }
+  ],
+  "beats": [
+    {
+      "id": "battle_1",
+      "type": "battle",
+      "durationSeconds": 24,
+      "locationHandle": "earth_orbit",
+      "storyClaim": "The pilot destroys the final visible enemy wave.",
+      "visible": [
+        { "id": "friendly", "handle": "earth_fighter", "count": 2, "role": "defender", "depth": "mid", "screenWidthFraction": 0.11, "screenX": 0.28, "screenY": 0.52, "enterFrom": "left", "exitTo": "none" },
+        { "id": "enemy", "handle": "enemy_fighter", "count": 6, "role": "enemy", "depth": "mid", "screenWidthFraction": 0.08, "screenX": 0.72, "screenY": 0.55, "enterFrom": "right", "exitTo": "destroy" }
+      ],
+      "actions": [
+        { "type": "attack", "subject": "friendly", "target": "enemy", "viaHandle": "defender_projectile", "effectHandle": "ship_impact", "count": 3, "result": "enemy ships visibly disappear after impact" }
+      ],
+      "camera": { "framing": "wide", "movement": "follow", "subject": "friendly", "purpose": "Keep attacker, targets and Earth readable in one action space." },
+      "evidence": "Unity shows several enemy ships, repeated attack/impact beats, and those targets are visibly gone by the end of the beat."
+    },
+    {
+      "id": "celebrate",
+      "type": "dialogue",
+      "durationSeconds": 22,
+      "locationHandle": "earth_command",
+      "storyClaim": "The defenders believe the battle is over.",
+      "dialogue": [
+        { "speaker": "pilot", "listener": "commander", "text": "They're gone. We actually did it.", "mood": "relieved" },
+        { "speaker": "commander", "listener": "pilot", "text": "Hold the channel. Confirm the board is clear.", "mood": "cautious relief" }
+      ],
+      "camera": { "framing": "medium", "movement": "cut", "subject": "pilot", "purpose": "Show relief through legal dialogue presentation rather than narration alone." },
+      "evidence": "The enemy is already absent from the preceding battle state and the command presentation visibly changes to relief."
+    },
+    {
+      "id": "giant_reveal",
+      "type": "threat_reveal",
+      "durationSeconds": 44,
+      "locationHandle": "earth_orbit",
+      "storyClaim": "A far larger enemy force arrives and casts a shadow over Earth.",
+      "visible": [
+        { "id": "earth", "handle": "earth", "count": 1, "role": "scale_reference", "depth": "background", "screenWidthFraction": 0.72, "screenX": 0.50, "screenY": 0.42, "enterFrom": "none", "exitTo": "none" },
+        { "id": "giants", "handle": "giant_enemy_carrier", "count": 3, "role": "new_threat", "depth": "foreground", "screenWidthFraction": 0.38, "screenX": 0.62, "screenY": 0.62, "enterFrom": "reveal", "exitTo": "none" }
+      ],
+      "actions": [
+        { "type": "reveal", "subject": "giants", "result": "giant ships become readable against Earth" },
+        { "type": "darken", "subject": "earth", "target": "giants", "result": "Earth visibly darkens as the larger ships occupy the frame" }
+      ],
+      "camera": { "framing": "extreme_wide", "movement": "pull", "subject": "giants", "purpose": "Use Earth as a stable scale reference while revealing the new threat." },
+      "evidence": "Unity first establishes Earth, then reveals multiple much larger ships and a visibly motivated darkening of the planet."
+    }
+  ]
+}

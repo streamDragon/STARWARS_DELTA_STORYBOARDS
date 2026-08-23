@@ -1,0 +1,104 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
+  "schemaVersion": 5,
+  "contextVersion": 3,
+  "contractRevision": "1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2",
+  "schemaHash": "0C8725A0029CBAB995F851B1D3188495CBEC6E1D3F6143D9355240448CD58734",
+  "contextId": "NEW_CUTSCENE_CONTEXT",
+  "catalogRevision": "7624991757430202061",
+  "projectId": "",
+  "planId": "plan_example_minimal",
+  "baseRevision": 0,
+  "displayName": "Valid Minimal Cutscene",
+  "duration": 20.0,
+  "creativeIntent": {
+    "summary": "A schema-valid, asset-free timing example.",
+    "style": "Editable cinematic",
+    "mood": "Neutral"
+  },
+  "selectedKits": [],
+  "cast": [],
+  "sequences": [
+    {
+      "sequenceId": "sequence_main",
+      "startTime": 0.0,
+      "duration": 20.0,
+      "intention": "Demonstrate one sequence, one shot and owner-local offsets.",
+      "layers": [],
+      "actorActions": [],
+      "dialogue": [],
+      "effects": [],
+      "audio": [],
+      "events": [],
+      "shots": [
+        {
+          "shotId": "shot_main",
+          "startOffset": 0.0,
+          "duration": 20.0,
+          "shotType": "Establishing",
+          "framing": "Wide",
+          "intention": "Hold on an empty authored frame.",
+          "continuity": {
+            "preserveScreenDirection": true,
+            "matchedEntityIds": []
+          },
+          "transitionIn": {
+            "transitionId": "transition_in",
+            "type": "FadeIn",
+            "duration": 0.5,
+            "easing": "EaseInOut"
+          },
+          "transitionOut": {
+            "transitionId": "transition_out",
+            "type": "HardCut",
+            "duration": 0.0,
+            "easing": "Linear"
+          },
+          "cameraActions": [
+            {
+              "actionId": "camera_hold",
+              "type": "Hold",
+              "startOffset": 0.0,
+              "duration": 20.0,
+              "fromX": 0.0,
+              "fromY": 0.0,
+              "toX": 0.0,
+              "toY": 0.0,
+              "fromRotation": 0.0,
+              "toRotation": 0.0,
+              "fromOrthographicSize": 8.0,
+              "toOrthographicSize": 8.0,
+              "amplitude": 0.0,
+              "frequency": 0.0,
+              "easing": "Linear"
+            }
+          ],
+          "layerActions": [],
+          "actorActions": [],
+          "dialogue": [],
+          "effects": [],
+          "audio": [],
+          "events": [
+            {
+              "eventId": "beat_final",
+              "type": "DramaticBeat",
+              "startOffset": 19.5,
+              "stringValue": "Final hold",
+              "floatValue": 0.0,
+              "intValue": 0,
+              "boolValue": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "missingAssets": [],
+  "handoff": {
+    "enabled": true,
+    "time": 20.0,
+    "disableCutsceneRoot": true,
+    "events": []
+  },
+  "extensions": []
+}

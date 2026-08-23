@@ -1,0 +1,612 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_INSTRUCTION_BOOK_MANIFEST",
+  "schemaVersion": 1,
+  "bookVersion": "2.7.0",
+  "generatedUtc": "2026-08-23T02:29:35.9415118Z",
+  "authoringContractRevision": "1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2",
+  "schemaHash": "0C8725A0029CBAB995F851B1D3188495CBEC6E1D3F6143D9355240448CD58734",
+  "authoringRuleRegistryRevision": "FF79E39ED5A668EEA0651AA4D8B80076C561827B18006E998F3FE0B93F9E20B7",
+  "authoringRuleRegistry": {
+    "revision": "FF79E39ED5A668EEA0651AA4D8B80076C561827B18006E998F3FE0B93F9E20B7",
+    "rules": [
+      {
+        "ruleId": "ACTOR_IDENTITY_COLLISION",
+        "category": "Identity",
+        "severity": "Blocker",
+        "diagnosticCode": "ACTOR_IDENTITY_COLLISION",
+        "description": "One serialized identity cannot ambiguously represent different Actors.",
+        "defaultPolicy": "Do not infer which Actor was intended.",
+        "normalizationPolicy": "Check all identity evidence before materialization.",
+        "autoRepairPolicy": "No automatic repair.",
+        "validationPolicy": "Block ambiguous identity collisions.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Choose one canonical Actor identity explicitly.",
+        "studioMessage": "Actor identity collides with another canonical Actor.",
+        "regressionTestId": "ACTOR_IDENTITY_COLLISION"
+      },
+      {
+        "ruleId": "ACTOR_PRIMARY_IDENTITY",
+        "category": "Identity",
+        "severity": "Blocker",
+        "diagnosticCode": "ACTOR_PRIMARY_IDENTITY",
+        "description": "Actor visuals must resolve to the canonical Actor-primary identity.",
+        "defaultPolicy": "Animation frames and portraits are not identity defaults.",
+        "normalizationPolicy": "Resolve against current Catalog capability and identity evidence.",
+        "autoRepairPolicy": "No automatic identity substitution.",
+        "validationPolicy": "Block unproven or conflicting Actor identity.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Use the Actor-primary canonical identity from CURRENT.",
+        "studioMessage": "Actor identity is not proven by this serialized value.",
+        "regressionTestId": "ACTOR_PRIMARY_IDENTITY"
+      },
+      {
+        "ruleId": "ANIMATION_COMPATIBILITY",
+        "category": "Compatibility",
+        "severity": "Blocker",
+        "diagnosticCode": "ANIMATION_COMPATIBILITY",
+        "description": "Explicit animation IDs must belong to the selected Actor compatibility set.",
+        "defaultPolicy": "Only an underspecified semantic request may use a safe static fallback.",
+        "normalizationPolicy": "Resolve the exact serialized animation ID against CURRENT.",
+        "autoRepairPolicy": "Never replace an explicit illegal animation with a guessed animation.",
+        "validationPolicy": "Block explicit incompatible animation IDs.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Use an animation ID listed as compatible for the Actor.",
+        "studioMessage": "Animation is not compatible with the selected Actor.",
+        "regressionTestId": "ANIMATION_COMPATIBILITY"
+      },
+      {
+        "ruleId": "CHAT_AUTOMATIC_CANDIDATE_SAFETY",
+        "category": "Assets",
+        "severity": "Default",
+        "diagnosticCode": "CHAT_AUTOMATIC_CANDIDATE_SAFETY",
+        "description": "Automatic Chat candidates are exact, materializable CURRENT assets with explicit Cutscene use; review-only fallback records are not suggested automatically.",
+        "defaultPolicy": "Manual/pinned assets remain user-owned, but automatic suggestions exclude unsafe, ambiguous and needsHumanReview records.",
+        "normalizationPolicy": "Project automatic Actor candidates to preferred canonical identity and include compatible same-identity dialogue portraits when available.",
+        "autoRepairPolicy": "Do not auto-suggest generic fallback Layer records such as unclassified sprites merely because Preview can display them.",
+        "validationPolicy": "Explicit user-selected assets remain subject to normal destination validation.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Prefer suggestedCandidates for exact assets. Treat assets absent from the safe shortlist as deliberate choices that need stronger Catalog evidence.",
+        "studioMessage": "Automatic Chat candidate shortlist contains only exact CURRENT authoring-safe assets.",
+        "regressionTestId": "CHAT_AUTOMATIC_CANDIDATE_SAFETY"
+      },
+      {
+        "ruleId": "DESTINATION_CONTEXT_RESOLVES_MULTI_USE",
+        "category": "Assets",
+        "severity": "Default",
+        "diagnosticCode": "DESTINATION_CONTEXT_RESOLVES_MULTI_USE",
+        "description": "A multi-use Catalog asset is not ambiguous when the serialized destination already selects one legal use.",
+        "defaultPolicy": "A Layer field selects Layer use, an Effect field selects Effect use, and equivalent typed destinations select their own legal capability.",
+        "normalizationPolicy": "Validate the exact serialized asset against the destination; suppress generic multiple-use review noise when that destination is legal.",
+        "autoRepairPolicy": "No asset substitution is performed.",
+        "validationPolicy": "Block only when the exact asset is illegal for the serialized destination.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Treat the JSON field destination as part of asset intent. Do not avoid a legal asset merely because Catalog also exposes another use.",
+        "studioMessage": "Typed destination resolved the Catalog multi-use ambiguity.",
+        "regressionTestId": "DESTINATION_CONTEXT_RESOLVES_MULTI_USE"
+      },
+      {
+        "ruleId": "DIALOGUE_ACTOR_PRESENTATION_CONFLICT",
+        "category": "Dialogue",
+        "severity": "Blocker",
+        "diagnosticCode": "DIALOGUE_ACTOR_PRESENTATION_CONFLICT",
+        "description": "Dialogue-only portraits cannot overlap an active world presentation without legal isolation.",
+        "defaultPolicy": "Do not infer Both from simultaneous references.",
+        "normalizationPolicy": "Validate presentation and temporal isolation before materialization.",
+        "autoRepairPolicy": "No silent presentation fallback.",
+        "validationPolicy": "Block illegal world/portrait overlap.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Use dialogue-only presentation for FACE_TO_FACE_PORTRAITS.",
+        "studioMessage": "Dialogue actor presentation conflicts with world staging.",
+        "regressionTestId": "DIALOGUE_ACTOR_PRESENTATION_CONFLICT"
+      },
+      {
+        "ruleId": "DIALOGUE_PROJECT_FONT_DEFAULT",
+        "category": "Dialogue",
+        "severity": "Default",
+        "diagnosticCode": "DIALOGUE_PROJECT_FONT_DEFAULT",
+        "description": "Dialogue font selection is project-owned when no explicit font is authored.",
+        "defaultPolicy": "Omitted fontAssetId uses the configured project TMP/RTL fallback.",
+        "normalizationPolicy": "Apply the shared project font fallback during materialization without emitting one validation issue per line.",
+        "autoRepairPolicy": "No JSON repair is required for an omitted fontAssetId.",
+        "validationPolicy": "Block only an explicit invalid font requirement or an actual materialization failure, not omission itself.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Omit fontAssetId unless the scene deliberately requires a specific compatible font; project fallback is the normal default, including RTL text.",
+        "studioMessage": "Project dialogue font fallback applied.",
+        "regressionTestId": "DIALOGUE_PROJECT_FONT_DEFAULT"
+      },
+      {
+        "ruleId": "DIALOGUE_REACTION_TAIL_CLAMP",
+        "category": "Timing",
+        "severity": "AutoRepair",
+        "diagnosticCode": "DIALOGUE_REACTION_TAIL_CLAMP",
+        "description": "Optional reaction tail padding may not turn a valid final dialogue line into a blocker.",
+        "defaultPolicy": "Reaction timing belongs to the owning shot/sequence and its optional tail defaults to the remaining owner time.",
+        "normalizationPolicy": "Clamp negative/overflowing reaction offsets and holdAfterLine to the owning interval after dialogue duration is normalized.",
+        "autoRepairPolicy": "Clamp mechanically and record the correction without changing the spoken line or Actor identity.",
+        "validationPolicy": "Explicit missing Actor identity or invalid owner timing remains a blocker.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Do not hand-tune reaction tails to fit the last frame; Unity clamps optional reaction padding to the owning interval.",
+        "studioMessage": "Reaction tail timing was fitted to its owner.",
+        "regressionTestId": "DIALOGUE_REACTION_TAIL_CLAMP"
+      },
+      {
+        "ruleId": "DIALOGUE_SAME_IDENTITY_PORTRAIT_DEFAULT",
+        "category": "Dialogue",
+        "severity": "Default",
+        "diagnosticCode": "DIALOGUE_SAME_IDENTITY_PORTRAIT_DEFAULT",
+        "description": "Locked portrait-capable dialogue derives a same-identity standardized portrait before falling back to the world Actor visual.",
+        "defaultPolicy": "Prefer an exact compatible portrait from the same Actor source/family; match the requested supported expression when available, then Neutral.",
+        "normalizationPolicy": "Apply after cast identity is proven and before dialogue materialization.",
+        "autoRepairPolicy": "Never borrow a portrait from a different identity and never change cast identity to satisfy presentation.",
+        "validationPolicy": "Block only when the selected preset requires a participant visual and no legal same-identity or built-in route exists.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "For standardized character sheets, omit portrait IDs unless intentionally pinning one; Unity selects the compatible same-identity expression.",
+        "studioMessage": "Dialogue portrait was derived from the same canonical Actor identity.",
+        "regressionTestId": "DIALOGUE_SAME_IDENTITY_PORTRAIT_DEFAULT"
+      },
+      {
+        "ruleId": "DIALOGUE_SYSTEM_STAGE_DEFAULTS",
+        "category": "Dialogue",
+        "severity": "Default",
+        "diagnosticCode": "DIALOGUE_SYSTEM_STAGE_DEFAULTS",
+        "description": "Fixed-layout dialogue presentation mechanics are system-owned defaults when omitted.",
+        "defaultPolicy": "Speaker/listener distances and compatible participant presentation are derived from the selected preset plus canonical cast identity.",
+        "normalizationPolicy": "Apply deterministic dialogue defaults before semantic validation and do not require ChatGPT to repeat them per line.",
+        "autoRepairPolicy": "Omitted mechanical presentation values are filled without a yellow warning; explicit incompatible identity still cannot change the cast identity.",
+        "validationPolicy": "Block only when no legal identity-safe presentation route exists.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "For dialogue, author speaker/listener Actor IDs, text, intent and preset. Omit mechanical distances and omit portrait IDs unless a specific compatible portrait was deliberately selected.",
+        "studioMessage": "Dialogue mechanical presentation defaults are system-owned.",
+        "regressionTestId": "DIALOGUE_SYSTEM_STAGE_DEFAULTS"
+      },
+      {
+        "ruleId": "DIALOGUE_VISUAL_SOURCE_CONFLICT",
+        "category": "Dialogue",
+        "severity": "Blocker",
+        "diagnosticCode": "DIALOGUE_VISUAL_SOURCE_CONFLICT",
+        "description": "Each dialogue participant has one primary visual source per presentation context.",
+        "defaultPolicy": "Portrait and body are not silently merged.",
+        "normalizationPolicy": "Validate visual source relationships after resolution.",
+        "autoRepairPolicy": "No automatic source substitution.",
+        "validationPolicy": "Block portrait/body source conflicts.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Choose one visual source for each participant context.",
+        "studioMessage": "Dialogue participant has conflicting visual sources.",
+        "regressionTestId": "DIALOGUE_VISUAL_SOURCE_CONFLICT"
+      },
+      {
+        "ruleId": "DIALOGUE_VISUAL_SOURCE_UNSUPPORTED",
+        "category": "Dialogue",
+        "severity": "Blocker",
+        "diagnosticCode": "DIALOGUE_VISUAL_SOURCE_UNSUPPORTED",
+        "description": "SUBTITLE_ONLY cannot acquire an unsupported portrait through fallback.",
+        "defaultPolicy": "Unsupported optional presentation is not repaired into another mode.",
+        "normalizationPolicy": "Validate preset capability against CURRENT.",
+        "autoRepairPolicy": "No silent portrait fallback.",
+        "validationPolicy": "Block explicit unsupported portrait requests.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Use an explicit portrait-capable preset or keep subtitles only.",
+        "studioMessage": "Dialogue visual source is unsupported by the preset.",
+        "regressionTestId": "DIALOGUE_VISUAL_SOURCE_UNSUPPORTED"
+      },
+      {
+        "ruleId": "GENERATED_ROOT_EXCLUSION",
+        "category": "Synchronization",
+        "severity": "Blocker",
+        "diagnosticCode": "GENERATED_ROOT_EXCLUSION",
+        "description": "Generated Cutscene output must not become authoritative Catalog input.",
+        "defaultPolicy": "Generated-root paths are excluded from Catalog source scans.",
+        "normalizationPolicy": "Validate the scan candidate boundary.",
+        "autoRepairPolicy": "No repair after contamination; fail the consistency gate.",
+        "validationPolicy": "Block generated-root contamination.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Generated Cutscene output is runtime output, not authoring source.",
+        "studioMessage": "Authoritative Catalog scan includes generated Cutscene output.",
+        "regressionTestId": "GENERATED_ROOT_EXCLUSION"
+      },
+      {
+        "ruleId": "LIFETIME_OWNERSHIP",
+        "category": "Ownership",
+        "severity": "Blocker",
+        "diagnosticCode": "LIFETIME_OWNERSHIP",
+        "description": "Generated entities belong to an explicit shot, sequence, location, or persistent owner.",
+        "defaultPolicy": "Default lifetime is the owning shot or sequence.",
+        "normalizationPolicy": "Apply ownership before materialization and cleanup planning.",
+        "autoRepairPolicy": "No automatic persistence beyond the owner.",
+        "validationPolicy": "Block invalid location/lifetime leakage.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Declare persistence explicitly when an entity must outlive its owner.",
+        "studioMessage": "Generated entity ownership is invalid or leaks across owners.",
+        "regressionTestId": "LIFETIME_OWNERSHIP"
+      },
+      {
+        "ruleId": "MECHANICAL_DUPLICATE_ID",
+        "category": "Identifiers",
+        "severity": "AutoRepair",
+        "diagnosticCode": "MECHANICAL_DUPLICATE_ID",
+        "description": "Mechanical IDs use deterministic owner namespacing.",
+        "defaultPolicy": "Generated IDs are deterministic from sequence/shot/entity context.",
+        "normalizationPolicy": "Normalize IDs before semantic validation.",
+        "autoRepairPolicy": "Repair only when all references are unambiguous.",
+        "validationPolicy": "Block ambiguous duplicate references.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Let Unity generate mechanical IDs; do not invent identity IDs.",
+        "studioMessage": "Mechanical duplicate ID was deterministically repaired.",
+        "regressionTestId": "MECHANICAL_DUPLICATE_ID"
+      },
+      {
+        "ruleId": "PRESENTATION_MODE_AMBIGUOUS",
+        "category": "Dialogue",
+        "severity": "Blocker",
+        "diagnosticCode": "PRESENTATION_MODE_AMBIGUOUS",
+        "description": "Both requires explicit intent and legal temporal isolation.",
+        "defaultPolicy": "Legacy fields migrate only when the result is unambiguous.",
+        "normalizationPolicy": "Infer only a single deterministic presentation mode.",
+        "autoRepairPolicy": "Do not infer Both.",
+        "validationPolicy": "Block ambiguous presentation mode.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Specify WorldActor, DialoguePortrait, or explicitly isolated Both.",
+        "studioMessage": "Presentation mode is ambiguous.",
+        "regressionTestId": "PRESENTATION_MODE_AMBIGUOUS"
+      },
+      {
+        "ruleId": "PROCEDURAL_EFFECT_CANONICAL_FORM",
+        "category": "Effects",
+        "severity": "Default",
+        "diagnosticCode": "PROCEDURAL_EFFECT_CANONICAL_FORM",
+        "description": "Built-in procedural effects own their visual implementation and do not require an assetId.",
+        "defaultPolicy": "For an assetless procedural effect type, assetId is omitted.",
+        "normalizationPolicy": "Remove redundant assetId before validation when the effect type explicitly supports the assetless route.",
+        "autoRepairPolicy": "Remove the redundant field without a yellow warning.",
+        "validationPolicy": "Block only illegal effect types or illegal explicit asset-backed routes.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "For built-in procedural effects such as ScreenFlash, omit assetId unless the CURRENT contract explicitly requires an asset-backed effect.",
+        "studioMessage": "Procedural effect serialized in canonical assetless form.",
+        "regressionTestId": "PROCEDURAL_EFFECT_CANONICAL_FORM"
+      },
+      {
+        "ruleId": "SOURCE_RECORD_LEAKAGE",
+        "category": "Identity",
+        "severity": "Blocker",
+        "diagnosticCode": "SOURCE_RECORD_LEAKAGE",
+        "description": "Authoring fields must contain exact authoring IDs, not source/projection IDs.",
+        "defaultPolicy": "No default is safe for an explicitly serialized identity leak.",
+        "normalizationPolicy": "Inspect the serialized token before deserialization/materialization.",
+        "autoRepairPolicy": "No automatic repair because identity meaning is ambiguous.",
+        "validationPolicy": "Block sourceRecordId, preview, catalog, and internal projection IDs in authoring fields.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Use the exact Catalog authoring ID.",
+        "studioMessage": "Serialized ID is not an authoring ID.",
+        "regressionTestId": "SOURCE_RECORD_LEAKAGE"
+      },
+      {
+        "ruleId": "STANDARD_CHARACTER_SHEET_IDENTITY",
+        "category": "Assets",
+        "severity": "Default",
+        "diagnosticCode": "STANDARD_CHARACTER_SHEET_IDENTITY",
+        "description": "A project-owned standardized 6x5 character sheet has one deterministic identity: portrait cells 0..11 and Body_Idle_Front cell 12 belong to the same source identity.",
+        "defaultPolicy": "Body_Idle_Front is the canonical Actor-primary world identity; portrait cells remain Ui-primary dialogue visuals with authored expression metadata.",
+        "normalizationPolicy": "Project this relation from the sheet contract during Catalog analysis and when rehydrating an older CURRENT snapshot.",
+        "autoRepairPolicy": "Never promote arbitrary vendor sprite-sheet frames or unrelated characters into this identity contract.",
+        "validationPolicy": "Block only when an explicitly requested identity cannot resolve exactly; otherwise use the deterministic same-source relation.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "For standardized project character sheets, use the canonical Actor candidate for cast identity and let Unity select same-identity portraits by expression.",
+        "studioMessage": "Standardized character sheet identity was projected deterministically.",
+        "regressionTestId": "STANDARD_CHARACTER_SHEET_IDENTITY"
+      },
+      {
+        "ruleId": "SYSTEM_SCALE_AND_BACKGROUND_POLICY",
+        "category": "Composition",
+        "severity": "Default",
+        "diagnosticCode": "SYSTEM_SCALE_AND_BACKGROUND_POLICY",
+        "description": "Unity owns baseline scale/proportion and background Cover framing.",
+        "defaultPolicy": "Authored scale defaults to 1.0; system-managed proportions apply where supported.",
+        "normalizationPolicy": "Normalize scale and background policy before visual QA.",
+        "autoRepairPolicy": "Do not repair extreme explicit scale into a creative replacement.",
+        "validationPolicy": "Report extreme authored scale and visual framing separately.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Do not compensate for framing with arbitrary scale.",
+        "studioMessage": "System-managed scale/proportion/background policy applied.",
+        "regressionTestId": "SYSTEM_SCALE_AND_BACKGROUND_POLICY"
+      },
+      {
+        "ruleId": "V3_DEFAULT_OPTIONAL_COLLECTIONS",
+        "category": "Defaults",
+        "severity": "Default",
+        "diagnosticCode": "V3_DEFAULT_OPTIONAL_COLLECTIONS",
+        "description": "Optional authoring collections are deterministic empty collections.",
+        "defaultPolicy": "Missing optional collections default to [] where the Contract permits.",
+        "normalizationPolicy": "Apply before DTO deserialization and before semantic validation.",
+        "autoRepairPolicy": "Add [] and record the correction.",
+        "validationPolicy": "Reject null only where the Contract requires a value.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Emit empty collections for optional fields.",
+        "studioMessage": "Optional fields default to empty collections.",
+        "regressionTestId": "V3_DEFAULT_OPTIONAL_COLLECTIONS"
+      },
+      {
+        "ruleId": "V3_LOCKED_DIALOGUE_ACTOR_ACTIONS",
+        "category": "Dialogue",
+        "severity": "AutoRepair",
+        "diagnosticCode": "V3_LOCKED_DIALOGUE_ACTOR_ACTIONS",
+        "description": "Locked dialogue without actor actions is dialogue-only.",
+        "defaultPolicy": "lockStaging=true with omitted actorActions defaults to [].",
+        "normalizationPolicy": "Apply the empty collection before locked-dialogue validation.",
+        "autoRepairPolicy": "Add [] and record an auto-repair.",
+        "validationPolicy": "Explicit actor movement/action remains invalid.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Do not author world movement inside locked dialogue.",
+        "studioMessage": "Locked dialogue actorActions defaulted to empty.",
+        "regressionTestId": "V3_LOCKED_DIALOGUE_ACTOR_ACTIONS"
+      },
+      {
+        "ruleId": "V3_LOCKED_DIALOGUE_EXPLICIT_MOVEMENT",
+        "category": "Dialogue",
+        "severity": "Blocker",
+        "diagnosticCode": "CUTSCENE_DIALOGUE_CAMERA_MOTION_FORBIDDEN",
+        "description": "Locked dialogue cannot contain explicit world movement/action.",
+        "defaultPolicy": "No default or fallback changes explicit creative movement intent.",
+        "normalizationPolicy": "Validate after defaults and before materialization.",
+        "autoRepairPolicy": "No automatic repair.",
+        "validationPolicy": "Block explicit movement/action in locked dialogue.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Use portrait staging and HOLD/cut camera framing.",
+        "studioMessage": "Locked dialogue contains explicit movement/action.",
+        "regressionTestId": "V3_LOCKED_DIALOGUE_EXPLICIT_MOVEMENT"
+      },
+      {
+        "ruleId": "V5_MECHANICAL_ENVELOPE_DEFAULTS",
+        "category": "Defaults",
+        "severity": "Default",
+        "diagnosticCode": "V5_MECHANICAL_ENVELOPE_DEFAULTS",
+        "description": "CURRENT V5 bookkeeping fields with one deterministic value are system-owned defaults.",
+        "defaultPolicy": "When V5 is proven, omitted contextVersion and empty top-level mechanical collections use the CURRENT deterministic value.",
+        "normalizationPolicy": "Apply these defaults before canonical DTO validation; project/context binding remains owned by Studio.",
+        "autoRepairPolicy": "Fill only unambiguous mechanical metadata. Never invent story, identity, duration, assets or creative intent.",
+        "validationPolicy": "Block contradictory version/identity evidence and genuinely missing creative data.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Start from the CURRENT canonical package shape, but do not spend creative effort on deterministic bookkeeping fields; Unity may fill them when omitted.",
+        "studioMessage": "Deterministic V5 envelope metadata was filled by the system.",
+        "regressionTestId": "V5_MECHANICAL_ENVELOPE_DEFAULTS"
+      },
+      {
+        "ruleId": "V5_UNKNOWN_NONCANONICAL_FIELDS",
+        "category": "Defaults",
+        "severity": "AutoRepair",
+        "diagnosticCode": "V5_UNKNOWN_NONCANONICAL_FIELDS",
+        "description": "Extra fields outside the canonical V5 DTO are non-authoritative metadata and are removed at the import boundary.",
+        "defaultPolicy": "Unknown fields do not become part of the package contract merely because ChatGPT emitted them.",
+        "normalizationPolicy": "Prune unknown V5 properties before canonical field validation, then let required-field validation catch any real omission.",
+        "autoRepairPolicy": "Remove only fields that have no matching canonical public DTO field; never invent replacement story, identity or asset values.",
+        "validationPolicy": "Duplicate JSON properties, wrong types, missing required fields and invalid canonical values remain blockers.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Use only canonical V5 fields. Extra notes belong in supported extension valueJson, not ad-hoc properties.",
+        "studioMessage": "Unsupported non-canonical V5 field was removed by the import boundary.",
+        "regressionTestId": "V5_UNKNOWN_NONCANONICAL_FIELDS"
+      }
+    ]
+  },
+  "lessonCount": 50,
+  "goldenExampleCount": 1,
+  "maxActiveLessons": 50,
+  "maxGoldenExamples": 8,
+  "contentHash": "706210C82A0D73E51FA5F06C96D9633B4061316592E7B7E7C00A945501B67BED",
+  "catalogIncluded": false,
+  "files": [
+    {
+      "path": "00_INSTRUCTION_BOOK_READ_FIRST.txt",
+      "sha256": "979EB29BED96C2D4936315E3B649A026AB7C8A10E00B8A71AE5AF0A0A79C6F96",
+      "bytesUtf8": 11511
+    },
+    {
+      "path": "CASE_NOTES/001_DOCTOR_RUN_MOVE_WORKED.md",
+      "sha256": "D285A6575ADB052384B715E15A108E4CFAFFB2F92BE695E63A4A4553CE322129",
+      "bytesUtf8": 743
+    },
+    {
+      "path": "CASE_NOTES/002_TECHNICALLY_LEGAL_BAD_BACKGROUND.md",
+      "sha256": "E96EEB11D37984D256C477E4B9FB7DB8C8F71C47584DC36DA6F92D173195B7E8",
+      "bytesUtf8": 856
+    },
+    {
+      "path": "CASE_NOTES/003_COMMAND_SCREEN_COMPATIBILITY.md",
+      "sha256": "1B990486D1737F636925A5426961EAAF707DA76E05287BD0092D6FC1464ED944",
+      "bytesUtf8": 1096
+    },
+    {
+      "path": "CASE_NOTES/004_SHIP_ANIMATION_COMPATIBILITY.md",
+      "sha256": "C6C59166F6A390305D0C19186B3F783300554B0FE038512950205ED8C3492266",
+      "bytesUtf8": 751
+    },
+    {
+      "path": "CASE_NOTES/005_ACTOR_IDENTITY_VS_UI_PORTRAIT.md",
+      "sha256": "A493AB08C95870D86C4DE7F93273F3FB1ABCBF1AA04592D3783A976919D99A59",
+      "bytesUtf8": 691
+    },
+    {
+      "path": "CASE_NOTES/006_WARNINGS_VS_BLOCKERS.md",
+      "sha256": "A2657118B10AF5C239F8A964DC612A26EB8FFC430520E9483824BAF0927C7159",
+      "bytesUtf8": 745
+    },
+    {
+      "path": "CASE_NOTES/007_LOCATION_TRANSITION_CLEANUP.md",
+      "sha256": "D357799F23D90992D98B5A62BC3D26FDCC9BBC4C8597D004F55EEE0E8AD4AB96",
+      "bytesUtf8": 664
+    },
+    {
+      "path": "CASE_NOTES/008_DIALOGUE_BACKGROUND_REQUIRED.md",
+      "sha256": "A50065BDE6446DBC115AA19134FB6242820184B258909087AC0E8E44A91CA287",
+      "bytesUtf8": 592
+    },
+    {
+      "path": "CASE_NOTES/009_DIALOGUE_COMPATIBLE_TUPLES.md",
+      "sha256": "3788C7E68B4B2517E27B03DCCD892A7B8ACD82829A3D01E4713EA1FAD26166E3",
+      "bytesUtf8": 536
+    },
+    {
+      "path": "CASE_NOTES/010_UI_EVENT_TARGETING.md",
+      "sha256": "0437319224733F779EB60F46012EC70AD038E7FFC5EB0886239F1E153BED3972",
+      "bytesUtf8": 1318
+    },
+    {
+      "path": "CASE_NOTES/011_VISUAL_SCALE_AND_COMPOSITION.md",
+      "sha256": "8807FB474DFAFC39C0B9A4A803A884D414A6ABA5D76300B7AE57F4EA1BFD86DF",
+      "bytesUtf8": 589
+    },
+    {
+      "path": "CASE_NOTES/012_GENERATED_UI_TARGET_BUILD_FAILURE.md",
+      "sha256": "CB8B675316EC19F32783C975A2BEF92D98F25DEDFA8407E785F75956D90EC50B",
+      "bytesUtf8": 1625
+    },
+    {
+      "path": "CASE_NOTES/013_SPATIAL_COMPOSITION_POSTAGE_STAMP_BACKGROUND.md",
+      "sha256": "192B9E3ADCC35B6484EA648E67408B014D166CB1A66050E75B56C40B3791B25E",
+      "bytesUtf8": 1102
+    },
+    {
+      "path": "CASE_NOTES/014_DIALOGUE_EMOTION_VS_EXPRESSION.md",
+      "sha256": "6E29EF7DA4B023D763CB8D09EF6995583F6DF5904A15E9EEB37FF9EF52E6D110",
+      "bytesUtf8": 551
+    },
+    {
+      "path": "CASE_NOTES/015_BLACKBOX_IDENTITY_AND_PROPORTIONS.md",
+      "sha256": "6E9D752FDE0F7B04D4DAF43A7BFD8B2DD2F6A7AFE03E43F20C48974EBE41D1D6",
+      "bytesUtf8": 1595
+    },
+    {
+      "path": "CASE_NOTES/016_LEARNING_REPAIR_CAPTURE.md",
+      "sha256": "91849B47A350D4B66D8E75CF628EF8F3358FF2D77FE95316A4E5898BEFAEAE64",
+      "bytesUtf8": 536
+    },
+    {
+      "path": "CASE_NOTES/017_BLACKBOX_TEMPORAL_LIFETIME.md",
+      "sha256": "80B1F2341E5EC63FF7CE918E1969505F1634D453A35AFC47D4EE0BD4362BDC95",
+      "bytesUtf8": 760
+    },
+    {
+      "path": "CASE_NOTES/018_EDITOR_EVALUATE_AUDIO.md",
+      "sha256": "8F98349B25D3D0C1149CD23BD507E71E048FED4A6171CAEA6D380AD6E6F9F1D0",
+      "bytesUtf8": 480
+    },
+    {
+      "path": "CASE_NOTES/019_ASSETLESS_EFFECT_POLICY.md",
+      "sha256": "7C4CE6D229874565D1C414464C3925AAF1C27B2F75A01AE6FECF98589F5569AF",
+      "bytesUtf8": 481
+    },
+    {
+      "path": "CASE_NOTES/021_SEMANTIC_COMPOSITION_BLACK_HOLE.md",
+      "sha256": "501BF48C1257EF889337F5810A4DDDE4A1C242BD3AC68BFAD919B884DA9185D0",
+      "bytesUtf8": 500
+    },
+    {
+      "path": "CASE_NOTES/022_LEARNING_SOURCE_REVISION.md",
+      "sha256": "03307AB4DEE2B9CA4B5AB72632072769D0F6A30B2670A4C200F3BB7E597A0970",
+      "bytesUtf8": 425
+    },
+    {
+      "path": "CASE_NOTES/023_DIALOGUE_REPAIR_BUILTIN_IDENTITY_FALLBACK.md",
+      "sha256": "025CD503091C032234E6B19339564A2C3AFD2BAAABF5B9BEB12CEF408F5B1EB6",
+      "bytesUtf8": 426
+    },
+    {
+      "path": "CASE_NOTES/024_DISTINCT_CAST_IDENTITY_COLLISION.md",
+      "sha256": "5E0437804AE9E3758A6D6920E538ABD99A4A21DABC9B9DB50438483DCFAA58BC",
+      "bytesUtf8": 401
+    },
+    {
+      "path": "CASE_NOTES/025_MOVING_DEBRIS_LAYER_VS_ACTOR.md",
+      "sha256": "0D0E6B4AAE7FA009F4642A4C8D8C7A91144C5C0827FF6AE8651E7F985A75C0D4",
+      "bytesUtf8": 227
+    },
+    {
+      "path": "CASE_NOTES/026_BAKED_DIALOGUE_BACKGROUND.md",
+      "sha256": "A8D62EAC8DF3E407E57F500D796B8FB48505EB9D656EF7005543FD080BE98B3E",
+      "bytesUtf8": 257
+    },
+    {
+      "path": "CASE_NOTES/027_LEARNING_DEDUPE_EVIDENCE_LOSS.md",
+      "sha256": "EB00EF2501488CB98B5E713D0AF648E94DE63F1A4C20CED9CF36B35F9BD5AD5B",
+      "bytesUtf8": 245
+    },
+    {
+      "path": "CASE_NOTES/028_VFX_PROCEDURAL_OR_ASSET_BACKED.md",
+      "sha256": "EB40886ECB4C7634A206433DBE19F980FFE83F56D4F5EFA50119089C6329B38E",
+      "bytesUtf8": 248
+    },
+    {
+      "path": "CASE_NOTES/029_BLOCKERS_FIRST_WARNING_AGGREGATION.md",
+      "sha256": "6C3A40724AA3493947378155602F3D272733F351368CEADED4E12E91C98FBB23",
+      "bytesUtf8": 230
+    },
+    {
+      "path": "CASE_NOTES/030_VISUAL_QA_V2_STABILIZATION.md",
+      "sha256": "237234C51DF9C8FDE0D522E8170D8BCFAF53A585804602EA387D4071CDB286DA",
+      "bytesUtf8": 1425
+    },
+    {
+      "path": "CASE_NOTES/031_DIALOGUE_DEPTH_AND_TACTICAL_DATA_INSET.md",
+      "sha256": "266742D82FAB56A37C43CB7F45DEDC212DC810BC600CED7EFD03B992577340BB",
+      "bytesUtf8": 1565
+    },
+    {
+      "path": "CASE_NOTES/032_V27_VISUAL_SAFETY_FROM_REAL_QA.md",
+      "sha256": "6A450FA9A0B8DBCE0CA8B17124538FA35D59122EE18B96BBDF0E7E52A1B4EFC3",
+      "bytesUtf8": 1209
+    },
+    {
+      "path": "CASE_NOTES/033_UNKNOWN_VISUALS_REQUIRE_TRACE.md",
+      "sha256": "5436687253DA08B46D55876653B4758D8111C44A63D85C2F8CF0DC73C3FB0F80",
+      "bytesUtf8": 828
+    },
+    {
+      "path": "CASE_NOTES/034_MARS_CAFE_BAD_EVIDENCE_AND_GOLDEN_GATE.md",
+      "sha256": "19511885C46B04533D1C58F32BEC66F7E02C717A9B36D0A089B5288BDB715823",
+      "bytesUtf8": 1748
+    },
+    {
+      "path": "CUTSCENE_AUTHORING_CLOSED_ENUMS.json",
+      "sha256": "5372E716C4709BF7B83F4F82221DA3A582BF61532AD9805EFBFBCB0952EEB2C6",
+      "bytesUtf8": 8607
+    },
+    {
+      "path": "Curation/CURATION_SOURCE.json",
+      "sha256": "25A6F0F5F02C62BA5E291D62F7408144D674325A28274F69F814E5FCB0129EB4",
+      "bytesUtf8": 59855
+    },
+    {
+      "path": "GOLDEN/README.txt",
+      "sha256": "88ECAC541BAF489CA21D293A98FB654B9248A79204F17997C044387045DF5313",
+      "bytesUtf8": 628
+    },
+    {
+      "path": "INSTRUCTION_BOOK.json",
+      "sha256": "5892D303A49D3B18D3CA3750C7004B7EE665B06DF58D412C76BD334AD78B7FB8",
+      "bytesUtf8": 63129
+    }
+  ]
+}

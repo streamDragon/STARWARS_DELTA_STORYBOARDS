@@ -1,0 +1,72 @@
+{
+  "schema": "STARWARS_DELTA_CHATGPT_VISUAL_ATLAS",
+  "schemaVersion": 3,
+  "status": "CURRENT_VERIFIED_VISUAL_ATLAS",
+  "publishTransactionId": "20260823-022704116-4be0475b",
+  "pdfFile": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
+  "pdfFileName": "STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
+  "pdfUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
+  "manifestUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/VISUAL_ATLAS_CURRENT.json",
+  "fileSizeBytes": 12641163,
+  "totalPages": 59,
+  "representativeCount": 691,
+  "sourceVisualIdentityCount": 701,
+  "contains": [
+    "Actor visual sheets: characters, robots, ships and other world actors",
+    "Effect visual sheets: explosions, flashes, atmosphere and VFX",
+    "Layer visual sheets: backgrounds, environments and scenery",
+    "Ui visual sheets: portraits, dialogue frames, screens and interface visuals"
+  ],
+  "doesNotNeedPixelSheets": [
+    "Animations use exact Director compatibility IDs with representative family visuals",
+    "Audio is selected from Director metadata and is non-visual"
+  ],
+  "categoryRanges": [
+    {
+      "category": "Actor",
+      "sourcePageCount": 14,
+      "atlasStartPage": 1,
+      "atlasEndPage": 14,
+      "pageImageRoot": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/"
+    },
+    {
+      "category": "Effect",
+      "sourcePageCount": 11,
+      "atlasStartPage": 15,
+      "atlasEndPage": 25,
+      "pageImageRoot": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/"
+    },
+    {
+      "category": "Layer",
+      "sourcePageCount": 6,
+      "atlasStartPage": 26,
+      "atlasEndPage": 31,
+      "pageImageRoot": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/layer/"
+    },
+    {
+      "category": "Ui",
+      "sourcePageCount": 28,
+      "atlasStartPage": 32,
+      "atlasEndPage": 59,
+      "pageImageRoot": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/ui/"
+    }
+  ],
+  "lookup": {
+    "fullVisualIndexFile": "FULL_VISUAL_INDEX.json",
+    "fullVisualIndexUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/FULL_VISUAL_INDEX.json",
+    "assetLookupFile": "ASSET_VISUAL_LOOKUP.json",
+    "assetLookupUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/ASSET_VISUAL_LOOKUP.json"
+  },
+  "transportFallback": "Per-page JPEG images remain available only as transport/debug fallback. Per-category PDFs and per-category visual-index shards are build intermediates and are not published.",
+  "usage": "Use Director metadata to shortlist assets, resolve the asset in FULL_VISUAL_INDEX.json, then inspect the real pixels in this PDF at atlasPage and atlasSlot before any visual claim, asset choice or storyboard.",
+  "visualAccessFallback": {
+    "rule": "If ChatGPT cannot actually render and inspect this PDF from the public URL, it must not guess from metadata. Ask the user to download this single PDF from the Debora page and upload it directly to the chat, then continue using the same CURRENT Director metadata and asset IDs.",
+    "userFileToUpload": "STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
+    "doNotRequest": [
+      "Catalog ZIP for ordinary visual access",
+      "Instruction Book ZIP for ordinary visual access",
+      "Full Visual Library archive for ordinary visual access",
+      "Multiple category PDFs when the unified Atlas PDF is available"
+    ]
+  }
+}

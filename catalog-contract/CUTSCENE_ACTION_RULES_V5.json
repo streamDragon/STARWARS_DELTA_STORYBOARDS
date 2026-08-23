@@ -1,0 +1,163 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_ACTION_CONTRACT",
+  "schemaVersion": 5,
+  "ownership": {
+    "sequenceCollections": "sequence.actorActions/layers/effects/audio/events use offsets local to the sequence.",
+    "shotCollections": "shot.cameraActions/layerActions/actorActions/dialogue/effects/audio/events use offsets local to the shot.",
+    "referenceRule": "Actor references (actorId, targetActorId, camera targetEntityId/secondaryTargetEntityId, speakerActorId, listenerActorId and reaction.actorId) resolve to cast when non-empty. UI event targetEntityId is an explicit exception: ShowUi owns a generated presentation target keyed by its eventId, and HideUi targets that ShowUi eventId."
+  },
+  "cameraActions": {
+    "targetRequiredFor": [
+      "Follow",
+      "Track",
+      "Focus"
+    ],
+    "cameraPresetRule": "cameraPresetId may be non-empty only when the owning sequence selects a usable Kit exposing that exact cameraId.",
+    "outputCameraInvariant": "ChatGPT authors cameraActions and permitted target IDs only. The Unity tool creates exactly one active CUTSCENE_CAMERA on Display 1 for the selected generated layer, validates its world-visual culling mask, and owns camera/root activation. Do not invent a Camera asset, Display value or renderer setup.",
+    "coordinateDrivenTypes": [
+      "Hold",
+      "Snap",
+      "Zoom",
+      "Pan",
+      "Push",
+      "Pull",
+      "Drift",
+      "Shake",
+      "ImpactShake",
+      "Recoil",
+      "ReturnToNeutral"
+    ]
+  },
+  "actorActions": {
+    "visualOnlyRequiredFor": [
+      "VisualWeaponAction",
+      "VisualDamageReaction"
+    ],
+    "localSlowMotion": "LocalSlowMotion requires finite speed greater than 0 and at most 1. Never change global Time.timeScale.",
+    "anchorRule": "anchorId may be non-empty only when the owning sequence selects a usable Kit exposing that exact anchorId.",
+    "animationRule": "animationAssetId must be an exact compatible Cutscene.Animation record when non-empty; author PlayAnimation only when the exact ID appears in the actor record's exported compatibleAnimationIds list. Never infer compatibility from filename, folder, naming, or visual similarity. When verified options are supplied, prefer the exact matching Run, Walk, Hit or Idle animation requested by the story. Move controls world movement and PlayAnimation controls visual animation; a running person normally uses both. Without verified animation proof, use Move, Turn, Hold or another non-animation action.",
+    "motionRule": "Use Move for straight or diagonal travel, Curve for one-control-point quadratic curved travel, Orbit for circular/elliptical travel around a stationary actor or point, and FollowPath for advanced explicit keyframes. A motion action can animate position, Z rotation and fitted-baseline scale together; do not simulate requested object approach/recede only with camera Zoom.",
+    "coordinateSpaceRule": "motionSpace=AbsoluteStage interprets x/y, controlX/controlY, centerX/centerY and FollowPath keyframes as stage coordinates. motionSpace=RelativeToStart interprets them as offsets from the actor position at action start. Prefer RelativeToStart for instructions such as 'move right', 'go diagonally up-left' or 'curve forward'.",
+    "orientationRule": "For newly authored moving objects, use orientationMode=FollowMotion by default so Z rotation follows the path tangent. Use PreserveRotation only when the object must keep its current facing, FaceTarget to point at targetActorId or the explicit center, and Keyframed when FollowPath keyframe.rotation values or action.rotation intentionally drive rotation.",
+    "scaleRule": "Set animateScale=true and author scaleX/scaleY from 0.2 through 8.0 to make the object itself appear farther/smaller or closer/larger. Values are multipliers of Unity's fitted actor baseline: 1.0 preserves fitted size, 0.2 is the minimum and 8.0 is the maximum. Position, rotation and scale may change in the same action.",
+    "orbitRule": "Orbit v1 requires a stationary center. Set targetActorId to a stationary cast actor, or omit it and provide centerX/centerY. radiusX and radiusY must be positive; orbitDegrees is non-zero, positive for anticlockwise and negative for clockwise travel.",
+    "presets": {
+      "straightOrDiagonal": "Move + destination x/y",
+      "oneControlPointCurve": "Curve + controlX/controlY + destination x/y",
+      "stationaryCenterOrbit": "Orbit + targetActorId or centerX/centerY + radiusX/radiusY + orbitDegrees",
+      "advancedPoints": "FollowPath + ordered keyframes"
+    },
+    "examples": [
+      {
+        "intent": "Move diagonally up-right while becoming closer/larger",
+        "type": "Move",
+        "motionSpace": "RelativeToStart",
+        "orientationMode": "FollowMotion",
+        "animateScale": true,
+        "x": 6.0,
+        "y": 3.0,
+        "scaleX": 2.0,
+        "scaleY": 2.0
+      },
+      {
+        "intent": "Curve around an obstacle",
+        "type": "Curve",
+        "motionSpace": "RelativeToStart",
+        "orientationMode": "FollowMotion",
+        "controlX": 3.0,
+        "controlY": 4.0,
+        "x": 7.0,
+        "y": 0.0
+      },
+      {
+        "intent": "Orbit a stationary Earth actor once clockwise",
+        "type": "Orbit",
+        "targetActorId": "earth",
+        "orientationMode": "FollowMotion",
+        "radiusX": 5.0,
+        "radiusY": 3.0,
+        "orbitDegrees": -360.0
+      }
+    ]
+  },
+  "layerActions": {
+    "backgroundRoles": [
+      "FarBackground",
+      "Background"
+    ],
+    "backgroundSortingRule": "FarBackground and Background require sortingOrder less than 0.",
+    "kitBackgroundRule": "Do not duplicate the visible background supplied by a selected Kit as a free layer."
+  },
+  "dialogue": {
+    "required": [
+      "lineId",
+      "text"
+    ],
+    "overlapRule": "Spoken dialogue lines may touch but may not overlap in absolute time.",
+    "speakerRule": "Props and scenery should not receive spoken dialogue unless their authored identity is explicitly a speaking character.",
+    "dialogueStageV1": "Optional stage selects one fixed SPEAKER_FOCUS, TWO_SHOT or COMMAND_SCREEN layout, fixed character slots, optional speakerDistance/listenerDistance values from exactly NEAR/MID/FAR, system-owned position/scale/framing, UI form, pose, text mode and exact Catalog assets. Arbitrary screen coordinates, anchors, colors and scales are forbidden.",
+    "dialogueExpressionRule": "speakerExpression and listenerExpression are evaluated on every dialogue line. Standardized project-owned 6x5 character sheets expose portrait cells 0..11 and Body_Idle_Front as the same deterministic identity; Unity should derive the same-identity requested expression, then Neutral, before falling back to the Actor visual.",
+    "dialogueIdentityRule": "Do not rename an unrelated generic Actor sprite into a pilot/commander/watch officer. For automatic dialogue casting prefer a suggested canonical character Actor that has compatible same-identity portrait candidates. Portrait UI never changes cast identity.",
+    "optionalVisualFallback": "Optional presentation assets may fall back safely. Required participant visuals may use built-in identity fallback only when the selected preset exports allowsBuiltInParticipantFallback=true and the referenced cast identity exists; otherwise choose another exact compatible tuple/preset or return one blocker.",
+    "lockedDialogueActorActions": {
+      "trueMeans": [
+        "no actor movement",
+        "no portrait/body relocation",
+        "no scale animation",
+        "no camera drift",
+        "no background movement"
+      ],
+      "framingChanges": "use an explicit HardCut between shots",
+      "shotActorActions": "When stage.lockStaging=true, the owning shot.actorActions MUST be empty.",
+      "forbiddenActorActionTypes": [
+        "Activate",
+        "Deactivate",
+        "Enter",
+        "Exit",
+        "Move",
+        "MoveToMark",
+        "FollowPath",
+        "Face",
+        "Turn",
+        "SetSorting",
+        "SetScale",
+        "Formation",
+        "PlayAnimation",
+        "VisualWeaponAction",
+        "VisualDamageReaction",
+        "Hold",
+        "FreezePose",
+        "LocalSlowMotion",
+        "Curve",
+        "Orbit"
+      ],
+      "authoringRule": "When any dialogue line in a shot has stage.lockStaging=true, the owning shot.actorActions MUST be empty. Do not use Hold, FreezePose, Enter, Exit, Move, PlayAnimation, or any other world-actor action to keep a dialogue actor static. Dialogue visuals are controlled by the dialogue presentation fields only; place world-actor activity in a separate action shot before or after the locked dialogue shot."
+    }
+  },
+  "effects": {
+    "visualOnly": true,
+    "assetlessBuiltIns": [
+      "SpeedLines",
+      "Vignette",
+      "ScreenFlash",
+      "ColorFlash",
+      "Silhouette",
+      "Overlay"
+    ],
+    "assetRule": "Only the listed built-in overlay effects may omit assetId. All other effect types require an exact suitable Catalog assetId."
+  },
+  "events": {
+    "pointAction": "Events are point actions except that a ShowUi/HideUi pair defines one generated UI visibility interval.",
+    "forbiddenTypes": [
+      "EnableGameplay",
+      "DisableGameplay"
+    ],
+    "handoffRule": "Gameplay transfer belongs in the typed handoff object, not in cinematic events.",
+    "uiRule": "ShowUi creates one generated CUTSCENE_UI presentation from an exact Ui-primary assetId. Unity deterministically binds ShowUi to its own eventId when targetEntityId is omitted. Put a later HideUi in the same owner and set HideUi.targetEntityId to the ShowUi eventId; Unity derives the visible duration from that pair when ShowUi.floatValue is not positive. HideUi normally omits assetId. Do not use ShowUi/HideUi as arbitrary fullscreen overlay shortcuts.",
+    "spatialRule": "Do not fight source pixel dimensions with arbitrary transforms. Unity Cover-fits Background/FarBackground layers, applies bounded semantic base sizing to world actors, and places ordinary generated UI in screen space. Author only deliberate story-relative motion/placement.",
+    "emotionRule": "stage.speakerEmotion, stage.listenerEmotion and delivery.emotion use only Serious, Shock, Anger, Perplexed, Sad or Happy. Use speakerExpression/listenerExpression/reaction.expression for Determined, Concerned, Shocked, Relieved and similar acting choices."
+  },
+  "transitions": {
+    "durationRule": "transitionIn.duration and transitionOut.duration must each be non-negative and no longer than the owning shot."
+  }
+}
