@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "STARWARS_DELTA_EMOTIONAL_DIALOGUE_CURRENT",
   "title": "STARWARS_DELTA Emotional Dialogue CURRENT",
+  "description": "Atomic curated authoring repertoire exported only from MY_EmotionalDialogueLibrary. This file is the complete and exclusive dialogue-character universe for Devora, Simple Preview and Unity Simple Adapter.",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema", "schemaVersion", "status", "publishTransactionId", "requiredCurrent", "characters", "locations"],
@@ -10,25 +11,42 @@
     "schemaVersion": {"const": 1},
     "status": {"const": "CURRENT_VERIFIED_EMOTIONAL_DIALOGUE"},
     "publishTransactionId": {"type": "string", "minLength": 1},
-    "requiredCurrent": {"type": "object"},
+    "requiredCurrent": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["catalogRevision", "contractRevision", "schemaHash", "snapshotContentHash", "authoringRuleRegistryRevision"]
+    },
     "characters": {
       "type": "array",
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["actorId", "displayName", "authoringReady", "identityHandle", "visualMode", "defaultExpression", "supportedExpressions"],
+        "required": ["actorId", "displayName", "authoringReady", "identityHandle", "visualMode", "defaultExpression", "supportedExpressions", "defaultPresentationHandle", "spawnWorldActorDefault"],
         "properties": {
-          "actorId": {"type": "string", "minLength": 1},
+          "actorId": {"type": "string", "pattern": "^[A-Za-z0-9_-]+$", "minLength": 1, "description": "Stable curated dialogue participant identity. CUTSCENE_SCRIPT_V1 cast[].id, speaker and listener must use this exact value."},
           "displayName": {"type": "string", "minLength": 1},
           "authoringReady": {"type": "boolean"},
-          "identityHandle": {"type": "string", "minLength": 1},
-          "visualMode": {"enum": ["FullPortrait"]},
+          "identityHandle": {"type": "string", "minLength": 1, "description": "Stable logical Emotional Dialogue identity handle. It is not an Actor Catalog handle and not a Ui/portrait handle."},
+          "visualMode": {"const": "FullPortrait"},
           "defaultExpression": {"type": "string", "minLength": 1},
           "supportedExpressions": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
           "supportedPoses": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
-          "defaultPresentationHandle": {"type": "string"},
+          "defaultPresentationHandle": {"type": "string", "minLength": 1, "description": "Registered FullPortrait presentation source for the default state. Presentation never defines identity."},
           "spawnWorldActorDefault": {"const": false}
-        }
+        },
+        "allOf": [
+          {
+            "if": {"properties": {"authoringReady": {"const": true}}},
+            "then": {
+              "properties": {
+                "identityHandle": {"minLength": 1},
+                "defaultExpression": {"minLength": 1},
+                "defaultPresentationHandle": {"minLength": 1},
+                "supportedExpressions": {"minItems": 1}
+              }
+            }
+          }
+        ]
       }
     },
     "locations": {
