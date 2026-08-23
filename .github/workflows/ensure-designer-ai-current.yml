@@ -1,10 +1,10 @@
-# Film QA bootstrap retrigger 5
+# Film QA bootstrap retrigger 6
 name: Ensure Designer AI CURRENT
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/5 * * * *'
   push:
     branches: [main]
     paths:
