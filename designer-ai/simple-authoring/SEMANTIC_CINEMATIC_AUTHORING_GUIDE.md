@@ -16,34 +16,24 @@ Use `authoring/AUTHORING_HANDLES.json` as the only general authoring handle sour
 
 Dialogue is the one deliberate exception to general Actor discovery.
 
-For any beat containing `dialogue[]`, discover the Unity-published repertoire from:
+For any beat containing `dialogue[]`, Devora reads exactly one web artifact:
 
-`current.json.emotionalDialogue`
+`open-current/EMOTIONAL_DIALOGUE_CURRENT.json`
 
-That metadata identifies the exact published `EMOTIONAL_DIALOGUE_CURRENT.json`, including its status, publish transaction, SHA-256, release URL and atomic bundle entry.
+Unity Publish CURRENT owns this file. It must be the exact same verified Emotional Dialogue projection that Unity also places in the atomic CURRENT bundle/release metadata. The web consumers do not extract the large CURRENT ZIP and do not fetch GitHub Release assets just to decide whether dialogue is available.
 
-The normal atomic web path is:
-
-`current.json.emotionalDialogue.bundleEntryName`
-
-inside:
-
-`open-current/STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip`
-
-An `open-current/EMOTIONAL_DIALOGUE_CURRENT.json` file may exist as a convenience mirror, but it is optional. Its absence must **not** disable dialogue when the same verified repertoire is present in the CURRENT bundle.
-
-Before enabling dialogue, the repertoire must satisfy all of these:
+Before enabling dialogue, the direct mirror must satisfy all of these:
 
 1. `schema == STARWARS_DELTA_EMOTIONAL_DIALOGUE_CURRENT`
 2. `schemaVersion == 1`
 3. `status == CURRENT_VERIFIED_EMOTIONAL_DIALOGUE`
-4. `publishTransactionId` exactly matches the surrounding CURRENT
+4. `publishTransactionId` exactly matches `current.json` and `OPEN_CURRENT.json`
 5. all five `requiredCurrent` fingerprints exactly match the surrounding CURRENT
 6. at least one character has `authoringReady=true`
 
-If any of those checks fail, dialogue authoring is disabled while non-dialogue cinematic authoring remains available.
+If the mirror is missing or any check fails, dialogue authoring is disabled while non-dialogue cinematic authoring remains available.
 
-Only characters explicitly present in that verified repertoire with `authoringReady=true` are legal `speaker` or `listener` participants.
+Only characters explicitly present with `authoringReady=true` are legal `speaker` or `listener` participants.
 
 The identity rule is exact and case-sensitive:
 
@@ -99,13 +89,13 @@ For every authored dialogue line:
 Machine-readable policy: `EMOTIONAL_DIALOGUE_AUTHORING_POLICY.json`.
 Publisher contract schema: `EMOTIONAL_DIALOGUE_CURRENT.schema.json`.
 
-## New optional semantic fields
+## Optional semantic fields
 
 ### Beat level
 
 - `dramaticFunction`: setup/build/reveal/reaction/pursuit/impact/escape/climax/aftermath/handoff/release
 - `energy`: quiet/low/medium/high/peak
-- `cinematicMove`: existing film-intent vocabulary such as `ship_flyby`, `pullback_reveal`, `pursuit`, `approach`, `impact`, `escape`, `aftermath`
+- `cinematicMove`: film intent such as `ship_flyby`, `pullback_reveal`, `pursuit`, `approach`, `impact`, `escape`, `aftermath`
 - `relationships[]`: screen relationships such as `left_of`, `behind`, `faces`, `threatens`, `escorts`
 - `audio[]`: direct CURRENT Audio handles
 - `transition`: cut/crossfade/fade
@@ -113,7 +103,7 @@ Publisher contract schema: `EMOTIONAL_DIALOGUE_CURRENT.schema.json`.
 
 ### Visible element
 
-Use `saliency`, `travelDirection`, `facing`, `performanceIntent`, `animationIntent`, `startState` and `endState` to express what the audience should perceive. These are semantic instructions. Unity resolves legal execution.
+Use `saliency`, `travelDirection`, `facing`, `performanceIntent`, `animationIntent`, `startState` and `endState` to express what the audience should perceive. Unity resolves legal execution.
 
 ### Action
 
@@ -121,7 +111,7 @@ Keep the existing action `type`. Add `motionIntent` for cinematic movement such 
 
 ### Camera
 
-Camera movement officially includes `drift`, `shake`, `impact_shake` and `orbit` in addition to hold/push/pull/follow/track/cut.
+Camera movement includes `drift`, `shake`, `impact_shake` and `orbit` in addition to hold/push/pull/follow/track/cut.
 
 `orbit` is deliberately **2D/2.5D semantic orbit-like parallax**. It may compile to track/follow/drift plus subject/layer movement or an existing legal orbit primitive. It must never invent an unseen 3D back/side/top view.
 
@@ -129,36 +119,11 @@ Camera movement officially includes `drift`, `shake`, `impact_shake` and `orbit`
 
 `audio[]` is a first-class Simple V1 field. Each cue requires an authoritative CURRENT Audio `handle`.
 
-```json
-{
-  "kind": "music",
-  "handle": "<exact CURRENT Audio handle>",
-  "operation": "fade_in",
-  "intent": "quiet dread building under the reveal",
-  "volume": 0.55
-}
-```
-
 Do not guess an Audio handle from a filename. If no legal CURRENT Audio handle exists, omit the cue and report the gap. `safeForPreview=true` does not override `safeForPublish=false`.
 
 ## Performance and animation
 
-Use `performanceIntent` and `animationIntent` rather than raw animation asset IDs. The adapter resolves them against the actor's compatible animation families. Examples: `urgent_locomotion`, `command`, `fear`, `injured`, `walk`, `run`, `interact`, `hit`.
-
-## Continuity
-
-```json
-"continuity": {
-  "preserveScreenDirection": true,
-  "matchedEntityIds": ["enemy_leader", "hero_ship"]
-}
-```
-
-The V3 staging layer owns exact placement. The authoring layer owns audience-facing continuity intent.
-
-## Cinematic move rule
-
-A named `cinematicMove` is not decoration. It must be evidenced by composition, camera, visible subjects and actions. If the backend has an exact existing V3 feature, reuse it. If not, compile the visible intent from legal lower-level primitives rather than pretending an unsupported feature exists.
+Use `performanceIntent` and `animationIntent` rather than raw animation asset IDs. The adapter resolves them against the actor's compatible animation families.
 
 ## What remains backend-only
 
@@ -168,4 +133,4 @@ A named `cinematicMove` is not decoration. It must be evidenced by composition, 
 - camera object wiring
 - resolver fallback internals
 
-The author writes a film. The backend performs accounting. Humanity has suffered enough from making those the same job.
+The author writes a film. The backend performs accounting.
