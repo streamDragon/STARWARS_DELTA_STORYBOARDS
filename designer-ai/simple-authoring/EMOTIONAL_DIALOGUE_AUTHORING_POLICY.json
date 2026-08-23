@@ -2,13 +2,8 @@
   "schema": "STARWARS_DELTA_EMOTIONAL_DIALOGUE_AUTHORING_POLICY",
   "schemaVersion": 1,
   "status": "HARD_AUTHORING_GATE",
-  "authoritativeRepertoireDiscovery": {
-    "currentMetadataPath": "current.json.emotionalDialogue",
-    "publishedAssetUrlField": "browserDownloadUrl",
-    "optionalMirrorPath": "open-current/EMOTIONAL_DIALOGUE_CURRENT.json",
-    "bundleEntryField": "bundleEntryName",
-    "rule": "current.json emotionalDialogue metadata is authoritative discovery. An open-current copy is an optional mirror only and must never be required when the verified release asset already exists."
-  },
+  "authoritativeRepertoirePath": "open-current/EMOTIONAL_DIALOGUE_CURRENT.json",
+  "publicationRule": "Unity Publish CURRENT must copy the exact verified EMOTIONAL_DIALOGUE_CURRENT.json artifact to open-current/EMOTIONAL_DIALOGUE_CURRENT.json. DEVORA and Simple Preview read only this direct mirror during normal page load. They do not open the large CURRENT ZIP and do not fetch GitHub Release assets to discover dialogue readiness.",
   "defaultWhenMissingOrEmpty": "DIALOGUE_AUTHORING_DISABLED",
   "closedWorld": true,
   "identitySemantics": {
@@ -23,20 +18,20 @@
     "spawnWorldActorDefault": false
   },
   "atomicityRules": [
-    "The repertoire status must be CURRENT_VERIFIED_EMOTIONAL_DIALOGUE.",
-    "The repertoire publishTransactionId must equal the surrounding CURRENT publishTransactionId.",
-    "All five requiredCurrent fingerprints must equal the surrounding CURRENT fingerprints.",
-    "When current.json publishes sha256 for the repertoire asset, consumers should verify it when raw bytes are available.",
-    "A stale, mismatched or unreadable published repertoire disables dialogue only; non-dialogue authoring remains available."
+    "The mirror status must be CURRENT_VERIFIED_EMOTIONAL_DIALOGUE.",
+    "The mirror publishTransactionId must equal current.json and OPEN_CURRENT.json.",
+    "All five requiredCurrent fingerprints must equal current.json and OPEN_CURRENT.json.",
+    "Missing, stale or mismatched mirror disables dialogue only; non-dialogue authoring remains available."
   ],
   "preJsonGate": [
-    "If the request contains dialogue, load the verified atomic Emotional Dialogue repertoire before generating JSON.",
+    "If the request contains dialogue, load open-current/EMOTIONAL_DIALOGUE_CURRENT.json before generating JSON.",
     "If the repertoire is missing, stale, non-atomic, unverified or has zero authoringReady characters, stop before JSON and state that dialogue authoring is disabled.",
-    "If the user requests a character absent from the authoringReady repertoire, stop before JSON, state that the character is unavailable for dialogue and list only the available repertoire.",
+    "If the user requests a character absent from the authoringReady repertoire, stop before JSON, state that the requested dialogue character is unavailable and list only the available repertoire.",
     "Never silently substitute a different dialogue character."
   ],
-  "legalDialogueCharacterSource": "MY_EmotionalDialogueLibrary via Unity-published EMOTIONAL_DIALOGUE_CURRENT.json only",
-  "forbiddenDialogueCharacterSources": [
+  "forbiddenDiscoveryPaths": [
+    "CURRENT bundle extraction during page boot",
+    "GitHub Release asset fetch during page boot",
     "Actor Catalog",
     "Ui Catalog",
     "AUTHORING_HANDLES Actor routes",
@@ -57,11 +52,5 @@
     "Unsupported expressions are blockers. There is no Neutral fallback and no portrait search.",
     "Listener presentation uses the listener's published defaultExpression unless a future CURRENT contract explicitly exposes listener expression authoring.",
     "Dialogue presentation preview may use only the repertoire defaultPresentationHandle for identity evidence; it must never resolve a dialogue portrait through general AUTHORING_HANDLES."
-  ],
-  "expectedRootDiagnostics": [
-    "SIMPLE_DIALOGUE_SPEAKER_UNKNOWN",
-    "DIALOGUE_AUTHORING_DISABLED",
-    "DIALOGUE_CHARACTER_OUTSIDE_REPERTOIRE",
-    "DIALOGUE_EXPRESSION_OUTSIDE_REPERTOIRE"
   ]
 }
