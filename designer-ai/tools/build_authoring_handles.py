@@ -4,6 +4,7 @@ import json
 import pathlib
 import re
 import shutil
+from collections import Counter
 
 ROOT = pathlib.Path("_open_current_stage")
 SOURCE_SIMPLE = pathlib.Path("designer-ai/simple-authoring")
@@ -55,6 +56,11 @@ def slug(text):
 def runtime_id(entry, route):
     if route == "Actor":
         return entry.get("canonicalActorAssetId") or entry.get("authoringAssetId")
+    if route == "Audio":
+        # Audio Director projection owns an exact assetId but historically did not
+        # expose authoringAssetId. The exact CURRENT assetId is therefore the
+        # deterministic runtime identity used by the Simple V1 handle contract.
+        return entry.get("authoringAssetId") or entry.get("assetId") or entry.get("audioId")
     return entry.get("authoringAssetId")
 
 
@@ -70,20 +76,35 @@ def stable_handle(display, rid):
 
 
 def is_eligible(entry, route):
-    if entry.get("recommendationStatus") != "RECOMMENDABLE":
-        return False
     rid = runtime_id(entry, route)
     if not rid:
         return False
+
     allowed = set(entry.get("allowedUses") or [])
     if allowed and route not in allowed:
         return False
+
+    if route == "Audio":
+        # Audio is a non-visual Simple V1 route. It has no Atlas obligation and
+        # currently uses Director selectionStatus instead of recommendationStatus.
+        # Preview-safe CURRENT Audio is authorable even when publish certification
+        # is still false; safeForPublish remains visible on the emitted handle.
+        if entry.get("safeForPreview") is False:
+            return False
+        recommendation = str(entry.get("recommendationStatus") or "").strip()
+        selection = str(entry.get("selectionStatus") or "").strip()
+        return recommendation == "RECOMMENDABLE" or selection == "CATALOG_VERIFIED_PREVIEW_SAFE"
+
+    if entry.get("recommendationStatus") != "RECOMMENDABLE":
+        return False
+
     if route == "Actor":
         caps = set(entry.get("capabilities") or []) | set(entry.get("selectedCapabilities") or [])
         if "Cutscene.Actor" not in caps:
             return False
         if entry.get("safeForPreview") is False:
             return False
+
     return True
 
 
@@ -102,6 +123,7 @@ def main():
 
     entries = []
     used = set()
+    eligible_runtime_ids = {route: set() for route in CATEGORY_ROUTES.values()}
 
     for filename, route in CATEGORY_ROUTES.items():
         path = DIRECTOR / filename
@@ -115,12 +137,15 @@ def main():
                 + filename
                 + " does not match OPEN_CURRENT.requiredCurrent"
             )
+
         for entry in payload.get("assets") or []:
             if not is_eligible(entry, route):
                 continue
             rid = runtime_id(entry, route)
+            eligible_runtime_ids[route].add(rid)
             display = entry.get("displayName") or rid
             handle = stable_handle(display, rid)
+
             # Same runtime route/identity may be projected by more than one source
             # record. Publish one handle, not aliases that could make authoring
             # selection look ambiguous.
@@ -128,6 +153,7 @@ def main():
             if identity_key in used:
                 continue
             used.add(identity_key)
+
             visual = entry.get("visualEvidence") or {}
             entries.append({
                 "handle": handle,
@@ -145,18 +171,67 @@ def main():
                 "targetScreenFraction": entry.get("targetScreenFraction"),
                 "scaleBasis": entry.get("scaleBasis"),
                 "systemManagedProportions": entry.get("systemManagedProportions"),
-                "visualReferenceId": entry.get("visualReferenceId"),
-                "atlasPage": visual.get("atlasPage"),
-                "atlasSlot": visual.get("atlasSlot"),
-                "pageImageUrl": visual.get("pageImageUrl"),
-                "atlasPdfUrl": visual.get("atlasPdfUrl"),
+                "visualReferenceId": None if route == "Audio" else entry.get("visualReferenceId"),
+                "atlasPage": None if route == "Audio" else visual.get("atlasPage"),
+                "atlasSlot": None if route == "Audio" else visual.get("atlasSlot"),
+                "pageImageUrl": None if route == "Audio" else visual.get("pageImageUrl"),
+                "atlasPdfUrl": None if route == "Audio" else visual.get("atlasPdfUrl"),
                 "compatibleAnimationIds": entry.get("compatibleAnimationIds") or [],
                 "compatibleDialogueVisualIds": entry.get("compatibleDialogueVisualIds") or [],
             })
 
+    counts_by_route = Counter(entry["route"] for entry in entries)
+
+    # Builder-owned invariant: every eligible CURRENT runtime identity gets exactly
+    # one handle on its route. Do not let Director claim authorability that the
+    # Simple V1 vocabulary cannot express.
+    for route, expected_ids in eligible_runtime_ids.items():
+        actual_ids = {entry["runtimeId"] for entry in entries if entry["route"] == route}
+        if actual_ids != expected_ids:
+            missing = sorted(expected_ids - actual_ids)
+            extra = sorted(actual_ids - expected_ids)
+            raise SystemExit(
+                "AUTHORING_HANDLES_ROUTE_COVERAGE_MISMATCH: "
+                + route
+                + " missing="
+                + repr(missing[:10])
+                + " extra="
+                + repr(extra[:10])
+            )
+
+    # Hash suffixes are authoritative. A collision is therefore a real publishing
+    # blocker, not something a consumer may guess through.
+    hash_owner = {}
+    handle_owner = {}
+    for entry in entries:
+        rid = entry["runtimeId"]
+        h = entry["runtimeHash"]
+        handle = entry["handle"]
+        if h in hash_owner and hash_owner[h] != rid:
+            raise SystemExit(
+                "AUTHORING_HANDLES_RUNTIME_HASH_COLLISION: "
+                + h
+                + " maps to both "
+                + hash_owner[h]
+                + " and "
+                + rid
+            )
+        hash_owner[h] = rid
+        owner = (entry["route"], rid)
+        if handle in handle_owner and handle_owner[handle] != owner:
+            raise SystemExit(
+                "AUTHORING_HANDLES_HANDLE_COLLISION: "
+                + handle
+                + " maps to multiple CURRENT identities"
+            )
+        handle_owner[handle] = owner
+
+    if counts_by_route.get("Audio", 0) <= 0:
+        raise SystemExit("AUTHORING_HANDLES_AUDIO_EMPTY: CURRENT exposes no legal Audio handles")
+
     payload = {
         "schema": "STARWARS_DELTA_AUTHORING_HANDLES",
-        "schemaVersion": 1,
+        "schemaVersion": 2,
         "purpose": "Semantic authoring handles for CUTSCENE_SCRIPT_V1. ChatGPT uses handles; Unity/compiler owns runtime IDs and V5 serialization.",
         "handleContract": {
             "format": "<readable_slug>__<8-char lowercase sha1(runtimeId)>",
@@ -167,6 +242,7 @@ def main():
         },
         "requiredCurrent": required_current,
         "count": len(entries),
+        "countsByRoute": {route: counts_by_route.get(route, 0) for route in CATEGORY_ROUTES.values()},
         "handles": sorted(entries, key=lambda x: (x["route"], x["handle"])),
         "cutsceneViewBoundsContract": {
             "space": "Unity world space",
@@ -191,6 +267,7 @@ def main():
     }
     OUT_PATH.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("AUTHORING_HANDLES_BUILT", len(entries))
+    print("AUTHORING_HANDLES_COUNTS", json.dumps(payload["countsByRoute"], sort_keys=True))
     print("AUTHORING_HANDLES_PATH", OUT_PATH)
 
 
