@@ -10,7 +10,48 @@ Pipeline:
 
 ## Source of truth
 
-Use `authoring/AUTHORING_HANDLES.json` as the only authoring handle source. Director files explain meaning, capability and safety. Visual Atlas provides pixel evidence. Do not derive handles from filenames, display names or assetId.
+Use `authoring/AUTHORING_HANDLES.json` as the only general authoring handle source. Director files explain meaning, capability and safety. Visual Atlas provides pixel evidence. Do not derive handles from filenames, display names or assetId.
+
+## EMOTIONAL DIALOGUE CLOSED WORLD - HARD GATE
+
+Dialogue is the one deliberate exception to general Actor discovery.
+
+For any beat containing `dialogue[]`, Devora must first load the atomic CURRENT Emotional Dialogue repertoire exported by Unity as:
+
+`open-current/EMOTIONAL_DIALOGUE_CURRENT.json`
+
+Only characters explicitly present in that file with `authoringReady=true` are legal `speaker` or `listener` participants.
+
+Never derive dialogue eligibility from:
+
+- `actors.json`
+- `ui.json`
+- Visual Atlas
+- `Cutscene.Actor`
+- `Cutscene.Character`
+- `Cutscene.Portrait`
+- display name
+- filename
+- tags
+- visual similarity
+- Catalog-wide search
+
+A portrait, expression sprite, body sprite or Ui entry is presentation evidence. It is **not** dialogue identity by itself.
+
+If the requested character is not in the CURRENT Emotional Dialogue repertoire, **STOP BEFORE GENERATING JSON**. Tell the designer that the requested character is unavailable for dialogue and list only the `authoringReady=true` repertoire as alternatives. Never silently substitute another character.
+
+If `EMOTIONAL_DIALOGUE_CURRENT.json` is missing, stale, non-atomic, unverified or contains zero authoring-ready characters, **dialogue authoring is disabled**. Non-dialogue cinematic authoring remains available.
+
+For every authored dialogue line:
+
+1. `speaker` and optional `listener` reference `cast[].id` values.
+2. Each referenced cast entry must resolve to an `identityHandle` published for an authoring-ready Emotional Dialogue character.
+3. `expressionIntent` may use only that character's published `supportedExpressions`.
+4. Do not search for an expression sprite by filename or visual resemblance.
+5. Dialogue-only characters remain legal with `spawnWorldActor=false`; do not manufacture a dummy WorldActor.
+
+Machine-readable policy: `EMOTIONAL_DIALOGUE_AUTHORING_POLICY.json`.
+Publisher contract schema: `EMOTIONAL_DIALOGUE_CURRENT.schema.json`.
 
 ## New optional semantic fields
 
