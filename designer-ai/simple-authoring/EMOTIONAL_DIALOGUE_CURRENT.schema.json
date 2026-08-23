@@ -21,7 +21,7 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["actorId", "displayName", "authoringReady", "identityHandle", "visualMode", "defaultExpression", "supportedExpressions", "defaultPresentationHandle", "spawnWorldActorDefault"],
+        "required": ["actorId", "displayName", "authoringReady"],
         "properties": {
           "actorId": {"type": "string", "pattern": "^[A-Za-z0-9_-]+$", "minLength": 1, "description": "Stable curated dialogue participant identity. CUTSCENE_SCRIPT_V1 cast[].id, speaker and listener must use this exact value."},
           "displayName": {"type": "string", "minLength": 1},
@@ -36,14 +36,9 @@
         },
         "allOf": [
           {
-            "if": {"properties": {"authoringReady": {"const": true}}},
+            "if": {"properties": {"authoringReady": {"const": true}}, "required": ["authoringReady"]},
             "then": {
-              "properties": {
-                "identityHandle": {"minLength": 1},
-                "defaultExpression": {"minLength": 1},
-                "defaultPresentationHandle": {"minLength": 1},
-                "supportedExpressions": {"minItems": 1}
-              }
+              "required": ["identityHandle", "visualMode", "defaultExpression", "supportedExpressions", "defaultPresentationHandle", "spawnWorldActorDefault"]
             }
           }
         ]
