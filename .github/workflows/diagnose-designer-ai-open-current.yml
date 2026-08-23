@@ -1,0 +1,66 @@
+name: Diagnose Designer AI Open CURRENT
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'designer-ai/OPEN_CURRENT_DIAGNOSTIC_TRIGGER.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: python3 -m pip install --disable-pip-version-check pillow pypdf
+      - name: Run publisher stages and capture failure
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        shell: bash
+        run: |
+          set +e
+          LOG="$RUNNER_TEMP/open-current-diagnostic.log"
+          : > "$LOG"
+          status=0
+          stage='start'
+          run_stage() {
+            stage="$1"
+            shift
+            echo "===== STAGE: $stage =====" | tee -a "$LOG"
+            "$@" >> "$LOG" 2>&1
+            code=$?
+            echo "EXIT_CODE=$code" | tee -a "$LOG"
+            if [ "$code" -ne 0 ]; then
+              status="$code"
+              return 1
+            fi
+            return 0
+          }
+
+          run_stage build_open_current python3 designer-ai/tools/build_open_current.py || true
+          if [ "$status" -eq 0 ]; then run_stage build_visual_atlas python3 designer-ai/tools/build_visual_atlas.py || true; fi
+          if [ "$status" -eq 0 ]; then run_stage finalize_open_current python3 designer-ai/tools/finalize_open_current.py || true; fi
+          if [ "$status" -eq 0 ]; then run_stage build_director_view python3 designer-ai/tools/build_director_view.py || true; fi
+          if [ "$status" -eq 0 ]; then run_stage run_director_finalization python3 designer-ai/tools/run_director_finalization.py || true; fi
+          if [ "$status" -eq 0 ]; then run_stage seal_atomic_current python3 designer-ai/tools/seal_atomic_current.py || true; fi
+          if [ "$status" -eq 0 ]; then run_stage build_authoring_handles python3 designer-ai/tools/build_authoring_handles.py || true; fi
+
+          {
+            echo 'STARWARS_DELTA OPEN CURRENT DIAGNOSTIC'
+            echo "UTC=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "FAILED_STAGE=$stage"
+            echo "EXIT_CODE=$status"
+            echo
+            tail -n 240 "$LOG"
+          } > designer-ai/OPEN_CURRENT_DIAGNOSTIC.txt
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add designer-ai/OPEN_CURRENT_DIAGNOSTIC.txt
+          git commit -m 'Record Open CURRENT diagnostic' || true
+          git push origin HEAD:main
+          exit 0
