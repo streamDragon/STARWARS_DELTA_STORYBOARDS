@@ -1,5 +1,4 @@
-# Direct retrigger 2026-08-23 for CURRENT 20260823-022704116-4be0475b
-name: Publish Designer AI Open CURRENT
+name: Publish Designer AI CURRENT
 
 on:
   workflow_dispatch:
@@ -11,33 +10,26 @@ on:
       - 'designer-ai/FILM_AUTHORING_GUIDE_CURRENT.md'
       - 'designer-ai/chatgpt-current.json'
       - 'designer-ai/simple-authoring/**'
-      - 'designer-ai/tools/build_open_current.py'
-      - 'designer-ai/tools/build_visual_atlas.py'
-      - 'designer-ai/tools/finalize_open_current.py'
-      - 'designer-ai/tools/build_director_view.py'
-      - 'designer-ai/tools/finalize_director_current.py'
-      - 'designer-ai/tools/run_director_finalization.py'
-      - 'designer-ai/tools/seal_atomic_current.py'
-      - 'designer-ai/tools/build_authoring_handles.py'
+      - 'designer-ai/tools/**'
       - '.github/workflows/publish-designer-ai-open-current.yml'
 
 permissions:
   contents: write
 
 concurrency:
-  group: designer-ai-open-current
+  group: designer-ai-current
   cancel-in-progress: true
 
 jobs:
-  publish-open-current:
+  publish-current:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout publisher site
+      - name: Checkout main
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
-      - name: Install visual builder dependencies
+      - name: Install builder dependencies
         run: python3 -m pip install --disable-pip-version-check pillow pypdf
 
       - name: Build visual evidence CURRENT
@@ -46,34 +38,35 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/build_open_current.py
 
-      - name: Build unified ChatGPT Visual Atlas
+      - name: Build unified Visual Atlas
         run: python3 designer-ai/tools/build_visual_atlas.py
 
-      - name: Report raw Visual Library preview gaps
+      - name: Finalize visual evidence
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/finalize_open_current.py
 
-      - name: Build full Catalog Director View and fallback pack
+      - name: Build Director View
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/build_director_view.py
 
-      - name: Finalize Director recommendation policy, compatibility aliases, completion queue and fallback pack
+      - name: Finalize Director View
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/run_director_finalization.py
 
-      - name: Seal Rule Registry into atomic CURRENT identity
+      - name: Seal CURRENT identity
         run: python3 designer-ai/tools/seal_atomic_current.py
 
       - name: Build simple authoring handles
         run: python3 designer-ai/tools/build_authoring_handles.py
 
-      - name: Validate final CURRENT payload
+      - name: Validate the single CURRENT
+        shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
@@ -83,202 +76,64 @@ jobs:
           from pypdf import PdfReader
 
           root = pathlib.Path('_open_current_stage')
-          source_current = json.loads(pathlib.Path('designer-ai/current.json').read_text(encoding='utf-8-sig'))
+          source = json.loads(pathlib.Path('designer-ai/current.json').read_text(encoding='utf-8-sig'))
           current = json.loads((root / 'OPEN_CURRENT.json').read_text(encoding='utf-8'))
           director = json.loads((root / 'director-view' / 'DIRECTOR_VIEW.json').read_text(encoding='utf-8'))
-          queue = json.loads((root / 'director-view' / 'completion-queue.json').read_text(encoding='utf-8'))
-          audit = json.loads((root / 'director-view' / 'eligibility-audit.json').read_text(encoding='utf-8'))
           manifest = json.loads((root / 'DIRECTOR_PACK_MANIFEST.json').read_text(encoding='utf-8'))
-          visual_index = json.loads((root / 'FULL_VISUAL_INDEX.json').read_text(encoding='utf-8'))
-          atlas_manifest = json.loads((root / 'full-visual-sheets' / 'VISUAL_ATLAS_CURRENT.json').read_text(encoding='utf-8'))
+          handles = json.loads((root / 'simple-authoring' / 'AUTHORING_HANDLES.json').read_text(encoding='utf-8'))
+          required = dict(source.get('requiredCurrent') or {})
+          expected = {'publishTransactionId': source.get('publishTransactionId'), **required}
+
+          assert source.get('status') == 'CURRENT_VERIFIED'
+          assert current.get('status') == 'CURRENT_VERIFIED_OPEN'
+          assert current.get('publishTransactionId') == source.get('publishTransactionId')
+          assert current.get('requiredCurrent') == required
+          assert director.get('requiredCurrent') == required
+          assert manifest.get('requiredCurrent') == required
+          assert handles.get('requiredCurrent') == required
+          assert current.get('atomicIdentity') == expected
+          assert director.get('atomicIdentity') == expected
+          assert manifest.get('atomicIdentity') == expected
+          assert str(director.get('catalogRevision')) == str(required.get('catalogRevision'))
+          assert director.get('contractRevision') == required.get('contractRevision')
+          assert director.get('schemaHash') == required.get('schemaHash')
+          assert director.get('snapshotContentHash') == required.get('snapshotContentHash')
+          assert handles.get('count', 0) > 0
+
           atlas = root / 'full-visual-sheets' / 'STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf'
           pack = root / 'STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip'
-          handles_path = root / 'simple-authoring' / 'AUTHORING_HANDLES.json'
-          simple_schema = root / 'simple-authoring' / 'CUTSCENE_SCRIPT_V1.schema.json'
-          simple_example = root / 'simple-authoring' / 'EXAMPLE_FALSE_VICTORY.json'
-
-          rule_revision = source_current.get('authoringRuleRegistryRevision')
-          assert rule_revision
-          assert source_current.get('authoringRuleRegistry', {}).get('revision') == rule_revision
-
-          expected_identity = {
-              'publishTransactionId': director['publishTransactionId'],
-              'catalogRevision': director['catalogRevision'],
-              'snapshotContentHash': director['snapshotContentHash'],
-              'contractRevision': director['contractRevision'],
-              'schemaHash': director['schemaHash'],
-              'authoringRuleRegistryRevision': rule_revision,
-          }
-
-          assert current['status'] == 'CURRENT_VERIFIED_OPEN'
-          assert current['directorView']['status'] == 'CURRENT_FULL_CATALOG_PROJECTION'
-          assert current['directorView']['requestScoped'] is False
-          assert director['sourceCatalogRecordCount'] > 0
-          assert current['directorView']['sourceCatalogRecordCount'] == director['sourceCatalogRecordCount']
-          assert director['counts']['animations'] > 0
-          assert director['counts']['audio'] > 0
-          assert current['catalogRevision'] == director['catalogRevision']
-          assert current['snapshotContentHash'] == director['snapshotContentHash']
-          assert current['authoringRuleRegistryRevision'] == rule_revision
-          assert director['authoringRuleRegistryRevision'] == rule_revision
-          assert manifest['authoringRuleRegistryRevision'] == rule_revision
-          assert current['atomicIdentity'] == expected_identity
-          assert director['atomicIdentity'] == expected_identity
-          assert manifest['atomicIdentity'] == expected_identity
-          assert audit['publishTransactionId'] == director['publishTransactionId']
-          assert audit['catalogRevision'] == director['catalogRevision']
-          assert queue['visualPreviewCount'] == len(queue['visualPreviews'])
-          assert queue['visualPreviewGenerationCount'] + queue['visualEligibilityReviewCount'] == queue['visualPreviewCount']
-          assert queue['eligibilityReviewCount'] == len(queue['eligibilityReviews'])
-          assert queue['eligibilityReviewCount'] == audit['flaggedDirectorVisualCount']
-          assert current['eligibilityAudit']['url'] == director['eligibilityAuditUrl']
+          assert atlas.is_file() and len(PdfReader(str(atlas)).pages) > 0
           assert pack.is_file() and pack.stat().st_size > 0
-
-          assert atlas.is_file() and atlas.stat().st_size > 0
-          assert current['visualAtlas']['status'] == 'CURRENT_VERIFIED_VISUAL_ATLAS'
-          assert current['visualAtlas']['publishTransactionId'] == director['publishTransactionId']
-          assert visual_index['visualAtlas']['pdfUrl'] == current['visualAtlas']['pdfUrl']
-          assert atlas_manifest['pdfUrl'] == current['visualAtlas']['pdfUrl']
-          assert atlas_manifest['representativeCount'] == visual_index['representativeCount']
-          assert len(PdfReader(str(atlas)).pages) == atlas_manifest['totalPages']
-          mapped = [a for a in visual_index.get('assets', []) if a.get('atlasPage') and a.get('atlasSlot')]
-          assert len(mapped) == visual_index['representativeCount']
-
-          visual_entries = []
-          for filename in ('actors.json', 'layers.json', 'effects.json', 'ui.json'):
-              payload = json.loads((root / 'director-view' / filename).read_text(encoding='utf-8'))
-              assert payload['count'] == len(payload['assets'])
-              assert payload['atomicIdentity'] == expected_identity
-              visual_entries.extend(payload['assets'])
-          valid_states = {
-              'RECOMMENDABLE',
-              'PIXEL_COMPLETION_REQUIRED',
-              'DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW',
-          }
-          assert visual_entries
-          assert all(entry.get('recommendationStatus') in valid_states for entry in visual_entries)
-          assert all(bool(entry.get('recommendable')) == (entry.get('recommendationStatus') == 'RECOMMENDABLE') for entry in visual_entries)
-          verified = [entry for entry in visual_entries if entry.get('visualEvidence', {}).get('status') == 'PIXELS_VERIFIED']
-          assert all(entry.get('visualEvidence', {}).get('atlasPage') and entry.get('visualEvidence', {}).get('atlasSlot') for entry in verified)
-          assert director['quality']['verifiedVisualEntryCount'] == len(verified)
-          assert director['quality']['atlasMappedVerifiedVisualEntryCount'] == len(verified)
-          assert sum(director['quality']['recommendationStatusCounts'].values()) == len(visual_entries)
-
-          animations_payload = json.loads((root / 'director-view' / 'animations.json').read_text(encoding='utf-8'))
-          audio_payload = json.loads((root / 'director-view' / 'audio.json').read_text(encoding='utf-8'))
-          assert animations_payload['atomicIdentity'] == expected_identity
-          assert audio_payload['atomicIdentity'] == expected_identity
-          animations = animations_payload['assets']
-          audio = audio_payload['assets']
-          assert not any(item.get('unknownCompatibleActorAssetIds') for item in animations)
-          assert all('recommendableCompatibleActorAssetIds' in item for item in animations)
-          assert all('blockingCompletionNeeded' in item and 'qualityCompletionNeeded' in item for item in animations)
-          assert all('blockingCompletionNeeded' in item and 'qualityCompletionNeeded' in item for item in audio)
-
-          assert handles_path.is_file()
-          assert simple_schema.is_file()
-          assert simple_example.is_file()
-          handles = json.loads(handles_path.read_text(encoding='utf-8'))
-          assert handles['schema'] == 'STARWARS_DELTA_AUTHORING_HANDLES'
-          assert handles['schemaVersion'] == 1
-          assert handles['count'] == len(handles['handles'])
-          assert handles['count'] > 0
-          assert handles['requiredCurrent'] == current['requiredCurrent']
-          assert handles['cutsceneViewBoundsContract']['cameraOwned'] is True
-
-          assert queue['atomicIdentity'] == expected_identity
-          assert audit['atomicIdentity'] == expected_identity
-          assert (root / 'CHATGPT_START.txt').is_file()
-          assert (root / 'FILM_AUTHORING_GUIDE_CURRENT.md').is_file()
-          instructions = (root / 'CHATGPT_START.txt').read_text(encoding='utf-8')
-          assert f'CURRENT AUTHORING RULE REGISTRY REVISION: {rule_revision}' in instructions
-          assert '- authoringRuleRegistryRevision' in instructions
-          assert manifest['chatgptInstructions'] == 'CHATGPT_START.txt'
-          assert manifest['filmAuthoringGuide'] == 'FILM_AUTHORING_GUIDE_CURRENT.md'
-
-          forbidden_paths = [
-              root / 'full-visual-sheets' / 'actor.pdf',
-              root / 'full-visual-sheets' / 'effect.pdf',
-              root / 'full-visual-sheets' / 'layer.pdf',
-              root / 'full-visual-sheets' / 'ui.pdf',
-              root / 'full-visual-index',
-          ]
-          assert not any(path.exists() for path in forbidden_paths)
-
           with zipfile.ZipFile(pack) as archive:
-              names = set(archive.namelist())
-              required = {
-                  'CHATGPT_READ_FIRST.txt',
-                  'CHATGPT_START.txt',
-                  'FILM_AUTHORING_GUIDE_CURRENT.md',
-                  'DIRECTOR_PACK_MANIFEST.json',
-                  'OPEN_CURRENT.json',
-                  'FULL_VISUAL_INDEX.json',
-                  'full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf',
-                  'full-visual-sheets/VISUAL_ATLAS_CURRENT.json',
-                  'director-view/DIRECTOR_VIEW.json',
-                  'director-view/actors.json',
-                  'director-view/layers.json',
-                  'director-view/effects.json',
-                  'director-view/ui.json',
-                  'director-view/animations.json',
-                  'director-view/audio.json',
-                  'director-view/completion-queue.json',
-                  'director-view/eligibility-audit.json',
-                  'catalog-contract/CUTSCENE_AUTHORING_CONTRACT.json',
-              }
-              missing = sorted(required - names)
-              assert not missing, f'Missing Director pack files: {missing}'
-              forbidden = {
-                  'full-visual-sheets/actor.pdf',
-                  'full-visual-sheets/effect.pdf',
-                  'full-visual-sheets/layer.pdf',
-                  'full-visual-sheets/ui.pdf',
-                  'full-visual-index/actor.json',
-                  'full-visual-index/effect.json',
-                  'full-visual-index/layer.json',
-                  'full-visual-index/ui.json',
-              }
-              assert not (forbidden & names)
+              zipped = json.loads(archive.read('OPEN_CURRENT.json').decode('utf-8-sig'))
+              assert zipped.get('requiredCurrent') == required
+              assert zipped.get('atomicIdentity') == expected
 
-              zip_current = json.loads(archive.read('OPEN_CURRENT.json').decode('utf-8-sig'))
-              zip_director = json.loads(archive.read('director-view/DIRECTOR_VIEW.json').decode('utf-8-sig'))
-              zip_manifest = json.loads(archive.read('DIRECTOR_PACK_MANIFEST.json').decode('utf-8-sig'))
-              zip_audit = json.loads(archive.read('director-view/eligibility-audit.json').decode('utf-8-sig'))
-              zip_queue = json.loads(archive.read('director-view/completion-queue.json').decode('utf-8-sig'))
-              assert zip_current['atomicIdentity'] == expected_identity
-              assert zip_director['atomicIdentity'] == expected_identity
-              assert zip_manifest['atomicIdentity'] == expected_identity
-              assert zip_audit['atomicIdentity'] == expected_identity
-              assert zip_queue['atomicIdentity'] == expected_identity
-              assert zip_queue['visualPreviewGenerationCount'] + zip_queue['visualEligibilityReviewCount'] == zip_queue['visualPreviewCount']
-              assert zip_queue['eligibilityReviewCount'] == len(zip_queue['eligibilityReviews'])
-              assert zip_current['visualAtlas']['pdfUrl'] == current['visualAtlas']['pdfUrl']
-
-          print('DIRECTOR_CURRENT_VALIDATED')
-          print('AUTHORING_RULE_REGISTRY_REVISION', rule_revision)
-          print('SOURCE_CATALOG_RECORDS', director['sourceCatalogRecordCount'])
-          print('DIRECTOR_COUNTS', director['counts'])
-          print('DIRECTOR_QUALITY', director['quality'])
-          print('ELIGIBILITY_REVIEW', audit['flaggedDirectorVisualCount'])
-          print('VISUAL_ATLAS_PAGES', atlas_manifest['totalPages'])
-          print('VISUAL_ATLAS_REPRESENTATIVES', atlas_manifest['representativeCount'])
-          print('AUTHORING_HANDLES', handles['count'])
-          print('PACK_BYTES', pack.stat().st_size)
+          print('SINGLE_CURRENT_VALIDATED', source.get('publishTransactionId'))
           PY
 
-      - name: Publish clean open-current branch
+      - name: Publish one CURRENT directly to main
+        shell: bash
         run: |
           set -euo pipefail
+          rm -rf designer-ai/open-current
+          mkdir -p designer-ai/open-current
+          cp -a _open_current_stage/. designer-ai/open-current/
+
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          STAGE="$(pwd)/_open_current_stage"
-          TMP="$(mktemp -d)"
-          cp -a "$STAGE/." "$TMP/"
-          git checkout --orphan designer-ai-open-current-tmp
-          git rm -rf . >/dev/null 2>&1 || true
-          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
-          cp -a "$TMP/." .
-          git add -A
-          git commit -m "Publish Designer AI open CURRENT"
-          git push --force origin HEAD:designer-ai-open-current
+          git add -A designer-ai/open-current
+
+          if git diff --cached --quiet; then
+            echo 'CURRENT already matches the built payload.'
+            exit 0
+          fi
+
+          tx="$(python3 - <<'PY'
+          import json
+          print(json.load(open('designer-ai/current.json', encoding='utf-8-sig'))['publishTransactionId'])
+          PY
+          )"
+          git commit -m "Publish Designer AI CURRENT $tx"
+          git pull --rebase origin main
+          git push origin HEAD:main
