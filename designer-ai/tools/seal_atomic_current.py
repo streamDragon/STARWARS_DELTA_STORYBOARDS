@@ -104,9 +104,10 @@ All five compatibility fingerprints must match. publishTransactionId belongs to 
 
 Never hardcode an old publish transaction into permanent guidance. Never assume schemaVersion=5 means CURRENT. Never combine Catalog, Contract, Schema, snapshot or Rule Registry data from different requiredCurrent identities.
 """
+    identity_header = "CURRENT AUTHORING COMPATIBILITY - REQUIRED CURRENT"
     if old_identity_block in text:
         text = text.replace(old_identity_block, new_identity_block, 1)
-    elif new_identity_block not in text:
+    elif identity_header not in text:
         raise SystemExit("CHATGPT_START CURRENT identity block marker is missing")
 
     authoring_shape_block = """============================================================
