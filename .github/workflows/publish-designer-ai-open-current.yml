@@ -65,11 +65,61 @@ jobs:
       - name: Build simple authoring handles
         run: python3 designer-ai/tools/build_authoring_handles.py
 
+      - name: Carry Emotional Dialogue CURRENT into stage
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import pathlib
+          import shutil
+
+          source_path = pathlib.Path('designer-ai/current.json')
+          mirror_path = pathlib.Path('designer-ai/open-current/EMOTIONAL_DIALOGUE_CURRENT.json')
+          stage_path = pathlib.Path('_open_current_stage/EMOTIONAL_DIALOGUE_CURRENT.json')
+
+          source = json.loads(source_path.read_text(encoding='utf-8-sig'))
+          metadata = dict(source.get('emotionalDialogue') or {})
+          expected_status = 'CURRENT_VERIFIED_EMOTIONAL_DIALOGUE'
+
+          if metadata.get('status') != expected_status:
+              if stage_path.exists():
+                  stage_path.unlink()
+              print('EMOTIONAL_DIALOGUE_NOT_PUBLISHED_FOR_CURRENT')
+              raise SystemExit(0)
+
+          assert mirror_path.is_file(), (
+              'CURRENT declares Emotional Dialogue but the committed mirror is missing: '
+              + str(mirror_path)
+          )
+
+          raw = mirror_path.read_bytes()
+          dialogue = json.loads(raw.decode('utf-8-sig'))
+          required = dict(source.get('requiredCurrent') or {})
+          ready = [c for c in (dialogue.get('characters') or []) if c.get('authoringReady') is True]
+          expected_ready = int(metadata.get('authoringReadyCharacterCount') or 0)
+
+          assert dialogue.get('schema') == 'STARWARS_DELTA_EMOTIONAL_DIALOGUE_CURRENT'
+          assert dialogue.get('status') == expected_status
+          assert dialogue.get('publishTransactionId') == source.get('publishTransactionId')
+          assert dialogue.get('requiredCurrent') == required
+          assert expected_ready > 0 and len(ready) == expected_ready
+          assert len({c.get('actorId') for c in ready}) == expected_ready
+          assert hashlib.sha256(raw).hexdigest().lower() == str(metadata.get('sha256') or '').lower()
+          assert len(raw) == int(metadata.get('sizeBytes') or 0)
+
+          stage_path.parent.mkdir(parents=True, exist_ok=True)
+          shutil.copy2(mirror_path, stage_path)
+          print('EMOTIONAL_DIALOGUE_STAGED', dialogue.get('publishTransactionId'), len(ready))
+          PY
+
       - name: Validate the single CURRENT
         shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
+          import hashlib
           import json
           import pathlib
           import zipfile
@@ -99,6 +149,21 @@ jobs:
           assert director.get('schemaHash') == required.get('schemaHash')
           assert director.get('snapshotContentHash') == required.get('snapshotContentHash')
           assert handles.get('count', 0) > 0
+
+          emotional = dict(source.get('emotionalDialogue') or {})
+          if emotional.get('status') == 'CURRENT_VERIFIED_EMOTIONAL_DIALOGUE':
+              dialogue_path = root / 'EMOTIONAL_DIALOGUE_CURRENT.json'
+              assert dialogue_path.is_file()
+              dialogue_raw = dialogue_path.read_bytes()
+              dialogue = json.loads(dialogue_raw.decode('utf-8-sig'))
+              ready = [c for c in (dialogue.get('characters') or []) if c.get('authoringReady') is True]
+              expected_ready = int(emotional.get('authoringReadyCharacterCount') or 0)
+              assert dialogue.get('status') == 'CURRENT_VERIFIED_EMOTIONAL_DIALOGUE'
+              assert dialogue.get('publishTransactionId') == source.get('publishTransactionId')
+              assert dialogue.get('requiredCurrent') == required
+              assert expected_ready > 0 and len(ready) == expected_ready
+              assert hashlib.sha256(dialogue_raw).hexdigest().lower() == str(emotional.get('sha256') or '').lower()
+              assert len(dialogue_raw) == int(emotional.get('sizeBytes') or 0)
 
           atlas = root / 'full-visual-sheets' / 'STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf'
           pack = root / 'STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip'
