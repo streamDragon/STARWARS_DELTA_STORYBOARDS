@@ -2,163 +2,226 @@
 
 ## GOAL
 
-Make Emotional Dialogue a hard closed-world system across Unity publish, Simple Adapter and Studio validation.
+Make `MY_EmotionalDialogueLibrary` the single source of truth for authored dialogue and publish one atomic `EMOTIONAL_DIALOGUE_CURRENT.json` projection from it.
 
-Normal gameplay Actors, portraits, Ui sprites, Catalog records and Visual Atlas entries must never become dialogue participants implicitly.
+Dialogue identity is curated and portrait-only when appropriate. It is not Actor Catalog identity, not Ui identity and not a WorldActor requirement.
 
-Only characters explicitly registered in `MY_EmotionalDialogueLibrary` and published as `authoringReady=true` may be used as `speaker` / `listener` in authored dialogue.
+Do not redesign the Cutscene architecture. Reuse the existing Simple Adapter, V3 semantic path, V5 Dialogue Stage, Presenter, Studio validation and normal Designer AI CURRENT publisher.
 
-Do not redesign the Cutscene architecture. Reuse the existing V5 Dialogue Stage, existing Presenter, existing Simple Adapter path, existing Studio validation and normal CURRENT publisher.
+## LOCKED IDENTITY RULE
 
-## REQUIRED UNITY CHANGES
+For an Emotional Dialogue character:
 
-### 1. Publish one authoritative repertoire
-
-Extend the normal atomic CURRENT publish to export:
-
-`EMOTIONAL_DIALOGUE_CURRENT.json`
-
-The file must be generated directly from `MY_EmotionalDialogueLibrary`.
-
-Do not infer entries from Catalog scans, filenames, portraits, tags or `Cutscene.Character` capability.
-
-Required shape:
-
-```json
-{
-  "schema": "STARWARS_DELTA_EMOTIONAL_DIALOGUE_CURRENT",
-  "schemaVersion": 1,
-  "status": "CURRENT_VERIFIED_EMOTIONAL_DIALOGUE",
-  "publishTransactionId": "<same atomic publish>",
-  "requiredCurrent": {
-    "catalogRevision": "...",
-    "contractRevision": "...",
-    "schemaHash": "...",
-    "snapshotContentHash": "...",
-    "authoringRuleRegistryRevision": "..."
-  },
-  "characters": [
-    {
-      "actorId": "FEMALE_COMMS_01",
-      "displayName": "...",
-      "authoringReady": true,
-      "identityHandle": "<stable published dialogue identity handle>",
-      "visualMode": "FullPortrait",
-      "defaultExpression": "Neutral",
-      "supportedExpressions": ["Neutral", "Listening", "Concerned", "Shocked", "Determined"],
-      "supportedPoses": [],
-      "defaultPresentationHandle": "<optional presentation handle>",
-      "spawnWorldActorDefault": false
-    }
-  ],
-  "locations": []
-}
+```text
+actorId
+= CUTSCENE_SCRIPT_V1 cast[].id
+= dialogue speaker/listener value
 ```
 
-The Git-side contract schema is `designer-ai/simple-authoring/EMOTIONAL_DIALOGUE_CURRENT.schema.json`.
+No aliases. No display-name matching.
 
-A character may be exported with `authoringReady=true` only when its curated CharacterPack is complete enough for authored dialogue.
+`identityHandle` is a stable logical Emotional Dialogue identity owned by the curated library. It is not an Actor/Ui Catalog handle.
 
-Minimum readiness:
+Portrait/expression/body assets are presentation resources only.
+
+Dialogue-only characters are legal with:
+
+```text
+presentationMode = DialoguePortrait
+spawnWorldActor = false
+```
+
+## CHARACTER PACK TRUTH
+
+Extend `MY_EmotionalDialogueCharacterPack` with explicit authoring truth:
+
+- `authoringReady`
+- `identityHandle`
+- `defaultExpression`
+- `visualMode = FullPortrait`
+- `defaultPresentationHandle`
+- `spawnWorldActorDefault = false`
+- deterministic expression helpers
+- deterministic pose helpers
+
+There is no implicit Neutral fallback.
+
+A pack is `authoringReady=true` only when it has:
 
 - stable actorId
-- stable dialogue identity handle
-- FullPortrait presentation route
-- default expression
-- explicit expression map
+- stable identityHandle
+- existing default-expression Sprite
+- at least one explicit supported expression
+- complete FullPortrait presentation
 - Dialogue Stage compatibility
 - no WorldActor requirement
 
-Incomplete packs are omitted from the authoring-ready repertoire or published with `authoringReady=false`.
+Incomplete packs stay `authoringReady=false`. Catalog metadata must never promote them.
 
-### 2. Simple Adapter must resolve dialogue only through the repertoire
+## ONE SHARED PROJECTION
 
-When a `CUTSCENE_SCRIPT_V1` beat contains `dialogue[]`:
+Build one small deterministic projection directly from `MY_EmotionalDialogueLibrary` and reuse the same projection object for:
 
-1. Resolve `speaker` / `listener` to `cast[].id`.
-2. Resolve that cast identity against the published Emotional Dialogue repertoire.
-3. Reject the line if the cast identity is not an `authoringReady=true` repertoire character.
-4. Resolve `expressionIntent` only through that character pack's supported expression map.
-5. Route the participant to the existing Dialogue Stage / Presenter with `spawnWorldActor=false` for dialogue-only characters.
+1. `MY_DesignerAiPublisher.PublishCurrent`
+2. Unity COPY FOR CHAT / creative context
+3. Simple Adapter dialogue preflight
+4. Studio validation where practical
 
-Do not fall back to:
+Do not maintain a second repertoire definition.
+
+## PUBLISH CONTRACT
+
+Publish:
+
+`EMOTIONAL_DIALOGUE_CURRENT.json`
+
+The exact external schema is:
+
+`designer-ai/simple-authoring/EMOTIONAL_DIALOGUE_CURRENT.schema.json`
+
+Required atomic semantics:
+
+- same `publishTransactionId` as CURRENT
+- same five `requiredCurrent` fingerprints
+- included in bundle
+- included in bundle manifest
+- included in `current.json` metadata
+- included in release validation
+- included in publish metadata
+
+Missing or zero-ready repertoire is not replaced by Catalog discovery. Publish the disabled state and make authoring instructions state:
+
+`DIALOGUE AUTHORING DISABLED`
+
+## SIMPLE ADAPTER PREFLIGHT
+
+In `MY_CutsceneSimpleProductionEntry`, immediately after parse and before `BuildDeclaredCast`:
+
+1. collect every dialogue `speaker` and `listener`;
+2. distinguish missing cast id from cast-present-but-outside-repertoire;
+3. keep `SIMPLE_DIALOGUE_SPEAKER_UNKNOWN` only when the cast id truly does not exist;
+4. emit one root `DIALOGUE_CHARACTER_OUTSIDE_REPERTOIRE` blocker for each existing cast identity that is not authoring-ready;
+5. include the available authoring-ready repertoire in the diagnostic;
+6. stop before HandleResolver, V3 and materialization when this gate fails.
+
+Do not cascade one repertoire failure into repeated unknown-speaker errors.
+
+## EXPRESSION RULE
+
+For a legal participant:
+
+- line `expressionIntent` applies to the speaker only;
+- if omitted, use the character's published `defaultExpression`;
+- listener uses its published `defaultExpression`;
+- unsupported expression emits `DIALOGUE_EXPRESSION_OUTSIDE_REPERTOIRE`;
+- no Neutral fallback;
+- no portrait search;
+- no filename search;
+- no nearest expression.
+
+## V3 / V5 LOWERING
+
+Pass a curated portrait-only identity into V3 semantic IR.
+
+Add only the narrow V3 compiler support needed so an Emotional Dialogue cast entry can materialize as:
+
+```text
+DialoguePortrait
+spawnWorldActor = false
+```
+
+without Actor-primary validation and without converting a Ui Sprite into Actor identity.
+
+All non-dialogue cast continues through the existing Catalog Actor path unchanged.
+
+The existing V5 Dialogue Stage receives the exact expression Sprite from the same CharacterPack.
+
+`MY_EmotionalDialogueRuntime` must not replace a missing/unsupported expression with Neutral.
+
+## CREATIVE CONTEXT
+
+Add the same shared projection to `MY_CutsceneCreativeContextV3Builder`.
+
+When repertoire is available, expose:
+
+- exact actorId
+- displayName
+- identityHandle
+- defaultExpression
+- supportedExpressions
+- supportedPoses
+- legal curated locations
+- explicit closed-world instructions
+
+When missing or empty:
+
+```text
+dialogueAuthoringEnabled = false
+```
+
+Do not include generic dialogue examples using characters outside the repertoire.
+
+## FORBIDDEN FALLBACKS
+
+Never derive dialogue participants from:
 
 - general Actor Catalog
 - Ui Catalog
-- portrait asset search
-- filename search
+- Director actor projection
+- Director ui projection
+- Visual Atlas
+- filename
+- displayName
+- tags/capabilities
 - visual similarity
-- nearest display name
-- another character
-- dummy WorldActor
 
-### 3. Studio validation must fail at the repertoire boundary
+Never silently substitute another character.
 
-Add one root validation diagnostic:
+Never create a dummy/invisible WorldActor.
 
-`DIALOGUE_CHARACTER_OUTSIDE_REPERTOIRE`
+## TESTS
 
-Use it when a `speaker` / `listener` resolves to a cast id but that cast identity is not an authoring-ready Emotional Dialogue character.
+Focused compile + EditMode tests only.
 
-Do not cascade this into repeated `UNKNOWN SPEAKER` errors.
+Required coverage:
 
-Recommended behavior:
+- serialization matches `EMOTIONAL_DIALOGUE_CURRENT.schema.json`;
+- deterministic ordering;
+- exact requiredCurrent fingerprints;
+- bundle/manifest/release gates include the repertoire file;
+- missing cast -> existing unknown-speaker diagnostic;
+- cast exists outside repertoire -> one root repertoire blocker, no cascade;
+- unsupported expression -> explicit expression blocker with supported list;
+- legal curated character -> V5 Dialogue Stage, exact expression, `DialoguePortrait`, `spawnWorldActor=false`;
+- Simple V1 without dialogue remains unchanged;
+- creative context includes repertoire when available;
+- missing/empty repertoire disables dialogue only.
 
-```text
-DIALOGUE_CHARACTER_OUTSIDE_REPERTOIRE
-speaker 'commander_arden' exists in cast, but is not an authoring-ready Emotional Dialogue character in CURRENT.
-```
+Do not run remote Publish and do not modify GitHub as part of the Unity task.
 
-If the cast id itself truly does not exist, keep the existing unknown-speaker diagnostic.
+## DELIVERY BACK TO GIT AGENT
 
-For unsupported expression on a valid repertoire character:
+At the end provide:
 
-- warning or existing contract policy
-- use the existing deterministic expression fallback only if the current Rule Registry already permits it
-- never search arbitrary portrait assets
-
-### 4. Publisher must keep the repertoire atomic with CURRENT
-
-`EMOTIONAL_DIALOGUE_CURRENT.json` must carry the same five `requiredCurrent` fingerprints as the rest of the publish.
-
-The web/ChatGPT authoring side will disable dialogue if:
-
-- the file is missing
-- status is not `CURRENT_VERIFIED_EMOTIONAL_DIALOGUE`
-- requiredCurrent differs from OPEN_CURRENT
-- publish provenance is stale/nonmatching when the publisher uses transaction-level atomicity
-- there are zero `authoringReady=true` characters
-
-### 5. Do not convert portrait assets into Actor identity
-
-Portrait/body/expression sprites remain presentation resources.
-
-A Ui portrait record must not become a cast identity merely because it has `Cutscene.Actor`, `Cutscene.Character` or `Cutscene.Portrait` metadata.
-
-Dialogue identity comes only from the curated Emotional Dialogue library entry.
-
-## CONSTRAINTS
-
-- Do not create a second dialogue materializer.
-- Do not create a second Timeline pipeline.
-- Do not add Catalog-wide runtime scanning.
-- Do not auto-promote normal Actors into Emotional Dialogue.
-- Do not add dummy/invisible WorldActors.
-- Do not weaken current route/capability validation.
-- Do not build Layered2D now.
-- Do not add new test architecture or QA framework.
-- Keep the implementation small and direct.
+- Unity files changed;
+- exact emitted `EMOTIONAL_DIALOGUE_CURRENT.json` shape;
+- bundle entry and manifest node names;
+- fingerprints/status to verify;
+- actual authoring-ready characters published;
+- any field/path names that differ from this contract;
+- focused compile/EditMode results.
 
 ## DONE WHEN
 
-1. Unity publishes `EMOTIONAL_DIALOGUE_CURRENT.json` from `MY_EmotionalDialogueLibrary` in the normal CURRENT publish.
-2. Only explicitly curated `authoringReady=true` characters appear as legal dialogue choices.
-3. A Simple V1 dialogue with a non-repertoire character receives `DIALOGUE_CHARACTER_OUTSIDE_REPERTOIRE` before materialization.
-4. The validator does not produce a cascade of `UNKNOWN SPEAKER` errors for a cast id that exists but failed repertoire validation.
-5. A valid repertoire character can speak with `spawnWorldActor=false` through the existing V5 Dialogue Stage.
-6. Requested expressions resolve only through the curated CharacterPack.
-7. Republish CURRENT and verify the web Context Pack receives the repertoire atomically.
+```text
+MY_EmotionalDialogueLibrary
+-> one shared curated projection
+-> atomic EMOTIONAL_DIALOGUE_CURRENT.json
+-> Simple dialogue preflight
+-> V3 curated DialoguePortrait identity
+-> existing V5 Dialogue Stage
+-> exact CharacterPack expression
+-> spawnWorldActor=false
+```
 
-## STOP POINT
-
-Stop after the above path works end-to-end. Do not expand the repertoire or redesign dialogue presentation as part of this task.
+works end-to-end without Catalog promotion, silent fallback or parallel dialogue architecture.
