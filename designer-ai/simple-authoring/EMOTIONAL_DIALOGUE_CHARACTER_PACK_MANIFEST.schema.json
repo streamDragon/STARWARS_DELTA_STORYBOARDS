@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "STARWARS_DELTA_EMOTIONAL_DIALOGUE_CHARACTER_PACK_MANIFEST.schema.json",
   "title": "STARWARS_DELTA Emotional Dialogue Character Pack Manifest",
+  "description": "Curated FullPortrait character-pack manifest. This is not Catalog discovery metadata. Readiness and identity are explicit; no expression is inferred and there is no implicit Neutral fallback.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -9,47 +10,36 @@
     "schemaVersion",
     "characterId",
     "displayName",
+    "authoringReady",
+    "identityHandle",
+    "visualMode",
+    "defaultExpression",
+    "defaultPresentationHandle",
+    "spawnWorldActorDefault",
     "masterSheet",
     "grid",
     "states"
   ],
   "properties": {
-    "schema": {
-      "const": "STARWARS_DELTA_EMOTIONAL_DIALOGUE_CHARACTER_PACK"
-    },
-    "schemaVersion": {
-      "const": 1
-    },
-    "characterId": {
-      "type": "string",
-      "pattern": "^[A-Z0-9_]+$",
-      "minLength": 1
-    },
-    "displayName": {
-      "type": "string",
-      "minLength": 1
-    },
-    "visualMode": {
-      "type": "string",
-      "enum": ["FullPortrait", "Layered2D"],
-      "default": "FullPortrait"
-    },
-    "masterSheet": {
-      "type": "string",
-      "minLength": 1
-    },
+    "schema": {"const": "STARWARS_DELTA_EMOTIONAL_DIALOGUE_CHARACTER_PACK"},
+    "schemaVersion": {"const": 1},
+    "characterId": {"type": "string", "pattern": "^[A-Z0-9_]+$", "minLength": 1},
+    "displayName": {"type": "string", "minLength": 1},
+    "authoringReady": {"type": "boolean"},
+    "identityHandle": {"type": "string", "minLength": 1, "description": "Stable logical Emotional Dialogue identity, not Actor/Ui Catalog identity."},
+    "visualMode": {"const": "FullPortrait"},
+    "defaultExpression": {"type": "string", "minLength": 1, "description": "Explicit required default expression. No schema default and no implicit Neutral fallback."},
+    "defaultPresentationHandle": {"type": "string", "minLength": 1},
+    "spawnWorldActorDefault": {"const": false},
+    "masterSheet": {"type": "string", "minLength": 1},
     "grid": {
       "type": "object",
       "additionalProperties": false,
       "required": ["columns", "rows"],
       "properties": {
-        "columns": { "type": "integer", "minimum": 1 },
-        "rows": { "type": "integer", "minimum": 1 }
+        "columns": {"type": "integer", "minimum": 1},
+        "rows": {"type": "integer", "minimum": 1}
       }
-    },
-    "defaultExpression": {
-      "type": "string",
-      "default": "Neutral"
     },
     "states": {
       "type": "array",
@@ -59,23 +49,12 @@
         "additionalProperties": false,
         "required": ["row", "column", "category", "name", "file"],
         "properties": {
-          "row": { "type": "integer", "minimum": 0 },
-          "column": { "type": "integer", "minimum": 0 },
-          "category": {
-            "type": "string",
-            "enum": ["Expression", "Pose"]
-          },
-          "name": {
-            "type": "string",
-            "minLength": 1
-          },
-          "file": {
-            "type": "string",
-            "minLength": 1
-          },
-          "spriteName": {
-            "type": "string"
-          }
+          "row": {"type": "integer", "minimum": 0},
+          "column": {"type": "integer", "minimum": 0},
+          "category": {"type": "string", "enum": ["Expression", "Pose"]},
+          "name": {"type": "string", "minLength": 1},
+          "file": {"type": "string", "minLength": 1},
+          "spriteName": {"type": "string"}
         }
       }
     }
