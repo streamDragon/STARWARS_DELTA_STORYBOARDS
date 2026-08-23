@@ -123,6 +123,7 @@ jobs:
           import json
           import pathlib
           import zipfile
+          from collections import Counter
           from pypdf import PdfReader
 
           root = pathlib.Path('_open_current_stage')
@@ -150,6 +151,37 @@ jobs:
           assert director.get('snapshotContentHash') == required.get('snapshotContentHash')
           assert handles.get('count', 0) > 0
 
+          route_counts = Counter(h.get('route') for h in (handles.get('handles') or []))
+          declared_counts = dict(handles.get('countsByRoute') or {})
+          for route in ('Actor', 'Layer', 'Effect', 'Ui', 'Animation', 'Audio'):
+              assert int(declared_counts.get(route, 0)) == int(route_counts.get(route, 0)), (
+                  f'AUTHORING_HANDLES_COUNT_MISMATCH {route}: '
+                  f'declared={declared_counts.get(route, 0)} actual={route_counts.get(route, 0)}'
+              )
+          assert route_counts.get('Audio', 0) > 0, 'AUTHORING_HANDLES_AUDIO_EMPTY'
+
+          audio_director = json.loads((root / 'director-view' / 'audio.json').read_text(encoding='utf-8'))
+          eligible_audio = {
+              a.get('authoringAssetId') or a.get('assetId') or a.get('audioId')
+              for a in (audio_director.get('assets') or [])
+              if (a.get('authoringAssetId') or a.get('assetId') or a.get('audioId'))
+              and a.get('safeForPreview') is not False
+              and ('Audio' in set(a.get('allowedUses') or ['Audio']))
+              and (
+                  a.get('recommendationStatus') == 'RECOMMENDABLE'
+                  or a.get('selectionStatus') == 'CATALOG_VERIFIED_PREVIEW_SAFE'
+              )
+          }
+          published_audio = {
+              h.get('runtimeId') for h in (handles.get('handles') or [])
+              if h.get('route') == 'Audio'
+          }
+          assert published_audio == eligible_audio, (
+              f'AUTHORING_HANDLES_AUDIO_COVERAGE_MISMATCH '
+              f'missing={sorted(eligible_audio - published_audio)[:10]} '
+              f'extra={sorted(published_audio - eligible_audio)[:10]}'
+          )
+
           emotional = dict(source.get('emotionalDialogue') or {})
           if emotional.get('status') == 'CURRENT_VERIFIED_EMOTIONAL_DIALOGUE':
               dialogue_path = root / 'EMOTIONAL_DIALOGUE_CURRENT.json'
@@ -174,6 +206,7 @@ jobs:
               assert zipped.get('requiredCurrent') == required
               assert zipped.get('atomicIdentity') == expected
 
+          print('AUTHORING_HANDLES_COUNTS', dict(sorted(route_counts.items())))
           print('SINGLE_CURRENT_VALIDATED', source.get('publishTransactionId'))
           PY
 
