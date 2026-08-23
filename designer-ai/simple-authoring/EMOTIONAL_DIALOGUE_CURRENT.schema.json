@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "STARWARS_DELTA_EMOTIONAL_DIALOGUE_CURRENT",
+  "title": "STARWARS_DELTA Emotional Dialogue CURRENT",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "schemaVersion", "status", "publishTransactionId", "requiredCurrent", "characters", "locations"],
+  "properties": {
+    "schema": {"const": "STARWARS_DELTA_EMOTIONAL_DIALOGUE_CURRENT"},
+    "schemaVersion": {"const": 1},
+    "status": {"const": "CURRENT_VERIFIED_EMOTIONAL_DIALOGUE"},
+    "publishTransactionId": {"type": "string", "minLength": 1},
+    "requiredCurrent": {"type": "object"},
+    "characters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["actorId", "displayName", "authoringReady", "identityHandle", "visualMode", "defaultExpression", "supportedExpressions"],
+        "properties": {
+          "actorId": {"type": "string", "minLength": 1},
+          "displayName": {"type": "string", "minLength": 1},
+          "authoringReady": {"type": "boolean"},
+          "identityHandle": {"type": "string", "minLength": 1},
+          "visualMode": {"enum": ["FullPortrait"]},
+          "defaultExpression": {"type": "string", "minLength": 1},
+          "supportedExpressions": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "supportedPoses": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "defaultPresentationHandle": {"type": "string"},
+          "spawnWorldActorDefault": {"const": false}
+        }
+      }
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["locationId", "displayName", "authoringReady"],
+        "properties": {
+          "locationId": {"type": "string", "minLength": 1},
+          "displayName": {"type": "string", "minLength": 1},
+          "authoringReady": {"type": "boolean"}
+        }
+      }
+    }
+  }
+}
