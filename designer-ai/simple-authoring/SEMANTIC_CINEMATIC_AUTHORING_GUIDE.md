@@ -16,13 +16,36 @@ Use `authoring/AUTHORING_HANDLES.json` as the only general authoring handle sour
 
 Dialogue is the one deliberate exception to general Actor discovery.
 
-For any beat containing `dialogue[]`, Devora must first load the atomic CURRENT Emotional Dialogue repertoire exported by Unity as:
+For any beat containing `dialogue[]`, discover the Unity-published repertoire from:
 
-`open-current/EMOTIONAL_DIALOGUE_CURRENT.json`
+`current.json.emotionalDialogue`
 
-Only characters explicitly present in that file with `authoringReady=true` are legal `speaker` or `listener` participants.
+That metadata identifies the exact published `EMOTIONAL_DIALOGUE_CURRENT.json`, including its status, publish transaction, SHA-256, release URL and atomic bundle entry.
 
-The identity rule is exact:
+The normal atomic web path is:
+
+`current.json.emotionalDialogue.bundleEntryName`
+
+inside:
+
+`open-current/STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip`
+
+An `open-current/EMOTIONAL_DIALOGUE_CURRENT.json` file may exist as a convenience mirror, but it is optional. Its absence must **not** disable dialogue when the same verified repertoire is present in the CURRENT bundle.
+
+Before enabling dialogue, the repertoire must satisfy all of these:
+
+1. `schema == STARWARS_DELTA_EMOTIONAL_DIALOGUE_CURRENT`
+2. `schemaVersion == 1`
+3. `status == CURRENT_VERIFIED_EMOTIONAL_DIALOGUE`
+4. `publishTransactionId` exactly matches the surrounding CURRENT
+5. all five `requiredCurrent` fingerprints exactly match the surrounding CURRENT
+6. at least one character has `authoringReady=true`
+
+If any of those checks fail, dialogue authoring is disabled while non-dialogue cinematic authoring remains available.
+
+Only characters explicitly present in that verified repertoire with `authoringReady=true` are legal `speaker` or `listener` participants.
+
+The identity rule is exact and case-sensitive:
 
 ```text
 repertoire.actorId
@@ -43,6 +66,7 @@ That `identityHandle` is a curated logical Emotional Dialogue identity. It is no
 
 Never derive dialogue eligibility from:
 
+- `AUTHORING_HANDLES` Actor routes
 - `actors.json`
 - `ui.json`
 - Visual Atlas
@@ -51,26 +75,26 @@ Never derive dialogue eligibility from:
 - `Cutscene.Portrait`
 - display name
 - filename
+- aliases
 - tags
 - visual similarity
 - Catalog-wide search
 
 A portrait, expression sprite, body sprite or Ui entry is presentation evidence. It is **not** dialogue identity by itself.
 
-If the requested character is not in the CURRENT Emotional Dialogue repertoire, **STOP BEFORE GENERATING JSON**. Tell the designer that the requested character is unavailable for dialogue and list only the `authoringReady=true` repertoire as alternatives. Never silently substitute another character.
-
-If `EMOTIONAL_DIALOGUE_CURRENT.json` is missing, stale, non-atomic, unverified or contains zero authoring-ready characters, **dialogue authoring is disabled**. Non-dialogue cinematic authoring remains available.
+If the requested character is not in the verified CURRENT Emotional Dialogue repertoire, **STOP BEFORE GENERATING JSON**. Tell the designer that the requested character is unavailable for dialogue and list only the `authoringReady=true` repertoire as alternatives. Never silently substitute another character.
 
 For every authored dialogue line:
 
-1. `speaker` and optional `listener` must be exact published `actorId` values and exact matching `cast[].id` values.
-2. The matching cast entry must use the exact `identityHandle` published for that same `actorId`.
+1. `speaker` and optional `listener` must be exact case-sensitive published `actorId` values and exact matching `cast[].id` values.
+2. The matching cast entry must use the exact case-sensitive `identityHandle` published for that same `actorId`.
 3. `expressionIntent` applies to the speaker only.
-4. If `expressionIntent` is omitted, Unity uses that character's published `defaultExpression`.
-5. If `expressionIntent` is present, it must exactly match one of that character's `supportedExpressions`.
+4. If `expressionIntent` is absent, null, empty or whitespace-only, Unity uses that character's published `defaultExpression`.
+5. If `expressionIntent` is present, it must exactly and case-sensitively match one of that character's `supportedExpressions`.
 6. Unsupported expressions are blockers. There is **no Neutral fallback**, filename search, visual-similarity search or nearest-expression substitution.
 7. Listener presentation uses the listener's published `defaultExpression` unless a future CURRENT contract explicitly exposes listener-expression authoring.
 8. Dialogue-only characters remain legal with `spawnWorldActor=false`; do not manufacture a dummy WorldActor.
+9. `defaultPresentationHandle` is Unity's exact curated presentation asset identity. It is not replaced by a general Catalog/Atlas portrait if the web preview cannot display it.
 
 Machine-readable policy: `EMOTIONAL_DIALOGUE_AUTHORING_POLICY.json`.
 Publisher contract schema: `EMOTIONAL_DIALOGUE_CURRENT.schema.json`.
@@ -97,15 +121,13 @@ Keep the existing action `type`. Add `motionIntent` for cinematic movement such 
 
 ### Camera
 
-Camera movement now officially includes `drift`, `shake`, `impact_shake` and `orbit` in addition to the existing hold/push/pull/follow/track/cut vocabulary.
+Camera movement officially includes `drift`, `shake`, `impact_shake` and `orbit` in addition to hold/push/pull/follow/track/cut.
 
 `orbit` is deliberately **2D/2.5D semantic orbit-like parallax**. It may compile to track/follow/drift plus subject/layer movement or an existing legal orbit primitive. It must never invent an unseen 3D back/side/top view.
 
 ### Audio
 
-`audio[]` is now a first-class Simple V1 field. Each cue requires an authoritative CURRENT Audio `handle`.
-
-Example shape:
+`audio[]` is a first-class Simple V1 field. Each cue requires an authoritative CURRENT Audio `handle`.
 
 ```json
 {
@@ -121,11 +143,9 @@ Do not guess an Audio handle from a filename. If no legal CURRENT Audio handle e
 
 ## Performance and animation
 
-Use `performanceIntent` and `animationIntent` rather than raw animation asset IDs. The adapter must resolve them against the actor's compatible animation families. Examples: `urgent_locomotion`, `command`, `fear`, `injured`, `walk`, `run`, `interact`, `hit`.
+Use `performanceIntent` and `animationIntent` rather than raw animation asset IDs. The adapter resolves them against the actor's compatible animation families. Examples: `urgent_locomotion`, `command`, `fear`, `injured`, `walk`, `run`, `interact`, `hit`.
 
 ## Continuity
-
-A beat may state:
 
 ```json
 "continuity": {
