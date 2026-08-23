@@ -58,6 +58,9 @@ def slug(text):
 def runtime_id(entry, route):
     if route == "Actor":
         return entry.get("canonicalActorAssetId") or entry.get("authoringAssetId")
+    if route == "Animation":
+        # Animation Director entries use exact assetId as their runtime identity.
+        return entry.get("authoringAssetId") or entry.get("assetId") or entry.get("animationId")
     if route == "Audio":
         # Audio Director projection owns an exact assetId but historically did not
         # expose authoringAssetId. The exact CURRENT assetId is therefore the
@@ -128,6 +131,18 @@ def is_eligible(entry, route):
             "CATALOG_VERIFIED_PREVIEW_SAFE",
             "CATALOG_VERIFIED_PUBLISH_SAFE",
         }
+
+    if route == "Animation":
+        # Animation is compatibility metadata, not a standalone visual choice.
+        # It intentionally uses selectionStatus/capability rather than the visual
+        # recommendationStatus gate used by Actor/Layer/Effect/Ui.
+        if entry.get("safeForPreview") is False:
+            return False
+        capabilities = set(entry.get("capabilities") or []) | set(entry.get("selectedCapabilities") or [])
+        if "Cutscene.Animation" not in capabilities:
+            return False
+        selection = str(entry.get("selectionStatus") or "").strip()
+        return bool(selection) and not selection.startswith("BLOCKED")
 
     if entry.get("recommendationStatus") != "RECOMMENDABLE":
         return False
@@ -299,6 +314,8 @@ def main():
             )
         handle_owner[handle] = owner
 
+    if counts_by_route.get("Animation", 0) <= 0:
+        raise SystemExit("AUTHORING_HANDLES_ANIMATION_EMPTY: CURRENT exposes no legal Animation handles")
     if counts_by_route.get("Audio", 0) <= 0:
         raise SystemExit("AUTHORING_HANDLES_AUDIO_EMPTY: CURRENT exposes no legal Audio handles")
     unsafe_audio = [
@@ -323,6 +340,7 @@ def main():
             "unknownHandle": "REAL BLOCKER",
             "ambiguousRuntimeHash": "REAL BLOCKER",
             "recommendableCoverage": "Every RECOMMENDABLE visual Director identity must resolve to exactly one handle on its allowed route.",
+            "animationCoverage": "Animation handles use exact CURRENT animation asset identity and Director selectionStatus/capability, not visual recommendationStatus.",
             "audioPublishSafety": "Audio is non-visual. Exact CURRENT identity + Audio allowedUse + Cutscene.Audio + preview safety + no blocker/error severity is publish-safe without Vision review. sourceSafeForPublish preserves the original Catalog projection."
         },
         "requiredCurrent": required_current,
