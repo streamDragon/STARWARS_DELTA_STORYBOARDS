@@ -1,10 +1,14 @@
 STARWARS_DELTA ADD CATALOG - CHATGPT CUTSCENE WORKFLOW
 
 AUTHORING RULES - READ BEFORE USING ANY RECORD
+DEVORA NORMAL FRONTEND: DEVORA / ChatGPT authors CUTSCENE_SCRIPT_V1. The Simple Adapter resolves CURRENT handles/routes and compiles through existing V3 into V5. V5 is backend, not the normal NEW authoring format.
+CAMERA FIRST: camera framing -> screenX/screenY -> screenWidthFraction/screenHeightFraction -> real Renderer bounds -> Unity scale.
+DIALOGUE NEAR/FAR: in normal locked two-person portrait dialogue the active speaker is NEAR/larger and the listener is FAR/smaller; speaker change reverses dominance without changing identity.
+STORY EVIDENCE: physical claims require visible serialized evidence; dialogue text alone does not prove an unseen physical event.
 This package is self-contained. No external Catalog knowledge is required.
-Return one complete STARWARS_DELTA_CUTSCENE_PACKAGE JSON using this exact contract and only the exact Catalog records supplied here.
-EXACT IDS ONLY: copy exact exported assetId strings. Never invent an assetId, reconstruct one from a filename/path, or infer that similarly named assets are equivalent. If a required asset is absent, simplify the composition.
-GLOBAL TECHNICAL-ID UNIQUENESS: every technical stable ID in the complete package must be globally unique across sequences and shots, including actionId, transitionId, eventId, audioId, lineId, layer/camera/effect/actor action IDs. Prefer scoped IDs such as seq01_shot01_camera_hold. Do not reuse generic IDs.
+NORMAL NEW AUTHORING: return one complete CUTSCENE_SCRIPT_V1 JSON object. DEVORA owns story, semantic handles, visible evidence, dialogue intent and camera-first screen composition; Unity owns exact runtime IDs, CURRENT fingerprints, route resolution and final V5 serialization.
+SIMPLE HANDLE SAFETY: normal NEW authoring uses exact semantic handles from matching CURRENT truth. Never invent a handle or silently substitute a related identity. Unity resolves the handle to exact backend assets.
+SIMPLE AUTHORING DOES NOT CREATE BACKEND TECHNICAL IDS. Unity generates globally unique V5 action/transition/event/audio/line IDs during Simple -> V3 -> V5 compilation.
 PLACEMENT: cutscenePrimaryUse is authoritative. Layer-primary records are layers/backgrounds, Actor-primary records are cast/world actors, Ui-primary records are dialogue/UI presentation, Animation-primary records are animation references, Effect-primary records are effects, and Audio-primary records are audio.
 ACTOR PRESENTATION: set cast[].presentationMode exactly to WorldActor, DialoguePortrait, or Both. Both permits world-action and portrait shots only when their active intervals do not overlap. An omitted presentationMode uses legacy spawnWorldActor as WorldActor/DialoguePortrait; it never infers Both.
 ANIMATION: PlayAnimation is legal only when the exact animationAssetId appears in that actor record's compatibleAnimationIds. Never infer compatibility from names, folders, packs or visual similarity. If the list is empty, use another legal non-animation action.
@@ -23,12 +27,12 @@ FINAL CLOSED-FIELD CHECK: before returning JSON, compare every closed value with
 
 NEW CUTSCENE
 ADD CATALOG is already loaded in the ChatGPT Project. The designer supplies only a natural-language creative request.
-Understand the story, select exact legal Preview-safe records from this package, obey cutscenePrimaryUse and destination-field rules, build one complete V5 package, and return only final JSON unless explanation is requested.
+Understand the story, select legal CURRENT semantic identities/handles and visible evidence, then build one complete CUTSCENE_SCRIPT_V1 document for normal NEW authoring. Do not hand-author V5 linker fields unless this is an explicit legacy/revision/repair workflow.
 Do not ask the designer for COPY FOR CHAT, Present State, projectId, baseRevision, another Catalog upload, manual extraction, or asset paths instead of assetIds.
-For a genuinely new Cutscene, projectId may be absent/empty and baseRevision may be absent/zero; Unity binds and initializes this bookkeeping for the selected Cutscene Project.
+For a genuinely new Cutscene, CUTSCENE_SCRIPT_V1 contains no projectId, baseRevision, catalogRevision, contractRevision, schemaHash or runtime GUIDs. Unity injects technical CURRENT identity/bookkeeping after Simple authoring.
 
 CATALOG FREEZE AND STARTER INDEX
-The FullCatalog export is the authoritative snapshot for all legal asset selection. 01_DEBORA_CUTSCENE_STARTER_INDEX.md is only a convenience shortlist for fast planning; omitted assets may still be legal, so search catalog_records.jsonl before deciding an asset is unavailable.
+The FullCatalog export is the authoritative snapshot for all legal asset selection. 01_DEVORA_CUTSCENE_STARTER_INDEX.md is only a convenience shortlist for fast planning; omitted assets may still be legal, so search catalog_records.jsonl before deciding an asset is unavailable.
 The same FullCatalog snapshot can be reused for multiple Cutscenes. Do not ask for a new Catalog export per Cutscene; continue using this snapshot until a newer authoritative snapshot is supplied.
 Request a newer snapshot only after a material asset, classification, verified animation compatibility, or authoring-contract change. Catalog maintenance is not part of the normal Cutscene workflow.
 Copy exact assetId values and exact compatibleAnimationIds values. Never infer compatibility from a filename, path, display name, or starter-index omission.
@@ -36,11 +40,11 @@ Copy exact assetId values and exact compatibleAnimationIds values. Never infer c
 EXISTING CUTSCENE REVISION
 Use ADD CATALOG + PRESENT STATE OF THE CUTSCENE + the natural-language requested change. Present State is current Cutscene state only; ADD CATALOG remains the global rules/assets source.
 
-Contract revision: 424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF
-Schema hash: 7D3743BC09A41110901B3A2B4D2206725A7FBD19D14D275223C66ACAA9FE0CAB
-Authoring rule registry revision: 8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0
-Snapshot content hash: 1E0F47BB76E622802BD9BFD4F1E08E0458D79389EA3057C7A3958DB5F4C2E8BA
-Snapshot identity: catalogRevision=7625541441843202476;contractRevision=424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF;schemaHash=7D3743BC09A41110901B3A2B4D2206725A7FBD19D14D275223C66ACAA9FE0CAB;snapshotContentHash=1E0F47BB76E622802BD9BFD4F1E08E0458D79389EA3057C7A3958DB5F4C2E8BA
+Contract revision: 1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2
+Schema hash: 0C8725A0029CBAB995F851B1D3188495CBEC6E1D3F6143D9355240448CD58734
+Authoring rule registry revision: FF79E39ED5A668EEA0651AA4D8B80076C561827B18006E998F3FE0B93F9E20B7
+Snapshot content hash: DD664136D15AF3432DE0E69C1D25AFCAD5EDC76A99EB16894FA00E7A08880AB7
+Snapshot identity: catalogRevision=7624991757430202061;contractRevision=1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2;schemaHash=0C8725A0029CBAB995F851B1D3188495CBEC6E1D3F6143D9355240448CD58734;snapshotContentHash=DD664136D15AF3432DE0E69C1D25AFCAD5EDC76A99EB16894FA00E7A08880AB7
 Do not treat catalogRevision alone as proof that two snapshots are equivalent. Compare the complete snapshot identity: catalogRevision, contractRevision, schemaHash and snapshotContentHash.
 Supported Cutscene package version: 5
 
@@ -51,6 +55,7 @@ ASSET DECISION ORDER
 4. Prefer capabilities, tags and description that directly match the dramatic purpose.
 5. Prefer human-reviewed records among equally good choices.
 6. Copy the exact assetId string.
+Use the exact exported assetId value verbatim; never reconstruct, shorten, infer or substitute it.
 7. Never infer another use from filename, folder, path or appearance.
 cast[].visualAssetId -> Actor-primary
 background/layer asset -> Layer-primary
@@ -164,7 +169,7 @@ MY_CutsceneDialoguePaceV1: Slow, Medium, Fast
 MY_CutsceneDialoguePoseV1: IdleListening, Speaking, WorkingAtConsole, RunningAction, BracingAlert
 MY_CutsceneDialogueShotGrammar: DialogueWide, DialogueCloseup, DialogueTwoShot, AlertInsert, RevealWide
 MY_CutsceneDialoguePresentationPreset: RADIO_COMMUNICATION, FACE_TO_FACE_PORTRAITS, COMMAND_SCREEN, SUBTITLE_ONLY, EMERGENCY_BROADCAST, CAPTAIN_LOG
-MY_CutsceneDialogueExpression: Neutral, Listening, Concerned, Shocked, Urgent, ControlledGrief, Determined, Exhausted, Relieved, Defiant
+MY_CutsceneDialogueExpression: Neutral, Listening, Concerned, Shocked, Urgent, Determined, ControlledGrief, Exhausted, Relieved, Defiant, Angry, Fearful, SpeakingCalm, SpeakingFirm, Commanding, Reassuring, Warning, Thinking, Pointing, HandRaised, ArmsCrossed, ConsoleWork, BracingAlert, Vulnerable, LookLeft, LookRight, Injured, Suspicious, Hopeful, Resolute
 MY_CutsceneDialogueMouthMode: None, TimedSimple, VoiceReactiveSimple
 MY_CutsceneDialogueShotPreset: ESTABLISHING_WIDE, COCKPIT_WIDE, CLOSE_UP_SPEAKER, CLOSE_UP_LISTENER, TWO_PORTRAIT_SHOT, REACTION_CLOSE_UP, RADIO_SCREEN, HERO_PUSH_IN, OBJECTIVE_REVEAL
 
@@ -191,10 +196,10 @@ SMALL VALID JSON EXAMPLE
   "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
   "schemaVersion": 5,
   "contextVersion": 3,
-  "contractRevision": "424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF",
-  "schemaHash": "7D3743BC09A41110901B3A2B4D2206725A7FBD19D14D275223C66ACAA9FE0CAB",
+  "contractRevision": "1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2",
+  "schemaHash": "0C8725A0029CBAB995F851B1D3188495CBEC6E1D3F6143D9355240448CD58734",
   "contextId": "NEW_CUTSCENE_CONTEXT",
-  "catalogRevision": "7625541441843202476",
+  "catalogRevision": "7624991757430202061",
   "projectId": "",
   "planId": "plan_example_minimal",
   "baseRevision": 0,

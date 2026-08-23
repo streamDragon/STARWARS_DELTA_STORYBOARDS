@@ -2,10 +2,10 @@
   "schema": "STARWARS_DELTA_CUTSCENE_AUTHORING_CONTRACT",
   "schemaVersion": 5,
   "authoringContractVersion": 1,
-  "contractRevision": "424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF",
-  "authoringRuleRegistryRevision": "8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0",
+  "contractRevision": "1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2",
+  "authoringRuleRegistryRevision": "FF79E39ED5A668EEA0651AA4D8B80076C561827B18006E998F3FE0B93F9E20B7",
   "authoringRuleRegistry": {
-    "revision": "8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0",
+    "revision": "FF79E39ED5A668EEA0651AA4D8B80076C561827B18006E998F3FE0B93F9E20B7",
     "rules": [
       {
         "ruleId": "ACTOR_IDENTITY_COLLISION",
@@ -56,6 +56,38 @@
         "regressionTestId": "ANIMATION_COMPATIBILITY"
       },
       {
+        "ruleId": "CHAT_AUTOMATIC_CANDIDATE_SAFETY",
+        "category": "Assets",
+        "severity": "Default",
+        "diagnosticCode": "CHAT_AUTOMATIC_CANDIDATE_SAFETY",
+        "description": "Automatic Chat candidates are exact, materializable CURRENT assets with explicit Cutscene use; review-only fallback records are not suggested automatically.",
+        "defaultPolicy": "Manual/pinned assets remain user-owned, but automatic suggestions exclude unsafe, ambiguous and needsHumanReview records.",
+        "normalizationPolicy": "Project automatic Actor candidates to preferred canonical identity and include compatible same-identity dialogue portraits when available.",
+        "autoRepairPolicy": "Do not auto-suggest generic fallback Layer records such as unclassified sprites merely because Preview can display them.",
+        "validationPolicy": "Explicit user-selected assets remain subject to normal destination validation.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Prefer suggestedCandidates for exact assets. Treat assets absent from the safe shortlist as deliberate choices that need stronger Catalog evidence.",
+        "studioMessage": "Automatic Chat candidate shortlist contains only exact CURRENT authoring-safe assets.",
+        "regressionTestId": "CHAT_AUTOMATIC_CANDIDATE_SAFETY"
+      },
+      {
+        "ruleId": "DESTINATION_CONTEXT_RESOLVES_MULTI_USE",
+        "category": "Assets",
+        "severity": "Default",
+        "diagnosticCode": "DESTINATION_CONTEXT_RESOLVES_MULTI_USE",
+        "description": "A multi-use Catalog asset is not ambiguous when the serialized destination already selects one legal use.",
+        "defaultPolicy": "A Layer field selects Layer use, an Effect field selects Effect use, and equivalent typed destinations select their own legal capability.",
+        "normalizationPolicy": "Validate the exact serialized asset against the destination; suppress generic multiple-use review noise when that destination is legal.",
+        "autoRepairPolicy": "No asset substitution is performed.",
+        "validationPolicy": "Block only when the exact asset is illegal for the serialized destination.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Treat the JSON field destination as part of asset intent. Do not avoid a legal asset merely because Catalog also exposes another use.",
+        "studioMessage": "Typed destination resolved the Catalog multi-use ambiguity.",
+        "regressionTestId": "DESTINATION_CONTEXT_RESOLVES_MULTI_USE"
+      },
+      {
         "ruleId": "DIALOGUE_ACTOR_PRESENTATION_CONFLICT",
         "category": "Dialogue",
         "severity": "Blocker",
@@ -70,6 +102,70 @@
         "chatInstruction": "Use dialogue-only presentation for FACE_TO_FACE_PORTRAITS.",
         "studioMessage": "Dialogue actor presentation conflicts with world staging.",
         "regressionTestId": "DIALOGUE_ACTOR_PRESENTATION_CONFLICT"
+      },
+      {
+        "ruleId": "DIALOGUE_PROJECT_FONT_DEFAULT",
+        "category": "Dialogue",
+        "severity": "Default",
+        "diagnosticCode": "DIALOGUE_PROJECT_FONT_DEFAULT",
+        "description": "Dialogue font selection is project-owned when no explicit font is authored.",
+        "defaultPolicy": "Omitted fontAssetId uses the configured project TMP/RTL fallback.",
+        "normalizationPolicy": "Apply the shared project font fallback during materialization without emitting one validation issue per line.",
+        "autoRepairPolicy": "No JSON repair is required for an omitted fontAssetId.",
+        "validationPolicy": "Block only an explicit invalid font requirement or an actual materialization failure, not omission itself.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Omit fontAssetId unless the scene deliberately requires a specific compatible font; project fallback is the normal default, including RTL text.",
+        "studioMessage": "Project dialogue font fallback applied.",
+        "regressionTestId": "DIALOGUE_PROJECT_FONT_DEFAULT"
+      },
+      {
+        "ruleId": "DIALOGUE_REACTION_TAIL_CLAMP",
+        "category": "Timing",
+        "severity": "AutoRepair",
+        "diagnosticCode": "DIALOGUE_REACTION_TAIL_CLAMP",
+        "description": "Optional reaction tail padding may not turn a valid final dialogue line into a blocker.",
+        "defaultPolicy": "Reaction timing belongs to the owning shot/sequence and its optional tail defaults to the remaining owner time.",
+        "normalizationPolicy": "Clamp negative/overflowing reaction offsets and holdAfterLine to the owning interval after dialogue duration is normalized.",
+        "autoRepairPolicy": "Clamp mechanically and record the correction without changing the spoken line or Actor identity.",
+        "validationPolicy": "Explicit missing Actor identity or invalid owner timing remains a blocker.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Do not hand-tune reaction tails to fit the last frame; Unity clamps optional reaction padding to the owning interval.",
+        "studioMessage": "Reaction tail timing was fitted to its owner.",
+        "regressionTestId": "DIALOGUE_REACTION_TAIL_CLAMP"
+      },
+      {
+        "ruleId": "DIALOGUE_SAME_IDENTITY_PORTRAIT_DEFAULT",
+        "category": "Dialogue",
+        "severity": "Default",
+        "diagnosticCode": "DIALOGUE_SAME_IDENTITY_PORTRAIT_DEFAULT",
+        "description": "Locked portrait-capable dialogue derives a same-identity standardized portrait before falling back to the world Actor visual.",
+        "defaultPolicy": "Prefer an exact compatible portrait from the same Actor source/family; match the requested supported expression when available, then Neutral.",
+        "normalizationPolicy": "Apply after cast identity is proven and before dialogue materialization.",
+        "autoRepairPolicy": "Never borrow a portrait from a different identity and never change cast identity to satisfy presentation.",
+        "validationPolicy": "Block only when the selected preset requires a participant visual and no legal same-identity or built-in route exists.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "For standardized character sheets, omit portrait IDs unless intentionally pinning one; Unity selects the compatible same-identity expression.",
+        "studioMessage": "Dialogue portrait was derived from the same canonical Actor identity.",
+        "regressionTestId": "DIALOGUE_SAME_IDENTITY_PORTRAIT_DEFAULT"
+      },
+      {
+        "ruleId": "DIALOGUE_SYSTEM_STAGE_DEFAULTS",
+        "category": "Dialogue",
+        "severity": "Default",
+        "diagnosticCode": "DIALOGUE_SYSTEM_STAGE_DEFAULTS",
+        "description": "Fixed-layout dialogue presentation mechanics are system-owned defaults when omitted.",
+        "defaultPolicy": "Speaker/listener distances and compatible participant presentation are derived from the selected preset plus canonical cast identity.",
+        "normalizationPolicy": "Apply deterministic dialogue defaults before semantic validation and do not require ChatGPT to repeat them per line.",
+        "autoRepairPolicy": "Omitted mechanical presentation values are filled without a yellow warning; explicit incompatible identity still cannot change the cast identity.",
+        "validationPolicy": "Block only when no legal identity-safe presentation route exists.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "For dialogue, author speaker/listener Actor IDs, text, intent and preset. Omit mechanical distances and omit portrait IDs unless a specific compatible portrait was deliberately selected.",
+        "studioMessage": "Dialogue mechanical presentation defaults are system-owned.",
+        "regressionTestId": "DIALOGUE_SYSTEM_STAGE_DEFAULTS"
       },
       {
         "ruleId": "DIALOGUE_VISUAL_SOURCE_CONFLICT",
@@ -168,6 +264,22 @@
         "regressionTestId": "PRESENTATION_MODE_AMBIGUOUS"
       },
       {
+        "ruleId": "PROCEDURAL_EFFECT_CANONICAL_FORM",
+        "category": "Effects",
+        "severity": "Default",
+        "diagnosticCode": "PROCEDURAL_EFFECT_CANONICAL_FORM",
+        "description": "Built-in procedural effects own their visual implementation and do not require an assetId.",
+        "defaultPolicy": "For an assetless procedural effect type, assetId is omitted.",
+        "normalizationPolicy": "Remove redundant assetId before validation when the effect type explicitly supports the assetless route.",
+        "autoRepairPolicy": "Remove the redundant field without a yellow warning.",
+        "validationPolicy": "Block only illegal effect types or illegal explicit asset-backed routes.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "For built-in procedural effects such as ScreenFlash, omit assetId unless the CURRENT contract explicitly requires an asset-backed effect.",
+        "studioMessage": "Procedural effect serialized in canonical assetless form.",
+        "regressionTestId": "PROCEDURAL_EFFECT_CANONICAL_FORM"
+      },
+      {
         "ruleId": "SOURCE_RECORD_LEAKAGE",
         "category": "Identity",
         "severity": "Blocker",
@@ -182,6 +294,22 @@
         "chatInstruction": "Use the exact Catalog authoring ID.",
         "studioMessage": "Serialized ID is not an authoring ID.",
         "regressionTestId": "SOURCE_RECORD_LEAKAGE"
+      },
+      {
+        "ruleId": "STANDARD_CHARACTER_SHEET_IDENTITY",
+        "category": "Assets",
+        "severity": "Default",
+        "diagnosticCode": "STANDARD_CHARACTER_SHEET_IDENTITY",
+        "description": "A project-owned standardized 6x5 character sheet has one deterministic identity: portrait cells 0..11 and Body_Idle_Front cell 12 belong to the same source identity.",
+        "defaultPolicy": "Body_Idle_Front is the canonical Actor-primary world identity; portrait cells remain Ui-primary dialogue visuals with authored expression metadata.",
+        "normalizationPolicy": "Project this relation from the sheet contract during Catalog analysis and when rehydrating an older CURRENT snapshot.",
+        "autoRepairPolicy": "Never promote arbitrary vendor sprite-sheet frames or unrelated characters into this identity contract.",
+        "validationPolicy": "Block only when an explicitly requested identity cannot resolve exactly; otherwise use the deterministic same-source relation.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "For standardized project character sheets, use the canonical Actor candidate for cast identity and let Unity select same-identity portraits by expression.",
+        "studioMessage": "Standardized character sheet identity was projected deterministically.",
+        "regressionTestId": "STANDARD_CHARACTER_SHEET_IDENTITY"
       },
       {
         "ruleId": "SYSTEM_SCALE_AND_BACKGROUND_POLICY",
@@ -246,6 +374,38 @@
         "chatInstruction": "Use portrait staging and HOLD/cut camera framing.",
         "studioMessage": "Locked dialogue contains explicit movement/action.",
         "regressionTestId": "V3_LOCKED_DIALOGUE_EXPLICIT_MOVEMENT"
+      },
+      {
+        "ruleId": "V5_MECHANICAL_ENVELOPE_DEFAULTS",
+        "category": "Defaults",
+        "severity": "Default",
+        "diagnosticCode": "V5_MECHANICAL_ENVELOPE_DEFAULTS",
+        "description": "CURRENT V5 bookkeeping fields with one deterministic value are system-owned defaults.",
+        "defaultPolicy": "When V5 is proven, omitted contextVersion and empty top-level mechanical collections use the CURRENT deterministic value.",
+        "normalizationPolicy": "Apply these defaults before canonical DTO validation; project/context binding remains owned by Studio.",
+        "autoRepairPolicy": "Fill only unambiguous mechanical metadata. Never invent story, identity, duration, assets or creative intent.",
+        "validationPolicy": "Block contradictory version/identity evidence and genuinely missing creative data.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Start from the CURRENT canonical package shape, but do not spend creative effort on deterministic bookkeeping fields; Unity may fill them when omitted.",
+        "studioMessage": "Deterministic V5 envelope metadata was filled by the system.",
+        "regressionTestId": "V5_MECHANICAL_ENVELOPE_DEFAULTS"
+      },
+      {
+        "ruleId": "V5_UNKNOWN_NONCANONICAL_FIELDS",
+        "category": "Defaults",
+        "severity": "AutoRepair",
+        "diagnosticCode": "V5_UNKNOWN_NONCANONICAL_FIELDS",
+        "description": "Extra fields outside the canonical V5 DTO are non-authoritative metadata and are removed at the import boundary.",
+        "defaultPolicy": "Unknown fields do not become part of the package contract merely because ChatGPT emitted them.",
+        "normalizationPolicy": "Prune unknown V5 properties before canonical field validation, then let required-field validation catch any real omission.",
+        "autoRepairPolicy": "Remove only fields that have no matching canonical public DTO field; never invent replacement story, identity or asset values.",
+        "validationPolicy": "Duplicate JSON properties, wrong types, missing required fields and invalid canonical values remain blockers.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Use only canonical V5 fields. Extra notes belong in supported extension valueJson, not ad-hoc properties.",
+        "studioMessage": "Unsupported non-canonical V5 field was removed by the import boundary.",
+        "regressionTestId": "V5_UNKNOWN_NONCANONICAL_FIELDS"
       }
     ]
   },
@@ -3168,14 +3328,38 @@
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
         },
+        "Angry": {
+          "replacement": "Anger",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "ArmsCrossed": {
+          "replacement": "Serious",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "BracingAlert": {
+          "replacement": "Shock",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
         "Calm": {
           "replacement": "Serious",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
         },
-        "Concerned": {
+        "Commanding": {
           "replacement": "Serious",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Concerned": {
+          "replacement": "Perplexed",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
@@ -3186,8 +3370,38 @@
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
         },
+        "ConsoleWork": {
+          "replacement": "Serious",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "ControlledGrief": {
+          "replacement": "Sad",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Defiant": {
+          "replacement": "Anger",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
         "Determined": {
           "replacement": "Serious",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Exhausted": {
+          "replacement": "Sad",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Fearful": {
+          "replacement": "Shock",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
@@ -3204,8 +3418,56 @@
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
         },
+        "HandRaised": {
+          "replacement": "Serious",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Hopeful": {
+          "replacement": "Happy",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Injured": {
+          "replacement": "Sad",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Listening": {
+          "replacement": "Serious",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "LookLeft": {
+          "replacement": "Serious",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "LookRight": {
+          "replacement": "Serious",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
         "Neutral": {
           "replacement": "Serious",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Pointing": {
+          "replacement": "Serious",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Reassuring": {
+          "replacement": "Happy",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
@@ -3216,8 +3478,26 @@
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
         },
+        "Resolute": {
+          "replacement": "Serious",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
         "Shocked": {
           "replacement": "Shock",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "SpeakingCalm": {
+          "replacement": "Serious",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "SpeakingFirm": {
+          "replacement": "Serious",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
@@ -3228,8 +3508,38 @@
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
         },
+        "Suspicious": {
+          "replacement": "Perplexed",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Thinking": {
+          "replacement": "Perplexed",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
         "Upset": {
           "replacement": "Sad",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Urgent": {
+          "replacement": "Anger",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Vulnerable": {
+          "replacement": "Sad",
+          "normalization": "IMPORT_BOUNDARY_ONLY",
+          "safeForNewAuthoring": false,
+          "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
+        },
+        "Warning": {
+          "replacement": "Shock",
           "normalization": "IMPORT_BOUNDARY_ONLY",
           "safeForNewAuthoring": false,
           "reason": "Obvious unambiguous input spelling; canonical output always uses the replacement."
@@ -3603,11 +3913,31 @@
         "Concerned",
         "Shocked",
         "Urgent",
-        "ControlledGrief",
         "Determined",
+        "ControlledGrief",
         "Exhausted",
         "Relieved",
-        "Defiant"
+        "Defiant",
+        "Angry",
+        "Fearful",
+        "SpeakingCalm",
+        "SpeakingFirm",
+        "Commanding",
+        "Reassuring",
+        "Warning",
+        "Thinking",
+        "Pointing",
+        "HandRaised",
+        "ArmsCrossed",
+        "ConsoleWork",
+        "BracingAlert",
+        "Vulnerable",
+        "LookLeft",
+        "LookRight",
+        "Injured",
+        "Suspicious",
+        "Hopeful",
+        "Resolute"
       ],
       "values": [
         {
@@ -3661,8 +3991,8 @@
           "reason": null
         },
         {
-          "value": "ControlledGrief",
-          "description": "Dialogue Expression value ControlledGrief.",
+          "value": "Determined",
+          "description": "Dialogue Expression value Determined.",
           "introducedIn": 1,
           "safeForNewAuthoring": true,
           "deprecated": false,
@@ -3671,8 +4001,8 @@
           "reason": null
         },
         {
-          "value": "Determined",
-          "description": "Dialogue Expression value Determined.",
+          "value": "ControlledGrief",
+          "description": "Dialogue Expression value ControlledGrief.",
           "introducedIn": 1,
           "safeForNewAuthoring": true,
           "deprecated": false,
@@ -3703,6 +4033,206 @@
         {
           "value": "Defiant",
           "description": "Dialogue Expression value Defiant.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "Angry",
+          "description": "Dialogue Expression value Angry.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "Fearful",
+          "description": "Dialogue Expression value Fearful.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "SpeakingCalm",
+          "description": "Dialogue Expression value SpeakingCalm.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "SpeakingFirm",
+          "description": "Dialogue Expression value SpeakingFirm.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "Commanding",
+          "description": "Dialogue Expression value Commanding.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "Reassuring",
+          "description": "Dialogue Expression value Reassuring.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "Warning",
+          "description": "Dialogue Expression value Warning.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "Thinking",
+          "description": "Dialogue Expression value Thinking.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "Pointing",
+          "description": "Dialogue Expression value Pointing.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "HandRaised",
+          "description": "Dialogue Expression value HandRaised.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "ArmsCrossed",
+          "description": "Dialogue Expression value ArmsCrossed.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "ConsoleWork",
+          "description": "Dialogue Expression value ConsoleWork.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "BracingAlert",
+          "description": "Dialogue Expression value BracingAlert.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "Vulnerable",
+          "description": "Dialogue Expression value Vulnerable.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "LookLeft",
+          "description": "Dialogue Expression value LookLeft.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "LookRight",
+          "description": "Dialogue Expression value LookRight.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "Injured",
+          "description": "Dialogue Expression value Injured.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "Suspicious",
+          "description": "Dialogue Expression value Suspicious.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "Hopeful",
+          "description": "Dialogue Expression value Hopeful.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "Resolute",
+          "description": "Dialogue Expression value Resolute.",
           "introducedIn": 1,
           "safeForNewAuthoring": true,
           "deprecated": false,

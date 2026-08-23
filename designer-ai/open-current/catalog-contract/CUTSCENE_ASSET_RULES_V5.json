@@ -32,7 +32,8 @@
       "Kit": "selectedKits only, using an exact usable kit contract",
       "Unsafe": "never reference"
     },
-    "ambiguityRule": "When cutsceneNeedsHumanReview is true, still use cutscenePrimaryUse for Preview, keep the action simple, and let Unity show a yellow note. Do not invent a different category.",
+    "ambiguityRule": "When cutsceneNeedsHumanReview is true, the asset is explicit-user-choice only for new authoring. Do not choose it automatically. If the user explicitly pinned it, use cutscenePrimaryUse for Preview and let Unity show the yellow note.",
+    "automaticCandidateRule": "For NEW/REVISE/REPAIR requests, prefer request.suggestedCandidates for automatic asset choices. These IDs are filtered by Unity for explicit Cutscene use, Preview safety, no human-review requirement, exact resolver success, canonical Actor identity and same-identity portrait compatibility. Assets outside that shortlist require explicit user selection or stronger CURRENT Catalog evidence.",
     "exampleConflictRule": "The placement contract wins over every generated example. Never copy an example pattern that violates it."
   },
   "castRoleRequirements": {

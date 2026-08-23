@@ -1,7 +1,7 @@
 STARWARS_DELTA CHATGPT DIRECTOR CURRENT
 
-Atomic publish transaction: 20260820-020210752-cd4da05b
-Atomic Rule Registry revision: 8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0
+Atomic publish transaction: 20260823-022704116-4be0475b
+Atomic Rule Registry revision: FF79E39ED5A668EEA0651AA4D8B80076C561827B18006E998F3FE0B93F9E20B7
 Start with OPEN_CURRENT.json, then director-view/DIRECTOR_VIEW.json.
 Use the Director category files for Actors, Layers, Effects, UI, Animations and Audio.
 Use only recommendationStatus=RECOMMENDABLE by default.
@@ -16,3 +16,4 @@ Do not mix this package with older Catalog, Instruction Book or visual packages.
 This fallback also contains CHATGPT_START.txt and FILM_AUTHORING_GUIDE_CURRENT.md. The completion queue and eligibility audit are engineering work data, not a designer upload list.
 
 Authoring compatibility: compare requiredCurrent only; publishTransactionId is provenance.
+Authoring shape: load OPEN_CURRENT authoringProfile and canonicalTemplate before composing V5 JSON.

@@ -2,11 +2,11 @@
   "schema": "STARWARS_DELTA_DESIGNER_AI_OPEN_CURRENT",
   "schemaVersion": 11,
   "status": "CURRENT_VERIFIED_OPEN",
-  "publishTransactionId": "20260820-020210752-cd4da05b",
-  "publishedUtc": "2026-08-20T02:10:54.8595252Z",
-  "releaseUrl": "https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/releases/tag/designer-ai-current-20260820-021054859-1e0f47bb76",
-  "contractRevision": "424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF",
-  "schemaHash": "7D3743BC09A41110901B3A2B4D2206725A7FBD19D14D275223C66ACAA9FE0CAB",
+  "publishTransactionId": "20260823-022704116-4be0475b",
+  "publishedUtc": "2026-08-23T02:33:58.5471394Z",
+  "releaseUrl": "https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/releases/tag/designer-ai-current-20260823-023358547-dd664136d1",
+  "contractRevision": "1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2",
+  "schemaHash": "0C8725A0029CBAB995F851B1D3188495CBEC6E1D3F6143D9355240448CD58734",
   "sourceCurrentPath": "SOURCE_CURRENT.json",
   "fullVisualIndexPath": "FULL_VISUAL_INDEX.json",
   "fullVisualIndexUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/FULL_VISUAL_INDEX.json",
@@ -27,21 +27,22 @@
     "recommendation": "Use only Director entries with recommendationStatus=RECOMMENDABLE by default. PIXEL_COMPLETION_REQUIRED and DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW are engineering states, not ordinary creative choices.",
     "completionQueue": "The Director completion queue is for the Unity engineering pipeline. Do not ask Debora/the designer to solve or upload its items.",
     "currentCompatibility": "Studio NEW/REVISE/REPAIR envelopes match only requiredCurrent: catalogRevision, contractRevision, schemaHash, snapshotContentHash and authoringRuleRegistryRevision. publishTransactionId is provenance only.",
-    "atomicIdentity": "atomicIdentity is strict publication-integrity metadata for one generated CURRENT transaction. Do not use publishTransactionId as the normal Studio authoring-compatibility gate; use requiredCurrent."
+    "atomicIdentity": "atomicIdentity is strict publication-integrity metadata for one generated CURRENT transaction. Do not use publishTransactionId as the normal Studio authoring-compatibility gate; use requiredCurrent.",
+    "authoringShape": "Before authoring V5 JSON, load authoringProfile.downloadUrl and canonicalTemplate.downloadUrl. Start from the canonical template; deterministic Default/AutoRepair mechanics are system-owned."
   },
   "visualAtlas": {
     "schema": "STARWARS_DELTA_CHATGPT_VISUAL_ATLAS",
     "schemaVersion": 3,
     "status": "CURRENT_VERIFIED_VISUAL_ATLAS",
-    "publishTransactionId": "20260820-020210752-cd4da05b",
+    "publishTransactionId": "20260823-022704116-4be0475b",
     "pdfFile": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
     "pdfFileName": "STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
     "pdfUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
     "manifestUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/VISUAL_ATLAS_CURRENT.json",
-    "fileSizeBytes": 22683429,
-    "totalPages": 106,
-    "representativeCount": 1259,
-    "sourceVisualIdentityCount": 1275,
+    "fileSizeBytes": 12641163,
+    "totalPages": 59,
+    "representativeCount": 691,
+    "sourceVisualIdentityCount": 701,
     "contains": [
       "Actor visual sheets: characters, robots, ships and other world actors",
       "Effect visual sheets: explosions, flashes, atmosphere and VFX",
@@ -55,30 +56,30 @@
     "categoryRanges": [
       {
         "category": "Actor",
-        "sourcePageCount": 32,
+        "sourcePageCount": 14,
         "atlasStartPage": 1,
-        "atlasEndPage": 32,
+        "atlasEndPage": 14,
         "pageImageRoot": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/"
       },
       {
         "category": "Effect",
-        "sourcePageCount": 23,
-        "atlasStartPage": 33,
-        "atlasEndPage": 55,
+        "sourcePageCount": 11,
+        "atlasStartPage": 15,
+        "atlasEndPage": 25,
         "pageImageRoot": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/"
       },
       {
         "category": "Layer",
-        "sourcePageCount": 30,
-        "atlasStartPage": 56,
-        "atlasEndPage": 85,
+        "sourcePageCount": 6,
+        "atlasStartPage": 26,
+        "atlasEndPage": 31,
         "pageImageRoot": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/layer/"
       },
       {
         "category": "Ui",
-        "sourcePageCount": 21,
-        "atlasStartPage": 86,
-        "atlasEndPage": 106,
+        "sourcePageCount": 28,
+        "atlasStartPage": 32,
+        "atlasEndPage": 59,
         "pageImageRoot": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/ui/"
       }
     ],
@@ -102,10 +103,10 @@
     }
   },
   "visualLibraryPreviewCoverage": {
-    "sourceVisualIdentityCount": 1275,
-    "directPixelEvidenceCount": 1273,
-    "directPixelEvidenceMissingCount": 2,
-    "directPreviewCoveragePercent": 99.84,
+    "sourceVisualIdentityCount": 701,
+    "directPixelEvidenceCount": 701,
+    "directPixelEvidenceMissingCount": 0,
+    "directPreviewCoveragePercent": 100.0,
     "scopeWarning": "Visual Library direct-preview metric only; do not present it as total Director or Catalog coverage.",
     "unavailableManifestUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/VISUAL_UNAVAILABLE.json"
   },
@@ -114,69 +115,69 @@
     "url": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/DIRECTOR_VIEW.json",
     "root": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/",
     "counts": {
-      "actors": 320,
-      "layers": 358,
-      "effects": 282,
-      "ui": 244,
-      "animations": 523,
+      "actors": 697,
+      "layers": 6673,
+      "effects": 864,
+      "ui": 590,
+      "animations": 531,
       "audio": 224,
-      "recommendableVisualEntriesBeforeActorCanonicalMerge": 1256,
-      "pixelVerifiedVisualEntries": 1243,
-      "pixelMissingRecommendableVisualEntries": 13,
-      "syntheticCatalogVisualEntriesNotPresentInVisualLibrary": 11
+      "recommendableVisualEntriesBeforeActorCanonicalMerge": 8891,
+      "pixelVerifiedVisualEntries": 691,
+      "pixelMissingRecommendableVisualEntries": 8200,
+      "syntheticCatalogVisualEntriesNotPresentInVisualLibrary": 8200
     },
-    "sourceCatalogRecordCount": 20623,
+    "sourceCatalogRecordCount": 18592,
     "requestScoped": false,
     "quality": {
-      "verifiedVisualEntryCount": 1191,
-      "atlasMappedVerifiedVisualEntryCount": 1191,
-      "missingVisualEntryCount": 13,
-      "actionablePreviewGenerationCount": 8,
-      "sourceEligibilityReviewBeforePreviewCount": 5,
+      "verifiedVisualEntryCount": 666,
+      "atlasMappedVerifiedVisualEntryCount": 666,
+      "missingVisualEntryCount": 8158,
+      "actionablePreviewGenerationCount": 7564,
+      "sourceEligibilityReviewBeforePreviewCount": 594,
       "recommendationStatusCounts": {
-        "RECOMMENDABLE": 1137,
-        "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW": 59,
-        "PIXEL_COMPLETION_REQUIRED": 8
+        "PIXEL_COMPLETION_REQUIRED": 7564,
+        "RECOMMENDABLE": 648,
+        "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW": 612
       },
       "animationUnknownActorLinkCount": 0,
-      "animationCompletionCount": 523,
+      "animationCompletionCount": 531,
       "audioCompletionCount": 224,
       "presentationCoverageByCategory": {
         "Actor": {
-          "total": 320,
-          "description": 320,
-          "locationTypes": 320,
-          "sceneStates": 320,
-          "lightingMoods": 320,
-          "backgroundCoverageKnown": 320,
-          "fitModes": 320
+          "total": 697,
+          "description": 697,
+          "locationTypes": 697,
+          "sceneStates": 697,
+          "lightingMoods": 697,
+          "backgroundCoverageKnown": 697,
+          "fitModes": 697
         },
         "Layer": {
-          "total": 358,
-          "description": 358,
-          "locationTypes": 358,
-          "sceneStates": 358,
-          "lightingMoods": 358,
-          "backgroundCoverageKnown": 358,
-          "fitModes": 358
+          "total": 6673,
+          "description": 6673,
+          "locationTypes": 6673,
+          "sceneStates": 6673,
+          "lightingMoods": 6673,
+          "backgroundCoverageKnown": 6673,
+          "fitModes": 6673
         },
         "Effect": {
-          "total": 282,
-          "description": 282,
-          "locationTypes": 282,
-          "sceneStates": 282,
-          "lightingMoods": 282,
-          "backgroundCoverageKnown": 282,
-          "fitModes": 282
+          "total": 864,
+          "description": 864,
+          "locationTypes": 864,
+          "sceneStates": 864,
+          "lightingMoods": 864,
+          "backgroundCoverageKnown": 864,
+          "fitModes": 864
         },
         "Ui": {
-          "total": 244,
-          "description": 244,
-          "locationTypes": 244,
-          "sceneStates": 244,
-          "lightingMoods": 244,
-          "backgroundCoverageKnown": 244,
-          "fitModes": 244
+          "total": 590,
+          "description": 590,
+          "locationTypes": 590,
+          "sceneStates": 590,
+          "lightingMoods": 590,
+          "backgroundCoverageKnown": 590,
+          "fitModes": 590
         }
       }
     }
@@ -188,7 +189,7 @@
   "catalogContract": {
     "rootUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/catalog-contract/",
     "sourceReleaseAsset": "STARWARS_DELTA_CHATGPT_CATALOG_CURRENT.zip",
-    "fullCatalogReleaseUrl": "https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/releases/download/designer-ai-current-20260820-021054859-1e0f47bb76/STARWARS_DELTA_CHATGPT_CATALOG_CURRENT.zip"
+    "fullCatalogReleaseUrl": "https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/releases/download/designer-ai-current-20260823-023358547-dd664136d1/STARWARS_DELTA_CHATGPT_CATALOG_CURRENT.zip"
   },
   "download": {
     "chatgptDirectorCurrentZipUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip",
@@ -205,34 +206,60 @@
     "The old 717-record CURRENT_VISUAL_PROOF_CANDIDATES subset was request-scoped evidence, not a general authoring Catalog, and is no longer the primary direct source.",
     "The 300MB Visual Library remains an evidence archive. It is not the normal Debora or ChatGPT download."
   ],
-  "catalogRevision": 7625541441843202476,
-  "snapshotContentHash": "1E0F47BB76E622802BD9BFD4F1E08E0458D79389EA3057C7A3958DB5F4C2E8BA",
+  "catalogRevision": 7624991757430202061,
+  "snapshotContentHash": "DD664136D15AF3432DE0E69C1D25AFCAD5EDC76A99EB16894FA00E7A08880AB7",
   "atomicIdentity": {
-    "publishTransactionId": "20260820-020210752-cd4da05b",
-    "catalogRevision": 7625541441843202476,
-    "contractRevision": "424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF",
-    "schemaHash": "7D3743BC09A41110901B3A2B4D2206725A7FBD19D14D275223C66ACAA9FE0CAB",
-    "snapshotContentHash": "1E0F47BB76E622802BD9BFD4F1E08E0458D79389EA3057C7A3958DB5F4C2E8BA",
-    "authoringRuleRegistryRevision": "8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0"
+    "publishTransactionId": "20260823-022704116-4be0475b",
+    "catalogRevision": 7624991757430202061,
+    "contractRevision": "1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2",
+    "schemaHash": "0C8725A0029CBAB995F851B1D3188495CBEC6E1D3F6143D9355240448CD58734",
+    "snapshotContentHash": "DD664136D15AF3432DE0E69C1D25AFCAD5EDC76A99EB16894FA00E7A08880AB7",
+    "authoringRuleRegistryRevision": "FF79E39ED5A668EEA0651AA4D8B80076C561827B18006E998F3FE0B93F9E20B7"
   },
   "eligibilityAudit": {
     "url": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/eligibility-audit.json",
-    "flaggedDirectorVisualCount": 59,
-    "flaggedCompletionVisualCount": 5,
+    "flaggedDirectorVisualCount": 612,
+    "flaggedCompletionVisualCount": 594,
     "policy": "Do not recommend flagged entries by default. Correct or confirm them at Unity source and republish."
   },
-  "authoringRuleRegistryRevision": "8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0",
+  "authoringRuleRegistryRevision": "FF79E39ED5A668EEA0651AA4D8B80076C561827B18006E998F3FE0B93F9E20B7",
   "requiredCurrent": {
-    "catalogRevision": 7625541441843202476,
-    "contractRevision": "424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF",
-    "schemaHash": "7D3743BC09A41110901B3A2B4D2206725A7FBD19D14D275223C66ACAA9FE0CAB",
-    "snapshotContentHash": "1E0F47BB76E622802BD9BFD4F1E08E0458D79389EA3057C7A3958DB5F4C2E8BA",
-    "authoringRuleRegistryRevision": "8C399D784501F61213A84A89E4910D8850FD871B8E07445E6D39F3802D881EC0"
+    "catalogRevision": 7624991757430202061,
+    "contractRevision": "1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2",
+    "schemaHash": "0C8725A0029CBAB995F851B1D3188495CBEC6E1D3F6143D9355240448CD58734",
+    "snapshotContentHash": "DD664136D15AF3432DE0E69C1D25AFCAD5EDC76A99EB16894FA00E7A08880AB7",
+    "authoringRuleRegistryRevision": "FF79E39ED5A668EEA0651AA4D8B80076C561827B18006E998F3FE0B93F9E20B7"
   },
   "provenance": {
-    "publishTransactionId": "20260820-020210752-cd4da05b",
-    "publishedUtc": "2026-08-20T02:10:54.8595252Z",
-    "publisherVersion": "2.10.1",
-    "bundleIdentity": "748381E4DB03CE22288127CA9C906A3576D8663FE7D823D892571A86D22C141E"
+    "publishTransactionId": "20260823-022704116-4be0475b",
+    "publishedUtc": "2026-08-23T02:33:58.5471394Z",
+    "publisherVersion": "2.10.2",
+    "bundleIdentity": "1E3144778C1911097EAD0BFD6305985FCFEF29C69A9655A47B6AACE475C9EB4F"
+  },
+  "authoringProfile": {
+    "fileName": "CURRENT_AUTHORING_PROFILE.json",
+    "sizeBytes": 956132,
+    "sha256": "1eb8ac863d4ee19fa344927836dc0973dc70f3dd4c5dfc26a395867aa26e52f0",
+    "downloadUrl": "https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/releases/download/designer-ai-current-20260823-023358547-dd664136d1/CURRENT_AUTHORING_PROFILE.json",
+    "publishTransactionId": "20260823-022704116-4be0475b",
+    "catalogRevision": 7624991757430202061,
+    "contractRevision": "1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2",
+    "schemaHash": "0C8725A0029CBAB995F851B1D3188495CBEC6E1D3F6143D9355240448CD58734",
+    "packageSchema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
+    "schemaVersion": 5,
+    "canonicalTemplateValid": true
+  },
+  "canonicalTemplate": {
+    "fileName": "CURRENT_CANONICAL_PACKAGE_TEMPLATE.json",
+    "sizeBytes": 3004,
+    "sha256": "7474eb22bc0d3db36464ae799164b2a9fdc50a27c890dc7f846f28409c720fd4",
+    "downloadUrl": "https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/releases/download/designer-ai-current-20260823-023358547-dd664136d1/CURRENT_CANONICAL_PACKAGE_TEMPLATE.json",
+    "publishTransactionId": "20260823-022704116-4be0475b",
+    "catalogRevision": 7624991757430202061,
+    "contractRevision": "1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2",
+    "schemaHash": "0C8725A0029CBAB995F851B1D3188495CBEC6E1D3F6143D9355240448CD58734",
+    "packageSchema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
+    "schemaVersion": 5,
+    "canonicalTemplateValid": true
   }
 }

@@ -96,7 +96,8 @@
     "overlapRule": "Spoken dialogue lines may touch but may not overlap in absolute time.",
     "speakerRule": "Props and scenery should not receive spoken dialogue unless their authored identity is explicitly a speaking character.",
     "dialogueStageV1": "Optional stage selects one fixed SPEAKER_FOCUS, TWO_SHOT or COMMAND_SCREEN layout, fixed character slots, optional speakerDistance/listenerDistance values from exactly NEAR/MID/FAR, system-owned position/scale/framing, UI form, pose, text mode and exact Catalog assets. Arbitrary screen coordinates, anchors, colors and scales are forbidden.",
-    "dialogueExpressionRule": "speakerExpression and listenerExpression are evaluated on every dialogue line; an unavailable expression uses the profile's safe visual/Neutral fallback with a warning.",
+    "dialogueExpressionRule": "speakerExpression and listenerExpression are evaluated on every dialogue line. Standardized project-owned 6x5 character sheets expose portrait cells 0..11 and Body_Idle_Front as the same deterministic identity; Unity should derive the same-identity requested expression, then Neutral, before falling back to the Actor visual.",
+    "dialogueIdentityRule": "Do not rename an unrelated generic Actor sprite into a pilot/commander/watch officer. For automatic dialogue casting prefer a suggested canonical character Actor that has compatible same-identity portrait candidates. Portrait UI never changes cast identity.",
     "optionalVisualFallback": "Optional presentation assets may fall back safely. Required participant visuals may use built-in identity fallback only when the selected preset exports allowsBuiltInParticipantFallback=true and the referenced cast identity exists; otherwise choose another exact compatible tuple/preset or return one blocker.",
     "lockedDialogueActorActions": {
       "trueMeans": [

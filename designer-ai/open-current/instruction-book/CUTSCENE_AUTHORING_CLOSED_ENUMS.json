@@ -1,7 +1,7 @@
 {
   "schema": "STARWARS_DELTA_CUTSCENE_AUTHORING_CLOSED_ENUMS",
   "schemaVersion": 1,
-  "contractRevision": "424FB4C7C807A728A3974682392689E8B16B2E08D4506BCC2EE03DC8B40A29BF",
+  "contractRevision": "1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2",
   "canonicalOnly": true,
   "roleGuardrail": {
     "jsonPath": "$.cast[].role",
@@ -282,11 +282,31 @@
         "Concerned",
         "Shocked",
         "Urgent",
-        "ControlledGrief",
         "Determined",
+        "ControlledGrief",
         "Exhausted",
         "Relieved",
-        "Defiant"
+        "Defiant",
+        "Angry",
+        "Fearful",
+        "SpeakingCalm",
+        "SpeakingFirm",
+        "Commanding",
+        "Reassuring",
+        "Warning",
+        "Thinking",
+        "Pointing",
+        "HandRaised",
+        "ArmsCrossed",
+        "ConsoleWork",
+        "BracingAlert",
+        "Vulnerable",
+        "LookLeft",
+        "LookRight",
+        "Injured",
+        "Suspicious",
+        "Hopeful",
+        "Resolute"
       ],
       "rule": "Expression/acting vocabulary, not dialogue emotion."
     }
