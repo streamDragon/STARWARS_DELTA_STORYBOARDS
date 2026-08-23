@@ -114,6 +114,42 @@ jobs:
           print('EMOTIONAL_DIALOGUE_STAGED', dialogue.get('publishTransactionId'), len(ready))
           PY
 
+      - name: Carry Cutscene Validation CURRENT into stage
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import pathlib
+          import shutil
+
+          source_path = pathlib.Path('designer-ai/current.json')
+          mirror_path = pathlib.Path('designer-ai/open-current/CUTSCENE_VALIDATION_CURRENT.json')
+          stage_path = pathlib.Path('_open_current_stage/CUTSCENE_VALIDATION_CURRENT.json')
+
+          if not mirror_path.is_file():
+              if stage_path.exists():
+                  stage_path.unlink()
+              print('CUTSCENE_VALIDATION_NOT_PUBLISHED_FOR_CURRENT')
+              raise SystemExit(0)
+
+          source = json.loads(source_path.read_text(encoding='utf-8-sig'))
+          validation = json.loads(mirror_path.read_text(encoding='utf-8-sig'))
+          required = dict(source.get('requiredCurrent') or {})
+
+          assert validation.get('schema') == 'STARWARS_DELTA_CUTSCENE_VALIDATION_CURRENT'
+          assert validation.get('schemaVersion') == 1
+          assert validation.get('status') == 'CURRENT_VERIFIED_CUTSCENE_VALIDATION'
+          assert validation.get('publishTransactionId') == source.get('publishTransactionId')
+          assert validation.get('requiredCurrent') == required
+          assert (validation.get('authoringPolicy') or {}).get('warningsBlockCompilation') is False
+          assert len(validation.get('rules') or []) > 0
+
+          stage_path.parent.mkdir(parents=True, exist_ok=True)
+          shutil.copy2(mirror_path, stage_path)
+          print('CUTSCENE_VALIDATION_STAGED', validation.get('publishTransactionId'), len(validation.get('rules') or []))
+          PY
+
       - name: Validate the single CURRENT
         shell: bash
         run: |
@@ -196,6 +232,25 @@ jobs:
               assert expected_ready > 0 and len(ready) == expected_ready
               assert hashlib.sha256(dialogue_raw).hexdigest().lower() == str(emotional.get('sha256') or '').lower()
               assert len(dialogue_raw) == int(emotional.get('sizeBytes') or 0)
+
+          validation_path = root / 'CUTSCENE_VALIDATION_CURRENT.json'
+          if validation_path.is_file():
+              validation = json.loads(validation_path.read_text(encoding='utf-8-sig'))
+              assert validation.get('schema') == 'STARWARS_DELTA_CUTSCENE_VALIDATION_CURRENT'
+              assert validation.get('schemaVersion') == 1
+              assert validation.get('status') == 'CURRENT_VERIFIED_CUTSCENE_VALIDATION'
+              assert validation.get('publishTransactionId') == source.get('publishTransactionId')
+              assert validation.get('requiredCurrent') == required
+              assert (validation.get('authoringPolicy') or {}).get('warningsBlockCompilation') is False
+              rules = validation.get('rules') or []
+              assert rules
+              assert len({r.get('code') for r in rules}) == len(rules)
+              for rule in rules:
+                  assert rule.get('severity') in {'Info', 'Warning', 'Error'}
+                  assert isinstance(rule.get('blocksCompilation'), bool)
+                  assert rule.get('authoringRequirement') in {
+                      'MUST_AUTHOR', 'MAY_OMIT_BACKEND_DEFAULT', 'OPTIONAL', 'NOT_AUTHORED_IN_SIMPLE_V1'
+                  }
 
           atlas = root / 'full-visual-sheets' / 'STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf'
           pack = root / 'STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip'
