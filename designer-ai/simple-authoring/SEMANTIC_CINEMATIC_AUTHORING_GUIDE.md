@@ -12,6 +12,40 @@ Pipeline:
 
 Use `authoring/AUTHORING_HANDLES.json` as the only general authoring handle source. Director files explain meaning, capability and safety. Visual Atlas provides pixel evidence. Do not derive handles from filenames, display names or assetId.
 
+## VALIDATION SEVERITY - WARNING FIRST, RED ONLY FOR REAL BLOCKERS
+
+Simple V1 is an authoring format, not a low-level V5 accounting form. Ordinary cinematic incompleteness must not become a hard stop when the existing backend can repair it deterministically without changing identity, inventing an asset or lying about CURRENT.
+
+**Default rule:** recoverable presentation/staging/camera/continuity omissions are **YELLOW / Warning** and compilation continues.
+
+**RED / Error is reserved for integrity failures**, including:
+
+- unknown or ambiguous CURRENT handle/identity;
+- stale/incompatible CURRENT identity;
+- an exact destination/capability mismatch that cannot be materialized legally;
+- unsupported Emotional Dialogue speaker/listener/identityHandle/expression;
+- schema/semantic corruption with no deterministic legal repair;
+- invented visual evidence or fake 3D evidence that contradicts CURRENT.
+
+Warnings may include presentation repetition, weak continuity evidence, camera polish, recoverable performance intent, optional story-evidence weakness, and missing low-level dialogue-stage mechanics that the existing dialogue-stage owner can supply deterministically.
+
+Do **not** require ChatGPT/Devora to serialize backend-only details merely to silence a validator. If the backend already owns a deterministic default, warn and let that owner apply it.
+
+### FACE_TO_FACE_PORTRAITS specifically
+
+For semantic Simple V1 dialogue, ChatGPT authors the exact curated participants, dialogue text/expression intent, location/presentation intent and story context.
+
+If FACE_TO_FACE_PORTRAITS requires a full-frame stage background and dialogue frame at V3/V5/runtime level:
+
+- an omitted **explicit low-level background** is a Warning when the existing dialogue-stage owner has a deterministic legal background/default;
+- an omitted **explicit dialogue frame** is a Warning when the existing dialogue-stage owner has a deterministic legal frame/default;
+- the Adapter/Unity dialogue-stage owner should inject those system-managed mechanics and continue compilation;
+- it becomes RED only if no legal deterministic stage/background/frame can be resolved.
+
+Never cure a warning by choosing an arbitrary Layer/Ui asset, changing the speaker identity, substituting a portrait, or inventing a fallback outside CURRENT.
+
+Machine-readable severity policy: `CINEMATIC_INTENT_QA_RULES.json`.
+
 ## EMOTIONAL DIALOGUE CLOSED WORLD - HARD GATE
 
 Dialogue is the one deliberate exception to general Actor discovery.
@@ -86,6 +120,8 @@ For every authored dialogue line:
 8. Dialogue-only characters remain legal with `spawnWorldActor=false`; do not manufacture a dummy WorldActor.
 9. `defaultPresentationHandle` is Unity's exact curated presentation asset identity. It is not replaced by a general Catalog/Atlas portrait if the web preview cannot display it.
 
+Notice the boundary: **dialogue identity/expression legality is a real hard gate; dialogue stage decoration/mechanics are not automatically hard gates.** A missing system-managed frame is not equivalent to an unknown speaker.
+
 Machine-readable policy: `EMOTIONAL_DIALOGUE_AUTHORING_POLICY.json`.
 Publisher contract schema: `EMOTIONAL_DIALOGUE_CURRENT.schema.json`.
 
@@ -131,6 +167,7 @@ Use `performanceIntent` and `animationIntent` rather than raw animation asset ID
 - V5 linker/materialization IDs
 - exact world coordinates and raw Unity scale
 - camera object wiring
+- dialogue-stage frame/background mechanics when they are deterministic system-owned defaults
 - resolver fallback internals
 
-The author writes a film. The backend performs accounting.
+The author writes a film. The backend performs accounting. If accounting can fill a deterministic presentation default, it should do so with a warning rather than demanding that the author become the accounting department.
