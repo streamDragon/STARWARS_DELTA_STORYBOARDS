@@ -22,6 +22,25 @@ For any beat containing `dialogue[]`, Devora must first load the atomic CURRENT 
 
 Only characters explicitly present in that file with `authoringReady=true` are legal `speaker` or `listener` participants.
 
+The identity rule is exact:
+
+```text
+repertoire.actorId
+= CUTSCENE_SCRIPT_V1 cast[].id
+= dialogue speaker/listener
+```
+
+No aliases and no display-name matching.
+
+For the same character:
+
+```text
+cast[].identityHandle
+= repertoire.identityHandle
+```
+
+That `identityHandle` is a curated logical Emotional Dialogue identity. It is not an Actor Catalog handle and it is not a Ui/portrait handle.
+
 Never derive dialogue eligibility from:
 
 - `actors.json`
@@ -44,11 +63,14 @@ If `EMOTIONAL_DIALOGUE_CURRENT.json` is missing, stale, non-atomic, unverified o
 
 For every authored dialogue line:
 
-1. `speaker` and optional `listener` reference `cast[].id` values.
-2. Each referenced cast entry must resolve to an `identityHandle` published for an authoring-ready Emotional Dialogue character.
-3. `expressionIntent` may use only that character's published `supportedExpressions`.
-4. Do not search for an expression sprite by filename or visual resemblance.
-5. Dialogue-only characters remain legal with `spawnWorldActor=false`; do not manufacture a dummy WorldActor.
+1. `speaker` and optional `listener` must be exact published `actorId` values and exact matching `cast[].id` values.
+2. The matching cast entry must use the exact `identityHandle` published for that same `actorId`.
+3. `expressionIntent` applies to the speaker only.
+4. If `expressionIntent` is omitted, Unity uses that character's published `defaultExpression`.
+5. If `expressionIntent` is present, it must exactly match one of that character's `supportedExpressions`.
+6. Unsupported expressions are blockers. There is **no Neutral fallback**, filename search, visual-similarity search or nearest-expression substitution.
+7. Listener presentation uses the listener's published `defaultExpression` unless a future CURRENT contract explicitly exposes listener-expression authoring.
+8. Dialogue-only characters remain legal with `spawnWorldActor=false`; do not manufacture a dummy WorldActor.
 
 Machine-readable policy: `EMOTIONAL_DIALOGUE_AUTHORING_POLICY.json`.
 Publisher contract schema: `EMOTIONAL_DIALOGUE_CURRENT.schema.json`.
