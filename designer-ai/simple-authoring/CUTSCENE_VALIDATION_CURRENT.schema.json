@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "STARWARS_DELTA_CUTSCENE_VALIDATION_CURRENT",
+  "title": "STARWARS_DELTA Cutscene Validation CURRENT",
+  "description": "Published authoring-facing projection of Unity Cutscene validation. It tells ChatGPT, Devora and Simple Preview what must be authored, what may be omitted because the backend owns a deterministic default, what is only a warning, and what is a real blocker. Unity remains the final validator.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "schemaVersion",
+    "status",
+    "publishTransactionId",
+    "requiredCurrent",
+    "authoringPolicy",
+    "rules"
+  ],
+  "properties": {
+    "schema": { "const": "STARWARS_DELTA_CUTSCENE_VALIDATION_CURRENT" },
+    "schemaVersion": { "const": 1 },
+    "status": { "const": "CURRENT_VERIFIED_CUTSCENE_VALIDATION" },
+    "publishTransactionId": { "type": "string", "minLength": 1 },
+    "generatedUtc": { "type": "string" },
+    "requiredCurrent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "catalogRevision",
+        "contractRevision",
+        "schemaHash",
+        "snapshotContentHash",
+        "authoringRuleRegistryRevision"
+      ],
+      "properties": {
+        "catalogRevision": { "type": ["string", "number"] },
+        "contractRevision": { "type": "string", "minLength": 1 },
+        "schemaHash": { "type": "string", "minLength": 1 },
+        "snapshotContentHash": { "type": "string", "minLength": 1 },
+        "authoringRuleRegistryRevision": { "type": "string", "minLength": 1 }
+      }
+    },
+    "authoringPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "warningsBlockCompilation",
+        "defaultRecoverableSeverity",
+        "redMeaning"
+      ],
+      "properties": {
+        "warningsBlockCompilation": { "const": false },
+        "defaultRecoverableSeverity": { "const": "Warning" },
+        "redMeaning": { "type": "string", "minLength": 1 },
+        "simpleV1Principle": { "type": "string" }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "severity",
+          "blocksCompilation",
+          "authoringRequirement",
+          "description"
+        ],
+        "properties": {
+          "code": { "type": "string", "minLength": 1 },
+          "diagnosticAliases": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "uniqueItems": true
+          },
+          "scope": { "type": "string" },
+          "appliesTo": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "uniqueItems": true
+          },
+          "severity": { "enum": ["Info", "Warning", "Error"] },
+          "blocksCompilation": { "type": "boolean" },
+          "authoringRequirement": {
+            "enum": [
+              "MUST_AUTHOR",
+              "MAY_OMIT_BACKEND_DEFAULT",
+              "OPTIONAL",
+              "NOT_AUTHORED_IN_SIMPLE_V1"
+            ]
+          },
+          "backendDefault": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["available"],
+            "properties": {
+              "available": { "type": "boolean" },
+              "owner": { "type": ["string", "null"] },
+              "behavior": { "type": ["string", "null"] }
+            }
+          },
+          "description": { "type": "string", "minLength": 1 },
+          "authorGuidance": { "type": "string" }
+        }
+      }
+    }
+  }
+}
