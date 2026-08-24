@@ -171,3 +171,94 @@ Use `performanceIntent` and `animationIntent` rather than raw animation asset ID
 - resolver fallback internals
 
 The author writes a film. The backend performs accounting. If accounting can fill a deterministic presentation default, it should do so with a warning rather than demanding that the author become the accounting department.
+
+## LIVE V4 CINEMATIC MOVE RECIPES
+
+These recipes are **authoring choreography only**. They do not add new Unity runtime commands. The recipe name itself is never serialized into production JSON. Expand the chosen recipe into ordinary legal `CUTSCENE_SCRIPT_V1` actions using the existing action and `motionIntent` vocabulary.
+
+This section is intentionally embedded in the live Devora semantic guide so a freshly downloaded Context Pack can use the richer choreography immediately, without waiting for a new Unity runtime or another CURRENT publish.
+
+### Runtime truth that recipes must obey
+
+- Existing execution remains the current V5 `actorActions` / Timeline path.
+- Actor Orbit v1 is fixed-center only. The center actor must remain stationary for the Orbit interval.
+- Moving-center Orbit is not implemented.
+- `pursuit`, `escort` and `intercept` are semantic choreography concepts. Do not claim per-frame moving-target tracking.
+- Semantic speed values are `slow`, `medium`, `fast`, `burst`.
+- Count-expand only true reusable single-instance visuals. Do not multiply a precomposed fleet/group sprite as if it were one ship.
+- Prefer readable 2D lanes, foreground/midground/background depth, screen direction and timing over fake 3D geometry.
+
+### Pass / entrance
+
+- `CROSSING_FLYBY`: enter/flyby -> move/pass_camera -> exit/flyby.
+- `HERO_SWEEP`: enter/flyby -> pass_camera arc -> bank_away -> exit/escape.
+- `SCREEN_CROSS_REVEAL`: foreground actor crosses frame and clears the view to expose a stationary subject/background.
+
+### Combat
+
+- `ATTACK_RUN`: approach -> fire -> pass_camera -> bank_away.
+- `BOOM_AND_BREAK`: attack/impact -> formation_break -> bank_away.
+- `DOUBLE_INTERCEPT`: formation_break -> intercept lane -> hold.
+- `FLANK_LEFT`: formation_break -> left-side intercept arc.
+- `FLANK_RIGHT`: formation_break -> right-side intercept arc.
+
+### Chase
+
+- `PURSUIT_LANES`: staggered formation/depth lanes -> pursuit movement in a shared broad direction.
+- `CHASE_THROUGH_FRAME`: target crosses first -> pursuers enter after it -> preserve the same screen direction.
+
+### Formation
+
+- `ESCORT_COLUMN`: escort formation -> convoy movement.
+- `ESCORT_PEEL_OFF`: escort -> formation_break -> bank_away -> exit.
+- `FORMATION_SPREAD`: tight group -> formation_break -> readable hold.
+- `FORMATION_CONVERGE`: separated craft -> approach -> escort formation -> hold.
+
+### Retreat / survival
+
+- `BANK_AND_EXIT`: bank_away -> exit/escape.
+- `FORMATION_RETREAT`: formation_break -> escape -> exit.
+- `DAMAGED_WITHDRAWAL`: react -> brief hold -> slow drift escape -> exit.
+
+### Launch / landing
+
+- `TAKEOFF_ESCORT`: takeoff -> escort formation -> departure/escape.
+- `LAUNCH_WAVE`: staggered takeoff -> travel -> formation. If member timing cannot be expressed safely, stage across adjacent beats rather than inventing unsupported timing fields.
+- `LANDING_APPROACH`: approach -> landing -> hold.
+- `LAND_THEN_GUARD_ORBIT`: landing completes -> center holds stationary -> guards Orbit afterward. Use adjacent beats when necessary to avoid movement overlap.
+
+### Orbit
+
+- `STATIC_CENTER_ORBIT_REVEAL`: stationary center -> support actors Orbit -> camera Hold/Pull reveal.
+- `ORBIT_THEN_BREAK`: fixed-center Orbit -> formation_break -> bank_away.
+
+### Rescue / convoy
+
+- `RESCUE_PASS`: rescue_approach -> hold -> escort -> escape.
+- `CONVOY_ESCAPE`: escort -> convoy movement -> escape while preserving screen direction.
+
+### Reveal / release
+
+- `THREAT_REVEAL_PASS`: stationary threat reveal while smaller craft cross at another depth for scale.
+- `VICTORY_FLYBY`: clean flyby/pass -> formation_break -> exit.
+- `QUIET_DRIFT_OUT`: slow drift escape -> soft exit.
+
+### Composition / rhythm
+
+- `CROSS_TRAFFIC`: two independent lanes cross at different depths; avoid unreadable overlap.
+- `HOLD_THEN_BURST`: anticipation hold -> one fast move/approach/attack beat.
+- `ARRIVE_SETTLE_HOLD`: arrival -> decelerating approach -> hold before dialogue/reveal.
+
+### Selection rule
+
+Choose recipes for dramatic function, not because a list exists and humans become helpless around lists.
+
+- reveal scale: `THREAT_REVEAL_PASS`, `STATIC_CENTER_ORBIT_REVEAL`
+- increase danger: `ATTACK_RUN`, `DOUBLE_INTERCEPT`, `PURSUIT_LANES`
+- show organized force: `ESCORT_COLUMN`, `FORMATION_CONVERGE`
+- show chaos: `BOOM_AND_BREAK`, `FORMATION_RETREAT`, `CROSS_TRAFFIC`
+- show rescue/safety: `RESCUE_PASS`, `LANDING_APPROACH`
+- show release/victory: `VICTORY_FLYBY`, `QUIET_DRIFT_OUT`
+- create anticipation: `HOLD_THEN_BURST`, `ARRIVE_SETTLE_HOLD`
+
+Use one clear recipe or a small deliberate combination per beat. Never emit fields such as `recipeName`, `ATTACK_RUN` or `HERO_SWEEP` into production JSON. Recipes are planning shorthand only; production JSON contains the expanded legal actions.
