@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "STARWARS_DELTA_CUTSCENE_SCRIPT_V1",
   "title": "STARWARS_DELTA Cutscene Script V1",
-  "description": "Backward-compatible semantic cutscene authoring format. ChatGPT authors story, narrative identity, visible evidence, frame-relative composition, cinematic move intent, performance, continuity and legal audio handles. General cast identities use authoritative CURRENT Actor handles. Dialogue participants are the deliberate exception: they use only curated identityHandle values published by EMOTIONAL_DIALOGUE_CURRENT.json. Unity owns CURRENT fingerprints, runtime IDs, exact V3/V5 materialization, camera bounds and final serialization.",
+  "description": "Backward-compatible semantic cutscene authoring format. ChatGPT authors story, narrative identity, visible evidence, frame-relative composition, semantic actor motion, performance, continuity and legal audio handles. General cast identities use authoritative CURRENT Actor handles. Dialogue participants are the deliberate exception: they use only curated identityHandle values published by EMOTIONAL_DIALOGUE_CURRENT.json. Unity owns CURRENT fingerprints, runtime IDs, exact V3/V5 materialization, camera bounds, supported runtime motion lowering and final serialization. Semantic motion names do not imply stronger target-relative runtime behavior than the current V5 Timeline supports.",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema", "schemaVersion", "title", "durationSeconds", "beats"],
@@ -60,8 +60,8 @@
       "required": ["id", "handle"],
       "properties": {
         "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
-        "handle": { "type": "string", "minLength": 1 },
-        "count": { "type": "integer", "minimum": 1, "default": 1 },
+        "handle": { "type": "string", "minLength": 1, "description": "Exact legal CURRENT authoring handle. Pixel inspection must determine whether the visual is a reusable single actor or an already-grouped/fleet visual before using count expansion." },
+        "count": { "type": "integer", "minimum": 1, "default": 1, "description": "Requested visible instance count. Intended for reusable single-instance visuals or another route explicitly supporting expansion. Do not multiply a precomposed group/fleet visual as though it were one actor." },
         "role": { "type": "string" },
         "state": { "type": "string" },
         "startState": { "type": "string" },
@@ -91,10 +91,10 @@
         "viaHandle": { "type": "string" },
         "effectHandle": { "type": "string" },
         "count": { "type": "integer", "minimum": 1 },
-        "motionIntent": { "enum": ["move", "flyby", "approach", "orbit", "intercept", "pass_camera", "bank_away", "pursuit", "escort", "rescue_approach", "formation_break", "landing", "takeoff", "circle_target", "escape", "convoy", "run_to_safety", "gather", "follow", "scatter", "look_up", "help", "enter_shelter"] },
+        "motionIntent": { "enum": ["move", "flyby", "approach", "orbit", "intercept", "pass_camera", "bank_away", "pursuit", "escort", "rescue_approach", "formation_break", "landing", "takeoff", "circle_target", "escape", "convoy", "run_to_safety", "gather", "follow", "scatter", "look_up", "help", "enter_shelter"], "description": "Semantic motion request lowered by Unity into existing V5 actorActions. motionIntent=orbit maps to real V5 Actor Orbit. Current Actor Orbit v1 uses a fixed/stationary center and cannot overlap movement of its target/center actor. Pursuit/Escort/Intercept names do not by themselves guarantee per-frame target-relative tracking." },
         "trajectory": { "enum": ["linear", "arc", "curve", "orbit_like", "zigzag", "drift", "screen_parallax"] },
         "travelDirection": { "enum": ["left_to_right", "right_to_left", "toward_camera", "away_from_camera", "clockwise", "counterclockwise", "none"] },
-        "speed": { "enum": ["slow", "medium", "fast", "burst"] },
+        "speed": { "enum": ["slow", "medium", "fast", "burst"], "description": "Semantic speed value. Unity maps this deterministically; it is not a numeric float literal and must not be parsed directly as one." },
         "performanceIntent": { "type": "string" },
         "animationIntent": { "type": "string" },
         "result": { "type": "string" }
@@ -147,13 +147,13 @@
       "properties": {
         "framing": { "enum": ["extreme_wide", "wide", "medium", "close", "detail"] },
         "movement": { "enum": ["hold", "push", "pull", "follow", "track", "drift", "shake", "impact_shake", "orbit", "cut"] },
-        "subject": { "type": "string" },
+        "subject": { "type": "string", "description": "Semantic composition subject. It is not automatically a physical Transform target. Hold and curated dialogue presentation may preserve this subject while backend physical target remains empty." },
         "direction": { "enum": ["left", "right", "up", "down", "clockwise", "counterclockwise", "toward", "away", "none"] },
         "intensity": { "enum": ["subtle", "medium", "strong"] },
         "parallax": { "enum": ["none", "subtle", "medium", "strong"] },
         "purpose": { "type": "string" }
       },
-      "description": "camera.movement=orbit is a semantic 2D/2.5D orbit-like parallax move around the subject. It must compile to legal V3/V5 camera/layer motion and must never invent unsupported 3D geometry or viewpoints."
+      "description": "Camera movement is semantic directing intent. camera.movement=orbit is a 2D/2.5D camera/parallax concept and is separate from actor motionIntent=orbit. It must never invent unsupported 3D geometry or viewpoints."
     },
     "transition": {
       "type": "object",
