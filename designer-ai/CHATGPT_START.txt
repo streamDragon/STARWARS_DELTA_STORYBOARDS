@@ -6,7 +6,7 @@ AUTHORING FLOW
 1. Read simple-authoring/AUTHORING_HANDLES.json.
 2. Read simple-authoring/AUTHORING_RULES_CURRENT.json.
 3. If dialogue is used, read the CURRENT Emotional Dialogue repertoire. Dialogue is closed-world.
-4. If an explicit Cutscene projectile is used, use only the closed Cutscene projectile vocabulary exported by the matching CURRENT. Never resolve a gameplay projectile, filename or Catalog lookalike.
+4. If a Cutscene projectile is used, use only the closed Cutscene projectile vocabulary exported by the matching CURRENT. Never resolve a gameplay projectile, filename or Catalog lookalike.
 5. For visual choices, inspect the Atlas at the exact atlasPage/atlasSlot stored on the selected direct handle.
 6. Read simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json as the canonical production-shaped example.
 7. Author only CUTSCENE_SCRIPT_V1 using simple-authoring/CUTSCENE_SCRIPT_V1.schema.json.
@@ -33,11 +33,12 @@ Use only authoringReady characters from CURRENT Emotional Dialogue. actorId, ide
 
 CUTSCENE PROJECTILES
 - The Cutscene projectile system is a closed visual-only capability, separate from gameplay shooting and Netcode.
-- For type=fire, projectile identity belongs only in projectileId.
+- Every Simple V1 action with type=fire MUST author projectileId.
 - Legal projectileId values are the exact values exported by the matching CURRENT Cutscene projectile capability. The prepared V1 repertoire is CS_PROJECTILE_BLUE_BOLT, CS_PROJECTILE_PURPLE_BOLT and CS_PROJECTILE_POWERBALL once that capability is present in matching CURRENT.
 - Explicit unsupported projectileId is a blocker: CUTSCENE_PROJECTILE_NOT_AUTHORING_READY. No fuzzy match, filename match, gameplay fallback or effect substitution.
-- projectileId is optional for backward compatibility. Omission preserves the existing legacy fire behavior.
-- count is the existing fire quantity field. Launcher/muzzle position, muzzle rotation, projectile physics and backend interval defaults remain Unity-owned unless CURRENT explicitly exposes otherwise.
+- count is the existing fire quantity field and maps to launcher burst count.
+- Do not author interval in Simple V1. The backend default is currently 0.15 seconds unless Unity later exports an author-facing cadence field.
+- Launcher attachment, muzzle position, muzzle rotation and projectile physics remain Unity-owned.
 
 REFERENCE
 - AUTHORING_HANDLES.json is the direct Simple V1 selection surface. Raw Animation identities remain backend compatibility data and are intentionally excluded.
