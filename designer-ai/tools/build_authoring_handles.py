@@ -7,6 +7,7 @@ import shutil
 from collections import Counter
 
 ROOT = pathlib.Path("_open_current_stage")
+SOURCE_CURRENT = pathlib.Path("designer-ai/current.json")
 SOURCE_SIMPLE = pathlib.Path("designer-ai/simple-authoring")
 DIRECTOR = ROOT / "director-view"
 OUT_DIR = ROOT / "simple-authoring"
@@ -222,7 +223,16 @@ def main():
     if not current_path.is_file():
         raise SystemExit("AUTHORING_HANDLES_CURRENT_MISSING: _open_current_stage/OPEN_CURRENT.json")
     current_payload = read_json(current_path)
-    required_current = semantic_required_current(current_payload, "OPEN_CURRENT")
+
+    source_current_path = ROOT / "SOURCE_CURRENT.json"
+    if not source_current_path.is_file():
+        source_current_path = SOURCE_CURRENT
+    if not source_current_path.is_file():
+        raise SystemExit("AUTHORING_HANDLES_SOURCE_CURRENT_MISSING")
+    source_current = read_json(source_current_path)
+    if current_payload.get("publishTransactionId") != source_current.get("publishTransactionId"):
+        raise SystemExit("AUTHORING_HANDLES_TRANSACTION_MISMATCH: OPEN_CURRENT does not match SOURCE_CURRENT")
+    required_current = semantic_required_current(source_current, "SOURCE_CURRENT")
 
     entries = []
     used = set()
@@ -240,7 +250,7 @@ def main():
             raise SystemExit(
                 "AUTHORING_HANDLES_IDENTITY_MISMATCH: "
                 + filename
-                + " does not match OPEN_CURRENT.requiredCurrent"
+                + " does not match SOURCE_CURRENT.requiredCurrent"
             )
 
         for entry in payload.get("assets") or []:
@@ -386,7 +396,7 @@ def main():
 
     payload = {
         "schema": "STARWARS_DELTA_AUTHORING_HANDLES",
-        "schemaVersion": 5,
+        "schemaVersion": 4,
         "purpose": "Direct semantic authoring handles for CUTSCENE_SCRIPT_V1 only. Backend compatibility identities such as raw Animation clips remain in Director/CURRENT engineering data and are intentionally excluded from this Devora-facing selection surface.",
         "authorabilityPolicy": {
             "directRoutes": sorted(DIRECT_AUTHORING_ROUTES),
