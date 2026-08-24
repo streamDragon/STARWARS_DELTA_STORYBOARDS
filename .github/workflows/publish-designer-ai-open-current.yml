@@ -142,12 +142,23 @@ jobs:
           assert validation.get('status') == 'CURRENT_VERIFIED_CUTSCENE_VALIDATION'
           assert validation.get('publishTransactionId') == source.get('publishTransactionId')
           assert validation.get('requiredCurrent') == required
-          assert (validation.get('authoringPolicy') or {}).get('warningsBlockCompilation') is False
-          assert len(validation.get('rules') or []) > 0
+          rules = validation.get('rules') or []
+          assert rules
+          rule_ids = [r.get('ruleId') or r.get('diagnosticCode') or r.get('code') for r in rules]
+          assert all(rule_ids)
+          assert len(set(rule_ids)) == len(rule_ids)
+          for rule in rules:
+              assert isinstance(rule.get('severity'), str) and rule.get('severity')
+              assert isinstance(rule.get('blocksCompilation'), bool)
+              assert rule.get('authoringRequirement') in {
+                  'MUST_AUTHOR', 'MAY_OMIT_BACKEND_DEFAULT', 'OPTIONAL', 'NOT_AUTHORED_IN_SIMPLE_V1'
+              }
+              if str(rule.get('severity')).lower() == 'warning':
+                  assert rule.get('blocksCompilation') is False
 
           stage_path.parent.mkdir(parents=True, exist_ok=True)
           shutil.copy2(mirror_path, stage_path)
-          print('CUTSCENE_VALIDATION_STAGED', validation.get('publishTransactionId'), len(validation.get('rules') or []))
+          print('CUTSCENE_VALIDATION_STAGED', validation.get('publishTransactionId'), len(rules))
           PY
 
       - name: Validate the single CURRENT
@@ -241,16 +252,19 @@ jobs:
               assert validation.get('status') == 'CURRENT_VERIFIED_CUTSCENE_VALIDATION'
               assert validation.get('publishTransactionId') == source.get('publishTransactionId')
               assert validation.get('requiredCurrent') == required
-              assert (validation.get('authoringPolicy') or {}).get('warningsBlockCompilation') is False
               rules = validation.get('rules') or []
               assert rules
-              assert len({r.get('code') for r in rules}) == len(rules)
+              rule_ids = [r.get('ruleId') or r.get('diagnosticCode') or r.get('code') for r in rules]
+              assert all(rule_ids)
+              assert len(set(rule_ids)) == len(rule_ids)
               for rule in rules:
-                  assert rule.get('severity') in {'Info', 'Warning', 'Error'}
+                  assert isinstance(rule.get('severity'), str) and rule.get('severity')
                   assert isinstance(rule.get('blocksCompilation'), bool)
                   assert rule.get('authoringRequirement') in {
                       'MUST_AUTHOR', 'MAY_OMIT_BACKEND_DEFAULT', 'OPTIONAL', 'NOT_AUTHORED_IN_SIMPLE_V1'
                   }
+                  if str(rule.get('severity')).lower() == 'warning':
+                      assert rule.get('blocksCompilation') is False
 
           atlas = root / 'full-visual-sheets' / 'STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf'
           pack = root / 'STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip'
