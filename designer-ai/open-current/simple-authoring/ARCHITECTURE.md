@@ -98,6 +98,7 @@ ChatGPT owns:
 - frame-relative position
 - frame-relative size
 - camera purpose/framing
+- semantic camera subject when authored
 - explicit story state changes
 
 ChatGPT does NOT own:
@@ -112,7 +113,7 @@ ChatGPT does NOT own:
 - canonical Actor resolution
 - compatible animation IDs
 - dialogue world/portrait materialization mechanics
-- mechanical V5 defaults
+- mechanical V5 defaults such as raw dialogue shot presets
 - raw Unity world scale
 - arbitrary materialization fallbacks
 
@@ -159,6 +160,8 @@ simple beat
 -> resolve exact CURRENT handles and routes
 -> expand requested visible quantity into stable semantic entity instances where needed
 -> construct participant relationships and visible start/end state
+-> preserve source semantic provenance
+-> bind camera subject to the generated semantic entity/participant
 -> choose existing V3 representation that preserves those semantics
 ```
 
@@ -172,6 +175,55 @@ Use Narrative Beat / Cinematic Feature planning when the beat contains:
 - staging that needs participant roles, spatial relationships or continuity.
 
 The old Semantic IR may remain useful for narrow linear cases it can express exactly. It is not the mandatory bottleneck.
+
+## Source provenance is authoritative downstream
+
+Once Simple V1 has resolved a source handle through an authoritative route, generated backend state must retain that semantic provenance instead of re-inferring a different legacy role later.
+
+Examples:
+
+```text
+Simple V1 Actor
+-> route Actor proven
+-> generated SimpleVisibleActor / SimpleIdentity
+-> downstream capability remains Cutscene.Actor
+```
+
+Never reinterpret that generated entry as `Prop` merely because a legacy structural field says `role=Prop`.
+
+Curated Emotional Dialogue entries remain `EmotionalDialogueCharacter` presentation participants. A `DialoguePortrait` with `spawnWorldActor=false` is not required to satisfy generic WorldActor Character/Crew materialization merely because a legacy role heuristic sees a character-like label.
+
+Count-expanded instances inherit the exact same source provenance and route as their source visible entry. They are semantic instances, not independently re-authored Catalog identities.
+
+## Camera subject preservation
+
+Camera subject is semantic directing truth, not a technical V3 ID authored by ChatGPT.
+
+When Simple V1 provides:
+
+```text
+camera.subject = hero_ship
+```
+
+and a visible entity with semantic id `hero_ship` exists, the adapter must bind the generated V3 semantic camera subject to that exact generated entity before V3 validation.
+
+When the subject is a curated dialogue participant such as `DEREK_WILDSTAR_01`, bind the camera to the Dialogue Stage / participant semantic anchor. Do not spawn a WorldActor just to satisfy camera subject validation.
+
+Quantity expansion must preserve source relationships. If `escort_wing` becomes `escort_wing_01`, `escort_wing_02`, `escort_wing_03`, subject and relationship binding must use source semantic provenance, not brittle post-expansion string guessing.
+
+If Simple V1 omits a camera subject and there is exactly one deterministic primary visible subject, the backend may supply it as a YELLOW default. If no unambiguous legal subject exists, do not guess silently.
+
+The V3 invariant that a semantic camera shot requires a subject remains strict. The correct fix for legal Simple V1 input is to preserve/bind the semantic subject before V3 validation, not to weaken V3.
+
+## Dialogue backend defaults
+
+Simple V1 authors dialogue presentation semantically and does not author raw backend shot-preset enums merely to satisfy V5 mechanics.
+
+When a generated dialogue `cameraCue.shotPreset` is blank/missing, the backend owns deterministic normalization before contract validation. Typical mappings include radio/monitor to `RADIO_SCREEN`, face-to-face speaker/listener presentation to `TWO_PORTRAIT_SHOT`, and speaker focus to `CLOSE_UP_SPEAKER` when existing semantics prove that intent.
+
+Blank backend-generated preset -> YELLOW default and continue. An explicit non-blank invalid low-level preset remains a strict contract failure.
+
+Locked dialogue works similarly: when the backend itself selects locked staging and the authored Simple V1 camera Push/Pull is incompatible, normalize to legal Hold before V3 validation and report the backend repair. Do not weaken the V3 locked-dialogue invariant.
 
 ## Quantity semantics
 
@@ -284,9 +336,11 @@ Use these states:
 3. `SEMANTIC_PREFLIGHT_PASS`
    - the selected existing V3 path accepts the resolved plan
 4. `UNITY_VALIDATED`
-   - normal Studio validation returns zero red blockers
+   - normal Studio validation has no RED blockers for Editable Preview
 5. `PREVIEW_ACCEPTED`
    - Editable Preview exists and visually agrees with the authored story evidence
+
+YELLOW backend repairs and ORANGE preview/engine degradation do not by themselves invalidate `UNITY_VALIDATED` for Editable Preview. They may still prevent a claim of final exact readiness.
 
 A browser preview may prove composition/evidence intent, but cannot claim `UNITY_VALIDATED` without Unity.
 
@@ -299,6 +353,8 @@ CUTSCENE_SCRIPT_V1
 -> read matching local CURRENT automatically
 -> resolve semantic handles to exact legal identities/routes
 -> expand quantity into semantic entity instances or verified grouped assets
+-> preserve source route/provenance through generated cast/entities
+-> bind authored camera subjects to generated semantic entities/Dialogue Stage anchors
 -> create V3 Narrative Beat / Feature contracts for rich beats
 -> use existing Semantic Production Entry only for faithfully representable narrow cases
 -> map frame-relative sizing into existing V3 spatial requests
