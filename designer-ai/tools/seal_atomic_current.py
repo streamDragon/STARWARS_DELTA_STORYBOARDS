@@ -610,6 +610,11 @@ def main():
 
     validate_authoring_projection(required_current)
 
+    # AUTHORING_HANDLES is generated earlier in the workflow and is already
+    # validated against this requiredCurrent. Include that exact generated
+    # artifact in the Director pack instead of requiring it to pre-exist there.
+    changed.append(ROOT / "simple-authoring" / "AUTHORING_HANDLES.json")
+
     forbidden_pdfs = [ROOT / "full-visual-sheets" / f"{name}.pdf" for name in ("actor", "effect", "layer", "ui")]
     leaked = [str(path) for path in forbidden_pdfs if path.exists()]
     if (ROOT / "full-visual-index").exists():
