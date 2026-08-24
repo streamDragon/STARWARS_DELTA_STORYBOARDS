@@ -26,9 +26,10 @@
     "fallback": "Use STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip only when direct Pages access genuinely fails.",
     "recommendation": "Use only Director entries with recommendationStatus=RECOMMENDABLE by default. PIXEL_COMPLETION_REQUIRED and DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW are engineering states, not ordinary creative choices.",
     "completionQueue": "The Director completion queue is for the Unity engineering pipeline. Do not ask Debora/the designer to solve or upload its items.",
-    "currentCompatibility": "Studio NEW/REVISE/REPAIR envelopes match only requiredCurrent: catalogRevision, contractRevision, schemaHash, snapshotContentHash and authoringRuleRegistryRevision. publishTransactionId is provenance only.",
+    "currentCompatibility": "Studio NEW/REVISE/REPAIR compares requiredCurrent only: catalogRevision, contractRevision, schemaHash, snapshotContentHash and authoringRuleRegistryRevision. publishTransactionId is provenance only.",
     "atomicIdentity": "atomicIdentity is strict publication-integrity metadata for one generated CURRENT transaction. Do not use publishTransactionId as the normal Studio authoring-compatibility gate; use requiredCurrent.",
-    "authoringShape": "Before authoring V5 JSON, load authoringProfile.downloadUrl and canonicalTemplate.downloadUrl. Start from the canonical template; deterministic Default/AutoRepair mechanics are system-owned."
+    "authoringShape": "Author CUTSCENE_SCRIPT_V1 using simple-authoring/CUTSCENE_SCRIPT_V1.schema.json, AUTHORING_RULES_CURRENT.json and AUTHORING_HANDLES.json. V3/V5 remain backend layers; their existing profile/template metadata remains available to engineering.",
+    "validation": "Read CUTSCENE_VALIDATION_CURRENT.json before final JSON. blocksCompilation=true is a real blocker; recoverable backend-owned defaults and warnings do not require invented fields."
   },
   "visualAtlas": {
     "schema": "STARWARS_DELTA_CHATGPT_VISUAL_ATLAS",
@@ -132,12 +133,12 @@
       "verifiedVisualEntryCount": 673,
       "atlasMappedVerifiedVisualEntryCount": 673,
       "missingVisualEntryCount": 8151,
-      "actionablePreviewGenerationCount": 7557,
-      "sourceEligibilityReviewBeforePreviewCount": 594,
+      "actionablePreviewGenerationCount": 29,
+      "sourceEligibilityReviewBeforePreviewCount": 8122,
       "recommendationStatusCounts": {
-        "PIXEL_COMPLETION_REQUIRED": 7557,
-        "RECOMMENDABLE": 655,
-        "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW": 612
+        "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW": 8445,
+        "RECOMMENDABLE": 350,
+        "PIXEL_COMPLETION_REQUIRED": 29
       },
       "animationUnknownActorLinkCount": 0,
       "animationCompletionCount": 531,
@@ -206,7 +207,7 @@
     "The old 717-record CURRENT_VISUAL_PROOF_CANDIDATES subset was request-scoped evidence, not a general authoring Catalog, and is no longer the primary direct source.",
     "The 300MB Visual Library remains an evidence archive. It is not the normal Debora or ChatGPT download."
   ],
-  "catalogRevision": 7625035885705746207,
+  "catalogRevision": "7625035885705746207",
   "snapshotContentHash": "41C20FCE0116131EBF0152280A2C6229D09AC99AEFB0E2F52489F64C79BA60D7",
   "atomicIdentity": {
     "publishTransactionId": "20260824-061658229-302e70c5",
@@ -218,8 +219,8 @@
   },
   "eligibilityAudit": {
     "url": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/eligibility-audit.json",
-    "flaggedDirectorVisualCount": 612,
-    "flaggedCompletionVisualCount": 594,
+    "flaggedDirectorVisualCount": 8445,
+    "flaggedCompletionVisualCount": 8122,
     "policy": "Do not recommend flagged entries by default. Correct or confirm them at Unity source and republish."
   },
   "authoringRuleRegistryRevision": "F304263D2923BAFDD449F38419B82D1EA63687CE42DE2280FA7839962B282228",
@@ -261,5 +262,13 @@
     "packageSchema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
     "schemaVersion": 5,
     "canonicalTemplateValid": true
+  },
+  "simpleAuthoring": {
+    "format": "CUTSCENE_SCRIPT_V1",
+    "schemaPath": "simple-authoring/CUTSCENE_SCRIPT_V1.schema.json",
+    "rulesPath": "simple-authoring/AUTHORING_RULES_CURRENT.json",
+    "handlesPath": "simple-authoring/AUTHORING_HANDLES.json",
+    "canonicalExamplePath": "simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json",
+    "backend": "Existing V3/V5 pipeline remains implementation only."
   }
 }

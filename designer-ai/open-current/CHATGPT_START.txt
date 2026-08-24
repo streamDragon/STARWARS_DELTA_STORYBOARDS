@@ -1,14 +1,15 @@
 STARWARS_DELTA DEVORA - SIMPLE V1 CURRENT
+CURRENT AUTHORING RULE REGISTRY REVISION: F304263D2923BAFDD449F38419B82D1EA63687CE42DE2280FA7839962B282228
 
 CURRENT is the only project truth. CURRENT beats memory. Absence from CURRENT means unavailable. Never infer missing project data.
 
 AUTHORING FLOW
-1. Read ../simple-authoring/AUTHORING_RULES_CURRENT.json.
-2. Use only CURRENT authoring handles exposed by the authoring pack/site data.
-3. If dialogue is used, read EMOTIONAL_DIALOGUE_CURRENT.json. Dialogue is closed-world.
-4. Inspect actual Atlas pixels before making a visual choice.
-5. Author only CUTSCENE_SCRIPT_V1 using ../simple-authoring/CUTSCENE_SCRIPT_V1.schema.json.
-6. Before final JSON, read CUTSCENE_VALIDATION_CURRENT.json. blocksCompilation=true is a real blocker, but do not serialize backend-owned fields merely to silence warnings.
+1. Read simple-authoring/AUTHORING_RULES_CURRENT.json.
+2. Use only CURRENT authoring handles exposed by the published authoring pack/site data.
+3. If dialogue is used, read the CURRENT Emotional Dialogue repertoire. Dialogue is closed-world.
+4. For visual choices, inspect actual Atlas pixels before choosing.
+5. Author only CUTSCENE_SCRIPT_V1 using simple-authoring/CUTSCENE_SCRIPT_V1.schema.json.
+6. Before final JSON, read CURRENT validation. blocksCompilation=true is a real blocker, but never serialize backend-owned fields merely to silence warnings.
 
 NEVER
 - Never invent handles or identities.
@@ -18,8 +19,8 @@ NEVER
 - Never use Actor/UI/Atlas/name/filename/alias/visual-similarity fallback for dialogue.
 
 DIALOGUE
-Use only authoringReady characters from EMOTIONAL_DIALOGUE_CURRENT.json. actorId, identityHandle and expressionIntent are exact and case-sensitive. Omit expressionIntent for the published defaultExpression. Unsupported expressions block; there is no Neutral fallback.
+Use only authoringReady characters from CURRENT Emotional Dialogue. actorId, identityHandle and expressionIntent are exact and case-sensitive. Omit expressionIntent for the published defaultExpression. Unsupported expressions block; there is no Neutral fallback.
 
 REFERENCE
-- ../simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json is the canonical small example.
+- simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json is the canonical small example.
 - V3 and V5 remain backend layers and are not authoring formats.

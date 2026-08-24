@@ -1,0 +1,34 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+  "schemaVersion": 1,
+  "title": "Canonical Simple V1 Smoke Example",
+  "durationSeconds": 12,
+  "creativeIntent": "A short command-room warning that demonstrates handles, dialogue, expression, audio, effect and semantic camera intent without backend fields.",
+  "cast": [
+    {"id":"CAPTAIN_AVATAR_01","identityHandle":"CAPTAIN_AVATAR_01","displayName":"Captain"},
+    {"id":"FEMALE_COMMS_01","identityHandle":"FEMALE_COMMS_01","displayName":"Comms"}
+  ],
+  "beats": [
+    {
+      "id":"B001","type":"establishing","durationSeconds":4,"locationHandle":"space_10_0__0f1b34c9",
+      "storyClaim":"A threat is approaching through space.","dramaticFunction":"setup","energy":"low","cinematicMove":"establish_location",
+      "audio":[{"kind":"sfx","handle":"bossalarm__decb304b","operation":"play","intent":"warning alarm","intensity":"medium"}],
+      "camera":{"framing":"wide","movement":"hold"},"transition":{"style":"cut"},
+      "evidence":"The space location is visible and an alarm begins."
+    },
+    {
+      "id":"B002","type":"dialogue","durationSeconds":5,"locationHandle":"space_10_0__0f1b34c9",
+      "storyClaim":"Comms warns the captain.","dramaticFunction":"reveal","energy":"high","cinematicMove":"command_screen_communication",
+      "dialogue":[{"speaker":"FEMALE_COMMS_01","listener":"CAPTAIN_AVATAR_01","text":"Captain, hostile contacts are closing fast.","expressionIntent":"Urgent","delivery":"warning","presentation":"monitor"}],
+      "camera":{"framing":"close","movement":"hold"},"transition":{"style":"cut"},
+      "evidence":"The curated Comms portrait delivers an urgent warning."
+    },
+    {
+      "id":"B003","type":"destruction","durationSeconds":3,"locationHandle":"space_10_0__0f1b34c9",
+      "storyClaim":"The threat becomes immediate.","dramaticFunction":"impact","energy":"peak","cinematicMove":"impact",
+      "actions":[{"type":"impact","subject":"threat","effectHandle":"evac_explosion_v1__4df82d70","result":"visible explosion"}],
+      "camera":{"framing":"wide","movement":"impact_shake"},"transition":{"style":"cut"},
+      "evidence":"A visible explosion punctuates the warning."
+    }
+  ]
+}

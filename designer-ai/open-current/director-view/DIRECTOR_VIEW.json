@@ -5,7 +5,7 @@
   "sourceOfTruth": "Projection only. The atomic full Catalog remains authoritative for exact IDs, compatibility and validation.",
   "publishTransactionId": "20260824-061658229-302e70c5",
   "publishedUtc": "2026-08-24T06:22:45.5326595Z",
-  "catalogRevision": 7625035885705746207,
+  "catalogRevision": "7625035885705746207",
   "snapshotContentHash": "41C20FCE0116131EBF0152280A2C6229D09AC99AEFB0E2F52489F64C79BA60D7",
   "contractRevision": "1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2",
   "schemaHash": "4874662FBCE9394361C92FBE7813BE72458AEA13C46F61C7A73C02CF12747DC4",
@@ -41,7 +41,8 @@
     "unsafe": "Unsafe Catalog records are excluded from Director recommendations.",
     "eligibility": "Use recommendationStatus=RECOMMENDABLE by default. Entries pending source review or pixel completion remain evidence, not normal recommendations.",
     "completionQueue": "The completion queue is engineering work data. It is not a list of assets the designer must gather or upload.",
-    "designerResponsibility": "The designer describes the film and optionally uploads the single Visual Atlas PDF when pixel access is unavailable. The designer never repairs the completion queue or source eligibility audit."
+    "designerResponsibility": "The designer describes the film and optionally uploads the single Visual Atlas PDF when pixel access is unavailable. The designer never repairs the completion queue or source eligibility audit.",
+    "recommendable": "RECOMMENDABLE means direct visual authoring-safe: exact CURRENT identity, preview-safe, publish-safe, no human review, no explicit source-container/assembly exclusion, and verified pixel evidence."
   },
   "categoryFiles": [
     {
@@ -98,12 +99,12 @@
     "verifiedVisualEntryCount": 673,
     "atlasMappedVerifiedVisualEntryCount": 673,
     "missingVisualEntryCount": 8151,
-    "actionablePreviewGenerationCount": 7557,
-    "sourceEligibilityReviewBeforePreviewCount": 594,
+    "actionablePreviewGenerationCount": 29,
+    "sourceEligibilityReviewBeforePreviewCount": 8122,
     "recommendationStatusCounts": {
-      "PIXEL_COMPLETION_REQUIRED": 7557,
-      "RECOMMENDABLE": 655,
-      "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW": 612
+      "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW": 8445,
+      "RECOMMENDABLE": 350,
+      "PIXEL_COMPLETION_REQUIRED": 29
     },
     "animationUnknownActorLinkCount": 0,
     "animationCompletionCount": 531,

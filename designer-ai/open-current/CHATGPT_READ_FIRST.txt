@@ -1,19 +1,11 @@
-STARWARS_DELTA DEVORA CURRENT
+STARWARS_DELTA DEVORA - SIMPLE V1 CURRENT
+Atomic publish transaction: 20260824-061658229-302e70c5
+Atomic Rule Registry revision: F304263D2923BAFDD449F38419B82D1EA63687CE42DE2280FA7839962B282228
 
-CURRENT is the only project truth. CURRENT beats memory. Absence from CURRENT means unavailable. Never infer missing project data.
-
-AUTHOR ONLY CUTSCENE_SCRIPT_V1.
-V3 and V5 are backend layers, not authoring formats.
-
-Before writing:
-1. Read ../simple-authoring/AUTHORING_RULES_CURRENT.json.
-2. Use only published CURRENT authoring handles. Never use raw Catalog asset IDs.
-3. Read EMOTIONAL_DIALOGUE_CURRENT.json when dialogue is used. Dialogue is closed-world.
-4. Inspect actual Atlas pixels for visual choices.
-5. Validate against ../simple-authoring/CUTSCENE_SCRIPT_V1.schema.json and CURRENT validation before final JSON.
-
-Never author raw animation IDs; use animationIntent/performanceIntent.
-Never serialize backend bookkeeping merely to silence warnings.
-Never invent identities, handles, expressions, or fallbacks.
-
-Canonical example: ../simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json
+CURRENT beats memory. Absence from CURRENT means unavailable.
+Start with OPEN_CURRENT.json, then simple-authoring/AUTHORING_RULES_CURRENT.json and simple-authoring/AUTHORING_HANDLES.json.
+Author CUTSCENE_SCRIPT_V1 only. V3/V5 remain backend layers.
+Use exact CURRENT handles and the closed-world Emotional Dialogue repertoire.
+Inspect actual Atlas pixels before visual claims.
+Warnings do not require invented backend fields; blocksCompilation=true remains a real blocker.
+Authoring compatibility compares requiredCurrent only; publishTransactionId is provenance.
