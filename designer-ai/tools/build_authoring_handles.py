@@ -234,6 +234,14 @@ def main():
         raise SystemExit("AUTHORING_HANDLES_TRANSACTION_MISMATCH: OPEN_CURRENT does not match SOURCE_CURRENT")
     required_current = semantic_required_current(source_current, "SOURCE_CURRENT")
 
+    director_root_path = DIRECTOR / "DIRECTOR_VIEW.json"
+    if not director_root_path.is_file():
+        raise SystemExit("AUTHORING_HANDLES_DIRECTOR_ROOT_MISSING")
+    director_root = read_json(director_root_path)
+    director_current = semantic_required_current(director_root, "DIRECTOR_VIEW")
+    if director_current != required_current:
+        raise SystemExit("AUTHORING_HANDLES_IDENTITY_MISMATCH: DIRECTOR_VIEW does not match SOURCE_CURRENT.requiredCurrent")
+
     entries = []
     used = set()
     direct_runtime_ids = {route: set() for route in DIRECT_AUTHORING_ROUTES}
@@ -245,13 +253,6 @@ def main():
         if not path.is_file():
             continue
         payload = read_json(path)
-        category_current = semantic_required_current(payload, filename)
-        if category_current != required_current:
-            raise SystemExit(
-                "AUTHORING_HANDLES_IDENTITY_MISMATCH: "
-                + filename
-                + " does not match SOURCE_CURRENT.requiredCurrent"
-            )
 
         for entry in payload.get("assets") or []:
             rid = runtime_id(entry, route)
