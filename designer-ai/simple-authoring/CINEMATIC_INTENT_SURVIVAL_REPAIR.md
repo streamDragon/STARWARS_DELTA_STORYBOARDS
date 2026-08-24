@@ -4,7 +4,7 @@
 
 Implementation handoff for the canonical Unity/Plastic workspace.
 
-This document does **not** authorize a V5 redesign, a new Catalog, a new Director, a new Materializer, a new Timeline system, or manual repair of one generated film.
+This document does **not** authorize a V5 redesign, a new Catalog, a new Director, a new Materializer, a new Timeline system, a second actor-motion engine, or manual repair of one generated film.
 
 The existing production path remains:
 
@@ -12,189 +12,119 @@ The existing production path remains:
 CUTSCENE_SCRIPT_V1
 -> Simple Adapter
 -> existing V3 Semantic / Narrative Beat / Cinematic Feature path
--> existing V5
+-> existing V5 actorActions / cameraActions
 -> existing Validator / Materializer / Timeline
 -> Editable Preview
 ```
 
-The repair target is the information loss that currently occurs between authored cinematic intent and final V5 presentation.
+The repair target is information loss between authored cinematic intent and final V5 presentation. Runtime capability must be described honestly: semantic vocabulary may be richer than the currently implemented Timeline behavior.
 
 ---
 
 # GOAL
 
-Make authored cinematic intent survive the complete production path.
+Make authored cinematic intent survive the complete production path without pretending that unimplemented target-relative movement already exists.
 
-The same storyboard should compile again after these changes and visibly preserve:
+The same storyboard should visibly preserve:
 
 - fine-grained emotional intent;
-- valid focal subject selection;
-- valid camera targets;
+- valid focal/composition subjects;
+- valid physical camera targets only when required;
 - continuity subjects and travel direction;
-- semantic cinematic movement rather than flat endpoint movement;
+- semantic actor motion lowered into existing V5 ActorAction types;
 - important world evidence during dialogue;
 - explicit visual evidence for physical story claims.
 
-Do not manually repair the generated 80-second V5 JSON. Treat it as regression evidence.
+Do not manually repair generated V5 output. Treat generated packages as regression evidence.
 
 ---
 
 # P0.1 — Fine-Grained Expression Is the Dialogue Visual Source of Truth
 
-There are several related fields today:
+Fine-grained visual state is the semantic source. Coarse stage/delivery values may be projected where the existing V5 contract requires them, but defaults must not overwrite an explicit fine-grained expression.
 
-```text
-speakerExpression
-listenerExpression
-stage.speakerEmotion
-stage.listenerEmotion
-delivery.emotion
-reaction.expression
-```
+For curated dialogue participants, `EMOTIONAL_DIALOGUE_CURRENT` / CharacterPack is the closed-world identity and portrait-expression authority. Generic Actor/Ui Catalog discovery and generic `closeUpSuitable` metadata do not replace an exact legal curated portrait route.
 
-They do **not** represent one identical enum.
-
-## Required model
-
-Fine-grained visual state is the semantic source:
-
-```text
-Urgent
-Defiant
-Concerned
-ControlledGrief
-Suspicious
-Resolute
-...
-```
-
-Projection then derives coarse stage/delivery values where the existing V5 contract still requires them:
-
-```text
-Concerned      -> Perplexed
-Shocked        -> Shock
-Defiant        -> Anger
-ControlledGrief -> Sad
-Relieved       -> Happy
-Urgent         -> Serious
-Resolute       -> Serious
-```
-
-The projection must be centralized and deterministic.
-
-Do not allow Normalizer/defaults to overwrite an explicit fine-grained expression with a generic default.
-
-Reaction expression remains an independently authored/reactive visual state when explicitly supplied. It may default from the listener's current fine-grained state only when no explicit reaction exists.
-
-## Regression requirement
-
-If Simple Script authors `Urgent`, the resulting V5 must still contain a fine-grained `Urgent` visual expression even if stage/delivery are projected to coarse `Serious`.
-
-Do not require all emotion-related fields to contain the same literal value.
+Dialogue-only participants remain `DialoguePortrait`, `spawnWorldActor=false`. They are not WorldActors merely because they are people.
 
 ---
 
-# P0.2 — Focal / Composition Target Must Be Presentable
+# P0.2 — Composition Subject and Physical Camera Target Are Different
 
-A generated `compositionTargetId` must be selected from a subject that can actually be presented by the shot.
+A generated composition subject must be selected from something the shot can actually present.
 
 Legal candidates, in priority order:
 
 ```text
-1. explicit authored visual subject / attention target
+1. explicit authored visual/composition subject
 2. visible primary actor
-3. visible dialogue speaker/listener when the shot is dialogue-led
-4. explicit reveal/location/threat target
-5. no entity target
+3. visible curated dialogue participant for dialogue-led shots
+4. explicit reveal/location/threat subject
+5. no entity subject
 ```
 
 Do not fall back automatically to the hero when the hero is absent.
 
-If no legal entity target exists:
+A semantic composition subject does not automatically imply a physical Transform target.
 
-```text
-compositionTargetId = ""
-```
+Important current cases:
 
-is preferable to a false target.
+- `Hold` may preserve a semantic non-Actor subject with physical `targetEntityId` empty.
+- curated dialogue participants should bind directly to dialogue/composition targeting; do not create a physical world camera target only so Ironclad removes it later.
+- Follow / Track / other truly target-dependent camera operations keep their real physical-target requirements.
 
-## Time-aware visibility
-
-A target may be valid when it is initially off-screen but explicitly enters/reveals during the shot.
-
-Validation must therefore ask:
-
-```text
-Is this target visible or scheduled to become visible during the camera action interval?
-```
-
-not merely:
-
-```text
-Is this target visible at shot start?
-```
+Validation should be time-aware: a target may be legal when it enters/reveals during the action interval.
 
 ---
 
-# P0.3 — Camera Target Must Be Presentable During Its Action Interval
+# P0.3 — Source Provenance Must Survive
 
-For Follow / Track / Push / Focus or other target-bound camera actions:
+Once Simple V1 resolves a handle through an authoritative route, downstream code must preserve that proof.
 
 ```text
-cameraAction.targetEntityId
+Simple V1 Actor route proven
+-> SimpleVisibleActor / generated instances
+-> downstream remains Actor-capable
 ```
 
-must refer to an entity that is visible or explicitly entering/revealing during that action's time interval.
+Do not re-infer the identity from legacy `role`, filename, display name or weak metadata.
 
-A target that has already exited or is never presented is invalid.
+Count-expanded instances inherit the exact source route/provenance.
 
-Do not silently retarget to the hero.
+If a known exact CURRENT Actor later fails only in Preview materialization, that is ENGINE-owned degradation, not permission to change the source identity.
 
 ---
 
-# P0.4 — Continuity Must Carry Actual Subjects and State
+# P0.4 — Dialogue Backend Defaults Must Be Visible to Validation
 
-`preserveScreenDirection = true` with no meaningful subject/state does not preserve continuity.
+Dialogue Stage background/frame/preset defaults are backend-owned mechanics.
 
-The V3 semantic/directing state should retain, where relevant:
+If the backend already deterministically supplies a legal background/frame later in the same pipeline, project that same result early enough that validation sees it. Do not emit repeated line-level "missing background/frame" warnings and then immediately render those exact defaults in Preview.
 
-```text
-continuitySubjects
-travelDirection
-screenSide
-previousShotEndState
-nextShotStartState
-```
+Prefer one owning beat/stage correction diagnostic when a default was genuinely required.
 
-Examples:
-
-```text
-convoy travelDirection = LEFT_TO_RIGHT
-hero screenSide = LEFT
-threat screenSide = RIGHT
-```
-
-The next shot should consume the previous end state when the same continuity subject persists.
-
-## Important qualification
-
-Do **not** require `matchedEntityIds` to be non-empty for every shot.
-
-Only warn when:
-
-```text
-preserveScreenDirection = true
-AND the shot/transition actually has continuity-bearing participants
-AND matchedEntityIds is empty
-```
-
-A location-only establishing shot can legally have no continuity subject.
+Locked dialogue still owns static/legal framing. Do not weaken locked-dialogue invariants.
 
 ---
 
-# P0.5 — Semantic Cinematic Moves Must Compile to Trajectories
+# P0.5 — Semantic Actor Motion Must Compile Into Existing V5 Actions
 
-Existing semantic movement vocabulary includes concepts such as:
+Simple V1 semantic actor motion must not disappear during adaptation.
+
+The current production route lowers semantic actions into the existing V5 actor-action model, including:
+
+```text
+Move
+Enter
+Exit
+Formation
+Hold
+Orbit
+VisualWeaponAction
+Deactivate
+```
+
+Examples of semantic source intents include:
 
 ```text
 Flyby
@@ -205,81 +135,107 @@ BankAway
 Pursuit
 Escort
 FormationBreak
-RescueApproach
-CircleTarget
 Landing
 Takeoff
+Escape
 ```
 
-These must not collapse by default to one linear endpoint command:
+The semantic name belongs above V5. V5 receives the supported resolved action form.
+
+`motionIntent = orbit` must lower to real V5 `Orbit`, even when the Simple source action type is `move`.
+
+Count expansion must apply the action to all deterministic generated instances.
+
+## Semantic speed and numeric safety
+
+Simple V1 speed values are semantic strings:
 
 ```text
-Move -> destination X/Y -> keyframes=[]
+slow
+medium
+fast
+burst
 ```
 
-## Minimum deterministic recipe
+Never pass those strings directly through `Value<float>` / `Convert.ToSingle`.
 
-A semantic cinematic move should compile to a small deterministic trajectory recipe, typically 2–4 meaningful phases/keyframes.
-
-Example:
-
-```text
-BANK_AWAY
-0.00 current pose
-0.20 anticipation / slight inward bias
-0.55 curved displacement + bank rotation
-1.00 exit pose / velocity direction
-```
-
-No new physics system is required.
-
-The existing ActorAction/Move/keyframe representation is sufficient if the adapter/compiler emits meaningful trajectory data.
-
-## Ownership
-
-The semantic move name belongs above V5.
-
-V5 receives the resolved deterministic actions/keyframes.
-
-Do not introduce a second runtime movement engine merely to preserve the semantic name.
+Use the existing deterministic semantic-speed mapping. Numeric fields such as offsets, duration, position, rotation and Orbit geometry must be read tolerantly so malformed data reaches validation/default behavior instead of escaping as a `FormatException` and breaking Studio Validate.
 
 ---
 
-# P0.6 — Dialogue Route Selection Must Preserve Important World Evidence
+# P0.6 — CURRENT ACTOR ORBIT V1 IS FIXED-CENTER
+
+This is a proven runtime constraint, not an old assumption.
+
+Current owner:
+
+```text
+MY_CutsceneValidator
+MY_CutsceneTimelineWriters
+```
+
+Current V5 Actor Orbit v1 computes a fixed center from authored action state and samples a static ellipse. It does **not** resolve and sample a moving target Transform every frame.
+
+Therefore:
+
+```text
+actor A Orbit around actor B
+while actor B has overlapping movement
+-> CUTSCENE_ORBIT_CENTER_MOVES
+-> RED
+```
+
+Do not weaken that diagnostic.
+
+Do not claim an older V4 moving-target Orbit exists: project trace found no runtime component that dynamically updates Orbit center from another moving actor.
+
+Legal choreography today:
+
+1. keep the Orbit center stationary during the Orbit interval;
+2. move/land/reveal the center before or after Orbit;
+3. use another supported motion composition.
+
+A future moving-center Orbit is a new runtime capability and must update Timeline execution, validation and published authoring guidance together.
+
+## Important semantic-vocabulary qualification
+
+The presence of semantic names such as Pursuit, Escort, Intercept or CircleTarget does **not** prove per-frame target-relative runtime tracking.
+
+Current investigation found no older V4 runtime for moving-target Pursuit/Escort/Intercept/Orbit that can simply be reconnected.
+
+Do not document these words as dynamic target-following until concrete runtime code exists.
+
+---
+
+# P0.7 — Quantity and Grouped Visuals Must Match the Pixels
+
+`visible[].count` is a real visual obligation.
+
+Legal realization:
+
+1. multiple generated instances of a true reusable single-actor handle;
+2. one exact grouped/fleet visual whose inspected pixels already contain the desired plurality;
+3. explicit gap/reframing if CURRENT cannot represent it.
+
+Do **not** count-expand a precomposed fleet/group sprite as if that image were one single ship. That multiplies groups by groups and produces absurd fleets while technically satisfying `count`.
+
+Pixel inspection decides whether a visual is a single reusable actor or an already-grouped composition.
+
+---
+
+# P0.8 — Dialogue Route Selection Must Preserve Important World Evidence
 
 Dialogue is not automatically a portrait-stage scene.
 
-Before selecting `FACE_TO_FACE_PORTRAITS`, the adapter/director must ask whether the beat contains required visual world evidence.
+Before selecting `FACE_TO_FACE_PORTRAITS`, ask whether the beat contains required world evidence such as blockade fleet, incoming threat, ship damage, planet reveal, radar target, convoy escape or active battle.
 
-Examples of world evidence that may need to remain visible:
+When world evidence is narratively required, use an existing legal monitor/radio/environment presentation that keeps that evidence visible.
 
-```text
-blockade fleet
-incoming threat
-ship damage
-planet reveal
-radar target
-convoy escape
-active battle
-important environmental hazard
-```
-
-When that evidence is narratively required, choose an existing presentation route capable of preserving it, for example conceptually:
-
-```text
-RADIO_OVERLAY
-REMOTE_MONITOR_DIALOGUE
-HERO_IN_ENVIRONMENT + dialogue UI
-world shot + dialogue presentation
-```
-
-Use the exact existing legal route/preset that best represents the beat. Do not invent a production enum solely because a semantic label appears here.
-
-`FACE_TO_FACE_PORTRAITS` remains correct when the directorial intent is explicitly to leave the world context and focus on the characters.
+`FACE_TO_FACE_PORTRAITS` remains correct when the directorial intent deliberately leaves the world context and focuses on the characters.
 
 ---
 
-# P0.7 — Intention Must Have Visual Evidence
+# P0.9 — Intention Must Have Visual Evidence
 
 Treat this as a production invariant:
 
@@ -289,197 +245,70 @@ INTENTION
 -> SERIALIZED PRESENTATION
 ```
 
-If intention claims a visible physical event such as:
-
-```text
-Mars appears
-blockade appears
-explosion
-formation
-fighter attack
-convoy escape
-character runs
-dreadnought reveal
-ship destroyed
-```
-
-then V5 must contain visible/action/effect/state evidence representing that claim.
-
-The sentence surviving in `intention` is not evidence.
-
-This extends the existing Story Evidence Gate already defined for Simple Authoring.
+If intention claims a visible physical event, V5 must contain visible/action/effect/state evidence representing it. The sentence surviving in `intention` is not evidence.
 
 ---
 
 # P1 — Focused QA Rules
 
-Add focused semantic/cinematic diagnostics. Reuse the existing validation/diagnostic system. Do not create another QA framework.
+Reuse the existing validation/diagnostic system. Do not create another QA framework.
 
-## FOCAL_TARGET_NOT_VISIBLE
+Useful focused diagnostics include:
 
-Trigger when a composition target is never visible/revealed during the shot interval.
+- `FOCAL_TARGET_NOT_VISIBLE`
+- `CAMERA_TARGET_NOT_VISIBLE`
+- `EMOTION_ROUTE_CONFLICT`
+- `EMPTY_CONTINUITY_SUBJECTS`
+- `FLAT_ACTION_MOTION` where a supported semantic move lost all meaningful execution
+- `DIALOGUE_WORLD_EVIDENCE_LOST`
+- `PRESENTATION_REPETITION` as non-blocking cinematic warning
+- `CUTSCENE_ORBIT_CENTER_MOVES` as RED under current Orbit v1
+- grouped/fleet visual multiplied as a single actor, when detected
 
-Severity: Error when the target drives composition and is impossible; Warning when the target is merely advisory and a legal targetless composition is possible.
-
-## CAMERA_TARGET_NOT_VISIBLE
-
-Trigger when a target-bound camera action refers to an entity not visible/entering during that action interval.
-
-## EMOTION_ROUTE_CONFLICT
-
-Trigger when fine-grained expression intent is lost or contradicted by projection.
-
-Legal example:
-
-```text
-expression = Defiant
-coarse stage emotion = Anger
-```
-
-This is **not** a conflict.
-
-Illegal example:
-
-```text
-explicit expression = Defiant
-normalizer overwrites expression = Neutral
-```
-
-## EMPTY_CONTINUITY_SUBJECTS
-
-Trigger only when screen-direction continuity was requested for a shot with continuity-bearing entities and no subject binding exists.
-
-## FLAT_ACTION_MOTION
-
-Trigger for an action/cinematic beat that explicitly requested a semantic cinematic move but compiled to a single straight Move with no trajectory/keyframe evidence.
-
-Do not warn for intentionally static/ordinary linear movement.
-
-## DIALOGUE_WORLD_EVIDENCE_LOST
-
-Trigger when the beat requires an important world visual subject but the selected dialogue presentation removes that evidence without an equivalent monitor/overlay/environment representation.
-
-## PRESENTATION_REPETITION
-
-Cinematic warning only.
-
-Detect repeated dialogue presentation patterns across several consecutive beats, such as the same combination of:
-
-```text
-background
-layout
-framing
-camera preset
-transition
-```
-
-Do not make this a RED blocker.
+Do not create speculative diagnostics for semantics the runtime does not yet implement.
 
 ---
 
-# P1 — Dialogue Variation
+# P1 — Formation / Multi-Actor Composition
 
-Semantic dialogue directing should be able to choose among existing legal presentation concepts such as:
+Prefer a small deterministic recipe set over raw hand-authored coordinates where existing staging supports it, for example convoy, escort, staggered formation, enemy wall or pursuit lanes.
 
-```text
-Speaker Close-Up
-Listener Reaction
-Two Shot
-Radio / overlay presentation
-Monitor communication
-Environment + character presentation
-Hero Close-Up
-Threat reaction
-```
+These recipes create spatial relationships/slots. They are not proof of dynamic target-relative following.
 
-The Simple author does not write raw V5 camera/layout enums.
-
-The existing V3 Director/Feature path should resolve the semantic dialogue intent to legal CURRENT presentation.
-
-Avoid a default in which every dialogue beat becomes:
-
-```text
-FACE_TO_FACE_PORTRAITS
-+ TWO_SHOT
-+ TWO_PORTRAIT_SHOT
-+ Hold
-```
+Do not build a generalized optimizer.
 
 ---
 
-# P1 — Formation / Multi-Actor Composition Recipes
+# P2 — Cinematic Quality
 
-For multi-actor beats, add/extend a small deterministic recipe set rather than raw author-authored X/Y placement.
-
-Initial recipes:
-
-```text
-CONVOY
-DIAMOND_ESCORT
-STAGGERED_FORMATION
-ENEMY_WALL
-FLANKING
-PURSUIT_LANES
-```
-
-Recipes produce normalized relationships/slots which the existing V3 spatial staging resolves into actual transforms.
-
-Do not build a generalized optimization solver.
-
-A handful of deterministic recipes is sufficient for the first production slice.
-
----
-
-# P2 — Cinematic Quality After P0/P1
-
-## Intra-shot timing
-
-Semantic movement can resolve to phased timing such as:
-
-```text
-0.00 establish
-0.25 accelerate
-0.80 bank
-1.25 pass
-1.70 settle
-```
-
-## Camera
-
-Use existing camera vocabulary deliberately:
-
-```text
-Push
-Pull
-Follow
-Track
-Drift
-Shake
-ImpactShake
-Hold
-```
+Use current camera vocabulary deliberately: Push, Pull, Follow, Track, Drift, Shake, ImpactShake, Hold.
 
 Camera movement must serve a visible target or composition purpose.
 
-Do not add camera motion merely to create activity.
+A single background may support multiple compositions through framing, camera offset, parallax, foreground, haze, VFX and silhouette. Do not require new background art for every shot before fixing composition variety.
 
-## Background reuse
+---
 
-A single background may produce multiple cinematic compositions through existing presentation tools:
+# PRE-PUBLISH PROOF
+
+Compilation alone is not enough to declare the next CURRENT ready.
+
+Before user-controlled Publish:
 
 ```text
-crop / framing
-scale
-camera offset
-parallax
-foreground
-lighting/tint
-haze
-VFX
-silhouette
+Unity compile
+-> Validate
+-> zero genuine RED blockers
+-> Build Editable Preview
+-> inspect representative actor motion
+-> inspect fixed-center Orbit
+-> inspect landing / count expansion
+-> inspect curated dialogue portraits/background/frame
+-> inspect principal materialization
+-> manual Publish only after that
 ```
 
-Do not require new background art for every shot before fixing composition variety.
+Do not Publish automatically from this handoff.
 
 ---
 
@@ -492,63 +321,39 @@ Do not:
 - replace Director;
 - replace Materializer;
 - replace Timeline;
-- create another full Cutscene architecture;
-- manually repair thousands of generated V5 lines;
+- create another actor-motion runtime;
+- weaken real RED rules merely to make a fixture pass;
+- manually repair generated V5 packages;
 - add a giant parallel QA framework;
-- build a large test suite before fixing the production path;
-- introduce fallbacks that hide identity/route/evidence failures.
+- introduce fuzzy identity fallbacks;
+- claim moving-center Orbit or dynamic target-relative pursuit/escort/intercept before runtime support exists.
 
 ---
 
 # IMPLEMENTATION ORDER
 
-## PASS 1 — Emotional intent propagation
-
-Centralize fine-expression -> coarse emotion projection and preserve explicit fine-grained expressions through V5/runtime.
-
-## PASS 2 — Focal and camera target resolution
-
-Resolve targets only from presentable subjects and add time-aware visibility validation.
-
-## PASS 3 — Continuity state
-
-Carry continuity subjects, travel direction and screen-side state across consecutive shots.
-
-## PASS 4 — Dialogue presentation routing
-
-Preserve critical world evidence instead of defaulting all dialogue to portrait-only presentation.
-
-## PASS 5 — Cinematic move trajectory compilation
-
-Compile semantic moves to deterministic phased keyframes/actions.
-
-## PASS 6 — Focused regression diagnostics
-
-Add only the diagnostics defined above using the existing validation/Studio diagnostic path.
-
----
-
-# REGRESSION TEST CASE
-
-Use the same existing ~80-second storyboard that exposed these problems.
-
-Do not author a new cleaner test merely to make the result look better.
-
-Compare pre-repair and post-repair V5/Preview.
+1. Preserve emotional/CharacterPack intent.
+2. Preserve composition subjects and separate them from physical camera targets.
+3. Preserve Simple route/provenance to the first diagnostic source.
+4. Project deterministic dialogue stage defaults before early validation.
+5. Preserve semantic actor motion into existing V5 actorActions.
+6. Keep Orbit v1 fixed-center validation aligned with Timeline truth.
+7. Validate quantity/grouped visual semantics against inspected pixels.
+8. Add only focused regression diagnostics through the existing system.
 
 ---
 
 # DONE WHEN
 
-The same storyboard is recompiled through the normal path and all of the following hold:
-
-1. Explicit fine-grained visual states such as `Urgent`, `Defiant` and `Concerned` survive to V5/runtime. Coarse emotion projection may differ when required by the existing V5 coarse contract, but may not erase the fine expression.
-2. No composition target points to an entity that is never visible/revealed during the shot.
-3. No target-bound camera action points to an entity that is never visible/revealed during that action interval.
-4. Shots requesting screen-direction continuity with actual continuity-bearing participants have populated continuity subjects and preserved travel/screen state.
-5. Significant semantic cinematic moves do not all collapse to one straight `Move` with empty keyframes.
-6. Dialogue routing does not remove critical world evidence. The Captain/blockade case retains both the speaking character context and the threat/blockade evidence through a legal existing presentation route.
-7. Physical story intentions have explicit serialized visual evidence.
-8. The focused QA rules report regressions explicitly if any of the above failures return.
-9. Existing V5, Catalog, Director, Validator, Materializer and Timeline remain the backend owners.
-10. The repaired result continues through the normal Studio validation/preview path rather than through a special-case test-only route.
+1. Explicit curated expressions survive correctly and unsupported expressions remain blockers.
+2. Hold/dialogue composition subjects do not require fake WorldActors.
+3. SimpleVisibleActor route proof is not lost and re-inferred from legacy role fields.
+4. Deterministic dialogue background/frame defaults do not generate avoidable warning cascades.
+5. Significant Simple actor motion reaches real V5 actorActions and visibly moves in Preview.
+6. `motionIntent=orbit` reaches real V5 Orbit.
+7. Orbit around a moving center remains RED until a moving-center runtime actually exists.
+8. Semantic speed input cannot crash Validate through numeric parsing.
+9. Count expansion creates the intended number of actual actors and does not multiply grouped fleet artwork.
+10. Physical story intentions have explicit serialized visual evidence.
+11. Existing V5, Catalog, Director, Validator, Materializer and Timeline remain backend owners.
+12. A representative fixture reaches normal Validate/Editable Preview with zero genuine RED before manual Publish.
