@@ -3,7 +3,7 @@
   "schemaVersion": 1,
   "title": "Canonical Simple V1 Current Fixture",
   "durationSeconds": 36,
-  "creativeIntent": "A compact production-shaped fixture demonstrating exact CURRENT visual handles, large semantic movement, camera intent, effect, curated dialogue, supported expression and audio without exposing V3/V5 bookkeeping.",
+  "creativeIntent": "A compact production-shaped fixture demonstrating exact CURRENT visual handles, large semantic movement, camera intent, closed-world Cutscene projectile fire, curated dialogue, supported expression and audio without exposing V3/V5 bookkeeping.",
   "cast": [
     {
       "id": "CAPTAIN_AVATAR_01",
@@ -171,7 +171,7 @@
       "type": "battle",
       "durationSeconds": 6,
       "locationHandle": "space_10_0__0f1b34c9",
-      "storyClaim": "The fighter makes a fast attack pass across the lead saucer.",
+      "storyClaim": "The fighter makes a fast attack pass across the lead saucer and fires a visible blue bolt burst.",
       "dramaticFunction": "climax",
       "energy": "peak",
       "cinematicMove": "pursuit",
@@ -213,7 +213,7 @@
           "type": "fire",
           "subject": "hero",
           "target": "enemy",
-          "effectHandle": "laser_sprite__af9db869",
+          "projectileId": "CS_PROJECTILE_BLUE_BOLT",
           "count": 5,
           "speed": "burst"
         }
@@ -235,12 +235,12 @@
         "direction": "right",
         "intensity": "strong",
         "parallax": "strong",
-        "purpose": "Keep the large high-speed pass readable while the fire event accompanies it."
+        "purpose": "Keep the large high-speed pass readable while the projectile burst accompanies it."
       },
       "transition": {
         "style": "cut"
       },
-      "evidence": "One primary locomotion phase is combined with a compatible fire event, not several untimed movement phases."
+      "evidence": "One primary locomotion phase is combined with an exact closed-world blue projectile burst, not several untimed movement phases."
     },
     {
       "id": "B005",
