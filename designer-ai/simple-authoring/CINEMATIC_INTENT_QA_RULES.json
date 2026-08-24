@@ -1,6 +1,6 @@
 {
   "schema": "STARWARS_DELTA_CINEMATIC_INTENT_QA_RULES",
-  "schemaVersion": 4,
+  "schemaVersion": 5,
   "status": "ACTIVE_SIMPLE_V1_SEMANTIC_EXPANSION",
   "purpose": "Pre-Unity cinematic-intent QA for CUTSCENE_SCRIPT_V1. These checks protect authoring truth and do not replace Unity validation. The status model is GREEN exact, YELLOW deterministic auto-repair/minor, ORANGE visible semantic or preview degradation, RED only when an honest result cannot safely continue.",
   "validationStatusModel": {
@@ -34,7 +34,8 @@
       "schema or semantic corruption with no deterministic legal repair",
       "invented visual/3D evidence that contradicts CURRENT",
       "camera subject genuinely missing or ambiguous after legal deterministic subject binding/defaults are exhausted",
-      "actor Orbit whose center moves during the same interval while current Orbit v1 requires a stationary center"
+      "actor Orbit whose center moves during the same interval while current Orbit v1 requires a stationary center",
+      "a V4 recipe that authors sequential locomotion phases for the same subject inside one beat even though CUTSCENE_SCRIPT_V1 actions have no per-action timing/order fields"
     ],
     "principle": "Do not turn backend implementation loss into authoring RED when source truth is legal. Fix provenance/binding before strict V3 validation. Do not weaken a validator when it accurately reflects current runtime capability."
   },
@@ -45,6 +46,7 @@
     "sourceProvenance": "A handle resolved through Actor/Layer/Ui/Effect/Audio keeps that route downstream; generated legacy role labels do not replace authoritative Simple V1 source provenance.",
     "cinematicMove": "Maps to existing V3/V5 vocabulary when exact. Semantic vocabulary does not imply a stronger runtime behavior than the current Timeline writer implements.",
     "actorMotion": "Simple V1 actor motion compiles into existing V5 actorActions. motionIntent=orbit lowers to real V5 Orbit even when source action type is move. Count-expanded instances inherit the source motion deterministically.",
+    "actionSequencing": "CUTSCENE_SCRIPT_V1 action objects have no startOffsetSeconds, durationSeconds, order or phase field. Therefore actions[] is not a safe authoring surface for expressing a time sequence such as approach -> pass_camera -> bank_away for the same subject inside one beat. V4 recipe arrows describe choreography phases. Split sequential locomotion phases across adjacent beats/sub-beats. Within one beat, author at most one primary locomotion phase per subject; compatible event actions such as fire/impact/reveal may accompany it.",
     "actorOrbit": "Current V5 actor Orbit v1 uses a fixed/stationary center. It does not sample a moving target Transform each frame. Simultaneous moving-center Orbit is unsupported and CUTSCENE_ORBIT_CENTER_MOVES remains RED.",
     "relativeMotion": "Pursuit/Escort/Intercept semantic wording must not be described as per-frame target-relative tracking unless the current runtime actually implements that behavior.",
     "semanticSpeed": "Simple V1 speeds slow/medium/fast/burst are semantic strings and must be parsed deterministically; never parse them directly with Value<float>. Numeric action fields must use tolerant extraction so malformed data becomes diagnostics rather than a Studio exception.",
@@ -66,6 +68,7 @@
     {"code":"EXACT_ASSET_PREVIEW_MATERIALIZATION_FAILED","severity":"Orange","scope":"actor/visual","description":"Exact authored CURRENT identity is valid and preview-safe, but Unity could not materialize it. Continue with placeholder/omission and preserve identity."},
     {"code":"CUTSCENE_ACTOR_IDENTITY_UNRESOLVED","severity":"Orange","scope":"actor/backend","description":"Legal Simple V1 Actor source could not be projected into canonical backend Actor proof. This is backend-owned unless the original Simple V1 handle itself is invalid. Preserve proven SimpleVisibleActor provenance at the first diagnostic source rather than only changing downstream severity."},
     {"code":"CUTSCENE_ORBIT_CENTER_MOVES","severity":"Error","scope":"actor/motion","description":"Current V5 actor Orbit v1 requires a stationary center. The target/center actor has another moving action overlapping the Orbit interval, so this choreography is not representable without a future moving-center runtime."},
+    {"code":"MULTI_PHASE_ACTOR_MOTION_WITHOUT_TIMING","severity":"Error","scope":"actor/motion/authoring","description":"The same subject is given multiple sequential locomotion phases inside one beat, but Simple V1 action objects expose no per-action timing/order. Split the recipe phases across adjacent beats. A concurrent fire/impact/reveal event may coexist with one primary locomotion phase."},
     {"code":"FOCAL_TARGET_NOT_VISIBLE","severity":"Warning","scope":"beat","description":"The camera/creative focal target has no visible or entering evidence in the beat."},
     {"code":"CAMERA_TARGET_NOT_VISIBLE","severity":"Warning","scope":"camera","description":"A camera move names a subject that is never visibly present during the beat."},
     {"code":"FAKE_3D_ORBIT","severity":"Error","scope":"camera/action","description":"Orbit intent invents a 3D viewpoint, back side or model geometry not present in CURRENT visual evidence."},
@@ -87,6 +90,7 @@
     "If camera.subject is omitted and exactly one deterministic primary subject exists, backend may YELLOW-default it; otherwise do not guess.",
     "Blank backend-generated dialogue shotPreset is YELLOW-defaulted before strict contract validation; explicit non-blank invalid values remain strict failures.",
     "Known exact CURRENT identity plus downstream preview resolver/materialization failure is ENGINE ORANGE for Editable Preview, not AUTHORING RED.",
+    "V4 recipe arrows describe sequential choreography phases, not ordered entries inside one actions[] array. If one subject needs multiple locomotion phases, split them across adjacent beats because action objects have no per-action timing/order fields.",
     "motionIntent=orbit compiles to V5 Orbit, but current actor Orbit v1 requires a stationary center and must reject overlapping center movement.",
     "Semantic speed strings must never be passed directly to numeric conversion APIs.",
     "Count expansion applies to each generated instance and must not multiply a precomposed group visual as if it were a single actor.",
