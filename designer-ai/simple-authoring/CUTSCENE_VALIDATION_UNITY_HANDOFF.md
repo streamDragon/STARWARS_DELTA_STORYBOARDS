@@ -124,6 +124,16 @@ These are non-blocking.
 
 The locked-dialogue camera invariant remains unchanged. Simple V1 backend-selected Push/Pull may be normalized before V3 validation to legal Hold and reported once per affected beat.
 
+### Avoid warning-before-default churn
+
+If Preview deterministically receives a legal Dialogue Stage background/frame from existing backend state, project that same state before early dialogue validation where practical.
+
+Do not emit several "required/missing" warnings per line and then immediately supply the exact deterministic value later in the same pipeline. Prefer one owning beat/stage correction diagnostic when a backend default was actually needed.
+
+Similarly, Simple V1 curated dialogue semantic subjects should be written directly as dialogue/composition subjects with no physical world camera target. Do not deliberately create a world target only so Ironclad removes it and reports a warning.
+
+For `Hold`, a semantic non-Actor composition subject does not by itself require a physical Transform target.
+
 ## ORANGE
 
 Use when the cutscene can continue honestly but the visible result/preview differs materially from authored intent.
@@ -154,7 +164,9 @@ blocksFinalReadiness = true
 
 Include the exact authored ID and failure stage. Do not substitute another asset.
 
-Other ORANGE examples may include a legal camera/presentation intent that must visibly downgrade, or exact legal dialogue presentation lacking preview pixel evidence.
+For `SimpleVisibleActor`, if the Actor route was already proven by the Simple resolver, preserve that source provenance to the first downstream identity diagnostic source. Do not repeatedly emit `CUTSCENE_ACTOR_IDENTITY_UNRESOLVED` because legacy backend fields lost proof that Simple V1 already established.
+
+Direct V5 input without that provenance remains strict.
 
 ## RED
 
@@ -167,10 +179,21 @@ Keep RED for failures where no honest legal result can continue, including:
 - schema/semantic corruption with no deterministic legal repair
 - invented visual/3D evidence contradicting CURRENT
 - no legal Dialogue Stage at all
+- actor Orbit whose center moves during the same action interval while current V5 Orbit v1 requires a fixed/stationary center
 
-These remain blocking.
+Do not use ORANGE to hide a real runtime representation limit.
 
-Do not use ORANGE to hide a real identity failure.
+### `CUTSCENE_ORBIT_CENTER_MOVES`
+
+Current runtime trace confirms that V5 Actor Orbit v1 is owned by the existing validator + Timeline writer and samples a static ellipse around fixed center state.
+
+It does NOT sample a moving target Transform each frame.
+
+Therefore `CUTSCENE_ORBIT_CENTER_MOVES` is currently a correct RED blocker when the target/center actor has overlapping movement.
+
+Do not weaken this rule merely because Simple V1 contains semantic words such as Orbit, Pursuit, Escort or Intercept. Semantic vocabulary is not proof of target-relative runtime tracking.
+
+A legal authoring fix may sequence the center movement before/after the Orbit interval or choose another supported choreography. A future moving-center runtime must update runtime, validator and published authoring rules together.
 
 ## Accepted JSON freeze
 
@@ -180,22 +203,21 @@ The accepted normalized JSON becomes a fixture.
 
 Fix the backend/editor against the same fixture until exactness improves.
 
-This prevents the workflow from repeatedly rewriting a legal film to work around implementation bugs.
+A new genuine AUTHORING/runtime-representation RED, however, may require correcting the test choreography/source intent. The freeze rule is not permission to keep an unrepresentable moving-center Orbit.
 
-## Current 207-second fixture
+## Semantic motion safety
 
-Use the existing persisted learning case:
+Simple V1 semantic motion is lowered into existing V5 actor actions.
 
-`Library/STARWARS_DELTA/CutsceneLearningCases/Inbox/case_7c433896e62875db/`
+Current verified points:
 
-with:
+- `motionIntent=orbit` must lower to real V5 `Orbit`, not generic `Move`.
+- count-expanded source IDs must apply actions to all deterministic generated members.
+- semantic speed strings (`slow`, `medium`, `fast`, `burst`) must use tolerant semantic parsing and never direct float conversion.
+- malformed numeric action input must become deterministic validation/default behavior rather than escaping as a `FormatException` from Studio.
+- a precomposed fleet/group visual must not be multiplied as if each image represented one single actor.
 
-- `NORMALIZED.json`
-- `REPORT.txt`
-
-Doctor Sane is dialogue-only in the normalized package and is not one of the actual principal-actor blocker paths. Do not treat Doctor as the representative WorldActor failure without new evidence.
-
-For exact preview-safe genuine WorldActors that fail only at/under `ResolveAsset` materialization, the desired result is ORANGE engine diagnostics and continued Editable Preview, not authoring RED.
+These are adapter/runtime truth items, not reasons to create another validator.
 
 ## Public projection
 
@@ -212,7 +234,7 @@ Do not create another manual Publish command.
 
 ## Fast pre-publish check
 
-Extend the existing FAST PRE-PUBLISH CHECK only enough to confirm the validation projection can be built and contains compatible four-state metadata.
+Extend/use the existing FAST PRE-PUBLISH CHECK only enough to confirm the validation projection can be built and contains compatible four-state metadata.
 
 Useful output:
 
@@ -223,7 +245,23 @@ Editable Preview blocks only on RED: YES
 Four-state validation metadata: READY
 ```
 
-Do not run Publish.
+Do not run Publish automatically.
+
+## Final pre-publish proof
+
+Compilation alone is not enough.
+
+Before the user manually Publishes the next CURRENT, run one representative fixture through:
+
+```text
+Unity compile
+-> Validate
+-> zero genuine RED blockers
+-> Build Editable Preview
+-> inspect representative dialogue + actor motion + Orbit + materialization
+```
+
+Only after that proof should the user decide to Publish.
 
 ## Constraints
 
@@ -240,6 +278,7 @@ Do NOT:
 - create a second validator
 - add fuzzy fallback
 - choose replacement identities for ORANGE engine failures
+- claim moving-center actor Orbit before an actual runtime exists
 
 Prefer the smallest direct change in existing validator/Studio/materializer/projector code.
 
@@ -250,12 +289,13 @@ Without running Publish:
 1. Unity compiles with no new errors.
 2. Studio exposes GREEN/YELLOW/ORANGE/RED semantics or equivalent metadata.
 3. Only RED blocks Editable Preview.
-4. Existing deterministic backend repairs are YELLOW.
+4. Existing deterministic backend repairs are YELLOW and warning-before-default churn is minimized.
 5. Exact legal CURRENT visual identities that fail only downstream preview materialization can surface as ENGINE ORANGE and do not block the rest of Editable Preview.
-6. Genuine invalid identity/expression/route failures remain RED.
-7. The current accepted fixture does not need source regeneration merely because ENGINE ORANGE exists.
-8. The next user-controlled Publish is wired to project compatible validation metadata.
+6. Genuine invalid identity/expression/route/runtime-representation failures remain RED.
+7. SimpleVisibleActor provenance is preserved to the actual diagnostic source rather than re-inferred from legacy role fields.
+8. Curated DialoguePortrait legality remains CharacterPack-owned; generic close-up metadata does not replace it.
+9. `motionIntent=orbit` reaches real V5 Orbit, and moving-center overlap remains blocked until runtime support exists.
+10. The accepted fixture does not need source regeneration merely because ENGINE ORANGE exists.
+11. The next user-controlled Publish is wired to compatible validation metadata.
 
-For implementation details use:
-
-`CODEX_SYSTEMIC_PREVIEW_RECOVERY.md`
+For implementation details use `CODEX_SYSTEMIC_PREVIEW_RECOVERY.md`, but treat this handoff and current runtime evidence as the newer constraint where older investigation text conflicts.
