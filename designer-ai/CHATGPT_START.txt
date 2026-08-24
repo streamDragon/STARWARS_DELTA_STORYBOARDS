@@ -2,15 +2,53 @@ STARWARS_DELTA DEVORA - SIMPLE V1 CURRENT
 
 CURRENT is the only project truth. CURRENT beats memory. Absence from CURRENT means unavailable. Never infer missing project data.
 
+FORMAT LOCK - DO THIS BEFORE AUTHORING
+The only legal Simple V1 root header is exactly:
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+  "schemaVersion": 1
+}
+Never output schema="CUTSCENE_SCRIPT_V1". Never omit schemaVersion.
+
+Use the CURRENT schema literally. Do not translate familiar/legacy field names into the output.
+Canonical field names include:
+- top level: title, durationSeconds, creativeIntent, cast, beats
+- beat: id, type, durationSeconds, locationHandle, storyClaim, dramaticFunction, energy, cinematicMove, visible, relationships, actions, dialogue, audio, camera, transition, continuity, evidence
+- visible item: id, handle, count, depth, saliency, screenX, screenY, screenWidthFraction/screenHeightFraction, enterFrom, exitTo, travelDirection, facing, performanceIntent, animationIntent
+- action: type, subject, target, projectileId/effectHandle/viaHandle where legal, count, motionIntent, trajectory, travelDirection, speed, performanceIntent, animationIntent, result
+- camera: framing, movement, subject, direction, intensity, parallax, purpose
+- dialogue: speaker, listener, text, expressionIntent, performanceIntent, delivery, presentation
+- audio item: kind, handle, operation, intent, startOffsetSeconds, durationSeconds, loop, volume, intensity
+
+FORBIDDEN LEGACY/INVENTED SHAPES
+- start
+- duration (use durationSeconds)
+- location (use locationHandle)
+- camera.shot or camera.move (use camera.framing / camera.movement)
+- action.actor (use action.subject)
+- dialogue.expression (use expressionIntent)
+- top-level effects array
+- visible as an array of strings
+- audio as an array of strings
+- raw Catalog asset IDs as handles
+- any field not present in CUTSCENE_SCRIPT_V1.schema.json
+
+STORY / EVIDENCE LOCK
+Every beat that serializes storyClaim MUST also serialize a non-empty evidence statement in the same beat.
+evidence is not commentary about intent. It must say what the audience will actually see/hear that proves the claim: exact visible subject(s), visible action/change/consequence, dialogue portrait/expression when relevant, effect/UI evidence, or audio evidence when the claim is specifically auditory.
+Prefer storyClaim + evidence on every production beat. Do not deliver a major claim with evidence omitted merely because visible/actions seem self-explanatory.
+
 AUTHORING FLOW
 1. Read simple-authoring/AUTHORING_HANDLES.json.
 2. Read simple-authoring/AUTHORING_RULES_CURRENT.json.
-3. If dialogue is used, read the CURRENT Emotional Dialogue repertoire. Dialogue is closed-world.
-4. If a Cutscene projectile is used, use only the closed Cutscene projectile vocabulary exported by the matching CURRENT. Never resolve a gameplay projectile, filename or Catalog lookalike.
-5. For visual choices, inspect the Atlas at the exact atlasPage/atlasSlot stored on the selected direct handle.
-6. Read simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json as the canonical production-shaped example.
-7. Author only CUTSCENE_SCRIPT_V1 using simple-authoring/CUTSCENE_SCRIPT_V1.schema.json.
-8. Before final JSON, read CURRENT validation. blocksCompilation=true is a real blocker, but never serialize backend-owned fields merely to silence warnings.
+3. Read simple-authoring/CUTSCENE_SCRIPT_V1.schema.json BEFORE drafting JSON.
+4. If dialogue is used, read the CURRENT Emotional Dialogue repertoire. Dialogue is closed-world.
+5. If a Cutscene projectile is used, use only the closed Cutscene projectile vocabulary exported by the matching CURRENT. Never resolve a gameplay projectile, filename or Catalog lookalike.
+6. For visual choices, inspect the Atlas at the exact atlasPage/atlasSlot stored on the selected direct handle.
+7. Read simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json as the canonical production-shaped example.
+8. Author only CUTSCENE_SCRIPT_V1 using the exact schema field names.
+9. Before final JSON, read CURRENT validation. blocksCompilation=true is a real blocker, but never serialize backend-owned fields merely to silence warnings.
+10. Run the FINAL JSON SELF-CHECK below. Do not deliver JSON until it passes.
 
 NEVER
 - Never invent handles or identities.
@@ -20,6 +58,7 @@ NEVER
 - Never serialize V4 recipe names; recipes are directing guidance that expands into legal Simple V1 beats/actions.
 - Never use Actor/UI/Atlas/name/filename/alias/visual-similarity fallback for dialogue.
 - Never use gameplay projectile prefabs or effectHandle/viaHandle as substitutes for Cutscene projectile identity.
+- Never copy a remembered JSON shape from an older conversation when the CURRENT schema is available.
 
 MOTION
 - Use semantic speeds only: slow, medium, fast, burst.
@@ -34,11 +73,27 @@ Use only authoringReady characters from CURRENT Emotional Dialogue. actorId, ide
 CUTSCENE PROJECTILES
 - The Cutscene projectile system is a closed visual-only capability, separate from gameplay shooting and Netcode.
 - Every Simple V1 action with type=fire MUST author projectileId.
-- Legal projectileId values are the exact values exported by the matching CURRENT Cutscene projectile capability. The prepared V1 repertoire is CS_PROJECTILE_BLUE_BOLT, CS_PROJECTILE_PURPLE_BOLT and CS_PROJECTILE_POWERBALL once that capability is present in matching CURRENT.
+- Legal prepared projectileId values are exactly: CS_PROJECTILE_LASER, CS_PROJECTILE_AXE, CS_PROJECTILE_ROCKET. Use them only when the matching CURRENT exports the same closed list.
 - Explicit unsupported projectileId is a blocker: CUTSCENE_PROJECTILE_NOT_AUTHORING_READY. No fuzzy match, filename match, gameplay fallback or effect substitution.
 - count is the existing fire quantity field and maps to launcher burst count.
-- Do not author interval in Simple V1. The backend default is currently 0.15 seconds unless Unity later exports an author-facing cadence field.
+- Do not author interval in Simple V1 unless a future matching CURRENT schema explicitly exposes it.
 - Launcher attachment, muzzle position, muzzle rotation and projectile physics remain Unity-owned.
+
+FINAL JSON SELF-CHECK - REQUIRED
+Before returning a JSON file, verify all of the following against the CURRENT schema:
+1. Root header is exactly schema=STARWARS_DELTA_CUTSCENE_SCRIPT and schemaVersion=1.
+2. Root duration uses durationSeconds and equals the intended/summed beat duration.
+3. Every production beat has id, type and durationSeconds.
+4. Every beat with storyClaim has a non-empty evidence field in that same beat.
+5. Every visible[] entry is an object with id + exact CURRENT handle; visible[] contains no strings.
+6. Every action uses subject, not actor; action type/motionIntent/speed are schema values only.
+7. Every camera uses framing/movement, never shot/move.
+8. Every audio[] entry is an object with kind + exact CURRENT Audio handle; audio[] contains no strings.
+9. Every dialogue speaker/listener/expressionIntent is exact CURRENT Emotional Dialogue vocabulary.
+10. Every fire action has an exact legal projectileId and uses count for burst quantity.
+11. No forbidden legacy fields appear anywhere.
+12. No raw Animation IDs, Catalog IDs, V3/V5 bookkeeping or unrecognized properties appear.
+If any check fails, fix the JSON before delivery. Do not rely on Unity Studio to teach the author the schema one error at a time.
 
 REFERENCE
 - AUTHORING_HANDLES.json is the direct Simple V1 selection surface. Raw Animation identities remain backend compatibility data and are intentionally excluded.
