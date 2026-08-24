@@ -91,10 +91,10 @@
         "viaHandle": { "type": "string" },
         "effectHandle": { "type": "string", "description": "Exact Effect handle for effect/impact authoring where applicable. Never use effectHandle to carry Cutscene projectile identity." },
         "projectileId": {
-          "enum": ["CS_PROJECTILE_LASER", "CS_PROJECTILE_AXE", "CS_PROJECTILE_ROCKET"],
+          "enum": ["CS_PROJECTILE_BLUE_BOLT", "CS_PROJECTILE_PURPLE_BOLT", "CS_PROJECTILE_POWERBALL"],
           "description": "Exact closed-world Cutscene projectile identity. Required for type=fire Simple V1 actions that lower to VisualWeaponAction. Unsupported explicit IDs block with CUTSCENE_PROJECTILE_NOT_AUTHORING_READY. No gameplay, filename, effectHandle or fuzzy fallback."
         },
-        "count": { "type": "integer", "minimum": 1, "description": "For type=fire, maps directly to the VisualWeaponAction / launcher burst count." },
+        "count": { "type": "integer", "minimum": 1, "maximum": 64, "description": "For type=fire, maps directly to the VisualWeaponAction / launcher burst count. Unity preserves/clamps the authored burst count to the supported range 1..64." },
         "motionIntent": { "enum": ["move", "flyby", "approach", "orbit", "intercept", "pass_camera", "bank_away", "pursuit", "escort", "rescue_approach", "formation_break", "landing", "takeoff", "circle_target", "escape", "convoy", "run_to_safety", "gather", "follow", "scatter", "look_up", "help", "enter_shelter"], "description": "Semantic motion request lowered by Unity into existing V5 actorActions. motionIntent=orbit maps to real V5 Actor Orbit. Current Actor Orbit v1 uses a fixed/stationary center and cannot overlap movement of its target/center actor. Pursuit/Escort/Intercept names do not by themselves guarantee per-frame target-relative tracking." },
         "trajectory": { "enum": ["linear", "arc", "curve", "orbit_like", "zigzag", "drift", "screen_parallax"] },
         "travelDirection": { "enum": ["left_to_right", "right_to_left", "toward_camera", "away_from_camera", "clockwise", "counterclockwise", "none"] },
