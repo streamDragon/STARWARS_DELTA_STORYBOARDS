@@ -85,18 +85,20 @@ AUDIO - AUTHOR IT DELIBERATELY
 - Battle/destruction beats should normally pair visible fire/impact/explosion evidence with a legal matching SFX when CURRENT provides one.
 - Establishing/travel beats should normally use ambience and/or music when CURRENT provides a suitable legal handle.
 - Dialogue beats may use low ambience/music when useful, but do not bury dialogue under loud SFX.
-- Cutscene projectiles are VISUAL-ONLY. projectileId never supplies audio. If a laser/rocket/axe shot should be heard, author a separate legal audio[] cue.
+- Cutscene projectiles are VISUAL-ONLY. projectileId never supplies audio. If a shot should be heard, author a separate legal audio[] cue.
 - Visual Effect handles never supply audio automatically. If an explosion/shield event should be heard, author a separate legal audio[] cue.
 - Do not force audio into every beat. Silence can be intentional. But a normal multi-minute cinematic should not become globally silent merely because audio authoring was forgotten.
 
 CUTSCENE PROJECTILES
 - The Cutscene projectile system is a closed visual-only capability, separate from gameplay shooting and Netcode.
 - Every Simple V1 action with type=fire MUST author projectileId.
-- Legal prepared projectileId values are exactly: CS_PROJECTILE_LASER, CS_PROJECTILE_AXE, CS_PROJECTILE_ROCKET. Use them only when the matching CURRENT exports the same closed list.
+- Legal projectileId values are exactly: CS_PROJECTILE_BLUE_BOLT, CS_PROJECTILE_PURPLE_BOLT, CS_PROJECTILE_POWERBALL. Use them only when the matching CURRENT exports the same closed list.
 - Explicit unsupported projectileId is a blocker: CUTSCENE_PROJECTILE_NOT_AUTHORING_READY. No fuzzy match, filename match, gameplay fallback or effect substitution.
-- count is the existing fire quantity field and maps to launcher burst count.
-- Do not author interval in Simple V1 unless a future matching CURRENT schema explicitly exposes it.
+- count is the existing fire quantity field, maps to launcher burst count, and is supported in the range 1..64.
+- target is preserved as targetActorId for Cutscene staging/orientation. It does not create gameplay homing or target logic.
+- Do not author interval in Simple V1 unless a future matching CURRENT schema explicitly exposes it. The current adapter/backend default is 0.08 seconds.
 - Launcher attachment, muzzle position, muzzle rotation and projectile physics remain Unity-owned.
+- Expected lowering: type=fire -> VisualWeaponAction -> projectileId/count/targetActorId -> Timeline projectile cue -> MY_CutsceneProjectileLibrary -> MLB_FOR_ANIMATION.
 
 FINAL JSON SELF-CHECK - REQUIRED
 Before returning a JSON file, verify all of the following against the CURRENT schema:
@@ -110,7 +112,7 @@ Before returning a JSON file, verify all of the following against the CURRENT sc
 8. Every audio[] entry is an object with kind + exact route=Audio CURRENT handle; audio[] contains no strings or invented filenames.
 9. Event SFX that matter to the story (weapon fire, impact, explosion, alarm, shield) have explicit audio cues when a suitable CURRENT Audio handle exists; projectile/effect visuals are never assumed to provide sound.
 10. Every dialogue speaker/listener/expressionIntent is exact CURRENT Emotional Dialogue vocabulary.
-11. Every fire action has an exact legal projectileId and uses count for burst quantity.
+11. Every fire action has an exact legal projectileId and uses count in the supported range 1..64.
 12. No forbidden legacy fields appear anywhere.
 13. No raw Animation IDs, Catalog IDs, V3/V5 bookkeeping or unrecognized properties appear.
 If any check fails, fix the JSON before delivery. Do not rely on Unity Studio to teach the author the schema one error at a time.
