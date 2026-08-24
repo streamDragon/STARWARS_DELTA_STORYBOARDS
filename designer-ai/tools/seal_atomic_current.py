@@ -2,13 +2,96 @@
 import json
 import os
 import pathlib
-import re
+import shutil
 import tempfile
 import zipfile
 
 ROOT = pathlib.Path("_open_current_stage")
 CURRENT_PATH = pathlib.Path("designer-ai/current.json")
+SOURCE_SIMPLE = pathlib.Path("designer-ai/simple-authoring")
 PACK_NAME = "STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip"
+
+REQUIRED_CURRENT_KEYS = (
+    "catalogRevision",
+    "contractRevision",
+    "schemaHash",
+    "snapshotContentHash",
+    "authoringRuleRegistryRevision",
+)
+
+SIMPLE_V1_FILES = (
+    "CUTSCENE_SCRIPT_V1.schema.json",
+    "CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json",
+    "CUTSCENE_VALIDATION_CURRENT.schema.json",
+    "CINEMATIC_INTENT_QA_RULES.json",
+    "SEMANTIC_CINEMATIC_AUTHORING_GUIDE.md",
+    "EMOTIONAL_DIALOGUE_AUTHORING_POLICY.json",
+    "ARCHITECTURE.md",
+    "AUTHORING_PACK_GATE_POLICY.md",
+)
+
+AUTHORING_RULES = [
+    {
+        "id": "CURRENT_ONLY",
+        "blocks": True,
+        "instruction": "Use only values published in this CURRENT. Absence from CURRENT means unavailable; never infer a handle or identity.",
+    },
+    {
+        "id": "HANDLE_ONLY",
+        "blocks": True,
+        "instruction": "For locationHandle, visible.handle, effectHandle, viaHandle and audio.handle use an exact CURRENT Simple V1 authoring handle. Never serialize a raw Catalog asset ID.",
+    },
+    {
+        "id": "ANIMATION_SEMANTIC_ONLY",
+        "blocks": True,
+        "instruction": "Author animation/performance in CUTSCENE_SCRIPT_V1 through semantic animationIntent or performanceIntent fields. Do not serialize a raw animation asset ID merely because Animation identities exist in CURRENT for backend compatibility and validation.",
+    },
+    {
+        "id": "DIALOGUE_CLOSED_WORLD",
+        "blocks": True,
+        "instruction": "Every dialogue speaker/listener must be an authoringReady actorId from EMOTIONAL_DIALOGUE_CURRENT.json and match cast[].id exactly.",
+    },
+    {
+        "id": "DIALOGUE_IDENTITY",
+        "blocks": True,
+        "instruction": "For dialogue cast, cast[].identityHandle must exactly equal that character's published identityHandle. Do not substitute Actor, UI, Atlas or portrait handles.",
+    },
+    {
+        "id": "DIALOGUE_EXPRESSION",
+        "blocks": True,
+        "instruction": "expressionIntent, when present, must exactly match a supported expression for that speaker. Omit expressionIntent to request the published defaultExpression. Never fall back to Neutral for an unsupported explicit expression.",
+    },
+    {
+        "id": "DIALOGUE_LOCKED_STAGING",
+        "blocks": True,
+        "instruction": "Do not combine locked portrait dialogue with explicit world movement for the same participant in the same beat. Put world movement in a separate beat when needed.",
+    },
+    {
+        "id": "ONE_PRESENTATION_SOURCE",
+        "blocks": True,
+        "instruction": "A cast participant has one narrative identity and at most one optional presentationHandle. presentationHandle never creates or changes identity.",
+    },
+    {
+        "id": "VISUAL_EVIDENCE",
+        "blocks": False,
+        "instruction": "Before selecting a visual handle, inspect its published Atlas pixels. Metadata alone is not visual proof.",
+    },
+    {
+        "id": "BACKEND_FIELDS_OMITTED",
+        "blocks": False,
+        "instruction": "Do not author V3/V5 bookkeeping such as lifetime ownership, mechanical IDs, fixed Dialogue Stage mechanics, project font defaults, deterministic scale defaults or raw presentation modes. Those remain backend-owned unless represented by a Simple V1 field.",
+    },
+    {
+        "id": "WARNING_FIRST",
+        "blocks": False,
+        "instruction": "Recoverable system-owned presentation or staging omissions remain warnings when the backend can resolve a legal deterministic default. Do not invent assets or backend fields to silence them. Real identity, CURRENT, capability or unsupported-expression failures remain blockers.",
+    },
+    {
+        "id": "SCHEMA_ONLY",
+        "blocks": True,
+        "instruction": "Serialize only fields defined by CUTSCENE_SCRIPT_V1.schema.json. Do not invent noncanonical fields.",
+    },
+]
 
 
 def read_json(path):
@@ -16,8 +99,37 @@ def read_json(path):
 
 
 def write_json(path, payload, compact=False):
+    path.parent.mkdir(parents=True, exist_ok=True)
     text = json.dumps(payload, separators=(",", ":"), ensure_ascii=False) if compact else json.dumps(payload, indent=2, ensure_ascii=False)
     path.write_text(text + "\n", encoding="utf-8")
+
+
+def normalized_required_current(current):
+    source = dict(current.get("requiredCurrent") or {})
+    missing = [
+        key for key in REQUIRED_CURRENT_KEYS
+        if source.get(key) is None or str(source.get(key)).strip() == ""
+    ]
+    if missing:
+        raise SystemExit("CURRENT requiredCurrent is incomplete: " + ", ".join(missing))
+
+    # This value is an opaque 64-bit identity. JS Number cannot preserve it.
+    source["catalogRevision"] = str(source["catalogRevision"])
+    for key in REQUIRED_CURRENT_KEYS[1:]:
+        source[key] = str(source[key])
+    return source
+
+
+def normalize_catalog_revision(payload, required_current):
+    if "catalogRevision" in payload and payload.get("catalogRevision") is not None:
+        payload["catalogRevision"] = str(payload["catalogRevision"])
+    if isinstance(payload.get("requiredCurrent"), dict):
+        payload["requiredCurrent"]["catalogRevision"] = str(
+            payload["requiredCurrent"].get("catalogRevision", required_current["catalogRevision"])
+        )
+    if isinstance(payload.get("atomicIdentity"), dict) and payload["atomicIdentity"].get("catalogRevision") is not None:
+        payload["atomicIdentity"]["catalogRevision"] = str(payload["atomicIdentity"]["catalogRevision"])
+    return payload
 
 
 def replace_pack_entries(pack_path, changed_paths):
@@ -58,103 +170,63 @@ def replace_pack_entries(pack_path, changed_paths):
             temp_path.unlink()
 
 
-def replace_single_line(text, prefix, replacement):
-    pattern = r"^" + re.escape(prefix) + r"[^\r\n]*\r?\n"
-    text = re.sub(pattern, "", text, flags=re.MULTILINE)
-    return text, replacement
+def stage_simple_v1_files(required_current):
+    out_dir = ROOT / "simple-authoring"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    changed = []
+
+    for name in SIMPLE_V1_FILES:
+        source = SOURCE_SIMPLE / name
+        if source.is_file():
+            destination = out_dir / name
+            shutil.copy2(source, destination)
+            changed.append(destination)
+
+    rules_path = out_dir / "AUTHORING_RULES_CURRENT.json"
+    write_json(
+        rules_path,
+        {
+            "schema": "STARWARS_DELTA_SIMPLE_V1_AUTHORING_RULES_CURRENT",
+            "schemaVersion": 2,
+            "requiredCurrent": required_current,
+            "purpose": "Author-facing rules for CUTSCENE_SCRIPT_V1 only. Backend/internal rules are intentionally omitted.",
+            "rules": AUTHORING_RULES,
+        },
+    )
+    changed.append(rules_path)
+    return changed
 
 
 def seal_chatgpt_start(path, revision):
-    text = path.read_text(encoding="utf-8-sig")
-    marker = "STARWARS_DELTA DESIGNER AI - FULL DIRECTOR CURRENT\n"
-    if marker not in text:
-        raise SystemExit("CHATGPT_START title marker is missing")
+    text = path.read_text(encoding="utf-8-sig").strip()
+    title = "STARWARS_DELTA DEVORA - SIMPLE V1 CURRENT"
+    if not text.startswith(title):
+        raise SystemExit("CHATGPT_START is not the Simple V1 CURRENT front door")
+    if "CUTSCENE_SCRIPT_V1" not in text or "V3/V5" not in text:
+        raise SystemExit("CHATGPT_START is missing the Simple V1/backend boundary")
 
-    revision_prefix = "CURRENT AUTHORING RULE REGISTRY REVISION: "
-    text, revision_line = replace_single_line(text, revision_prefix, f"{revision_prefix}{revision}\n")
-    text = text.replace(marker, marker + revision_line, 1)
+    lines = [
+        line for line in text.splitlines()
+        if not line.startswith("CURRENT AUTHORING RULE REGISTRY REVISION:")
+    ]
+    lines.insert(1, "CURRENT AUTHORING RULE REGISTRY REVISION: " + revision)
+    path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
-    old_identity_block = """============================================================
-CURRENT PACKAGE IDENTITY - ATOMIC
-============================================================
 
-Before any new JSON, dynamically read OPEN_CURRENT.json and treat all exported identity fields as one atomic CURRENT package:
-- publishTransactionId when applicable
-- catalogRevision
-- snapshotContentHash
-- contractRevision
-- schemaHash
-- schema/context identity exported by the contract
-
-Never hardcode an old publish transaction into permanent guidance. Never assume schemaVersion=5 means CURRENT. Never combine IDs from two publishes even if a filename or catalogRevision looks familiar.
-"""
-    new_identity_block = """============================================================
-CURRENT AUTHORING COMPATIBILITY - REQUIRED CURRENT
-============================================================
-
-Before any NEW, REVISE or REPAIR JSON, dynamically read OPEN_CURRENT.json and compare OPEN_CURRENT.requiredCurrent:
-- catalogRevision
-- contractRevision
-- schemaHash
-- snapshotContentHash
-- authoringRuleRegistryRevision
-
-All five compatibility fingerprints must match. publishTransactionId belongs to OPEN_CURRENT.provenance and is not part of the normal Studio authoring-compatibility gate. A republish of identical authoring content may have a different publishTransactionId without creating a different authoring universe.
-
-Never hardcode an old publish transaction into permanent guidance. Never assume schemaVersion=5 means CURRENT. Never combine Catalog, Contract, Schema, snapshot or Rule Registry data from different requiredCurrent identities.
-"""
-    identity_header = "CURRENT AUTHORING COMPATIBILITY - REQUIRED CURRENT"
-    if old_identity_block in text:
-        text = text.replace(old_identity_block, new_identity_block, 1)
-    elif identity_header not in text:
-        raise SystemExit("CHATGPT_START CURRENT identity block marker is missing")
-
-    authoring_shape_block = """============================================================
-CANONICAL AUTHORING SHAPE - MANDATORY
-============================================================
-
-Before composing or repairing V5 JSON, read BOTH URLs exported by OPEN_CURRENT.json:
-- OPEN_CURRENT.authoringProfile.downloadUrl
-- OPEN_CURRENT.canonicalTemplate.downloadUrl
-
-Start from the CURRENT canonical template and use CURRENT_AUTHORING_PROFILE.json as the machine-readable authority for required fields, deterministic defaults, closed enums and the projected Rule Registry. Do not reconstruct the V5 envelope from memory, old examples or prose.
-
-Fields that the CURRENT authoring profile/Rule Registry marks as deterministic Default or AutoRepair are system-owned mechanics when omitted. ChatGPT should spend tokens on story, shot intent, exact semantic identities and explicit creative choices. Real identity, capability, compatibility, ownership or explicit-intent contradictions remain blockers.
-
-"""
-    if authoring_shape_block not in text:
-        anchor = "============================================================\nCLOSED-WORLD AUTHORING - MANDATORY\n"
-        if anchor not in text:
-            raise SystemExit("CHATGPT_START closed-world marker is missing")
-        text = text.replace(anchor, authoring_shape_block + anchor, 1)
-
-    compatibility_guard = (
-        "For Studio NEW/REVISE/REPAIR compatibility, compare OPEN_CURRENT.requiredCurrent only: "
-        "catalogRevision, contractRevision, schemaHash, snapshotContentHash and authoringRuleRegistryRevision. "
-        "publishTransactionId is publication provenance and must not invalidate an otherwise identical authoring CURRENT."
+def write_read_first(path, transaction_id, revision):
+    path.write_text(
+        "STARWARS_DELTA DEVORA - SIMPLE V1 CURRENT\n"
+        f"Atomic publish transaction: {transaction_id}\n"
+        f"Atomic Rule Registry revision: {revision}\n\n"
+        "CURRENT beats memory. Absence from CURRENT means unavailable.\n"
+        "Start with OPEN_CURRENT.json, then simple-authoring/AUTHORING_RULES_CURRENT.json and simple-authoring/AUTHORING_HANDLES.json.\n"
+        "Author CUTSCENE_SCRIPT_V1 only. V3/V5 remain backend layers.\n"
+        "Use exact CURRENT handles and the closed-world Emotional Dialogue repertoire.\n"
+        "Inspect actual Atlas pixels before visual claims.\n"
+        "Warnings do not require invented backend fields; blocksCompilation=true remains a real blocker.\n"
+        "Authoring compatibility compares requiredCurrent only; publishTransactionId is provenance.\n",
+        encoding="utf-8",
     )
-    if compatibility_guard not in text:
-        needle = "Never hardcode an old publish transaction into permanent guidance."
-        if needle not in text:
-            raise SystemExit("CHATGPT_START compatibility guard marker is missing")
-        text = text.replace(needle, compatibility_guard + "\n\n" + needle, 1)
-
-    registry_guard = (
-        "The authoring Rule Registry revision must match OPEN_CURRENT.requiredCurrent.authoringRuleRegistryRevision. "
-        "If it does not match, stop instead of mixing rules from another authoring CURRENT."
-    )
-    old_guard = (
-        "The authoring Rule Registry revision is part of the atomic CURRENT identity. "
-        "If it does not match OPEN_CURRENT.atomicIdentity.authoringRuleRegistryRevision, stop instead of mixing rules from another publish."
-    )
-    if old_guard in text:
-        text = text.replace(old_guard, registry_guard, 1)
-    elif registry_guard not in text:
-        text = text.replace(compatibility_guard, registry_guard + "\n\n" + compatibility_guard, 1)
-
-    if text.count(revision_prefix) != 1:
-        raise SystemExit("CHATGPT_START must contain exactly one Rule Registry revision line")
-    path.write_text(text, encoding="utf-8")
 
 
 def main():
@@ -171,6 +243,10 @@ def main():
     if not authoring_profile.get("downloadUrl") or not canonical_template.get("downloadUrl"):
         raise SystemExit("CURRENT is missing authoringProfile/canonicalTemplate release URLs")
 
+    required_current = normalized_required_current(current)
+    if required_current["authoringRuleRegistryRevision"] != registry_revision:
+        raise SystemExit("Rule Registry revision does not match CURRENT requiredCurrent")
+
     open_path = ROOT / "OPEN_CURRENT.json"
     director_path = ROOT / "director-view" / "DIRECTOR_VIEW.json"
     manifest_path = ROOT / "DIRECTOR_PACK_MANIFEST.json"
@@ -178,10 +254,10 @@ def main():
     read_first_path = ROOT / "CHATGPT_READ_FIRST.txt"
     pack_path = ROOT / PACK_NAME
 
-    required = [open_path, director_path, manifest_path, chatgpt_start_path, read_first_path, pack_path]
-    missing = [str(path) for path in required if not path.is_file()]
-    if missing:
-        raise SystemExit("Atomic CURRENT stage is incomplete: " + ", ".join(missing))
+    required_paths = [open_path, director_path, manifest_path, chatgpt_start_path, read_first_path, pack_path]
+    missing_paths = [str(path) for path in required_paths if not path.is_file()]
+    if missing_paths:
+        raise SystemExit("Atomic CURRENT stage is incomplete: " + ", ".join(missing_paths))
 
     open_manifest = read_json(open_path)
     director = read_json(director_path)
@@ -189,32 +265,14 @@ def main():
 
     if director.get("publishTransactionId") != current.get("publishTransactionId"):
         raise SystemExit("Director publishTransactionId does not match CURRENT")
-    if director.get("contractRevision") != current.get("contractRevision"):
-        raise SystemExit("Director contractRevision does not match CURRENT")
-    if director.get("schemaHash") != current.get("schemaHash"):
-        raise SystemExit("Director schemaHash does not match CURRENT")
-
-    required_current = dict(current.get("requiredCurrent") or {})
-    required_keys = (
-        "catalogRevision",
-        "contractRevision",
-        "schemaHash",
-        "snapshotContentHash",
-        "authoringRuleRegistryRevision",
-    )
-    missing_required = [key for key in required_keys if required_current.get(key) is None or str(required_current.get(key)).strip() == ""]
-    if missing_required:
-        raise SystemExit("CURRENT requiredCurrent is incomplete: " + ", ".join(missing_required))
-    if str(required_current["catalogRevision"]) != str(director.get("catalogRevision")):
+    if str(director.get("catalogRevision")) != required_current["catalogRevision"]:
         raise SystemExit("Director catalogRevision does not match CURRENT requiredCurrent")
-    if required_current["contractRevision"] != director.get("contractRevision"):
+    if director.get("contractRevision") != required_current["contractRevision"]:
         raise SystemExit("Director contractRevision does not match CURRENT requiredCurrent")
-    if required_current["schemaHash"] != director.get("schemaHash"):
+    if director.get("schemaHash") != required_current["schemaHash"]:
         raise SystemExit("Director schemaHash does not match CURRENT requiredCurrent")
-    if required_current["snapshotContentHash"] != director.get("snapshotContentHash"):
+    if director.get("snapshotContentHash") != required_current["snapshotContentHash"]:
         raise SystemExit("Director snapshotContentHash does not match CURRENT requiredCurrent")
-    if required_current["authoringRuleRegistryRevision"] != registry_revision:
-        raise SystemExit("Rule Registry revision does not match CURRENT requiredCurrent")
 
     provenance = {
         "publishTransactionId": current.get("publishTransactionId"),
@@ -224,23 +282,37 @@ def main():
     bundle = current.get("bundle") or {}
     if bundle.get("sha256"):
         provenance["bundleIdentity"] = bundle.get("sha256")
-
-    expected_identity = {"publishTransactionId": provenance["publishTransactionId"], **required_current}
     if not provenance["publishTransactionId"]:
         raise SystemExit("CURRENT publishTransactionId is missing")
 
+    expected_identity = {"publishTransactionId": provenance["publishTransactionId"], **required_current}
     changed = []
+
     for payload in (director, open_manifest, pack_manifest):
+        normalize_catalog_revision(payload, required_current)
         payload["authoringRuleRegistryRevision"] = registry_revision
         payload["requiredCurrent"] = required_current
         payload["provenance"] = provenance
         payload["atomicIdentity"] = expected_identity
 
+    # Preserve the existing backend metadata/API exactly. Simple V1 is added as
+    # the author-facing front door, not substituted for the backend contracts.
     open_manifest["authoringProfile"] = authoring_profile
     open_manifest["canonicalTemplate"] = canonical_template
+    pack_manifest["authoringProfile"] = authoring_profile
+    pack_manifest["canonicalTemplate"] = canonical_template
+
+    open_manifest["simpleAuthoring"] = {
+        "format": "CUTSCENE_SCRIPT_V1",
+        "schemaPath": "simple-authoring/CUTSCENE_SCRIPT_V1.schema.json",
+        "rulesPath": "simple-authoring/AUTHORING_RULES_CURRENT.json",
+        "handlesPath": "simple-authoring/AUTHORING_HANDLES.json",
+        "canonicalExamplePath": "simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json",
+        "backend": "Existing V3/V5 pipeline remains implementation only.",
+    }
     usage = open_manifest.setdefault("usage", {})
     usage["currentCompatibility"] = (
-        "Studio NEW/REVISE/REPAIR envelopes match only requiredCurrent: catalogRevision, contractRevision, schemaHash, "
+        "Studio NEW/REVISE/REPAIR compares requiredCurrent only: catalogRevision, contractRevision, schemaHash, "
         "snapshotContentHash and authoringRuleRegistryRevision. publishTransactionId is provenance only."
     )
     usage["atomicIdentity"] = (
@@ -248,11 +320,13 @@ def main():
         "Do not use publishTransactionId as the normal Studio authoring-compatibility gate; use requiredCurrent."
     )
     usage["authoringShape"] = (
-        "Before authoring V5 JSON, load authoringProfile.downloadUrl and canonicalTemplate.downloadUrl. "
-        "Start from the canonical template; deterministic Default/AutoRepair mechanics are system-owned."
+        "Author CUTSCENE_SCRIPT_V1 using simple-authoring/CUTSCENE_SCRIPT_V1.schema.json, AUTHORING_RULES_CURRENT.json "
+        "and AUTHORING_HANDLES.json. V3/V5 remain backend layers; their existing profile/template metadata remains available to engineering."
     )
-    pack_manifest["authoringProfile"] = authoring_profile
-    pack_manifest["canonicalTemplate"] = canonical_template
+    usage["validation"] = (
+        "Read CUTSCENE_VALIDATION_CURRENT.json before final JSON. blocksCompilation=true is a real blocker; "
+        "recoverable backend-owned defaults and warnings do not require invented fields."
+    )
 
     write_json(director_path, director)
     write_json(open_path, open_manifest)
@@ -263,6 +337,7 @@ def main():
         if path == director_path:
             continue
         payload = read_json(path)
+        normalize_catalog_revision(payload, required_current)
         payload["authoringRuleRegistryRevision"] = registry_revision
         payload["requiredCurrent"] = required_current
         payload["provenance"] = provenance
@@ -270,28 +345,14 @@ def main():
         write_json(path, payload, compact=path.name == "asset-lookup.json")
         changed.append(path)
 
+    changed.extend(stage_simple_v1_files(required_current))
+
     seal_chatgpt_start(chatgpt_start_path, registry_revision)
-    changed.append(chatgpt_start_path)
+    write_read_first(read_first_path, provenance["publishTransactionId"], registry_revision)
+    changed.extend([chatgpt_start_path, read_first_path])
 
-    read_first = read_first_path.read_text(encoding="utf-8-sig")
-    prefix = "Atomic Rule Registry revision: "
-    read_first, revision_line = replace_single_line(read_first, prefix, f"{prefix}{registry_revision}\n")
-    tx_prefix = f"Atomic publish transaction: {expected_identity['publishTransactionId']}\n"
-    if tx_prefix in read_first:
-        read_first = read_first.replace(tx_prefix, tx_prefix + revision_line, 1)
-    else:
-        read_first = revision_line + read_first
-    compatibility_line = "Authoring compatibility: compare requiredCurrent only; publishTransactionId is provenance.\n"
-    if compatibility_line not in read_first:
-        read_first += "\n" + compatibility_line
-    shape_line = "Authoring shape: load OPEN_CURRENT authoringProfile and canonicalTemplate before composing V5 JSON.\n"
-    if shape_line not in read_first:
-        read_first += shape_line
-    if read_first.count(prefix) != 1:
-        raise SystemExit("CHATGPT_READ_FIRST must contain exactly one Rule Registry revision line")
-    read_first_path.write_text(read_first, encoding="utf-8")
-    changed.append(read_first_path)
-
+    # Preserve the existing redundancy guard. The unified Atlas is the visual
+    # publication surface; category PDFs/index directories must not leak back in.
     forbidden_pdfs = [ROOT / "full-visual-sheets" / f"{name}.pdf" for name in ("actor", "effect", "layer", "ui")]
     leaked = [str(path) for path in forbidden_pdfs if path.exists()]
     if (ROOT / "full-visual-index").exists():
@@ -302,18 +363,36 @@ def main():
     replace_pack_entries(pack_path, changed)
 
     with zipfile.ZipFile(pack_path, "r") as archive:
+        for required_name in (
+            "OPEN_CURRENT.json",
+            "director-view/DIRECTOR_VIEW.json",
+            "DIRECTOR_PACK_MANIFEST.json",
+            "simple-authoring/AUTHORING_RULES_CURRENT.json",
+            "simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json",
+        ):
+            if required_name not in archive.namelist():
+                raise SystemExit("Director pack is missing sealed Simple V1 artifact: " + required_name)
+
         zip_open = json.loads(archive.read("OPEN_CURRENT.json").decode("utf-8-sig"))
         zip_director = json.loads(archive.read("director-view/DIRECTOR_VIEW.json").decode("utf-8-sig"))
         zip_manifest = json.loads(archive.read("DIRECTOR_PACK_MANIFEST.json").decode("utf-8-sig"))
-        for label, payload in (("OPEN_CURRENT", zip_open), ("DIRECTOR_VIEW", zip_director), ("DIRECTOR_PACK_MANIFEST", zip_manifest)):
+        zip_rules = json.loads(archive.read("simple-authoring/AUTHORING_RULES_CURRENT.json").decode("utf-8-sig"))
+        for label, payload in (
+            ("OPEN_CURRENT", zip_open),
+            ("DIRECTOR_VIEW", zip_director),
+            ("DIRECTOR_PACK_MANIFEST", zip_manifest),
+        ):
             if payload.get("atomicIdentity") != expected_identity:
                 raise SystemExit(f"{label} in Director pack has stale atomic identity")
             if payload.get("requiredCurrent") != required_current:
                 raise SystemExit(f"{label} in Director pack has stale requiredCurrent")
             if payload.get("provenance", {}).get("publishTransactionId") != provenance["publishTransactionId"]:
                 raise SystemExit(f"{label} in Director pack has stale publication provenance")
+        if zip_rules.get("requiredCurrent") != required_current:
+            raise SystemExit("AUTHORING_RULES_CURRENT in Director pack has stale requiredCurrent")
 
     print("ATOMIC_CURRENT_SEALED")
+    print("SIMPLE_V1_FRONT_DOOR_SEALED")
     print("REQUIRED_CURRENT", json.dumps(required_current, sort_keys=True))
     print("ATOMIC_IDENTITY", json.dumps(expected_identity, sort_keys=True))
 

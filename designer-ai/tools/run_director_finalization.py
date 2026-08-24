@@ -52,6 +52,17 @@ ACTOR_NON_IDENTITY_DESCRIPTION_PATTERNS = (
     re.compile(r"^(?:engine\s+trails?|explosion|impact\s+effect|muzzle\s+flash|laser\s+beam|particle\s+effect)\b", re.I),
 )
 
+DIRECT_USE_EXCLUSION_MARKERS = {
+    "do-not-use-container-directly",
+    "do not use container directly",
+    "requires-assembly",
+    "requires assembly",
+    "source-sheet",
+    "source sheet",
+    "sprite-part",
+    "sprite part",
+}
+
 
 def unique(values):
     result = []
@@ -184,7 +195,7 @@ def refined_eligibility_signals(entry):
         "visual reference only",
         "editor resource",
         "test evidence",
-    }
+    } | DIRECT_USE_EXCLUSION_MARKERS
     if semantics & exclusion_markers:
         reasons.append("catalog_semantics_exclude_direct_authoring")
 
@@ -267,6 +278,16 @@ def validate_eligibility_regressions():
                 f"Actor description eligibility regression failed for {entry.get('authoringAssetId')}: expected={expected} actual={actual}"
             )
 
+    direct_use = refined_eligibility_signals(
+        {
+            "displayName": "Character source sheet",
+            "category": "Actor",
+            "selectedTags": ["requires-assembly", "source-sheet"],
+        }
+    )
+    if "catalog_semantics_exclude_direct_authoring" not in direct_use:
+        raise SystemExit("Direct-use exclusion regression: requires-assembly/source-sheet must not be recommended")
+
 
 def patched_enrich_visual_entry(entry, by_id, by_reference, by_asset):
     authoring_record = by_id.get(str(entry.get("authoringAssetId") or ""))
@@ -285,6 +306,21 @@ def patched_enrich_visual_entry(entry, by_id, by_reference, by_asset):
     entry["sourceProjectionRecommendable"] = bool(entry.get("recommendable"))
 
     result = ORIGINAL_ENRICH_VISUAL_ENTRY(entry, by_id, by_reference, by_asset)
+
+    safety_reasons = list(result.get("eligibilityReviewReasons") or [])
+    if result.get("safeForPreview") is not True:
+        safety_reasons.append("not_preview_safe")
+    if result.get("safeForPublish") is not True:
+        safety_reasons.append("not_publish_safe")
+    if result.get("needsHumanReview") is True:
+        safety_reasons.append("needs_human_review")
+
+    safety_reasons = unique(safety_reasons)
+    if safety_reasons:
+        result["eligibilityStatus"] = "SOURCE_REVIEW_REQUIRED"
+        result["eligibilityReviewReasons"] = safety_reasons
+        result["recommendationStatus"] = "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW"
+
     result["recommendable"] = result.get("recommendationStatus") == "RECOMMENDABLE"
     return result
 
@@ -435,6 +471,15 @@ def postprocess_output():
     audit.setdefault("signals", {})[ACTOR_DESCRIPTION_CONTRADICTION] = (
         "Actor classification conflicts with strong source-description evidence that the selected identity is a background, environment prop, or effect."
     )
+    audit.setdefault("signals", {})["catalog_semantics_exclude_direct_authoring"] = (
+        "The selected source explicitly says it is a container, source sheet, sprite part or assembly input rather than a direct cinematic asset."
+    )
+    audit.setdefault("signals", {})["not_publish_safe"] = (
+        "The visual source is not certified safe for direct published authoring selection."
+    )
+    audit.setdefault("signals", {})["needs_human_review"] = (
+        "The visual source still requires human review and cannot be advertised as RECOMMENDABLE."
+    )
     BASE.write_json(audit_path, audit)
 
     eligibility_reviews = []
@@ -479,6 +524,10 @@ def postprocess_output():
     director.setdefault("policies", {})["designerResponsibility"] = (
         "The designer describes the film and optionally uploads the single Visual Atlas PDF when pixel access is unavailable. "
         "The designer never repairs the completion queue or source eligibility audit."
+    )
+    director.setdefault("policies", {})["recommendable"] = (
+        "RECOMMENDABLE means direct visual authoring-safe: exact CURRENT identity, preview-safe, publish-safe, no human review, "
+        "no explicit source-container/assembly exclusion, and verified pixel evidence."
     )
     BASE.write_json(director_path, director)
 
