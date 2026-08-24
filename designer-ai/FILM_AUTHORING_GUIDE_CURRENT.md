@@ -229,7 +229,90 @@ Dialogue saying that an explosion happened does not visually implement an explos
 
 ## 16. Projectiles, impacts, VFX and audio
 
-A cinematic projectile can be staged through exact CURRENT projectile evidence, explicit Move, target, exact impact/explosion and optional supported shake/flash. Gameplay projectile simulation is not required.
+### Cutscene projectiles are a closed-world visual system
+
+Simple V1 projectile fire uses `type = fire` with the dedicated `projectileId` field. The author chooses what is fired; Unity owns the launcher, muzzle attachment, muzzle position/rotation, projectile movement and backend cadence mechanics.
+
+The prepared Cutscene V1 projectile repertoire is exactly:
+
+```text
+CS_PROJECTILE_BLUE_BOLT
+CS_PROJECTILE_PURPLE_BOLT
+CS_PROJECTILE_POWERBALL
+```
+
+Use the matching CURRENT export as final authority. Do not invent aliases such as `laser`, `rocket`, `axe`, `missile`, `blue` or `power_ball`.
+
+Visual intent:
+
+- `CS_PROJECTILE_BLUE_BOLT` -> small/fast blue energy bolt; good for fighter fire and rapid friendly-looking bursts.
+- `CS_PROJECTILE_PURPLE_BOLT` -> purple energy bolt; good for hostile/alien fire or visually distinct opposing fire.
+- `CS_PROJECTILE_POWERBALL` -> larger animated energy projectile; good for heavy, threatening or boss-style fire.
+
+These are Cutscene-only visual projectiles. Do not resolve or substitute gameplay weapon/projectile prefabs, Playniax projectile names, filenames, Catalog lookalikes, `effectHandle`, or `viaHandle`.
+
+An explicit unsupported projectile ID is a blocker:
+
+```text
+CUTSCENE_PROJECTILE_NOT_AUTHORING_READY
+```
+
+`count` maps to the launcher burst count. Simple V1 does not author local muzzle coordinates or rotation. Simple V1 also does not author `interval` unless a future matching CURRENT schema explicitly exposes a cadence field; the current backend default is 0.15 seconds.
+
+`target` is cinematic firing intent used by the Cutscene backend for staging/orientation where supported. It does not turn the visual projectile into gameplay homing/target logic.
+
+### Projectile examples
+
+Friendly blue burst:
+
+```json
+{
+  "type": "fire",
+  "subject": "hero",
+  "target": "enemy",
+  "projectileId": "CS_PROJECTILE_BLUE_BOLT",
+  "count": 6
+}
+```
+
+Hostile purple burst:
+
+```json
+{
+  "type": "fire",
+  "subject": "enemy",
+  "target": "hero",
+  "projectileId": "CS_PROJECTILE_PURPLE_BOLT",
+  "count": 3
+}
+```
+
+Heavy animated powerball:
+
+```json
+{
+  "type": "fire",
+  "subject": "boss",
+  "target": "hero",
+  "projectileId": "CS_PROJECTILE_POWERBALL",
+  "count": 1
+}
+```
+
+Do not author this:
+
+```json
+{
+  "type": "fire",
+  "subject": "hero",
+  "effectHandle": "some_laser_sprite",
+  "count": 5
+}
+```
+
+`effectHandle` remains for Effect/impact authoring where legal. Projectile identity belongs only in `projectileId`.
+
+Impacts/explosions remain separate visible evidence. A projectile burst does not automatically prove a target was hit or destroyed; author the impact/destruction evidence when the story requires it.
 
 Effects need legal route, purpose, timing, depth and bounded lifetime.
 
@@ -295,9 +378,10 @@ Before final JSON/delivery confirm at least:
 11. every major non-verbal claim has serialized visible evidence.
 12. semantic actor motion maps to current supported V5 execution.
 13. Actor Orbit centers are stationary during Orbit under current Orbit v1.
-14. effects/projectiles/audio are legal and timed.
-15. actor lifetime/location transitions are coherent.
-16. expected genuine RED blockers = 0.
+14. every fire action uses an exact legal Cutscene `projectileId`; impacts/destruction are separately evidenced when required.
+15. effects/projectiles/audio are legal and timed.
+16. actor lifetime/location transitions are coherent.
+17. expected genuine RED blockers = 0.
 
 ## 22. Pre-publish proof
 
@@ -314,6 +398,7 @@ compile
 -> inspect fixed-center Orbit
 -> inspect landing/count expansion
 -> inspect curated dialogue portraits/background/frame
+-> inspect projectile fire path
 -> inspect principal materialization
 ```
 
@@ -334,5 +419,6 @@ Current additional learning:
 - a semantic speed string can crash Validate if read as float; adapter parsing is part of production reliability.
 - an Orbit action reaching V5 can still be invalid when its center moves; reaching the right action type and satisfying runtime constraints are separate checks.
 - a fleet sprite used as one actor and then count-expanded creates visually wrong multiplicative fleets even when quantity code itself works.
+- projectile identity belongs in the closed Cutscene `projectileId` vocabulary; using an Effect handle or gameplay projectile route is not an equivalent representation.
 
 A repaired result becomes GOLDEN only after normal Unity Validate + representative Preview proves it.
