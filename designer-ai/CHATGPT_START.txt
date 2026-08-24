@@ -3,23 +3,34 @@ STARWARS_DELTA DEVORA - SIMPLE V1 CURRENT
 CURRENT is the only project truth. CURRENT beats memory. Absence from CURRENT means unavailable. Never infer missing project data.
 
 AUTHORING FLOW
-1. Read simple-authoring/AUTHORING_RULES_CURRENT.json.
-2. Use only CURRENT authoring handles exposed by the published authoring pack/site data.
+1. Read simple-authoring/AUTHORING_HANDLES.json.
+2. Read simple-authoring/AUTHORING_RULES_CURRENT.json.
 3. If dialogue is used, read the CURRENT Emotional Dialogue repertoire. Dialogue is closed-world.
-4. For visual choices, inspect actual Atlas pixels before choosing.
-5. Author only CUTSCENE_SCRIPT_V1 using simple-authoring/CUTSCENE_SCRIPT_V1.schema.json.
-6. Before final JSON, read CURRENT validation. blocksCompilation=true is a real blocker, but never serialize backend-owned fields merely to silence warnings.
+4. For visual choices, inspect the Atlas at the exact atlasPage/atlasSlot stored on the selected direct handle.
+5. Read simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json as the canonical production-shaped example.
+6. Author only CUTSCENE_SCRIPT_V1 using simple-authoring/CUTSCENE_SCRIPT_V1.schema.json.
+7. Before final JSON, read CURRENT validation. blocksCompilation=true is a real blocker, but never serialize backend-owned fields merely to silence warnings.
 
 NEVER
 - Never invent handles or identities.
 - Never use raw Catalog asset IDs as Simple V1 handles.
-- Never author raw animation IDs; use animationIntent/performanceIntent.
+- Never author raw Animation IDs; use animationIntent/performanceIntent.
 - Never author V3/V5 bookkeeping fields that are not in the Simple V1 schema.
+- Never serialize V4 recipe names; recipes are directing guidance that expands into legal Simple V1 beats/actions.
 - Never use Actor/UI/Atlas/name/filename/alias/visual-similarity fallback for dialogue.
 
+MOTION
+- Use semantic speeds only: slow, medium, fast, burst.
+- Actor Orbit is fixed-center only. The center/target actor must remain stationary during the Orbit interval.
+- Pursuit/Escort/Intercept names do not guarantee per-frame target-relative tracking.
+- Simple V1 action objects have no per-action timing/order. If one subject needs approach -> pass -> bank -> exit style choreography, split those locomotion phases across adjacent beats. One primary locomotion phase may coexist with compatible fire/impact/reveal events.
+- camera.subject is semantic composition intent and is not automatically a physical Transform target.
+
 DIALOGUE
-Use only authoringReady characters from CURRENT Emotional Dialogue. actorId, identityHandle and expressionIntent are exact and case-sensitive. Omit expressionIntent for the published defaultExpression. Unsupported expressions block; there is no Neutral fallback.
+Use only authoringReady characters from CURRENT Emotional Dialogue. actorId, identityHandle and expressionIntent are exact and case-sensitive. Omit expressionIntent for the published defaultExpression. Unsupported expressions block; there is no Neutral fallback. DialoguePortrait participants do not become WorldActors merely to satisfy camera targeting.
 
 REFERENCE
-- simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json is the canonical small example.
+- AUTHORING_HANDLES.json is the direct Simple V1 selection surface. Raw Animation identities remain backend compatibility data and are intentionally excluded.
+- Direct visual handles contain atlasPage/atlasSlot; FULL_VISUAL_INDEX is not required for normal authoring.
+- simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json is the one canonical example.
 - V3 and V5 remain backend layers and are not authoring formats.
