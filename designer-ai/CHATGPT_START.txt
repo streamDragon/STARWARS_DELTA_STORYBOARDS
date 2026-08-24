@@ -34,7 +34,7 @@ Use only authoringReady characters from CURRENT Emotional Dialogue. actorId, ide
 CUTSCENE PROJECTILES
 - The Cutscene projectile system is a closed visual-only capability, separate from gameplay shooting and Netcode.
 - For type=fire, projectile identity belongs only in projectileId.
-- Legal projectileId values are the exact values exported by the matching CURRENT Cutscene projectile capability. The prepared V1 repertoire is CS_PROJECTILE_LASER, CS_PROJECTILE_AXE and CS_PROJECTILE_ROCKET once that capability is present in matching CURRENT.
+- Legal projectileId values are the exact values exported by the matching CURRENT Cutscene projectile capability. The prepared V1 repertoire is CS_PROJECTILE_BLUE_BOLT, CS_PROJECTILE_PURPLE_BOLT and CS_PROJECTILE_POWERBALL once that capability is present in matching CURRENT.
 - Explicit unsupported projectileId is a blocker: CUTSCENE_PROJECTILE_NOT_AUTHORING_READY. No fuzzy match, filename match, gameplay fallback or effect substitution.
 - projectileId is optional for backward compatibility. Omission preserves the existing legacy fire behavior.
 - count is the existing fire quantity field. Launcher/muzzle position, muzzle rotation, projectile physics and backend interval defaults remain Unity-owned unless CURRENT explicitly exposes otherwise.
