@@ -43,6 +43,12 @@ REQUIRED_CURRENT_KEYS = (
     "snapshotContentHash",
     "authoringRuleRegistryRevision",
 )
+DIRECTOR_OWNED_IDENTITY_KEYS = (
+    "catalogRevision",
+    "contractRevision",
+    "schemaHash",
+    "snapshotContentHash",
+)
 
 
 def read_json(path):
@@ -64,6 +70,33 @@ def semantic_required_current(payload, label):
     for key in REQUIRED_CURRENT_KEYS[1:]:
         identity[key] = str(identity[key])
     return identity
+
+
+def validate_director_identity(payload, source_current, required_current):
+    if payload.get("publishTransactionId") != source_current.get("publishTransactionId"):
+        raise SystemExit("AUTHORING_HANDLES_TRANSACTION_MISMATCH: DIRECTOR_VIEW does not match SOURCE_CURRENT")
+
+    # Director owns the visual/catalog identity subset. The Rule Registry revision
+    # belongs to the source CURRENT and is added by the atomic seal later, so it
+    # must not be fabricated or required from this intermediate Director product.
+    source = payload.get("requiredCurrent") or payload.get("atomicIdentity") or payload
+    missing = []
+    for key in DIRECTOR_OWNED_IDENTITY_KEYS:
+        value = source.get(key)
+        if value is None or str(value).strip() == "":
+            missing.append(key)
+            continue
+        if str(value) != required_current[key]:
+            raise SystemExit(
+                "AUTHORING_HANDLES_IDENTITY_MISMATCH: DIRECTOR_VIEW "
+                + key
+                + " does not match SOURCE_CURRENT.requiredCurrent"
+            )
+    if missing:
+        raise SystemExit(
+            "AUTHORING_HANDLES_IDENTITY_INCOMPLETE: DIRECTOR_VIEW missing "
+            + ", ".join(missing)
+        )
 
 
 def slug(text):
@@ -238,9 +271,7 @@ def main():
     if not director_root_path.is_file():
         raise SystemExit("AUTHORING_HANDLES_DIRECTOR_ROOT_MISSING")
     director_root = read_json(director_root_path)
-    director_current = semantic_required_current(director_root, "DIRECTOR_VIEW")
-    if director_current != required_current:
-        raise SystemExit("AUTHORING_HANDLES_IDENTITY_MISMATCH: DIRECTOR_VIEW does not match SOURCE_CURRENT.requiredCurrent")
+    validate_director_identity(director_root, source_current, required_current)
 
     entries = []
     used = set()
