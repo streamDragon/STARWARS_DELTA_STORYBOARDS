@@ -1,11 +1,11 @@
 {
   "schema": "STARWARS_DELTA_SIMPLE_V1_AUTHORING_RULES_CURRENT",
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "requiredCurrent": {
     "catalogRevision": "7625035885705746207",
-    "contractRevision": "1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2",
-    "schemaHash": "4874662FBCE9394361C92FBE7813BE72458AEA13C46F61C7A73C02CF12747DC4",
-    "snapshotContentHash": "41C20FCE0116131EBF0152280A2C6229D09AC99AEFB0E2F52489F64C79BA60D7",
+    "contractRevision": "E6495259DEA52323C846A4C081F7357EF8DB75E2A5C806ABEDAD9C5B7FEE2BD0",
+    "schemaHash": "01463B4537F7B41661892AA7ABB4A8C3CD1BA6DC70AAC17D1065CD51B15B4A5F",
+    "snapshotContentHash": "8C0ADDBE305467ADF26BD829A4AD510366054786766F75F68A2ECA877B2DE73B",
     "authoringRuleRegistryRevision": "F304263D2923BAFDD449F38419B82D1EA63687CE42DE2280FA7839962B282228"
   },
   "purpose": "Author-facing rules for CUTSCENE_SCRIPT_V1 only. Backend/internal rules are intentionally omitted.",
@@ -23,7 +23,7 @@
     {
       "id": "ANIMATION_SEMANTIC_ONLY",
       "blocks": true,
-      "instruction": "Author animation/performance in CUTSCENE_SCRIPT_V1 through semantic animationIntent or performanceIntent fields. Do not serialize a raw animation asset ID merely because Animation identities exist in CURRENT for backend compatibility and validation."
+      "instruction": "Author animation/performance through animationIntent or performanceIntent. Raw Animation identities remain backend compatibility vocabulary and are not direct Simple V1 handles."
     },
     {
       "id": "DIALOGUE_CLOSED_WORLD",
@@ -53,12 +53,37 @@
     {
       "id": "VISUAL_EVIDENCE",
       "blocks": false,
-      "instruction": "Before selecting a visual handle, inspect its published Atlas pixels. Metadata alone is not visual proof."
+      "instruction": "Before selecting a visual handle, inspect its published Atlas pixels. Direct visual handles expose atlasPage and atlasSlot so no FULL_VISUAL_INDEX lookup is required for normal authoring."
     },
     {
       "id": "BACKEND_FIELDS_OMITTED",
       "blocks": false,
       "instruction": "Do not author V3/V5 bookkeeping such as lifetime ownership, mechanical IDs, fixed Dialogue Stage mechanics, project font defaults, deterministic scale defaults or raw presentation modes. Those remain backend-owned unless represented by a Simple V1 field."
+    },
+    {
+      "id": "SEMANTIC_CAMERA_SUBJECT",
+      "blocks": false,
+      "instruction": "camera.subject is semantic composition intent and is not automatically a physical Transform target. DialoguePortrait participants do not become WorldActors merely to satisfy camera targeting."
+    },
+    {
+      "id": "ACTOR_ORBIT_FIXED_CENTER_ONLY",
+      "blocks": true,
+      "instruction": "Actor motionIntent=orbit uses current V5 fixed-center Orbit. The center/target actor must remain stationary for the Orbit interval. Moving-center Orbit is not supported."
+    },
+    {
+      "id": "NO_UNTIMED_MULTI_PHASE_LOCOMOTION",
+      "blocks": true,
+      "instruction": "Simple V1 action objects do not carry per-action timing/order. Do not place several sequential locomotion phases for the same subject in one beat. Split approach/pass/bank/exit style choreography across adjacent beats; one primary locomotion phase may coexist with compatible fire/impact/reveal events."
+    },
+    {
+      "id": "SEMANTIC_SPEED_ONLY",
+      "blocks": true,
+      "instruction": "Use semantic speed values slow, medium, fast or burst. Do not author numeric runtime speed values."
+    },
+    {
+      "id": "V4_RECIPES_ARE_AUTHORING_ONLY",
+      "blocks": false,
+      "instruction": "V4 move recipe names are directing guidance only. Never serialize recipe names. Expand them into legal CUTSCENE_SCRIPT_V1 beats/actions using the current supported motion vocabulary."
     },
     {
       "id": "WARNING_FIRST",

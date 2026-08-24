@@ -33,6 +33,34 @@
       "VisualWeaponAction",
       "VisualDamageReaction"
     ],
+    "projectileLibrary": {
+      "schema": "CUTSCENE_PROJECTILE_LIBRARY_V1",
+      "schemaVersion": 1,
+      "launcherId": "CUTSCENE_MLB",
+      "closedWorld": true,
+      "visualOnly": true,
+      "unknownIdError": "CUTSCENE_PROJECTILE_NOT_AUTHORING_READY",
+      "authoringReady": [
+        {
+          "projectileId": "CS_PROJECTILE_BLUE_BOLT",
+          "displayName": "Blue Bolt"
+        },
+        {
+          "projectileId": "CS_PROJECTILE_POWERBALL",
+          "displayName": "Powerball"
+        },
+        {
+          "projectileId": "CS_PROJECTILE_PURPLE_BOLT",
+          "displayName": "Purple Bolt"
+        }
+      ],
+      "instructions": [
+        "CUTSCENE PROJECTILES ARE CLOSED WORLD. Author only an exact projectileId listed in authoringReady.",
+        "Use VisualWeaponAction with projectileId, count, interval, x/y as local muzzle offset, and rotation as local Z firing direction.",
+        "Projectile actions are presentation-only: no targeting, hit, damage, score, gameplay state, or network behavior."
+      ]
+    },
+    "projectileActionRule": "For a projectile cue use VisualWeaponAction with an exact authoringReady projectileId. count is 1..64, interval is finite and non-negative, x/y is the actor-local muzzle offset, and rotation is the local Z firing direction. Unknown IDs fail with CUTSCENE_PROJECTILE_NOT_AUTHORING_READY; never use a gameplay projectile or substitute by similarity.",
     "localSlowMotion": "LocalSlowMotion requires finite speed greater than 0 and at most 1. Never change global Time.timeScale.",
     "anchorRule": "anchorId may be non-empty only when the owning sequence selects a usable Kit exposing that exact anchorId.",
     "animationRule": "animationAssetId must be an exact compatible Cutscene.Animation record when non-empty; author PlayAnimation only when the exact ID appears in the actor record's exported compatibleAnimationIds list. Never infer compatibility from filename, folder, naming, or visual similarity. When verified options are supplied, prefer the exact matching Run, Walk, Hit or Idle animation requested by the story. Move controls world movement and PlayAnimation controls visual animation; a running person normally uses both. Without verified animation proof, use Move, Turn, Hold or another non-animation action.",

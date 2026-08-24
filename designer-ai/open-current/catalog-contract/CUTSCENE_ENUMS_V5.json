@@ -2,7 +2,7 @@
   "schema": "STARWARS_DELTA_CUTSCENE_AUTHORING_CONTRACT",
   "schemaVersion": 5,
   "authoringContractVersion": 1,
-  "contractRevision": "1B658F7C600D197BE3BD50BF7D75DACB038B64A20F5AFB8464AACF6363F336E2",
+  "contractRevision": "E6495259DEA52323C846A4C081F7357EF8DB75E2A5C806ABEDAD9C5B7FEE2BD0",
   "authoringRuleRegistryRevision": "F304263D2923BAFDD449F38419B82D1EA63687CE42DE2280FA7839962B282228",
   "authoringRuleRegistry": {
     "revision": "F304263D2923BAFDD449F38419B82D1EA63687CE42DE2280FA7839962B282228",
@@ -5657,6 +5657,20 @@
       "openCreativeText": false
     },
     {
+      "jsonPath": "$.sequences[].actorActions[].count",
+      "name": "count",
+      "type": "Int32",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "1",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_COUNT",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
       "jsonPath": "$.sequences[].actorActions[].duration",
       "name": "duration",
       "type": "Single",
@@ -5723,6 +5737,20 @@
       "defaultSafeValue": "",
       "migrationRule": "PRESERVE",
       "validationId": "CUTSCENE_FIELD_FORMATION_ID",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].actorActions[].interval",
+      "name": "interval",
+      "type": "Single",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "0",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_INTERVAL",
       "closedEnum": "",
       "openCreativeText": false
     },
@@ -5895,6 +5923,20 @@
       "openCreativeText": false
     },
     {
+      "jsonPath": "$.sequences[].actorActions[].projectileId",
+      "name": "projectileId",
+      "type": "String",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_PROJECTILE_ID",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
       "jsonPath": "$.sequences[].actorActions[].radiusX",
       "name": "radiusX",
       "type": "Single",
@@ -5961,6 +6003,48 @@
       "defaultSafeValue": "1",
       "migrationRule": "PRESERVE",
       "validationId": "CUTSCENE_FIELD_SCALE_Y",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].actorActions[].semanticEnterFrom",
+      "name": "semanticEnterFrom",
+      "type": "String",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_SEMANTIC_ENTER_FROM",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].actorActions[].semanticExitTo",
+      "name": "semanticExitTo",
+      "type": "String",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_SEMANTIC_EXIT_TO",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].actorActions[].semanticTravelDirection",
+      "name": "semanticTravelDirection",
+      "type": "String",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_SEMANTIC_TRAVEL_DIRECTION",
       "closedEnum": "",
       "openCreativeText": false
     },
@@ -8093,6 +8177,20 @@
       "openCreativeText": false
     },
     {
+      "jsonPath": "$.sequences[].shots[].actorActions[].count",
+      "name": "count",
+      "type": "Int32",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "1",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_COUNT",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
       "jsonPath": "$.sequences[].shots[].actorActions[].duration",
       "name": "duration",
       "type": "Single",
@@ -8159,6 +8257,20 @@
       "defaultSafeValue": "",
       "migrationRule": "PRESERVE",
       "validationId": "CUTSCENE_FIELD_FORMATION_ID",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].shots[].actorActions[].interval",
+      "name": "interval",
+      "type": "Single",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "0",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_INTERVAL",
       "closedEnum": "",
       "openCreativeText": false
     },
@@ -8331,6 +8443,20 @@
       "openCreativeText": false
     },
     {
+      "jsonPath": "$.sequences[].shots[].actorActions[].projectileId",
+      "name": "projectileId",
+      "type": "String",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_PROJECTILE_ID",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
       "jsonPath": "$.sequences[].shots[].actorActions[].radiusX",
       "name": "radiusX",
       "type": "Single",
@@ -8397,6 +8523,48 @@
       "defaultSafeValue": "1",
       "migrationRule": "PRESERVE",
       "validationId": "CUTSCENE_FIELD_SCALE_Y",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].shots[].actorActions[].semanticEnterFrom",
+      "name": "semanticEnterFrom",
+      "type": "String",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_SEMANTIC_ENTER_FROM",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].shots[].actorActions[].semanticExitTo",
+      "name": "semanticExitTo",
+      "type": "String",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_SEMANTIC_EXIT_TO",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].shots[].actorActions[].semanticTravelDirection",
+      "name": "semanticTravelDirection",
+      "type": "String",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_SEMANTIC_TRAVEL_DIRECTION",
       "closedEnum": "",
       "openCreativeText": false
     },
