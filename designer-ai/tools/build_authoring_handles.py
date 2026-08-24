@@ -21,7 +21,19 @@ CATEGORY_ROUTES = {
     "audio.json": "Audio",
 }
 
+DIRECT_AUTHORING_ROUTES = {"Actor", "Layer", "Effect", "Ui", "Audio"}
 VISUAL_AUTHORING_ROUTES = {"Actor", "Layer", "Effect", "Ui"}
+BACKEND_ONLY_ROUTES = {"Animation"}
+DIRECT_USE_EXCLUSION_MARKERS = {
+    "do-not-use-container-directly",
+    "do not use container directly",
+    "requires-assembly",
+    "requires assembly",
+    "source-sheet",
+    "source sheet",
+    "sprite-part",
+    "sprite part",
+}
 
 REQUIRED_CURRENT_KEYS = (
     "catalogRevision",
@@ -47,6 +59,9 @@ def semantic_required_current(payload, label):
             + " missing "
             + ", ".join(missing)
         )
+    identity["catalogRevision"] = str(identity["catalogRevision"])
+    for key in REQUIRED_CURRENT_KEYS[1:]:
+        identity[key] = str(identity[key])
     return identity
 
 
@@ -78,6 +93,37 @@ def route_allowed(entry, route):
     return not allowed or route in allowed
 
 
+def flattened_semantics(entry):
+    values = []
+    for key in (
+        "tags",
+        "roles",
+        "capabilities",
+        "selectedTags",
+        "selectedRoles",
+        "selectedCapabilities",
+        "warnings",
+        "notes",
+        "reviewReasons",
+        "exclusionReasons",
+    ):
+        value = entry.get(key)
+        if isinstance(value, list):
+            values.extend(value)
+        elif value not in (None, ""):
+            values.append(value)
+    return {str(value).strip().lower() for value in values if str(value).strip()}
+
+
+def has_direct_use_exclusion(entry):
+    semantics = flattened_semantics(entry)
+    for marker in DIRECT_USE_EXCLUSION_MARKERS:
+        if marker in semantics:
+            return True
+    text = " ".join(sorted(semantics))
+    return any(marker in text for marker in DIRECT_USE_EXCLUSION_MARKERS)
+
+
 def audio_authoring_publish_safe(entry):
     """Certify exact non-visual Audio without requiring visual review."""
     rid = runtime_id(entry, "Audio")
@@ -98,7 +144,24 @@ def authoring_safe_for_publish(entry, route):
     return bool(entry.get("safeForPublish"))
 
 
-def is_eligible(entry, route):
+def backend_eligible(entry, route):
+    rid = runtime_id(entry, route)
+    if not rid or not route_allowed(entry, route):
+        return False
+
+    if route == "Animation":
+        if entry.get("safeForPreview") is not True:
+            return False
+        capabilities = set(entry.get("capabilities") or []) | set(entry.get("selectedCapabilities") or [])
+        return "Cutscene.Animation" in capabilities
+
+    return False
+
+
+def is_direct_authorable(entry, route):
+    if route not in DIRECT_AUTHORING_ROUTES:
+        return False
+
     rid = runtime_id(entry, route)
     if not rid or not route_allowed(entry, route):
         return False
@@ -108,29 +171,44 @@ def is_eligible(entry, route):
             return False
         recommendation = str(entry.get("recommendationStatus") or "").strip()
         selection = str(entry.get("selectionStatus") or "").strip()
-        return recommendation == "RECOMMENDABLE" or selection in {
+        if recommendation != "RECOMMENDABLE" and selection not in {
             "CATALOG_VERIFIED_PREVIEW_SAFE",
             "CATALOG_VERIFIED_PUBLISH_SAFE",
-        }
-
-    if route == "Animation":
-        # An Animation handle names an exact CURRENT clip. Compatibility is a
-        # relationship between that clip and the selected Actor, not a reason to
-        # erase the clip from the vocabulary. Keep every exact preview-safe
-        # Cutscene.Animation handle and publish the pairing evidence with it.
-        if entry.get("safeForPreview") is not True:
+        }:
             return False
-        capabilities = set(entry.get("capabilities") or []) | set(entry.get("selectedCapabilities") or [])
-        return "Cutscene.Animation" in capabilities
+        return audio_authoring_publish_safe(entry)
 
     if entry.get("recommendationStatus") != "RECOMMENDABLE":
         return False
-
-    # Actor is a world-presentation route. Ships and props may legally occupy it.
-    if route == "Actor" and entry.get("safeForPreview") is False:
+    if entry.get("safeForPreview") is False:
         return False
-
+    if entry.get("safeForPublish") is not True:
+        return False
+    if entry.get("needsHumanReview") is True:
+        return False
+    if has_direct_use_exclusion(entry):
+        return False
     return True
+
+
+def require_visual_evidence(entry, route, rid):
+    visual = entry.get("visualEvidence") or {}
+    page = visual.get("atlasPage")
+    slot = visual.get("atlasSlot")
+    visual_reference = entry.get("visualReferenceId")
+    if not visual_reference:
+        raise SystemExit(
+            "AUTHORING_HANDLES_VISUAL_REFERENCE_MISSING: " + route + " " + str(rid)
+        )
+    if not isinstance(page, int) or page <= 0 or not isinstance(slot, int) or slot <= 0:
+        raise SystemExit(
+            "AUTHORING_HANDLES_ATLAS_EVIDENCE_MISSING: "
+            + route
+            + " "
+            + str(rid)
+            + " requires positive integer atlasPage/atlasSlot"
+        )
+    return visual
 
 
 def main():
@@ -148,7 +226,8 @@ def main():
 
     entries = []
     used = set()
-    eligible_runtime_ids = {route: set() for route in CATEGORY_ROUTES.values()}
+    direct_runtime_ids = {route: set() for route in DIRECT_AUTHORING_ROUTES}
+    backend_runtime_ids = {route: set() for route in BACKEND_ONLY_ROUTES}
     recommendable_runtime_ids = {route: set() for route in VISUAL_AUTHORING_ROUTES}
 
     for filename, route in CATEGORY_ROUTES.items():
@@ -166,27 +245,23 @@ def main():
 
         for entry in payload.get("assets") or []:
             rid = runtime_id(entry, route)
-            if route in VISUAL_AUTHORING_ROUTES and entry.get("recommendationStatus") == "RECOMMENDABLE":
-                if not rid:
-                    raise SystemExit(
-                        "AUTHORING_HANDLES_RECOMMENDABLE_ID_MISSING: "
-                        + route
-                        + " "
-                        + str(entry.get("displayName") or "<unnamed>")
-                    )
-                if not route_allowed(entry, route) or entry.get("safeForPreview") is False:
-                    raise SystemExit(
-                        "AUTHORING_HANDLES_RECOMMENDABLE_ROUTE_ILLEGAL: "
-                        + route
-                        + " "
-                        + str(entry.get("displayName") or rid)
-                    )
-                recommendable_runtime_ids[route].add(rid)
 
-            if not is_eligible(entry, route):
+            if route in BACKEND_ONLY_ROUTES:
+                if backend_eligible(entry, route):
+                    backend_runtime_ids[route].add(rid)
                 continue
+
+            if route in VISUAL_AUTHORING_ROUTES and entry.get("recommendationStatus") == "RECOMMENDABLE":
+                # A RECOMMENDABLE Director item is not automatically a Devora choice.
+                # Hard safety exclusions are allowed to remove it from the direct surface.
+                if rid and is_direct_authorable(entry, route):
+                    recommendable_runtime_ids[route].add(rid)
+
+            if not is_direct_authorable(entry, route):
+                continue
+
             rid = runtime_id(entry, route)
-            eligible_runtime_ids[route].add(rid)
+            direct_runtime_ids[route].add(rid)
             display = entry.get("displayName") or rid
             handle = stable_handle(display, rid)
 
@@ -195,7 +270,10 @@ def main():
                 continue
             used.add(identity_key)
 
-            visual = entry.get("visualEvidence") or {}
+            visual = {}
+            if route in VISUAL_AUTHORING_ROUTES:
+                visual = require_visual_evidence(entry, route, rid)
+
             source_safe_for_publish = entry.get("safeForPublish")
             projected_safe_for_publish = authoring_safe_for_publish(entry, route)
             entries.append({
@@ -204,6 +282,7 @@ def main():
                 "displayName": display,
                 "route": route,
                 "runtimeId": rid,
+                "authorableInSimpleV1": True,
                 "authoringRuntimeForm": entry.get("authoringRuntimeForm"),
                 "supports": entry.get("supportedActions") or [],
                 "capabilities": entry.get("capabilities") or entry.get("selectedCapabilities") or [],
@@ -213,11 +292,6 @@ def main():
                 "sourceSafeForPublish": source_safe_for_publish,
                 "publishSafetySource": "AUDIO_NON_VISUAL_EXACT_CURRENT_ROUTE" if route == "Audio" else "DIRECTOR_CURRENT_CONTRACT",
                 "selectionStatus": entry.get("selectionStatus"),
-                "compatibilityRequirement": entry.get("compatibilityRequirement") if route == "Animation" else None,
-                "compatibilityEvidenceStatus": entry.get("compatibilityEvidenceStatus") if route == "Animation" else None,
-                "compatibleActorAssetIds": entry.get("compatibleActorAssetIds") or [] if route == "Animation" else [],
-                "recommendableCompatibleActorAssetIds": entry.get("recommendableCompatibleActorAssetIds") or [] if route == "Animation" else [],
-                "blockedCompatibleActorAssetIds": entry.get("blockedCompatibleActorAssetIds") or [] if route == "Animation" else [],
                 "proportionClass": entry.get("proportionClass"),
                 "targetScreenFraction": entry.get("targetScreenFraction"),
                 "scaleBasis": entry.get("scaleBasis"),
@@ -233,7 +307,7 @@ def main():
 
     counts_by_route = Counter(entry["route"] for entry in entries)
 
-    for route, expected_ids in eligible_runtime_ids.items():
+    for route, expected_ids in direct_runtime_ids.items():
         actual_ids = {entry["runtimeId"] for entry in entries if entry["route"] == route}
         if actual_ids != expected_ids:
             missing = sorted(expected_ids - actual_ids)
@@ -283,38 +357,54 @@ def main():
             )
         handle_owner[handle] = owner
 
-    if counts_by_route.get("Animation", 0) <= 0:
-        raise SystemExit("AUTHORING_HANDLES_ANIMATION_EMPTY: CURRENT exposes no legal Animation handles")
+    if backend_runtime_ids["Animation"] and any(entry["route"] == "Animation" for entry in entries):
+        raise SystemExit("AUTHORING_HANDLES_ANIMATION_LEAK: backend-only Animation reached direct Simple V1 handles")
     if counts_by_route.get("Audio", 0) <= 0:
-        raise SystemExit("AUTHORING_HANDLES_AUDIO_EMPTY: CURRENT exposes no legal Audio handles")
+        raise SystemExit("AUTHORING_HANDLES_AUDIO_EMPTY: CURRENT exposes no legal direct Audio handles")
+
     unsafe_audio = [
         entry["runtimeId"]
         for entry in entries
         if entry["route"] == "Audio" and entry.get("safeForPublish") is not True
     ]
     if unsafe_audio:
-        raise SystemExit(
-            "AUTHORING_HANDLES_AUDIO_NOT_PUBLISH_SAFE: "
-            + repr(unsafe_audio[:10])
-        )
+        raise SystemExit("AUTHORING_HANDLES_AUDIO_NOT_PUBLISH_SAFE: " + repr(unsafe_audio[:10]))
+
+    invalid_authorability = [
+        entry["handle"]
+        for entry in entries
+        if entry.get("authorableInSimpleV1") is not True
+    ]
+    if invalid_authorability:
+        raise SystemExit("AUTHORING_HANDLES_DIRECT_FLAG_INVALID: " + repr(invalid_authorability[:10]))
 
     payload = {
         "schema": "STARWARS_DELTA_AUTHORING_HANDLES",
-        "schemaVersion": 3,
-        "purpose": "Semantic authoring handles for CUTSCENE_SCRIPT_V1. ChatGPT uses handles; Unity/compiler owns runtime IDs and V5 serialization.",
+        "schemaVersion": 4,
+        "purpose": "Direct semantic authoring handles for CUTSCENE_SCRIPT_V1 only. Backend compatibility identities such as raw Animation clips remain in Director/CURRENT engineering data and are intentionally excluded from this Devora-facing selection surface.",
+        "authorabilityPolicy": {
+            "directRoutes": sorted(DIRECT_AUTHORING_ROUTES),
+            "visualRoutesRequireAtlasEvidence": sorted(VISUAL_AUTHORING_ROUTES),
+            "backendOnlyRoutes": sorted(BACKEND_ONLY_ROUTES),
+            "animationAuthoring": "Use animationIntent/performanceIntent. Raw Animation identities remain backend compatibility vocabulary and are not direct Simple V1 handles.",
+        },
         "handleContract": {
             "format": "<readable_slug>__<8-char lowercase sha1(runtimeId)>",
             "authoritativePart": "runtimeHash suffix",
             "resolution": "Unity recomputes the same short SHA-1 from exact local CURRENT runtime identities. It never fuzzy-matches the readable prefix.",
             "unknownHandle": "REAL BLOCKER",
             "ambiguousRuntimeHash": "REAL BLOCKER",
-            "recommendableCoverage": "Every RECOMMENDABLE visual Director identity must resolve to exactly one handle on its allowed route.",
-            "animationCoverage": "Every exact preview-safe Cutscene.Animation identity remains addressable. Actor compatibility is validated as a pairing rule, never by deleting the animation handle.",
+            "recommendableCoverage": "Every direct-authorable RECOMMENDABLE visual Director identity resolves to exactly one direct handle on its allowed route.",
+            "animationCoverage": "Animation compatibility remains available in Director/CURRENT engineering data, but raw Animation identities are not serialized as Simple V1 handles.",
+            "visualEvidence": "Every direct visual handle includes exact atlasPage/atlasSlot derived from the published Director visualEvidence.",
             "audioPublishSafety": "Audio is non-visual. Exact CURRENT identity + Audio allowedUse + Cutscene.Audio + preview safety + no blocker/error severity is publish-safe without Vision review. sourceSafeForPublish preserves the original Catalog projection."
         },
         "requiredCurrent": required_current,
         "count": len(entries),
-        "countsByRoute": {route: counts_by_route.get(route, 0) for route in CATEGORY_ROUTES.values()},
+        "countsByRoute": {route: counts_by_route.get(route, 0) for route in sorted(DIRECT_AUTHORING_ROUTES)},
+        "backendCompatibilityCounts": {
+            "Animation": len(backend_runtime_ids["Animation"]),
+        },
         "handles": sorted(entries, key=lambda x: (x["route"], x["handle"])),
         "cutsceneViewBoundsContract": {
             "space": "Unity world space",
@@ -340,6 +430,7 @@ def main():
     OUT_PATH.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("AUTHORING_HANDLES_BUILT", len(entries))
     print("AUTHORING_HANDLES_COUNTS", json.dumps(payload["countsByRoute"], sort_keys=True))
+    print("AUTHORING_HANDLES_BACKEND_COMPATIBILITY", json.dumps(payload["backendCompatibilityCounts"], sort_keys=True))
     print("AUTHORING_HANDLES_PATH", OUT_PATH)
 
 
