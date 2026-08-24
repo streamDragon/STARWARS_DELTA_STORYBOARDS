@@ -1,335 +1,261 @@
 # STARWARS_DELTA CUTSCENE VALIDATION CURRENT - UNITY HANDOFF
 
-## GOAL
+## Goal
 
-Connect the existing Unity Cutscene validation system to the already-defined public authoring contract:
+Project the existing Unity Cutscene validation truth into the public authoring contract without creating a second validator, and use the same truth inside Studio to distinguish authoring failure from backend/engine degradation.
+
+Public contract:
 
 `designer-ai/simple-authoring/CUTSCENE_VALIDATION_CURRENT.schema.json`
 
-Unity must generate:
+Unity eventually publishes:
 
 `CUTSCENE_VALIDATION_CURRENT.json`
 
-as part of the existing **PUBLISH AUTHORING SYNC CURRENT** transaction.
+through the existing user-controlled **PUBLISH AUTHORING SYNC CURRENT** transaction.
 
-The public contract exists so ChatGPT, Devora and Simple Preview know before authoring JSON:
+Do not Publish during implementation/testing.
 
-- what MUST be authored;
-- what MAY be omitted because the existing backend owns a deterministic default;
-- what is only a Warning;
-- what is a real blocking Error.
+## Systemic model
 
-Do not redesign V3/V5, Dialogue Stage, Studio, or the validator architecture.
+The validation model is no longer a binary warning/error presentation.
 
----
-
-## CURRENT WEB/GIT SIDE IS ALREADY IMPLEMENTED
-
-The repository already contains:
-
-- `CUTSCENE_VALIDATION_CURRENT.schema.json`
-- Devora support for loading the contract when present
-- Context Pack support for including it at `validation/CUTSCENE_VALIDATION_CURRENT.json`
-- Simple Preview support for consuming the same contract when present
-- Git workflow support for carrying and validating the exact contract inside the same CURRENT snapshot
-
-Until Unity publishes the contract, Devora/Preview intentionally report validation as DEGRADED rather than inventing one.
-
-Do not change the public schema unless the existing Unity validator genuinely cannot project into it.
-
----
-
-## REQUIRED ARCHITECTURE
-
-One source of validation truth in Unity:
+**Color describes what happens to the film. Owner describes who can fix it. Only RED blocks Editable Preview.**
 
 ```text
-existing Unity validation rule/source
+GREEN  = exact authored intent
+YELLOW = deterministic backend repair/minor, preview continues
+ORANGE = visible semantic/preview degradation, preview continues
+RED    = cannot safely produce, preview blocked
+```
+
+Owners:
+
+```text
+AUTHORING = source/CURRENT authoring choice must change
+BACKEND   = backend owns deterministic repair/default
+ENGINE    = legal authored truth exists but editor/runtime execution failed
+```
+
+See `VALIDATION_STATUS_MODEL.md` for the authoritative human-readable policy.
+
+## Required architecture
+
+One Unity validation truth source:
+
+```text
+existing Unity validation rules/diagnostics
         |
-        +--> existing Unity Validator behavior
+        +--> existing runtime/Studio validator behavior
         |
-        +--> authoring-facing projection
+        +--> authoring-facing metadata projection
                 |
                 +--> CUTSCENE_VALIDATION_CURRENT.json
 ```
 
-Do NOT maintain a second hand-written list of rules only for ChatGPT.
+Do NOT hand-maintain a second rule engine for ChatGPT.
 
-If the current validator does not expose reusable rule metadata cleanly, add the smallest possible authoring projection beside the existing rule definitions. Do not build a new validation framework.
+Use the smallest existing projection/metadata seam.
 
----
+## Required rule metadata
 
-## PUBLIC CONTRACT
-
-Generate:
-
-```json
-{
-  "schema": "STARWARS_DELTA_CUTSCENE_VALIDATION_CURRENT",
-  "schemaVersion": 1,
-  "status": "CURRENT_VERIFIED_CUTSCENE_VALIDATION",
-  "publishTransactionId": "<same atomic publish transaction>",
-  "generatedUtc": "<UTC>",
-  "requiredCurrent": {
-    "catalogRevision": "<same CURRENT>",
-    "contractRevision": "<same CURRENT>",
-    "schemaHash": "<same CURRENT>",
-    "snapshotContentHash": "<same CURRENT>",
-    "authoringRuleRegistryRevision": "<same CURRENT>"
-  },
-  "authoringPolicy": {
-    "warningsBlockCompilation": false,
-    "defaultRecoverableSeverity": "Warning",
-    "redMeaning": "Cannot be materialized honestly without changing identity, inventing assets, violating CURRENT, or lacking a deterministic legal backend resolution.",
-    "simpleV1Principle": "Simple V1 authors semantic intent and exact required identities; backend-owned deterministic presentation mechanics do not become mandatory author fields merely to silence validation."
-  },
-  "rules": []
-}
-```
-
-Each exported rule must contain:
+Keep legacy fields for compatibility where useful, and add/derive:
 
 ```json
 {
   "code": "EXACT_DIAGNOSTIC_CODE",
-  "diagnosticAliases": [],
-  "scope": "dialogue",
-  "appliesTo": ["FACE_TO_FACE_PORTRAITS"],
   "severity": "Warning",
+  "statusColor": "Yellow",
+  "owner": "BACKEND",
   "blocksCompilation": false,
+  "blocksEditablePreview": false,
+  "blocksFinalReadiness": false,
   "authoringRequirement": "MAY_OMIT_BACKEND_DEFAULT",
-  "backendDefault": {
-    "available": true,
-    "owner": "DialogueStage",
-    "behavior": "Existing deterministic legal stage default supplies this presentation mechanic."
-  },
-  "description": "Human-readable meaning.",
-  "authorGuidance": "What ChatGPT should do before writing JSON."
+  "description": "..."
 }
 ```
 
-Allowed `authoringRequirement` values are exactly:
+Allowed colors:
 
-- `MUST_AUTHOR`
-- `MAY_OMIT_BACKEND_DEFAULT`
-- `OPTIONAL`
-- `NOT_AUTHORED_IN_SIMPLE_V1`
+- Green
+- Yellow
+- Orange
+- Red
 
----
+Allowed owners:
 
-## SEVERITY POLICY
+- AUTHORING
+- BACKEND
+- ENGINE
 
-### RED / BLOCKING
+## Editable Preview gate
 
-Keep RED for failures that cannot be materialized honestly, including at minimum:
-
-- unknown or ambiguous CURRENT identity/handle;
-- stale/incompatible CURRENT identity;
-- illegal destination route/capability with no legal resolution;
-- Emotional Dialogue actor outside the curated repertoire;
-- mismatched dialogue `identityHandle`;
-- unsupported explicit `expressionIntent`;
-- schema/semantic corruption with no deterministic legal repair;
-- invented visual/3D evidence contradicting CURRENT;
-- requested Dialogue Stage presentation for which no legal deterministic stage/background/frame can be resolved.
-
-These export as:
+Studio should conceptually gate on:
 
 ```text
-severity = Error
-blocksCompilation = true
+exists diagnostic where statusColor == Red && blocksEditablePreview == true
 ```
 
-### WARNING / CONTINUE
+not simply on "any error-like diagnostic exists".
 
-Recoverable presentation omissions should normally export as:
+YELLOW and ORANGE continue to Editable Preview.
 
-```text
-severity = Warning
-blocksCompilation = false
-```
+If ORANGE represents a failed visual materialization, continue with an explicit diagnostic placeholder or omission and preserve the exact authored identity. Never select a replacement identity simply to make Preview green.
 
-when the existing backend has a deterministic legal resolution.
+## GREEN
 
-The first required concrete case is FACE_TO_FACE_PORTRAITS dialogue staging.
+The authored intent can be represented exactly.
 
-If the existing Dialogue Stage owner can deterministically provide the legal full-frame background/frame, then omitted explicit low-level fields are not real authoring blockers.
+Preview allowed. Final readiness allowed.
 
-Project/alias the current diagnostics such as:
+## YELLOW
 
-- `DIALOGUE_PRESENTATION_BACKGROUND_REQUIRED`
-- `CUTSCENE_DIALOGUE_BACKGROUND_REQUIRED`
-- `CUTSCENE_DIALOGUE_FRAME_REQUIRED`
+Use for deterministic low-level repair/default that does not materially change visible semantic intent.
 
-into warning-first authoring rules when recoverable.
-
-Preferred public rules:
+Required examples include:
 
 ```text
 DIALOGUE_STAGE_BACKGROUND_DEFAULTED
-severity=Warning
-blocksCompilation=false
-authoringRequirement=MAY_OMIT_BACKEND_DEFAULT
-backendDefault.owner=DialogueStage
-```
-
-```text
 DIALOGUE_STAGE_FRAME_DEFAULTED
-severity=Warning
-blocksCompilation=false
-authoringRequirement=MAY_OMIT_BACKEND_DEFAULT
-backendDefault.owner=DialogueStage
+DIALOGUE_CAMERA_DEFAULTED_FOR_LOCKED_STAGE
 ```
 
-If the stage really cannot resolve legally:
+These are non-blocking.
+
+The locked-dialogue camera invariant remains unchanged. Simple V1 backend-selected Push/Pull may be normalized before V3 validation to legal Hold and reported once per affected beat.
+
+## ORANGE
+
+Use when the cutscene can continue honestly but the visible result/preview differs materially from authored intent.
+
+Important systemic case:
+
+A WorldActor exact identity is already proven to be:
+
+- present in authoritative Catalog/CURRENT
+- legal for Actor route/capability
+- safeForPreview=true
+- exact identity preserved
+
+but a later editor/materializer call such as `MY_CutsceneExecutionPlan.ResolveAsset(...)` cannot produce a usable preview object.
+
+That is ENGINE-owned preview degradation, not proof that the JSON identity is invalid.
+
+Preferred diagnostic:
 
 ```text
-DIALOGUE_STAGE_UNRESOLVABLE
-severity=Error
-blocksCompilation=true
+EXACT_ASSET_PREVIEW_MATERIALIZATION_FAILED
+severity = Orange
+statusColor = Orange
+owner = ENGINE
+blocksEditablePreview = false
+blocksFinalReadiness = true
 ```
 
-Do not merely suppress diagnostics. The backend must actually own and resolve the deterministic default.
+Include the exact authored ID and failure stage. Do not substitute another asset.
 
----
+Other ORANGE examples may include a legal camera/presentation intent that must visibly downgrade, or exact legal dialogue presentation lacking preview pixel evidence.
 
-## SIMPLE V1 BOUNDARY
+## RED
 
-Do not make ChatGPT/Simple V1 author raw V5 presentation IDs solely to satisfy lower-level mechanics.
+Keep RED for failures where no honest legal result can continue, including:
 
-Simple V1 should author semantic dialogue and exact required identity/expression truth.
+- unknown or ambiguous CURRENT identity/handle
+- stale/incompatible CURRENT identity
+- illegal route/capability with no honest legal resolution
+- unsupported Emotional Dialogue actor/listener/identityHandle/expression
+- schema/semantic corruption with no deterministic legal repair
+- invented visual/3D evidence contradicting CURRENT
+- no legal Dialogue Stage at all
 
-If an existing backend owner already controls a deterministic mechanic, export that rule as `MAY_OMIT_BACKEND_DEFAULT` or `NOT_AUTHORED_IN_SIMPLE_V1` as appropriate.
+These remain blocking.
 
-Never use this contract to weaken closed-world identity rules.
+Do not use ORANGE to hide a real identity failure.
 
-No:
+## Accepted JSON freeze
 
-- Neutral fallback for unsupported explicit expression;
-- Actor fallback for dialogue identity;
-- UI/Atlas similarity fallback;
-- filename/name matching;
-- arbitrary background/frame search;
-- unrelated asset substitution.
+Once a Simple V1 script passes authoring integrity, downstream BACKEND/ENGINE YELLOW/ORANGE findings do not require regenerated source JSON.
 
----
+The accepted normalized JSON becomes a fixture.
 
-## PUBLISH INTEGRATION
+Fix the backend/editor against the same fixture until exactness improves.
 
-Integrate generation into the existing **PUBLISH AUTHORING SYNC CURRENT** flow.
+This prevents the workflow from repeatedly rewriting a legal film to work around implementation bugs.
 
-Required order conceptually:
+## Current 207-second fixture
 
-```text
-build/freeze CURRENT inputs
-build validation projection
-validate validation projection
-include it in the same atomic CURRENT payload
-switch CURRENT last
-```
+Use the existing persisted learning case:
 
-The generated artifact must carry the exact same:
+`Library/STARWARS_DELTA/CutsceneLearningCases/Inbox/case_7c433896e62875db/`
 
-- `publishTransactionId`
-- `catalogRevision`
-- `contractRevision`
-- `schemaHash`
-- `snapshotContentHash`
-- `authoringRuleRegistryRevision`
+with:
 
-as the surrounding atomic CURRENT.
+- `NORMALIZED.json`
+- `REPORT.txt`
 
-The artifact should be placed wherever the existing Publisher already stages Simple Authoring artifacts so the final public mirror becomes:
+Doctor Sane is dialogue-only in the normalized package and is not one of the actual principal-actor blocker paths. Do not treat Doctor as the representative WorldActor failure without new evidence.
 
-`designer-ai/open-current/CUTSCENE_VALIDATION_CURRENT.json`
+For exact preview-safe genuine WorldActors that fail only at/under `ResolveAsset` materialization, the desired result is ORANGE engine diagnostics and continued Editable Preview, not authoring RED.
 
-Do not create a separate manual Publish command.
+## Public projection
 
-Do not Publish during this task.
+On the next user-controlled Publish, `CUTSCENE_VALIDATION_CURRENT.json` should carry the same atomic CURRENT identity as the surrounding package:
 
----
+- publishTransactionId
+- catalogRevision
+- contractRevision
+- schemaHash
+- snapshotContentHash
+- authoringRuleRegistryRevision
 
-## VALIDATION OF THE VALIDATION CONTRACT
+Do not create another manual Publish command.
 
-Before the existing publish transaction is allowed to switch CURRENT, verify:
+## Fast pre-publish check
 
-1. schema/status/version exact;
-2. same transaction and all five `requiredCurrent` fingerprints;
-3. at least one exported authoring-facing rule;
-4. unique `code` values;
-5. severity is Info/Warning/Error;
-6. every rule has explicit `blocksCompilation`;
-7. every rule has one allowed `authoringRequirement`;
-8. Warning rules intended as recoverable defaults do not block compilation;
-9. Error rules that represent real integrity failures do block compilation;
-10. any `MAY_OMIT_BACKEND_DEFAULT` rule claiming a backend default actually maps to an existing deterministic backend owner/path.
+Extend the existing FAST PRE-PUBLISH CHECK only enough to confirm the validation projection can be built and contains compatible four-state metadata.
 
----
-
-## FAST PRE-PUBLISH CHECK
-
-Extend the existing FAST PRE-PUBLISH CHECK only enough to report Validation CURRENT publisher readiness.
-
-It should verify publisher wiring/projection readiness without running Publish.
-
-Do not add a new QA framework.
-
-Expected line:
+Useful output:
 
 ```text
 Cutscene Validation CURRENT Publisher: READY
 Authoring-facing rules: <N>
-Warnings block compilation: NO
+Editable Preview blocks only on RED: YES
+Four-state validation metadata: READY
 ```
 
-If the projection cannot be built from current Unity sources, FAST PRE-PUBLISH CHECK should fail honestly.
+Do not run Publish.
 
----
-
-## CONSTRAINTS
+## Constraints
 
 Do NOT:
 
-- run Catalog Scan;
-- run Vision Batch;
-- run Audit;
-- run Publish;
-- create Generated Cutscenes;
-- modify CharacterPacks;
-- modify the Emotional Dialogue repertoire;
-- redesign V3/V5;
-- create a second validator;
-- add broad tests/QA infrastructure;
-- hand-maintain a duplicate list that can drift from the actual validator;
-- make ordinary warnings block compilation merely to achieve zero diagnostics.
+- run Catalog Scan
+- run Vision Batch
+- run Audit
+- run Publish
+- create Generated Cutscenes
+- modify CharacterPacks
+- modify Emotional Dialogue repertoire
+- redesign V3/V5
+- create a second validator
+- add fuzzy fallback
+- choose replacement identities for ORANGE engine failures
 
-Prefer the smallest direct implementation in existing publisher/validator code.
+Prefer the smallest direct change in existing validator/Studio/materializer/projector code.
 
----
-
-## DONE WHEN
+## Done when
 
 Without running Publish:
 
 1. Unity compiles with no new errors.
-2. The validation projection can be built in memory/local output for the current project state.
-3. The output validates against `CUTSCENE_VALIDATION_CURRENT.schema.json` semantics.
-4. Dialogue background/frame omissions that have an existing deterministic Dialogue Stage default project as Warning + non-blocking.
-5. Invalid actor/identity/expression and genuinely unresolvable stage cases remain Error + blocking.
-6. Existing PUBLISH AUTHORING SYNC CURRENT is wired to include this artifact automatically on the next user-run Publish.
-7. FAST PRE-PUBLISH CHECK reports the validation publisher READY.
+2. Studio exposes GREEN/YELLOW/ORANGE/RED semantics or equivalent metadata.
+3. Only RED blocks Editable Preview.
+4. Existing deterministic backend repairs are YELLOW.
+5. Exact legal CURRENT visual identities that fail only downstream preview materialization can surface as ENGINE ORANGE and do not block the rest of Editable Preview.
+6. Genuine invalid identity/expression/route failures remain RED.
+7. The current accepted fixture does not need source regeneration merely because ENGINE ORANGE exists.
+8. The next user-controlled Publish is wired to project compatible validation metadata.
 
-Return only:
+For implementation details use:
 
-- root cause / existing rule source found;
-- files changed;
-- exported rule count;
-- examples of Warning rules;
-- examples of blocking rules;
-- publish wiring location;
-- FAST PRE-PUBLISH result if run;
-- compile errors.
-
-Do not Publish.
-
-STOP.
+`CODEX_SYSTEMIC_PREVIEW_RECOVERY.md`
