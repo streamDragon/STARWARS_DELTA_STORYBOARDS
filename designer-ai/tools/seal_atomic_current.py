@@ -44,7 +44,7 @@ AUTHORING_RULES = [
     {
         "id": "ANIMATION_SEMANTIC_ONLY",
         "blocks": True,
-        "instruction": "Author animation/performance in CUTSCENE_SCRIPT_V1 through semantic animationIntent or performanceIntent fields. Do not serialize a raw animation asset ID merely because Animation identities exist in CURRENT for backend compatibility and validation.",
+        "instruction": "Author animation/performance through animationIntent or performanceIntent. Raw Animation identities remain backend compatibility vocabulary and are not direct Simple V1 handles.",
     },
     {
         "id": "DIALOGUE_CLOSED_WORLD",
@@ -74,12 +74,37 @@ AUTHORING_RULES = [
     {
         "id": "VISUAL_EVIDENCE",
         "blocks": False,
-        "instruction": "Before selecting a visual handle, inspect its published Atlas pixels. Metadata alone is not visual proof.",
+        "instruction": "Before selecting a visual handle, inspect its published Atlas pixels. Direct visual handles expose atlasPage and atlasSlot so no FULL_VISUAL_INDEX lookup is required for normal authoring.",
     },
     {
         "id": "BACKEND_FIELDS_OMITTED",
         "blocks": False,
         "instruction": "Do not author V3/V5 bookkeeping such as lifetime ownership, mechanical IDs, fixed Dialogue Stage mechanics, project font defaults, deterministic scale defaults or raw presentation modes. Those remain backend-owned unless represented by a Simple V1 field.",
+    },
+    {
+        "id": "SEMANTIC_CAMERA_SUBJECT",
+        "blocks": False,
+        "instruction": "camera.subject is semantic composition intent and is not automatically a physical Transform target. DialoguePortrait participants do not become WorldActors merely to satisfy camera targeting.",
+    },
+    {
+        "id": "ACTOR_ORBIT_FIXED_CENTER_ONLY",
+        "blocks": True,
+        "instruction": "Actor motionIntent=orbit uses current V5 fixed-center Orbit. The center/target actor must remain stationary for the Orbit interval. Moving-center Orbit is not supported.",
+    },
+    {
+        "id": "NO_UNTIMED_MULTI_PHASE_LOCOMOTION",
+        "blocks": True,
+        "instruction": "Simple V1 action objects do not carry per-action timing/order. Do not place several sequential locomotion phases for the same subject in one beat. Split approach/pass/bank/exit style choreography across adjacent beats; one primary locomotion phase may coexist with compatible fire/impact/reveal events.",
+    },
+    {
+        "id": "SEMANTIC_SPEED_ONLY",
+        "blocks": True,
+        "instruction": "Use semantic speed values slow, medium, fast or burst. Do not author numeric runtime speed values.",
+    },
+    {
+        "id": "V4_RECIPES_ARE_AUTHORING_ONLY",
+        "blocks": False,
+        "instruction": "V4 move recipe names are directing guidance only. Never serialize recipe names. Expand them into legal CUTSCENE_SCRIPT_V1 beats/actions using the current supported motion vocabulary.",
     },
     {
         "id": "WARNING_FIRST",
@@ -92,6 +117,10 @@ AUTHORING_RULES = [
         "instruction": "Serialize only fields defined by CUTSCENE_SCRIPT_V1.schema.json. Do not invent noncanonical fields.",
     },
 ]
+
+VISUAL_ROUTES = {"Actor", "Layer", "Effect", "Ui"}
+DIRECT_ROUTES = {"Actor", "Layer", "Effect", "Ui", "Audio"}
+LOCOMOTION_TYPES = {"enter", "move", "formation", "exit", "hold"}
 
 
 def read_json(path):
@@ -113,7 +142,6 @@ def normalized_required_current(current):
     if missing:
         raise SystemExit("CURRENT requiredCurrent is incomplete: " + ", ".join(missing))
 
-    # This value is an opaque 64-bit identity. JS Number cannot preserve it.
     source["catalogRevision"] = str(source["catalogRevision"])
     for key in REQUIRED_CURRENT_KEYS[1:]:
         source[key] = str(source[key])
@@ -187,7 +215,7 @@ def stage_simple_v1_files(required_current):
         rules_path,
         {
             "schema": "STARWARS_DELTA_SIMPLE_V1_AUTHORING_RULES_CURRENT",
-            "schemaVersion": 2,
+            "schemaVersion": 3,
             "requiredCurrent": required_current,
             "purpose": "Author-facing rules for CUTSCENE_SCRIPT_V1 only. Backend/internal rules are intentionally omitted.",
             "rules": AUTHORING_RULES,
@@ -221,12 +249,227 @@ def write_read_first(path, transaction_id, revision):
         "CURRENT beats memory. Absence from CURRENT means unavailable.\n"
         "Start with OPEN_CURRENT.json, then simple-authoring/AUTHORING_RULES_CURRENT.json and simple-authoring/AUTHORING_HANDLES.json.\n"
         "Author CUTSCENE_SCRIPT_V1 only. V3/V5 remain backend layers.\n"
-        "Use exact CURRENT handles and the closed-world Emotional Dialogue repertoire.\n"
-        "Inspect actual Atlas pixels before visual claims.\n"
+        "Use exact direct CURRENT handles and the closed-world Emotional Dialogue repertoire.\n"
+        "Direct visual handles already contain atlasPage/atlasSlot; inspect those Atlas pixels before visual claims.\n"
+        "Use animationIntent/performanceIntent, not raw Animation IDs.\n"
+        "Actor Orbit is fixed-center only. Split sequential locomotion phases across beats.\n"
         "Warnings do not require invented backend fields; blocksCompilation=true remains a real blocker.\n"
         "Authoring compatibility compares requiredCurrent only; publishTransactionId is provenance.\n",
         encoding="utf-8",
     )
+
+
+def schema_enum(schema, path):
+    node = schema
+    for key in path:
+        node = node.get(key, {}) if isinstance(node, dict) else {}
+    return set(node.get("enum") or []) if isinstance(node, dict) else set()
+
+
+def validate_validation_contract(required_current):
+    data_path = ROOT / "CUTSCENE_VALIDATION_CURRENT.json"
+    schema_path = ROOT / "simple-authoring" / "CUTSCENE_VALIDATION_CURRENT.schema.json"
+    if not data_path.is_file() or not schema_path.is_file():
+        raise SystemExit("AUTHORING_GATE_VALIDATION_CONTRACT_MISSING")
+
+    data = read_json(data_path)
+    schema = read_json(schema_path)
+    if data.get("schema") != "STARWARS_DELTA_CUTSCENE_VALIDATION_CURRENT":
+        raise SystemExit("AUTHORING_GATE_VALIDATION_SCHEMA_ID_MISMATCH")
+    if data.get("status") != "CURRENT_VERIFIED_CUTSCENE_VALIDATION":
+        raise SystemExit("AUTHORING_GATE_VALIDATION_STATUS_INVALID")
+    if data.get("requiredCurrent") != required_current:
+        raise SystemExit("AUTHORING_GATE_VALIDATION_REQUIRED_CURRENT_MISMATCH")
+
+    allowed_severity = schema_enum(schema, ("properties", "rules", "items", "properties", "severity"))
+    allowed_color = schema_enum(schema, ("properties", "rules", "items", "properties", "statusColor"))
+    allowed_owner = schema_enum(schema, ("properties", "rules", "items", "properties", "owner"))
+    allowed_requirement = schema_enum(schema, ("properties", "rules", "items", "properties", "authoringRequirement"))
+    seen = set()
+    for rule in data.get("rules") or []:
+        rule_id = str(rule.get("ruleId") or rule.get("diagnosticCode") or rule.get("code") or "")
+        if not rule_id or rule_id in seen:
+            raise SystemExit("AUTHORING_GATE_VALIDATION_RULE_ID_INVALID: " + rule_id)
+        seen.add(rule_id)
+        if rule.get("severity") not in allowed_severity:
+            raise SystemExit("AUTHORING_GATE_VALIDATION_SEVERITY_DRIFT: " + rule_id)
+        if rule.get("statusColor") not in allowed_color:
+            raise SystemExit("AUTHORING_GATE_VALIDATION_COLOR_DRIFT: " + rule_id)
+        if rule.get("owner") not in allowed_owner:
+            raise SystemExit("AUTHORING_GATE_VALIDATION_OWNER_DRIFT: " + rule_id)
+        if rule.get("authoringRequirement") not in allowed_requirement:
+            raise SystemExit("AUTHORING_GATE_VALIDATION_REQUIREMENT_DRIFT: " + rule_id)
+        if not isinstance(rule.get("blocksCompilation"), bool):
+            raise SystemExit("AUTHORING_GATE_VALIDATION_BLOCK_FLAG_INVALID: " + rule_id)
+        if rule.get("severity") == "Warning" and rule.get("blocksCompilation"):
+            raise SystemExit("AUTHORING_GATE_WARNING_BLOCKS_COMPILATION: " + rule_id)
+
+
+def validate_handles(required_current):
+    path = ROOT / "simple-authoring" / "AUTHORING_HANDLES.json"
+    if not path.is_file():
+        raise SystemExit("AUTHORING_GATE_HANDLES_MISSING")
+    payload = read_json(path)
+    if payload.get("requiredCurrent") != required_current:
+        raise SystemExit("AUTHORING_GATE_HANDLES_REQUIRED_CURRENT_MISMATCH")
+    handles = payload.get("handles") or []
+    if not handles:
+        raise SystemExit("AUTHORING_GATE_HANDLES_EMPTY")
+
+    by_handle = {}
+    for entry in handles:
+        handle = str(entry.get("handle") or "")
+        route = str(entry.get("route") or "")
+        if not handle or handle in by_handle:
+            raise SystemExit("AUTHORING_GATE_HANDLE_COLLISION_OR_EMPTY: " + handle)
+        by_handle[handle] = entry
+        if entry.get("authorableInSimpleV1") is not True:
+            raise SystemExit("AUTHORING_GATE_NON_AUTHORABLE_HANDLE_EXPOSED: " + handle)
+        if route == "Animation":
+            raise SystemExit("AUTHORING_GATE_RAW_ANIMATION_HANDLE_EXPOSED: " + handle)
+        if route not in DIRECT_ROUTES:
+            raise SystemExit("AUTHORING_GATE_UNKNOWN_DIRECT_ROUTE: " + route)
+        if entry.get("safeForPublish") is not True:
+            raise SystemExit("AUTHORING_GATE_UNSAFE_DIRECT_HANDLE: " + handle)
+        if route in VISUAL_ROUTES:
+            if not entry.get("visualReferenceId"):
+                raise SystemExit("AUTHORING_GATE_VISUAL_REFERENCE_MISSING: " + handle)
+            if not isinstance(entry.get("atlasPage"), int) or entry.get("atlasPage") <= 0:
+                raise SystemExit("AUTHORING_GATE_ATLAS_PAGE_MISSING: " + handle)
+            if not isinstance(entry.get("atlasSlot"), int) or entry.get("atlasSlot") <= 0:
+                raise SystemExit("AUTHORING_GATE_ATLAS_SLOT_MISSING: " + handle)
+
+    return payload, by_handle
+
+
+def collect_example_handles(example):
+    values = []
+    for beat in example.get("beats") or []:
+        if beat.get("locationHandle"):
+            values.append(("locationHandle", beat["locationHandle"]))
+        for visible in beat.get("visible") or []:
+            if visible.get("handle"):
+                values.append(("visible.handle", visible["handle"]))
+        for action in beat.get("actions") or []:
+            for key in ("viaHandle", "effectHandle"):
+                if action.get(key):
+                    values.append(("actions." + key, action[key]))
+        for cue in beat.get("audio") or []:
+            if cue.get("handle"):
+                values.append(("audio.handle", cue["handle"]))
+    return values
+
+
+def validate_example(by_handle):
+    path = ROOT / "simple-authoring" / "CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json"
+    schema_path = ROOT / "simple-authoring" / "CUTSCENE_SCRIPT_V1.schema.json"
+    if not path.is_file() or not schema_path.is_file():
+        raise SystemExit("AUTHORING_GATE_CANONICAL_EXAMPLE_MISSING")
+    example = read_json(path)
+    schema = read_json(schema_path)
+    if example.get("schema") != "STARWARS_DELTA_CUTSCENE_SCRIPT" or example.get("schemaVersion") != 1:
+        raise SystemExit("AUTHORING_GATE_CANONICAL_EXAMPLE_SCHEMA_INVALID")
+    if not 30 <= float(example.get("durationSeconds") or 0) <= 60:
+        raise SystemExit("AUTHORING_GATE_CANONICAL_EXAMPLE_DURATION_INVALID")
+    beats = example.get("beats") or []
+    if not beats:
+        raise SystemExit("AUTHORING_GATE_CANONICAL_EXAMPLE_BEATS_EMPTY")
+    duration_sum = sum(float(beat.get("durationSeconds") or 0) for beat in beats)
+    if abs(duration_sum - float(example["durationSeconds"])) > 0.001:
+        raise SystemExit("AUTHORING_GATE_CANONICAL_EXAMPLE_DURATION_MISMATCH")
+
+    beat_types = schema_enum(schema, ("$defs", "beat", "properties", "type"))
+    action_types = schema_enum(schema, ("$defs", "action", "properties", "type"))
+    motion_intents = schema_enum(schema, ("$defs", "action", "properties", "motionIntent"))
+    speeds = schema_enum(schema, ("$defs", "action", "properties", "speed"))
+    camera_moves = schema_enum(schema, ("$defs", "camera", "properties", "movement"))
+
+    for beat in beats:
+        if beat.get("type") not in beat_types:
+            raise SystemExit("AUTHORING_GATE_CANONICAL_BEAT_TYPE_INVALID: " + str(beat.get("id")))
+        camera = beat.get("camera") or {}
+        if camera.get("movement") and camera.get("movement") not in camera_moves:
+            raise SystemExit("AUTHORING_GATE_CANONICAL_CAMERA_INVALID: " + str(beat.get("id")))
+        locomotion_by_subject = {}
+        for action in beat.get("actions") or []:
+            if action.get("type") not in action_types:
+                raise SystemExit("AUTHORING_GATE_CANONICAL_ACTION_INVALID: " + str(beat.get("id")))
+            if action.get("motionIntent") and action.get("motionIntent") not in motion_intents:
+                raise SystemExit("AUTHORING_GATE_CANONICAL_MOTION_INVALID: " + str(beat.get("id")))
+            if action.get("speed") and action.get("speed") not in speeds:
+                raise SystemExit("AUTHORING_GATE_CANONICAL_SPEED_INVALID: " + str(beat.get("id")))
+            if action.get("type") in LOCOMOTION_TYPES:
+                subject = str(action.get("subject") or "")
+                locomotion_by_subject[subject] = locomotion_by_subject.get(subject, 0) + 1
+        offenders = [subject for subject, count in locomotion_by_subject.items() if count > 1]
+        if offenders:
+            raise SystemExit(
+                "AUTHORING_GATE_CANONICAL_UNTIMED_MULTI_PHASE_LOCOMOTION: "
+                + str(beat.get("id"))
+                + " "
+                + repr(offenders)
+            )
+
+    for field, handle in collect_example_handles(example):
+        if handle not in by_handle:
+            raise SystemExit("AUTHORING_GATE_CANONICAL_UNKNOWN_HANDLE: " + field + "=" + str(handle))
+
+    dialogue_path = ROOT / "EMOTIONAL_DIALOGUE_CURRENT.json"
+    if not dialogue_path.is_file():
+        raise SystemExit("AUTHORING_GATE_DIALOGUE_CURRENT_MISSING")
+    dialogue = read_json(dialogue_path)
+    ready = {
+        character.get("actorId"): character
+        for character in dialogue.get("characters") or []
+        if character.get("authoringReady") is True
+    }
+    cast = {entry.get("id"): entry for entry in example.get("cast") or []}
+    for beat in beats:
+        for line in beat.get("dialogue") or []:
+            speaker = line.get("speaker")
+            listener = line.get("listener")
+            if speaker not in ready or speaker not in cast:
+                raise SystemExit("AUTHORING_GATE_CANONICAL_DIALOGUE_SPEAKER_INVALID: " + str(speaker))
+            if cast[speaker].get("identityHandle") != ready[speaker].get("identityHandle"):
+                raise SystemExit("AUTHORING_GATE_CANONICAL_DIALOGUE_IDENTITY_INVALID: " + str(speaker))
+            if listener and (listener not in ready or listener not in cast):
+                raise SystemExit("AUTHORING_GATE_CANONICAL_DIALOGUE_LISTENER_INVALID: " + str(listener))
+            expression = line.get("expressionIntent")
+            if expression and expression not in set(ready[speaker].get("supportedExpressions") or []):
+                raise SystemExit("AUTHORING_GATE_CANONICAL_DIALOGUE_EXPRESSION_INVALID: " + str(speaker) + ":" + str(expression))
+
+
+def validate_rules(required_current):
+    path = ROOT / "simple-authoring" / "AUTHORING_RULES_CURRENT.json"
+    rules = read_json(path)
+    if rules.get("requiredCurrent") != required_current:
+        raise SystemExit("AUTHORING_GATE_RULES_REQUIRED_CURRENT_MISMATCH")
+    ids = {rule.get("id") for rule in rules.get("rules") or []}
+    required_ids = {
+        "CURRENT_ONLY",
+        "HANDLE_ONLY",
+        "ANIMATION_SEMANTIC_ONLY",
+        "DIALOGUE_CLOSED_WORLD",
+        "ACTOR_ORBIT_FIXED_CENTER_ONLY",
+        "NO_UNTIMED_MULTI_PHASE_LOCOMOTION",
+        "SEMANTIC_SPEED_ONLY",
+        "SEMANTIC_CAMERA_SUBJECT",
+        "V4_RECIPES_ARE_AUTHORING_ONLY",
+        "SCHEMA_ONLY",
+    }
+    missing = sorted(required_ids - ids)
+    if missing:
+        raise SystemExit("AUTHORING_GATE_RULES_INCOMPLETE: " + repr(missing))
+
+
+def validate_authoring_projection(required_current):
+    if not isinstance(required_current.get("catalogRevision"), str):
+        raise SystemExit("AUTHORING_GATE_CATALOG_REVISION_NOT_STRING")
+    validate_validation_contract(required_current)
+    _, by_handle = validate_handles(required_current)
+    validate_rules(required_current)
+    validate_example(by_handle)
+    print("SIMPLE_V1_AUTHORING_PROJECTION_GATE_PASS")
 
 
 def main():
@@ -254,7 +497,17 @@ def main():
     read_first_path = ROOT / "CHATGPT_READ_FIRST.txt"
     pack_path = ROOT / PACK_NAME
 
-    required_paths = [open_path, director_path, manifest_path, chatgpt_start_path, read_first_path, pack_path]
+    required_paths = [
+        open_path,
+        director_path,
+        manifest_path,
+        chatgpt_start_path,
+        read_first_path,
+        pack_path,
+        ROOT / "simple-authoring" / "AUTHORING_HANDLES.json",
+        ROOT / "CUTSCENE_VALIDATION_CURRENT.json",
+        ROOT / "EMOTIONAL_DIALOGUE_CURRENT.json",
+    ]
     missing_paths = [str(path) for path in required_paths if not path.is_file()]
     if missing_paths:
         raise SystemExit("Atomic CURRENT stage is incomplete: " + ", ".join(missing_paths))
@@ -295,8 +548,6 @@ def main():
         payload["provenance"] = provenance
         payload["atomicIdentity"] = expected_identity
 
-    # Preserve the existing backend metadata/API exactly. Simple V1 is added as
-    # the author-facing front door, not substituted for the backend contracts.
     open_manifest["authoringProfile"] = authoring_profile
     open_manifest["canonicalTemplate"] = canonical_template
     pack_manifest["authoringProfile"] = authoring_profile
@@ -309,6 +560,8 @@ def main():
         "handlesPath": "simple-authoring/AUTHORING_HANDLES.json",
         "canonicalExamplePath": "simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json",
         "backend": "Existing V3/V5 pipeline remains implementation only.",
+        "visualLookup": "Direct visual authoring handles contain atlasPage/atlasSlot; FULL_VISUAL_INDEX remains engineering/debug evidence.",
+        "animation": "Raw Animation identities remain in Director/backend compatibility data but are excluded from direct Simple V1 handles.",
     }
     usage = open_manifest.setdefault("usage", {})
     usage["currentCompatibility"] = (
@@ -321,7 +574,11 @@ def main():
     )
     usage["authoringShape"] = (
         "Author CUTSCENE_SCRIPT_V1 using simple-authoring/CUTSCENE_SCRIPT_V1.schema.json, AUTHORING_RULES_CURRENT.json "
-        "and AUTHORING_HANDLES.json. V3/V5 remain backend layers; their existing profile/template metadata remains available to engineering."
+        "and AUTHORING_HANDLES.json. V3/V5 remain backend layers. Raw Animation identities are backend compatibility only."
+    )
+    usage["visualAuthoring"] = (
+        "For normal visual authoring, select a direct handle and inspect the exact atlasPage/atlasSlot stored on that handle. "
+        "FULL_VISUAL_INDEX and ASSET_VISUAL_LOOKUP remain engineering/debug fallbacks rather than required authoring hops."
     )
     usage["validation"] = (
         "Read CUTSCENE_VALIDATION_CURRENT.json before final JSON. blocksCompilation=true is a real blocker; "
@@ -351,8 +608,8 @@ def main():
     write_read_first(read_first_path, provenance["publishTransactionId"], registry_revision)
     changed.extend([chatgpt_start_path, read_first_path])
 
-    # Preserve the existing redundancy guard. The unified Atlas is the visual
-    # publication surface; category PDFs/index directories must not leak back in.
+    validate_authoring_projection(required_current)
+
     forbidden_pdfs = [ROOT / "full-visual-sheets" / f"{name}.pdf" for name in ("actor", "effect", "layer", "ui")]
     leaked = [str(path) for path in forbidden_pdfs if path.exists()]
     if (ROOT / "full-visual-index").exists():
@@ -367,6 +624,7 @@ def main():
             "OPEN_CURRENT.json",
             "director-view/DIRECTOR_VIEW.json",
             "DIRECTOR_PACK_MANIFEST.json",
+            "simple-authoring/AUTHORING_HANDLES.json",
             "simple-authoring/AUTHORING_RULES_CURRENT.json",
             "simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json",
         ):
@@ -376,6 +634,7 @@ def main():
         zip_open = json.loads(archive.read("OPEN_CURRENT.json").decode("utf-8-sig"))
         zip_director = json.loads(archive.read("director-view/DIRECTOR_VIEW.json").decode("utf-8-sig"))
         zip_manifest = json.loads(archive.read("DIRECTOR_PACK_MANIFEST.json").decode("utf-8-sig"))
+        zip_handles = json.loads(archive.read("simple-authoring/AUTHORING_HANDLES.json").decode("utf-8-sig"))
         zip_rules = json.loads(archive.read("simple-authoring/AUTHORING_RULES_CURRENT.json").decode("utf-8-sig"))
         for label, payload in (
             ("OPEN_CURRENT", zip_open),
@@ -390,9 +649,14 @@ def main():
                 raise SystemExit(f"{label} in Director pack has stale publication provenance")
         if zip_rules.get("requiredCurrent") != required_current:
             raise SystemExit("AUTHORING_RULES_CURRENT in Director pack has stale requiredCurrent")
+        if zip_handles.get("requiredCurrent") != required_current:
+            raise SystemExit("AUTHORING_HANDLES in Director pack has stale requiredCurrent")
+        if any(entry.get("route") == "Animation" for entry in zip_handles.get("handles") or []):
+            raise SystemExit("Director pack leaked raw Animation handles into Simple V1 authoring surface")
 
     print("ATOMIC_CURRENT_SEALED")
     print("SIMPLE_V1_FRONT_DOOR_SEALED")
+    print("SIMPLE_V1_AUTHORING_GATE_PASS")
     print("REQUIRED_CURRENT", json.dumps(required_current, sort_keys=True))
     print("ATOMIC_IDENTITY", json.dumps(expected_identity, sort_keys=True))
 
