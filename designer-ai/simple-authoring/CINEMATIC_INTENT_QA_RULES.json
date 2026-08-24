@@ -2,14 +2,54 @@
   "schema": "STARWARS_DELTA_CINEMATIC_INTENT_QA_RULES",
   "schemaVersion": 2,
   "status": "ACTIVE_SIMPLE_V1_SEMANTIC_EXPANSION",
-  "purpose": "Pre-Unity cinematic-intent QA for CUTSCENE_SCRIPT_V1. These checks protect authoring truth and do not replace Unity validation. Recoverable cinematic or presentation omissions are warnings; RED is reserved for integrity failures that cannot be materialized honestly.",
+  "purpose": "Pre-Unity cinematic-intent QA for CUTSCENE_SCRIPT_V1. These checks protect authoring truth and do not replace Unity validation. The status model is GREEN exact, YELLOW deterministic auto-repair/minor, ORANGE visible semantic or preview degradation, RED only when an honest result cannot safely continue.",
+  "validationStatusModel": {
+    "principle": "Color describes what happens to the film; owner describes who can fix it. Only RED blocks Editable Preview.",
+    "green": {
+      "label": "EXACT",
+      "meaning": "The authored intent can be represented as requested.",
+      "blocksEditablePreview": false,
+      "blocksFinalReadiness": false
+    },
+    "yellow": {
+      "label": "AUTO_REPAIRED",
+      "meaning": "The backend changed or supplied a deterministic low-level mechanic without materially changing visible semantic intent.",
+      "blocksEditablePreview": false,
+      "blocksFinalReadiness": false
+    },
+    "orange": {
+      "label": "SEMANTIC_DEVIATION",
+      "meaning": "The film can continue, but the visible result or preview differs materially from authored intent. Never substitute another identity to hide the deviation.",
+      "blocksEditablePreview": false,
+      "blocksFinalReadiness": true
+    },
+    "red": {
+      "label": "CANNOT_SAFELY_PRODUCE",
+      "meaning": "No honest legal result can continue without invalid identity, invented data, incompatible CURRENT truth, or unrecoverable semantic corruption.",
+      "blocksEditablePreview": true,
+      "blocksFinalReadiness": true
+    }
+  },
+  "ownershipModel": {
+    "AUTHORING": "The JSON/CURRENT authoring choice is invalid and ChatGPT can fix it from published authoring truth.",
+    "BACKEND": "The backend owns the deterministic normalization/default.",
+    "ENGINE": "The authored identity is valid but Unity/editor/runtime execution could not realize it. Do not tell ChatGPT to change valid JSON merely to hide this.",
+    "rule": "A known exact CURRENT identity that later fails resolver/materialization is ENGINE-owned. For Editable Preview it is ORANGE with an explicit placeholder/omission and no substitute; it is not an AUTHORING RED."
+  },
+  "editablePreviewGate": {
+    "blockOnlyOnRed": true,
+    "allowYellow": true,
+    "allowOrange": true,
+    "orangeBehavior": "Continue Editable Preview using an explicit diagnostic placeholder or omission owned by the preview/materializer. Preserve the exact authored identity in diagnostics. Do not select a replacement asset.",
+    "freezeAcceptedJson": "Once authoring integrity is accepted, downstream YELLOW/ORANGE engine findings do not require regenerating or rewriting the source JSON."
+  },
   "validationSeverityPolicy": {
     "defaultForRecoverablePresentationIssues": "Warning",
     "continueCompilationOnWarnings": true,
     "redIsReservedFor": [
       "unknown or ambiguous CURRENT identity/handle",
       "stale or incompatible CURRENT identity",
-      "destination route/capability mismatch that cannot be materialized legally",
+      "destination route/capability mismatch that cannot be materialized or honestly degraded",
       "unsupported Emotional Dialogue speaker/listener/identityHandle/expression",
       "schema or semantic corruption with no deterministic legal repair",
       "invented visual/3D evidence that contradicts CURRENT"
@@ -17,12 +57,19 @@
     "warningExamples": [
       "missing explicit low-level dialogue-stage background when the backend has a deterministic legal stage default",
       "missing explicit dialogue frame when the backend has a deterministic legal frame default",
+      "backend-selected locked dialogue normalizes authored Push/Pull to legal Hold",
       "presentation repetition",
       "camera or continuity polish issues",
       "recoverable performance intent",
       "optional cinematic evidence weakness"
     ],
-    "principle": "Do not turn ordinary authoring incompleteness into RED when the existing backend can repair it deterministically without changing identity or inventing assets. Warn, repair through the existing owner, and continue."
+    "orangeExamples": [
+      "a legal authored cinematic move must be visibly downgraded to a different legal move",
+      "a valid exact CURRENT visual cannot be materialized in Editable Preview and is shown as an explicit missing/diagnostic placeholder",
+      "a legal exact dialogue presentation lacks preview pixel evidence, so the exact portrait cannot be shown",
+      "a requested visible count or presentation cannot be fully realized but the rest of the cutscene can continue honestly"
+    ],
+    "principle": "Do not turn backend or engine implementation failures into authoring RED when the source identity is legal. YELLOW is invisible/minor deterministic repair; ORANGE is visible deviation or degraded preview; RED means the cutscene cannot safely continue."
   },
   "dialogueStageContract": {
     "simpleV1Boundary": "Simple V1 authors semantic dialogue, exact curated participants, locationHandle/presentation intent and story context. It does not invent V5 dialogue-frame or stage-background runtime IDs merely to satisfy lower-level staging mechanics.",
@@ -59,10 +106,13 @@
     { "code": "DIALOGUE_WORLD_EVIDENCE_LOST", "severity": "Warning", "scope": "beat", "description": "Dialogue presentation removes world evidence that the beat still depends on." },
     { "code": "DIALOGUE_STAGE_BACKGROUND_DEFAULTED", "severity": "Warning", "scope": "dialogue", "description": "A FACE_TO_FACE_PORTRAITS dialogue beat omitted an explicit low-level stage background. The existing dialogue-stage owner may inject its deterministic legal full-frame background and compilation should continue." },
     { "code": "DIALOGUE_STAGE_FRAME_DEFAULTED", "severity": "Warning", "scope": "dialogue", "description": "A FACE_TO_FACE_PORTRAITS dialogue beat omitted an explicit low-level dialogue frame. The existing dialogue-stage owner may inject its deterministic legal frame and compilation should continue." },
+    { "code": "DIALOGUE_CAMERA_DEFAULTED_FOR_LOCKED_STAGE", "severity": "Warning", "scope": "dialogue/camera", "description": "Simple V1 authored a semantic Push/Pull but the backend selected locked dialogue staging; compiled camera coverage is deterministically normalized to legal Hold. Source intent remains in diagnostic metadata." },
     { "code": "DIALOGUE_STAGE_UNRESOLVABLE", "severity": "Error", "scope": "dialogue", "description": "The requested dialogue presentation cannot obtain a legal deterministic stage/background/frame through the existing dialogue-stage owner. Do not invent arbitrary Layer/Ui assets or change character identity to silence this error." },
+    { "code": "EXACT_ASSET_PREVIEW_MATERIALIZATION_FAILED", "severity": "Orange", "scope": "actor/visual", "description": "The exact authored CURRENT identity is valid and preview-safe, but the editor/materializer could not realize it. Editable Preview continues with an explicit diagnostic placeholder or omission; no replacement identity is selected." },
+    { "code": "SEMANTIC_PRESENTATION_DEGRADED", "severity": "Orange", "scope": "beat/camera/visual", "description": "A legal cutscene can continue, but a visible authored intent cannot be reproduced exactly and is downgraded to a disclosed legal presentation." },
     { "code": "PRESENTATION_REPETITION", "severity": "Warning", "scope": "sequence", "description": "Three or more consecutive dialogue beats reuse effectively the same presentation, framing and transition." },
-    { "code": "STORY_EVIDENCE_MISSING", "severity": "Warning", "scope": "beat", "description": "A major physical story claim has no corresponding visible/action/effect evidence." },
-    { "code": "CINEMATIC_MOVE_NOT_EVIDENCED", "severity": "Warning", "scope": "beat", "description": "cinematicMove is declared but the beat contains no staging/camera/action evidence that expresses it." }
+    { "code": "STORY_EVIDENCE_MISSING", "severity": "Orange", "scope": "beat", "description": "A major physical story claim lacks corresponding visible/action/effect evidence. The preview may continue, but the film will not communicate the authored claim as intended." },
+    { "code": "CINEMATIC_MOVE_NOT_EVIDENCED", "severity": "Orange", "scope": "beat", "description": "cinematicMove is declared but the beat contains no staging/camera/action evidence that expresses it. The preview may continue, but visible intent is degraded." }
   ],
   "motionIntentKeywords": ["flyby", "approach", "orbit", "intercept", "pass_camera", "bank_away", "pursuit", "escort", "rescue_approach", "formation_break", "landing", "takeoff", "circle_target", "escape", "convoy", "run_to_safety", "gather", "follow", "scatter", "look_up", "help", "enter_shelter"],
   "hardAuthoringInvariants": [
@@ -71,8 +121,11 @@
     "Unknown or ambiguous handles remain RED.",
     "Audio handles must resolve to route Audio.",
     "Emotional Dialogue actorId/identityHandle/expression legality remains RED when invalid; presentation defaults never weaken identity rules.",
-    "Missing low-level FACE_TO_FACE_PORTRAITS background/frame is WARNING when the existing backend has a deterministic legal stage default; it is RED only when no legal stage can be resolved.",
+    "Missing low-level FACE_TO_FACE_PORTRAITS background/frame is YELLOW when the existing backend has a deterministic legal stage default; it is RED only when no legal stage can be resolved.",
+    "Backend-selected locked-dialogue camera incompatibility is normalized before V3 validation and reported YELLOW; V3's invariant itself remains unchanged.",
+    "Known exact CURRENT identity plus downstream preview resolver/materialization failure is ENGINE ORANGE for Editable Preview, not AUTHORING RED. Keep exact identity and use no substitute.",
+    "ORANGE never silently changes identity. It must preserve authored truth and disclose the visible deviation.",
     "Orbit means legal 2D/2.5D screen/parallax evidence, never invented 3D.",
-    "Preview success is not publish readiness when any referenced CURRENT record has safeForPublish=false."
+    "Preview success is not final readiness when ORANGE exists or any referenced CURRENT record has safeForPublish=false."
   ]
 }
