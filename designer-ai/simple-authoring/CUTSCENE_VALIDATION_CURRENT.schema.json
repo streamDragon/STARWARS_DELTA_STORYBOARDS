@@ -4,13 +4,20 @@
   "title": "STARWARS_DELTA Cutscene Validation CURRENT",
   "description": "Published authoring-facing projection of Unity Cutscene validation. Unity remains the final validator. GREEN/YELLOW/ORANGE/RED describe film outcome; owner describes who can fix the issue.",
   "type": "object",
-  "required": ["schema","schemaVersion","status","publishTransactionId","requiredCurrent","rules"],
+  "required": [
+    "schema",
+    "schemaVersion",
+    "status",
+    "publishTransactionId",
+    "requiredCurrent",
+    "rules"
+  ],
   "properties": {
     "schema": { "const": "STARWARS_DELTA_CUTSCENE_VALIDATION_CURRENT" },
     "schemaVersion": { "const": 1 },
     "status": { "const": "CURRENT_VERIFIED_CUTSCENE_VALIDATION" },
     "publishTransactionId": { "type": "string", "minLength": 1 },
-    "catalogRevision": { "type": ["string","number"] },
+    "catalogRevision": { "type": "string", "pattern": "^[0-9]+$" },
     "revision": { "type": "string" },
     "generatedUtc": { "type": "string" },
     "authoringPolicy": {
@@ -27,7 +34,7 @@
       "type": "object",
       "required": ["catalogRevision","contractRevision","schemaHash","snapshotContentHash","authoringRuleRegistryRevision"],
       "properties": {
-        "catalogRevision": { "type": ["string","number"] },
+        "catalogRevision": { "type": "string", "pattern": "^[0-9]+$" },
         "contractRevision": { "type": "string", "minLength": 1 },
         "schemaHash": { "type": "string", "minLength": 1 },
         "snapshotContentHash": { "type": "string", "minLength": 1 },
@@ -50,7 +57,7 @@
           "diagnosticCode": { "type": "string", "minLength": 1 },
           "code": { "type": "string", "minLength": 1 },
           "category": { "type": "string" },
-          "severity": { "enum": ["Info","Warning","Orange","Error"] },
+          "severity": { "enum": ["Blocker","Warning","Default","AutoRepair"] },
           "statusColor": { "enum": ["Green","Yellow","Orange","Red"] },
           "owner": { "enum": ["AUTHORING","BACKEND","ENGINE"] },
           "blocksCompilation": { "type": "boolean" },
