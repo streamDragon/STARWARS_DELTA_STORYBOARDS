@@ -33,7 +33,7 @@
     "beat": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "type"],
+      "required": ["id", "type", "durationSeconds", "evidence"],
       "properties": {
         "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
         "type": { "enum": ["establishing", "arrival", "dialogue", "battle", "destruction", "retreat", "celebration", "threat_reveal", "launch", "evacuation", "transition", "custom"] },
@@ -51,7 +51,7 @@
         "camera": { "$ref": "#/$defs/camera" },
         "transition": { "$ref": "#/$defs/transition" },
         "continuity": { "$ref": "#/$defs/continuity" },
-        "evidence": { "type": "string", "description": "Plain-language visible proof required from the compiled beat." }
+        "evidence": { "type": "string", "minLength": 1, "description": "Required plain-language audience-observable proof for this beat. It must state what will actually be visible/audible that proves the beat's story claim or dramatic function; it is not backend bookkeeping." }
       }
     },
     "visibleElement": {
@@ -91,7 +91,7 @@
         "viaHandle": { "type": "string" },
         "effectHandle": { "type": "string", "description": "Exact Effect handle for effect/impact authoring where applicable. Never use effectHandle to carry Cutscene projectile identity." },
         "projectileId": {
-          "enum": ["CS_PROJECTILE_BLUE_BOLT", "CS_PROJECTILE_PURPLE_BOLT", "CS_PROJECTILE_POWERBALL"],
+          "enum": ["CS_PROJECTILE_LASER", "CS_PROJECTILE_AXE", "CS_PROJECTILE_ROCKET"],
           "description": "Exact closed-world Cutscene projectile identity. Required for type=fire Simple V1 actions that lower to VisualWeaponAction. Unsupported explicit IDs block with CUTSCENE_PROJECTILE_NOT_AUTHORING_READY. No gameplay, filename, effectHandle or fuzzy fallback."
         },
         "count": { "type": "integer", "minimum": 1, "description": "For type=fire, maps directly to the VisualWeaponAction / launcher burst count." },
