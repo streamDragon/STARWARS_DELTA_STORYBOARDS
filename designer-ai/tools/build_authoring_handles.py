@@ -276,6 +276,7 @@ def main():
 
             source_safe_for_publish = entry.get("safeForPublish")
             projected_safe_for_publish = authoring_safe_for_publish(entry, route)
+            animation_ids = entry.get("compatibleAnimationIds") or []
             entries.append({
                 "handle": handle,
                 "runtimeHash": runtime_hash(rid),
@@ -301,8 +302,8 @@ def main():
                 "atlasSlot": None if route == "Audio" else visual.get("atlasSlot"),
                 "pageImageUrl": None if route == "Audio" else visual.get("pageImageUrl"),
                 "atlasPdfUrl": None if route == "Audio" else visual.get("atlasPdfUrl"),
-                "compatibleAnimationIds": entry.get("compatibleAnimationIds") or [],
-                "compatibleDialogueVisualIds": entry.get("compatibleDialogueVisualIds") or [],
+                "hasCompatibleAnimation": bool(animation_ids) if route == "Actor" else False,
+                "compatibleAnimationCount": len(animation_ids) if route == "Actor" else 0,
             })
 
     counts_by_route = Counter(entry["route"] for entry in entries)
@@ -359,6 +360,11 @@ def main():
 
     if backend_runtime_ids["Animation"] and any(entry["route"] == "Animation" for entry in entries):
         raise SystemExit("AUTHORING_HANDLES_ANIMATION_LEAK: backend-only Animation reached direct Simple V1 handles")
+    if any(
+        "compatibleAnimationIds" in entry or "compatibleDialogueVisualIds" in entry
+        for entry in entries
+    ):
+        raise SystemExit("AUTHORING_HANDLES_BACKEND_ID_LEAK: raw backend compatibility IDs reached direct Simple V1 handles")
     if counts_by_route.get("Audio", 0) <= 0:
         raise SystemExit("AUTHORING_HANDLES_AUDIO_EMPTY: CURRENT exposes no legal direct Audio handles")
 
@@ -380,7 +386,7 @@ def main():
 
     payload = {
         "schema": "STARWARS_DELTA_AUTHORING_HANDLES",
-        "schemaVersion": 4,
+        "schemaVersion": 5,
         "purpose": "Direct semantic authoring handles for CUTSCENE_SCRIPT_V1 only. Backend compatibility identities such as raw Animation clips remain in Director/CURRENT engineering data and are intentionally excluded from this Devora-facing selection surface.",
         "authorabilityPolicy": {
             "directRoutes": sorted(DIRECT_AUTHORING_ROUTES),
@@ -395,7 +401,7 @@ def main():
             "unknownHandle": "REAL BLOCKER",
             "ambiguousRuntimeHash": "REAL BLOCKER",
             "recommendableCoverage": "Every direct-authorable RECOMMENDABLE visual Director identity resolves to exactly one direct handle on its allowed route.",
-            "animationCoverage": "Animation compatibility remains available in Director/CURRENT engineering data, but raw Animation identities are not serialized as Simple V1 handles.",
+            "animationCoverage": "Animation compatibility remains available in Director/CURRENT engineering data. Devora receives only hasCompatibleAnimation/compatibleAnimationCount, never raw Animation identities.",
             "visualEvidence": "Every direct visual handle includes exact atlasPage/atlasSlot derived from the published Director visualEvidence.",
             "audioPublishSafety": "Audio is non-visual. Exact CURRENT identity + Audio allowedUse + Cutscene.Audio + preview safety + no blocker/error severity is publish-safe without Vision review. sourceSafeForPublish preserves the original Catalog projection."
         },
