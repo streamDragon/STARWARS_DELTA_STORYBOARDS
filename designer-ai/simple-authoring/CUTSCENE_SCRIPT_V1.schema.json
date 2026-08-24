@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "STARWARS_DELTA_CUTSCENE_SCRIPT_V1",
   "title": "STARWARS_DELTA Cutscene Script V1",
-  "description": "Backward-compatible semantic cutscene authoring format. ChatGPT authors story, narrative identity, visible evidence, frame-relative composition, semantic actor motion, performance, continuity and legal audio handles. General cast identities use authoritative CURRENT Actor handles. Dialogue participants are the deliberate exception: they use only curated identityHandle values published by EMOTIONAL_DIALOGUE_CURRENT.json. Unity owns CURRENT fingerprints, runtime IDs, exact V3/V5 materialization, camera bounds, supported runtime motion lowering and final serialization. Semantic motion names do not imply stronger target-relative runtime behavior than the current V5 Timeline supports.",
+  "description": "Backward-compatible semantic cutscene authoring format. ChatGPT authors story, narrative identity, visible evidence, frame-relative composition, semantic actor motion, performance, continuity, closed-world Cutscene projectile selection and legal audio handles. General cast identities use authoritative CURRENT Actor handles. Dialogue participants are the deliberate exception: they use only curated identityHandle values published by EMOTIONAL_DIALOGUE_CURRENT.json. Unity owns CURRENT fingerprints, runtime IDs, exact V3/V5 materialization, camera bounds, launcher/muzzle mechanics, supported runtime motion lowering and final serialization. Semantic motion names do not imply stronger target-relative runtime behavior than the current V5 Timeline supports.",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema", "schemaVersion", "title", "durationSeconds", "beats"],
@@ -89,8 +89,12 @@
         "subject": { "type": "string" },
         "target": { "type": "string" },
         "viaHandle": { "type": "string" },
-        "effectHandle": { "type": "string" },
-        "count": { "type": "integer", "minimum": 1 },
+        "effectHandle": { "type": "string", "description": "Exact Effect handle for effect/impact authoring where applicable. Never use effectHandle to carry Cutscene projectile identity." },
+        "projectileId": {
+          "enum": ["CS_PROJECTILE_BLUE_BOLT", "CS_PROJECTILE_PURPLE_BOLT", "CS_PROJECTILE_POWERBALL"],
+          "description": "Exact closed-world Cutscene projectile identity. Required for type=fire Simple V1 actions that lower to VisualWeaponAction. Unsupported explicit IDs block with CUTSCENE_PROJECTILE_NOT_AUTHORING_READY. No gameplay, filename, effectHandle or fuzzy fallback."
+        },
+        "count": { "type": "integer", "minimum": 1, "description": "For type=fire, maps directly to the VisualWeaponAction / launcher burst count." },
         "motionIntent": { "enum": ["move", "flyby", "approach", "orbit", "intercept", "pass_camera", "bank_away", "pursuit", "escort", "rescue_approach", "formation_break", "landing", "takeoff", "circle_target", "escape", "convoy", "run_to_safety", "gather", "follow", "scatter", "look_up", "help", "enter_shelter"], "description": "Semantic motion request lowered by Unity into existing V5 actorActions. motionIntent=orbit maps to real V5 Actor Orbit. Current Actor Orbit v1 uses a fixed/stationary center and cannot overlap movement of its target/center actor. Pursuit/Escort/Intercept names do not by themselves guarantee per-frame target-relative tracking." },
         "trajectory": { "enum": ["linear", "arc", "curve", "orbit_like", "zigzag", "drift", "screen_parallax"] },
         "travelDirection": { "enum": ["left_to_right", "right_to_left", "toward_camera", "away_from_camera", "clockwise", "counterclockwise", "none"] },
@@ -98,7 +102,20 @@
         "performanceIntent": { "type": "string" },
         "animationIntent": { "type": "string" },
         "result": { "type": "string" }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "type": { "const": "fire" } },
+            "required": ["type"]
+          },
+          "then": { "required": ["projectileId"] }
+        },
+        {
+          "if": { "required": ["projectileId"] },
+          "then": { "properties": { "type": { "const": "fire" } } }
+        }
+      ]
     },
     "dialogueLine": {
       "type": "object",
