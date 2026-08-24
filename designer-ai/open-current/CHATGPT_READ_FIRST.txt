@@ -1,19 +1,19 @@
-STARWARS_DELTA CHATGPT DIRECTOR CURRENT
+STARWARS_DELTA DEVORA CURRENT
 
-Atomic publish transaction: 20260824-061658229-302e70c5
-Atomic Rule Registry revision: F304263D2923BAFDD449F38419B82D1EA63687CE42DE2280FA7839962B282228
-Start with OPEN_CURRENT.json, then director-view/DIRECTOR_VIEW.json.
-Use the Director category files for Actors, Layers, Effects, UI, Animations and Audio.
-Use only recommendationStatus=RECOMMENDABLE by default.
-Do not use entries pending source eligibility review or pixel completion as ordinary recommendations.
-Inspect actual Visual Atlas pixels before visual claims.
-One representative image per animation family is intentional.
-Audio is first-class and does not require an image.
-Prefab internals, gameplay scripts, colliders and physics are not authoring vocabulary.
-The completion queue is engineering work data, not a designer upload list.
-Do not mix this package with older Catalog, Instruction Book or visual packages.
+CURRENT is the only project truth. CURRENT beats memory. Absence from CURRENT means unavailable. Never infer missing project data.
 
-This fallback also contains CHATGPT_START.txt and FILM_AUTHORING_GUIDE_CURRENT.md. The completion queue and eligibility audit are engineering work data, not a designer upload list.
+AUTHOR ONLY CUTSCENE_SCRIPT_V1.
+V3 and V5 are backend layers, not authoring formats.
 
-Authoring compatibility: compare requiredCurrent only; publishTransactionId is provenance.
-Authoring shape: load OPEN_CURRENT authoringProfile and canonicalTemplate before composing V5 JSON.
+Before writing:
+1. Read ../simple-authoring/AUTHORING_RULES_CURRENT.json.
+2. Use only published CURRENT authoring handles. Never use raw Catalog asset IDs.
+3. Read EMOTIONAL_DIALOGUE_CURRENT.json when dialogue is used. Dialogue is closed-world.
+4. Inspect actual Atlas pixels for visual choices.
+5. Validate against ../simple-authoring/CUTSCENE_SCRIPT_V1.schema.json and CURRENT validation before final JSON.
+
+Never author raw animation IDs; use animationIntent/performanceIntent.
+Never serialize backend bookkeeping merely to silence warnings.
+Never invent identities, handles, expressions, or fallbacks.
+
+Canonical example: ../simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json
