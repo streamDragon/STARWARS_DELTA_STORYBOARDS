@@ -113,8 +113,7 @@ def normalized_required_current(current):
     if missing:
         raise SystemExit("CURRENT requiredCurrent is incomplete: " + ", ".join(missing))
 
-    # catalogRevision is an opaque 64-bit identity. It must never travel through
-    # JavaScript as a JSON number because Number cannot preserve all 64-bit ints.
+    # This value is an opaque 64-bit identity. JS Number cannot preserve it.
     source["catalogRevision"] = str(source["catalogRevision"])
     for key in REQUIRED_CURRENT_KEYS[1:]:
         source[key] = str(source[key])
@@ -125,7 +124,9 @@ def normalize_catalog_revision(payload, required_current):
     if "catalogRevision" in payload and payload.get("catalogRevision") is not None:
         payload["catalogRevision"] = str(payload["catalogRevision"])
     if isinstance(payload.get("requiredCurrent"), dict):
-        payload["requiredCurrent"]["catalogRevision"] = str(payload["requiredCurrent"].get("catalogRevision", required_current["catalogRevision"]))
+        payload["requiredCurrent"]["catalogRevision"] = str(
+            payload["requiredCurrent"].get("catalogRevision", required_current["catalogRevision"])
+        )
     if isinstance(payload.get("atomicIdentity"), dict) and payload["atomicIdentity"].get("catalogRevision") is not None:
         payload["atomicIdentity"]["catalogRevision"] = str(payload["atomicIdentity"]["catalogRevision"])
     return payload
@@ -237,6 +238,11 @@ def main():
     if str(registry.get("revision") or "").strip() != registry_revision:
         raise SystemExit("CURRENT authoringRuleRegistryRevision does not match authoringRuleRegistry.revision")
 
+    authoring_profile = current.get("authoringProfile") or {}
+    canonical_template = current.get("canonicalTemplate") or {}
+    if not authoring_profile.get("downloadUrl") or not canonical_template.get("downloadUrl"):
+        raise SystemExit("CURRENT is missing authoringProfile/canonicalTemplate release URLs")
+
     required_current = normalized_required_current(current)
     if required_current["authoringRuleRegistryRevision"] != registry_revision:
         raise SystemExit("Rule Registry revision does not match CURRENT requiredCurrent")
@@ -289,14 +295,12 @@ def main():
         payload["provenance"] = provenance
         payload["atomicIdentity"] = expected_identity
 
-    # Keep existing backend artifacts discoverable, but make the author-facing
-    # contract unambiguous: Simple V1 is the only normal authoring surface.
-    if current.get("authoringProfile"):
-        open_manifest["backendAuthoringProfile"] = current.get("authoringProfile")
-        pack_manifest["backendAuthoringProfile"] = current.get("authoringProfile")
-    if current.get("canonicalTemplate"):
-        open_manifest["backendCanonicalTemplate"] = current.get("canonicalTemplate")
-        pack_manifest["backendCanonicalTemplate"] = current.get("canonicalTemplate")
+    # Preserve the existing backend metadata/API exactly. Simple V1 is added as
+    # the author-facing front door, not substituted for the backend contracts.
+    open_manifest["authoringProfile"] = authoring_profile
+    open_manifest["canonicalTemplate"] = canonical_template
+    pack_manifest["authoringProfile"] = authoring_profile
+    pack_manifest["canonicalTemplate"] = canonical_template
 
     open_manifest["simpleAuthoring"] = {
         "format": "CUTSCENE_SCRIPT_V1",
@@ -311,9 +315,13 @@ def main():
         "Studio NEW/REVISE/REPAIR compares requiredCurrent only: catalogRevision, contractRevision, schemaHash, "
         "snapshotContentHash and authoringRuleRegistryRevision. publishTransactionId is provenance only."
     )
+    usage["atomicIdentity"] = (
+        "atomicIdentity is strict publication-integrity metadata for one generated CURRENT transaction. "
+        "Do not use publishTransactionId as the normal Studio authoring-compatibility gate; use requiredCurrent."
+    )
     usage["authoringShape"] = (
         "Author CUTSCENE_SCRIPT_V1 using simple-authoring/CUTSCENE_SCRIPT_V1.schema.json, AUTHORING_RULES_CURRENT.json "
-        "and AUTHORING_HANDLES.json. Do not author backend V3/V5 bookkeeping."
+        "and AUTHORING_HANDLES.json. V3/V5 remain backend layers; their existing profile/template metadata remains available to engineering."
     )
     usage["validation"] = (
         "Read CUTSCENE_VALIDATION_CURRENT.json before final JSON. blocksCompilation=true is a real blocker; "
@@ -343,6 +351,15 @@ def main():
     write_read_first(read_first_path, provenance["publishTransactionId"], registry_revision)
     changed.extend([chatgpt_start_path, read_first_path])
 
+    # Preserve the existing redundancy guard. The unified Atlas is the visual
+    # publication surface; category PDFs/index directories must not leak back in.
+    forbidden_pdfs = [ROOT / "full-visual-sheets" / f"{name}.pdf" for name in ("actor", "effect", "layer", "ui")]
+    leaked = [str(path) for path in forbidden_pdfs if path.exists()]
+    if (ROOT / "full-visual-index").exists():
+        leaked.append(str(ROOT / "full-visual-index"))
+    if leaked:
+        raise SystemExit("Redundant visual publication artifacts leaked into CURRENT: " + ", ".join(leaked))
+
     replace_pack_entries(pack_path, changed)
 
     with zipfile.ZipFile(pack_path, "r") as archive:
@@ -369,6 +386,8 @@ def main():
                 raise SystemExit(f"{label} in Director pack has stale atomic identity")
             if payload.get("requiredCurrent") != required_current:
                 raise SystemExit(f"{label} in Director pack has stale requiredCurrent")
+            if payload.get("provenance", {}).get("publishTransactionId") != provenance["publishTransactionId"]:
+                raise SystemExit(f"{label} in Director pack has stale publication provenance")
         if zip_rules.get("requiredCurrent") != required_current:
             raise SystemExit("AUTHORING_RULES_CURRENT in Director pack has stale requiredCurrent")
 
