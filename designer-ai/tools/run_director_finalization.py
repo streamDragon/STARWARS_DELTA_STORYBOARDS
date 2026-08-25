@@ -506,8 +506,8 @@ def postprocess_output():
     queue.setdefault("summary", {})["sourceEligibilityReviewTotal"] = len(eligibility_reviews)
     BASE.write_json(queue_path, queue)
 
-    source_instruction = pathlib.Path("designer-ai/CHATGPT_START.txt")
-    source_guide = pathlib.Path("designer-ai/FILM_AUTHORING_GUIDE_CURRENT.md")
+    source_instruction = pathlib.Path("designer-ai/tools/current-source/CHATGPT_START.txt")
+    source_guide = pathlib.Path("designer-ai/tools/current-source/FILM_AUTHORING_GUIDE_CURRENT.md")
     staged_instruction = root / "CHATGPT_START.txt"
     staged_guide = root / "FILM_AUTHORING_GUIDE_CURRENT.md"
     if not source_instruction.is_file() or not source_guide.is_file():
@@ -589,3 +589,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
