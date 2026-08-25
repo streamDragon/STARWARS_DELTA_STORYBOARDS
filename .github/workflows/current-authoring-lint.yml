@@ -5,6 +5,8 @@ on:
   push:
     branches: [main]
     paths:
+      - 'designer-ai/current.json'
+      - 'designer-ai/open-current/**'
       - 'designer-ai/CHATGPT_START.txt'
       - 'designer-ai/FILM_AUTHORING_GUIDE_CURRENT.md'
       - 'designer-ai/ARCHITECTURE.md'
@@ -98,7 +100,34 @@ jobs:
           assert source.get('publishTransactionId') == current.get('publishTransactionId'), 'COMMITTED_CURRENT_TRANSACTION_MISMATCH'
           assert source.get('requiredCurrent') == current.get('requiredCurrent'), 'COMMITTED_CURRENT_FINGERPRINT_MISMATCH'
 
+          registry_rules = (source.get('authoringRuleRegistry') or {}).get('rules') or []
+          generated_rule = next((r for r in registry_rules if r.get('ruleId') == 'GENERATED_ROOT_EXCLUSION'), None)
+          assert generated_rule is not None, 'GENERATED_ROOT_EXCLUSION_RULE_MISSING'
+          assert generated_rule.get('blocksFinalReadiness') is True, 'GENERATED_ROOT_EXCLUSION_NOT_BLOCKING_FINAL_READINESS'
+          assert generated_rule.get('regressionTestId') == 'GENERATED_ROOT_EXCLUSION', 'GENERATED_ROOT_EXCLUSION_REGRESSION_ID_DRIFT'
+
+          generated_root = 'Assets/_Game/MY_Core/MY_Data/Cutscenes/Generated'
+          public_projection_paths = [
+              root / 'open-current' / 'ASSET_VISUAL_LOOKUP.json',
+              root / 'open-current' / 'FULL_VISUAL_INDEX.json',
+              root / 'open-current' / 'VISUAL_UNAVAILABLE.json',
+              root / 'open-current' / 'simple-authoring' / 'AUTHORING_HANDLES.json',
+          ]
+          director_dir = root / 'open-current' / 'director-view'
+          for name in ('actors.json', 'animations.json', 'asset-lookup.json', 'audio.json', 'effects.json', 'layers.json', 'ui.json'):
+              public_projection_paths.append(director_dir / name)
+
+          leaked = []
+          for path in public_projection_paths:
+              if not path.is_file():
+                  continue
+              if generated_root in path.read_text(encoding='utf-8-sig', errors='replace'):
+                  leaked.append(str(path))
+          assert not leaked, 'GENERATED_CUTSCENE_SOURCE_LEAK_IN_PUBLIC_CURRENT: ' + ', '.join(leaked)
+
           print('CURRENT_AUTHORING_SOURCE_LINT_PASS')
           print('PROJECTILES', projectile)
           print('CURRENT', source.get('publishTransactionId'))
+          print('GENERATED_ROOT_EXCLUSION_RULE', generated_rule.get('regressionTestId'))
+          print('GENERATED_ROOT_PUBLIC_PROJECTION_LEAKS', len(leaked))
           PY
