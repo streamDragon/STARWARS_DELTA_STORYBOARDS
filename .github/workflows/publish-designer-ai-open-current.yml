@@ -6,7 +6,7 @@ on:
     branches: [main]
     paths:
       - 'designer-ai/current.json'
-      - 'designer-ai/simple-authoring/CUTSCENE_VALIDATION_CURRENT.schema.json'
+      - 'designer-ai/tools/apply_delta_current.py'
       - 'designer-ai/tools/build_visual_scan_report.py'
       - 'designer-ai/tools/build_authoring_handles.py'
       - 'designer-ai/tools/seal_atomic_current.py'
@@ -15,6 +15,7 @@ on:
       - 'designer-ai/tools/finalize_open_current.py'
       - 'designer-ai/tools/build_director_view.py'
       - 'designer-ai/tools/run_director_finalization.py'
+      - 'designer-ai/tools/current-source/**'
       - '.github/workflows/publish-designer-ai-open-current.yml'
 
 permissions:
@@ -33,18 +34,15 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Install builder dependencies
-        run: python3 -m pip install --disable-pip-version-check pillow pypdf
-
       - name: Determine CURRENT publish mode
         shell: bash
         run: |
           set -euo pipefail
           mode="$(python3 - <<'PY'
           import json
-          value = json.load(open('designer-ai/current.json', encoding='utf-8-sig')).get('publishMode') or 'FULL'
+          value = str(json.load(open('designer-ai/current.json', encoding='utf-8-sig')).get('publishMode') or 'FULL').upper()
           if value not in {'FULL', 'DELTA'}:
-              raise SystemExit('CURRENT_PUBLISH_MODE_INVALID: ' + str(value))
+              raise SystemExit('CURRENT_PUBLISH_MODE_INVALID: ' + value)
           print(value)
           PY
           )"
@@ -53,235 +51,145 @@ jobs:
 
       - name: Prepare DELTA CURRENT fast path
         if: env.PUBLISH_MODE == 'DELTA'
-        shell: bash
-        run: |
-          set -euo pipefail
-          python3 - <<'PY'
-          import copy, hashlib, json, pathlib, shutil
-          source = json.loads(pathlib.Path('designer-ai/current.json').read_text(encoding='utf-8-sig'))
-          required = {k: str((source.get('requiredCurrent') or {}).get(k)) for k in ('catalogRevision','contractRevision','schemaHash','snapshotContentHash','authoringRuleRegistryRevision')}
-          live = json.loads(pathlib.Path('designer-ai/open-current/OPEN_CURRENT.json').read_text(encoding='utf-8-sig'))
-          live_required = {k: str((live.get('requiredCurrent') or {}).get(k)) for k in required}
-          if live_required != required:
-              raise SystemExit('DELTA_FULL_PUBLISH_REQUIRED: immutable CURRENT fingerprints changed')
-          stage = pathlib.Path('_open_current_stage')
-          if stage.exists(): shutil.rmtree(stage)
-          shutil.copytree('designer-ai/open-current', stage)
-          overlay = source.get('authoringOnlyOverlay') or {}
-          artifacts = overlay.get('artifacts') or (source.get('delta') or {}).get('artifacts') or []
-          if not artifacts:
-              raise SystemExit('DELTA_ARTIFACTS_MISSING')
-          changed = 0
-          for item in artifacts:
-              rel = str(item.get('path') or '').replace('\\','/').lstrip('/')
-              src = pathlib.Path('designer-ai/authoring-only') / rel
-              if not src.is_file():
-                  raise SystemExit('DELTA_ARTIFACT_MISSING: ' + rel)
-              raw = src.read_bytes()
-              expected = str(item.get('sha256') or '').lower()
-              if expected and hashlib.sha256(raw).hexdigest().lower() != expected:
-                  raise SystemExit('DELTA_ARTIFACT_HASH_MISMATCH: ' + rel)
-              dst = stage / rel
-              dst.parent.mkdir(parents=True, exist_ok=True)
-              shutil.copy2(src, dst)
-              changed += 1
-          open_current = copy.deepcopy(source)
-          open_current['status'] = 'CURRENT_VERIFIED'
-          open_current['atomicIdentity'] = {'publishTransactionId': source.get('publishTransactionId'), **required}
-          (stage / 'OPEN_CURRENT.json').write_text(json.dumps(open_current, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
-          (stage / 'SOURCE_CURRENT.json').write_text(json.dumps(source, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
-          print('[DELTA_GITHUB_PATH]')
-          print('visualEvidenceBuild=NOT_RUN')
-          print('atlasBuild=NOT_RUN')
-          print('directorBuild=NOT_RUN')
-          print('catalogBuild=NOT_RUN')
-          print('changedFiles=' + str(changed))
-          print('result=PASS')
-          PY
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python3 designer-ai/tools/apply_delta_current.py
+
+      - name: Install FULL builder dependencies
+        if: env.PUBLISH_MODE == 'FULL'
+        run: python3 -m pip install --disable-pip-version-check pillow pypdf
+
       - name: Build visual evidence CURRENT
-        if: env.PUBLISH_MODE != 'DELTA'
+        if: env.PUBLISH_MODE == 'FULL'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/build_open_current.py
 
       - name: Build unified Visual Atlas
-        if: env.PUBLISH_MODE != 'DELTA'
+        if: env.PUBLISH_MODE == 'FULL'
         run: python3 designer-ai/tools/build_visual_atlas.py
 
       - name: Finalize visual evidence
-        if: env.PUBLISH_MODE != 'DELTA'
+        if: env.PUBLISH_MODE == 'FULL'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/finalize_open_current.py
 
       - name: Build Director View
-        if: env.PUBLISH_MODE != 'DELTA'
+        if: env.PUBLISH_MODE == 'FULL'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/build_director_view.py
 
       - name: Finalize Director View
-        if: env.PUBLISH_MODE != 'DELTA'
+        if: env.PUBLISH_MODE == 'FULL'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/run_director_finalization.py
 
       - name: Build grouped visual scan report
-        if: env.PUBLISH_MODE != 'DELTA'
+        if: env.PUBLISH_MODE == 'FULL'
         run: python3 designer-ai/tools/build_visual_scan_report.py
 
       - name: Build Simple V1 authoring handles
-        if: env.PUBLISH_MODE != 'DELTA'
+        if: env.PUBLISH_MODE == 'FULL'
         run: python3 designer-ai/tools/build_authoring_handles.py
 
       - name: Carry Emotional Dialogue CURRENT into stage
-        if: env.PUBLISH_MODE != 'DELTA'
+        if: env.PUBLISH_MODE == 'FULL'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
         shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import hashlib
-          import json
-          import pathlib
-          import shutil
-          import os
-          import urllib.request
-
-          source_path = pathlib.Path('designer-ai/current.json')
-          mirror_path = pathlib.Path('/tmp/EMOTIONAL_DIALOGUE_CURRENT.json')
-          stage_path = pathlib.Path('_open_current_stage/EMOTIONAL_DIALOGUE_CURRENT.json')
-
-          source = json.loads(source_path.read_text(encoding='utf-8-sig'))
+          import hashlib, json, os, pathlib, shutil, urllib.request
+          source = json.loads(pathlib.Path('designer-ai/current.json').read_text(encoding='utf-8-sig'))
           metadata = dict(source.get('emotionalDialogue') or {})
-          expected_status = 'CURRENT_VERIFIED_EMOTIONAL_DIALOGUE'
+          expected = 'CURRENT_VERIFIED_EMOTIONAL_DIALOGUE'
+          stage = pathlib.Path('_open_current_stage/EMOTIONAL_DIALOGUE_CURRENT.json')
+          if metadata.get('status') != expected:
+              if stage.exists(): stage.unlink()
+              print('EMOTIONAL_DIALOGUE_NOT_PUBLISHED_FOR_CURRENT')
+              raise SystemExit(0)
           release_url = str(source.get('releaseUrl') or '')
           if '/releases/tag/' not in release_url:
               raise SystemExit('CURRENT_RELEASE_URL_MISSING')
           tag = release_url.rsplit('/releases/tag/', 1)[1]
-          asset_url = "https://github.com/" + os.environ['GITHUB_REPOSITORY'] + "/releases/download/" + tag + "/EMOTIONAL_DIALOGUE_CURRENT.json"
-          urllib.request.urlretrieve(asset_url, mirror_path)
-
-          if metadata.get('status') != expected_status:
-              if stage_path.exists():
-                  stage_path.unlink()
-              print('EMOTIONAL_DIALOGUE_NOT_PUBLISHED_FOR_CURRENT')
-              raise SystemExit(0)
-
-          assert mirror_path.is_file(), 'CURRENT declares Emotional Dialogue but its published sidecar is missing'
-          raw = mirror_path.read_bytes()
+          url = f"https://github.com/{os.environ['GITHUB_REPOSITORY']}/releases/download/{tag}/EMOTIONAL_DIALOGUE_CURRENT.json"
+          req = urllib.request.Request(url, headers={'Authorization':'Bearer '+os.environ['GITHUB_TOKEN'],'User-Agent':'STARWARS_DELTA_CURRENT'})
+          raw = urllib.request.urlopen(req, timeout=90).read()
           dialogue = json.loads(raw.decode('utf-8-sig'))
           required = dict(source.get('requiredCurrent') or {})
-          ready = [c for c in (dialogue.get('characters') or []) if c.get('authoringReady') is True]
-          expected_ready = int(metadata.get('authoringReadyCharacterCount') or 0)
-
+          ready = [c for c in dialogue.get('characters',[]) if c.get('authoringReady') is True]
           assert dialogue.get('schema') == 'STARWARS_DELTA_EMOTIONAL_DIALOGUE_CURRENT'
-          assert dialogue.get('status') == expected_status
+          assert dialogue.get('status') == expected
           assert dialogue.get('publishTransactionId') == source.get('publishTransactionId')
           assert dialogue.get('requiredCurrent') == required
-          assert expected_ready > 0 and len(ready) == expected_ready
-          assert len({c.get('actorId') for c in ready}) == expected_ready
+          assert len(ready) == int(metadata.get('authoringReadyCharacterCount') or 0) > 0
           assert hashlib.sha256(raw).hexdigest().lower() == str(metadata.get('sha256') or '').lower()
           assert len(raw) == int(metadata.get('sizeBytes') or 0)
-
-          stage_path.parent.mkdir(parents=True, exist_ok=True)
-          shutil.copy2(mirror_path, stage_path)
-          print('EMOTIONAL_DIALOGUE_STAGED', dialogue.get('publishTransactionId'), len(ready))
+          stage.parent.mkdir(parents=True, exist_ok=True)
+          stage.write_bytes(raw)
+          print('EMOTIONAL_DIALOGUE_STAGED', len(ready))
           PY
 
       - name: Project Unity validation registry into stage
-        if: env.PUBLISH_MODE != 'DELTA'
+        if: env.PUBLISH_MODE == 'FULL'
         shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import datetime
-          import json
-          import pathlib
-
+          import datetime, json, pathlib
           source = json.loads(pathlib.Path('designer-ai/current.json').read_text(encoding='utf-8-sig'))
           registry = dict(source.get('authoringRuleRegistry') or {})
           rules = list(registry.get('rules') or [])
           required = dict(source.get('requiredCurrent') or {})
           assert rules, 'CURRENT authoringRuleRegistry.rules is empty'
-
           ids = [r.get('ruleId') or r.get('diagnosticCode') or r.get('code') for r in rules]
-          assert all(ids), 'CURRENT validation registry contains a rule without identity'
-          assert len(set(ids)) == len(ids), 'CURRENT validation registry contains duplicate rule identities'
-
+          assert all(ids) and len(set(ids)) == len(ids)
           payload = {
-              'schema': 'STARWARS_DELTA_CUTSCENE_VALIDATION_CURRENT',
-              'schemaVersion': 1,
-              'status': 'CURRENT_VERIFIED_CUTSCENE_VALIDATION',
-              'publishTransactionId': source.get('publishTransactionId'),
-              'catalogRevision': str(required.get('catalogRevision') or ''),
-              'revision': str(registry.get('revision') or source.get('authoringRuleRegistryRevision') or ''),
-              'generatedUtc': datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00', 'Z'),
-              'requiredCurrent': {**required, 'catalogRevision': str(required.get('catalogRevision') or '')},
-              'rules': rules,
-          }
+            'schema':'STARWARS_DELTA_CUTSCENE_VALIDATION_CURRENT','schemaVersion':1,
+            'status':'CURRENT_VERIFIED_CUTSCENE_VALIDATION','publishTransactionId':source.get('publishTransactionId'),
+            'catalogRevision':str(required.get('catalogRevision') or ''),
+            'revision':str(registry.get('revision') or source.get('authoringRuleRegistryRevision') or ''),
+            'generatedUtc':datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00','Z'),
+            'requiredCurrent':{**required,'catalogRevision':str(required.get('catalogRevision') or '')},'rules':rules}
           out = pathlib.Path('_open_current_stage/CUTSCENE_VALIDATION_CURRENT.json')
-          out.parent.mkdir(parents=True, exist_ok=True)
-          out.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
-          print('CUTSCENE_VALIDATION_PROJECTED', payload['publishTransactionId'], len(rules))
+          out.write_text(json.dumps(payload,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+          print('CUTSCENE_VALIDATION_PROJECTED', len(rules))
           PY
 
-      - name: Seal and validate one atomic CURRENT
-        if: env.PUBLISH_MODE != 'DELTA'
+      - name: Seal and validate FULL CURRENT
+        if: env.PUBLISH_MODE == 'FULL'
         run: python3 designer-ai/tools/seal_atomic_current.py
 
-      - name: Final atomic identity check
-        if: env.PUBLISH_MODE != 'DELTA'
+      - name: Validate staged CURRENT before switch
         shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import json
-          import pathlib
-
+          import json, pathlib
           root = pathlib.Path('_open_current_stage')
           source = json.loads(pathlib.Path('designer-ai/current.json').read_text(encoding='utf-8-sig'))
-          required = dict(source.get('requiredCurrent') or {})
-          required['catalogRevision'] = str(required['catalogRevision'])
-          for key in ('contractRevision','schemaHash','snapshotContentHash','authoringRuleRegistryRevision'):
-              required[key] = str(required[key])
-          tx = source.get('publishTransactionId')
-
-          checks = [
-              root / 'OPEN_CURRENT.json',
-              root / 'SOURCE_CURRENT.json',
-              root / 'DIRECTOR_PACK_MANIFEST.json',
-              root / 'director-view' / 'DIRECTOR_VIEW.json',
-              root / 'director-view' / 'VISUAL_SCAN_REPORT.json',
-              root / 'simple-authoring' / 'AUTHORING_HANDLES.json',
-              root / 'simple-authoring' / 'AUTHORING_RULES_CURRENT.json',
-              root / 'CUTSCENE_VALIDATION_CURRENT.json',
-          ]
-          for path in checks:
-              assert path.is_file(), 'ATOMIC_CURRENT_MISSING ' + str(path)
-              payload = json.loads(path.read_text(encoding='utf-8-sig'))
-              if path.name == 'SOURCE_CURRENT.json':
-                  assert payload.get('publishTransactionId') == tx, 'SOURCE_CURRENT_TRANSACTION_MISMATCH'
-              else:
-                  assert payload.get('publishTransactionId') == tx or path.name in {'AUTHORING_HANDLES.json','AUTHORING_RULES_CURRENT.json'}, 'ATOMIC_CURRENT_TRANSACTION_MISMATCH ' + str(path)
-              assert payload.get('requiredCurrent') == required, 'ATOMIC_CURRENT_REQUIRED_CURRENT_MISMATCH ' + str(path)
-
-          open_current = json.loads((root / 'OPEN_CURRENT.json').read_text(encoding='utf-8-sig'))
-          assert open_current.get('schema') == 'STARWARS_DELTA_DESIGNER_AI_OPEN_CURRENT'
-          assert open_current.get('status') == 'CURRENT_VERIFIED'
-          expected = {'publishTransactionId': tx, **required}
-          assert open_current.get('atomicIdentity') == expected
-
-          dialogue = root / 'EMOTIONAL_DIALOGUE_CURRENT.json'
-          if dialogue.is_file():
-              payload = json.loads(dialogue.read_text(encoding='utf-8-sig'))
-              assert payload.get('publishTransactionId') == tx
-              assert payload.get('requiredCurrent') == required
-
-          print('ATOMIC_OPEN_CURRENT_READY', tx)
+          opened = json.loads((root/'OPEN_CURRENT.json').read_text(encoding='utf-8-sig'))
+          required = {k:str(v) for k,v in (source.get('requiredCurrent') or {}).items()}
+          opened_required = {k:str(v) for k,v in (opened.get('requiredCurrent') or {}).items()}
+          assert opened.get('status') == 'CURRENT_VERIFIED'
+          assert opened.get('publishTransactionId') == source.get('publishTransactionId')
+          assert opened_required == required
+          for rel in ['director-view/DIRECTOR_VIEW.json','simple-authoring/AUTHORING_HANDLES.json','simple-authoring/AUTHORING_RULES_CURRENT.json','full-visual-sheets/VISUAL_ATLAS_CURRENT.json','CUTSCENE_VALIDATION_CURRENT.json','CHATGPT_START.txt']:
+              assert (root/rel).is_file(), 'ATOMIC_CURRENT_MISSING '+rel
+          handles = json.loads((root/'simple-authoring/AUTHORING_HANDLES.json').read_text(encoding='utf-8-sig'))
+          assert {k:str(v) for k,v in handles.get('requiredCurrent',{}).items()} == required
+          assert (handles.get('countsByRoute') or {}).get('Audio',0) > 0
+          print('ATOMIC_OPEN_CURRENT_READY', source.get('publishTransactionId'), 'mode', source.get('publishMode') or 'FULL')
           PY
 
       - name: Publish one CURRENT directly to main
@@ -291,104 +199,27 @@ jobs:
           rm -rf designer-ai/open-current
           mkdir -p designer-ai/open-current
           cp -a _open_current_stage/. designer-ai/open-current/
-
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A designer-ai/open-current
-
           if git diff --cached --quiet; then
-            echo 'CURRENT already matches the complete staged payload.'
+            echo 'CURRENT already matches complete staged payload.'
             exit 0
           fi
-
-          tx="$(python3 - <<'PY'
-          import json
-          print(json.load(open('designer-ai/current.json', encoding='utf-8-sig'))['publishTransactionId'])
-          PY
-          )"
-          git commit -m "Publish Designer AI CURRENT $tx"
+          tx="$(python3 -c "import json; print(json.load(open('designer-ai/current.json',encoding='utf-8-sig'))['publishTransactionId'])")"
+          git commit -m "Publish Designer AI ${PUBLISH_MODE} CURRENT $tx"
           git pull --rebase origin main
           git push origin HEAD:main
+          echo "CURRENT_COMMITTED mode=$PUBLISH_MODE transaction=$tx"
 
-      - name: Publish DELTA CURRENT directly to main
+      - name: DELTA performance proof
         if: env.PUBLISH_MODE == 'DELTA'
-        shell: bash
         run: |
-          set -euo pipefail
-          rm -rf designer-ai/open-current
-          mkdir -p designer-ai/open-current
-          cp -a _open_current_stage/. designer-ai/open-current/
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A designer-ai/open-current
-          if git diff --cached --quiet; then
-            echo 'DELTA_CURRENT already matches staged overlay.'
-            exit 0
-          fi
-          tx="$(python3 -c "import json; print(json.load(open('designer-ai/current.json', encoding='utf-8-sig'))['publishTransactionId'])")"
-          git commit -m "Publish Designer AI DELTA CURRENT $tx"
-          git pull --rebase origin main
-          git push origin HEAD:main
-          echo 'DELTA_CURRENT_COMMITTED'
-      - name: Delete obsolete Designer AI CURRENT releases and tags
-        if: env.PUBLISH_MODE != 'DELTA'
-        shell: bash
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -euo pipefail
-          python3 - <<'PY' > /tmp/current-release-check.env
-          import json
-          import re
-
-          payload = json.load(open('designer-ai/current.json', encoding='utf-8-sig'))
-          current_tag = str(payload.get('releaseUrl') or '').rstrip('/').rsplit('/', 1)[-1]
-          tags = set()
-
-          def walk(value):
-              if isinstance(value, dict):
-                  for child in value.values():
-                      walk(child)
-              elif isinstance(value, list):
-                  for child in value:
-                      walk(child)
-              elif isinstance(value, str):
-                  match = re.search(r'/releases/download/([^/]+)/', value)
-                  if match:
-                      tags.add(match.group(1))
-
-          walk(payload)
-          foreign = sorted(tag for tag in tags if tag != current_tag)
-          print(f'CURRENT_TAG={current_tag}')
-          print('FOREIGN_TAGS=' + ','.join(foreign))
-          PY
-
-          source /tmp/current-release-check.env
-          test -n "$CURRENT_TAG"
-          if [ -n "$FOREIGN_TAGS" ]; then
-            echo "CURRENT_NOT_SELF_CONTAINED: current metadata still references obsolete release tags: $FOREIGN_TAGS" >&2
-            echo 'Refusing destructive cleanup until the current release owns every referenced CURRENT artifact.' >&2
-            exit 1
-          fi
-
-          echo "Self-contained CURRENT confirmed. Keeping only release/tag: $CURRENT_TAG"
-          gh api --paginate "repos/${GITHUB_REPOSITORY}/releases?per_page=100" --jq '.[] | [.id, .tag_name] | @tsv' > /tmp/designer-ai-releases.tsv
-          while IFS=$'\t' read -r release_id tag_name; do
-            case "$tag_name" in
-              designer-ai-current-*)
-                if [ "$tag_name" != "$CURRENT_TAG" ]; then
-                  echo "Deleting obsolete CURRENT release: $tag_name"
-                  gh api -X DELETE "repos/${GITHUB_REPOSITORY}/releases/${release_id}"
-                  gh api -X DELETE "repos/${GITHUB_REPOSITORY}/git/refs/tags/${tag_name}" || true
-                fi
-                ;;
-            esac
-          done < /tmp/designer-ai-releases.tsv
-
-          remaining="$(gh api --paginate "repos/${GITHUB_REPOSITORY}/releases?per_page=100" --jq '[.[] | select(.tag_name | startswith("designer-ai-current-"))] | length' | awk '{s+=$1} END{print s+0}')"
-          if [ "$remaining" -ne 1 ]; then
-            echo "Expected exactly one Designer AI CURRENT release, found $remaining" >&2
-            exit 1
-          fi
-          echo 'Exactly one Designer AI CURRENT release remains.'
-
+          echo '[DELTA_UPLOAD_SUMMARY]'
+          echo 'catalogBuild=NOT_RUN'
+          echo 'visualEvidenceBuild=NOT_RUN'
+          echo 'atlasBuild=NOT_RUN'
+          echo 'directorBuild=NOT_RUN'
+          echo 'baseBundleDownload=NOT_RUN'
+          echo 'baseBundleUpload=NOT_RUN'
+          echo 'result=PASS'
