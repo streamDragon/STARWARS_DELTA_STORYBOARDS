@@ -54,6 +54,8 @@ Source files under `designer-ai/simple-authoring/` are publisher/engineering inp
 - Effective Simple projectile cadence is backend-owned; Simple V1 does not author interval.
 - `directorEligible=false` excludes an asset from automatic creative recommendation while preserving exact/manual engineering access where legal.
 - `visible[].count` is a real visual obligation. Do not silently reduce requested quantity.
+- A cinematic visual state is not automatically a new runtime state system. First compose the existing exact Sprite/Actor with compatible Animation, existing VFX, actions, Timeline timing and camera. Add a separate asset variant only when the object's actual drawn body must visibly change and CURRENT has no legal representation. Do not create ShipStateController-style architecture merely to represent boost, shield hit, impact, disabled drift or explosion when existing composition can express them.
+- Animation frames or animation families do not create new narrative identities. Use `animationIntent` / `performanceIntent`; raw Animation IDs remain backend compatibility data.
 - Camera semantic subject is not automatically a physical Transform target.
 - Actor Orbit v1 has a fixed/stationary center. A simultaneously moving orbit center remains unrepresentable until runtime support changes.
 - Semantic Pursuit/Escort/Intercept names do not imply per-frame moving-target tracking unless the runtime actually implements it.
