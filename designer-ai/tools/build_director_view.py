@@ -546,6 +546,15 @@ def main():
         if primary_use(record).lower() != "audio":
             continue
         audio_id = str(record.get("assetId") or "")
+        audio_capabilities = list(record.get("capabilities") or [])
+        if "Cutscene.Audio" not in audio_capabilities:
+            audio_capabilities.append("Cutscene.Audio")
+        audio_allowed_uses = list(record.get("allowedUses") or record.get("cutsceneAllowedUses") or ["Audio"])
+        audio_safe_for_preview = bool(
+            record.get("safeForPreview")
+            if record.get("safeForPreview") is not None
+            else record.get("audioSafeForPreview", record.get("cutsceneSafeForPreview"))
+        )
         missing = []
         if not record.get("description"):
             missing.append("description")
@@ -558,13 +567,15 @@ def main():
                 "purpose": classify_audio(record),
                 "description": record.get("description") or "",
                 "tags": record.get("tags", []),
-                "capabilities": record.get("capabilities", []),
+                "capabilities": audio_capabilities,
+                "allowedUses": audio_allowed_uses,
                 "durationSeconds": None,
                 "loopMetadata": None,
                 "mood": None,
                 "intensity": None,
-                "safeForPreview": bool(record.get("cutsceneSafeForPreview")),
+                "safeForPreview": audio_safe_for_preview,
                 "safeForPublish": bool(record.get("cutsceneSafeForPublish")),
+                "reviewSeverity": record.get("reviewSeverity") or record.get("cutsceneReviewSeverity"),
                 "warnings": record.get("cutsceneWarnings", []),
                 "metadataCompletionNeeded": missing,
             }
@@ -820,3 +831,4 @@ Do not mix this package with older Catalog, Instruction Book or visual packages.
 
 if __name__ == "__main__":
     main()
+
