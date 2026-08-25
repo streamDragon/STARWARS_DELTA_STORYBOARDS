@@ -36,40 +36,110 @@ jobs:
       - name: Install builder dependencies
         run: python3 -m pip install --disable-pip-version-check pillow pypdf
 
+      - name: Determine CURRENT publish mode
+        shell: bash
+        run: |
+          set -euo pipefail
+          mode="$(python3 - <<'PY'
+          import json
+          value = json.load(open('designer-ai/current.json', encoding='utf-8-sig')).get('publishMode') or 'FULL'
+          if value not in {'FULL', 'DELTA'}:
+              raise SystemExit('CURRENT_PUBLISH_MODE_INVALID: ' + str(value))
+          print(value)
+          PY
+          )"
+          echo "PUBLISH_MODE=$mode" >> "$GITHUB_ENV"
+          echo "PUBLISH_MODE=$mode"
+
+      - name: Prepare DELTA CURRENT fast path
+        if: env.PUBLISH_MODE == 'DELTA'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import copy, hashlib, json, pathlib, shutil
+          source = json.loads(pathlib.Path('designer-ai/current.json').read_text(encoding='utf-8-sig'))
+          required = {k: str((source.get('requiredCurrent') or {}).get(k)) for k in ('catalogRevision','contractRevision','schemaHash','snapshotContentHash','authoringRuleRegistryRevision')}
+          live = json.loads(pathlib.Path('designer-ai/open-current/OPEN_CURRENT.json').read_text(encoding='utf-8-sig'))
+          live_required = {k: str((live.get('requiredCurrent') or {}).get(k)) for k in required}
+          if live_required != required:
+              raise SystemExit('DELTA_FULL_PUBLISH_REQUIRED: immutable CURRENT fingerprints changed')
+          stage = pathlib.Path('_open_current_stage')
+          if stage.exists(): shutil.rmtree(stage)
+          shutil.copytree('designer-ai/open-current', stage)
+          overlay = source.get('authoringOnlyOverlay') or {}
+          artifacts = overlay.get('artifacts') or (source.get('delta') or {}).get('artifacts') or []
+          if not artifacts:
+              raise SystemExit('DELTA_ARTIFACTS_MISSING')
+          changed = 0
+          for item in artifacts:
+              rel = str(item.get('path') or '').replace('\\','/').lstrip('/')
+              src = pathlib.Path('designer-ai/authoring-only') / rel
+              if not src.is_file():
+                  raise SystemExit('DELTA_ARTIFACT_MISSING: ' + rel)
+              raw = src.read_bytes()
+              expected = str(item.get('sha256') or '').lower()
+              if expected and hashlib.sha256(raw).hexdigest().lower() != expected:
+                  raise SystemExit('DELTA_ARTIFACT_HASH_MISMATCH: ' + rel)
+              dst = stage / rel
+              dst.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(src, dst)
+              changed += 1
+          open_current = copy.deepcopy(source)
+          open_current['status'] = 'CURRENT_VERIFIED'
+          open_current['atomicIdentity'] = {'publishTransactionId': source.get('publishTransactionId'), **required}
+          (stage / 'OPEN_CURRENT.json').write_text(json.dumps(open_current, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+          (stage / 'SOURCE_CURRENT.json').write_text(json.dumps(source, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+          print('[DELTA_GITHUB_PATH]')
+          print('visualEvidenceBuild=NOT_RUN')
+          print('atlasBuild=NOT_RUN')
+          print('directorBuild=NOT_RUN')
+          print('catalogBuild=NOT_RUN')
+          print('changedFiles=' + str(changed))
+          print('result=PASS')
+          PY
       - name: Build visual evidence CURRENT
+        if: env.PUBLISH_MODE != 'DELTA'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/build_open_current.py
 
       - name: Build unified Visual Atlas
+        if: env.PUBLISH_MODE != 'DELTA'
         run: python3 designer-ai/tools/build_visual_atlas.py
 
       - name: Finalize visual evidence
+        if: env.PUBLISH_MODE != 'DELTA'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/finalize_open_current.py
 
       - name: Build Director View
+        if: env.PUBLISH_MODE != 'DELTA'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/build_director_view.py
 
       - name: Finalize Director View
+        if: env.PUBLISH_MODE != 'DELTA'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/run_director_finalization.py
 
       - name: Build grouped visual scan report
+        if: env.PUBLISH_MODE != 'DELTA'
         run: python3 designer-ai/tools/build_visual_scan_report.py
 
       - name: Build Simple V1 authoring handles
+        if: env.PUBLISH_MODE != 'DELTA'
         run: python3 designer-ai/tools/build_authoring_handles.py
 
       - name: Carry Emotional Dialogue CURRENT into stage
+        if: env.PUBLISH_MODE != 'DELTA'
         shell: bash
         run: |
           set -euo pipefail
@@ -123,6 +193,7 @@ jobs:
           PY
 
       - name: Project Unity validation registry into stage
+        if: env.PUBLISH_MODE != 'DELTA'
         shell: bash
         run: |
           set -euo pipefail
@@ -159,9 +230,11 @@ jobs:
           PY
 
       - name: Seal and validate one atomic CURRENT
+        if: env.PUBLISH_MODE != 'DELTA'
         run: python3 designer-ai/tools/seal_atomic_current.py
 
       - name: Final atomic identity check
+        if: env.PUBLISH_MODE != 'DELTA'
         shell: bash
         run: |
           set -euo pipefail
@@ -237,7 +310,28 @@ jobs:
           git pull --rebase origin main
           git push origin HEAD:main
 
+      - name: Publish DELTA CURRENT directly to main
+        if: env.PUBLISH_MODE == 'DELTA'
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf designer-ai/open-current
+          mkdir -p designer-ai/open-current
+          cp -a _open_current_stage/. designer-ai/open-current/
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A designer-ai/open-current
+          if git diff --cached --quiet; then
+            echo 'DELTA_CURRENT already matches staged overlay.'
+            exit 0
+          fi
+          tx="$(python3 -c "import json; print(json.load(open('designer-ai/current.json', encoding='utf-8-sig'))['publishTransactionId'])")"
+          git commit -m "Publish Designer AI DELTA CURRENT $tx"
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo 'DELTA_CURRENT_COMMITTED'
       - name: Delete obsolete Designer AI CURRENT releases and tags
+        if: env.PUBLISH_MODE != 'DELTA'
         shell: bash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
