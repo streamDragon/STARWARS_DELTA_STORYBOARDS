@@ -16,35 +16,66 @@ Current main areas:
 The authoritative Unity publish remains atomic. `designer-ai/current.json` advances only after the matching release assets are published successfully.
 
 The single normal human entry point is:
-- `designer-ai/debora.html`
+- `designer-ai/devora.html`
 
-The single normal ChatGPT instruction source consumed by Debora is the sealed publish copy:
+The single normal ChatGPT instruction source consumed by Devora is the sealed publish copy:
 - `designer-ai/open-current/CHATGPT_START.txt`
 
-`designer-ai/CHATGPT_START.txt` remains the publisher source that is copied into the stage and sealed before publication. It is not a second runtime CURRENT.
+`designer-ai/CHATGPT_START.txt` remains publisher source material that may be sealed by the publication pipeline. It is not a second runtime CURRENT. Devora does not maintain a shorter competing authoring specification; the Context Pack copies the sealed `open-current/CHATGPT_START.txt` bytes as `01_CHATGPT_START.txt`.
 
 For normal ChatGPT cutscene authoring, use the stable open CURRENT projection:
 - `designer-ai/open-current/OPEN_CURRENT.json`
-- `designer-ai/open-current/director-view/DIRECTOR_VIEW.json`
-- Director category files for Actors, Layers, Effects, UI, Animations and Audio
-- matching Catalog contract/schema
-- matching Instruction Book
-- the single CURRENT Visual Atlas PDF for real pixel inspection
+- `designer-ai/open-current/simple-authoring/CUTSCENE_SCRIPT_V1.schema.json`
+- `designer-ai/open-current/simple-authoring/AUTHORING_HANDLES.json`
+- `designer-ai/open-current/simple-authoring/AUTHORING_RULES_CURRENT.json`
+- `designer-ai/open-current/EMOTIONAL_DIALOGUE_CURRENT.json`
+- `designer-ai/open-current/CUTSCENE_VALIDATION_CURRENT.json`
+- matching Director projection and current visual evidence
 
-`OPEN_CURRENT.json` exposes one atomic identity containing `publishTransactionId`, `catalogRevision`, `snapshotContentHash`, `contractRevision`, `schemaHash` and `authoringRuleRegistryRevision`. Publish validation fails if the Rule Registry revision is missing or does not match the Unity CURRENT Rule Registry.
+`OPEN_CURRENT.json` exposes one atomic identity containing `publishTransactionId`, `catalogRevision`, `snapshotContentHash`, `contractRevision`, `schemaHash` and `authoringRuleRegistryRevision`.
 
-The Director projection is not a second source of truth; exact IDs, compatibility and validation remain governed by the matching full Catalog, contract and Rule Registry.
+The Director projection is not a second source of truth. Exact IDs, compatibility and validation remain governed by the matching CURRENT contract and Rule Registry.
 
 The compact `STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip` is a fallback when direct Pages metadata access fails. Large engineering archives remain GitHub Release assets rather than normal ChatGPT downloads.
 
-The Director completion queue reports genuine missing preview/metadata work. `director-view/eligibility-audit.json` separately flags obvious sample/demo/generated/technical signals for Unity source review before preview generation. GitHub intentionally does not delete or hide authoritative Catalog records merely to improve coverage numbers.
+## Devora Context Pack
 
-## Visual publication policy
+The normal Devora Context Pack is self-contained for authoring and includes:
+- sealed `01_CHATGPT_START.txt` copied from `open-current/CHATGPT_START.txt`;
+- Simple V1 schema, handles, rules and canonical example;
+- closed-world Emotional Dialogue CURRENT when published;
+- Cutscene Validation CURRENT when published;
+- Director category projections required by the authoring workflow;
+- `visual-atlas/VISUAL_ATLAS_CURRENT.json`;
+- four AI-direct Visual Atlas PDFs:
+  - `ACTOR_CURRENT.pdf`
+  - `EFFECT_CURRENT.pdf`
+  - `LAYER_CURRENT.pdf`
+  - `UI_CURRENT.pdf`
 
-There is one public production Visual Atlas PDF:
-- `STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf`
+Visual handles use master `atlasPage` / `atlasSlot`. `VISUAL_ATLAS_CURRENT.json` owns the category ranges used to translate master pages to the local page in the matching category PDF. `atlasSlot` is unchanged.
 
-Per-category PDFs and per-category visual-index shards are build intermediates only and are stripped before publication. Per-page JPEGs remain transport/debug fallbacks. `FULL_VISUAL_INDEX.json` and `ASSET_VISUAL_LOOKUP.json` remain the public lookup layer.
+The large master Visual Atlas may remain available as an engineering/manual artifact, but normal AI authoring must not depend on separately uploading it when the four category PDFs are present.
+
+## Simple Preview
+
+`designer-ai/simple-preview.html` is a web preflight and visual preview for `CUTSCENE_SCRIPT_V1`.
+
+It validates the loaded JSON against the matching published `CUTSCENE_SCRIPT_V1.schema.json` first, then checks matching CURRENT handles and closed-world dialogue identities. It may report:
+- `SCRIPT_INVALID`
+- `CURRENT_INVALID`
+- `AUTHORING_INVALID`
+- `PREVIEWABLE`
+
+It must not claim `UNITY_VALIDATED` or `PREVIEW_ACCEPTED`; those remain Unity-owned outcomes.
+
+## Publication policy
+
+Source/guidance edits do not publish or rebuild `open-current` under the existing transaction.
+
+The Designer AI CURRENT workflow is restricted to a real `designer-ai/current.json` advance or explicit manual dispatch, and contains a same-transaction guard. A source cleanup commit is not a new CURRENT.
+
+A later user-controlled Unity Publish is required to establish a new CURRENT after Unity-owned contract changes.
 
 ## Repository hygiene policy
 
@@ -54,12 +85,10 @@ Keep only:
 1. active production/UI/publisher sources;
 2. the current atomic `open-current` projection and its generated artifacts;
 3. durable authoring/engineering guidance that is still actively referenced;
-4. unique unresolved engineering work in GitHub Issues or immutable learning evidence.
+4. unique regression fixtures or learning evidence that still prove behavior.
 
-Delete task-specific prompts, temporary QA pages, superseded handoff documents, stale baseline snapshots, duplicate CURRENT aliases and duplicate instruction paths once their durable lessons are absorbed into the active guidance, Rule Registry, Instruction Book, tests or GitHub Issues.
+Delete task-specific prompts, temporary QA pages, superseded handoff documents, stale baseline snapshots, duplicate CURRENT aliases and duplicate instruction paths once their durable lessons are absorbed into active guidance, Rule Registry, tests or implementation.
 
-A one-off work packet must not be named or retained as `CURRENT` after it is superseded. Open engineering work belongs in Issues/tests, not in another competing source-of-truth document.
-
-Before deleting evidence, first verify that any still-relevant requirement is preserved in the active guidance, Instruction Book, Rule Registry, automated tests or an open Issue. After that, remove the obsolete wrapper instead of keeping it "just in case".
+A one-off work packet must not be named or retained as `CURRENT` after it is superseded. Completed engineering work does not need a permanent prompt wrapper.
 
 Existing storyboard data under `storyboards/` is preserved when the hub shell is upgraded.
