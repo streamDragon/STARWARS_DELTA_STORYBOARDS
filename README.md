@@ -1,15 +1,28 @@
 # STARWARS_DELTA External Tools Hub - CURRENT
 
-Use one permanent URL only:
+Use one permanent public URL only:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/
 
 The repository is the shared home for STARWARS_DELTA tools and artifacts that live outside Unity.
 
 Current main areas:
-- Storyboards / Storyboard Viewer
-- Designer AI / Cutscene Director CURRENT
+- Storyboard shared library / deep-link viewer
+- Cutscene Preview
+- Designer AI / DEVORA CURRENT
 
-`current.json` is fetched with cache disabled. The browser follows the currently published hub build, so team members should not bookmark version-specific URLs.
+## Storyboard ownership
+
+There is exactly one normal Storyboard authoring UI:
+- **Storyboard Director**
+
+The public GitHub Pages site is not a second Storyboard authoring application. It keeps only:
+- the shared published Storyboard library;
+- the deep-link `viewer.html` used to review published boards;
+- existing Storyboard data under `storyboards/`.
+
+Creating a Storyboard, importing an old project, managing local Storyboards and publishing belong to Storyboard Director only. Obsolete browser authoring UI assets are intentionally removed rather than maintained as another workflow.
+
+`viewer.html` remains because published deep links depend on it. It is a viewer, not another Storyboard product/home screen.
 
 ## Designer AI CURRENT
 
@@ -69,26 +82,15 @@ It validates the loaded JSON against the matching published `CUTSCENE_SCRIPT_V1.
 
 It must not claim `UNITY_VALIDATED` or `PREVIEW_ACCEPTED`; those remain Unity-owned outcomes.
 
-## Publication policy
-
-Source/guidance edits do not publish or rebuild `open-current` under the existing transaction.
-
-The Designer AI CURRENT workflow is restricted to a real `designer-ai/current.json` advance or explicit manual dispatch, and contains a same-transaction guard. A source cleanup commit is not a new CURRENT.
-
-A later user-controlled Unity Publish is required to establish a new CURRENT after Unity-owned contract changes.
-
 ## Repository hygiene policy
 
-This repository is not a museum of old `CURRENT` files.
+This repository is not a museum of old `CURRENT` files or abandoned UI generations.
 
 Keep only:
 1. active production/UI/publisher sources;
-2. the current atomic `open-current` projection and its generated artifacts;
-3. durable authoring/engineering guidance that is still actively referenced;
-4. unique regression fixtures or learning evidence that still prove behavior.
+2. the current atomic `open-current` projection and generated artifacts;
+3. durable authoring/engineering guidance still actively referenced;
+4. unique regression fixtures or learning evidence that still prove behavior;
+5. published Storyboard data and the minimum shared-library/viewer surface required to consume it.
 
-Delete task-specific prompts, temporary QA pages, superseded handoff documents, stale baseline snapshots, duplicate CURRENT aliases and duplicate instruction paths once their durable lessons are absorbed into active guidance, Rule Registry, tests or implementation.
-
-A one-off work packet must not be named or retained as `CURRENT` after it is superseded. Completed engineering work does not need a permanent prompt wrapper.
-
-Existing storyboard data under `storyboards/` is preserved when the hub shell is upgraded.
+Delete task-specific prompts, temporary QA pages, superseded handoff documents, duplicate Storyboard authoring interfaces, stale baseline snapshots, duplicate CURRENT aliases and duplicate instruction paths once their durable lessons are absorbed into active guidance, Rule Registry, tests or implementation.
