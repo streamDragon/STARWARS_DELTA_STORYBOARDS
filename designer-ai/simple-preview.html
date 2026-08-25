@@ -37,7 +37,7 @@ async function boot(){try{
  const [source,open,schema,handles,lookup,dialogue]=await Promise.all([
   get('current.json'),get('open-current/OPEN_CURRENT.json'),get('open-current/simple-authoring/CUTSCENE_SCRIPT_V1.schema.json'),get('open-current/simple-authoring/AUTHORING_HANDLES.json'),get('open-current/ASSET_VISUAL_LOOKUP.json'),get('open-current/EMOTIONAL_DIALOGUE_CURRENT.json',true)
  ]);
- if(source.status!=='CURRENT_VERIFIED'||open.status!=='CURRENT_VERIFIED_OPEN'||tx(source)!==tx(open)||!same(source.requiredCurrent,open.requiredCurrent)||!same(open.requiredCurrent,handles.requiredCurrent)||tx(lookup)!==tx(open))throw Error('CURRENT identity mismatch');
+ if(source.status!=='CURRENT_VERIFIED'||open.status!=='CURRENT_VERIFIED'||tx(source)!==tx(open)||!same(source.requiredCurrent,open.requiredCurrent)||!same(open.requiredCurrent,handles.requiredCurrent)||tx(lookup)!==tx(open))throw Error('CURRENT identity mismatch');
  const ajv=new ajv2020({allErrors:true,strict:false,allowUnionTypes:true});state.validate=ajv.compile(schema);
  for(const h of handles.handles||[])state.handles.set(L(h.handle),h);
  const ve=entries(lookup);for(const map of ['assetIdToEntryIndex','catalogRecordIdToEntryIndex','recordIdToEntryIndex','stableIdToEntryIndex','sourceIdToEntryIndex'])for(const [id,i] of Object.entries(lookup[map]||{})){const u=imageOf(ve[+i]);if(u)state.visual.set(L(id),u)}
