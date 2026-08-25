@@ -22,38 +22,33 @@ const $=s=>document.querySelector(s),E=v=>String(v??''),L=v=>E(v).trim().toLower
 const K=['catalogRevision','contractRevision','schemaHash','snapshotContentHash','authoringRuleRegistryRevision'];
 const same=(a,b)=>K.every(k=>E(a?.[k])!==''&&E(a[k])===E(b?.[k])),tx=o=>E(o?.publishTransactionId||o?.atomicIdentity?.publishTransactionId||o?.provenance?.publishTransactionId);
 const file=$('#file'),drop=$('#drop'),stage=$('#stage'),timeline=$('#timeline'),diag=$('#diag'),raw=$('#raw'),prev=$('#prev'),next=$('#next'),status=$('#status');
-let state={ready:false,validate:null,handles:new Map(),dialogue:new Map(),beats:[],index:0};
+let state={ready:false,validate:null,handles:new Map(),visual:new Map(),dialogue:new Map(),beats:[],index:0};
 async function get(url,opt=false){const u=new URL(url,location.href);u.searchParams.set('_p',Date.now()+Math.random());const r=await fetch(u,{cache:'no-store'});if(opt&&r.status===404)return null;if(!r.ok)throw Error(url+' HTTP '+r.status);return r.json()}
+function entries(o){return Array.isArray(o?.entries)?o.entries:Array.isArray(o?.assets)?o.assets:[]}
+function imageOf(e){for(const k of ['representativeImageUrl','previewUrl','thumbnailUrl','imageUrl','pageImageUrl'])if(e?.[k])return e[k];return''}
 function handle(id,route){const h=state.handles.get(L(id));return h&&(!route||h.route===route)?h:null}
-function imageFor(h){return h?.pageImageUrl||h?.representativeImageUrl||h?.previewUrl||h?.thumbnailUrl||h?.imageUrl||''}
+function imageFor(h){if(!h)return'';for(const id of [h.runtimeId,h.visualReferenceId,h.catalogRecordId,h.recordId,h.stableId]){const u=state.visual.get(L(id));if(u)return u}return imageOf(h)}
 async function boot(){try{
  if(typeof ajv2020==='undefined')throw Error('Ajv 8.17.1 failed to load');
- const [source,open,schema,handles,dialogue]=await Promise.all([
+ const [source,open,schema,handles,lookup,dialogue]=await Promise.all([
   get('current.json'),
   get('open-current/OPEN_CURRENT.json'),
   get('open-current/simple-authoring/CUTSCENE_SCRIPT_V1.schema.json'),
   get('open-current/simple-authoring/AUTHORING_HANDLES.json'),
+  get('open-current/ASSET_VISUAL_LOOKUP.json'),
   get('open-current/EMOTIONAL_DIALOGUE_CURRENT.json',true)
  ]);
- if(source.status!=='CURRENT_VERIFIED'||open.status!=='CURRENT_VERIFIED_OPEN'||tx(source)!==tx(open)||!same(source.requiredCurrent,open.requiredCurrent)||!same(open.requiredCurrent,handles.requiredCurrent))throw Error('CURRENT identity mismatch');
- const ajv=new ajv2020({allErrors:true,strict:false,allowUnionTypes:true});
- state.validate=ajv.compile(schema);
+ if(source.status!=='CURRENT_VERIFIED'||open.status!=='CURRENT_VERIFIED_OPEN'||tx(source)!==tx(open)||!same(source.requiredCurrent,open.requiredCurrent)||!same(open.requiredCurrent,handles.requiredCurrent)||tx(lookup)!==tx(open))throw Error('CURRENT identity mismatch');
+ const ajv=new ajv2020({allErrors:true,strict:false,allowUnionTypes:true});state.validate=ajv.compile(schema);
  for(const h of handles.handles||[])state.handles.set(L(h.handle),h);
+ const ve=entries(lookup);for(const map of ['assetIdToEntryIndex','catalogRecordIdToEntryIndex','recordIdToEntryIndex','stableIdToEntryIndex','sourceIdToEntryIndex'])for(const [id,i] of Object.entries(lookup[map]||{})){const u=imageOf(ve[+i]);if(u)state.visual.set(L(id),u)}
  if(dialogue&&dialogue.status==='CURRENT_VERIFIED_EMOTIONAL_DIALOGUE'&&tx(dialogue)===tx(open)&&same(dialogue.requiredCurrent,open.requiredCurrent))for(const c of dialogue.characters||[])if(c.authoringReady===true)state.dialogue.set(E(c.actorId),c);
- state.ready=true;status.className='status ok';status.textContent=`CURRENT ${tx(open)} · SCHEMA READY · ${state.handles.size} handles · ${state.dialogue.size} dialogue characters`;
+ state.ready=true;status.className='status ok';status.textContent=`CURRENT ${tx(open)} · SCHEMA READY · ${state.handles.size} handles · ${state.dialogue.size} dialogue characters · PIXELS READY`;
 }catch(e){status.className='status bad';status.textContent='CURRENT_INVALID · '+e.message}}
 function schemaErrors(o){const ok=state.validate(o);if(ok)return[];return(state.validate.errors||[]).map(e=>`${e.instancePath||'/'} ${e.message||e.keyword}`)}
-function authoringErrors(o){const out=[],talkers=new Set();for(const b of o.beats||[])for(const d of b.dialogue||[]){if(d.speaker)talkers.add(E(d.speaker));if(d.listener)talkers.add(E(d.listener))}
- for(const c of o.cast||[])if(!talkers.has(E(c.id))&&!handle(c.identityHandle,'Actor'))out.push(`cast.${c.id} Actor handle unresolved: ${c.identityHandle}`);
- for(const b of o.beats||[]){if(b.locationHandle&&!handle(b.locationHandle,'Layer'))out.push(`beat.${b.id} Layer handle unresolved: ${b.locationHandle}`);for(const v of b.visible||[])if(!handle(v.handle))out.push(`beat.${b.id}.${v.id} handle unresolved: ${v.handle}`);for(const a of b.audio||[])if(!handle(a.handle,'Audio'))out.push(`beat.${b.id} Audio handle unresolved: ${a.handle}`);for(const d of b.dialogue||[]){for(const role of ['speaker','listener']){const id=E(d[role]);if(!id)continue;const cast=(o.cast||[]).find(c=>E(c.id)===id),ch=state.dialogue.get(id);if(!cast||!ch||E(cast.identityHandle)!==E(ch.identityHandle))out.push(`beat.${b.id} dialogue ${role} outside CURRENT repertoire: ${id}`)}const ch=state.dialogue.get(E(d.speaker));if(ch){const ex=E(d.expressionIntent||ch.defaultExpression);if(!(ch.supportedExpressions||[]).includes(ex))out.push(`beat.${b.id} unsupported expression ${d.speaker}: ${ex}`)}}}
- return out}
+function authoringErrors(o){const out=[],talkers=new Set();for(const b of o.beats||[])for(const d of b.dialogue||[]){if(d.speaker)talkers.add(E(d.speaker));if(d.listener)talkers.add(E(d.listener))}for(const c of o.cast||[])if(!talkers.has(E(c.id))&&!handle(c.identityHandle,'Actor'))out.push(`cast.${c.id} Actor handle unresolved: ${c.identityHandle}`);for(const b of o.beats||[]){if(b.locationHandle&&!handle(b.locationHandle,'Layer'))out.push(`beat.${b.id} Layer handle unresolved: ${b.locationHandle}`);for(const v of b.visible||[])if(!handle(v.handle))out.push(`beat.${b.id}.${v.id} handle unresolved: ${v.handle}`);for(const a of b.audio||[])if(!handle(a.handle,'Audio'))out.push(`beat.${b.id} Audio handle unresolved: ${a.handle}`);for(const d of b.dialogue||[]){for(const role of ['speaker','listener']){const id=E(d[role]);if(!id)continue;const cast=(o.cast||[]).find(c=>E(c.id)===id),ch=state.dialogue.get(id);if(!cast||!ch||E(cast.identityHandle)!==E(ch.identityHandle))out.push(`beat.${b.id} dialogue ${role} outside CURRENT repertoire: ${id}`)}const ch=state.dialogue.get(E(d.speaker));if(ch){const ex=E(d.expressionIntent||ch.defaultExpression);if(!(ch.supportedExpressions||[]).includes(ex))out.push(`beat.${b.id} unsupported expression ${d.speaker}: ${ex}`)}}}return out}
 function render(){stage.innerHTML='';timeline.innerHTML='';const b=state.beats[state.index];if(!b)return;const layer=handle(b.locationHandle,'Layer'),bg=imageFor(layer);if(bg){const im=document.createElement('img');im.className='background';im.src=bg;stage.appendChild(im)}for(const v of b.visible||[]){const h=handle(v.handle),u=imageFor(h);if(!u)continue;const im=document.createElement('img');im.className='visual';im.src=u;im.style.left=((v.screenX??.5)*100)+'%';im.style.top=((v.screenY??.5)*100)+'%';im.style.width=((v.screenWidthFraction??.18)*100)+'%';stage.appendChild(im)}const d=(b.dialogue||[])[0];if(d){const box=document.createElement('div');box.className='dialogue';box.innerHTML='<b>'+X(d.speaker)+'</b>: '+X(d.text);stage.appendChild(box)}raw.textContent=JSON.stringify(b,null,2);state.beats.forEach((x,i)=>{const e=document.createElement('div');e.className='beat'+(i===state.index?' active':'');e.innerHTML='<b>'+X(x.id)+'</b><small>'+X(x.type)+' · '+X(x.durationSeconds)+'s</small>';e.onclick=()=>{state.index=i;render()};timeline.appendChild(e)});prev.disabled=state.index<=0;next.disabled=state.index>=state.beats.length-1}
-function load(o,name='JSON'){
- if(!state.ready){diag.innerHTML='<span class=bad>CURRENT_INVALID · contract not ready.</span>';return}
- const se=schemaErrors(o);if(se.length){drop.className='drop bad';diag.innerHTML='<b class=bad>SCRIPT_INVALID</b><br>'+se.slice(0,40).map(x=>'<span class=bad>'+X(x)+'</span>').join('<br>');return}
- const ae=authoringErrors(o);if(ae.length){drop.className='drop bad';diag.innerHTML='<b class=bad>AUTHORING_INVALID</b><br>'+ae.slice(0,40).map(x=>'<span class=bad>'+X(x)+'</span>').join('<br>');return}
- state.beats=o.beats||[];state.index=0;drop.className='drop good';drop.textContent=`${name} · PREVIEWABLE`;diag.innerHTML='<b class=ok>PREVIEWABLE</b><br><span class=warn>Web preflight only. This does not mean UNITY_VALIDATED or PREVIEW_ACCEPTED.</span>';render()
-}
+function load(o,name='JSON'){if(!state.ready){diag.innerHTML='<span class=bad>CURRENT_INVALID · contract not ready.</span>';return}const se=schemaErrors(o);if(se.length){drop.className='drop bad';diag.innerHTML='<b class=bad>SCRIPT_INVALID</b><br>'+se.slice(0,40).map(x=>'<span class=bad>'+X(x)+'</span>').join('<br>');return}const ae=authoringErrors(o);if(ae.length){drop.className='drop bad';diag.innerHTML='<b class=bad>AUTHORING_INVALID</b><br>'+ae.slice(0,40).map(x=>'<span class=bad>'+X(x)+'</span>').join('<br>');return}state.beats=o.beats||[];state.index=0;drop.className='drop good';drop.textContent=`${name} · PREVIEWABLE`;diag.innerHTML='<b class=ok>PREVIEWABLE</b><br><span class=warn>Web preflight only. This does not mean UNITY_VALIDATED or PREVIEW_ACCEPTED.</span>';render()}
 async function read(f){try{load(JSON.parse(await f.text()),f.name)}catch(e){drop.className='drop bad';diag.innerHTML='<b class=bad>SCRIPT_INVALID</b><br>'+X(e.message)}}
 file.onchange=e=>e.target.files[0]&&read(e.target.files[0]);for(const ev of ['dragenter','dragover'])drop.addEventListener(ev,e=>{e.preventDefault()});drop.addEventListener('drop',e=>{e.preventDefault();e.dataTransfer.files[0]&&read(e.dataTransfer.files[0])});prev.onclick=()=>{if(state.index>0){state.index--;render()}};next.onclick=()=>{if(state.index<state.beats.length-1){state.index++;render()}};boot();
 </script>
