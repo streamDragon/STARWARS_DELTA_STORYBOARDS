@@ -57,7 +57,7 @@
           "diagnosticCode": { "type": "string", "minLength": 1 },
           "code": { "type": "string", "minLength": 1 },
           "category": { "type": "string" },
-          "severity": { "enum": ["Blocker","Warning","Default","AutoRepair"] },
+          "severity": { "enum": ["Blocker","Warning","Default","AutoRepair","Acknowledge"] },
           "statusColor": { "enum": ["Green","Yellow","Orange","Red"] },
           "owner": { "enum": ["AUTHORING","BACKEND","ENGINE"] },
           "blocksCompilation": { "type": "boolean" },
