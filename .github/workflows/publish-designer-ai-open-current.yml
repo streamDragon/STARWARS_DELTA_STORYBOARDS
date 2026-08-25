@@ -228,22 +228,46 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          current_tag="$(python3 - <<'PY'
+          python3 - <<'PY' > /tmp/current-release-check.env
           import json
-          from urllib.parse import urlparse
-          payload = json.load(open('designer-ai/current.json', encoding='utf-8-sig'))
-          url = str(payload.get('releaseUrl') or '')
-          print(url.rstrip('/').rsplit('/', 1)[-1])
-          PY
-          )"
-          test -n "$current_tag"
-          echo "Keeping only CURRENT release/tag: $current_tag"
+          import re
 
+          payload = json.load(open('designer-ai/current.json', encoding='utf-8-sig'))
+          current_tag = str(payload.get('releaseUrl') or '').rstrip('/').rsplit('/', 1)[-1]
+          tags = set()
+
+          def walk(value):
+              if isinstance(value, dict):
+                  for child in value.values():
+                      walk(child)
+              elif isinstance(value, list):
+                  for child in value:
+                      walk(child)
+              elif isinstance(value, str):
+                  match = re.search(r'/releases/download/([^/]+)/', value)
+                  if match:
+                      tags.add(match.group(1))
+
+          walk(payload)
+          foreign = sorted(tag for tag in tags if tag != current_tag)
+          print(f'CURRENT_TAG={current_tag}')
+          print('FOREIGN_TAGS=' + ','.join(foreign))
+          PY
+
+          source /tmp/current-release-check.env
+          test -n "$CURRENT_TAG"
+          if [ -n "$FOREIGN_TAGS" ]; then
+            echo "CURRENT_NOT_SELF_CONTAINED: current metadata still references obsolete release tags: $FOREIGN_TAGS" >&2
+            echo 'Refusing destructive cleanup until the current release owns every referenced CURRENT artifact.' >&2
+            exit 1
+          fi
+
+          echo "Self-contained CURRENT confirmed. Keeping only release/tag: $CURRENT_TAG"
           gh api --paginate "repos/${GITHUB_REPOSITORY}/releases?per_page=100" --jq '.[] | [.id, .tag_name] | @tsv' > /tmp/designer-ai-releases.tsv
           while IFS=$'\t' read -r release_id tag_name; do
             case "$tag_name" in
               designer-ai-current-*)
-                if [ "$tag_name" != "$current_tag" ]; then
+                if [ "$tag_name" != "$CURRENT_TAG" ]; then
                   echo "Deleting obsolete CURRENT release: $tag_name"
                   gh api -X DELETE "repos/${GITHUB_REPOSITORY}/releases/${release_id}"
                   gh api -X DELETE "repos/${GITHUB_REPOSITORY}/git/refs/tags/${tag_name}" || true
