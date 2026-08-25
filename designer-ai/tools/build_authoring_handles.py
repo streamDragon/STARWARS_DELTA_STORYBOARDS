@@ -203,7 +203,8 @@ def is_direct_authorable(entry, route):
     if route == "Audio":
         if entry.get("safeForPreview") is False:
             return False
-        # Audio is non-visual: exact identity + Audio route + Cutscene.Audio + preview safety + no blocker/error.\n        return audio_authoring_publish_safe(entry)
+        # Audio is non-visual: exact identity + Audio route + Cutscene.Audio + preview safety + no blocker/error.
+        return audio_authoring_publish_safe(entry)
 
     if entry.get("recommendationStatus") != "RECOMMENDABLE":
         return False
