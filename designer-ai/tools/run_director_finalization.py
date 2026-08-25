@@ -461,6 +461,7 @@ def postprocess_output():
     director = BASE.read_json(director_path)
     open_manifest = BASE.read_json(open_path)
     pack_manifest = BASE.read_json(manifest_path)
+    open_manifest["status"] = "CURRENT_VERIFIED"
 
     presentation_metadata = queue.setdefault("presentationMetadata", {})
     coverage = presentation_metadata.get("coverageByCategory", {})
