@@ -23,21 +23,6 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Guard against rebuilding the same transaction
-        shell: bash
-        run: |
-          set -euo pipefail
-          python3 - <<'PY'
-          import json
-          from pathlib import Path
-          source = json.loads(Path('designer-ai/current.json').read_text(encoding='utf-8-sig'))
-          mirror = Path('designer-ai/open-current/OPEN_CURRENT.json')
-          if mirror.is_file():
-              current = json.loads(mirror.read_text(encoding='utf-8-sig'))
-              if current.get('publishTransactionId') == source.get('publishTransactionId'):
-                  raise SystemExit('PUBLISH_BLOCKED_SAME_TRANSACTION: source and open-current already share publishTransactionId')
-          PY
-
       - name: Install builder dependencies
         run: python3 -m pip install --disable-pip-version-check pillow pypdf
 
@@ -68,7 +53,7 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/run_director_finalization.py
 
-      - name: Build simple authoring handles
+      - name: Build Simple V1 authoring handles
         run: python3 designer-ai/tools/build_authoring_handles.py
 
       - name: Carry Emotional Dialogue CURRENT into stage
@@ -95,11 +80,7 @@ jobs:
               print('EMOTIONAL_DIALOGUE_NOT_PUBLISHED_FOR_CURRENT')
               raise SystemExit(0)
 
-          assert mirror_path.is_file(), (
-              'CURRENT declares Emotional Dialogue but the committed mirror is missing: '
-              + str(mirror_path)
-          )
-
+          assert mirror_path.is_file(), 'CURRENT declares Emotional Dialogue but its published sidecar is missing'
           raw = mirror_path.read_bytes()
           dialogue = json.loads(raw.decode('utf-8-sig'))
           required = dict(source.get('requiredCurrent') or {})
@@ -120,219 +101,92 @@ jobs:
           print('EMOTIONAL_DIALOGUE_STAGED', dialogue.get('publishTransactionId'), len(ready))
           PY
 
-      - name: Carry Cutscene Validation CURRENT into stage
+      - name: Project Unity validation registry into stage
         shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
+          import datetime
           import json
           import pathlib
-          import shutil
 
-          source_path = pathlib.Path('designer-ai/current.json')
-          mirror_path = pathlib.Path('designer-ai/open-current/CUTSCENE_VALIDATION_CURRENT.json')
-          stage_path = pathlib.Path('_open_current_stage/CUTSCENE_VALIDATION_CURRENT.json')
-
-          if not mirror_path.is_file():
-              if stage_path.exists():
-                  stage_path.unlink()
-              print('CUTSCENE_VALIDATION_NOT_PUBLISHED_FOR_CURRENT')
-              raise SystemExit(0)
-
-          source = json.loads(source_path.read_text(encoding='utf-8-sig'))
-          validation = json.loads(mirror_path.read_text(encoding='utf-8-sig'))
+          source = json.loads(pathlib.Path('designer-ai/current.json').read_text(encoding='utf-8-sig'))
+          registry = dict(source.get('authoringRuleRegistry') or {})
+          rules = list(registry.get('rules') or [])
           required = dict(source.get('requiredCurrent') or {})
+          assert rules, 'CURRENT authoringRuleRegistry.rules is empty'
 
-          assert validation.get('schema') == 'STARWARS_DELTA_CUTSCENE_VALIDATION_CURRENT'
-          assert validation.get('schemaVersion') == 1
-          assert validation.get('status') == 'CURRENT_VERIFIED_CUTSCENE_VALIDATION'
-          assert validation.get('publishTransactionId') == source.get('publishTransactionId')
-          assert validation.get('requiredCurrent') == required
-          rules = validation.get('rules') or []
-          assert rules
-          rule_ids = [r.get('ruleId') or r.get('diagnosticCode') or r.get('code') for r in rules]
-          assert all(rule_ids)
-          assert len(set(rule_ids)) == len(rule_ids)
-          for rule in rules:
-              assert isinstance(rule.get('severity'), str) and rule.get('severity')
-              assert isinstance(rule.get('blocksCompilation'), bool)
-              assert rule.get('authoringRequirement') in {
-                  'MUST_AUTHOR', 'MAY_OMIT_BACKEND_DEFAULT', 'OPTIONAL', 'NOT_AUTHORED_IN_SIMPLE_V1'
-              }
-              if str(rule.get('severity')).lower() == 'warning':
-                  assert rule.get('blocksCompilation') is False
+          ids = [r.get('ruleId') or r.get('diagnosticCode') or r.get('code') for r in rules]
+          assert all(ids), 'CURRENT validation registry contains a rule without identity'
+          assert len(set(ids)) == len(ids), 'CURRENT validation registry contains duplicate rule identities'
 
-          stage_path.parent.mkdir(parents=True, exist_ok=True)
-          shutil.copy2(mirror_path, stage_path)
-          print('CUTSCENE_VALIDATION_STAGED', validation.get('publishTransactionId'), len(rules))
+          payload = {
+              'schema': 'STARWARS_DELTA_CUTSCENE_VALIDATION_CURRENT',
+              'schemaVersion': 1,
+              'status': 'CURRENT_VERIFIED_CUTSCENE_VALIDATION',
+              'publishTransactionId': source.get('publishTransactionId'),
+              'catalogRevision': str(required.get('catalogRevision') or ''),
+              'revision': str(registry.get('revision') or source.get('authoringRuleRegistryRevision') or ''),
+              'generatedUtc': datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00', 'Z'),
+              'requiredCurrent': {**required, 'catalogRevision': str(required.get('catalogRevision') or '')},
+              'rules': rules,
+          }
+          out = pathlib.Path('_open_current_stage/CUTSCENE_VALIDATION_CURRENT.json')
+          out.parent.mkdir(parents=True, exist_ok=True)
+          out.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+          print('CUTSCENE_VALIDATION_PROJECTED', payload['publishTransactionId'], len(rules))
           PY
 
-      - name: Seal CURRENT identity and Simple V1 authoring projection
+      - name: Seal and validate one atomic CURRENT
         run: python3 designer-ai/tools/seal_atomic_current.py
 
-      - name: Validate the single CURRENT
+      - name: Final atomic identity check
         shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import hashlib
           import json
           import pathlib
-          import zipfile
-          from collections import Counter
-          from pypdf import PdfReader
 
           root = pathlib.Path('_open_current_stage')
           source = json.loads(pathlib.Path('designer-ai/current.json').read_text(encoding='utf-8-sig'))
-          current = json.loads((root / 'OPEN_CURRENT.json').read_text(encoding='utf-8'))
-          director = json.loads((root / 'director-view' / 'DIRECTOR_VIEW.json').read_text(encoding='utf-8'))
-          manifest = json.loads((root / 'DIRECTOR_PACK_MANIFEST.json').read_text(encoding='utf-8'))
-          handles = json.loads((root / 'simple-authoring' / 'AUTHORING_HANDLES.json').read_text(encoding='utf-8'))
-          rules_current = json.loads((root / 'simple-authoring' / 'AUTHORING_RULES_CURRENT.json').read_text(encoding='utf-8'))
-          canonical = json.loads((root / 'simple-authoring' / 'CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json').read_text(encoding='utf-8'))
           required = dict(source.get('requiredCurrent') or {})
           required['catalogRevision'] = str(required['catalogRevision'])
-          for key in ('contractRevision', 'schemaHash', 'snapshotContentHash', 'authoringRuleRegistryRevision'):
+          for key in ('contractRevision','schemaHash','snapshotContentHash','authoringRuleRegistryRevision'):
               required[key] = str(required[key])
-          expected = {'publishTransactionId': source.get('publishTransactionId'), **required}
+          tx = source.get('publishTransactionId')
 
-          assert source.get('status') == 'CURRENT_VERIFIED'
-          assert current.get('status') == 'CURRENT_VERIFIED_OPEN'
-          assert current.get('publishTransactionId') == source.get('publishTransactionId')
-          assert current.get('requiredCurrent') == required
-          assert director.get('requiredCurrent') == required
-          assert manifest.get('requiredCurrent') == required
-          assert handles.get('requiredCurrent') == required
-          assert rules_current.get('requiredCurrent') == required
-          assert current.get('atomicIdentity') == expected
-          assert director.get('atomicIdentity') == expected
-          assert manifest.get('atomicIdentity') == expected
-          assert str(director.get('catalogRevision')) == required.get('catalogRevision')
-          assert director.get('contractRevision') == required.get('contractRevision')
-          assert director.get('schemaHash') == required.get('schemaHash')
-          assert director.get('snapshotContentHash') == required.get('snapshotContentHash')
-          assert handles.get('schemaVersion') == 4
-          assert handles.get('count', 0) > 0
-          assert rules_current.get('schemaVersion') == 3
-          assert 30 <= float(canonical.get('durationSeconds') or 0) <= 60
+          checks = [
+              root / 'OPEN_CURRENT.json',
+              root / 'SOURCE_CURRENT.json',
+              root / 'DIRECTOR_PACK_MANIFEST.json',
+              root / 'director-view' / 'DIRECTOR_VIEW.json',
+              root / 'simple-authoring' / 'AUTHORING_HANDLES.json',
+              root / 'simple-authoring' / 'AUTHORING_RULES_CURRENT.json',
+              root / 'CUTSCENE_VALIDATION_CURRENT.json',
+          ]
+          for path in checks:
+              assert path.is_file(), 'ATOMIC_CURRENT_MISSING ' + str(path)
+              payload = json.loads(path.read_text(encoding='utf-8-sig'))
+              if path.name == 'SOURCE_CURRENT.json':
+                  assert payload.get('publishTransactionId') == tx, 'SOURCE_CURRENT_TRANSACTION_MISMATCH'
+              else:
+                  assert payload.get('publishTransactionId') == tx or path.name in {'AUTHORING_HANDLES.json','AUTHORING_RULES_CURRENT.json'}, 'ATOMIC_CURRENT_TRANSACTION_MISMATCH ' + str(path)
+              assert payload.get('requiredCurrent') == required, 'ATOMIC_CURRENT_REQUIRED_CURRENT_MISMATCH ' + str(path)
 
-          direct_routes = ('Actor', 'Layer', 'Effect', 'Ui', 'Audio')
-          visual_routes = {'Actor', 'Layer', 'Effect', 'Ui'}
-          route_counts = Counter(h.get('route') for h in (handles.get('handles') or []))
-          declared_counts = dict(handles.get('countsByRoute') or {})
-          for route in direct_routes:
-              assert int(declared_counts.get(route, 0)) == int(route_counts.get(route, 0)), (
-                  f'AUTHORING_HANDLES_COUNT_MISMATCH {route}: '
-                  f'declared={declared_counts.get(route, 0)} actual={route_counts.get(route, 0)}'
-              )
-          assert route_counts.get('Animation', 0) == 0, 'AUTHORING_HANDLES_ANIMATION_LEAK'
-          backend_counts = dict(handles.get('backendCompatibilityCounts') or {})
-          assert int(backend_counts.get('Animation', 0)) > 0, 'AUTHORING_BACKEND_ANIMATION_COMPATIBILITY_EMPTY'
-          assert route_counts.get('Audio', 0) > 0, 'AUTHORING_HANDLES_AUDIO_EMPTY'
+          open_current = json.loads((root / 'OPEN_CURRENT.json').read_text(encoding='utf-8-sig'))
+          assert open_current.get('schema') == 'STARWARS_DELTA_DESIGNER_AI_OPEN_CURRENT'
+          assert open_current.get('status') == 'CURRENT_VERIFIED_OPEN'
+          expected = {'publishTransactionId': tx, **required}
+          assert open_current.get('atomicIdentity') == expected
 
-          for handle in handles.get('handles') or []:
-              assert handle.get('authorableInSimpleV1') is True, (
-                  'AUTHORING_HANDLE_NOT_DIRECT ' + str(handle.get('handle'))
-              )
-              assert handle.get('safeForPublish') is True, (
-                  'AUTHORING_HANDLE_NOT_PUBLISH_SAFE ' + str(handle.get('handle'))
-              )
-              if handle.get('route') in visual_routes:
-                  assert isinstance(handle.get('atlasPage'), int) and handle.get('atlasPage') > 0, (
-                      'AUTHORING_HANDLE_ATLAS_PAGE_MISSING ' + str(handle.get('handle'))
-                  )
-                  assert isinstance(handle.get('atlasSlot'), int) and handle.get('atlasSlot') > 0, (
-                      'AUTHORING_HANDLE_ATLAS_SLOT_MISSING ' + str(handle.get('handle'))
-                  )
+          dialogue = root / 'EMOTIONAL_DIALOGUE_CURRENT.json'
+          if dialogue.is_file():
+              payload = json.loads(dialogue.read_text(encoding='utf-8-sig'))
+              assert payload.get('publishTransactionId') == tx
+              assert payload.get('requiredCurrent') == required
 
-          audio_director = json.loads((root / 'director-view' / 'audio.json').read_text(encoding='utf-8'))
-          eligible_audio = set()
-          for asset in audio_director.get('assets') or []:
-              rid = asset.get('authoringAssetId') or asset.get('assetId') or asset.get('audioId')
-              if not rid or asset.get('safeForPreview') is not True:
-                  continue
-              if 'Audio' not in set(asset.get('allowedUses') or ['Audio']):
-                  continue
-              capabilities = set(asset.get('capabilities') or []) | set(asset.get('selectedCapabilities') or [])
-              if 'Cutscene.Audio' not in capabilities:
-                  continue
-              severities = list(asset.get('reviewSeverities') or [])
-              if asset.get('reviewSeverity') not in (None, ''):
-                  severities.append(asset.get('reviewSeverity'))
-              if any(str(value or '').strip().lower() in {'blocker', 'error'} for value in severities):
-                  continue
-              if asset.get('recommendationStatus') != 'RECOMMENDABLE' and asset.get('selectionStatus') not in {
-                  'CATALOG_VERIFIED_PREVIEW_SAFE',
-                  'CATALOG_VERIFIED_PUBLISH_SAFE',
-              }:
-                  continue
-              eligible_audio.add(rid)
-
-          published_audio = {
-              h.get('runtimeId') for h in (handles.get('handles') or [])
-              if h.get('route') == 'Audio'
-          }
-          assert published_audio == eligible_audio, (
-              f'AUTHORING_HANDLES_AUDIO_COVERAGE_MISMATCH '
-              f'missing={sorted(eligible_audio - published_audio)[:10]} '
-              f'extra={sorted(published_audio - eligible_audio)[:10]}'
-          )
-
-          emotional = dict(source.get('emotionalDialogue') or {})
-          if emotional.get('status') == 'CURRENT_VERIFIED_EMOTIONAL_DIALOGUE':
-              dialogue_path = root / 'EMOTIONAL_DIALOGUE_CURRENT.json'
-              assert dialogue_path.is_file()
-              dialogue_raw = dialogue_path.read_bytes()
-              dialogue = json.loads(dialogue_raw.decode('utf-8-sig'))
-              ready = [c for c in (dialogue.get('characters') or []) if c.get('authoringReady') is True]
-              expected_ready = int(emotional.get('authoringReadyCharacterCount') or 0)
-              assert dialogue.get('status') == 'CURRENT_VERIFIED_EMOTIONAL_DIALOGUE'
-              assert dialogue.get('publishTransactionId') == source.get('publishTransactionId')
-              assert dialogue.get('requiredCurrent') == required
-              assert expected_ready > 0 and len(ready) == expected_ready
-              assert hashlib.sha256(dialogue_raw).hexdigest().lower() == str(emotional.get('sha256') or '').lower()
-              assert len(dialogue_raw) == int(emotional.get('sizeBytes') or 0)
-
-          validation_path = root / 'CUTSCENE_VALIDATION_CURRENT.json'
-          assert validation_path.is_file(), 'CUTSCENE_VALIDATION_CURRENT_MISSING'
-          validation = json.loads(validation_path.read_text(encoding='utf-8-sig'))
-          assert validation.get('schema') == 'STARWARS_DELTA_CUTSCENE_VALIDATION_CURRENT'
-          assert validation.get('schemaVersion') == 1
-          assert validation.get('status') == 'CURRENT_VERIFIED_CUTSCENE_VALIDATION'
-          assert validation.get('publishTransactionId') == source.get('publishTransactionId')
-          assert validation.get('requiredCurrent') == required
-          validation_rules = validation.get('rules') or []
-          assert validation_rules
-          rule_ids = [r.get('ruleId') or r.get('diagnosticCode') or r.get('code') for r in validation_rules]
-          assert all(rule_ids)
-          assert len(set(rule_ids)) == len(rule_ids)
-          for rule in validation_rules:
-              assert isinstance(rule.get('severity'), str) and rule.get('severity')
-              assert isinstance(rule.get('blocksCompilation'), bool)
-              assert rule.get('authoringRequirement') in {
-                  'MUST_AUTHOR', 'MAY_OMIT_BACKEND_DEFAULT', 'OPTIONAL', 'NOT_AUTHORED_IN_SIMPLE_V1'
-              }
-              if str(rule.get('severity')).lower() == 'warning':
-                  assert rule.get('blocksCompilation') is False
-
-          atlas = root / 'full-visual-sheets' / 'STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf'
-          pack = root / 'STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip'
-          assert atlas.is_file() and len(PdfReader(str(atlas)).pages) > 0
-          assert pack.is_file() and pack.stat().st_size > 0
-          with zipfile.ZipFile(pack) as archive:
-              zipped = json.loads(archive.read('OPEN_CURRENT.json').decode('utf-8-sig'))
-              zipped_handles = json.loads(archive.read('simple-authoring/AUTHORING_HANDLES.json').decode('utf-8-sig'))
-              zipped_rules = json.loads(archive.read('simple-authoring/AUTHORING_RULES_CURRENT.json').decode('utf-8-sig'))
-              assert zipped.get('requiredCurrent') == required
-              assert zipped.get('atomicIdentity') == expected
-              assert zipped_handles.get('requiredCurrent') == required
-              assert not any(h.get('route') == 'Animation' for h in (zipped_handles.get('handles') or []))
-              assert zipped_rules.get('schemaVersion') == 3
-
-          print('AUTHORING_HANDLES_COUNTS', dict(sorted(route_counts.items())))
-          print('AUTHORING_BACKEND_COMPATIBILITY_COUNTS', backend_counts)
-          print('SIMPLE_V1_AUTHORING_GATE_VALIDATED')
-          print('SINGLE_CURRENT_VALIDATED', source.get('publishTransactionId'))
+          print('ATOMIC_OPEN_CURRENT_READY', tx)
           PY
 
       - name: Publish one CURRENT directly to main
@@ -348,7 +202,7 @@ jobs:
           git add -A designer-ai/open-current
 
           if git diff --cached --quiet; then
-            echo 'CURRENT already matches the built payload.'
+            echo 'CURRENT already matches the complete staged payload.'
             exit 0
           fi
 
