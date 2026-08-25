@@ -2,19 +2,58 @@
 
 This document is maintainer guidance only. It does not define authoring rules.
 
-## Public runtime truth
+## One production chain
 
-Normal users, Debora and ChatGPT consume only:
+```text
+Unity / Plastic production source
+-> user-controlled Publish candidate
+-> designer-ai/current.json advances
+-> guarded Git publication pipeline
+-> designer-ai/open-current/**
+-> Devora Context Pack / Simple Preview / ChatGPT
+```
 
-- `designer-ai/open-current/OPEN_CURRENT.json`
+Normal authoring then follows:
+
+```text
+Devora / ChatGPT
+-> CUTSCENE_SCRIPT_V1
+-> existing Simple Adapter
+-> existing V3 semantic / narrative beat / cinematic feature owners
+-> existing V5
+-> Validator / Materializer / Timeline
+-> Editable Preview
+```
+
+V3/V5 are backend layers, not normal authoring formats.
+
+## Public CURRENT truth
+
+Normal users and ChatGPT consume only the matching published `designer-ai/open-current/**` surface.
+
+The human entry point is:
+
+- `designer-ai/devora.html`
+
+The canonical ChatGPT instruction source is:
+
 - `designer-ai/open-current/CHATGPT_START.txt`
-- the Director, Contract, Instruction Book and Visual Atlas referenced by that same published CURRENT
 
-`designer-ai/debora.html` is the normal human entry point.
+Devora copies those exact bytes into the Context Pack as `01_CHATGPT_START.txt`. It does not maintain a shorter competing authoring specification.
 
-## Authoring compatibility identity
+The core Simple authoring contract is:
 
-Studio NEW, REVISE and REPAIR envelopes compare only `requiredCurrent`:
+- `open-current/simple-authoring/CUTSCENE_SCRIPT_V1.schema.json`
+- `open-current/simple-authoring/AUTHORING_HANDLES.json`
+- `open-current/simple-authoring/AUTHORING_RULES_CURRENT.json`
+- `open-current/EMOTIONAL_DIALOGUE_CURRENT.json`
+- `open-current/CUTSCENE_VALIDATION_CURRENT.json`
+
+Do not recreate root-level `OPEN_CURRENT.json`, `chatgpt-current.json`, duplicate instruction files, or version-specific aliases.
+
+## Identity and compatibility
+
+`requiredCurrent` carries the compatibility fingerprints:
 
 - `catalogRevision`
 - `contractRevision`
@@ -22,86 +61,77 @@ Studio NEW, REVISE and REPAIR envelopes compare only `requiredCurrent`:
 - `snapshotContentHash`
 - `authoringRuleRegistryRevision`
 
-All five must match.
+`publishTransactionId` is publication provenance. Generated artifacts may carry an atomic identity including it for publication-integrity checks.
 
-`publishTransactionId` is publication provenance. It identifies which publish produced an artifact, but it is not part of normal authoring compatibility. Republishing identical authoring content may legitimately produce a different transaction ID without creating a different authoring universe.
+Never mix artifacts from different CURRENT identities.
 
-Public CURRENT therefore exposes both:
+## Source versus generated publication
 
-- `requiredCurrent`: the five compatibility fingerprints
-- `provenance`: publish transaction and release/build provenance
+Repository files such as:
 
-Generated artifacts may also retain a strict `atomicIdentity` including `publishTransactionId` for publication-integrity checks inside one published transaction. Do not use that six-field publication identity as the Studio request compatibility gate.
-
-Never mix Contract, Catalog, Schema, Rule Registry or snapshot content from different `requiredCurrent` identities.
-
-## Internal publisher inputs
-
-These repository files are publisher/build inputs and are not alternate public CURRENTs:
-
-- `designer-ai/current.json`
 - `designer-ai/CHATGPT_START.txt`
 - `designer-ai/FILM_AUTHORING_GUIDE_CURRENT.md`
-- `designer-ai/simple-authoring/*`
-- `designer-ai/tools/*`
-- `.github/workflows/publish-designer-ai-open-current.yml`
+- `designer-ai/simple-authoring/**`
+- `designer-ai/tools/**`
 
-`designer-ai/current.json` remains required by the publisher pipeline until that pipeline is deliberately redesigned. Do not expose it as the normal authoring source.
+are publisher/engineering source inputs. They are not alternate public CURRENTs.
 
-## Git source edits versus published CURRENT
+`designer-ai/open-current/**` is generated publication output and must not be hand-edited to simulate a new CURRENT.
 
-Git source guidance may be updated while Unity implementation work is in progress, but `designer-ai/open-current/**` is a generated atomic publication surface and must not be hand-edited to make it appear synchronized.
+Source edits alone do not rebuild `open-current` under the existing transaction. The Git workflow runs only for an actual `designer-ai/current.json` advance or explicit manual dispatch, and blocks rebuilding the same `publishTransactionId`.
 
-The ownership rule is:
+A later user-controlled Unity Publish is required to establish a new CURRENT after Unity-owned contract changes.
 
-```text
-source guidance / Unity implementation changes
-        -> local compile + Validate + Editable Preview proof
-        -> user-controlled Publish CURRENT
-        -> regenerated open-current artifacts + new compatible fingerprints
-```
+## Web preflight
 
-Do not manually copy a newer source instruction file into `open-current` while keeping the old `requiredCurrent` or Rule Registry fingerprint. That creates a mixed authoring universe even if the prose looks correct.
+`designer-ai/simple-preview.html` validates `CUTSCENE_SCRIPT_V1` against the matching published JSON Schema before CURRENT handle/dialogue checks.
 
-Recent runtime learning belongs first in the source guidance under `designer-ai/FILM_AUTHORING_GUIDE_CURRENT.md` and `designer-ai/simple-authoring/*`. It becomes official public CURRENT only through the normal user-owned Publish transaction.
+Web states are limited to:
 
-## Runtime truth must constrain authoring guidance
+- `SCRIPT_INVALID`
+- `CURRENT_INVALID`
+- `AUTHORING_INVALID`
+- `PREVIEWABLE`
 
-Do not document semantic vocabulary as if the runtime already supports a stronger behavior than it actually does.
+The browser must not claim `UNITY_VALIDATED` or `PREVIEW_ACCEPTED`.
 
-Current examples that must stay explicit in source guidance:
+## Visual access
 
-- Simple V1 semantic actor motion is compiled into existing V5 `actorActions`; it is not a second movement engine.
-- actor `motionIntent=orbit` uses the existing V5 Orbit action, whose current Orbit v1 center is fixed/stationary.
-- `CUTSCENE_ORBIT_CENTER_MOVES` remains a real blocker until a moving-center runtime exists.
-- semantic Pursuit/Escort/Intercept wording does not by itself prove per-frame target-relative tracking; document only behavior implemented by the current Timeline writer.
-- dialogue-only curated participants are composition/dialogue anchors, not WorldActors created merely for camera targeting.
-- a Hold composition may preserve a semantic non-Actor subject without requiring a physical Transform target.
+The Devora Context Pack includes direct pixel evidence:
 
-If runtime capability later expands, update the source guidance and validation truth together, then publish them atomically.
+- `visual-atlas/ACTOR_CURRENT.pdf`
+- `visual-atlas/EFFECT_CURRENT.pdf`
+- `visual-atlas/LAYER_CURRENT.pdf`
+- `visual-atlas/UI_CURRENT.pdf`
+- `visual-atlas/VISUAL_ATLAS_CURRENT.json`
 
-## Forbidden duplicate surfaces
+Visual handles keep master `atlasPage` and `atlasSlot`. `VISUAL_ATLAS_CURRENT.json` owns category ranges used to translate to the category-local PDF page. The slot stays unchanged.
 
-Do not recreate public aliases such as:
+The large master Visual Atlas may remain available for engineering/manual use, but normal AI authoring should use the packaged category PDFs.
 
-- `designer-ai/OPEN_CURRENT.json`
-- `designer-ai/chatgpt-current.json`
+## Runtime truth must constrain guidance
 
-Do not add another CURRENT manifest, instruction path, package selector or compatibility pointer merely to preserve an old URL. Update callers to the single public `open-current` surface instead.
+Do not document stronger behavior than the runtime actually supports.
 
-## Rule ownership
+Important examples:
 
-This file must not duplicate authoring business rules. Authoring behavior is owned by the matching Rule Registry, Contract and Instruction Book projection. The Film Guide is a checklist/guidance layer, not a competing rule source.
+- explicit legal Simple Audio survives lowering; backend defaults are used only when authored audio is absent;
+- Cutscene projectile IDs and default cadence are Unity-owned capability/runtime truth;
+- actor Orbit v1 has a fixed center;
+- semantic Pursuit/Escort/Intercept wording does not prove per-frame moving-target tracking;
+- dialogue-only curated participants are dialogue/composition identities, not automatically WorldActors;
+- semantic camera subject is not automatically a physical Transform target;
+- automatic creative recommendation must honor existing Director eligibility.
 
-The files under `designer-ai/simple-authoring/` are engineering/source guidance for keeping the adapter, validation projection and public authoring model aligned. They must not be treated as a second public CURRENT.
+If runtime capability expands, update Unity source truth first and publish the resulting authoring surface atomically.
 
-## UI policy
+## Repository hygiene
 
-Normal Designer AI flow is intentionally small:
+Keep:
 
-1. Open Debora.
-2. COPY FOR CHAT.
-3. Describe the cutscene.
-4. If ChatGPT cannot inspect public pixels, use the single CURRENT Visual Atlas PDF fallback.
+1. active source/UI/publisher code;
+2. the current atomic `open-current` projection;
+3. active contract/policy/guidance;
+4. unique regression fixtures and learning evidence.
 
-Director archives and completion/eligibility artifacts are advanced engineering tools, not part of the ordinary designer flow.
+Remove completed task packets, dead prototypes, stale redirects, duplicate CURRENT aliases and superseded handoffs after their durable requirements are in code, schema, rules or tests.
