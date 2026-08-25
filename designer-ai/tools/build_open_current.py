@@ -239,7 +239,7 @@ def build_full_visual_sheets(visual_zip, transaction_id):
             payload = {
                 "schema": "STARWARS_DELTA_CHATGPT_VISUAL_CATEGORY_INDEX",
                 "schemaVersion": 2,
-                "status": "CURRENT_VERIFIED_OPEN",
+                "status": "CURRENT_VERIFIED",
                 "publishTransactionId": transaction_id,
                 "category": category,
                 "representativeCount": len(entries),
@@ -259,7 +259,7 @@ def build_full_visual_sheets(visual_zip, transaction_id):
         lookup_payload = {
             "schema": "STARWARS_DELTA_CHATGPT_ASSET_VISUAL_LOOKUP",
             "schemaVersion": 2,
-            "status": "CURRENT_VERIFIED_OPEN",
+            "status": "CURRENT_VERIFIED",
             "publishTransactionId": transaction_id,
             "assetIdToEntryIndex": asset_lookup,
         }
@@ -268,7 +268,7 @@ def build_full_visual_sheets(visual_zip, transaction_id):
         full_index = {
             "schema": "STARWARS_DELTA_CHATGPT_FULL_VISUAL_INDEX",
             "schemaVersion": 3,
-            "status": "CURRENT_VERIFIED_OPEN",
+            "status": "CURRENT_VERIFIED",
             "publishTransactionId": transaction_id,
             "sourceVisualIdentityCount": manifest.get("visualIdentityCount"),
             "sourceCatalogRecordCount": manifest.get("catalogRecordCount"),
@@ -308,7 +308,7 @@ def main():
     open_manifest = {
         "schema": "STARWARS_DELTA_DESIGNER_AI_OPEN_CURRENT",
         "schemaVersion": 6,
-        "status": "CURRENT_VERIFIED_OPEN",
+        "status": "CURRENT_VERIFIED",
         "publishTransactionId": transaction_id,
         "publishedUtc": current.get("publishedUtc"),
         "releaseUrl": current.get("releaseUrl"),
@@ -335,3 +335,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+

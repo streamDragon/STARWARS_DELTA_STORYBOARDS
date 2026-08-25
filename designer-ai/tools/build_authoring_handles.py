@@ -8,7 +8,7 @@ from collections import Counter
 
 ROOT = pathlib.Path("_open_current_stage")
 SOURCE_CURRENT = pathlib.Path("designer-ai/current.json")
-SOURCE_SIMPLE = pathlib.Path("designer-ai/simple-authoring")
+SOURCE_SIMPLE = pathlib.Path("designer-ai/tools/current-source/simple-authoring")
 DIRECTOR = ROOT / "director-view"
 OUT_DIR = ROOT / "simple-authoring"
 OUT_PATH = OUT_DIR / "AUTHORING_HANDLES.json"
@@ -203,14 +203,7 @@ def is_direct_authorable(entry, route):
     if route == "Audio":
         if entry.get("safeForPreview") is False:
             return False
-        recommendation = str(entry.get("recommendationStatus") or "").strip()
-        selection = str(entry.get("selectionStatus") or "").strip()
-        if recommendation != "RECOMMENDABLE" and selection not in {
-            "CATALOG_VERIFIED_PREVIEW_SAFE",
-            "CATALOG_VERIFIED_PUBLISH_SAFE",
-        }:
-            return False
-        return audio_authoring_publish_safe(entry)
+        # Audio is non-visual: exact identity + Audio route + Cutscene.Audio + preview safety + no blocker/error.\n        return audio_authoring_publish_safe(entry)
 
     if entry.get("recommendationStatus") != "RECOMMENDABLE":
         return False
@@ -484,3 +477,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+

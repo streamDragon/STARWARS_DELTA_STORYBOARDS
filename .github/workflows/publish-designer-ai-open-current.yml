@@ -8,6 +8,13 @@ on:
       - 'designer-ai/current.json'
       - 'designer-ai/simple-authoring/CUTSCENE_VALIDATION_CURRENT.schema.json'
       - 'designer-ai/tools/build_visual_scan_report.py'
+      - 'designer-ai/tools/build_authoring_handles.py'
+      - 'designer-ai/tools/seal_atomic_current.py'
+      - 'designer-ai/tools/build_open_current.py'
+      - 'designer-ai/tools/build_visual_atlas.py'
+      - 'designer-ai/tools/finalize_open_current.py'
+      - 'designer-ai/tools/build_director_view.py'
+      - 'designer-ai/tools/run_director_finalization.py'
       - '.github/workflows/publish-designer-ai-open-current.yml'
 
 permissions:
@@ -71,14 +78,22 @@ jobs:
           import json
           import pathlib
           import shutil
+          import os
+          import urllib.request
 
           source_path = pathlib.Path('designer-ai/current.json')
-          mirror_path = pathlib.Path('designer-ai/open-current/EMOTIONAL_DIALOGUE_CURRENT.json')
+          mirror_path = pathlib.Path('/tmp/EMOTIONAL_DIALOGUE_CURRENT.json')
           stage_path = pathlib.Path('_open_current_stage/EMOTIONAL_DIALOGUE_CURRENT.json')
 
           source = json.loads(source_path.read_text(encoding='utf-8-sig'))
           metadata = dict(source.get('emotionalDialogue') or {})
           expected_status = 'CURRENT_VERIFIED_EMOTIONAL_DIALOGUE'
+          release_url = str(source.get('releaseUrl') or '')
+          if '/releases/tag/' not in release_url:
+              raise SystemExit('CURRENT_RELEASE_URL_MISSING')
+          tag = release_url.rsplit('/releases/tag/', 1)[1]
+          asset_url = "https://github.com/" + os.environ['GITHUB_REPOSITORY'] + "/releases/download/" + tag + "/EMOTIONAL_DIALOGUE_CURRENT.json"
+          urllib.request.urlretrieve(asset_url, mirror_path)
 
           if metadata.get('status') != expected_status:
               if stage_path.exists():
@@ -183,7 +198,7 @@ jobs:
 
           open_current = json.loads((root / 'OPEN_CURRENT.json').read_text(encoding='utf-8-sig'))
           assert open_current.get('schema') == 'STARWARS_DELTA_DESIGNER_AI_OPEN_CURRENT'
-          assert open_current.get('status') == 'CURRENT_VERIFIED_OPEN'
+          assert open_current.get('status') == 'CURRENT_VERIFIED'
           expected = {'publishTransactionId': tx, **required}
           assert open_current.get('atomicIdentity') == expected
 
@@ -282,3 +297,4 @@ jobs:
             exit 1
           fi
           echo 'Exactly one Designer AI CURRENT release remains.'
+

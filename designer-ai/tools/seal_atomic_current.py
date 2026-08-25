@@ -8,7 +8,7 @@ import zipfile
 
 ROOT = pathlib.Path("_open_current_stage")
 CURRENT_PATH = pathlib.Path("designer-ai/current.json")
-SOURCE_SIMPLE = pathlib.Path("designer-ai/simple-authoring")
+SOURCE_SIMPLE = pathlib.Path("designer-ai/tools/current-source/simple-authoring")
 PACK_NAME = "STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip"
 
 REQUIRED_CURRENT_KEYS = (
@@ -668,3 +668,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
