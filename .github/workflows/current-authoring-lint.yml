@@ -1,0 +1,104 @@
+name: CURRENT Authoring Source Lint
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'designer-ai/CHATGPT_START.txt'
+      - 'designer-ai/FILM_AUTHORING_GUIDE_CURRENT.md'
+      - 'designer-ai/ARCHITECTURE.md'
+      - 'designer-ai/devora.html'
+      - 'designer-ai/simple-preview.html'
+      - 'designer-ai/simple-authoring/**'
+      - 'designer-ai/tools/**'
+      - '.github/workflows/current-authoring-lint.yml'
+      - '.github/workflows/publish-designer-ai-open-current.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Install JSON Schema validator
+        run: python3 -m pip install --disable-pip-version-check jsonschema
+
+      - name: Lint authoring source ownership
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from jsonschema import Draft202012Validator
+
+          root = Path('designer-ai')
+          simple = root / 'simple-authoring'
+          schema_path = simple / 'CUTSCENE_SCRIPT_V1.schema.json'
+          example_path = simple / 'CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json'
+
+          schema = json.loads(schema_path.read_text(encoding='utf-8-sig'))
+          example = json.loads(example_path.read_text(encoding='utf-8-sig'))
+          Draft202012Validator.check_schema(schema)
+          errors = sorted(Draft202012Validator(schema).iter_errors(example), key=lambda e: list(e.path))
+          assert not errors, 'CANONICAL_SIMPLE_V1_SCHEMA_INVALID: ' + ' | '.join(e.message for e in errors[:10])
+
+          projectile = schema['$defs']['action']['properties']['projectileId']['enum']
+          expected = [
+              'CS_PROJECTILE_BLUE_BOLT',
+              'CS_PROJECTILE_PURPLE_BOLT',
+              'CS_PROJECTILE_POWERBALL',
+          ]
+          assert projectile == expected, f'PROJECTILE_SCHEMA_DRIFT: {projectile}'
+
+          dead = [
+              simple / 'EXAMPLE_FALSE_VICTORY.json',
+              simple / 'EXAMPLE_GOLDEN_CAMERA_FRAMING.json',
+              simple / 'EXAMPLE_GOLDEN_CINEMATIC_SEMANTICS.json',
+              simple / 'V4_MOVE_RECIPES.md',
+              simple / 'V4_MOVE_RECIPES.json',
+              simple / 'EMOTIONAL_DIALOGUE_V5_IMPLEMENTATION.md',
+              simple / 'UNITY_ADAPTER_IMPLEMENTATION.md',
+              simple / 'SIMPLE_V1_SEMANTIC_EXPANSION_UNITY_HANDOFF.md',
+              simple / 'UNITY_CURRENT_TRUTH_SYNC_HANDOFF.md',
+              simple / 'CUTSCENE_VALIDATION_UNITY_HANDOFF.md',
+              simple / 'CINEMATIC_INTENT_SURVIVAL_REPAIR.md',
+              simple / 'CODEX_SYSTEMIC_PREVIEW_RECOVERY.md',
+              root / 'MATERIALIZE_400S_TRIGGER.txt',
+              root / 'PUBLISH_TRIGGER_20260823.txt',
+              root / 'OPEN_CURRENT.json',
+              root / 'debora.html',
+          ]
+          present = [str(p) for p in dead if p.exists()]
+          assert not present, 'STALE_AUTHORING_SURFACE_REAPPEARED: ' + ', '.join(present)
+
+          start = (root / 'CHATGPT_START.txt').read_text(encoding='utf-8-sig')
+          forbidden = ['CS_PROJECTILE_LASER', 'CS_PROJECTILE_AXE', 'CS_PROJECTILE_ROCKET']
+          hits = [x for x in forbidden if x in start]
+          assert not hits, 'STALE_PROJECTILE_VOCAB_IN_CHATGPT_START: ' + ', '.join(hits)
+
+          devora = (root / 'devora.html').read_text(encoding='utf-8')
+          assert "open-current/CHATGPT_START.txt','bytes'" in devora, 'DEVORA_CANONICAL_START_NOT_LOADED'
+          assert "'01_CHATGPT_START.txt','designer-ai/open-current/CHATGPT_START.txt',startBytes" in devora, 'DEVORA_CANONICAL_START_NOT_PACKAGED'
+          assert "START='Use the attached" not in devora, 'DEVORA_DUPLICATE_START_SPEC_REAPPEARED'
+
+          preview = (root / 'simple-preview.html').read_text(encoding='utf-8')
+          assert 'ajv2020.bundle.min.js' in preview, 'SIMPLE_PREVIEW_SCHEMA_ENGINE_MISSING'
+          assert "open-current/simple-authoring/CUTSCENE_SCRIPT_V1.schema.json" in preview, 'SIMPLE_PREVIEW_CURRENT_SCHEMA_MISSING'
+          assert 'UNITY_VALIDATED' in preview and 'PREVIEW_ACCEPTED' in preview, 'SIMPLE_PREVIEW_STATUS_BOUNDARY_TEXT_MISSING'
+
+          source = json.loads((root / 'current.json').read_text(encoding='utf-8-sig'))
+          current = json.loads((root / 'open-current' / 'OPEN_CURRENT.json').read_text(encoding='utf-8-sig'))
+          assert source.get('publishTransactionId') == current.get('publishTransactionId'), 'COMMITTED_CURRENT_TRANSACTION_MISMATCH'
+          assert source.get('requiredCurrent') == current.get('requiredCurrent'), 'COMMITTED_CURRENT_FINGERPRINT_MISMATCH'
+
+          print('CURRENT_AUTHORING_SOURCE_LINT_PASS')
+          print('PROJECTILES', projectile)
+          print('CURRENT', source.get('publishTransactionId'))
+          PY
