@@ -80,3 +80,4 @@ Generated `open-current/**` is an atomic publication surface.
 Source edits do not rewrite it under the same transaction. A later user-controlled Unity Publish establishes a new CURRENT after Unity-owned contract changes.
 
 The publication pipeline must fail rather than mix source from different CURRENT identities or silently rebuild an existing transaction.
+

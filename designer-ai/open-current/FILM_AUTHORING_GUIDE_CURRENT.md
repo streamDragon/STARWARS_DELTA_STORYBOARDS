@@ -422,3 +422,4 @@ Current additional learning:
 - projectile identity belongs in the closed Cutscene `projectileId` vocabulary; using an Effect handle or gameplay projectile route is not an equivalent representation.
 
 A repaired result becomes GOLDEN only after normal Unity Validate + representative Preview proves it.
+

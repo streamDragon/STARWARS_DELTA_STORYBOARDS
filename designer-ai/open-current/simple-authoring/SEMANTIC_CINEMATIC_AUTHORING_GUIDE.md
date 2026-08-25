@@ -297,3 +297,4 @@ Before delivering production JSON verify:
 12. no unknown properties or remembered legacy field names remain
 
 Unity remains authoritative for final runtime validation and Editable Preview acceptance.
+

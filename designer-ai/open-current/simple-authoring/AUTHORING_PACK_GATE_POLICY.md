@@ -32,3 +32,4 @@ A CURRENT authoring projection must stop instead of silently publishing contradi
 The full Director, raw Animation compatibility identities and backend validation remain available to engineering. Their presence does not turn those fields into Simple V1 authoring obligations.
 
 This policy is intentionally count-free except for closed vocabulary membership. Asset counts belong to the CURRENT being rebuilt and must be derived at build time rather than hardcoded into permanent guidance.
+
