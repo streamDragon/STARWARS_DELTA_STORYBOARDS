@@ -1,0 +1,688 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+  "schemaVersion": 1,
+  "title": "Cinematic Grammar Proof V2 - Engine Safe Composition",
+  "durationSeconds": 72,
+  "creativeIntent": "A revised proof built from the Unity V1 result. Full-frame location plates remain camera-stable; action is carried primarily by actor motion rather than physical camera movement. Pursuit is simplified to a readable approach because current Pursuit is not target-relative. Dialogue remains in dedicated cuts. Projectile fire remains authored explicitly so the existing preview defect can be tested rather than hidden.",
+  "cast": [
+    {
+      "id": "CAPTAIN_AVATAR_01",
+      "identityHandle": "CAPTAIN_AVATAR_01",
+      "displayName": "Captain"
+    },
+    {
+      "id": "FEMALE_COMMS_01",
+      "identityHandle": "FEMALE_COMMS_01",
+      "displayName": "Comms"
+    }
+  ],
+  "beats": [
+    {
+      "id": "B001",
+      "type": "establishing",
+      "durationSeconds": 6,
+      "locationHandle": "space_10_0__0f1b34c9",
+      "storyClaim": "Earth hangs below a quiet corridor as a dark mothership waits in the distance.",
+      "dramaticFunction": "setup",
+      "energy": "quiet",
+      "cinematicMove": "establish_location",
+      "visible": [
+        {
+          "id": "mothership",
+          "handle": "space_1_0__5f7a8879",
+          "depth": "far",
+          "saliency": "ambient",
+          "screenX": 0.76,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.2,
+          "facing": "left"
+        }
+      ],
+      "audio": [
+        {
+          "kind": "ambience",
+          "handle": "1_4225_spacecraft__c7ee1b9e",
+          "operation": "play",
+          "intent": "distant spacecraft ambience",
+          "volume": 0.35,
+          "intensity": "low"
+        }
+      ],
+      "camera": {
+        "framing": "extreme_wide",
+        "movement": "hold",
+        "subject": "mothership",
+        "direction": "right",
+        "intensity": "subtle",
+        "parallax": "none",
+        "purpose": "Stable full-frame establishing plate. No physical camera drift until full-frame plate overscan is fixed."
+      },
+      "transition": {
+        "style": "fade_from_black",
+        "durationSeconds": 1
+      },
+      "evidence": "The Earth-horizon plate owns the full frame while one small distant mothership establishes scale and threat."
+    },
+    {
+      "id": "B002",
+      "type": "arrival",
+      "durationSeconds": 6,
+      "locationHandle": "space_10_0__0f1b34c9",
+      "storyClaim": "A lone fighter enters the corridor at speed.",
+      "dramaticFunction": "build",
+      "energy": "medium",
+      "cinematicMove": "ship_flyby",
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "2dspaceshipsfreetrialatlassideviewgrey_0__5c6ce346",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.1,
+          "screenY": 0.58,
+          "screenWidthFraction": 0.3,
+          "enterFrom": "left",
+          "exitTo": "right",
+          "travelDirection": "left_to_right",
+          "facing": "right"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "flyby",
+          "trajectory": "linear",
+          "travelDirection": "left_to_right",
+          "speed": "fast"
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "spaceship_passing_by__493d6cec",
+          "operation": "play",
+          "intent": "fighter flyby",
+          "volume": 0.75,
+          "intensity": "medium"
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "hero",
+        "direction": "right",
+        "intensity": "strong",
+        "parallax": "none",
+        "purpose": "Locked composition; the hero crosses the frame while the full-frame plate stays stable."
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "continuity": {
+        "preserveScreenDirection": true
+      },
+      "evidence": "One detailed single fighter crosses a large portion of the frame with clear left-to-right screen direction."
+    },
+    {
+      "id": "B003",
+      "type": "threat_reveal",
+      "durationSeconds": 6,
+      "locationHandle": "space_10_0__0f1b34c9",
+      "storyClaim": "A hostile saucer slides in from the opposite side and blocks the corridor.",
+      "dramaticFunction": "reveal",
+      "energy": "high",
+      "cinematicMove": "reveal",
+      "visible": [
+        {
+          "id": "enemy",
+          "handle": "big_saucer0015__37cdeb41",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.84,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.28,
+          "enterFrom": "right",
+          "travelDirection": "right_to_left",
+          "facing": "left"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "enemy",
+          "motionIntent": "intercept",
+          "trajectory": "linear",
+          "travelDirection": "right_to_left",
+          "speed": "medium"
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "bossapproach__910d6e60",
+          "operation": "play",
+          "intent": "threat reveal accent",
+          "volume": 0.55,
+          "intensity": "medium"
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "enemy",
+        "direction": "left",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Locked composition; the enemy enters from the right without moving the location plate."
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "One clean saucer enters from the right, visibly opposing the hero direction without any competing portrait or insert."
+    },
+    {
+      "id": "B004",
+      "type": "dialogue",
+      "durationSeconds": 6,
+      "locationHandle": "space_10_0__0f1b34c9",
+      "storyClaim": "Comms warns the Captain that the corridor is closing.",
+      "dramaticFunction": "handoff",
+      "energy": "high",
+      "cinematicMove": "command_screen_communication",
+      "dialogue": [
+        {
+          "speaker": "FEMALE_COMMS_01",
+          "listener": "CAPTAIN_AVATAR_01",
+          "text": "Captain, the corridor is closing. One hostile directly ahead.",
+          "expressionIntent": "Urgent",
+          "performanceIntent": "warning",
+          "delivery": "warning",
+          "presentation": "monitor"
+        }
+      ],
+      "audio": [
+        {
+          "kind": "ambience",
+          "handle": "audioclip_background_ambient__48b671d1",
+          "operation": "play",
+          "intent": "low command-channel bed",
+          "volume": 0.18,
+          "intensity": "low"
+        }
+      ],
+      "camera": {
+        "framing": "close",
+        "movement": "hold",
+        "subject": "FEMALE_COMMS_01",
+        "direction": "none",
+        "intensity": "subtle",
+        "parallax": "none",
+        "purpose": "Dedicated monitor dialogue composition with no competing world-action primary."
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "The warning is carried by the curated Comms portrait in a dedicated monitor shot rather than floating over the chase."
+    },
+    {
+      "id": "B005",
+      "type": "battle",
+      "durationSeconds": 6,
+      "locationHandle": "space_10_0__0f1b34c9",
+      "storyClaim": "The fighter closes the distance on a stationary hostile while both silhouettes remain readable.",
+      "dramaticFunction": "pursuit",
+      "energy": "high",
+      "cinematicMove": "approach",
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "2dspaceshipsfreetrialatlassideviewgrey_0__5c6ce346",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.24,
+          "screenY": 0.6,
+          "screenWidthFraction": 0.28,
+          "travelDirection": "left_to_right",
+          "facing": "right"
+        },
+        {
+          "id": "enemy",
+          "handle": "big_saucer0015__37cdeb41",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.7,
+          "screenY": 0.43,
+          "screenWidthFraction": 0.24,
+          "facing": "left"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "threatens",
+          "subject": "enemy",
+          "target": "hero"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "hero",
+          "target": "enemy",
+          "motionIntent": "approach",
+          "trajectory": "linear",
+          "travelDirection": "left_to_right",
+          "speed": "medium"
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "delta7_engine__5bfd7f6a",
+          "operation": "play",
+          "intent": "engine under pursuit",
+          "volume": 0.65,
+          "intensity": "high"
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "hero",
+        "direction": "right",
+        "intensity": "strong",
+        "parallax": "none",
+        "purpose": "Keep both ships readable. Only the hero moves; current Pursuit does not guarantee target-relative tracking."
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "continuity": {
+        "preserveScreenDirection": true
+      },
+      "evidence": "The hero closes on one stationary target without a second independently moving locomotion phase."
+    },
+    {
+      "id": "B006",
+      "type": "battle",
+      "durationSeconds": 6,
+      "locationHandle": "space_10_0__0f1b34c9",
+      "storyClaim": "The fighter makes one attack pass and fires a five-bolt blue burst.",
+      "dramaticFunction": "climax",
+      "energy": "peak",
+      "cinematicMove": "pursuit",
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "2dspaceshipsfreetrialatlassideviewgrey_0__5c6ce346",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.16,
+          "screenY": 0.58,
+          "screenWidthFraction": 0.3,
+          "travelDirection": "left_to_right",
+          "facing": "right"
+        },
+        {
+          "id": "enemy",
+          "handle": "big_saucer0015__37cdeb41",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.69,
+          "screenY": 0.46,
+          "screenWidthFraction": 0.24,
+          "facing": "left"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "pass_camera",
+          "trajectory": "linear",
+          "travelDirection": "left_to_right",
+          "speed": "burst"
+        },
+        {
+          "type": "fire",
+          "subject": "hero",
+          "target": "enemy",
+          "projectileId": "CS_PROJECTILE_BLUE_BOLT",
+          "count": 5,
+          "speed": "burst"
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "laserblast__30a6c13f",
+          "operation": "play",
+          "intent": "five-bolt attack burst",
+          "volume": 0.9,
+          "intensity": "high"
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "hero",
+        "direction": "right",
+        "intensity": "strong",
+        "parallax": "none",
+        "purpose": "Locked attack composition: one moving hero, one stationary target, five explicitly authored blue bolts."
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Exactly five blue Cutscene projectiles are authored while the two ships remain in a stable composition."
+    },
+    {
+      "id": "B007",
+      "type": "destruction",
+      "durationSeconds": 6,
+      "locationHandle": "space_10_0__0f1b34c9",
+      "storyClaim": "The saucer takes a direct hit and explodes.",
+      "dramaticFunction": "impact",
+      "energy": "peak",
+      "cinematicMove": "impact",
+      "visible": [
+        {
+          "id": "enemy",
+          "handle": "big_saucer0015__37cdeb41",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.58,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.17
+        },
+        {
+          "id": "blast",
+          "handle": "evac_explosion_v1__4df82d70",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.58,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.28
+        }
+      ],
+      "actions": [
+        {
+          "type": "impact",
+          "subject": "blast",
+          "target": "enemy",
+          "effectHandle": "evac_explosion_v1__4df82d70",
+          "result": "target engulfed by local explosion"
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "realexplodehard__27c4e251",
+          "operation": "play",
+          "intent": "direct-hit explosion",
+          "volume": 0.95,
+          "intensity": "high"
+        }
+      ],
+      "camera": {
+        "framing": "medium",
+        "movement": "hold",
+        "subject": "blast",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Keep the location plate stable while the local explosion supplies the impact."
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "A local explosion is centered on the saucer while the Earth-horizon plate remains the uninterrupted location background."
+    },
+    {
+      "id": "B008",
+      "type": "dialogue",
+      "durationSeconds": 6,
+      "locationHandle": "space_10_0__0f1b34c9",
+      "storyClaim": "The Captain confirms the path is open.",
+      "dramaticFunction": "reaction",
+      "energy": "medium",
+      "cinematicMove": "reaction",
+      "dialogue": [
+        {
+          "speaker": "CAPTAIN_AVATAR_01",
+          "listener": "FEMALE_COMMS_01",
+          "text": "Target down. The corridor is open.",
+          "expressionIntent": "Determined",
+          "performanceIntent": "controlled confirmation",
+          "delivery": "command",
+          "presentation": "portrait"
+        }
+      ],
+      "camera": {
+        "framing": "close",
+        "movement": "hold",
+        "subject": "CAPTAIN_AVATAR_01",
+        "direction": "none",
+        "intensity": "subtle",
+        "parallax": "none",
+        "purpose": "Clean reaction portrait after the impact; no world action competes with the line."
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "The curated Captain portrait carries the reaction in a clean dialogue cut after the explosion."
+    },
+    {
+      "id": "B009",
+      "type": "threat_reveal",
+      "durationSeconds": 6,
+      "locationHandle": "saturn_2_0__6e9e5649",
+      "storyClaim": "Beyond the destroyed scout, a much larger mothership emerges against Saturn.",
+      "dramaticFunction": "reveal",
+      "energy": "high",
+      "cinematicMove": "reveal",
+      "visible": [
+        {
+          "id": "mothership",
+          "handle": "space_1_0__5f7a8879",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.7,
+          "screenY": 0.44,
+          "screenWidthFraction": 0.42,
+          "enterFrom": "reveal",
+          "facing": "left"
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "8_mothership__2c431d46",
+          "operation": "play",
+          "intent": "mothership reveal",
+          "volume": 0.65,
+          "intensity": "high"
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "mothership",
+        "direction": "away",
+        "intensity": "strong",
+        "parallax": "none",
+        "purpose": "Static reveal composition with one large mothership against the Saturn full-frame plate."
+      },
+      "transition": {
+        "style": "crossfade",
+        "durationSeconds": 0.6
+      },
+      "evidence": "A single large mothership becomes the only primary subject against a full-frame Saturn plate."
+    },
+    {
+      "id": "B010",
+      "type": "retreat",
+      "durationSeconds": 6,
+      "locationHandle": "saturn_2_0__6e9e5649",
+      "storyClaim": "The fighter breaks away before the mothership can close the trap.",
+      "dramaticFunction": "escape",
+      "energy": "high",
+      "cinematicMove": "escape",
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "2dspaceshipsfreetrialatlassideviewgrey_0__5c6ce346",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.22,
+          "screenY": 0.62,
+          "screenWidthFraction": 0.28,
+          "exitTo": "right",
+          "travelDirection": "left_to_right",
+          "facing": "right"
+        },
+        {
+          "id": "mothership",
+          "handle": "space_1_0__5f7a8879",
+          "depth": "far",
+          "saliency": "ambient",
+          "screenX": 0.72,
+          "screenY": 0.4,
+          "screenWidthFraction": 0.24,
+          "facing": "left"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "escape",
+          "trajectory": "linear",
+          "travelDirection": "left_to_right",
+          "speed": "burst"
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "delta7_engine__5bfd7f6a",
+          "operation": "play",
+          "intent": "escape acceleration",
+          "volume": 0.85,
+          "intensity": "high"
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "hero",
+        "direction": "right",
+        "intensity": "strong",
+        "parallax": "none",
+        "purpose": "Hero escapes through negative space while the camera and Saturn plate remain stable."
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "continuity": {
+        "preserveScreenDirection": true
+      },
+      "evidence": "The hero is the sole primary and exits toward open screen space while the mothership stays small and distant."
+    },
+    {
+      "id": "B011",
+      "type": "custom",
+      "durationSeconds": 6,
+      "locationHandle": "saturn_2_0__6e9e5649",
+      "storyClaim": "The fighter clears the danger zone and the visual pressure drops.",
+      "dramaticFunction": "aftermath",
+      "energy": "low",
+      "cinematicMove": "aftermath",
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "2dspaceshipsfreetrialatlassideviewgrey_0__5c6ce346",
+          "depth": "far",
+          "saliency": "support",
+          "screenX": 0.7,
+          "screenY": 0.58,
+          "screenWidthFraction": 0.11,
+          "travelDirection": "left_to_right",
+          "facing": "right"
+        }
+      ],
+      "audio": [
+        {
+          "kind": "ambience",
+          "handle": "audioclip_background_ambient__48b671d1",
+          "operation": "fade_in",
+          "intent": "quiet aftermath bed",
+          "durationSeconds": 5,
+          "volume": 0.25,
+          "intensity": "low"
+        }
+      ],
+      "camera": {
+        "framing": "extreme_wide",
+        "movement": "hold",
+        "subject": "hero",
+        "direction": "right",
+        "intensity": "subtle",
+        "parallax": "none",
+        "purpose": "Static wide aftermath; visual pressure drops through actor scale, not camera drift."
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "The hero becomes small against the Saturn plate and the frame contains no competing primary threat or overlay."
+    },
+    {
+      "id": "B012",
+      "type": "transition",
+      "durationSeconds": 6,
+      "locationHandle": "saturn_2_0__6e9e5649",
+      "storyClaim": "The fighter continues into open space as the sequence closes.",
+      "dramaticFunction": "release",
+      "energy": "quiet",
+      "cinematicMove": "aftermath",
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "2dspaceshipsfreetrialatlassideviewgrey_0__5c6ce346",
+          "depth": "far",
+          "saliency": "support",
+          "screenX": 0.8,
+          "screenY": 0.55,
+          "screenWidthFraction": 0.09,
+          "exitTo": "right",
+          "travelDirection": "left_to_right",
+          "facing": "right"
+        }
+      ],
+      "actions": [
+        {
+          "type": "exit",
+          "subject": "hero",
+          "motionIntent": "escape",
+          "trajectory": "linear",
+          "travelDirection": "left_to_right",
+          "speed": "medium"
+        }
+      ],
+      "camera": {
+        "framing": "extreme_wide",
+        "movement": "hold",
+        "subject": "hero",
+        "direction": "right",
+        "intensity": "subtle",
+        "parallax": "none",
+        "purpose": "End on clean negative space and a small departing ship."
+      },
+      "transition": {
+        "style": "fade_to_black",
+        "durationSeconds": 1
+      },
+      "evidence": "The ship leaves the frame without new visual information, allowing the sequence to end cleanly."
+    }
+  ]
+}
