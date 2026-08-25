@@ -6,17 +6,6 @@ on:
     branches: [main]
     paths:
       - 'designer-ai/current.json'
-      - 'designer-ai/tools/apply_delta_current.py'
-      - 'designer-ai/tools/build_visual_scan_report.py'
-      - 'designer-ai/tools/build_authoring_handles.py'
-      - 'designer-ai/tools/seal_atomic_current.py'
-      - 'designer-ai/tools/build_open_current.py'
-      - 'designer-ai/tools/build_visual_atlas.py'
-      - 'designer-ai/tools/finalize_open_current.py'
-      - 'designer-ai/tools/build_director_view.py'
-      - 'designer-ai/tools/run_director_finalization.py'
-      - 'designer-ai/tools/current-source/**'
-      - '.github/workflows/publish-designer-ai-open-current.yml'
 
 permissions:
   contents: write
@@ -109,7 +98,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import hashlib, json, os, pathlib, shutil, urllib.request
+          import hashlib, json, os, pathlib, urllib.request
           source = json.loads(pathlib.Path('designer-ai/current.json').read_text(encoding='utf-8-sig'))
           metadata = dict(source.get('emotionalDialogue') or {})
           expected = 'CURRENT_VERIFIED_EMOTIONAL_DIALOGUE'
