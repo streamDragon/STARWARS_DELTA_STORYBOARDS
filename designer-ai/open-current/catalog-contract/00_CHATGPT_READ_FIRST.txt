@@ -13,6 +13,7 @@ PLACEMENT: cutscenePrimaryUse is authoritative. Layer-primary records are layers
 ACTOR PRESENTATION: set cast[].presentationMode exactly to WorldActor, DialoguePortrait, or Both. Both permits world-action and portrait shots only when their active intervals do not overlap. An omitted presentationMode uses legacy spawnWorldActor as WorldActor/DialoguePortrait; it never infers Both.
 ANIMATION: PlayAnimation is legal only when the exact animationAssetId appears in that actor record's compatibleAnimationIds. Never infer compatibility from names, folders, packs or visual similarity. If the list is empty, use another legal non-animation action.
 DIALOGUE: normally show only speaker + listener and rotate pairs for larger conversations. Use current canonical layout enums. If any line in a shot has stage.lockStaging=true, that shot's actorActions must be empty: no Hold, Move, Enter, Exit or PlayAnimation.
+LOCKED DIALOGUE CAMERA: for locked portrait / monitor / radio dialogue, author camera.movement as hold or omit it. Do not author push/pull/follow/track on that same locked dialogue beat; place cinematic camera movement in an adjacent non-dialogue beat. Environment/world dialogue may retain supported cinematic camera intent.
 PREFER SIMPLE COMPOSITIONS: use the fewest fragile dependencies that tell the story. Preview-safe records may produce yellow review notes even when not publish-safe; simplify or omit optional elements instead of inventing unsupported data.
 Return canonical enum spellings only. Do not copy an example when it conflicts with these rules; these rules are authoritative.
 SEMANTIC FIREWALL: descriptive semantic language is not automatically legal V5 vocabulary. Creative intent flows through semantic IR, explicit CURRENT mapping and canonical validation before serialization. Never assign a semantic string directly to a closed V5 field.
@@ -41,10 +42,10 @@ EXISTING CUTSCENE REVISION
 Use ADD CATALOG + PRESENT STATE OF THE CUTSCENE + the natural-language requested change. Present State is current Cutscene state only; ADD CATALOG remains the global rules/assets source.
 
 Contract revision: E6495259DEA52323C846A4C081F7357EF8DB75E2A5C806ABEDAD9C5B7FEE2BD0
-Schema hash: 01463B4537F7B41661892AA7ABB4A8C3CD1BA6DC70AAC17D1065CD51B15B4A5F
-Authoring rule registry revision: F304263D2923BAFDD449F38419B82D1EA63687CE42DE2280FA7839962B282228
-Snapshot content hash: 8C0ADDBE305467ADF26BD829A4AD510366054786766F75F68A2ECA877B2DE73B
-Snapshot identity: catalogRevision=7625035885705746207;contractRevision=E6495259DEA52323C846A4C081F7357EF8DB75E2A5C806ABEDAD9C5B7FEE2BD0;schemaHash=01463B4537F7B41661892AA7ABB4A8C3CD1BA6DC70AAC17D1065CD51B15B4A5F;snapshotContentHash=8C0ADDBE305467ADF26BD829A4AD510366054786766F75F68A2ECA877B2DE73B
+Schema hash: 0EEAB6150B94642AC0BE01F522C4125C5B4CF31987C09AB54A64C666103A0813
+Authoring rule registry revision: 12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372
+Snapshot content hash: E9A8DF0402800DCD3AB3B4659580135B1010B1787E002C834209005A85752EBC
+Snapshot identity: catalogRevision=7625106362422337335;contractRevision=E6495259DEA52323C846A4C081F7357EF8DB75E2A5C806ABEDAD9C5B7FEE2BD0;schemaHash=0EEAB6150B94642AC0BE01F522C4125C5B4CF31987C09AB54A64C666103A0813;snapshotContentHash=E9A8DF0402800DCD3AB3B4659580135B1010B1787E002C834209005A85752EBC
 Do not treat catalogRevision alone as proof that two snapshots are equivalent. Compare the complete snapshot identity: catalogRevision, contractRevision, schemaHash and snapshotContentHash.
 Supported Cutscene package version: 5
 
@@ -197,9 +198,9 @@ SMALL VALID JSON EXAMPLE
   "schemaVersion": 5,
   "contextVersion": 3,
   "contractRevision": "E6495259DEA52323C846A4C081F7357EF8DB75E2A5C806ABEDAD9C5B7FEE2BD0",
-  "schemaHash": "01463B4537F7B41661892AA7ABB4A8C3CD1BA6DC70AAC17D1065CD51B15B4A5F",
+  "schemaHash": "0EEAB6150B94642AC0BE01F522C4125C5B4CF31987C09AB54A64C666103A0813",
   "contextId": "NEW_CUTSCENE_CONTEXT",
-  "catalogRevision": "7625035885705746207",
+  "catalogRevision": "7625106362422337335",
   "projectId": "",
   "planId": "plan_example_minimal",
   "baseRevision": 0,
