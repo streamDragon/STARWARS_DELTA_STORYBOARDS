@@ -74,7 +74,7 @@ try{
   git('open-current/full-visual-sheets/VISUAL_ATLAS_CURRENT.json'),
   git('open-current/CHATGPT_START.txt','bytes',false,60000)
  ]);
- if(source.status!=='CURRENT_VERIFIED'||open.status!=='CURRENT_VERIFIED_OPEN'||tx(source)!==tx(open)||!same(source.requiredCurrent,open.requiredCurrent)||!same(open.requiredCurrent,director.requiredCurrent)||!validHandles(handles,open)||!validRules(rules,open)||!startBytes?.byteLength)throw Error('CURRENT identity or direct Simple V1 authoring projection mismatch in Git main');
+ if(source.status!=='CURRENT_VERIFIED'||open.status!=='CURRENT_VERIFIED'||tx(source)!==tx(open)||!same(source.requiredCurrent,open.requiredCurrent)||!same(open.requiredCurrent,director.requiredCurrent)||!validHandles(handles,open)||!validRules(rules,open)||!startBytes?.byteLength)throw Error('CURRENT identity or direct Simple V1 authoring projection mismatch in Git main');
  state('currentStatus','verified','GIT CURRENT VERIFIED',tx(open));
  try{const [pc,po]=await Promise.all([pages('current.json','json',false,8000),pages('open-current/OPEN_CURRENT.json','json',false,8000)]);state('pipelineStatus',tx(pc)===tx(open)&&tx(po)===tx(open)?'verified':'warning',tx(pc)===tx(open)&&tx(po)===tx(open)?'PAGES SYNCED':'PAGES PROPAGATING','Git main is authoritative.')}catch{state('pipelineStatus','warning','PAGES PROPAGATING','Git main is authoritative.')}
  const counts=handles.countsByRoute||{};$('actors').textContent=String(counts.Actor??0);$('layers').textContent=String(counts.Layer??0);$('effects').textContent=String(counts.Effect??0);$('ui').textContent=String(counts.Ui??0);$('audio').textContent=String(counts.Audio??0);$('metrics').hidden=false;
