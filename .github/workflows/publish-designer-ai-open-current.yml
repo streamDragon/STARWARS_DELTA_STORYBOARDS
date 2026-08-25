@@ -7,6 +7,7 @@ on:
     paths:
       - 'designer-ai/current.json'
       - 'designer-ai/simple-authoring/CUTSCENE_VALIDATION_CURRENT.schema.json'
+      - 'designer-ai/tools/build_visual_scan_report.py'
       - '.github/workflows/publish-designer-ai-open-current.yml'
 
 permissions:
@@ -54,6 +55,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: python3 designer-ai/tools/run_director_finalization.py
+
+      - name: Build grouped visual scan report
+        run: python3 designer-ai/tools/build_visual_scan_report.py
 
       - name: Build Simple V1 authoring handles
         run: python3 designer-ai/tools/build_authoring_handles.py
@@ -163,6 +167,7 @@ jobs:
               root / 'SOURCE_CURRENT.json',
               root / 'DIRECTOR_PACK_MANIFEST.json',
               root / 'director-view' / 'DIRECTOR_VIEW.json',
+              root / 'director-view' / 'VISUAL_SCAN_REPORT.json',
               root / 'simple-authoring' / 'AUTHORING_HANDLES.json',
               root / 'simple-authoring' / 'AUTHORING_RULES_CURRENT.json',
               root / 'CUTSCENE_VALIDATION_CURRENT.json',
@@ -216,3 +221,40 @@ jobs:
           git commit -m "Publish Designer AI CURRENT $tx"
           git pull --rebase origin main
           git push origin HEAD:main
+
+      - name: Delete obsolete Designer AI CURRENT releases and tags
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          current_tag="$(python3 - <<'PY'
+          import json
+          from urllib.parse import urlparse
+          payload = json.load(open('designer-ai/current.json', encoding='utf-8-sig'))
+          url = str(payload.get('releaseUrl') or '')
+          print(url.rstrip('/').rsplit('/', 1)[-1])
+          PY
+          )"
+          test -n "$current_tag"
+          echo "Keeping only CURRENT release/tag: $current_tag"
+
+          gh api --paginate "repos/${GITHUB_REPOSITORY}/releases?per_page=100" --jq '.[] | [.id, .tag_name] | @tsv' > /tmp/designer-ai-releases.tsv
+          while IFS=$'\t' read -r release_id tag_name; do
+            case "$tag_name" in
+              designer-ai-current-*)
+                if [ "$tag_name" != "$current_tag" ]; then
+                  echo "Deleting obsolete CURRENT release: $tag_name"
+                  gh api -X DELETE "repos/${GITHUB_REPOSITORY}/releases/${release_id}"
+                  gh api -X DELETE "repos/${GITHUB_REPOSITORY}/git/refs/tags/${tag_name}" || true
+                fi
+                ;;
+            esac
+          done < /tmp/designer-ai-releases.tsv
+
+          remaining="$(gh api --paginate "repos/${GITHUB_REPOSITORY}/releases?per_page=100" --jq '[.[] | select(.tag_name | startswith("designer-ai-current-"))] | length' | awk '{s+=$1} END{print s+0}')"
+          if [ "$remaining" -ne 1 ]; then
+            echo "Expected exactly one Designer AI CURRENT release, found $remaining" >&2
+            exit 1
+          fi
+          echo 'Exactly one Designer AI CURRENT release remains.'
