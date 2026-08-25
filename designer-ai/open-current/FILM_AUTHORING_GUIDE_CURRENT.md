@@ -257,7 +257,7 @@ An explicit unsupported projectile ID is a blocker:
 CUTSCENE_PROJECTILE_NOT_AUTHORING_READY
 ```
 
-`count` maps to the launcher burst count. Simple V1 does not author local muzzle coordinates or rotation. Simple V1 also does not author `interval` unless a future matching CURRENT schema explicitly exposes a cadence field; the current backend default is 0.15 seconds.
+`count` maps to the launcher burst count. Simple V1 does not author local muzzle coordinates or rotation. Simple V1 also does not author `interval` unless a future matching CURRENT schema explicitly exposes a cadence field. The exact cadence/default remains Unity/backend-owned and should not be duplicated in author-facing guidance.
 
 `target` is cinematic firing intent used by the Cutscene backend for staging/orientation where supported. It does not turn the visual projectile into gameplay homing/target logic.
 
