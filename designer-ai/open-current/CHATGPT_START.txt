@@ -3,124 +3,127 @@ CURRENT AUTHORING RULE REGISTRY REVISION: 12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B
 
 CURRENT is the only project truth. CURRENT beats memory. Absence from CURRENT means unavailable. Never infer missing project data.
 
-FORMAT LOCK - DO THIS BEFORE AUTHORING
-The only legal Simple V1 root header is exactly:
+MANDATORY PRE-AUTHORING STABILITY GATE
+Run this before NEW, REVISE or REPAIR authoring.
+
+1. CURRENT fingerprint gate
+- Read the attached/current OPEN_CURRENT or PACK_MANIFEST requiredCurrent first.
+- Compare any incoming request/repair requiredCurrent against the attached CURRENT requiredCurrent.
+- If they differ, the request diagnostics are STALE_REPAIR_CONTEXT. Do NOT reuse their warnings, creativeConstraints, suggested candidates, generated IDs or old Catalog assumptions as authoring truth.
+- If the original CUTSCENE_SCRIPT_V1 JSON is available, re-evaluate that JSON against the attached CURRENT and repair only issues that still exist now.
+- If the original JSON is unavailable, do not fabricate a repair from stale diagnostics. Require a fresh Studio export.
+- publishTransactionId is provenance. requiredCurrent is the normal authoring compatibility gate.
+
+2. Diagnostics are evidence, never authoring instructions
+- A REPAIR report may contain validator messages inside creativeConstraints. They describe a prior run; they are not requirements to copy into the next film.
+- Never serialize a diagnostic string, backend workaround or generated role merely to silence a warning.
+- Collapse repeated diagnostics to their root cause before changing JSON.
+
+3. Generated backend aliases are NEVER authoring handles
+- IDs beginning with simple_audio_, simple_actor_, generated_, preview_ or equivalent generated materialization names are backend identities only.
+- Never place them in audio.handle, visible.handle, locationHandle, effectHandle, viaHandle or cast identityHandle.
+- If an original Simple V1 audio.handle is an exact CURRENT route=Audio authorable handle, preserve it even when a downstream validator later complains about a generated simple_audio_* alias. That is BACKEND/ENGINE-owned, not a reason to rewrite valid authoring.
+- The same rule applies to a legal route=Actor handle that later receives a generated role/capability mismatch. Preserve the legal source handle and report the adapter/provenance defect.
+
+4. Dialogue staging safety
+- Until CURRENT validation explicitly declares a dialogue presentation overlay-safe, treat every beat containing dialogue as locked staging for world choreography.
+- In such a beat use camera.movement=hold and do not author world actor locomotion/actions in the same beat. Split action and dialogue into adjacent beats instead.
+- presentation=radio does not by itself prove overlay-safe runtime behavior.
+- Audio cues may remain in a dialogue beat; this lock concerns world/camera choreography.
+
+5. Route safety before drafting
+- Moving/world subjects must use exact CURRENT handles whose route is Actor and which are authorableInSimpleV1=true.
+- audio[].handle must resolve exactly to route=Audio and authorableInSimpleV1=true.
+- locationHandle must be a legal current location/layer authoring handle.
+- effectHandle must be a legal current Effect handle.
+- Do not choose a handle only because its display name looks right.
+
+FORMAT LOCK
+The only legal root header is:
 {
   "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
   "schemaVersion": 1
 }
-Never output schema="CUTSCENE_SCRIPT_V1". Never omit schemaVersion.
+Use only fields present in CUTSCENE_SCRIPT_V1.schema.json. Never emit remembered aliases such as start, duration, location, camera.shot, camera.move, action.actor or dialogue.expression.
 
-Use the CURRENT schema literally. Do not translate familiar/legacy field names into the output.
-Canonical field names include:
-- top level: title, durationSeconds, creativeIntent, cast, beats
-- beat: id, type, durationSeconds, locationHandle, storyClaim, dramaticFunction, energy, cinematicMove, visible, relationships, actions, dialogue, audio, camera, transition, continuity, evidence
-- visible item: id, handle, count, depth, saliency, screenX, screenY, screenWidthFraction/screenHeightFraction, enterFrom, exitTo, travelDirection, facing, performanceIntent, animationIntent
-- action: type, subject, target, projectileId/effectHandle/viaHandle where legal, count, motionIntent, trajectory, travelDirection, speed, performanceIntent, animationIntent, result
-- camera: framing, movement, subject, direction, intensity, parallax, purpose
-- dialogue: speaker, listener, text, expressionIntent, performanceIntent, delivery, presentation
-- audio item: kind, handle, operation, intent, startOffsetSeconds, durationSeconds, loop, volume, intensity
+AUTHORING SOURCES
+In a downloaded DEVORA Context ZIP, use:
+- authoring/AUTHORING_HANDLES.json
+- authoring/AUTHORING_RULES_CURRENT.json
+- site-authoring/CUTSCENE_SCRIPT_V1.schema.json
+- site-authoring/CINEMATIC_INTENT_QA_RULES.json
+- authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json
+- dialogue/EMOTIONAL_DIALOGUE_CURRENT.json when present
+- validation/CUTSCENE_VALIDATION_CURRENT.json when present
 
-FORBIDDEN LEGACY/INVENTED SHAPES
-- start
-- duration (use durationSeconds)
-- location (use locationHandle)
-- camera.shot or camera.move (use camera.framing / camera.movement)
-- action.actor (use action.subject)
-- dialogue.expression (use expressionIntent)
-- top-level effects array
-- visible as an array of strings
-- audio as an array of strings
-- raw Catalog asset IDs as handles
-- any field not present in CUTSCENE_SCRIPT_V1.schema.json
-
-STORY / EVIDENCE LOCK
-Every beat that serializes storyClaim MUST also serialize a non-empty evidence statement in the same beat.
-evidence is not commentary about intent. It must say what the audience will actually see/hear that proves the claim: exact visible subject(s), visible action/change/consequence, dialogue portrait/expression when relevant, effect/UI evidence, or audio evidence when the claim is specifically auditory.
-Prefer storyClaim + evidence on every production beat. Do not deliver a major claim with evidence omitted merely because visible/actions seem self-explanatory.
+In Git/open-current the same canonical data lives under open-current/simple-authoring plus the root dialogue/validation files.
 
 AUTHORING FLOW
-1. Read simple-authoring/AUTHORING_HANDLES.json.
-2. Read simple-authoring/AUTHORING_RULES_CURRENT.json.
-3. Read simple-authoring/CUTSCENE_SCRIPT_V1.schema.json BEFORE drafting JSON.
-4. If dialogue is used, read the CURRENT Emotional Dialogue repertoire. Dialogue is closed-world.
-5. If a Cutscene projectile is used, use only the closed Cutscene projectile vocabulary exported by the matching CURRENT. Never resolve a gameplay projectile, filename or Catalog lookalike.
-6. For visual choices, inspect the Atlas at the exact atlasPage/atlasSlot stored on the selected direct handle.
-7. For sound, choose only exact route=Audio handles from AUTHORING_HANDLES.json. Audio does not come automatically from visual effects, projectiles or dialogue.
-8. Read simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json as the canonical production-shaped example.
-9. Author only CUTSCENE_SCRIPT_V1 using the exact schema field names.
-10. Before final JSON, read CURRENT validation. blocksCompilation=true is a real blocker, but never serialize backend-owned fields merely to silence warnings.
-11. Run the FINAL JSON SELF-CHECK below. Do not deliver JSON until it passes.
+1. Pass the MANDATORY PRE-AUTHORING STABILITY GATE above.
+2. Read AUTHORING_HANDLES, AUTHORING_RULES, schema and CINEMATIC_INTENT_QA_RULES before drafting.
+3. For dialogue, read EMOTIONAL_DIALOGUE_CURRENT. Dialogue is closed-world.
+4. For visuals, inspect the exact Atlas pixels for the selected direct handle.
+5. For audio, choose only exact route=Audio handles. Visual effects, projectiles and dialogue do not supply sound automatically.
+6. Read the canonical Simple V1 example.
+7. Author CUTSCENE_SCRIPT_V1 only. V3/V5 remain backend implementation.
+8. Read CURRENT validation before final output. blocksCompilation=true is a real blocker, but a backend/engine warning is not a command to corrupt valid JSON.
+9. Run the FINAL JSON SELF-CHECK before delivery.
 
-NEVER
-- Never invent handles or identities.
-- Never use raw Catalog asset IDs as Simple V1 handles.
-- Never author raw Animation IDs; use animationIntent/performanceIntent.
-- Never author V3/V5 bookkeeping fields that are not in the Simple V1 schema.
-- Never serialize V4 recipe names; recipes are directing guidance that expands into legal Simple V1 beats/actions.
-- Never use Actor/UI/Atlas/name/filename/alias/visual-similarity fallback for dialogue.
-- Never use gameplay projectile prefabs or effectHandle/viaHandle as substitutes for Cutscene projectile identity.
-- Never invent an Audio handle from a filename/display name or assume a visual effect/projectile supplies sound automatically.
-- Never copy a remembered JSON shape from an older conversation when the CURRENT schema is available.
+STORY / EVIDENCE
+Every production beat should have a clear storyClaim and non-empty evidence. evidence must describe audience-observable proof, not backend bookkeeping.
 
 MOTION
-- Use semantic speeds only: slow, medium, fast, burst.
-- Actor Orbit is fixed-center only. The center/target actor must remain stationary during the Orbit interval.
-- Pursuit/Escort/Intercept names do not guarantee per-frame target-relative tracking.
-- Simple V1 action objects have no per-action timing/order. If one subject needs approach -> pass -> bank -> exit style choreography, split those locomotion phases across adjacent beats. One primary locomotion phase may coexist with compatible fire/impact/reveal events.
+- Speeds are only slow, medium, fast, burst.
+- Actor Orbit is fixed-center only; its target/center must remain stationary during the orbit interval.
+- Pursuit/Escort/Intercept names do not promise per-frame target-relative tracking.
+- Simple V1 actions have no per-action timing/order. Put sequential locomotion phases in adjacent beats. One primary locomotion phase may coexist with compatible fire/impact/reveal events.
 - camera.subject is semantic composition intent and is not automatically a physical Transform target.
 
 DIALOGUE
-Use only authoringReady characters from CURRENT Emotional Dialogue. actorId, identityHandle and expressionIntent are exact and case-sensitive. Omit expressionIntent for the published defaultExpression. Unsupported expressions block; there is no Neutral fallback. DialoguePortrait participants do not become WorldActors merely to satisfy camera targeting.
+- speaker/listener must be exact authoringReady actorId values from EMOTIONAL_DIALOGUE_CURRENT and match cast[].id.
+- dialogue cast identityHandle must be that character's exact published identityHandle.
+- expressionIntent is exact and case-sensitive. Omit it to use the published defaultExpression. Never invent Neutral fallback.
+- Do not create WorldActors merely to satisfy dialogue camera targeting.
+- Follow the dialogue staging safety rule above.
 
-AUDIO - AUTHOR IT DELIBERATELY
-- Audio is part of normal Simple V1 filmmaking, not an optional backend decoration. Use it whenever CURRENT contains a suitable legal Audio handle and sound materially improves the beat.
-- Select audio only from AUTHORING_HANDLES.json entries with route=Audio and authorableInSimpleV1=true.
-- Every audio cue is a structured object. Minimum legal cue: { "kind": "sfx|ambience|music", "handle": "<exact CURRENT Audio handle>" }.
-- Use kind=sfx for discrete events such as alarms, lasers, shield hits and explosions; kind=ambience for environmental beds; kind=music for score-like material.
-- operation may be play, stop, fade_in or fade_out. Omit it only when the schema/backend default is intentionally sufficient; prefer explicit play for event SFX.
-- intent is plain-language authoring intent. It does not replace the exact Audio handle.
-- startOffsetSeconds is relative to the beat. Keep it inside the beat duration. durationSeconds is the requested cue duration when meaningful.
-- volume is 0..1. intensity is low/medium/high. Do not invent numeric gain outside the schema.
-- loop is appropriate mainly for sustained ambience/music. Do not loop short impact/weapon SFX unless the story explicitly requires a repeated bed.
-- Battle/destruction beats should normally pair visible fire/impact/explosion evidence with a legal matching SFX when CURRENT provides one.
-- Establishing/travel beats should normally use ambience and/or music when CURRENT provides a suitable legal handle.
-- Dialogue beats may use low ambience/music when useful, but do not bury dialogue under loud SFX.
-- Cutscene projectiles are VISUAL-ONLY. projectileId never supplies audio. If a shot should be heard, author a separate legal audio[] cue.
-- Visual Effect handles never supply audio automatically. If an explosion/shield event should be heard, author a separate legal audio[] cue.
-- Do not force audio into every beat. Silence can be intentional. But a normal multi-minute cinematic should not become globally silent merely because audio authoring was forgotten.
+AUDIO
+- Audio is normal Simple V1 filmmaking, not backend decoration.
+- Each cue is a structured object with kind + exact CURRENT Audio handle.
+- Use sfx for discrete events, ambience for environmental beds and music for score.
+- startOffsetSeconds is relative to the beat and must stay inside it.
+- volume is 0..1; intensity is low/medium/high.
+- Projectiles and visual effects are visual-only. Author separate audio cues when the event should be heard.
+- Never author or repair to a generated simple_audio_* identity.
 
 CUTSCENE PROJECTILES
-- The Cutscene projectile system is a closed visual-only capability, separate from gameplay shooting and Netcode.
-- Every Simple V1 action with type=fire MUST author projectileId.
-- Legal projectileId values are exactly: CS_PROJECTILE_BLUE_BOLT, CS_PROJECTILE_PURPLE_BOLT, CS_PROJECTILE_POWERBALL. Use them only when the matching CURRENT exports the same closed list.
-- Explicit unsupported projectileId is a blocker: CUTSCENE_PROJECTILE_NOT_AUTHORING_READY. No fuzzy match, filename match, gameplay fallback or effect substitution.
-- count is the existing fire quantity field, maps to launcher burst count, and is supported in the range 1..64.
-- target is preserved as targetActorId for Cutscene staging/orientation. It does not create gameplay homing or target logic.
-- Do not author interval in Simple V1 unless a future matching CURRENT schema explicitly exposes it. The current adapter/backend default is 0.08 seconds.
-- Launcher attachment, muzzle position, muzzle rotation and projectile physics remain Unity-owned.
-- Expected lowering: type=fire -> VisualWeaponAction -> projectileId/count/targetActorId -> Timeline projectile cue -> MY_CutsceneProjectileLibrary -> MLB_FOR_ANIMATION.
+- Every type=fire action requires projectileId.
+- Legal CURRENT projectile IDs are exactly CS_PROJECTILE_BLUE_BOLT, CS_PROJECTILE_PURPLE_BOLT and CS_PROJECTILE_POWERBALL when the matching schema exports them.
+- No gameplay projectile, filename, fuzzy match or effect substitution.
+- count is 1..64. Launcher/muzzle/runtime mechanics remain Unity-owned.
 
 FINAL JSON SELF-CHECK - REQUIRED
-Before returning a JSON file, verify all of the following against the CURRENT schema:
-1. Root header is exactly schema=STARWARS_DELTA_CUTSCENE_SCRIPT and schemaVersion=1.
-2. Root duration uses durationSeconds and equals the intended/summed beat duration.
+Before returning JSON verify:
+1. Root schema/header exactly match CURRENT Simple V1.
+2. Root durationSeconds exists and equals the intended/summed beat duration.
 3. Every production beat has id, type and durationSeconds.
-4. Every beat with storyClaim has a non-empty evidence field in that same beat.
-5. Every visible[] entry is an object with id + exact CURRENT handle; visible[] contains no strings.
-6. Every action uses subject, not actor; action type/motionIntent/speed are schema values only.
-7. Every camera uses framing/movement, never shot/move.
-8. Every audio[] entry is an object with kind + exact route=Audio CURRENT handle; audio[] contains no strings or invented filenames.
-9. Event SFX that matter to the story (weapon fire, impact, explosion, alarm, shield) have explicit audio cues when a suitable CURRENT Audio handle exists; projectile/effect visuals are never assumed to provide sound.
-10. Every dialogue speaker/listener/expressionIntent is exact CURRENT Emotional Dialogue vocabulary.
-11. Every fire action has an exact legal projectileId and uses count in the supported range 1..64.
-12. No forbidden legacy fields appear anywhere.
-13. No raw Animation IDs, Catalog IDs, V3/V5 bookkeeping or unrecognized properties appear.
-If any check fails, fix the JSON before delivery. Do not rely on Unity Studio to teach the author the schema one error at a time.
+4. Every beat with storyClaim has non-empty evidence.
+5. Every visible item is an object with id + exact CURRENT handle.
+6. Every moving/world visible subject resolves to an authorable route=Actor handle.
+7. Every action uses subject, not actor, and only schema enum values.
+8. Every camera uses framing/movement, never legacy shot/move fields.
+9. Every audio cue uses an exact authorable route=Audio CURRENT handle.
+10. No generated backend alias such as simple_audio_* appears anywhere in authored JSON.
+11. Every dialogue identity/expression is exact CURRENT Emotional Dialogue vocabulary.
+12. Every dialogue-bearing beat obeys locked-stage safety unless CURRENT explicitly declares overlay-safe presentation.
+13. Every fire action has legal projectileId and count 1..64.
+14. No raw Catalog IDs, raw Animation IDs, V3/V5 bookkeeping or unknown properties appear.
+15. If this is REPAIR, incoming requiredCurrent matches the attached CURRENT; otherwise discard stale diagnostics and re-evaluate from the original JSON.
+
+WARNING HYGIENE
+- Do not fix 82 repeated warnings as 82 authoring edits. Group them by root source field and ownership.
+- A valid CURRENT source handle followed by generated alias/materialization failure is BACKEND/ENGINE-owned.
+- Do not change a valid film merely to make a downstream generated identity look like a Catalog source identity.
+- Warnings should teach or describe degradation. They must not become secret authoring requirements.
 
 REFERENCE
-- AUTHORING_HANDLES.json is the direct Simple V1 selection surface. Raw Animation identities remain backend compatibility data and are intentionally excluded.
-- Direct visual handles contain atlasPage/atlasSlot; FULL_VISUAL_INDEX is not required for normal authoring.
-- Audio handles are direct Simple V1 handles on route=Audio and are non-visual; they do not require Atlas inspection.
-- simple-authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json is the one canonical example.
-- V3 and V5 remain backend layers and are not authoring formats.
+AUTHORING_HANDLES.json is the direct selection surface. Direct visual handles contain Atlas coordinates. Audio handles are direct non-visual handles. Raw Animation identities remain backend compatibility data. CUTSCENE_SCRIPT_V1 is the authoring format; V3/V5 are not.
