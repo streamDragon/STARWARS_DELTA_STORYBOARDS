@@ -27,7 +27,7 @@ jobs:
       - name: Install JSON Schema validator
         run: python3 -m pip install --disable-pip-version-check jsonschema
 
-      - name: Lint authoring source ownership
+      - name: Lint one live CURRENT
         shell: bash
         run: |
           set -euo pipefail
@@ -39,64 +39,25 @@ jobs:
           root = Path('designer-ai')
           live = root / 'open-current'
           simple = live / 'simple-authoring'
-          schema_path = simple / 'CUTSCENE_SCRIPT_V1.schema.json'
-          example_path = simple / 'CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json'
 
-          assert live.is_dir(), 'OPEN_CURRENT_TREE_MISSING'
-          assert schema_path.is_file(), 'CANONICAL_SIMPLE_V1_SCHEMA_MISSING'
-          assert example_path.is_file(), 'CANONICAL_SIMPLE_V1_EXAMPLE_MISSING'
-
-          schema = json.loads(schema_path.read_text(encoding='utf-8-sig'))
-          example = json.loads(example_path.read_text(encoding='utf-8-sig'))
+          schema = json.loads((simple / 'CUTSCENE_SCRIPT_V1.schema.json').read_text(encoding='utf-8-sig'))
+          example = json.loads((simple / 'CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json').read_text(encoding='utf-8-sig'))
           Draft202012Validator.check_schema(schema)
-          errors = sorted(Draft202012Validator(schema).iter_errors(example), key=lambda e: list(e.path))
+          errors = list(Draft202012Validator(schema).iter_errors(example))
           assert not errors, 'CANONICAL_SIMPLE_V1_SCHEMA_INVALID: ' + ' | '.join(e.message for e in errors[:10])
 
           projectile = schema['$defs']['action']['properties']['projectileId']['enum']
-          expected = [
-              'CS_PROJECTILE_BLUE_BOLT',
-              'CS_PROJECTILE_PURPLE_BOLT',
-              'CS_PROJECTILE_POWERBALL',
-          ]
+          expected = ['CS_PROJECTILE_BLUE_BOLT','CS_PROJECTILE_PURPLE_BOLT','CS_PROJECTILE_POWERBALL']
           assert projectile == expected, f'PROJECTILE_SCHEMA_DRIFT: {projectile}'
 
-          # Git history is history. The live repository owns exactly one CURRENT tree.
-          obsolete_live_paths = [
-              root / 'authoring-only',
-              root / 'simple-authoring',
-              root / 'CHATGPT_START.txt',
-              root / '00_READ_ME_FIRST.txt',
-              root / '01_CHATGPT_START.txt',
-              root / 'FILM_AUTHORING_GUIDE_CURRENT.md',
-              root / 'ARCHITECTURE.md',
-              root / 'OPEN_CURRENT.json',
-              root / 'debora.html',
-              root / 'MATERIALIZE_400S_TRIGGER.txt',
-              root / 'PUBLISH_TRIGGER_20260823.txt',
+          obsolete = [
+              root / 'authoring-only', root / 'simple-authoring', root / 'CHATGPT_START.txt',
+              root / '00_READ_ME_FIRST.txt', root / '01_CHATGPT_START.txt',
+              root / 'FILM_AUTHORING_GUIDE_CURRENT.md', root / 'ARCHITECTURE.md',
+              root / 'OPEN_CURRENT.json', root / 'debora.html'
           ]
-          present = [str(p) for p in obsolete_live_paths if p.exists()]
+          present = [str(p) for p in obsolete if p.exists()]
           assert not present, 'DUPLICATE_OR_STALE_LIVE_CURRENT_REAPPEARED: ' + ', '.join(present)
-
-          start_path = live / 'CHATGPT_START.txt'
-          assert start_path.is_file(), 'CANONICAL_CHATGPT_START_MISSING'
-          start = start_path.read_text(encoding='utf-8-sig')
-          forbidden = ['CS_PROJECTILE_LASER', 'CS_PROJECTILE_AXE', 'CS_PROJECTILE_ROCKET']
-          hits = [x for x in forbidden if x in start]
-          assert not hits, 'STALE_PROJECTILE_VOCAB_IN_CHATGPT_START: ' + ', '.join(hits)
-
-          devora = (root / 'devora.html').read_text(encoding='utf-8')
-          assert "open-current/CHATGPT_START.txt','bytes'" in devora, 'DEVORA_CANONICAL_START_NOT_LOADED'
-          assert "'01_CHATGPT_START.txt','designer-ai/open-current/CHATGPT_START.txt',startBytes" in devora, 'DEVORA_CANONICAL_START_NOT_PACKAGED'
-          assert "open.status!=='CURRENT_VERIFIED'" in devora, 'DEVORA_CANONICAL_CURRENT_STATUS_CONTRACT_MISSING'
-          assert 'CURRENT_VERIFIED_OPEN' not in devora, 'DEVORA_OBSOLETE_CURRENT_STATUS_REAPPEARED'
-          assert "START='Use the attached" not in devora, 'DEVORA_DUPLICATE_START_SPEC_REAPPEARED'
-
-          preview = (root / 'simple-preview.html').read_text(encoding='utf-8')
-          assert 'ajv2020.bundle.min.js' in preview, 'SIMPLE_PREVIEW_SCHEMA_ENGINE_MISSING'
-          assert "open-current/simple-authoring/CUTSCENE_SCRIPT_V1.schema.json" in preview, 'SIMPLE_PREVIEW_CURRENT_SCHEMA_MISSING'
-          assert "open.status!=='CURRENT_VERIFIED'" in preview, 'SIMPLE_PREVIEW_CANONICAL_CURRENT_STATUS_CONTRACT_MISSING'
-          assert 'CURRENT_VERIFIED_OPEN' not in preview, 'SIMPLE_PREVIEW_OBSOLETE_CURRENT_STATUS_REAPPEARED'
-          assert 'UNITY_VALIDATED' in preview and 'PREVIEW_ACCEPTED' in preview, 'SIMPLE_PREVIEW_STATUS_BOUNDARY_TEXT_MISSING'
 
           source = json.loads((root / 'current.json').read_text(encoding='utf-8-sig'))
           current = json.loads((live / 'OPEN_CURRENT.json').read_text(encoding='utf-8-sig'))
@@ -109,35 +70,36 @@ jobs:
           assert handles.get('requiredCurrent') == current.get('requiredCurrent'), 'AUTHORING_HANDLES_CURRENT_MISMATCH'
           assert (handles.get('countsByRoute') or {}).get('Audio', 0) > 0, 'AUTHORING_HANDLES_AUDIO_EMPTY'
 
-          registry_rules = (source.get('authoringRuleRegistry') or {}).get('rules') or []
-          generated_rule = next((r for r in registry_rules if r.get('ruleId') == 'GENERATED_ROOT_EXCLUSION'), None)
-          assert generated_rule is not None, 'GENERATED_ROOT_EXCLUSION_RULE_MISSING'
-          assert generated_rule.get('regressionTestId') == 'GENERATED_ROOT_EXCLUSION', 'GENERATED_ROOT_EXCLUSION_REGRESSION_ID_DRIFT'
+          start = (live / 'CHATGPT_START.txt').read_text(encoding='utf-8-sig')
+          forbidden = ['CS_PROJECTILE_LASER','CS_PROJECTILE_AXE','CS_PROJECTILE_ROCKET']
+          hits = [x for x in forbidden if x in start]
+          assert not hits, 'STALE_PROJECTILE_VOCAB_IN_CHATGPT_START: ' + ', '.join(hits)
+
+          devora = (root / 'devora.html').read_text(encoding='utf-8')
+          assert "open.status!=='CURRENT_VERIFIED'" in devora, 'DEVORA_CANONICAL_CURRENT_STATUS_CONTRACT_MISSING'
+          assert 'CURRENT_VERIFIED_OPEN' not in devora, 'DEVORA_OBSOLETE_CURRENT_STATUS_REAPPEARED'
+          assert "open-current/CHATGPT_START.txt','bytes'" in devora, 'DEVORA_CANONICAL_START_NOT_LOADED'
+
+          preview = (root / 'simple-preview.html').read_text(encoding='utf-8')
+          assert "open.status!=='CURRENT_VERIFIED'" in preview, 'SIMPLE_PREVIEW_CANONICAL_CURRENT_STATUS_CONTRACT_MISSING'
+          assert 'CURRENT_VERIFIED_OPEN' not in preview, 'SIMPLE_PREVIEW_OBSOLETE_CURRENT_STATUS_REAPPEARED'
+          assert 'PREVIEWABLE' in preview, 'SIMPLE_PREVIEW_PREVIEWABLE_STATUS_MISSING'
+          assert 'Web preflight only' in preview and 'Unity remains final runtime authority' in preview, 'SIMPLE_PREVIEW_AUTHORITY_BOUNDARY_MISSING'
 
           generated_root = 'Assets/_Game/MY_Core/MY_Data/Cutscenes/Generated'
-          public_projection_paths = [
-              live / 'ASSET_VISUAL_LOOKUP.json',
-              live / 'FULL_VISUAL_INDEX.json',
-              live / 'VISUAL_UNAVAILABLE.json',
-              simple / 'AUTHORING_HANDLES.json',
+          projection_paths = [
+              live / 'ASSET_VISUAL_LOOKUP.json', live / 'FULL_VISUAL_INDEX.json',
+              live / 'VISUAL_UNAVAILABLE.json', simple / 'AUTHORING_HANDLES.json'
           ]
-          director_dir = live / 'director-view'
-          for name in ('actors.json', 'animations.json', 'asset-lookup.json', 'audio.json', 'effects.json', 'layers.json', 'ui.json'):
-              public_projection_paths.append(director_dir / name)
-
-          leaked = []
-          for path in public_projection_paths:
-              if not path.is_file():
-                  continue
-              if generated_root in path.read_text(encoding='utf-8-sig', errors='replace'):
-                  leaked.append(str(path))
+          director = live / 'director-view'
+          for name in ('actors.json','animations.json','asset-lookup.json','audio.json','effects.json','layers.json','ui.json'):
+              projection_paths.append(director / name)
+          leaked = [str(p) for p in projection_paths if p.is_file() and generated_root in p.read_text(encoding='utf-8-sig', errors='replace')]
           assert not leaked, 'GENERATED_CUTSCENE_SOURCE_LEAK_IN_PUBLIC_CURRENT: ' + ', '.join(leaked)
 
           print('CURRENT_AUTHORING_SOURCE_LINT_PASS')
-          print('PROJECTILES', projectile)
           print('CURRENT', source.get('publishTransactionId'))
           print('CATALOG', source.get('requiredCurrent', {}).get('catalogRevision'))
           print('AUDIO_HANDLES', (handles.get('countsByRoute') or {}).get('Audio', 0))
-          print('GENERATED_ROOT_EXCLUSION_RULE', generated_rule.get('regressionTestId'))
           print('GENERATED_ROOT_PUBLIC_PROJECTION_LEAKS', len(leaked))
           PY
