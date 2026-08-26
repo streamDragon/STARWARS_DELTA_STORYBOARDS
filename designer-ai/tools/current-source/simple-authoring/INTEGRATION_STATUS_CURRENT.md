@@ -12,6 +12,10 @@ The targeted Particle scan is intentionally narrower than a full Catalog scan. R
 
 A legal Particle Effect must still materialize through one existing Timeline execution owner. Prefer native `ControlTrack` when Timeline can correctly own prefab/Particle lifecycle; otherwise use the one existing custom visual/VFX owner when project-specific composition behavior requires it. Do not create a parallel particle runtime.
 
+Simple V1 Effect `visible[]` supports independent sub-beat scheduling through `startOffsetSeconds` and `durationSeconds`. Both values are local to the owning beat. Omitted start defaults to `0`; omitted duration means the remaining beat time. The interval must stay completely inside the beat. These timing fields are Effect-only: Actor, Layer and Ui visuals keep their existing route-specific lifetime semantics. Multiple Effect entries in one beat may therefore use independent positions, sizes and intervals without splitting the shot into artificial beats.
+
+The backend lowers that exact authored interval into the existing V5 Effect action and into the binding-aware materialization obligation. Particle-only Effect prefabs continue to use the existing Timeline `ControlTrack` lifecycle owner; Sprite Effects keep the existing bounded visibility owner. Sub-beat timing does not introduce a parallel particle runtime or a second execution owner.
+
 ## Vision annotations
 
 Vision annotation import updates visual/semantic metadata for existing Catalog identities. It is not a reason to perform an unrelated full Catalog rescan.
@@ -42,6 +46,7 @@ The next representative Cutscene proof should exercise, in one small fixture whe
 
 - at least one normal visible Effect;
 - at least one genuine Particle-only Effect;
+- several Effect entries with different `startOffsetSeconds`, `durationSeconds`, screen positions and sizes inside one beat;
 - geometric loop motion only after it is schema-published;
 - frame-relative 2D camera movement that stays fully inside active background coverage;
 - binding-aware materialization coverage through Editable Preview.
