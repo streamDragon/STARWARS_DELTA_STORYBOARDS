@@ -8,8 +8,10 @@ on:
       - 'designer-ai/current.json'
       - 'designer-ai/open-current/**'
       - 'designer-ai/devora.html'
+      - 'designer-ai/index.html'
       - 'designer-ai/simple-preview.html'
       - 'designer-ai/tools/**'
+      - 'README.md'
       - '.github/workflows/current-authoring-lint.yml'
       - '.github/workflows/publish-designer-ai-open-current.yml'
 
@@ -27,7 +29,7 @@ jobs:
       - name: Install JSON Schema validator
         run: python3 -m pip install --disable-pip-version-check jsonschema
 
-      - name: Lint one live CURRENT
+      - name: Lint one live CURRENT and one canonical source tree
         shell: bash
         run: |
           set -euo pipefail
@@ -39,6 +41,8 @@ jobs:
           root = Path('designer-ai')
           live = root / 'open-current'
           simple = live / 'simple-authoring'
+          source_root = root / 'tools' / 'current-source'
+          source_simple = source_root / 'simple-authoring'
 
           schema = json.loads((simple / 'CUTSCENE_SCRIPT_V1.schema.json').read_text(encoding='utf-8-sig'))
           example = json.loads((simple / 'CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json').read_text(encoding='utf-8-sig'))
@@ -58,6 +62,53 @@ jobs:
           ]
           present = [str(p) for p in obsolete if p.exists()]
           assert not present, 'DUPLICATE_OR_STALE_LIVE_CURRENT_REAPPEARED: ' + ', '.join(present)
+
+          # There is exactly one publisher/engineering source tree for Simple V1.
+          duplicate_source_names = [
+              'ARCHITECTURE.md',
+              'AUTHORING_PACK_GATE_POLICY.md',
+              'CINEMATIC_INTENT_QA_RULES.json',
+              'CUTSCENE_SCRIPT_V1.schema.json',
+              'CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json',
+              'CUTSCENE_VALIDATION_CURRENT.schema.json',
+              'EMOTIONAL_DIALOGUE_AUTHORING_POLICY.json',
+              'SEMANTIC_CINEMATIC_AUTHORING_GUIDE.md',
+          ]
+          duplicate_source_paths = [str(source_root / name) for name in duplicate_source_names if (source_root / name).exists()]
+          assert not duplicate_source_paths, 'DUPLICATE_SIMPLE_SOURCE_REAPPEARED: ' + ', '.join(duplicate_source_paths)
+
+          required_source = [
+              source_root / 'CHATGPT_START.txt',
+              source_root / 'FILM_AUTHORING_GUIDE_CURRENT.md',
+              source_simple / 'ARCHITECTURE.md',
+              source_simple / 'AUTHORING_PACK_GATE_POLICY.md',
+              source_simple / 'CINEMATIC_INTENT_QA_RULES.json',
+              source_simple / 'CUTSCENE_SCRIPT_V1.schema.json',
+              source_simple / 'CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json',
+              source_simple / 'CUTSCENE_VALIDATION_CURRENT.schema.json',
+              source_simple / 'EMOTIONAL_DIALOGUE_AUTHORING_POLICY.json',
+              source_simple / 'FAIL_SOFT_MOVIE_AUTHORING_POLICY.md',
+              source_simple / 'LEARNING_CASES_POLICY.md',
+              source_simple / 'SEMANTIC_CINEMATIC_AUTHORING_GUIDE.md',
+          ]
+          missing_source = [str(p) for p in required_source if not p.is_file()]
+          assert not missing_source, 'CANONICAL_AUTHORING_SOURCE_MISSING: ' + ', '.join(missing_source)
+
+          architecture = (source_simple / 'ARCHITECTURE.md').read_text(encoding='utf-8-sig')
+          assert 'Native-first Timeline ownership' in architecture, 'NATIVE_FIRST_TIMELINE_ARCHITECTURE_MISSING'
+          assert 'Visible obligations and Effect lowering' in architecture, 'VISIBLE_EFFECT_OBLIGATION_ARCHITECTURE_MISSING'
+          assert 'Binding-aware materialization coverage' in architecture, 'MATERIALIZATION_COVERAGE_ARCHITECTURE_MISSING'
+          assert 'viewport-proportional' in architecture.lower(), 'VIEWPORT_PROPORTIONAL_MOTION_ARCHITECTURE_MISSING'
+          assert 'BAD NEW CANDIDATE != DESTROY LAST GOOD PREVIEW' in architecture, 'LAST_GOOD_PREVIEW_INVARIANT_MISSING'
+
+          source_start = (source_root / 'CHATGPT_START.txt').read_text(encoding='utf-8-sig')
+          assert 'VISIBLE EFFECTS' in source_start, 'SOURCE_CHATGPT_VISIBLE_EFFECT_RULE_MISSING'
+          assert 'backend owns default beat-bounded materialization' in source_start, 'SOURCE_CHATGPT_SECRET_REVEAL_WORKAROUND_REAPPEARED'
+          assert 'active camera viewport/frustum' in source_start, 'SOURCE_CHATGPT_VIEWPORT_MOTION_RULE_MISSING'
+
+          # designer-ai/index.html must not re-grow into a competing Designer AI application.
+          designer_index = (root / 'index.html').read_text(encoding='utf-8')
+          assert "location.replace('devora.html')" in designer_index, 'DESIGNER_INDEX_NOT_DEVORA_REDIRECT'
 
           source = json.loads((root / 'current.json').read_text(encoding='utf-8-sig'))
           current = json.loads((live / 'OPEN_CURRENT.json').read_text(encoding='utf-8-sig'))
@@ -102,4 +153,5 @@ jobs:
           print('CATALOG', source.get('requiredCurrent', {}).get('catalogRevision'))
           print('AUDIO_HANDLES', (handles.get('countsByRoute') or {}).get('Audio', 0))
           print('GENERATED_ROOT_PUBLIC_PROJECTION_LEAKS', len(leaked))
+          print('DUPLICATE_SIMPLE_SOURCE_FILES', len(duplicate_source_paths))
           PY
