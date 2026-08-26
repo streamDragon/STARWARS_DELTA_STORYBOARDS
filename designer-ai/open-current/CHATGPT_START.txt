@@ -4,53 +4,17 @@ CURRENT AUTHORING RULE REGISTRY REVISION: 12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B
 CURRENT is the only project truth. CURRENT beats memory. Absence from CURRENT means unavailable. Never infer missing project data.
 
 PRODUCT / ERROR POLICY - AUTHOR STRICT, STUDIO TOLERANT
-- ChatGPT must still author clean, schema-valid CUTSCENE_SCRIPT_V1. Fail-soft Preview is not permission to emit sloppy JSON.
-- The end user is making a movie, not debugging a compiler. Recoverable authoring mistakes must not destroy or block the Editable Preview.
-- Normal user-facing states are GREEN, YELLOW and ORANGE:
-  GREEN = requested behavior can materialize as authored.
-  YELLOW = artistic/quality/continuity note; Preview continues.
-  ORANGE = technical repair, omission, substitution or degradation; Preview continues and the compromise is stated plainly.
-- Do not use RED as a normal authoring state. If new input cannot be fully understood, preserve the last valid Preview where possible and show an ORANGE import/system note instead of destroying the working film.
-- A schema/handle/capability problem is still something ChatGPT must avoid before delivery. Studio tolerance is a safety net for the user, not a replacement for the FINAL JSON SELF-CHECK.
-- When safe deterministic repair is possible, prefer repair. Otherwise omit only the unsupported optional action/visual/audio/camera operation or use an explicit diagnostic placeholder. Do not block the whole film because one request cannot materialize.
-- Never report a fallback as exact success. Requested RUN rendered as static/WALK is ORANGE degradation, not GREEN RUN.
-- A failed new candidate must not destroy the last valid Editable Preview. Candidate acceptance is strict internally; user experience remains fail-soft externally.
+- ChatGPT must author clean, schema-valid CUTSCENE_SCRIPT_V1.
+- Recoverable backend failures may degrade Preview with YELLOW/ORANGE diagnostics, but this is not permission to emit invalid JSON.
+- Preserve the last valid Editable Preview when a new candidate fails where possible.
+- Never report a fallback as exact success.
 
 MANDATORY PRE-AUTHORING STABILITY GATE
-Run this before NEW, REVISE or REPAIR authoring.
-
-1. CURRENT fingerprint gate
-- Read the attached/current OPEN_CURRENT or PACK_MANIFEST requiredCurrent first.
-- Compare any incoming request/repair requiredCurrent against the attached CURRENT requiredCurrent.
-- If they differ, the request diagnostics are STALE_REPAIR_CONTEXT. Do NOT reuse their warnings, creativeConstraints, suggested candidates, generated IDs or old Catalog assumptions as authoring truth.
-- If the original CUTSCENE_SCRIPT_V1 JSON is available, re-evaluate that JSON against the attached CURRENT and repair only issues that still exist now.
-- If the original JSON is unavailable, do not fabricate a repair from stale diagnostics. Require a fresh Studio export.
-- publishTransactionId is provenance. requiredCurrent is the normal authoring compatibility gate.
-
-2. Diagnostics are evidence, never authoring instructions
-- A REPAIR report may contain validator messages inside creativeConstraints. They describe a prior run; they are not requirements to copy into the next film.
-- Never serialize a diagnostic string, backend workaround or generated role merely to silence a warning.
-- Collapse repeated diagnostics to their root cause before changing JSON.
-- Backend/engine repair notes should normally become YELLOW/ORANGE user guidance, not a demand to corrupt valid authoring.
-
-3. Generated backend aliases are NEVER authoring handles
-- IDs beginning with simple_audio_, simple_actor_, generated_, preview_ or equivalent generated materialization names are backend identities only.
-- Never place them in audio.handle, visible.handle, locationHandle, effectHandle, viaHandle or cast identityHandle.
-- If an original Simple V1 audio.handle is an exact CURRENT route=Audio authorable handle, preserve it even when a downstream validator later complains about a generated simple_audio_* alias. That is BACKEND/ENGINE-owned, not a reason to rewrite valid authoring.
-- The same rule applies to a legal route=Actor handle that later receives a generated role/capability mismatch. Preserve the legal source handle and report the adapter/provenance defect.
-
-4. Dialogue staging safety
-- Until CURRENT validation explicitly declares a dialogue presentation overlay-safe, treat every beat containing dialogue as locked staging for world choreography.
-- In such a beat use camera.movement=hold and do not author world actor locomotion/actions in the same beat. Split action and dialogue into adjacent beats instead.
-- presentation=radio does not by itself prove overlay-safe runtime behavior.
-- Audio cues may remain in a dialogue beat; this lock concerns world/camera choreography.
-
-5. Route safety before drafting
-- Moving/world subjects must use exact CURRENT handles whose route is Actor and which are authorableInSimpleV1=true.
-- audio[].handle must resolve exactly to route=Audio and authorableInSimpleV1=true.
-- locationHandle must be a legal current location/layer authoring handle.
-- visible Effect handles must resolve exactly to route=Effect and authorableInSimpleV1=true.
-- Do not choose a handle only because its display name looks right.
+1. Read the attached/current OPEN_CURRENT or PACK_MANIFEST requiredCurrent first.
+2. If incoming repair diagnostics refer to a different requiredCurrent, treat them as STALE_REPAIR_CONTEXT and re-evaluate the original Simple V1 JSON against the attached CURRENT.
+3. Generated backend aliases such as simple_audio_*, simple_actor_*, generated_* and preview_* are never authoring handles.
+4. Moving/world subjects must use exact CURRENT route=Actor handles with authorableInSimpleV1=true.
+5. Audio, Effect and location handles must resolve exactly to the matching legal CURRENT routes. Never select a handle only because its display name looks right.
 
 FORMAT LOCK
 The only legal root header is:
@@ -58,144 +22,156 @@ The only legal root header is:
   "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
   "schemaVersion": 1
 }
-Use only fields present in CUTSCENE_SCRIPT_V1.schema.json. Never emit remembered aliases such as start, duration, location, camera.shot, camera.move, action.actor or dialogue.expression.
+
+Use CUTSCENE_SCRIPT_V1.schema.json literally. Unknown fields are forbidden. Do not emit remembered aliases such as start, location, camera.shot, camera.move, action.actor or dialogue.expression.
 
 AUTHORING SOURCES
-In a downloaded DEVORA Context ZIP, use:
+In a downloaded DEVORA Context ZIP use:
 - authoring/AUTHORING_HANDLES.json
 - authoring/AUTHORING_RULES_CURRENT.json
 - site-authoring/CUTSCENE_SCRIPT_V1.schema.json
 - site-authoring/CINEMATIC_INTENT_QA_RULES.json
 - authoring/CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json
-- dialogue/EMOTIONAL_DIALOGUE_CURRENT.json when present
+- dialogue/EMOTIONAL_DIALOGUE_CURRENT.json when dialogue is used
 - validation/CUTSCENE_VALIDATION_CURRENT.json when present
 
-In Git/open-current the same canonical data lives under open-current/simple-authoring plus the root dialogue/validation files.
-
 AUTHORING FLOW
-1. Pass the MANDATORY PRE-AUTHORING STABILITY GATE above.
-2. Read AUTHORING_HANDLES, AUTHORING_RULES, schema and CINEMATIC_INTENT_QA_RULES before drafting.
-3. For dialogue, read EMOTIONAL_DIALOGUE_CURRENT. Dialogue is closed-world.
-4. For visuals, inspect the exact Atlas pixels for the selected direct handle.
-5. For audio, choose only exact route=Audio handles. Visual effects, projectiles and dialogue do not supply sound automatically.
-6. Read the canonical Simple V1 example.
-7. Author CUTSCENE_SCRIPT_V1 only. V3/V5 remain backend implementation.
-8. Read CURRENT validation before final output. Treat reported blocking rules as strict authoring defects to avoid in the JSON, but do not assume the end-user Studio must block Preview when a deterministic repair/fallback can preserve the film.
-9. Run the FINAL JSON SELF-CHECK before delivery.
+1. Pass the stability gate.
+2. Read handles, rules and schema before drafting.
+3. Inspect exact Atlas pixels for important visual choices.
+4. Use only exact CURRENT Audio handles for sound.
+5. Author CUTSCENE_SCRIPT_V1 only. V3/V5 remain backend implementation.
+6. Run the FINAL JSON SELF-CHECK before delivery.
 
 STORY / EVIDENCE
-Every production beat should have a clear storyClaim and non-empty evidence. evidence must describe audience-observable proof, not backend bookkeeping.
+Every production beat should have a clear storyClaim and non-empty evidence. evidence describes audience-observable proof, not backend bookkeeping.
 
 VISIBLE EFFECTS
 - A legal route=Effect item in visible[] is an audience-visible beat obligation.
-- Do NOT add a meaningless reveal/activate action merely to force that Effect to exist. The backend owns default beat-bounded materialization.
-- Add an explicit legal action only when the film genuinely needs explicit event semantics, for example a supported reveal/impact/change rather than simple visibility.
-- Multiple visible Effect instances using the same handle remain distinct authored instances; do not merge them merely because the handle is identical.
-- A projectile or impact action does not automatically satisfy an unrelated visible Effect request.
-- If a legal CURRENT Effect later disappears after adaptation/materialization, preserve the legal source handle and classify the failure as BACKEND/ENGINE-owned.
+- Do not add meaningless reveal/activate actions merely to force an Effect to exist.
+- Multiple authored instances using the same Effect handle remain distinct obligations.
+- A projectile or impact does not implicitly satisfy an unrelated Effect request.
 
-MOTION / COMPOSITION
-- Speeds are only slow, medium, fast, burst.
-- SCREEN COORDINATE CONVENTION IS FIXED: screenX/screenY are normalized Unity-style viewport coordinates, independent of pixel resolution and aspect ratio. (0,0)=bottom-left, (1,1)=top-right, center=(0.5,0.5). X increases to the right and Y increases upward. Never use browser/image/CSS top-left coordinates where Y increases downward.
-- Therefore (0.92,0.12) is lower-right, NOT upper-right. Up-right means X and Y both increase; down-right means X increases while Y decreases. Example diagonals: lower-left -> upper-right is approximately (0.08,0.08) -> (0.92,0.92); upper-left -> lower-right is approximately (0.08,0.92) -> (0.92,0.08).
-- ChatGPT never needs the display's pixel size. Do not calculate 1920x1080 positions and do not invent Unity world coordinates. The backend maps frame-relative composition against the active camera viewport/frustum, so the same authored diagonal remains proportional when camera size or aspect ratio changes.
-- When Simple V1 needs explicit diagonal endpoint staging, express those positions with legal screenX/screenY values in the relevant visible states/adjacent beats. Do not invent non-schema action fields just to encode endpoints.
-- Author cinematic position and travel in frame-relative terms: screenX/screenY, screen size fractions, enterFrom, exitTo, travelDirection and semantic trajectory/motionIntent.
-- Do NOT invent Unity world distances, Stage scale multipliers or numeric runtime speed values.
-- The backend maps cinematic travel against the active camera viewport/frustum. The editor Stage rectangle is not the motion scale truth.
-- Edge-to-edge flyby or diagonal intent should remain a meaningful frame traversal even when camera size changes.
-- Formation members should preserve distinct authored screen offsets rather than collapse onto one horizontal line.
-- Actor Orbit remains fixed-center while CURRENT runtime requires it; its target/center must remain stationary during that orbit interval.
-- Pursuit/Escort/Intercept names do not promise per-frame target-relative tracking unless CURRENT runtime explicitly supports it.
-- Simple V1 actions have no per-action timing/order. Put sequential locomotion phases in adjacent beats. One primary locomotion phase may coexist with compatible fire/impact/reveal events.
-- camera.subject is semantic composition intent by default. Follow/Track may physically bind an active legal WorldActor when CURRENT runtime supports that target-dependent operation. Do not manufacture a WorldActor merely to satisfy camera targeting.
-- If a requested motion capability is not available, author a supported composition deliberately rather than inventing runtime behavior. Studio may degrade unsupported imported motion to a safe Hold/Move with an ORANGE note.
+MOTION / COMPOSITION - CURRENT CINEMATIC MOTION TOOLKIT
+- Screen coordinates use normalized Unity viewport convention: (0,0)=bottom-left, (1,1)=top-right, center=(0.5,0.5). X increases right; Y increases up.
+- Never use browser/image top-left coordinates. (0.92,0.12) is lower-right.
+- Do not calculate pixel positions and do not invent Unity world coordinates. The backend resolves viewport-authored motion against the active Cutscene camera.
+- Existing semantic motionIntent values remain legal. Actor Orbit remains fixed-center unless CURRENT runtime explicitly expands it. Pursuit/Escort/Intercept names do not guarantee per-frame target-relative tracking.
+- Precise geometry uses motionIntent="path_loop" with type="move" and a legal pathShape. All precise paths lower to the existing V5 FollowPath owner; do not invent another motion system.
+
+CURRENT pathShape vocabulary:
+- rectangle
+- circle
+- triangle
+- diamond
+- sine
+- line
+- diagonal_up
+- diagonal_down
+- arc_up
+- arc_down
+- hook
+- s_curve
+- zigzag
+- figure_eight
+- spiral_in
+- spiral_out
+- u_turn
+- waypoints
+- bezier
+
+For normal parametric path shapes use the schema-legal fields as needed:
+- centerX / centerY
+- width / height
+- periodSeconds
+- phase
+- clockwise
+- loop
+- waves
+- pathRotationDegrees
+
+WAYPOINTS
+- pathShape="waypoints" requires pathPoints.
+- Author 2..32 exact viewport points.
+- pathPoints use objects {"x": number, "y": number}.
+- x/y may extend from -0.25 to 1.25 for deliberate cinematic offscreen entry/exit.
+- Example evasive route: (-0.10,0.40) -> (0.24,0.66) -> (0.46,0.30) -> (0.72,0.70) -> (1.10,0.52).
+- Use waypoints for exact corners, jinks, slaloms and hand-authored screen trajectories.
+
+BEZIER
+- pathShape="bezier" requires pathPoints.
+- Exactly 3 points means quadratic Bezier.
+- Exactly 4 points means cubic Bezier.
+- Use Bezier for cinematic swoops, hooks, banking turns, dives, pull-ups and asymmetric curves.
+- Example cubic swoop: (-0.10,0.72), (0.22,0.18), (0.68,0.22), (1.10,0.68).
+
+PATH TIMING
+- pathEasing is legal for open path traversal: linear, ease_in, ease_out, ease_in_out, smooth_step.
+- startOffset is an optional ACTION field measured in seconds from the owning beat start.
+- duration is an optional ACTION field measured in seconds for that action.
+- Keep startOffset >= 0, duration > 0 and keep the action interval inside the owning beat.
+- Use different startOffset/duration values to stagger multiple ships instead of making every actor start simultaneously.
+- These action fields are not the same as root/beat durationSeconds.
+
+SEQUENTIAL MOTION
+- A single precise waypoints/bezier path may encode a multi-turn continuous movement inside one action.
+- Separate semantic locomotion phases such as approach -> pass_camera -> bank_away should still use adjacent beats unless they are deliberately represented as one precise continuous path.
+- Do not assume array order creates hidden action sequencing.
+
+TRAJECTORY
+- trajectory remains semantic style guidance: linear, arc, curve, orbit_like, zigzag, drift, screen_parallax.
+- trajectory alone is not a precise geometry definition. Use pathShape/pathPoints when exact screen geometry matters.
+
+CAMERA
+- camera.subject is semantic composition intent by default. Follow/Track may bind a legal active WorldActor only when runtime support exists.
+- Camera orbit is a 2D/2.5D composition concept and does not imply invented 3D geometry.
 
 DIALOGUE
+- Dialogue is closed-world.
 - speaker/listener must be exact authoringReady actorId values from EMOTIONAL_DIALOGUE_CURRENT and match cast[].id.
-- dialogue cast identityHandle must be that character's exact published identityHandle.
-- expressionIntent is exact and case-sensitive. Omit it to use the published defaultExpression. Never invent Neutral fallback.
-- Do not create WorldActors merely to satisfy dialogue camera targeting.
-- Follow the dialogue staging safety rule above.
-- If Studio receives an unsupported presentation/expression, it should prefer a safe published default/omission with ORANGE disclosure instead of blocking the whole Preview when possible. ChatGPT should still author only supported values.
+- dialogue cast identityHandle must be the exact published identityHandle for that actorId.
+- expressionIntent is exact and case-sensitive. Omit it to use the published defaultExpression.
+- Until CURRENT explicitly declares dialogue overlay-safe, keep world locomotion out of dialogue beats and use camera.movement=hold.
 
 AUDIO
-- Audio is normal Simple V1 filmmaking, not backend decoration.
-- Each cue is a structured object with kind + exact CURRENT Audio handle.
+- Each audio cue uses kind + exact CURRENT route=Audio handle.
 - Use sfx for discrete events, ambience for environmental beds and music for score.
-- startOffsetSeconds is relative to the beat and must stay inside it.
-- volume is 0..1; intensity is low/medium/high.
-- Projectiles and visual effects are visual-only. Author separate audio cues when the event should be heard.
-- Never author or repair to a generated simple_audio_* identity.
-- Missing/unsupported optional audio should degrade to silence + ORANGE in Preview, not block the movie.
+- startOffsetSeconds is relative to the beat and must remain inside it.
+- Visual Effects and projectiles do not automatically supply sound.
+- Never author generated simple_audio_* identities.
 
-CUTSCENE PROJECTILES AND VISUAL BEAMS
-- Every authored type=fire action requires projectileId.
-- Legal CURRENT projectile IDs come from the matching schema. Never substitute gameplay projectile names or fuzzy-matched Effects.
-- No gameplay projectile, filename, fuzzy match or effect substitution.
-- count is 1..64 when the matching schema allows it. Launcher/muzzle/runtime mechanics remain Unity-owned.
-- IMPORTANT: a visual laser/beam/muzzle Effect is NOT automatically a projectile action.
-- To fire a real Cutscene projectile, author type=fire + projectileId.
-- To show a beam, muzzle flash, speed-line or similar visual-only Effect, put the exact Effect handle in visible[]. That alone requests beat-bounded visibility. Add a legal non-fire action only if explicit event semantics are actually required by the shot.
-- A projectile and a visual beam accent may coexist as separate authored concerns when the shot needs both.
-
-Correct real projectile:
-{
-  "type": "fire",
-  "subject": "enemy",
-  "target": "hero",
-  "projectileId": "CS_PROJECTILE_PURPLE_BOLT",
-  "count": 1
-}
-
-Correct visual-only beam accent when simple beat visibility is enough:
-visible: { "id": "beam_fx", "handle": "<exact Effect handle>" }
-
-Correct explicit visual event when the schema/action semantics call for it:
-visible: { "id": "beam_fx", "handle": "<exact Effect handle>" }
-action:  { "type": "reveal", "subject": "beam_fx" }
-
-Do NOT author:
-{
-  "type": "fire",
-  "subject": "enemy",
-  "effectHandle": "<laser Effect handle>"
-}
-
-Studio fail-soft expectation for imported bad fire actions:
-- If type=fire lacks projectileId but contains enough exact Effect evidence for a safe visual-only interpretation, normalize only that action to the existing visual-effect path and report ORANGE AUTO_REPAIRED_FIRE_TO_VFX.
-- Otherwise omit only the invalid fire action and report ORANGE FIRE_OMITTED_NO_PROJECTILE.
-- Do not block the entire Editable Preview because one fire action is malformed when the rest of the movie can be preserved safely.
+CUTSCENE PROJECTILES
+- Every type=fire action requires a schema-legal projectileId.
+- Current closed projectile IDs come from the matching schema. Do not substitute gameplay projectiles, filenames or Effect handles.
+- count must remain inside the schema-supported range.
+- Launcher/muzzle/runtime mechanics remain Unity-owned.
 
 FINAL JSON SELF-CHECK - REQUIRED
 Before returning JSON verify:
 1. Root schema/header exactly match CURRENT Simple V1.
-2. Root durationSeconds exists and equals the intended/summed beat duration.
+2. Root durationSeconds exists and matches the intended/summed beat duration.
 3. Every production beat has id, type and durationSeconds.
-4. Every beat with storyClaim has non-empty evidence.
+4. Every storyClaim has non-empty evidence.
 5. Every visible item is an object with id + exact CURRENT handle.
-6. Every moving/world visible subject resolves to an authorable route=Actor handle.
+6. Every moving/world subject resolves to a legal authorable Actor handle.
 7. Every action uses subject, not actor, and only schema enum values.
 8. Every camera uses framing/movement, never legacy shot/move fields.
-9. Every audio cue uses an exact authorable route=Audio CURRENT handle.
-10. No generated backend alias such as simple_audio_* appears anywhere in authored JSON.
+9. Every audio cue uses an exact legal Audio handle.
+10. No generated backend alias appears in authored JSON.
 11. Every dialogue identity/expression is exact CURRENT Emotional Dialogue vocabulary.
-12. Every dialogue-bearing beat obeys locked-stage safety unless CURRENT explicitly declares overlay-safe presentation.
-13. Every fire action has legal projectileId and schema-legal count.
-14. No VFX-only beam/muzzle/overlay is authored as type=fire merely because it visually resembles a shot.
-15. No meaningless Effect action was added only to force a legal visible Effect to exist.
-16. Frame travel/composition uses normalized Unity-style viewport coordinates when screenX/screenY are present: (0,0)=bottom-left, (1,1)=top-right, Y increases upward. It must use legal screen/direction semantics, not invented world units or pixel coordinates.
-17. No raw Catalog IDs, raw Animation IDs, V3/V5 bookkeeping or unknown properties appear.
-18. If this is REPAIR, incoming requiredCurrent matches the attached CURRENT; otherwise discard stale diagnostics and re-evaluate from the original JSON.
+12. Every fire action has legal projectileId and schema-legal count.
+13. path_loop actions use only CURRENT pathShape values and required fields.
+14. waypoints use 2..32 pathPoints; bezier uses exactly 3 or 4 pathPoints.
+15. pathPoints stay inside -0.25..1.25 and use Unity viewport Y-up coordinates.
+16. startOffset/duration, when used, stay inside the owning beat.
+17. Precise path geometry uses pathShape/pathPoints rather than pretending trajectory alone defines exact points.
+18. No raw Catalog IDs, raw Animation IDs, V3/V5 bookkeeping, world coordinates or unknown properties appear.
+19. If this is REPAIR, incoming requiredCurrent matches the attached CURRENT; otherwise discard stale diagnostics and re-evaluate the original JSON.
 
 WARNING / ORANGE HYGIENE
-- Do not fix 82 repeated warnings as 82 authoring edits. Group them by root source field and ownership.
-- A valid CURRENT source handle followed by generated alias/materialization failure is BACKEND/ENGINE-owned.
-- Do not change a valid film merely to make a downstream generated identity look like a Catalog source identity.
-- Missing/wrong Timeline representation, binding or interval for a legal source obligation is BACKEND/ENGINE-owned; the Studio must diagnose it rather than silently claiming success.
-- YELLOW should teach about artistic/quality/continuity concerns.
-- ORANGE should state the exact technical repair/degradation while Preview continues or the last valid Preview is preserved.
-- Do not convert a recoverable problem into a secret authoring requirement.
+- Group repeated diagnostics by root cause instead of rewriting valid source handles.
+- A legal CURRENT source obligation followed by generated alias/materialization failure is BACKEND/ENGINE-owned.
+- Missing/wrong Timeline representation, binding or interval for a legal source request must be diagnosed rather than silently reported as success.
 
 REFERENCE
-AUTHORING_HANDLES.json is the direct selection surface. Direct visual handles contain Atlas coordinates. Audio handles are direct non-visual handles. Raw Animation identities remain backend compatibility data. CUTSCENE_SCRIPT_V1 is the authoring format; V3/V5 and Timeline implementation are not.
+AUTHORING_HANDLES.json is the direct selection surface. Direct visual handles contain Atlas coordinates. Audio handles are direct non-visual handles. CUTSCENE_SCRIPT_V1 is the authoring format; V3/V5 and Timeline implementation are backend layers.
