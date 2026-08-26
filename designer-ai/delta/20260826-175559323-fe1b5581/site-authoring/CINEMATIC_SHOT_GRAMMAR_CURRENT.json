@@ -1,0 +1,680 @@
+{
+  "schema": "STARWARS_DELTA_DEVORA_CINEMATIC_SHOT_GRAMMAR",
+  "schemaVersion": 1,
+  "status": "ACTIVE_LOCAL_CINEMATIC_DIRECTING_OVERLAY",
+  "basedOnPublishTransactionId": "20260825-064902734-6b6529d6",
+  "purpose": "Shot-by-shot directing grammar layered on top of legal CUTSCENE_SCRIPT_V1. It narrows choices for coherent cinema without changing schema/runtime identity.",
+  "globalRules": {
+    "primaryFocalSubjectsMax": 1,
+    "coPrimarySubjectsMax": 1,
+    "styleFamilyLock": "Pick one world style family per sequence. Dialogue presentation may use curated anime portrait style only inside a dedicated dialogue composition, monitor, radio or clean cutaway.",
+    "fullFramePlateRule": "Opaque FULL_FRAME_LOCATION/FULL_FRAME_ONLY visuals own the frame. Never crop them into a partial rectangular insert over another location.",
+    "effectRule": "Local impact/shield/explosion FX remain actor-local. Full-frame motion/vignette overlays fill the frame and must not masquerade as local inserts.",
+    "humanScaleByFraming": {
+      "extreme_wide": [
+        0.08,
+        0.18
+      ],
+      "wide": [
+        0.12,
+        0.28
+      ],
+      "medium": [
+        0.28,
+        0.48
+      ],
+      "close": [
+        0.45,
+        0.72
+      ]
+    },
+    "worldActionDialogueRule": "Locked portrait dialogue and major world-action choreography should normally be adjacent beats, not simultaneous primaries in one beat.",
+    "defaultExclusionStatuses": [
+      "EXCLUDE_DEFAULT"
+    ],
+    "contextualRule": "CONTEXTUAL handles require explicit visual justification; do not choose them merely because semantic metadata matches.",
+    "shotIdeaRule": "Each beat must read as one shot idea. If the beat needs a second visual idea, cut to another beat."
+  },
+  "palettes": {
+    "REALISTIC_SPACE": {
+      "actors": [
+        "2dspaceshipsfreetrialatlassideviewgrey_0__5c6ce346",
+        "big_saucer0015__37cdeb41",
+        "saucer888_0__943ab9fb",
+        "space_1_0__5f7a8879"
+      ],
+      "layers": [
+        "10__b51063db",
+        "background_1__ffe1a708",
+        "galaxy_10__2a29f05d",
+        "nebula_blue__2b6fd5d5",
+        "nebulablue_wide__c80087f8",
+        "ruined_earth_2_0__b159399e",
+        "saturn_2_0__6e9e5649",
+        "space_10_0__0f1b34c9"
+      ],
+      "effects": [
+        "engine_thrust__1036a19c",
+        "enginetrailblue__c2d1326d",
+        "evac_explosion_v1__4df82d70",
+        "impactburst_04__f7e2c15f",
+        "impactburst_05__63e718c2",
+        "laser_sprite__af9db869",
+        "lightstreaks_blue__cde308df",
+        "maskedlasermain10__f40d5376",
+        "shield__3ce21841",
+        "shield__b665a359",
+        "shockring_04__81bf307f",
+        "shockring_07__6b8e262b",
+        "speedlines_soft__5dc4d326",
+        "speedlines_strong__c6a16874",
+        "sprite_smoke_blurred__e3f08791",
+        "vignette_soft__32c1f083",
+        "warplasertip3__99012ee7"
+      ],
+      "ui": [
+        "alert_ally_in_danger_1__8d8ace30",
+        "alert_boss_alert__55c5b756",
+        "dialogue_box_main__6ba47266",
+        "letterbox__fe7d781e",
+        "popup_frame01_navy2__f490474b",
+        "radar_overlay__9adb7299",
+        "starwars_delta_dialogue_ui_containers_6x5__781e550b",
+        "technical_gauge_round__6d05c89d"
+      ]
+    },
+    "REALISTIC_RUINED_EARTH": {
+      "actors": [],
+      "layers": [
+        "pond_2_0__42c8d489",
+        "ruined_city10_0__b2d6b356",
+        "ruined_city1_0__d437ff62"
+      ],
+      "effects": [
+        "evac_explosion_v1__4df82d70",
+        "impactburst_04__f7e2c15f",
+        "impactburst_05__63e718c2",
+        "laser_sprite__af9db869",
+        "maskedlasermain10__f40d5376",
+        "shield__3ce21841",
+        "shield__b665a359",
+        "shockring_04__81bf307f",
+        "shockring_07__6b8e262b",
+        "speedlines_soft__5dc4d326",
+        "speedlines_strong__c6a16874",
+        "sprite_smoke_blurred__e3f08791",
+        "vignette_soft__32c1f083",
+        "warplasertip3__99012ee7"
+      ],
+      "ui": [
+        "alert_ally_in_danger_1__8d8ace30",
+        "alert_boss_alert__55c5b756",
+        "dialogue_box_main__6ba47266",
+        "letterbox__fe7d781e",
+        "popup_frame01_navy2__f490474b",
+        "radar_overlay__9adb7299",
+        "starwars_delta_dialogue_ui_containers_6x5__781e550b",
+        "technical_gauge_round__6d05c89d"
+      ]
+    },
+    "CARTOON_WORLD": {
+      "actors": [
+        "doc01_idle__c63e4162",
+        "doc01_interacting__0abf3a5d",
+        "doc01_run__40c9e89a",
+        "doc01_walk__bf6c886a",
+        "doc02_idle__0f531dd8",
+        "doc02_interaction__33fda60f",
+        "doc02_run__581a3d14",
+        "doc02_walk__c8128007",
+        "doc03_idle__8cfa8624",
+        "doc03_interaction__2f4f6280",
+        "doc03_run__0fb33090",
+        "doc03_walk__2eafa5fc"
+      ],
+      "layers": [],
+      "effects": [
+        "evac_explosion_v1__4df82d70",
+        "impactburst_04__f7e2c15f",
+        "impactburst_05__63e718c2",
+        "laser_sprite__af9db869",
+        "maskedlasermain10__f40d5376",
+        "shield__3ce21841",
+        "shield__b665a359",
+        "shockring_04__81bf307f",
+        "shockring_07__6b8e262b",
+        "speedlines_soft__5dc4d326",
+        "speedlines_strong__c6a16874",
+        "spr_cutscenelab_explosion__40ba5a66",
+        "sprite_smoke_blurred__e3f08791",
+        "warplasertip3__99012ee7"
+      ],
+      "ui": [
+        "dialogue_box_main__6ba47266",
+        "letterbox__fe7d781e",
+        "starwars_delta_dialogue_ui_containers_6x5__781e550b"
+      ]
+    },
+    "ARCADE_DETAILED_SPACE": {
+      "actors": [
+        "v_4__1c4f3886",
+        "vehicle_2__05ddc655"
+      ],
+      "layers": [
+        "10__b51063db",
+        "background_1__ffe1a708",
+        "galaxy_10__2a29f05d",
+        "nebula_blue__2b6fd5d5",
+        "nebulablue_wide__c80087f8"
+      ],
+      "effects": [
+        "engine_thrust__1036a19c",
+        "enginetrailblue__c2d1326d",
+        "evac_explosion_v1__4df82d70",
+        "impactburst_04__f7e2c15f",
+        "impactburst_05__63e718c2",
+        "laser_sprite__af9db869",
+        "lightstreaks_blue__cde308df",
+        "maskedlasermain10__f40d5376",
+        "shield__3ce21841",
+        "shield__b665a359",
+        "shockring_04__81bf307f",
+        "shockring_07__6b8e262b",
+        "speedlines_soft__5dc4d326",
+        "speedlines_strong__c6a16874",
+        "spr_cutscenelab_explosion__40ba5a66",
+        "sprite_smoke_blurred__e3f08791",
+        "warplasertip3__99012ee7"
+      ],
+      "ui": [
+        "alert_ally_in_danger_1__8d8ace30",
+        "alert_boss_alert__55c5b756",
+        "dialogue_box_main__6ba47266",
+        "letterbox__fe7d781e",
+        "popup_frame01_navy2__f490474b",
+        "radar_overlay__9adb7299",
+        "starwars_delta_dialogue_ui_containers_6x5__781e550b",
+        "technical_gauge_round__6d05c89d"
+      ]
+    }
+  },
+  "shots": [
+    {
+      "id": "ESTABLISH_LOCATION",
+      "beatTypes": [
+        "establishing"
+      ],
+      "cinematicMove": "establish_location",
+      "durationSecondsRecommended": [
+        4,
+        8
+      ],
+      "camera": {
+        "framing": [
+          "extreme_wide",
+          "wide"
+        ],
+        "movement": [
+          "hold",
+          "drift",
+          "pull"
+        ],
+        "intensity": [
+          "subtle",
+          "medium"
+        ],
+        "parallax": [
+          "subtle",
+          "medium"
+        ]
+      },
+      "composition": {
+        "primary": "location plate",
+        "optionalActorCount": 1,
+        "actorSaliency": "ambient/support",
+        "actorScreenFraction": [
+          "ship width 0.10-0.22",
+          "human height 0.08-0.18"
+        ]
+      },
+      "rules": [
+        "Base plate owns the frame.",
+        "Do not add dialogue portrait.",
+        "If an actor appears, it proves scale/place rather than competing with the location."
+      ]
+    },
+    {
+      "id": "HERO_IN_ENVIRONMENT",
+      "beatTypes": [
+        "arrival",
+        "establishing"
+      ],
+      "cinematicMove": "hero_in_environment",
+      "durationSecondsRecommended": [
+        4,
+        7
+      ],
+      "camera": {
+        "framing": [
+          "wide",
+          "medium"
+        ],
+        "movement": [
+          "hold",
+          "push",
+          "drift"
+        ],
+        "intensity": [
+          "subtle",
+          "medium"
+        ],
+        "parallax": [
+          "subtle",
+          "medium"
+        ]
+      },
+      "composition": {
+        "primary": "hero actor",
+        "coPrimary": null,
+        "heroAnchor": "left or right third",
+        "negativeSpace": "preserve travel/look direction"
+      },
+      "rules": [
+        "One hero primary.",
+        "Background supports hero silhouette.",
+        "Avoid full-frame effect overlays unless deliberately atmospheric."
+      ]
+    },
+    {
+      "id": "SHIP_FLYBY",
+      "beatTypes": [
+        "arrival",
+        "transition",
+        "battle"
+      ],
+      "cinematicMove": "ship_flyby",
+      "durationSecondsRecommended": [
+        3,
+        6
+      ],
+      "camera": {
+        "framing": [
+          "wide"
+        ],
+        "movement": [
+          "track",
+          "follow"
+        ],
+        "intensity": [
+          "medium",
+          "strong"
+        ],
+        "parallax": [
+          "medium",
+          "strong"
+        ]
+      },
+      "composition": {
+        "primary": "single ship",
+        "startX": [
+          0.05,
+          0.2
+        ],
+        "endIntent": "cross substantial frame distance",
+        "screenWidthFraction": [
+          0.16,
+          0.28
+        ]
+      },
+      "rules": [
+        "Use one readable single-ship visual, never an atlas/fleet sheet.",
+        "Preserve screen direction into adjacent action beats.",
+        "Engine/trail FX may attach to ship but are support only."
+      ]
+    },
+    {
+      "id": "THREAT_REVEAL",
+      "beatTypes": [
+        "threat_reveal"
+      ],
+      "cinematicMove": "reveal",
+      "durationSecondsRecommended": [
+        3,
+        6
+      ],
+      "camera": {
+        "framing": [
+          "wide",
+          "medium"
+        ],
+        "movement": [
+          "hold",
+          "pull",
+          "push"
+        ],
+        "intensity": [
+          "medium",
+          "strong"
+        ],
+        "parallax": [
+          "subtle",
+          "medium"
+        ]
+      },
+      "composition": {
+        "primary": "threat",
+        "coPrimary": "optional hero reaction only",
+        "threatAnchor": "opposes established hero screen direction"
+      },
+      "rules": [
+        "Reveal one new threat idea.",
+        "Do not reveal threat, dialogue portrait and giant effect simultaneously.",
+        "Use scale contrast or entrance, not layer pile-up."
+      ]
+    },
+    {
+      "id": "COMMAND_SCREEN_COMMUNICATION",
+      "beatTypes": [
+        "dialogue"
+      ],
+      "cinematicMove": "command_screen_communication",
+      "durationSecondsRecommended": [
+        4,
+        9
+      ],
+      "camera": {
+        "framing": [
+          "close",
+          "medium"
+        ],
+        "movement": [
+          "hold"
+        ],
+        "intensity": [
+          "subtle"
+        ],
+        "parallax": [
+          "none"
+        ]
+      },
+      "composition": {
+        "primary": "curated dialogue participant",
+        "worldAction": "none or demoted support inside a designed monitor context"
+      },
+      "rules": [
+        "Use Emotional Dialogue closed-world actorId/expression.",
+        "Portrait presentation gets a clean Dialogue Stage.",
+        "Monitor presentation requires a visible monitor/frame treatment, not raw portrait floating over world action.",
+        "Cut back to world action in the next beat."
+      ]
+    },
+    {
+      "id": "REACTION",
+      "beatTypes": [
+        "dialogue",
+        "custom"
+      ],
+      "cinematicMove": "reaction",
+      "durationSecondsRecommended": [
+        2,
+        5
+      ],
+      "camera": {
+        "framing": [
+          "close",
+          "medium"
+        ],
+        "movement": [
+          "hold",
+          "push"
+        ],
+        "intensity": [
+          "subtle",
+          "medium"
+        ],
+        "parallax": [
+          "none",
+          "subtle"
+        ]
+      },
+      "composition": {
+        "primary": "one reacting participant/actor"
+      },
+      "rules": [
+        "Reaction is a visual punctuation mark.",
+        "Do not add unrelated movement phases.",
+        "Keep background visually quiet."
+      ]
+    },
+    {
+      "id": "PURSUIT",
+      "beatTypes": [
+        "battle"
+      ],
+      "cinematicMove": "pursuit",
+      "durationSecondsRecommended": [
+        4,
+        8
+      ],
+      "camera": {
+        "framing": [
+          "wide"
+        ],
+        "movement": [
+          "track",
+          "follow"
+        ],
+        "intensity": [
+          "medium",
+          "strong"
+        ],
+        "parallax": [
+          "medium",
+          "strong"
+        ]
+      },
+      "composition": {
+        "primary": "hero or pursuer",
+        "coPrimary": "one target",
+        "screenSeparation": "clear horizontal/diagonal separation"
+      },
+      "rules": [
+        "At most one primary locomotion phase per actor in the beat.",
+        "Semantic pursuit does not promise per-frame target-relative runtime tracking.",
+        "Keep both silhouettes readable."
+      ]
+    },
+    {
+      "id": "ATTACK_PASS",
+      "beatTypes": [
+        "battle"
+      ],
+      "cinematicMove": "pursuit",
+      "durationSecondsRecommended": [
+        4,
+        7
+      ],
+      "camera": {
+        "framing": [
+          "wide",
+          "medium"
+        ],
+        "movement": [
+          "track",
+          "follow"
+        ],
+        "intensity": [
+          "strong"
+        ],
+        "parallax": [
+          "medium",
+          "strong"
+        ]
+      },
+      "composition": {
+        "primary": "attacking ship",
+        "coPrimary": "one target",
+        "projectile": "closed-world Cutscene projectile only"
+      },
+      "rules": [
+        "One locomotion phase plus compatible fire is legal.",
+        "Projectile burst must fit beat/action duration.",
+        "Muzzle/projectile are support evidence; do not obscure target with giant FX."
+      ]
+    },
+    {
+      "id": "IMPACT",
+      "beatTypes": [
+        "destruction"
+      ],
+      "cinematicMove": "impact",
+      "durationSecondsRecommended": [
+        2,
+        5
+      ],
+      "camera": {
+        "framing": [
+          "medium",
+          "close"
+        ],
+        "movement": [
+          "impact_shake",
+          "hold"
+        ],
+        "intensity": [
+          "medium",
+          "strong"
+        ],
+        "parallax": [
+          "subtle",
+          "medium"
+        ]
+      },
+      "composition": {
+        "primary": "local impact/explosion at target",
+        "targetVisibility": "may remain support silhouette"
+      },
+      "rules": [
+        "Use local effect at impact point.",
+        "Do not use a full-frame location plate as the explosion.",
+        "After impact, cut to consequence/aftermath rather than holding clutter."
+      ]
+    },
+    {
+      "id": "TACTICAL_INFO",
+      "beatTypes": [
+        "custom",
+        "dialogue"
+      ],
+      "cinematicMove": "tactical_info",
+      "durationSecondsRecommended": [
+        3,
+        7
+      ],
+      "camera": {
+        "framing": [
+          "medium",
+          "close"
+        ],
+        "movement": [
+          "hold"
+        ],
+        "intensity": [
+          "subtle"
+        ],
+        "parallax": [
+          "none"
+        ]
+      },
+      "composition": {
+        "primary": "single tactical UI/monitor",
+        "world": "quiet support only"
+      },
+      "rules": [
+        "Use radar/gauge/monitor frame sparingly.",
+        "UI is informational, not decorative confetti.",
+        "Do not show unrelated cinematic UI at the same time."
+      ]
+    },
+    {
+      "id": "ESCAPE",
+      "beatTypes": [
+        "retreat"
+      ],
+      "cinematicMove": "escape",
+      "durationSecondsRecommended": [
+        4,
+        8
+      ],
+      "camera": {
+        "framing": [
+          "wide"
+        ],
+        "movement": [
+          "follow",
+          "drift",
+          "track"
+        ],
+        "intensity": [
+          "medium",
+          "strong"
+        ],
+        "parallax": [
+          "medium",
+          "strong"
+        ]
+      },
+      "composition": {
+        "primary": "escaping actor",
+        "coPrimary": "optional distant threat as ambient/support"
+      },
+      "rules": [
+        "Preserve established screen direction when possible.",
+        "Negative space should lie ahead of travel.",
+        "Do not add dialogue portrait unless cutting to a separate communication beat."
+      ]
+    },
+    {
+      "id": "AFTERMATH",
+      "beatTypes": [
+        "celebration",
+        "custom"
+      ],
+      "cinematicMove": "aftermath",
+      "durationSecondsRecommended": [
+        4,
+        10
+      ],
+      "camera": {
+        "framing": [
+          "wide",
+          "extreme_wide"
+        ],
+        "movement": [
+          "hold",
+          "drift",
+          "pull"
+        ],
+        "intensity": [
+          "subtle"
+        ],
+        "parallax": [
+          "subtle",
+          "medium"
+        ]
+      },
+      "composition": {
+        "primary": "location/consequence",
+        "actor": "small support or absent"
+      },
+      "rules": [
+        "Reduce visual density after climax.",
+        "Use smoke/debris/local aftermath as support.",
+        "Let location and negative space carry release."
+      ]
+    }
+  ],
+  "authorityScope": "DIRECTING_GRAMMAR_ONLY",
+  "doesNotExpandCurrentCapability": true,
+  "unityProofUtc": "2026-08-25T14:29:00Z"
+}
