@@ -39,6 +39,8 @@ jobs:
           root = Path('designer-ai')
           live = root / 'open-current'
           simple = live / 'simple-authoring'
+          source_root = root / 'tools' / 'current-source'
+          source_simple = source_root / 'simple-authoring'
 
           schema = json.loads((simple / 'CUTSCENE_SCRIPT_V1.schema.json').read_text(encoding='utf-8-sig'))
           example = json.loads((simple / 'CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json').read_text(encoding='utf-8-sig'))
@@ -58,6 +60,25 @@ jobs:
           ]
           present = [str(p) for p in obsolete if p.exists()]
           assert not present, 'DUPLICATE_OR_STALE_LIVE_CURRENT_REAPPEARED: ' + ', '.join(present)
+
+          canonical_source_names = [
+              'ARCHITECTURE.md',
+              'AUTHORING_PACK_GATE_POLICY.md',
+              'CINEMATIC_INTENT_QA_RULES.json',
+              'CUTSCENE_SCRIPT_V1.schema.json',
+              'CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json',
+              'CUTSCENE_VALIDATION_CURRENT.schema.json',
+              'EMOTIONAL_DIALOGUE_AUTHORING_POLICY.json',
+              'SEMANTIC_CINEMATIC_AUTHORING_GUIDE.md',
+          ]
+          missing_source = [str(source_simple / name) for name in canonical_source_names if not (source_simple / name).is_file()]
+          assert not missing_source, 'CANONICAL_SIMPLE_V1_SOURCE_MISSING: ' + ', '.join(missing_source)
+          duplicate_source = [str(source_root / name) for name in canonical_source_names if (source_root / name).exists()]
+          assert not duplicate_source, 'DUPLICATE_SIMPLE_V1_SOURCE_REAPPEARED: ' + ', '.join(duplicate_source)
+
+          architecture = (source_simple / 'ARCHITECTURE.md').read_text(encoding='utf-8-sig')
+          assert 'designer-ai/tools/current-source/simple-authoring/' in architecture, 'CANONICAL_SIMPLE_V1_SOURCE_PATH_NOT_DOCUMENTED'
+          assert 'designer-ai/simple-authoring/' not in architecture, 'STALE_SIMPLE_V1_SOURCE_PATH_REAPPEARED'
 
           source = json.loads((root / 'current.json').read_text(encoding='utf-8-sig'))
           current = json.loads((live / 'OPEN_CURRENT.json').read_text(encoding='utf-8-sig'))
@@ -102,4 +123,5 @@ jobs:
           print('CATALOG', source.get('requiredCurrent', {}).get('catalogRevision'))
           print('AUDIO_HANDLES', (handles.get('countsByRoute') or {}).get('Audio', 0))
           print('GENERATED_ROOT_PUBLIC_PROJECTION_LEAKS', len(leaked))
+          print('DUPLICATE_SIMPLE_V1_SOURCE_FILES', len(duplicate_source))
           PY
