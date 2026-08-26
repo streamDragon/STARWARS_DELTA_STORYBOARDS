@@ -3,94 +3,118 @@
 Use one permanent public URL only:
 https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/
 
-The repository is the shared home for STARWARS_DELTA tools and artifacts that live outside Unity.
+This repository is the shared home for STARWARS_DELTA tools and artifacts that live outside the Unity workspace.
 
-Current main areas:
+Current areas:
 - Storyboard shared library / deep-link viewer
 - Cutscene Preview
 - Designer AI / DEVORA CURRENT
 
 ## Storyboard ownership
 
-There is exactly one normal Storyboard authoring UI:
-- **Storyboard Director**
+There is exactly one normal Storyboard authoring UI: **Storyboard Director**.
 
-The public GitHub Pages site is not a second Storyboard authoring application. It keeps only:
-- the shared published Storyboard library;
-- the deep-link `viewer.html` used to review published boards;
-- existing Storyboard data under `storyboards/`.
-
-Creating a Storyboard, importing an old project, managing local Storyboards and publishing belong to Storyboard Director only. Obsolete browser authoring UI assets are intentionally removed rather than maintained as another workflow.
-
-`viewer.html` remains because published deep links depend on it. It is a viewer, not another Storyboard product/home screen.
+The public Pages site is not a second Storyboard authoring application. It keeps only the shared published Storyboard library, the deep-link `viewer.html`, and published Storyboard data under `storyboards/`.
 
 ## Designer AI CURRENT
 
-The authoritative Unity publish remains atomic. `designer-ai/current.json` advances only after the matching release assets are published successfully.
+There is one live CURRENT projection:
 
-The single normal human entry point is:
-- `designer-ai/devora.html`
+- `designer-ai/current.json` - publish pointer/provenance
+- `designer-ai/devora.html` - normal human entry point
+- `designer-ai/simple-preview.html` - web preflight only
+- `designer-ai/open-current/` - one atomic published CURRENT
 
-The single normal ChatGPT instruction source consumed by Devora is the sealed publish copy:
+Normal authoring must not use duplicate CURRENT trees or remembered copies.
+
+The normal ChatGPT instruction source consumed by Devora is the sealed publish copy:
+
 - `designer-ai/open-current/CHATGPT_START.txt`
 
-`designer-ai/CHATGPT_START.txt` remains publisher source material that may be sealed by the publication pipeline. It is not a second runtime CURRENT. Devora does not maintain a shorter competing authoring specification; the Context Pack copies the sealed `open-current/CHATGPT_START.txt` bytes as `01_CHATGPT_START.txt`.
+Publisher/engineering source lives under:
 
-For normal ChatGPT cutscene authoring, use the stable open CURRENT projection:
+- `designer-ai/tools/current-source/CHATGPT_START.txt`
+- `designer-ai/tools/current-source/FILM_AUTHORING_GUIDE_CURRENT.md`
+- `designer-ai/tools/current-source/simple-authoring/`
+
+The Simple V1 source directory is the only source location for the schema, canonical example, architecture and Simple authoring policies. Do not recreate duplicate copies at `designer-ai/tools/current-source/` root.
+
+For normal ChatGPT cutscene authoring use only the matching published CURRENT:
+
 - `designer-ai/open-current/OPEN_CURRENT.json`
+- `designer-ai/open-current/CHATGPT_START.txt`
 - `designer-ai/open-current/simple-authoring/CUTSCENE_SCRIPT_V1.schema.json`
 - `designer-ai/open-current/simple-authoring/AUTHORING_HANDLES.json`
 - `designer-ai/open-current/simple-authoring/AUTHORING_RULES_CURRENT.json`
 - `designer-ai/open-current/EMOTIONAL_DIALOGUE_CURRENT.json`
 - `designer-ai/open-current/CUTSCENE_VALIDATION_CURRENT.json`
-- matching Director projection and current visual evidence
+- the matching Director projection and visual evidence
 
-`OPEN_CURRENT.json` exposes one atomic identity containing `publishTransactionId`, `catalogRevision`, `snapshotContentHash`, `contractRevision`, `schemaHash` and `authoringRuleRegistryRevision`.
+`requiredCurrent` is the compatibility identity. `publishTransactionId` is provenance.
 
-The Director projection is not a second source of truth. Exact IDs, compatibility and validation remain governed by the matching CURRENT contract and Rule Registry.
+## FULL versus DELTA publish
 
-The compact `STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip` is a fallback when direct Pages metadata access fails. Large engineering archives remain GitHub Release assets rather than normal ChatGPT downloads.
+FULL Publish rebuilds heavy source-truth projections when their fingerprints actually changed: Catalog/Director/Visual evidence/Atlas and the rest of the atomic CURRENT.
+
+DELTA Publish is the fast authoring/guidance path. When `requiredCurrent` is unchanged it:
+
+- reuses the existing `open-current` base;
+- applies only declared changed authoring artifacts;
+- does not rebuild Catalog, Director, Visual evidence or Atlas;
+- does not re-upload the unchanged base bundle.
+
+DELTA must refuse heavy/source-truth artifacts or a fingerprint mismatch and require FULL instead.
+
+`designer-ai/tools/apply_delta_current.py` owns this fast path. `.github/workflows/publish-designer-ai-open-current.yml` selects FULL or DELTA from `designer-ai/current.json`.
+
+## Runtime / Timeline authoring boundary
+
+`CUTSCENE_SCRIPT_V1` remains the sole public authoring format. V3/V5 and Unity Timeline remain backend implementation.
+
+Current durable execution invariants are documented in:
+
+- `designer-ai/tools/current-source/simple-authoring/ARCHITECTURE.md`
+
+Important consequences:
+
+- every legal `visible[]` request is an audience-visible obligation;
+- a legal visible Effect does not require a secret `reveal` action merely to exist;
+- generated representation, binding and interval coverage must be complete for a candidate to be accepted;
+- a bad new candidate must not destroy the last valid Editable Preview;
+- cinematic movement is composed relative to the active camera viewport/frustum, not an arbitrary small Stage rectangle;
+- native Timeline tracks are preferred where they are the correct single owner, while project-specific tracks remain where native Timeline cannot express the semantics.
+
+The Unity/Plastic workspace remains canonical for the runtime implementation. This Git repository documents and publishes the authoring contract; it does not duplicate Unity runtime source.
 
 ## Devora Context Pack
 
-The normal Devora Context Pack is self-contained for authoring and includes:
-- sealed `01_CHATGPT_START.txt` copied from `open-current/CHATGPT_START.txt`;
-- Simple V1 schema, handles, rules and canonical example;
-- closed-world Emotional Dialogue CURRENT when published;
-- Cutscene Validation CURRENT when published;
-- Director category projections required by the authoring workflow;
-- `visual-atlas/VISUAL_ATLAS_CURRENT.json`;
-- four AI-direct Visual Atlas PDFs:
-  - `ACTOR_CURRENT.pdf`
-  - `EFFECT_CURRENT.pdf`
-  - `LAYER_CURRENT.pdf`
-  - `UI_CURRENT.pdf`
+The normal Devora Context Pack is self-contained for authoring and includes the sealed start instructions, Simple V1 schema/handles/rules/canonical example, closed-world Emotional Dialogue CURRENT when published, Cutscene Validation CURRENT, Director projections, and matching Visual Atlas evidence.
 
-Visual handles use master `atlasPage` / `atlasSlot`. `VISUAL_ATLAS_CURRENT.json` owns the category ranges used to translate master pages to the local page in the matching category PDF. `atlasSlot` is unchanged.
-
-The large master Visual Atlas may remain available as an engineering/manual artifact, but normal AI authoring must not depend on separately uploading it when the four category PDFs are present.
+The large engineering archives remain Release assets rather than normal ChatGPT downloads.
 
 ## Simple Preview
 
-`designer-ai/simple-preview.html` is a web preflight and visual preview for `CUTSCENE_SCRIPT_V1`.
+`designer-ai/simple-preview.html` is a web preflight/visual preview for `CUTSCENE_SCRIPT_V1`.
 
-It validates the loaded JSON against the matching published `CUTSCENE_SCRIPT_V1.schema.json` first, then checks matching CURRENT handles and closed-world dialogue identities. It may report:
+It may report:
 - `SCRIPT_INVALID`
 - `CURRENT_INVALID`
 - `AUTHORING_INVALID`
 - `PREVIEWABLE`
 
-It must not claim `UNITY_VALIDATED` or `PREVIEW_ACCEPTED`; those remain Unity-owned outcomes.
+It must never claim `UNITY_VALIDATED` or `PREVIEW_ACCEPTED`; Unity remains final runtime authority.
 
 ## Repository hygiene policy
 
-This repository is not a museum of old `CURRENT` files or abandoned UI generations.
+This repository is not a museum of abandoned CURRENT generations.
 
 Keep only:
 1. active production/UI/publisher sources;
-2. the current atomic `open-current` projection and generated artifacts;
-3. durable authoring/engineering guidance still actively referenced;
-4. unique regression fixtures or learning evidence that still prove behavior;
-5. published Storyboard data and the minimum shared-library/viewer surface required to consume it.
+2. the one current atomic `open-current` projection;
+3. durable authoring/engineering guidance that is still referenced;
+4. unique regression/learning evidence that still proves behavior;
+5. published Storyboard data and the minimum viewer surface required to consume it.
 
-Delete task-specific prompts, temporary QA pages, superseded handoff documents, duplicate Storyboard authoring interfaces, stale baseline snapshots, duplicate CURRENT aliases and duplicate instruction paths once their durable lessons are absorbed into active guidance, Rule Registry, tests or implementation.
+Delete task-specific prompts, temporary QA pages, superseded handoff documents, stale baseline snapshots, duplicate CURRENT aliases, duplicate publisher-source copies and obsolete parallel UIs once their durable lesson has been absorbed into active guidance, tests or implementation.
+
+Do not manually edit `designer-ai/open-current/**` as cleanup. It is a generated atomic publication surface and changes only through the controlled FULL/DELTA publish workflow.
