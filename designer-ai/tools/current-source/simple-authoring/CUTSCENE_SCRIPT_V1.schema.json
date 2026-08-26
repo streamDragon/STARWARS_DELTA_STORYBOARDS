@@ -72,6 +72,8 @@
         "screenHeightFraction": { "type": "number", "exclusiveMinimum": 0, "maximum": 1.5 },
         "screenX": { "type": "number", "minimum": 0, "maximum": 1 },
         "screenY": { "type": "number", "minimum": 0, "maximum": 1 },
+        "startOffsetSeconds": { "type": "number", "minimum": 0, "description": "Effect-only local offset from the start of the owning beat. Defaults to 0. The Effect must start before the beat ends." },
+        "durationSeconds": { "type": "number", "exclusiveMinimum": 0, "description": "Effect-only active duration inside the owning beat. If omitted, the Effect remains active from startOffsetSeconds through the end of the beat." },
         "enterFrom": { "enum": ["left", "right", "top", "bottom", "center", "reveal", "none"] },
         "exitTo": { "enum": ["left", "right", "top", "bottom", "center", "hide", "destroy", "none"] },
         "travelDirection": { "enum": ["left_to_right", "right_to_left", "toward_camera", "away_from_camera", "clockwise", "counterclockwise", "none"] },
@@ -193,4 +195,3 @@
     }
   }
 }
-
