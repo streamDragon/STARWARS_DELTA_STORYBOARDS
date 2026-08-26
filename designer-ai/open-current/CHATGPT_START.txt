@@ -96,6 +96,10 @@ VISIBLE EFFECTS
 
 MOTION / COMPOSITION
 - Speeds are only slow, medium, fast, burst.
+- SCREEN COORDINATE CONVENTION IS FIXED: screenX/screenY are normalized Unity-style viewport coordinates, independent of pixel resolution and aspect ratio. (0,0)=bottom-left, (1,1)=top-right, center=(0.5,0.5). X increases to the right and Y increases upward. Never use browser/image/CSS top-left coordinates where Y increases downward.
+- Therefore (0.92,0.12) is lower-right, NOT upper-right. Up-right means X and Y both increase; down-right means X increases while Y decreases. Example diagonals: lower-left -> upper-right is approximately (0.08,0.08) -> (0.92,0.92); upper-left -> lower-right is approximately (0.08,0.92) -> (0.92,0.08).
+- ChatGPT never needs the display's pixel size. Do not calculate 1920x1080 positions and do not invent Unity world coordinates. The backend maps frame-relative composition against the active camera viewport/frustum, so the same authored diagonal remains proportional when camera size or aspect ratio changes.
+- When Simple V1 needs explicit diagonal endpoint staging, express those positions with legal screenX/screenY values in the relevant visible states/adjacent beats. Do not invent non-schema action fields just to encode endpoints.
 - Author cinematic position and travel in frame-relative terms: screenX/screenY, screen size fractions, enterFrom, exitTo, travelDirection and semantic trajectory/motionIntent.
 - Do NOT invent Unity world distances, Stage scale multipliers or numeric runtime speed values.
 - The backend maps cinematic travel against the active camera viewport/frustum. The editor Stage rectangle is not the motion scale truth.
@@ -180,7 +184,7 @@ Before returning JSON verify:
 13. Every fire action has legal projectileId and schema-legal count.
 14. No VFX-only beam/muzzle/overlay is authored as type=fire merely because it visually resembles a shot.
 15. No meaningless Effect action was added only to force a legal visible Effect to exist.
-16. Frame travel/composition is expressed through legal screen/direction semantics, not invented world units or Stage scale.
+16. Frame travel/composition uses normalized Unity-style viewport coordinates when screenX/screenY are present: (0,0)=bottom-left, (1,1)=top-right, Y increases upward. It must use legal screen/direction semantics, not invented world units or pixel coordinates.
 17. No raw Catalog IDs, raw Animation IDs, V3/V5 bookkeeping or unknown properties appear.
 18. If this is REPAIR, incoming requiredCurrent matches the attached CURRENT; otherwise discard stale diagnostics and re-evaluate from the original JSON.
 
