@@ -138,6 +138,21 @@ Do not expose numeric world-distance or Stage-scale tuning in Simple V1 merely t
 - Simple V1 has no per-action timing/order; sequential locomotion phases belong in adjacent beats.
 - Semantic speed values remain authoring intent. They are not raw Unity-units-per-second authoring.
 
+## Geometric loop extension lifecycle
+
+The geometric-loop work belongs in the existing semantic-motion owner and lowers through the existing V5 `FollowPath` route. It must not introduce a parallel movement runtime.
+
+The intended Simple V1 semantic capability is one general loop request with shapes such as rectangle, circle, triangle and sine, plus normalized center/size, period, phase, direction and loop parameters. Multiple expanded actor instances may share a path while receiving distinct phase offsets.
+
+This is engineering status, not permission to author unpublished fields. `path_loop` becomes legal authoring vocabulary only when all of these are true in the same release:
+
+1. the Unity Simple Adapter implementation and regression tests pass;
+2. the maintained source `CUTSCENE_SCRIPT_V1.schema.json` exposes the exact fields and enums;
+3. the controlled publisher creates a new atomic CURRENT containing that schema;
+4. `open-current/CHATGPT_START.txt` and the matching authoring guidance are sealed from the same source revision.
+
+Until then, the live published schema wins. Do not author `path_loop`, rectangle/circle/triangle/sine fields, period or phase from memory merely because an implementation patch or engineering note exists.
+
 ## FullFrame coverage
 
 FullFrame fitting is renderer-specific and idempotent:
