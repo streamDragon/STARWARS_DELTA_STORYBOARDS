@@ -14,6 +14,7 @@ PRODUCT / ERROR POLICY - AUTHOR STRICT, STUDIO TOLERANT
 - A schema/handle/capability problem is still something ChatGPT must avoid before delivery. Studio tolerance is a safety net for the user, not a replacement for the FINAL JSON SELF-CHECK.
 - When safe deterministic repair is possible, prefer repair. Otherwise omit only the unsupported optional action/visual/audio/camera operation or use an explicit diagnostic placeholder. Do not block the whole film because one request cannot materialize.
 - Never report a fallback as exact success. Requested RUN rendered as static/WALK is ORANGE degradation, not GREEN RUN.
+- A failed new candidate must not destroy the last valid Editable Preview. Candidate acceptance is strict internally; user experience remains fail-soft externally.
 
 MANDATORY PRE-AUTHORING STABILITY GATE
 Run this before NEW, REVISE or REPAIR authoring.
@@ -48,7 +49,7 @@ Run this before NEW, REVISE or REPAIR authoring.
 - Moving/world subjects must use exact CURRENT handles whose route is Actor and which are authorableInSimpleV1=true.
 - audio[].handle must resolve exactly to route=Audio and authorableInSimpleV1=true.
 - locationHandle must be a legal current location/layer authoring handle.
-- effectHandle must be a legal current Effect handle.
+- visible Effect handles must resolve exactly to route=Effect and authorableInSimpleV1=true.
 - Do not choose a handle only because its display name looks right.
 
 FORMAT LOCK
@@ -85,12 +86,25 @@ AUTHORING FLOW
 STORY / EVIDENCE
 Every production beat should have a clear storyClaim and non-empty evidence. evidence must describe audience-observable proof, not backend bookkeeping.
 
-MOTION
+VISIBLE EFFECTS
+- A legal route=Effect item in visible[] is an audience-visible beat obligation.
+- Do NOT add a meaningless reveal/activate action merely to force that Effect to exist. The backend owns default beat-bounded materialization.
+- Add an explicit legal action only when the film genuinely needs explicit event semantics, for example a supported reveal/impact/change rather than simple visibility.
+- Multiple visible Effect instances using the same handle remain distinct authored instances; do not merge them merely because the handle is identical.
+- A projectile or impact action does not automatically satisfy an unrelated visible Effect request.
+- If a legal CURRENT Effect later disappears after adaptation/materialization, preserve the legal source handle and classify the failure as BACKEND/ENGINE-owned.
+
+MOTION / COMPOSITION
 - Speeds are only slow, medium, fast, burst.
-- Actor Orbit is fixed-center only; its target/center must remain stationary during the orbit interval.
-- Pursuit/Escort/Intercept names do not promise per-frame target-relative tracking.
+- Author cinematic position and travel in frame-relative terms: screenX/screenY, screen size fractions, enterFrom, exitTo, travelDirection and semantic trajectory/motionIntent.
+- Do NOT invent Unity world distances, Stage scale multipliers or numeric runtime speed values.
+- The backend maps cinematic travel against the active camera viewport/frustum. The editor Stage rectangle is not the motion scale truth.
+- Edge-to-edge flyby or diagonal intent should remain a meaningful frame traversal even when camera size changes.
+- Formation members should preserve distinct authored screen offsets rather than collapse onto one horizontal line.
+- Actor Orbit remains fixed-center while CURRENT runtime requires it; its target/center must remain stationary during that orbit interval.
+- Pursuit/Escort/Intercept names do not promise per-frame target-relative tracking unless CURRENT runtime explicitly supports it.
 - Simple V1 actions have no per-action timing/order. Put sequential locomotion phases in adjacent beats. One primary locomotion phase may coexist with compatible fire/impact/reveal events.
-- camera.subject is semantic composition intent and is not automatically a physical Transform target.
+- camera.subject is semantic composition intent by default. Follow/Track may physically bind an active legal WorldActor when CURRENT runtime supports that target-dependent operation. Do not manufacture a WorldActor merely to satisfy camera targeting.
 - If a requested motion capability is not available, author a supported composition deliberately rather than inventing runtime behavior. Studio may degrade unsupported imported motion to a safe Hold/Move with an ORANGE note.
 
 DIALOGUE
@@ -113,13 +127,13 @@ AUDIO
 
 CUTSCENE PROJECTILES AND VISUAL BEAMS
 - Every authored type=fire action requires projectileId.
-- Legal CURRENT projectile IDs are exactly CS_PROJECTILE_BLUE_BOLT, CS_PROJECTILE_PURPLE_BOLT and CS_PROJECTILE_POWERBALL when the matching schema exports them.
+- Legal CURRENT projectile IDs come from the matching schema. Never substitute gameplay projectile names or fuzzy-matched Effects.
 - No gameplay projectile, filename, fuzzy match or effect substitution.
-- count is 1..64. Launcher/muzzle/runtime mechanics remain Unity-owned.
+- count is 1..64 when the matching schema allows it. Launcher/muzzle/runtime mechanics remain Unity-owned.
 - IMPORTANT: a visual laser/beam/muzzle Effect is NOT automatically a projectile action.
 - To fire a real Cutscene projectile, author type=fire + projectileId.
-- To show a beam, muzzle flash, speed-line or similar visual-only Effect, put the Effect in visible[] with its exact Effect handle and reveal/activate it using a legal non-fire action. Do not write type=fire with only effectHandle.
-- A projectile and a visual beam accent may coexist as two separate actions/visuals when the shot needs both.
+- To show a beam, muzzle flash, speed-line or similar visual-only Effect, put the exact Effect handle in visible[]. That alone requests beat-bounded visibility. Add a legal non-fire action only if explicit event semantics are actually required by the shot.
+- A projectile and a visual beam accent may coexist as separate authored concerns when the shot needs both.
 
 Correct real projectile:
 {
@@ -130,7 +144,10 @@ Correct real projectile:
   "count": 1
 }
 
-Correct visual-only beam accent:
+Correct visual-only beam accent when simple beat visibility is enough:
+visible: { "id": "beam_fx", "handle": "<exact Effect handle>" }
+
+Correct explicit visual event when the schema/action semantics call for it:
 visible: { "id": "beam_fx", "handle": "<exact Effect handle>" }
 action:  { "type": "reveal", "subject": "beam_fx" }
 
@@ -144,7 +161,7 @@ Do NOT author:
 Studio fail-soft expectation for imported bad fire actions:
 - If type=fire lacks projectileId but contains enough exact Effect evidence for a safe visual-only interpretation, normalize only that action to the existing visual-effect path and report ORANGE AUTO_REPAIRED_FIRE_TO_VFX.
 - Otherwise omit only the invalid fire action and report ORANGE FIRE_OMITTED_NO_PROJECTILE.
-- Do not block the entire Editable Preview because one fire action is malformed.
+- Do not block the entire Editable Preview because one fire action is malformed when the rest of the movie can be preserved safely.
 
 FINAL JSON SELF-CHECK - REQUIRED
 Before returning JSON verify:
@@ -160,18 +177,21 @@ Before returning JSON verify:
 10. No generated backend alias such as simple_audio_* appears anywhere in authored JSON.
 11. Every dialogue identity/expression is exact CURRENT Emotional Dialogue vocabulary.
 12. Every dialogue-bearing beat obeys locked-stage safety unless CURRENT explicitly declares overlay-safe presentation.
-13. Every fire action has legal projectileId and count 1..64.
+13. Every fire action has legal projectileId and schema-legal count.
 14. No VFX-only beam/muzzle/overlay is authored as type=fire merely because it visually resembles a shot.
-15. No raw Catalog IDs, raw Animation IDs, V3/V5 bookkeeping or unknown properties appear.
-16. If this is REPAIR, incoming requiredCurrent matches the attached CURRENT; otherwise discard stale diagnostics and re-evaluate from the original JSON.
+15. No meaningless Effect action was added only to force a legal visible Effect to exist.
+16. Frame travel/composition is expressed through legal screen/direction semantics, not invented world units or Stage scale.
+17. No raw Catalog IDs, raw Animation IDs, V3/V5 bookkeeping or unknown properties appear.
+18. If this is REPAIR, incoming requiredCurrent matches the attached CURRENT; otherwise discard stale diagnostics and re-evaluate from the original JSON.
 
 WARNING / ORANGE HYGIENE
 - Do not fix 82 repeated warnings as 82 authoring edits. Group them by root source field and ownership.
 - A valid CURRENT source handle followed by generated alias/materialization failure is BACKEND/ENGINE-owned.
 - Do not change a valid film merely to make a downstream generated identity look like a Catalog source identity.
+- Missing/wrong Timeline representation, binding or interval for a legal source obligation is BACKEND/ENGINE-owned; the Studio must diagnose it rather than silently claiming success.
 - YELLOW should teach about artistic/quality/continuity concerns.
-- ORANGE should state the exact technical repair/degradation while Preview continues.
+- ORANGE should state the exact technical repair/degradation while Preview continues or the last valid Preview is preserved.
 - Do not convert a recoverable problem into a secret authoring requirement.
 
 REFERENCE
-AUTHORING_HANDLES.json is the direct selection surface. Direct visual handles contain Atlas coordinates. Audio handles are direct non-visual handles. Raw Animation identities remain backend compatibility data. CUTSCENE_SCRIPT_V1 is the authoring format; V3/V5 are not.
+AUTHORING_HANDLES.json is the direct selection surface. Direct visual handles contain Atlas coordinates. Audio handles are direct non-visual handles. Raw Animation identities remain backend compatibility data. CUTSCENE_SCRIPT_V1 is the authoring format; V3/V5 and Timeline implementation are not.
