@@ -42,7 +42,11 @@ The public authoring contract for a published CURRENT is:
 - `open-current/CUTSCENE_VALIDATION_CURRENT.json`
 - `open-current/CHATGPT_START.txt`
 
-Source files under `designer-ai/simple-authoring/` are publisher/engineering inputs. They are not another public CURRENT.
+The single maintained publisher/engineering source for Simple V1 lives under:
+
+- `designer-ai/tools/current-source/simple-authoring/`
+
+Do not keep duplicate copies of those files in `designer-ai/tools/current-source/` or elsewhere. Generated `open-current/**` is a publication artifact, not a second editable source tree.
 
 ## Important invariants
 
@@ -57,6 +61,19 @@ Source files under `designer-ai/simple-authoring/` are publisher/engineering inp
 - Camera semantic subject is not automatically a physical Transform target.
 - Actor Orbit v1 has a fixed/stationary center. A simultaneously moving orbit center remains unrepresentable until runtime support changes.
 - Semantic Pursuit/Escort/Intercept names do not imply per-frame moving-target tracking unless the runtime actually implements it.
+
+## Geometric loop extension lifecycle
+
+A geometric loop extension is being implemented through the existing Simple Adapter -> V5 `FollowPath` route. The intended semantic family is one general loop capability with shapes such as rectangle, circle, triangle and sine, plus period/phase/loop parameters. It must not create a parallel actor-motion runtime.
+
+This note is engineering context only. `path_loop` is legal authoring vocabulary only after all of the following are true in the same published CURRENT:
+
+1. Unity implementation and tests pass.
+2. the maintained source `CUTSCENE_SCRIPT_V1.schema.json` exposes the fields/enums;
+3. publication produces a new atomic CURRENT containing that schema;
+4. `open-current/CHATGPT_START.txt` and authoring guidance are sealed from the same source revision.
+
+Until then, the live published schema wins and authors must not emit unpublished geometric-loop fields from memory or from a patch note.
 
 ## Preview truth
 
@@ -80,4 +97,3 @@ Generated `open-current/**` is an atomic publication surface.
 Source edits do not rewrite it under the same transaction. A later user-controlled Unity Publish establishes a new CURRENT after Unity-owned contract changes.
 
 The publication pipeline must fail rather than mix source from different CURRENT identities or silently rebuild an existing transaction.
-
