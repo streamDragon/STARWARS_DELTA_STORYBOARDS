@@ -28,19 +28,11 @@ Do not derive handles or identities from filenames, display names, old examples,
 
 Simple V1 is an authoring format, not a low-level V5 accounting form.
 
-Recoverable backend-owned presentation/staging omissions may remain Warning/Yellow when the existing backend can fill them deterministically without changing identity or inventing an asset.
+Recoverable backend-owned presentation/staging omissions may remain Warning/Yellow or Orange when the backend can repair/degrade them deterministically without changing identity or inventing an asset.
 
-RED is reserved for genuine integrity failures such as:
+RED is reserved for genuine integrity/system failures where no valid candidate or preserved Preview can safely remain.
 
-- unknown or ambiguous CURRENT handle
-- stale/incompatible CURRENT identity
-- illegal route/capability
-- unsupported dialogue participant or explicit expression
-- unsupported projectile identity
-- impossible runtime constraint such as moving-center Actor Orbit
-- schema corruption with no legal deterministic repair
-
-Do not serialize backend-only fields merely to silence warnings.
+Do not serialize backend-only fields merely to silence diagnostics.
 
 ## Emotional Dialogue closed world
 
@@ -71,7 +63,6 @@ For each line:
 - `expressionIntent` applies to the speaker.
 - if `expressionIntent` is omitted, the published `defaultExpression` is used.
 - if explicitly authored, the expression must exactly match a published supported expression.
-- unsupported explicit expressions are blockers. There is no Neutral fallback.
 - dialogue-only participants may remain `spawnWorldActor=false`.
 
 CharacterPack-owned dialogue presentation remains authoritative even when a generic UI/Actor projection has different safety metadata.
@@ -88,7 +79,7 @@ Important examples:
 - actor `motionIntent` values come only from the matching schema.
 - every `type=fire` action requires a schema-legal `projectileId`.
 
-Do not teach shorthand such as `fade` when the schema rejects it.
+Do not teach shorthand when the schema rejects it.
 
 ## Visual evidence
 
@@ -105,6 +96,20 @@ OBSERVED PIXELS
 ```
 
 A technically legal handle is not automatically an artistically good choice. Prefer visually coherent assets that belong in the same 2D film world.
+
+## Visible items are audience-visible obligations
+
+A legal `visible[]` item means the audience is supposed to see that item during the owning beat.
+
+This is especially important for route=`Effect`:
+
+- placing a legal Effect in `visible[]` is sufficient to request beat-bounded visibility;
+- do not add a meaningless `reveal` action merely as a backend workaround to make the Effect exist;
+- add an explicit legal Effect action only when the shot actually needs explicit event semantics such as reveal/impact/other supported behavior;
+- multiple authored instances using the same Effect handle are still multiple visual obligations and must remain distinct;
+- projectiles/impacts do not implicitly satisfy unrelated visible Effect requests.
+
+If a legal visible Effect later disappears during lowering/materialization, that is BACKEND/ENGINE-owned evidence. Do not corrupt a valid source handle to silence it.
 
 ## Optional semantic fields
 
@@ -139,28 +144,41 @@ Useful action fields include:
 
 Use `performanceIntent` / `animationIntent` rather than raw Animation IDs.
 
-## Camera
+## Camera and frame-relative composition
 
 Camera authoring is semantic directing intent.
 
-`camera.subject` is not automatically a physical Transform target.
+The active camera/frustum is the cinematic composition truth. The author should think in frame-relative terms, not Unity world units or the size of an editor Stage rectangle.
 
-A Hold shot or curated dialogue composition may preserve a semantic subject without manufacturing a WorldActor.
+Use fields such as:
 
-Target-dependent operations such as Follow/Track still retain their actual runtime requirements.
+- `screenX` / `screenY`
+- `screenWidthFraction` / `screenHeightFraction`
+- `enterFrom` / `exitTo`
+- `travelDirection`
+- `camera.framing` / `camera.movement`
+
+The backend maps these to the matching camera so an edge-to-edge flyby, diagonal, formation or orbit remains visually proportional even when the camera size changes.
+
+Do not invent numeric world distances or runtime scale multipliers in authoring JSON.
+
+`camera.subject` is semantic composition intent by default. Target-dependent Follow/Track may physically bind an active legal WorldActor when the matching runtime representation supports that operation. Do not manufacture a WorldActor merely to satisfy a semantic subject.
 
 Camera `orbit` is a 2D/2.5D composition/parallax concept and must not invent unseen 3D geometry.
 
 ## Actor motion runtime truth
 
-Simple V1 semantic motion lowers into the existing V5 actor action / Timeline path.
+Simple V1 semantic motion lowers into the existing V5 actor-action / Timeline path.
 
-Important runtime limits:
+Important runtime truths:
 
-- Actor Orbit v1 is fixed-center only.
-- a moving Orbit center is not supported.
-- Pursuit/Escort/Intercept are valid semantic choreography concepts but do not imply per-frame moving-target tracking.
-- semantic speed strings are resolved by the adapter and must never be parsed directly as numeric floats.
+- authored cinematic paths are interpreted proportionally to the active camera viewport/frustum rather than an arbitrary tiny Stage scale;
+- edge/corner entry/exit intent should produce meaningful screen travel;
+- authored formation screen offsets should remain distinct instead of collapsing actors onto one horizontal line;
+- curve amplitude and default orbit radius are frame-proportional backend concerns;
+- Actor Orbit remains fixed-center unless matching runtime support explicitly changes that capability;
+- Pursuit/Escort/Intercept are valid semantic choreography concepts but do not automatically promise per-frame moving-target tracking;
+- semantic speed strings are resolved by the backend and are not raw numeric Unity speed values.
 
 ## Sequential locomotion rule
 
@@ -255,7 +273,7 @@ Rules:
 
 ## Effects and audio
 
-Projectile visuals, effects and audio are separate authoring concerns.
+Projectile visuals, Effects and audio are separate authoring concerns.
 
 A projectile does not automatically prove impact/destruction.
 
@@ -265,6 +283,14 @@ Use exact CURRENT Audio handles for important audible events when suitable legal
 
 Silence may be intentional, but battle/destruction beats should not become accidentally silent because the visual route happened to work.
 
+## Materialization truth and fail-soft behavior
+
+Authoring should never depend on generated backend aliases or Timeline implementation details.
+
+Internally, a legal request is expected to survive as the correct generated instance, Timeline representation, binding and interval. If the backend cannot do that, it must diagnose the failure rather than silently dropping the request.
+
+A failed new candidate should not destroy the last valid Editable Preview. This is a Studio/backend safety invariant, not a reason for ChatGPT to emit sloppy JSON.
+
 ## What remains backend-owned
 
 Examples include:
@@ -273,6 +299,8 @@ Examples include:
 - CURRENT fingerprints
 - V3/V5 bookkeeping IDs
 - exact world coordinates and raw Unity scale
+- viewport-to-world conversion and motion amplitude
+- Timeline track/clip/binding selection
 - launcher/muzzle mechanics
 - raw camera wiring
 - deterministic dialogue-stage mechanics when system-owned
@@ -293,8 +321,9 @@ Before delivering production JSON verify:
 8. every audio cue uses an exact legal Audio handle
 9. no raw Animation/Catalog/V3/V5 identities were authored
 10. sequential locomotion phases were split across adjacent beats
-11. Actor Orbit centers remain stationary during the Orbit interval
-12. no unknown properties or remembered legacy field names remain
+11. Actor Orbit centers remain stationary when current runtime still requires fixed-center Orbit
+12. visible Effects are not given meaningless actions merely to force backend existence
+13. frame composition is expressed through legal screen/direction semantics, not invented world units
+14. no unknown properties or remembered legacy field names remain
 
 Unity remains authoritative for final runtime validation and Editable Preview acceptance.
-

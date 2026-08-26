@@ -105,7 +105,7 @@
   "$id": "STARWARS_DELTA_CUTSCENE_PACKAGE_V5",
   "title": "STARWARS_DELTA Cutscene Package v5",
   "description": "Machine-readable shape generated from the current Unity schema-v5 DTO. Semantic rules are in the companion contract files.",
-  "x-enumContractRevision": "E6495259DEA52323C846A4C081F7357EF8DB75E2A5C806ABEDAD9C5B7FEE2BD0",
+  "x-enumContractRevision": "BD126A7DE3A31C82CAF2E60FEAB0252F905F97E9878141F5856B64F9A687FD1A",
   "x-authoringRuleRegistryRevision": "12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372",
   "x-authoringRuleRegistry": {
     "revision": "12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372",
@@ -1921,6 +1921,12 @@
           ]
         },
         "assetId": {
+          "type": "string"
+        },
+        "sourceHandle": {
+          "type": "string"
+        },
+        "sourceRuntimeId": {
           "type": "string"
         },
         "startOffset": {

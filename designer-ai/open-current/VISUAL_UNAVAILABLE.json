@@ -2,12 +2,33 @@
   "schema": "STARWARS_DELTA_CHATGPT_VISUAL_UNAVAILABLE",
   "schemaVersion": 2,
   "status": "VISUAL_LIBRARY_DIRECT_PREVIEW_GAPS_REPORTED",
-  "publishTransactionId": "20260825-191732340-6f3ca38f",
-  "sourceVisualIdentityCount": 784,
-  "directPixelEvidenceCount": 784,
-  "directPixelEvidenceMissingCount": 0,
-  "directPreviewCoveragePercent": 100.0,
+  "publishTransactionId": "20260826-051553630-a396f294",
+  "sourceVisualIdentityCount": 913,
+  "directPixelEvidenceCount": 912,
+  "directPixelEvidenceMissingCount": 1,
+  "directPreviewCoveragePercent": 99.89,
   "scopeWarning": "This percentage measures direct previews inside the Visual Library only. It is not total Catalog coverage, not Director readiness, and not Audio or Animation availability.",
   "rule": "Never infer appearance from displayName or metadata. The Director View decides whether a gap is recommendable and sends only legitimate safe gaps to its completion queue.",
-  "assets": []
+  "assets": [
+    {
+      "visualReferenceId": "visual_8c60d3ebb38aff1e75e5",
+      "assetId": "ad2ab49d0a2a17148bd51c93d977bdbc:1743301284569550",
+      "catalogAssetIds": [
+        "ad2ab49d0a2a17148bd51c93d977bdbc:1743301284569550"
+      ],
+      "displayName": "MuzzleFlash01",
+      "category": "Effect",
+      "entityClassification": "Object",
+      "sourceKind": "Prefab",
+      "sourcePath": "Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Prefabs/MuzzleFlash01.prefab",
+      "representativePurposes": [
+        "Effect",
+        "VFX"
+      ],
+      "compatibleAnimationIds": [],
+      "reason": "NO_DIRECT_PIXEL_EVIDENCE_EXPORTED",
+      "interpretation": "This is a Visual Library preview gap only. It is not automatically a missing movie asset and must be reclassified by the Director View.",
+      "requiredFix": "Unity Visual Library publisher should export one deterministic preview only when this is a safe, recommendable Director visual identity."
+    }
+  ]
 }

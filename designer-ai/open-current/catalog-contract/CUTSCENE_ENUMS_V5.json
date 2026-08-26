@@ -2,7 +2,7 @@
   "schema": "STARWARS_DELTA_CUTSCENE_AUTHORING_CONTRACT",
   "schemaVersion": 5,
   "authoringContractVersion": 1,
-  "contractRevision": "E6495259DEA52323C846A4C081F7357EF8DB75E2A5C806ABEDAD9C5B7FEE2BD0",
+  "contractRevision": "BD126A7DE3A31C82CAF2E60FEAB0252F905F97E9878141F5856B64F9A687FD1A",
   "authoringRuleRegistryRevision": "12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372",
   "authoringRuleRegistry": {
     "revision": "12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372",
@@ -6282,6 +6282,34 @@
       "openCreativeText": false
     },
     {
+      "jsonPath": "$.sequences[].audio[].sourceHandle",
+      "name": "sourceHandle",
+      "type": "String",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_SOURCE_HANDLE",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].audio[].sourceRuntimeId",
+      "name": "sourceRuntimeId",
+      "type": "String",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_SOURCE_RUNTIME_ID",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
       "jsonPath": "$.sequences[].audio[].startOffset",
       "name": "startOffset",
       "type": "Single",
@@ -8798,6 +8826,34 @@
       "defaultSafeValue": "False",
       "migrationRule": "PRESERVE",
       "validationId": "CUTSCENE_FIELD_LOOP",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].shots[].audio[].sourceHandle",
+      "name": "sourceHandle",
+      "type": "String",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_SOURCE_HANDLE",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].shots[].audio[].sourceRuntimeId",
+      "name": "sourceRuntimeId",
+      "type": "String",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_SOURCE_RUNTIME_ID",
       "closedEnum": "",
       "openCreativeText": false
     },

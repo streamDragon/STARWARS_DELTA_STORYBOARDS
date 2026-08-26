@@ -7,6 +7,7 @@ DIALOGUE NEAR/FAR: in normal locked two-person portrait dialogue the active spea
 STORY EVIDENCE: physical claims require visible serialized evidence; dialogue text alone does not prove an unseen physical event.
 This package is self-contained. No external Catalog knowledge is required.
 NORMAL NEW AUTHORING: return one complete CUTSCENE_SCRIPT_V1 JSON object. DEVORA owns story, semantic handles, visible evidence, dialogue intent and camera-first screen composition; Unity owns exact runtime IDs, CURRENT fingerprints, route resolution and final V5 serialization.
+TIMING DEFAULTS: always include root durationSeconds, every beat durationSeconds, and durationSeconds on fade_in/fade_out audio cues. If a legacy or hand-authored JSON omits them, Unity normalizes missing beat durations to 3 seconds, fade durations to 0.5 seconds, and missing root durationSeconds to the sum of normalized beats before strict validation; do not invent different timing defaults. play/stop audio may omit durationSeconds.
 SIMPLE HANDLE SAFETY: normal NEW authoring uses exact semantic handles from matching CURRENT truth. Never invent a handle or silently substitute a related identity. Unity resolves the handle to exact backend assets.
 SIMPLE AUTHORING DOES NOT CREATE BACKEND TECHNICAL IDS. Unity generates globally unique V5 action/transition/event/audio/line IDs during Simple -> V3 -> V5 compilation.
 PLACEMENT: cutscenePrimaryUse is authoritative. Layer-primary records are layers/backgrounds, Actor-primary records are cast/world actors, Ui-primary records are dialogue/UI presentation, Animation-primary records are animation references, Effect-primary records are effects, and Audio-primary records are audio.
@@ -41,11 +42,11 @@ Copy exact assetId values and exact compatibleAnimationIds values. Never infer c
 EXISTING CUTSCENE REVISION
 Use ADD CATALOG + PRESENT STATE OF THE CUTSCENE + the natural-language requested change. Present State is current Cutscene state only; ADD CATALOG remains the global rules/assets source.
 
-Contract revision: E6495259DEA52323C846A4C081F7357EF8DB75E2A5C806ABEDAD9C5B7FEE2BD0
-Schema hash: 0EEAB6150B94642AC0BE01F522C4125C5B4CF31987C09AB54A64C666103A0813
+Contract revision: BD126A7DE3A31C82CAF2E60FEAB0252F905F97E9878141F5856B64F9A687FD1A
+Schema hash: BC4E283E855A8ADE4249A2D5F429C7D93EC6641A0038B8F00C5E719636595CA3
 Authoring rule registry revision: 12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372
-Snapshot content hash: 6D6E34562896EADD85D222A6E35CF04D5723D3D7406FA7C737C4D6072EA8241C
-Snapshot identity: catalogRevision=7625141111260619387;contractRevision=E6495259DEA52323C846A4C081F7357EF8DB75E2A5C806ABEDAD9C5B7FEE2BD0;schemaHash=0EEAB6150B94642AC0BE01F522C4125C5B4CF31987C09AB54A64C666103A0813;snapshotContentHash=6D6E34562896EADD85D222A6E35CF04D5723D3D7406FA7C737C4D6072EA8241C
+Snapshot content hash: 9274EE1B391DE9756987970E12FE35AA98A04A20E19198CDAC2E73B82C567DD5
+Snapshot identity: catalogRevision=7624599455088950785;contractRevision=BD126A7DE3A31C82CAF2E60FEAB0252F905F97E9878141F5856B64F9A687FD1A;schemaHash=BC4E283E855A8ADE4249A2D5F429C7D93EC6641A0038B8F00C5E719636595CA3;snapshotContentHash=9274EE1B391DE9756987970E12FE35AA98A04A20E19198CDAC2E73B82C567DD5
 Do not treat catalogRevision alone as proof that two snapshots are equivalent. Compare the complete snapshot identity: catalogRevision, contractRevision, schemaHash and snapshotContentHash.
 Supported Cutscene package version: 5
 
@@ -197,10 +198,10 @@ SMALL VALID JSON EXAMPLE
   "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
   "schemaVersion": 5,
   "contextVersion": 3,
-  "contractRevision": "E6495259DEA52323C846A4C081F7357EF8DB75E2A5C806ABEDAD9C5B7FEE2BD0",
-  "schemaHash": "0EEAB6150B94642AC0BE01F522C4125C5B4CF31987C09AB54A64C666103A0813",
+  "contractRevision": "BD126A7DE3A31C82CAF2E60FEAB0252F905F97E9878141F5856B64F9A687FD1A",
+  "schemaHash": "BC4E283E855A8ADE4249A2D5F429C7D93EC6641A0038B8F00C5E719636595CA3",
   "contextId": "NEW_CUTSCENE_CONTEXT",
-  "catalogRevision": "7625141111260619387",
+  "catalogRevision": "7624599455088950785",
   "projectId": "",
   "planId": "plan_example_minimal",
   "baseRevision": 0,

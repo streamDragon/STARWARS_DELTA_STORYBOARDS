@@ -1,6 +1,6 @@
 # STARWARS_DELTA Film Authoring Guide CURRENT
 
-This is the filmmaking layer for Designer AI / Debora authoring. It complements the atomic CURRENT Director, Catalog contract, Instruction Book and Simple Authoring rules. It does not replace exact IDs, compatibility or Unity validation.
+This is the filmmaking layer for Designer AI / Devora authoring. It complements the atomic CURRENT Director, Catalog contract, Instruction Book and Simple Authoring rules. It does not replace exact IDs, compatibility or Unity validation.
 
 ## Core principle
 
@@ -42,8 +42,6 @@ OBSERVED PIXELS
 -> LEGAL DESTINATION/CAPABILITY
 ```
 
-If the public Visual Atlas cannot actually be rendered, stop visually grounded production authoring and ask only for the single `STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf`.
-
 ## 4. Build one coherent 2D visual world
 
 STARWARS_DELTA is 2D. Do not force flat assets into fake 3D with arbitrary perspective rotation or invented viewpoints.
@@ -66,7 +64,7 @@ Destination capability beats visual resemblance:
 
 - Actor -> world/cast identity
 - Layer -> environment/scenery
-- Effect -> effect
+- Effect -> visual effect/accent
 - Ui -> interface/dialogue presentation where legal
 - Animation -> exact compatible animation
 - Audio -> exact Audio handle
@@ -79,13 +77,17 @@ Cast is identity. Animation frames are not new people.
 
 Distinct named people require distinct canonical/preferred identities unless intentionally representing the same identity/clone.
 
-`PlayAnimation` is legal only when the exact animation ID is compatible with the exact Actor.
+Compatible real `AnimationClip` playback belongs to the native Animation Timeline path. Semantic/procedural movement such as flyby, orbit, formation and pursuit remains owned by the single procedural motion owner. Do not create a second transform owner merely to make a feature look more native.
 
 For moving characters, combine compatible animation + movement when available. Move alone can slide a mannequin; animation alone can exercise heroically in place.
 
-## 8. System-managed proportions
+## 8. Frame-relative proportions
 
-When `systemManagedProportions=true`, authored scale stays near semantic baseline, normally 1.0. Do not use extreme scale to compensate for wrong asset selection, source PNG dimensions, bad framing or missing background coverage.
+Use Simple V1 frame-relative composition fields when available: `screenX`, `screenY`, `screenWidthFraction`, `screenHeightFraction`, saliency and depth.
+
+Do not use extreme raw Unity scale to compensate for wrong asset selection, source PNG dimensions, bad framing or missing background coverage.
+
+The active camera/frustum is the cinematic scale reference. The editor Stage rectangle is not the truth for apparent on-screen size or travel distance.
 
 ## 9. Backgrounds and depth
 
@@ -106,16 +108,19 @@ FarBackground
 
 A Timeline that plays with postage-stamp backgrounds, black borders or unreadable principal subjects is still a failed movie.
 
+FullFrame fitting is renderer-specific: each unique intended background renderer is fit against the overlapping camera states from a stable baseline. Repeated cross-product refitting and multiplicative scale drift are engine defects, not authoring techniques.
+
 ## 10. Semantic camera subject versus physical target
 
 Camera subject is directing truth; physical Transform target is an execution detail.
 
-Current proven rules:
+Current rules:
 
 - a `Hold` shot may preserve a semantic non-Actor composition subject with no physical world target;
 - curated dialogue participants may be semantic/dialogue composition subjects without spawning WorldActors;
-- Follow/Track and other genuinely target-dependent camera operations retain their runtime target requirements;
-- do not manufacture a physical target only to have a later normalizer remove it.
+- Follow/Track and other genuinely target-dependent operations may physically bind an active legal WorldActor when the current Cinemachine representation supports it;
+- when native Cinemachine owns the shot, do not generate a competing custom camera owner for the same interval;
+- do not manufacture a physical target merely to satisfy a semantic subject.
 
 Camera orbit is a separate 2D/2.5D parallax concept and must never invent unseen 3D geometry.
 
@@ -125,11 +130,9 @@ Dialogue identity comes only from matching `EMOTIONAL_DIALOGUE_CURRENT` / Charac
 
 Dialogue-only participants use `DialoguePortrait` with `spawnWorldActor=false`.
 
-Exact CharacterPack portrait/expression legality is authoritative. Generic Catalog `closeUpSuitable` metadata does not create or replace curated dialogue presentation.
+Exact CharacterPack portrait/expression legality is authoritative. Generic Catalog metadata does not create or replace curated dialogue presentation.
 
-Unsupported explicit expression remains a blocker.
-
-Locked dialogue uses legal static/cut-based framing. Do not keep speaker/listener as simultaneous world actors inside the same locked portrait window.
+Locked dialogue uses legal static/cut-based framing. Do not keep speaker/listener as simultaneous world actors inside the same locked portrait window unless CURRENT explicitly declares the presentation overlay-safe.
 
 ### Dialogue defaults
 
@@ -141,47 +144,37 @@ The backend should project those defaults before early validation where possible
 
 Do not default every speaking beat to portrait-only presentation. If the audience must still see a blockade, damaged ship, radar target, convoy or environmental threat, choose a legal radio/monitor/environment presentation that preserves the world evidence.
 
-## 12. Actor motion: semantic authoring, existing V5 execution
+## 12. Actor motion: semantic authoring, viewport-proportional execution
 
-Simple V1 authors semantic actor motion. The adapter lowers it into the existing V5 `actorActions` / Timeline path.
-
-Current supported execution forms include:
-
-```text
-Move
-Enter
-Exit
-Formation
-Hold
-Orbit
-VisualWeaponAction
-Deactivate
-```
+Simple V1 authors semantic actor motion. The adapter lowers it into the existing V5 actor-action / Timeline path.
 
 Semantic source intents may include flyby, approach, pursuit, intercept, escort, formation break, bank-away, landing, takeoff, escape and orbit.
 
-The semantic word itself is not proof of a sophisticated runtime solver. Author only what current execution can honestly represent.
+The semantic word itself is not proof of a sophisticated solver. Author only what current execution can honestly represent.
+
+### Camera-relative travel
+
+Cinematic movement is composed against the active camera viewport/frustum, not a small arbitrary Stage rectangle.
+
+Therefore:
+
+- edge-to-edge flybys should traverse a meaningful fraction of the visible frame;
+- a bottom-right -> top-left diagonal should remain a real diagonal across the frame even if camera size changes;
+- formation members preserve distinct frame-relative X/Y offsets;
+- curve/control-point amplitude scales with the visible frame;
+- default Orbit radii are proportional to visible camera width/height rather than a tiny fixed world-unit radius.
+
+Author the intent with legal screen position, entry/exit, direction, trajectory and semantic speed. Do not invent world-unit distances or movement-scale escape hatches.
 
 ### Orbit
 
-`motionIntent = orbit` lowers to a real V5 Actor `Orbit`, not generic Move.
+`motionIntent = orbit` lowers to the current Actor Orbit owner.
 
-**Current Actor Orbit v1 is fixed-center.** The Timeline writer samples a static ellipse and does not follow a moving target Transform every frame.
-
-Therefore an actor cannot currently Orbit another actor while that center actor is simultaneously moving. `CUTSCENE_ORBIT_CENTER_MOVES` is a real RED blocker.
-
-Legal choreography today:
-
-- hold the Orbit center stationary during the Orbit interval;
-- finish the center's landing/approach/movement before Orbit begins;
-- move the center after Orbit ends;
-- or use another supported composition.
-
-Do not claim older V4 moving-center Orbit exists; current project trace found no such runtime implementation to reuse.
+Actor Orbit remains fixed-center while the matching runtime requires it. The center/target actor must remain stationary during the Orbit interval. A moving-center Orbit is not silently implied by the semantic name.
 
 ### Pursuit / Escort / Intercept
 
-These are valid semantic concepts, but do not describe them as per-frame moving-target tracking unless an actual runtime component implements that behavior. Current trace found no older target-relative V4 runtime for Pursuit/Escort/Intercept that can simply be reconnected.
+These are valid semantic concepts, but do not describe them as per-frame moving-target tracking unless an actual current runtime component implements that behavior.
 
 ## 13. Semantic speed and safe numeric parsing
 
@@ -194,9 +187,9 @@ fast
 burst
 ```
 
-These are semantic strings. They must be resolved through the adapter's deterministic speed mapping, never parsed directly as floats.
+These are semantic strings. They are not numeric Unity units per second and must not be used to determine how much of the screen a supposedly edge-to-edge path traverses.
 
-Other numeric motion fields must be read tolerantly. Bad input should become validation/default behavior, not an uncaught `FormatException` that makes Studio Validate appear dead.
+Path geometry comes from composition intent; semantic speed controls pacing within that path.
 
 ## 14. Quantity: many means many, but one grouped image is already many
 
@@ -204,13 +197,11 @@ Other numeric motion fields must be read tolerantly. Bad input should become val
 
 Use either:
 
-1. multiple instances of a true reusable single-actor visual;
+1. multiple instances of a true reusable single-entity visual;
 2. one exact grouped/fleet/crowd asset whose inspected pixels already contain the required plurality;
 3. an explicit gap/reframed composition.
 
-Do not take a precomposed fleet image and then `count`-expand it as though it were one ship. That multiplies groups by groups and produces a glorious but incorrect interstellar traffic jam.
-
-Count-expanded semantic instances inherit the same source identity/route and should receive deterministic source actions.
+Do not take a precomposed fleet image and then count-expand it as though it were one ship. That multiplies groups by groups and produces a glorious but incorrect interstellar traffic jam.
 
 ## 15. Story claims require visible proof
 
@@ -227,112 +218,72 @@ STORY CLAIM
 
 Dialogue saying that an explosion happened does not visually implement an explosion. A sequence named `FLEET_ARRIVES` does not make one stationary ship a fleet arrival.
 
-## 16. Projectiles, impacts, VFX and audio
+## 16. Projectiles, visible Effects and audio
 
-### Cutscene projectiles are a closed-world visual system
+### Cutscene projectiles are closed-world
 
-Simple V1 projectile fire uses `type = fire` with the dedicated `projectileId` field. The author chooses what is fired; Unity owns the launcher, muzzle attachment, muzzle position/rotation, projectile movement and backend cadence mechanics.
+Simple V1 projectile fire uses `type = fire` with the dedicated `projectileId` field. Unity owns launcher, muzzle attachment, movement and cadence mechanics.
 
-The prepared Cutscene V1 projectile repertoire is exactly:
+Use only the exact projectile IDs exported by the matching CURRENT schema. Do not substitute gameplay projectile names, filenames, Catalog lookalikes, `effectHandle` or `viaHandle`.
+
+A projectile burst does not automatically prove impact/destruction; author separate visible evidence when the story requires it.
+
+### Visible Effects are real obligations
+
+A legal route=`Effect` entry in `visible[]` requests beat-bounded audience visibility even when there is no explicit Effect action.
+
+Do not add a meaningless `reveal` merely to wake up the backend.
+
+Use an explicit supported Effect action only when the film needs explicit event semantics beyond ordinary beat visibility.
+
+Three authored visible instances using the same exact Effect handle are still three distinct instances. Do not deduplicate them by handle.
+
+The backend selects one correct Timeline owner according to resolved runtime form: native Activation where bounded visibility is sufficient, native Control where prefab/Particle/nested-director lifecycle is correctly owned by Timeline, or one existing custom visual/VFX clip where project-specific composition behavior truly requires it.
+
+### Audio
+
+Audio is first-class and non-visual. Exact legal Audio handles lower to the native audio execution path. Generated aliases such as `simple_audio_*` are not authoring identities.
+
+A visual Effect does not automatically supply sound.
+
+## 17. Binding-aware materialization coverage
+
+A legal authored request is not complete merely because some clip was generated.
+
+Candidate acceptance must verify:
 
 ```text
-CS_PROJECTILE_BLUE_BOLT
-CS_PROJECTILE_PURPLE_BOLT
-CS_PROJECTILE_POWERBALL
+source obligation
+-> exact CURRENT runtime identity
+-> distinct generated instance
+-> exact Timeline representation
+-> valid binding / receiver
+-> correct active interval
 ```
 
-Use the matching CURRENT export as final authority. Do not invent aliases such as `laser`, `rocket`, `axe`, `missile`, `blue` or `power_ball`.
+Wrong/missing bindings, shared instances, wrong assets, orphan clips and interval bleed are materialization failures.
 
-Visual intent:
+Silent drop is forbidden.
 
-- `CS_PROJECTILE_BLUE_BOLT` -> small/fast blue energy bolt; good for fighter fire and rapid friendly-looking bursts.
-- `CS_PROJECTILE_PURPLE_BOLT` -> purple energy bolt; good for hostile/alien fire or visually distinct opposing fire.
-- `CS_PROJECTILE_POWERBALL` -> larger animated energy projectile; good for heavy, threatening or boss-style fire.
+An engine-safe placeholder is a visible degradation, not exact success.
 
-These are Cutscene-only visual projectiles. Do not resolve or substitute gameplay weapon/projectile prefabs, Playniax projectile names, filenames, Catalog lookalikes, `effectHandle`, or `viaHandle`.
-
-An explicit unsupported projectile ID is a blocker:
-
-```text
-CUTSCENE_PROJECTILE_NOT_AUTHORING_READY
-```
-
-`count` maps to the launcher burst count. Simple V1 does not author local muzzle coordinates or rotation. Simple V1 also does not author `interval` unless a future matching CURRENT schema explicitly exposes a cadence field. The exact cadence/default remains Unity/backend-owned and should not be duplicated in author-facing guidance.
-
-`target` is cinematic firing intent used by the Cutscene backend for staging/orientation where supported. It does not turn the visual projectile into gameplay homing/target logic.
-
-### Projectile examples
-
-Friendly blue burst:
-
-```json
-{
-  "type": "fire",
-  "subject": "hero",
-  "target": "enemy",
-  "projectileId": "CS_PROJECTILE_BLUE_BOLT",
-  "count": 6
-}
-```
-
-Hostile purple burst:
-
-```json
-{
-  "type": "fire",
-  "subject": "enemy",
-  "target": "hero",
-  "projectileId": "CS_PROJECTILE_PURPLE_BOLT",
-  "count": 3
-}
-```
-
-Heavy animated powerball:
-
-```json
-{
-  "type": "fire",
-  "subject": "boss",
-  "target": "hero",
-  "projectileId": "CS_PROJECTILE_POWERBALL",
-  "count": 1
-}
-```
-
-Do not author this:
-
-```json
-{
-  "type": "fire",
-  "subject": "hero",
-  "effectHandle": "some_laser_sprite",
-  "count": 5
-}
-```
-
-`effectHandle` remains for Effect/impact authoring where legal. Projectile identity belongs only in `projectileId`.
-
-Impacts/explosions remain separate visible evidence. A projectile burst does not automatically prove a target was hit or destroyed; author the impact/destruction evidence when the story requires it.
-
-Effects need legal route, purpose, timing, depth and bounded lifetime.
-
-Audio is first-class and non-visual. Do not count Audio as a Visual Atlas gap.
-
-## 17. Actor lifetime and location ownership
+## 18. Actor lifetime and location ownership
 
 Old actors from a previous location must not leak into the next location. Dialogue-only cast must not spawn world actors. Effects/UI end with their owning interval unless deliberately transferred.
 
 Location changes must visibly change location, not merely rename a field.
 
-## 18. Validation colors and ownership
+One capability has one execution owner for the same interval. Avoid duplicate native/custom execution of the same audio, camera, effect or transform behavior.
 
-Use the current four-state model:
+## 19. Validation colors and ownership
+
+Normal user-facing states:
 
 ```text
 GREEN  exact
-YELLOW deterministic backend repair/minor
-ORANGE honest visible/engine degradation, Preview continues
-RED    cannot safely produce, Preview blocked
+YELLOW artistic/quality/continuity note
+ORANGE technical repair/degradation; usable Preview continues or last valid Preview is preserved
+RED    unrecoverable condition where no valid candidate/Preview can safely be produced or preserved
 ```
 
 Owner is separate:
@@ -343,25 +294,29 @@ BACKEND
 ENGINE
 ```
 
-A legal exact CURRENT identity that later fails Preview materialization is typically ENGINE ORANGE, not permission to substitute identity.
+A legal exact CURRENT identity that later fails materialization is BACKEND/ENGINE-owned evidence, not permission to substitute identity.
 
-A genuine current runtime limit such as moving-center Actor Orbit is RED, not an inconvenience to downgrade away.
+Strict candidate acceptance does not mean destroying the user's previous film:
 
-## 19. Accepted JSON freeze
+```text
+BAD NEW CANDIDATE != DESTROY LAST GOOD PREVIEW
+```
 
-Once authoring integrity is accepted, downstream BACKEND/ENGINE Yellow/Orange findings should normally be fixed against the same fixture rather than repeatedly rewriting legal source JSON.
+## 20. Accepted JSON freeze
 
-The freeze does not protect newly discovered genuine RED representation conflicts. If the current runtime cannot represent the choreography, either change choreography deliberately or implement the missing capability.
+Once authoring integrity is accepted, downstream BACKEND/ENGINE findings should normally be fixed against the same fixture rather than repeatedly rewriting legal source JSON.
 
-## 20. CURRENT and publication discipline
+The freeze does not protect newly discovered genuine representation conflicts. If runtime truly cannot represent the choreography, either change choreography deliberately or implement the missing capability.
 
-Normal authoring uses only the matching public `open-current` atomic set. Compatibility is the five-field `requiredCurrent`; `publishTransactionId` is provenance.
+## 21. CURRENT and publication discipline
+
+Normal authoring uses only the matching public `open-current` atomic set. Compatibility is `requiredCurrent`; `publishTransactionId` is provenance.
 
 Source guidance in Git may be prepared for the next publication, but generated `designer-ai/open-current/**` files must not be hand-edited to pretend a new CURRENT exists.
 
-Unity Publish CURRENT is the truth freeze. Git/Pages mirror it.
+FULL Publish rebuilds heavy source truth when fingerprints changed. DELTA Publish updates lightweight authoring/guidance artifacts when `requiredCurrent` is unchanged and must not rebuild/re-upload the unchanged heavy base.
 
-## 21. Film preflight before delivery
+## 22. Film preflight before delivery
 
 Before final JSON/delivery confirm at least:
 
@@ -371,55 +326,52 @@ Before final JSON/delivery confirm at least:
 4. every field uses the correct legal destination/handle.
 5. cast identities and animation compatibility are exact.
 6. dialogue participants/expressions are inside the closed-world repertoire.
-7. dialogue route preserves required world evidence.
-8. backgrounds are real environments and fill the intended frame.
-9. semantic depth and occlusion are intentional.
-10. quantity/grouping matches the actual pixels.
-11. every major non-verbal claim has serialized visible evidence.
-12. semantic actor motion maps to current supported V5 execution.
-13. Actor Orbit centers are stationary during Orbit under current Orbit v1.
-14. every fire action uses an exact legal Cutscene `projectileId`; impacts/destruction are separately evidenced when required.
+7. backgrounds are real environments and fill the intended frame.
+8. semantic depth and occlusion are intentional.
+9. quantity/grouping matches the actual pixels.
+10. every major non-verbal claim has serialized visible evidence.
+11. semantic actor motion maps to current supported execution and uses frame-relative composition intent.
+12. Actor Orbit centers obey current fixed-center limits where applicable.
+13. every fire action uses an exact legal Cutscene projectileId.
+14. every legal visible Effect is authored as a visual obligation without a fake activation workaround.
 15. effects/projectiles/audio are legal and timed.
 16. actor lifetime/location transitions are coherent.
-17. expected genuine RED blockers = 0.
+17. expected genuine unrecoverable blockers = 0.
 
-## 22. Pre-publish proof
+## 23. Pre-publish proof
 
 Do not Publish because Unity merely compiled.
 
-Before a user-controlled Publish, run a representative fixture through:
+Before a user-controlled Publish, run representative fixtures through:
 
 ```text
 compile
 -> Validate
--> zero genuine RED
 -> Build Editable Preview
--> inspect representative actor motion
--> inspect fixed-center Orbit
--> inspect landing/count expansion
--> inspect curated dialogue portraits/background/frame
--> inspect projectile fire path
--> inspect principal materialization
+-> binding-aware materialization coverage
+-> inspect viewport-proportional horizontal/diagonal/orbit/formation motion
+-> inspect FullFrame coverage/idempotence
+-> inspect curated dialogue presentation
+-> inspect projectile path
+-> inspect generic visible Effect path with no secret activation action
+-> verify last-good Preview preservation on a rejected candidate
 ```
 
-Only then is manual Publish justified.
+Only then is Publish justified.
 
-## 23. Learning cases
+## 24. Learning cases
 
-Historical BAD cases remain useful evidence:
+Historical BAD cases remain engineering evidence, not normal authoring truth. See `simple-authoring/LEARNING_CASES_POLICY.md`.
 
-- Mars Cafe: visual-world mismatch, scale/background/materialization issues.
-- Asteroid Wave / Mothership / Command Room: tiny backgrounds, clipped actors, occlusion, missing portraits/effects.
-- generated exact-asset storyboard art: visually attractive but invalid as Unity evidence.
-- distinct people collapsed to one canonical identity: names do not manufacture new persons.
+Durable lessons include:
 
-Current additional learning:
-
-- Simple actor motion can vanish if adapter action types are not mapped; verify generated `actorActions` rather than assuming semantic intent survived.
-- a semantic speed string can crash Validate if read as float; adapter parsing is part of production reliability.
-- an Orbit action reaching V5 can still be invalid when its center moves; reaching the right action type and satisfying runtime constraints are separate checks.
-- a fleet sprite used as one actor and then count-expanded creates visually wrong multiplicative fleets even when quantity code itself works.
-- projectile identity belongs in the closed Cutscene `projectileId` vocabulary; using an Effect handle or gameplay projectile route is not an equivalent representation.
+- semantic intent can be lost after authoring if lowering/materialization coverage is not verified;
+- generated aliases are backend identities and must never be recommended back as source handles;
+- valid visible Effects must not depend on ChatGPT remembering a secret activation action;
+- a generated Timeline clip without the right binding/interval is not materialization success;
+- Stage-sized motion can make valid choreography visually microscopic; camera viewport/frustum is the correct cinematic scale reference;
+- FullFrame fitting must be exact-renderer/idempotent, not a layer x renderer cross-product;
+- a bad new candidate must not erase the last valid Preview;
+- raw Learning Cases must remain quarantined from normal NEW/REVISE/REPAIR authoring until separately curated and re-verified.
 
 A repaired result becomes GOLDEN only after normal Unity Validate + representative Preview proves it.
-
