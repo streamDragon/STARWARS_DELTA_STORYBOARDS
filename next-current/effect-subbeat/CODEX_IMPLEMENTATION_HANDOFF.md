@@ -2,95 +2,98 @@
 
 ## Goal
 
-Implement Effect sub-beat timing directly in the current Unity source. Do not revive the failed V7/V7.1 installer approach.
+Implement Effect sub-beat timing directly in the CURRENT Unity source. Do not revive the failed V7/V7.1 installer approach.
 
-## Why direct source work
+The old hotfix is obsolete because source/schema drift made literal/baseline patching unsafe. CURRENT source wins.
 
-The old hotfix failed because source/schema drift made literal/baseline patching unsafe. The current source is authoritative. Inspect and modify current owners in place.
+## Non-negotiable scope
 
-## Required behavior
-
-Add optional timing to visible Effect obligations:
+Add optional timing only to `visible[]` obligations that resolve to route `Effect`:
 
 - `startOffsetSeconds >= 0`
 - `durationSeconds > 0` when supplied
 
-Semantics:
+Do not broaden this change into actor lifetime, dialogue timing, projectile timing, camera timing, audio timing, or a generic visibility state machine.
+
+If the fields are authored on a non-Effect visible obligation and CURRENT does not already explicitly support them there, emit a clear validation blocker. Do not silently ignore them.
+
+## Exact semantics
 
 ```text
 absoluteStart = beatStart + (startOffsetSeconds ?? 0)
-absoluteEnd   = duration supplied
+absoluteEnd   = durationSeconds supplied
                 ? min(beatEnd, absoluteStart + durationSeconds)
                 : beatEnd
 ```
 
-If `absoluteStart >= beatEnd`, validation blocks the obligation.
+Rules:
+
+1. No fields means the existing full-beat Effect lifetime.
+2. Offset only means delayed start through beat end.
+3. Duration only means beat-start burst for that duration.
+4. Duration may extend past beat end; clamp the resolved end to beat end.
+5. `absoluteStart >= beatEnd` is invalid authoring.
+6. Negative/non-finite offset is invalid.
+7. Zero/negative/non-finite explicit duration is invalid.
+8. Never rebase a legal delayed Effect back to beat start.
+9. Never let an Effect spill into the next beat because of an overlong duration.
 
 ## Architecture constraint
 
-Do not create a parallel V7 timing system.
+Do not create a parallel V7 timing system, compatibility wrapper, BAT installer, whole-file SHA patch, or fallback representation.
 
-Find the current chain and extend it once:
+Inspect CURRENT first, then extend the existing chain once:
 
 ```text
 CUTSCENE_SCRIPT_V1 visible obligation
+-> Simple schema/parser/normalizer
 -> Simple adapter/lowering
--> V3/V5 semantic representation
+-> current semantic representation
 -> execution plan/materialization candidate
 -> existing runtime-form resolver
 -> existing Timeline owner
 ```
 
-Compute/resolve the interval once at the narrowest shared semantic/execution-plan owner and pass it downstream.
+Likely CURRENT files/owners to inspect include, but paths and line numbers must be verified before editing:
 
-## Preserve existing ownership
+- `Assets/WISDOM/CutsceneStudio/Editor/MY_CutsceneSimpleProductionEntry.cs`
+- `Assets/WISDOM/CutsceneStudio/Editor/Materialization/MY_CutsceneExecutionPlan.cs`
+- `Assets/WISDOM/CutsceneStudio/Editor/Timeline/MY_CutsceneTimelineWriters.cs`
+- current validator/validation pipeline
+- current CUTSCENE_SCRIPT_V1 schema/export source
+- current authoring-rules / Film Guide / Instruction Book exporter source
+- existing Sprite Effect materializer
+- existing prefab/ParticleSystem Effect materializer
 
-Do not unify Sprite and Particle implementations merely because they now share interval semantics.
+Do not assume these names are exhaustive. Follow actual CURRENT ownership rather than creating new files merely because this handoff names a concept.
 
-- Sprite/static visual Effect keeps the current Activation/native visual path.
-- ParticleSystem/prefab/nested-director Effect keeps the current Control/lifecycle path.
-- Existing project-specific VFX clip remains only where the resolver already chooses it.
+## One timing owner
 
-The timing interval is shared semantic data; the execution owner remains runtime-form specific.
+Resolve the absolute interval once at the narrowest shared execution-plan/materialization owner and pass it downstream.
+
+Validator, writer, Sprite route, Particle route, preview/evaluation and generated-object lifetime must agree on the same interval semantics. They may validate or consume it, but must not invent competing clocks.
+
+## Preserve existing runtime ownership
+
+Do not unify Sprite and Particle implementations just because they share interval semantics.
+
+- Sprite/static visual Effect keeps the CURRENT Activation/native visual owner.
+- ParticleSystem/prefab/nested-director Effect keeps the CURRENT Control/lifecycle owner.
+- Existing project-specific VFX clip remains only where CURRENT already selects it.
+
+The interval is shared semantic data. The execution owner remains runtime-form specific.
 
 ## Generated instance identity
 
 Never deduplicate generated Effects by handle.
 
-Each authored `visible[]` entry is one obligation and one independently timed/placeable generated instance.
+`visible[].id` is obligation identity. `handle` selects a source asset.
 
-Source assets may be reused. Generated object/lifetime state may not.
-
-## Backward compatibility
-
-Old legal JSON with no new timing fields must remain valid and render the Effect for the full containing beat.
-
-No migration should be required.
-
-## Validation
-
-Accept:
-
-- omitted offset
-- offset 0
-- positive finite offset before beat end
-- omitted duration
-- positive finite explicit duration
-- overlaps
-- duplicate handles
-- simultaneous Sprite + Particle
-
-Block:
-
-- negative/non-finite offset
-- start at/after beat end
-- zero/negative/non-finite explicit duration
-
-An explicit duration that extends past beat end should be clamped consistently, not rejected solely for crossing the boundary.
+Three authored entries using one exact handle must produce three independently timed/placeable instances with independent bindings and transforms. Source asset reuse is fine; generated instance/lifetime reuse is not.
 
 ## Timeline/materialization invariant
 
-Every relevant downstream owner must consume the same resolved interval:
+Where applicable, every downstream owner must reflect the same resolved interval in:
 
 ```text
 clip.start
@@ -99,66 +102,133 @@ Activation interval
 Control clip interval
 Particle playback/lifetime
 preview/evaluation helper
-any generated GameObject active lifetime
+generated GameObject active lifetime
 ```
 
-No full-beat hidden fallback after a shorter interval was authored.
+No hidden full-beat fallback is allowed after a shorter interval was authored.
+
+Backward scrubbing and `PlayableDirector.Evaluate()` must derive state from Timeline time plus authored ownership, not callback history.
 
 ## Spatial regression guard
 
-Timing work must not alter existing normalized camera/frustum placement:
+Timing work must not alter existing placement semantics:
 
-- screenX/screenY
-- screenWidthFraction/screenHeightFraction
-- depth/saliency
+- `screenX` / `screenY`
+- `screenWidthFraction` / `screenHeightFraction`
+- depth / saliency
+- foreground/mid/background/far composition
+- active camera/frustum sizing reference
 
-## Tests
+A timing fix that moves or resizes an Effect is a regression.
 
-Add focused tests matching the nine candidate cases in `GOLDEN_CANDIDATE_MATRIX.md`, at minimum:
+## Backward compatibility
 
-1. no fields -> full beat
-2. offset + explicit duration
-3. offset + omitted duration
-4. near-end flash
-5. sequential Effects
-6. overlapping different Effects
-7. three simultaneous same-handle instances
-8. Sprite + Particle overlap
-9. timing + screen placement/depth
+Old legal CUTSCENE_SCRIPT_V1 JSON with no new fields remains legal and means full containing-beat visibility. No migration, rewrite, compatibility mode, or synthetic authored fields are required.
 
-Do not run Play Mode unless genuinely required. Compile/EditMode/static Timeline verification is preferred.
+## Validation diagnostics
 
-## Integration fixture
+Use existing naming/style where possible, but diagnostics must identify beat, `visible[].id`, field path/value and reason.
 
-After focused tests pass, use the existing 32-second Effect + Particle Full Variety acceptance fixture. Do not rewrite the fixture to fit the implementation if it is already legal against the intended next schema.
+Required failure classes:
+
+- invalid negative/non-finite `startOffsetSeconds`
+- invalid zero/negative/non-finite `durationSeconds`
+- resolved start at/after beat end
+- timing fields on non-Effect route
+
+Do not reject overlap or repeated handles. Those are valid authoring.
+
+## Tests: Golden Candidate 9
+
+Add the smallest focused EditMode/unit/static Timeline tests that prove the cases in `GOLDEN_CANDIDATE_09_ACCEPTANCE_SPEC.json`:
+
+1. G01 no fields -> full beat
+2. G02 offset 0 + short explicit duration
+3. G03 delayed start + omitted duration -> beat end
+4. G04 near-end overlong duration -> clamp at beat end
+5. G05 sequential Effects
+6. G06 overlapping Effects
+7. G07 three simultaneous same-handle instances
+8. G08 Sprite + Particle/prefab overlap with distinct existing owners
+9. G09 timing plus independent placement/size/depth under camera Hold/Push/Drift/Pull
+
+Also add negative tests for invalid offset, invalid duration, outside-beat start and non-Effect field use.
+
+Do not run Play Mode merely to satisfy the report. Prefer compile, EditMode, execution-plan and Timeline/binding verification. If visual runtime was not actually run, state `RUNTIME VISUAL ACCEPTANCE: NOT VERIFIED` rather than inventing success.
+
+## 32-second integration fixture
+
+After focused cases pass, use the existing 32-second Effect + Particle Full Variety acceptance fixture as the integration proof.
+
+Expected coverage:
+
+- 4 beats
+- 40 visible obligations
+- 35 timed Effects
+- real ParticleSystem prefabs
+- Sprite Effects
+- ControlTrack vs ActivationTrack
+- sequential and overlapping Effects
+- three simultaneous instances of one exact Effect handle at different positions
+- different sizes
+- both screenWidthFraction and screenHeightFraction
+- foreground/mid/background/far
+- Effect starting at beat offset 0 with no authored startOffsetSeconds
+- Effect with startOffsetSeconds but no durationSeconds extending to beat end
+- near-end Effect
+- Particle + Sprite at same place without owner trampling
+- camera Hold/Push/Drift/Pull
+
+Do not rewrite the fixture to hide an implementation failure if it is legal against the intended next schema.
 
 ## Publication boundary
 
-Do not hand-edit generated public `designer-ai/open-current/**` output.
+Do not hand-edit generated `designer-ai/open-current/**` output.
 
-Update canonical Unity-side schema/exporter/rules/guidance sources so the next publisher run regenerates:
+Update the canonical Unity-side schema/exporter/rules/guidance sources so the normal publisher later regenerates, as applicable:
 
-- CUTSCENE_SCRIPT_V1 schema
-- canonical example where appropriate
-- authoring rules/guides
-- validation contract if exported
-- Devora context contents
+- `CUTSCENE_SCRIPT_V1.schema.json`
+- canonical V1 example
+- `AUTHORING_RULES_CURRENT.json`
+- semantic/film authoring guide text
+- validation contract/export
+- Instruction Book guidance
+- Devora/CURRENT context contents
 
-No Catalog rescan/Atlas rebuild is justified by timing-only source changes unless fingerprints genuinely changed for an unrelated reason.
+Timing-only changes do not justify Catalog Full Scan, Atlas rebuild, or unrelated asset fingerprint churn.
+
+## Golden promotion boundary
+
+The nine repository cases are candidates, not already-GOLDEN examples.
+
+Promotion requires:
+
+1. LOAD succeeds.
+2. NORMALIZE succeeds.
+3. VALIDATE has no genuine red blocker.
+4. BUILD EDITABLE PREVIEW succeeds.
+5. Binding-aware interval/materialization verification passes.
+6. Human visual review accepts the example as good teaching material.
+
+Only then should the canonical curated Golden source be updated and publisher-generated CURRENT output change.
 
 ## Final report
 
-Report:
+Return a concise implementation report containing:
 
-- files changed
-- canonical timing owner
+- exact files changed
+- exact schema field path and validation rules
+- canonical interval-resolution owner
 - schema -> adapter -> plan -> Timeline propagation
-- Sprite behavior
-- Particle behavior
+- Sprite owner behavior
+- Particle/prefab owner behavior
 - duplicate-handle behavior
 - overlap behavior
 - backward compatibility
-- tests
-- compile status
-- whether the 32-second acceptance fixture loads/validates/builds unchanged
-- any remaining blocker before the nine candidates can be human-reviewed for GOLDEN promotion
+- focused tests and results
+- compile/EditMode status
+- whether the existing 32-second fixture LOADS / NORMALIZES / VALIDATES / BUILDS unchanged
+- `RUNTIME VISUAL ACCEPTANCE: VERIFIED` or `NOT VERIFIED`
+- any remaining blocker before Golden promotion
+
+Do not report success for stages you did not actually execute.
