@@ -2,27 +2,27 @@
   "schema": "STARWARS_DELTA_VISUAL_SCAN_REPORT",
   "schemaVersion": 1,
   "status": "CURRENT_VISUAL_SCAN_EXPLICIT",
-  "publishTransactionId": "20260826-051553630-a396f294",
+  "publishTransactionId": "20260827-191726725-9a631faa",
   "requiredCurrent": {
-    "catalogRevision": "7624599455088950785",
-    "contractRevision": "BD126A7DE3A31C82CAF2E60FEAB0252F905F97E9878141F5856B64F9A687FD1A",
-    "schemaHash": "BC4E283E855A8ADE4249A2D5F429C7D93EC6641A0038B8F00C5E719636595CA3",
-    "snapshotContentHash": "9274EE1B391DE9756987970E12FE35AA98A04A20E19198CDAC2E73B82C567DD5",
+    "catalogRevision": "7624698995981318909",
+    "contractRevision": "2F9CD64B0DD1AB1CF6D97BA46D32A5FA29199B46FCE0A41972C42655B3543CF8",
+    "schemaHash": "E404BDCE7936602B05FEAE284E25B86B558A92393312D5904CD1F3BC2B2B823F",
+    "snapshotContentHash": "5A2C853B99EFC812C96902251EAFB77E3946AC3625CE9707AD60E5B4780DB2AF",
     "authoringRuleRegistryRevision": "12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372"
   },
   "purpose": "Engineering audit of Director visual entries grouped by real Unity source asset path. Entry counts and unique source-file counts are reported separately so sprite sub-assets are not misrepresented as separate missing files.",
   "summary": {
-    "directorVisualEntryCount": 9270,
-    "uniqueSourcePathCount": 3666,
+    "directorVisualEntryCount": 9289,
+    "uniqueSourcePathCount": 3681,
     "entriesWithoutSourcePath": 0,
     "entryCountsByStatus": {
-      "INCLUDED_IN_ATLAS": 531,
-      "PENDING_SOURCE_REVIEW": 8709,
+      "INCLUDED_IN_ATLAS": 571,
+      "PENDING_SOURCE_REVIEW": 8688,
       "PREVIEW_GENERATION_REQUIRED": 30
     },
     "uniqueSourcePathsByStatus": {
-      "INCLUDED_IN_ATLAS": 510,
-      "PENDING_SOURCE_REVIEW": 3155,
+      "INCLUDED_IN_ATLAS": 528,
+      "PENDING_SOURCE_REVIEW": 3152,
       "PREVIEW_GENERATION_REQUIRED": 2
     },
     "trueUnexplainedMissEntryCount": 0,
@@ -21440,7 +21440,7 @@
             "needs_human_review"
           ],
           "atlasPage": 16,
-          "atlasSlot": 7,
+          "atlasSlot": 11,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-016.jpg"
         }
       ],
@@ -21541,122 +21541,6 @@
           "atlasPage": null,
           "atlasSlot": null,
           "pageImageUrl": null
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Designs - Base/Aseprite/Nautolan Ship - Bomber - Base.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Actor"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan Ship   Bomber   Base",
-          "category": "Actor",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "9d7170a3dff724e41b9b488a040a8f88:-2253911629886400664",
-          "guid": "9d7170a3dff724e41b9b488a040a8f88",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_f4725c4df2c48077bd18",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 8,
-          "atlasSlot": 9,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-008.jpg"
-        },
-        {
-          "displayName": "Nautolan Ship   Bomber   Base",
-          "category": "Actor",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "9d7170a3dff724e41b9b488a040a8f88:5021844548529605880",
-          "guid": "9d7170a3dff724e41b9b488a040a8f88",
-          "localId": "5021844548529605880",
-          "visualReferenceId": "visual_a31dc670f1d9913178c7",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 8,
-          "atlasSlot": 10,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-008.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Designs - Base/Aseprite/Nautolan Ship - Dreadnought - Base.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Actor"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan Ship   Dreadnought   Base",
-          "category": "Actor",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "80e766080270cbd4383fa6e040c2da44:-2253911629886400664",
-          "guid": "80e766080270cbd4383fa6e040c2da44",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_d27002d97b4fbcb165f0",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 9,
-          "atlasSlot": 1,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-009.jpg"
-        },
-        {
-          "displayName": "Nautolan Ship   Dreadnought   Base",
-          "category": "Actor",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "80e766080270cbd4383fa6e040c2da44:7538336004649120221",
-          "guid": "80e766080270cbd4383fa6e040c2da44",
-          "localId": "7538336004649120221",
-          "visualReferenceId": "visual_92039399457cd17605d3",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 9,
-          "atlasSlot": 2,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-009.jpg"
         }
       ],
       "unityActions": {
@@ -21785,122 +21669,6 @@
       }
     },
     {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Designs - Base/Aseprite/Nautolan Ship - Scout - Base.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Actor"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan Ship   Scout   Base",
-          "category": "Actor",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "596146a602fa3c84f9824797d1b41611:-2253911629886400664",
-          "guid": "596146a602fa3c84f9824797d1b41611",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_94a2bb64ca768b61705d",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 9,
-          "atlasSlot": 9,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-009.jpg"
-        },
-        {
-          "displayName": "Nautolan Ship   Scout   Base",
-          "category": "Actor",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "596146a602fa3c84f9824797d1b41611:7536893383084444256",
-          "guid": "596146a602fa3c84f9824797d1b41611",
-          "localId": "7536893383084444256",
-          "visualReferenceId": "visual_f10a5dffbea64d5e2d34",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 9,
-          "atlasSlot": 10,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-009.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Designs - Base/Aseprite/Nautolan Ship - Support - Base.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Actor"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan Ship   Support   Base",
-          "category": "Actor",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "b6980d2e8925de84986d64f644349536:-2253911629886400664",
-          "guid": "b6980d2e8925de84986d64f644349536",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_462281e8701cec1387f6",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 10,
-          "atlasSlot": 1,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-010.jpg"
-        },
-        {
-          "displayName": "Nautolan Ship   Support   Base",
-          "category": "Actor",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "b6980d2e8925de84986d64f644349536:7953995995871120647",
-          "guid": "b6980d2e8925de84986d64f644349536",
-          "localId": "7953995995871120647",
-          "visualReferenceId": "visual_9a94c03deae15e1f99d4",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 10,
-          "atlasSlot": 2,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-010.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
       "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Designs - Base/Aseprite/Nautolan Ship - Torpedo Ship.aseprite",
       "statuses": [
         "PENDING_SOURCE_REVIEW"
@@ -21988,7 +21756,7 @@
             "needs_human_review"
           ],
           "atlasPage": 8,
-          "atlasSlot": 6,
+          "atlasSlot": 10,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-008.jpg"
         }
       ],
@@ -22028,7 +21796,7 @@
             "needs_human_review"
           ],
           "atlasPage": 8,
-          "atlasSlot": 8,
+          "atlasSlot": 12,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-008.jpg"
         }
       ],
@@ -22067,9 +21835,9 @@
             "not_publish_safe",
             "needs_human_review"
           ],
-          "atlasPage": 8,
-          "atlasSlot": 12,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-008.jpg"
+          "atlasPage": 9,
+          "atlasSlot": 4,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-009.jpg"
         }
       ],
       "unityActions": {
@@ -22108,7 +21876,7 @@
             "needs_human_review"
           ],
           "atlasPage": 9,
-          "atlasSlot": 4,
+          "atlasSlot": 8,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-009.jpg"
         }
       ],
@@ -22148,7 +21916,7 @@
             "needs_human_review"
           ],
           "atlasPage": 9,
-          "atlasSlot": 6,
+          "atlasSlot": 10,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-009.jpg"
         }
       ],
@@ -22188,7 +21956,7 @@
             "needs_human_review"
           ],
           "atlasPage": 9,
-          "atlasSlot": 8,
+          "atlasSlot": 12,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-009.jpg"
         }
       ],
@@ -22227,9 +21995,9 @@
             "not_publish_safe",
             "needs_human_review"
           ],
-          "atlasPage": 9,
-          "atlasSlot": 12,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-009.jpg"
+          "atlasPage": 10,
+          "atlasSlot": 4,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-010.jpg"
         }
       ],
       "unityActions": {
@@ -22268,820 +22036,8 @@
             "needs_human_review"
           ],
           "atlasPage": 10,
-          "atlasSlot": 4,
+          "atlasSlot": 8,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-010.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Scout - Engine Effect.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Effect"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan Ship   Scout   Engine Effect",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "024f1510474d6a945bf0d4eb1ea58862:-2253911629886400664",
-          "guid": "024f1510474d6a945bf0d4eb1ea58862",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_ec555f970dfef3b333da",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 32,
-          "atlasSlot": 8,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
-        },
-        {
-          "displayName": "Nautolan Ship   Scout   Engine Effect Frame",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "024f1510474d6a945bf0d4eb1ea58862:-2689793701429678253",
-          "guid": "024f1510474d6a945bf0d4eb1ea58862",
-          "localId": "-2689793701429678253",
-          "visualReferenceId": "visual_0ad2a4976ecd04b5552b",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 32,
-          "atlasSlot": 9,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Fighter - Shield.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Effect"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan Ship   Fighter   Shield",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "b79aa9c1bd197b2439affa793ab62681:-2253911629886400664",
-          "guid": "b79aa9c1bd197b2439affa793ab62681",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_3275deaf4b78d6e0c351",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 31,
-          "atlasSlot": 10,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-015.jpg"
-        },
-        {
-          "displayName": "Nautolan Ship   Fighter   Shield Frame",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "b79aa9c1bd197b2439affa793ab62681:4445974820773058877",
-          "guid": "b79aa9c1bd197b2439affa793ab62681",
-          "localId": "4445974820773058877",
-          "visualReferenceId": "visual_7380d116f0ca6d3abf6f",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 31,
-          "atlasSlot": 11,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-015.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Scout - Shield.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Effect"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan Ship   Scout   Shield",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "f69d7725d66bf8e498ef38ea03095652:-2253911629886400664",
-          "guid": "f69d7725d66bf8e498ef38ea03095652",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_425a58cd569d16f845c1",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 32,
-          "atlasSlot": 10,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
-        },
-        {
-          "displayName": "Nautolan Ship   Scout   Shield Frame",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "f69d7725d66bf8e498ef38ea03095652:1180994541274019408",
-          "guid": "f69d7725d66bf8e498ef38ea03095652",
-          "localId": "1180994541274019408",
-          "visualReferenceId": "visual_2dc2c83301471f013529",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 32,
-          "atlasSlot": 11,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Bomb.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Effect"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan   Bomb",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "1560ea936d7437141ae7d442fed88240:-2253911629886400664",
-          "guid": "1560ea936d7437141ae7d442fed88240",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_ffc33b97338a93408cfb",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 29,
-          "atlasSlot": 4,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-013.jpg"
-        },
-        {
-          "displayName": "Nautolan   Bomb Frame",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "1560ea936d7437141ae7d442fed88240:7696667916617574318",
-          "guid": "1560ea936d7437141ae7d442fed88240",
-          "localId": "7696667916617574318",
-          "visualReferenceId": "visual_fa60d98b11c6c758f1f2",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 29,
-          "atlasSlot": 5,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-013.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Bullet.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Effect"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan   Bullet",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "316ef3490a0455745982d5e6da211f81:-2253911629886400664",
-          "guid": "316ef3490a0455745982d5e6da211f81",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_812e97a6a88b667a5595",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 29,
-          "atlasSlot": 6,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-013.jpg"
-        },
-        {
-          "displayName": "Nautolan   Bullet Frame",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "316ef3490a0455745982d5e6da211f81:-4985935641720339655",
-          "guid": "316ef3490a0455745982d5e6da211f81",
-          "localId": "-4985935641720339655",
-          "visualReferenceId": "visual_8815a4d8c6027fccb82e",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 29,
-          "atlasSlot": 7,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-013.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Ray.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Effect"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan   Ray",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "53a6affd7e15a424da2604860c469cbf:-2253911629886400664",
-          "guid": "53a6affd7e15a424da2604860c469cbf",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_065a3234775f0a8de25f",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 29,
-          "atlasSlot": 8,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-013.jpg"
-        },
-        {
-          "displayName": "Nautolan   Ray Frame",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "53a6affd7e15a424da2604860c469cbf:1684248807261343653",
-          "guid": "53a6affd7e15a424da2604860c469cbf",
-          "localId": "1684248807261343653",
-          "visualReferenceId": "visual_d43ea6356bdb0f7c646e",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 29,
-          "atlasSlot": 9,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-013.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Spinning Bullet.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Effect"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan   Spinning Bullet",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "ab3982fb65d467f4993bfcaef9d9c202:-2253911629886400664",
-          "guid": "ab3982fb65d467f4993bfcaef9d9c202",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_5f9a8f63313f5f03788e",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 29,
-          "atlasSlot": 12,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-013.jpg"
-        },
-        {
-          "displayName": "Nautolan   Spinning Bullet Frame",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "ab3982fb65d467f4993bfcaef9d9c202:-8992589322347507911",
-          "guid": "ab3982fb65d467f4993bfcaef9d9c202",
-          "localId": "-8992589322347507911",
-          "visualReferenceId": "visual_ab2797b327b84fc53b5f",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 30,
-          "atlasSlot": 1,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-014.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Wave.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Effect"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan   Wave",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "c7d52c929c431ea459801beb60b4fa36:-2253911629886400664",
-          "guid": "c7d52c929c431ea459801beb60b4fa36",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_6c071ec96b07486eea2e",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 30,
-          "atlasSlot": 2,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-014.jpg"
-        },
-        {
-          "displayName": "Nautolan   Wave Frame",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "c7d52c929c431ea459801beb60b4fa36:6708538310797302118",
-          "guid": "c7d52c929c431ea459801beb60b4fa36",
-          "localId": "6708538310797302118",
-          "visualReferenceId": "visual_036909c1d77cbbe48f8a",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 30,
-          "atlasSlot": 3,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-014.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Battlecruiser - Weapons.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Effect"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan Ship   Battlecruiser   Weapons",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "14999e8745e5bd547a501b2044e6de70:-2253911629886400664",
-          "guid": "14999e8745e5bd547a501b2044e6de70",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_55c6eb298e7e7da13297",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 30,
-          "atlasSlot": 8,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-014.jpg"
-        },
-        {
-          "displayName": "Nautolan Ship   Battlecruiser   Weapons Frame",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "14999e8745e5bd547a501b2044e6de70:4695840300268164084",
-          "guid": "14999e8745e5bd547a501b2044e6de70",
-          "localId": "4695840300268164084",
-          "visualReferenceId": "visual_5cb9510e4efe9cb7264d",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 30,
-          "atlasSlot": 9,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-014.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Dreadnought - Weapons.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Effect"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan Ship   Dreadnought   Weapons",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "d777fb452f2183a45b6cc31f492b81f2:-2253911629886400664",
-          "guid": "d777fb452f2183a45b6cc31f492b81f2",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_f604a40d5430cd23c315",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 31,
-          "atlasSlot": 6,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-015.jpg"
-        },
-        {
-          "displayName": "Nautolan Ship   Dreadnought   Weapons Frame",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "d777fb452f2183a45b6cc31f492b81f2:1323809240188320811",
-          "guid": "d777fb452f2183a45b6cc31f492b81f2",
-          "localId": "1323809240188320811",
-          "visualReferenceId": "visual_f5ebffbf4ac9cc5d1089",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 31,
-          "atlasSlot": 7,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-015.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Fighter - Weapons.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Effect"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan Ship   Fighter   Weapons",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "7c84241963b98b94bad55664c49f0a94:-2253911629886400664",
-          "guid": "7c84241963b98b94bad55664c49f0a94",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_50eea41e0467ca2e9d95",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 31,
-          "atlasSlot": 12,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-015.jpg"
-        },
-        {
-          "displayName": "Nautolan Ship   Fighter   Weapons Frame",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "7c84241963b98b94bad55664c49f0a94:-7076886760956826457",
-          "guid": "7c84241963b98b94bad55664c49f0a94",
-          "localId": "-7076886760956826457",
-          "visualReferenceId": "visual_5968fcecce517d31638c",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 32,
-          "atlasSlot": 1,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Frigate - Weapons.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Effect"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan Ship   Frigate   Weapons",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "2dc0c9277773e35479970ebabcd17f62:-2253911629886400664",
-          "guid": "2dc0c9277773e35479970ebabcd17f62",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_c927925805040b7423ef",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 32,
-          "atlasSlot": 6,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
-        },
-        {
-          "displayName": "Nautolan Ship   Frigate   Weapons Frame",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "2dc0c9277773e35479970ebabcd17f62:8869196315713800870",
-          "guid": "2dc0c9277773e35479970ebabcd17f62",
-          "localId": "8869196315713800870",
-          "visualReferenceId": "visual_8c56226adf94b053a29c",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 32,
-          "atlasSlot": 7,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Scout - Weapons.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Effect"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan Ship   Scout   Weapons",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "bde165a34b66def42ae843f224329d6a:-2253911629886400664",
-          "guid": "bde165a34b66def42ae843f224329d6a",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_4ebdae10b0ab603aedab",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 32,
-          "atlasSlot": 12,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
-        },
-        {
-          "displayName": "Nautolan Ship   Scout   Weapons Frame",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "bde165a34b66def42ae843f224329d6a:1386792776536436067",
-          "guid": "bde165a34b66def42ae843f224329d6a",
-          "localId": "1386792776536436067",
-          "visualReferenceId": "visual_33c29bb86bca1a6124ab",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 33,
-          "atlasSlot": 1,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-017.jpg"
-        }
-      ],
-      "unityActions": {
-        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
-        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
-        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
-        "reveal": "EditorUtility.RevealInFinder(assetPath)"
-      }
-    },
-    {
-      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Torpedo Ship - Weapons.aseprite",
-      "statuses": [
-        "PENDING_SOURCE_REVIEW"
-      ],
-      "categories": [
-        "Effect"
-      ],
-      "entryCount": 2,
-      "reasons": [
-        "not_publish_safe",
-        "needs_human_review"
-      ],
-      "children": [
-        {
-          "displayName": "Nautolan Ship   Torpedo Ship   Weapons",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "2045744723e86c745a14534eaf363c75:-2253911629886400664",
-          "guid": "2045744723e86c745a14534eaf363c75",
-          "localId": "-2253911629886400664",
-          "visualReferenceId": "visual_1d56f1002c0f56ea9ddf",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 33,
-          "atlasSlot": 8,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-017.jpg"
-        },
-        {
-          "displayName": "Nautolan Ship   Torpedo Ship   Weapons Frame",
-          "category": "Effect",
-          "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "2045744723e86c745a14534eaf363c75:-5980013677122361328",
-          "guid": "2045744723e86c745a14534eaf363c75",
-          "localId": "-5980013677122361328",
-          "visualReferenceId": "visual_5b68a6cc5bbf9d7e46c6",
-          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
-          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
-          "reasons": [
-            "not_publish_safe",
-            "needs_human_review"
-          ],
-          "atlasPage": 33,
-          "atlasSlot": 9,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-017.jpg"
         }
       ],
       "unityActions": {
@@ -33905,7 +32861,7 @@
             "needs_human_review"
           ],
           "atlasPage": 16,
-          "atlasSlot": 4,
+          "atlasSlot": 8,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-016.jpg"
         },
         {
@@ -34233,7 +33189,7 @@
             "needs_human_review"
           ],
           "atlasPage": 4,
-          "atlasSlot": 1,
+          "atlasSlot": 5,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-004.jpg"
         }
       ],
@@ -34273,7 +33229,7 @@
             "needs_human_review"
           ],
           "atlasPage": 4,
-          "atlasSlot": 7,
+          "atlasSlot": 11,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-004.jpg"
         }
       ],
@@ -34313,7 +33269,7 @@
             "needs_human_review"
           ],
           "atlasPage": 5,
-          "atlasSlot": 4,
+          "atlasSlot": 8,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-005.jpg"
         }
       ],
@@ -35153,7 +34109,7 @@
             "needs_human_review"
           ],
           "atlasPage": 11,
-          "atlasSlot": 3,
+          "atlasSlot": 7,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-011.jpg"
         }
       ],
@@ -36363,7 +35319,7 @@
             "needs_human_review"
           ],
           "atlasPage": 6,
-          "atlasSlot": 2,
+          "atlasSlot": 6,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-006.jpg"
         }
       ],
@@ -36843,7 +35799,7 @@
             "needs_human_review"
           ],
           "atlasPage": 8,
-          "atlasSlot": 2,
+          "atlasSlot": 6,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-008.jpg"
         }
       ],
@@ -37003,7 +35959,7 @@
             "needs_human_review"
           ],
           "atlasPage": 12,
-          "atlasSlot": 3,
+          "atlasSlot": 7,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-012.jpg"
         }
       ],
@@ -37043,7 +35999,7 @@
             "needs_human_review"
           ],
           "atlasPage": 13,
-          "atlasSlot": 3,
+          "atlasSlot": 7,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-013.jpg"
         }
       ],
@@ -37403,7 +36359,7 @@
             "needs_human_review"
           ],
           "atlasPage": 16,
-          "atlasSlot": 5,
+          "atlasSlot": 9,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-016.jpg"
         }
       ],
@@ -41013,6 +39969,46 @@
       }
     },
     {
+      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Complex/MY_VFX_Explosion_Complex_Small.prefab",
+      "statuses": [
+        "PENDING_SOURCE_REVIEW"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 1,
+      "reasons": [
+        "not_publish_safe",
+        "needs_human_review"
+      ],
+      "children": [
+        {
+          "displayName": "MY VFX Explosion Complex Small",
+          "category": "Actor",
+          "status": "PENDING_SOURCE_REVIEW",
+          "authoringAssetId": "fe867f0fc6cb30149800e13c008d9765:9126380665183330918",
+          "guid": "fe867f0fc6cb30149800e13c008d9765",
+          "localId": "9126380665183330918",
+          "visualReferenceId": null,
+          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
+          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
+          "reasons": [
+            "not_publish_safe",
+            "needs_human_review"
+          ],
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": null
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
       "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Enriched_Misc_Magic/MY_VFX_Magic_IceLance_PP.prefab",
       "statuses": [
         "PENDING_SOURCE_REVIEW"
@@ -41773,7 +40769,7 @@
       }
     },
     {
-      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Legacy/Cinematic_FREE_Base/CE_Base_FinalLargeExplosion.prefab",
+      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Legacy/Big_2_EXPLSN.prefab",
       "statuses": [
         "PENDING_SOURCE_REVIEW"
       ],
@@ -41787,12 +40783,572 @@
       ],
       "children": [
         {
-          "displayName": "CE Base FinalLargeExplosion",
+          "displayName": "Big 2 EXPLSN",
           "category": "Actor",
           "status": "PENDING_SOURCE_REVIEW",
-          "authoringAssetId": "1bb667a5187d61e438479735e4e59bc5:8482305270081419284",
-          "guid": "1bb667a5187d61e438479735e4e59bc5",
-          "localId": "8482305270081419284",
+          "authoringAssetId": "d6b3deeeaa8550e419a3865179f11bd3:4504638096069131493",
+          "guid": "d6b3deeeaa8550e419a3865179f11bd3",
+          "localId": "4504638096069131493",
+          "visualReferenceId": null,
+          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
+          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
+          "reasons": [
+            "not_publish_safe",
+            "needs_human_review"
+          ],
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": null
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Legacy/BIue_BOSS_EXPLSN 1.prefab",
+      "statuses": [
+        "PENDING_SOURCE_REVIEW"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 1,
+      "reasons": [
+        "not_publish_safe",
+        "needs_human_review"
+      ],
+      "children": [
+        {
+          "displayName": "BIue_BOSS_EXPLSN 1",
+          "category": "Actor",
+          "status": "PENDING_SOURCE_REVIEW",
+          "authoringAssetId": "a559a2770993c044591b82d6a5bc263d:3222171239587786666",
+          "guid": "a559a2770993c044591b82d6a5bc263d",
+          "localId": "3222171239587786666",
+          "visualReferenceId": null,
+          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
+          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
+          "reasons": [
+            "not_publish_safe",
+            "needs_human_review"
+          ],
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": null
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Legacy/Black_EXPLSN 1.prefab",
+      "statuses": [
+        "PENDING_SOURCE_REVIEW"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 1,
+      "reasons": [
+        "not_publish_safe",
+        "needs_human_review"
+      ],
+      "children": [
+        {
+          "displayName": "Black_EXPLSN 1",
+          "category": "Actor",
+          "status": "PENDING_SOURCE_REVIEW",
+          "authoringAssetId": "76a3fe909fce133439afaf2db40ad49e:2059265495153734154",
+          "guid": "76a3fe909fce133439afaf2db40ad49e",
+          "localId": "2059265495153734154",
+          "visualReferenceId": null,
+          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
+          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
+          "reasons": [
+            "not_publish_safe",
+            "needs_human_review"
+          ],
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": null
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Legacy/Blue_Spread_EXPLSN 1.prefab",
+      "statuses": [
+        "PENDING_SOURCE_REVIEW"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 1,
+      "reasons": [
+        "not_publish_safe",
+        "needs_human_review"
+      ],
+      "children": [
+        {
+          "displayName": "Blue_Spread_EXPLSN 1",
+          "category": "Actor",
+          "status": "PENDING_SOURCE_REVIEW",
+          "authoringAssetId": "d1530b31a7fb84c4a8cb60ad6978dc67:3222171239587786666",
+          "guid": "d1530b31a7fb84c4a8cb60ad6978dc67",
+          "localId": "3222171239587786666",
+          "visualReferenceId": null,
+          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
+          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
+          "reasons": [
+            "not_publish_safe",
+            "needs_human_review"
+          ],
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": null
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Legacy/boss_burn_EXPLSN 1.prefab",
+      "statuses": [
+        "PENDING_SOURCE_REVIEW"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 1,
+      "reasons": [
+        "not_publish_safe",
+        "needs_human_review"
+      ],
+      "children": [
+        {
+          "displayName": "boss_burn_EXPLSN 1",
+          "category": "Actor",
+          "status": "PENDING_SOURCE_REVIEW",
+          "authoringAssetId": "1942513ced51ae64b917e8ed9d0e9a3c:7411691445975901279",
+          "guid": "1942513ced51ae64b917e8ed9d0e9a3c",
+          "localId": "7411691445975901279",
+          "visualReferenceId": null,
+          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
+          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
+          "reasons": [
+            "not_publish_safe",
+            "needs_human_review"
+          ],
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": null
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Legacy/Boss_Fire_Yellow_EXPLSN 1.prefab",
+      "statuses": [
+        "PENDING_SOURCE_REVIEW"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 1,
+      "reasons": [
+        "not_publish_safe",
+        "needs_human_review"
+      ],
+      "children": [
+        {
+          "displayName": "Boss_Fire_Yellow_EXPLSN 1",
+          "category": "Actor",
+          "status": "PENDING_SOURCE_REVIEW",
+          "authoringAssetId": "7d4dc808b0987f0489b90b1b23176c6d:8039119682555507568",
+          "guid": "7d4dc808b0987f0489b90b1b23176c6d",
+          "localId": "8039119682555507568",
+          "visualReferenceId": null,
+          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
+          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
+          "reasons": [
+            "not_publish_safe",
+            "needs_human_review"
+          ],
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": null
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Legacy/Death_BigEnemy_end_EXPLSN 1.prefab",
+      "statuses": [
+        "PENDING_SOURCE_REVIEW"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 1,
+      "reasons": [
+        "not_publish_safe",
+        "needs_human_review"
+      ],
+      "children": [
+        {
+          "displayName": "Death_BigEnemy_end_EXPLSN 1",
+          "category": "Actor",
+          "status": "PENDING_SOURCE_REVIEW",
+          "authoringAssetId": "b8ffe97156a5203469e3998a09475e2d:3281137238868393855",
+          "guid": "b8ffe97156a5203469e3998a09475e2d",
+          "localId": "3281137238868393855",
+          "visualReferenceId": null,
+          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
+          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
+          "reasons": [
+            "not_publish_safe",
+            "needs_human_review"
+          ],
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": null
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Legacy/Dust_EXPLSN 1.prefab",
+      "statuses": [
+        "PENDING_SOURCE_REVIEW"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 1,
+      "reasons": [
+        "not_publish_safe",
+        "needs_human_review"
+      ],
+      "children": [
+        {
+          "displayName": "Dust_EXPLSN 1",
+          "category": "Actor",
+          "status": "PENDING_SOURCE_REVIEW",
+          "authoringAssetId": "740066344c9870649b08374c370ac76b:3066661435595871510",
+          "guid": "740066344c9870649b08374c370ac76b",
+          "localId": "3066661435595871510",
+          "visualReferenceId": null,
+          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
+          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
+          "reasons": [
+            "not_publish_safe",
+            "needs_human_review"
+          ],
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": null
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Legacy/EXPLOSION 1.prefab",
+      "statuses": [
+        "PENDING_SOURCE_REVIEW"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 1,
+      "reasons": [
+        "not_publish_safe",
+        "needs_human_review"
+      ],
+      "children": [
+        {
+          "displayName": "EXPLOSION 1",
+          "category": "Actor",
+          "status": "PENDING_SOURCE_REVIEW",
+          "authoringAssetId": "8c445a04c38007848960260cced603fc:1121192042590650",
+          "guid": "8c445a04c38007848960260cced603fc",
+          "localId": "1121192042590650",
+          "visualReferenceId": null,
+          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
+          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
+          "reasons": [
+            "not_publish_safe",
+            "needs_human_review"
+          ],
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": null
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Legacy/Fire_Surface_EXPLSN 1.prefab",
+      "statuses": [
+        "PENDING_SOURCE_REVIEW"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 1,
+      "reasons": [
+        "not_publish_safe",
+        "needs_human_review"
+      ],
+      "children": [
+        {
+          "displayName": "Fire_Surface_EXPLSN 1",
+          "category": "Actor",
+          "status": "PENDING_SOURCE_REVIEW",
+          "authoringAssetId": "27e136579e2ba0a4aad11ab49997266f:1048790455586534",
+          "guid": "27e136579e2ba0a4aad11ab49997266f",
+          "localId": "1048790455586534",
+          "visualReferenceId": null,
+          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
+          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
+          "reasons": [
+            "not_publish_safe",
+            "needs_human_review"
+          ],
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": null
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Legacy/Flame_Stream_EXPLSN 1.prefab",
+      "statuses": [
+        "PENDING_SOURCE_REVIEW"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 1,
+      "reasons": [
+        "not_publish_safe",
+        "needs_human_review"
+      ],
+      "children": [
+        {
+          "displayName": "Flame_Stream_EXPLSN 1",
+          "category": "Actor",
+          "status": "PENDING_SOURCE_REVIEW",
+          "authoringAssetId": "d0dbb0712fdecf346b894bcb038533b7:1000013222772914",
+          "guid": "d0dbb0712fdecf346b894bcb038533b7",
+          "localId": "1000013222772914",
+          "visualReferenceId": null,
+          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
+          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
+          "reasons": [
+            "not_publish_safe",
+            "needs_human_review"
+          ],
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": null
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Legacy/GreenLaser_SMALL_EXPLSN 1.prefab",
+      "statuses": [
+        "PENDING_SOURCE_REVIEW"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 1,
+      "reasons": [
+        "not_publish_safe",
+        "needs_human_review"
+      ],
+      "children": [
+        {
+          "displayName": "GreenLaser_SMALL_EXPLSN 1",
+          "category": "Actor",
+          "status": "PENDING_SOURCE_REVIEW",
+          "authoringAssetId": "e6838da2d0d371d49ba438784368ac04:1000013222772914",
+          "guid": "e6838da2d0d371d49ba438784368ac04",
+          "localId": "1000013222772914",
+          "visualReferenceId": null,
+          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
+          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
+          "reasons": [
+            "not_publish_safe",
+            "needs_human_review"
+          ],
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": null
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Legacy/Plasma_EXPLSN 1.prefab",
+      "statuses": [
+        "PENDING_SOURCE_REVIEW"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 1,
+      "reasons": [
+        "not_publish_safe",
+        "needs_human_review"
+      ],
+      "children": [
+        {
+          "displayName": "Plasma_EXPLSN 1",
+          "category": "Actor",
+          "status": "PENDING_SOURCE_REVIEW",
+          "authoringAssetId": "91355d00fd48f294296fd8d0868fa187:2013353086575169992",
+          "guid": "91355d00fd48f294296fd8d0868fa187",
+          "localId": "2013353086575169992",
+          "visualReferenceId": null,
+          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
+          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
+          "reasons": [
+            "not_publish_safe",
+            "needs_human_review"
+          ],
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": null
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Legacy/Pulse_EXPLSN 1.prefab",
+      "statuses": [
+        "PENDING_SOURCE_REVIEW"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 1,
+      "reasons": [
+        "not_publish_safe",
+        "needs_human_review"
+      ],
+      "children": [
+        {
+          "displayName": "Pulse_EXPLSN 1",
+          "category": "Actor",
+          "status": "PENDING_SOURCE_REVIEW",
+          "authoringAssetId": "04414345337bec443814bdc7a342121a:750853607883645721",
+          "guid": "04414345337bec443814bdc7a342121a",
+          "localId": "750853607883645721",
+          "visualReferenceId": null,
+          "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
+          "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
+          "reasons": [
+            "not_publish_safe",
+            "needs_human_review"
+          ],
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": null
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Prefabs/VFX/MY_EXPLOSIONS/Legacy/WallHit_EXPLSN 1.prefab",
+      "statuses": [
+        "PENDING_SOURCE_REVIEW"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 1,
+      "reasons": [
+        "not_publish_safe",
+        "needs_human_review"
+      ],
+      "children": [
+        {
+          "displayName": "WallHit_EXPLSN 1",
+          "category": "Actor",
+          "status": "PENDING_SOURCE_REVIEW",
+          "authoringAssetId": "38784f3110edb684aafe973873685678:1649808841834280268",
+          "guid": "38784f3110edb684aafe973873685678",
+          "localId": "1649808841834280268",
           "visualReferenceId": null,
           "recommendationStatus": "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW",
           "eligibilityStatus": "SOURCE_REVIEW_REQUIRED",
@@ -53751,7 +53307,7 @@
             "needs_human_review"
           ],
           "atlasPage": 12,
-          "atlasSlot": 7,
+          "atlasSlot": 11,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-012.jpg"
         }
       ],
@@ -131539,7 +131095,7 @@
             "needs_human_review"
           ],
           "atlasPage": 16,
-          "atlasSlot": 2,
+          "atlasSlot": 6,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-016.jpg"
         }
       ],
@@ -132258,9 +131814,9 @@
             "not_publish_safe",
             "needs_human_review"
           ],
-          "atlasPage": 12,
-          "atlasSlot": 11,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-012.jpg"
+          "atlasPage": 13,
+          "atlasSlot": 3,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-013.jpg"
         }
       ],
       "unityActions": {
@@ -132339,7 +131895,7 @@
             "needs_human_review"
           ],
           "atlasPage": 12,
-          "atlasSlot": 4,
+          "atlasSlot": 8,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-012.jpg"
         }
       ],
@@ -150887,7 +150443,7 @@
             "needs_human_review"
           ],
           "atlasPage": 3,
-          "atlasSlot": 7,
+          "atlasSlot": 11,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-003.jpg"
         }
       ],
@@ -150927,7 +150483,7 @@
             "needs_human_review"
           ],
           "atlasPage": 3,
-          "atlasSlot": 8,
+          "atlasSlot": 12,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-003.jpg"
         }
       ],
@@ -150966,9 +150522,9 @@
             "not_publish_safe",
             "needs_human_review"
           ],
-          "atlasPage": 11,
-          "atlasSlot": 10,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-011.jpg"
+          "atlasPage": 12,
+          "atlasSlot": 2,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-012.jpg"
         }
       ],
       "unityActions": {
@@ -151006,9 +150562,9 @@
             "not_publish_safe",
             "needs_human_review"
           ],
-          "atlasPage": 7,
-          "atlasSlot": 9,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-007.jpg"
+          "atlasPage": 8,
+          "atlasSlot": 1,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-008.jpg"
         }
       ],
       "unityActions": {
@@ -151486,9 +151042,9 @@
             "not_publish_safe",
             "needs_human_review"
           ],
-          "atlasPage": 10,
-          "atlasSlot": 10,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-010.jpg"
+          "atlasPage": 11,
+          "atlasSlot": 2,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-011.jpg"
         }
       ],
       "unityActions": {
@@ -208450,7 +208006,7 @@
             "needs_human_review"
           ],
           "atlasPage": 14,
-          "atlasSlot": 2,
+          "atlasSlot": 6,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-014.jpg"
         }
       ],
@@ -208490,7 +208046,7 @@
             "needs_human_review"
           ],
           "atlasPage": 15,
-          "atlasSlot": 1,
+          "atlasSlot": 5,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-015.jpg"
         }
       ],
@@ -210339,7 +209895,7 @@
             "catalog_semantics_exclude_direct_authoring"
           ],
           "atlasPage": 8,
-          "atlasSlot": 1,
+          "atlasSlot": 5,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-008.jpg"
         },
         {
@@ -210428,7 +209984,7 @@
             "catalog_semantics_exclude_direct_authoring"
           ],
           "atlasPage": 11,
-          "atlasSlot": 6,
+          "atlasSlot": 10,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-011.jpg"
         },
         {
@@ -210985,7 +210541,7 @@
             "catalog_semantics_exclude_direct_authoring"
           ],
           "atlasPage": 11,
-          "atlasSlot": 7,
+          "atlasSlot": 11,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-011.jpg"
         },
         {
@@ -211074,7 +210630,7 @@
             "catalog_semantics_exclude_direct_authoring"
           ],
           "atlasPage": 16,
-          "atlasSlot": 3,
+          "atlasSlot": 7,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-016.jpg"
         },
         {
@@ -211555,9 +211111,9 @@
           "reasons": [
             "catalog_semantics_exclude_direct_authoring"
           ],
-          "atlasPage": 6,
-          "atlasSlot": 10,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-006.jpg"
+          "atlasPage": 7,
+          "atlasSlot": 2,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-007.jpg"
         },
         {
           "displayName": "hair front",
@@ -212257,9 +211813,9 @@
           "reasons": [
             "catalog_semantics_exclude_direct_authoring"
           ],
-          "atlasPage": 6,
-          "atlasSlot": 11,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-006.jpg"
+          "atlasPage": 7,
+          "atlasSlot": 3,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-007.jpg"
         },
         {
           "displayName": "hair front",
@@ -212852,7 +212408,7 @@
             "catalog_semantics_exclude_direct_authoring"
           ],
           "atlasPage": 3,
-          "atlasSlot": 6,
+          "atlasSlot": 10,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-003.jpg"
         },
         {
@@ -213175,7 +212731,7 @@
             "catalog_semantics_exclude_direct_authoring"
           ],
           "atlasPage": 11,
-          "atlasSlot": 8,
+          "atlasSlot": 12,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-011.jpg"
         },
         {
@@ -213676,9 +213232,9 @@
           "reasons": [
             "catalog_semantics_exclude_direct_authoring"
           ],
-          "atlasPage": 6,
-          "atlasSlot": 12,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-006.jpg"
+          "atlasPage": 7,
+          "atlasSlot": 4,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-007.jpg"
         },
         {
           "displayName": "hand R bottom",
@@ -213855,9 +213411,9 @@
           "reasons": [
             "catalog_semantics_exclude_direct_authoring"
           ],
-          "atlasPage": 11,
-          "atlasSlot": 9,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-011.jpg"
+          "atlasPage": 12,
+          "atlasSlot": 1,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-012.jpg"
         },
         {
           "displayName": "shoulder plate L",
@@ -227767,7 +227323,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 6,
-          "atlasSlot": 3,
+          "atlasSlot": 7,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-006.jpg"
         }
       ],
@@ -227971,7 +227527,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 12,
-          "atlasSlot": 8,
+          "atlasSlot": 12,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-012.jpg"
         }
       ],
@@ -228194,11 +227750,11 @@
       "categories": [
         "Actor"
       ],
-      "entryCount": 1,
+      "entryCount": 2,
       "reasons": [],
       "children": [
         {
-          "displayName": "CIV BOY SCHOOL 01 STOP LOOK UP F11",
+          "displayName": "CIV BOY SCHOOL 01 STOP LOOK UP F07",
           "category": "Actor",
           "status": "INCLUDED_IN_ATLAS",
           "authoringAssetId": "6ecabe6e657ec7c4a8a0f5edf7a9ea00:2864309899985505276",
@@ -228210,6 +227766,21 @@
           "reasons": [],
           "atlasPage": 2,
           "atlasSlot": 10,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-002.jpg"
+        },
+        {
+          "displayName": "CIV BOY SCHOOL 01 STOP LOOK UP F11",
+          "category": "Actor",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "6ecabe6e657ec7c4a8a0f5edf7a9ea00:-2054517264161019935",
+          "guid": "6ecabe6e657ec7c4a8a0f5edf7a9ea00",
+          "localId": "-2054517264161019935",
+          "visualReferenceId": "visual_7edd6691c7c30736e4da",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 2,
+          "atlasSlot": 11,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-002.jpg"
         }
       ],
@@ -228243,7 +227814,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 2,
-          "atlasSlot": 11,
+          "atlasSlot": 12,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-002.jpg"
         }
       ],
@@ -228276,9 +227847,9 @@
           "recommendationStatus": "RECOMMENDABLE",
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
-          "atlasPage": 2,
-          "atlasSlot": 12,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-002.jpg"
+          "atlasPage": 3,
+          "atlasSlot": 1,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-003.jpg"
         }
       ],
       "unityActions": {
@@ -228296,11 +227867,26 @@
       "categories": [
         "Actor"
       ],
-      "entryCount": 1,
+      "entryCount": 2,
       "reasons": [],
       "children": [
         {
           "displayName": "CIV MAN CASUAL 01 WALK RIGHT F01",
+          "category": "Actor",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "962b6d422d0586f48960fa9f77b8e2c6:-3005333580518818261",
+          "guid": "962b6d422d0586f48960fa9f77b8e2c6",
+          "localId": "-3005333580518818261",
+          "visualReferenceId": "visual_b3d0b720fc77b338ddcf",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 3,
+          "atlasSlot": 2,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-003.jpg"
+        },
+        {
+          "displayName": "CIV MAN CASUAL 01 WALK RIGHT F04",
           "category": "Actor",
           "status": "INCLUDED_IN_ATLAS",
           "authoringAssetId": "962b6d422d0586f48960fa9f77b8e2c6:7736545447025876400",
@@ -228311,7 +227897,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 3,
-          "atlasSlot": 1,
+          "atlasSlot": 3,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-003.jpg"
         }
       ],
@@ -228330,11 +227916,11 @@
       "categories": [
         "Actor"
       ],
-      "entryCount": 1,
+      "entryCount": 2,
       "reasons": [],
       "children": [
         {
-          "displayName": "CIV ORTHODOX ELDER 01 STOP LOOK UP F11",
+          "displayName": "CIV ORTHODOX ELDER 01 STOP LOOK UP F09",
           "category": "Actor",
           "status": "INCLUDED_IN_ATLAS",
           "authoringAssetId": "bf12b1b0d54c06c4bad084a27d04794f:-3398111070415058815",
@@ -228345,7 +227931,22 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 3,
-          "atlasSlot": 2,
+          "atlasSlot": 4,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-003.jpg"
+        },
+        {
+          "displayName": "CIV ORTHODOX ELDER 01 STOP LOOK UP F11",
+          "category": "Actor",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "bf12b1b0d54c06c4bad084a27d04794f:-1246295500720408330",
+          "guid": "bf12b1b0d54c06c4bad084a27d04794f",
+          "localId": "-1246295500720408330",
+          "visualReferenceId": "visual_7e90652789a37b710f26",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 3,
+          "atlasSlot": 5,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-003.jpg"
         }
       ],
@@ -228379,7 +227980,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 3,
-          "atlasSlot": 3,
+          "atlasSlot": 6,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-003.jpg"
         }
       ],
@@ -228413,7 +228014,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 3,
-          "atlasSlot": 4,
+          "atlasSlot": 7,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-003.jpg"
         }
       ],
@@ -228432,11 +228033,26 @@
       "categories": [
         "Actor"
       ],
-      "entryCount": 1,
+      "entryCount": 2,
       "reasons": [],
       "children": [
         {
           "displayName": "CIV WOMAN SHOPPING 01 WALK RIGHT F14",
+          "category": "Actor",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "115545fdc78739f49bff561ec45c4ae2:-159478372014579081",
+          "guid": "115545fdc78739f49bff561ec45c4ae2",
+          "localId": "-159478372014579081",
+          "visualReferenceId": "visual_b9f0c8ec6b9b427a7d7a",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 3,
+          "atlasSlot": 8,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-003.jpg"
+        },
+        {
+          "displayName": "CIV WOMAN SHOPPING 01 WALK RIGHT F16",
           "category": "Actor",
           "status": "INCLUDED_IN_ATLAS",
           "authoringAssetId": "115545fdc78739f49bff561ec45c4ae2:-5846810456589968727",
@@ -228447,7 +228063,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 3,
-          "atlasSlot": 5,
+          "atlasSlot": 9,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-003.jpg"
         }
       ],
@@ -229603,7 +229219,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 12,
-          "atlasSlot": 5,
+          "atlasSlot": 9,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-012.jpg"
         }
       ],
@@ -229898,7 +229514,7 @@
             "EntityKindConflictingCandidates"
           ],
           "atlasPage": 6,
-          "atlasSlot": 6,
+          "atlasSlot": 10,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-006.jpg"
         },
         {
@@ -229915,7 +229531,7 @@
             "EntityKindConflictingCandidates"
           ],
           "atlasPage": 6,
-          "atlasSlot": 7,
+          "atlasSlot": 11,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-006.jpg"
         }
       ],
@@ -230833,7 +230449,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 12,
-          "atlasSlot": 6,
+          "atlasSlot": 10,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-012.jpg"
         }
       ],
@@ -230901,7 +230517,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 7,
-          "atlasSlot": 8,
+          "atlasSlot": 12,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-007.jpg"
         }
       ],
@@ -231007,7 +230623,7 @@
             "EntityKindConflictingCandidates"
           ],
           "atlasPage": 13,
-          "atlasSlot": 1,
+          "atlasSlot": 5,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-013.jpg"
         }
       ],
@@ -231079,7 +230695,7 @@
             "EntityKindConflictingCandidates"
           ],
           "atlasPage": 8,
-          "atlasSlot": 3,
+          "atlasSlot": 7,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-008.jpg"
         }
       ],
@@ -231113,8 +230729,228 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 8,
-          "atlasSlot": 4,
+          "atlasSlot": 8,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-008.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Designs - Base/Aseprite/Nautolan Ship - Bomber - Base.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 2,
+      "reasons": [
+        "EntityKindConflictingCandidates"
+      ],
+      "children": [
+        {
+          "displayName": "Nautolan Ship   Bomber   Base",
+          "category": "Actor",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "9d7170a3dff724e41b9b488a040a8f88:-2253911629886400664",
+          "guid": "9d7170a3dff724e41b9b488a040a8f88",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_f4725c4df2c48077bd18",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 9,
+          "atlasSlot": 1,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-009.jpg"
+        },
+        {
+          "displayName": "Nautolan Ship   Bomber   Base",
+          "category": "Actor",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "9d7170a3dff724e41b9b488a040a8f88:5021844548529605880",
+          "guid": "9d7170a3dff724e41b9b488a040a8f88",
+          "localId": "5021844548529605880",
+          "visualReferenceId": "visual_a31dc670f1d9913178c7",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 9,
+          "atlasSlot": 2,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-009.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Designs - Base/Aseprite/Nautolan Ship - Dreadnought - Base.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 2,
+      "reasons": [
+        "EntityKindConflictingCandidates"
+      ],
+      "children": [
+        {
+          "displayName": "Nautolan Ship   Dreadnought   Base",
+          "category": "Actor",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "80e766080270cbd4383fa6e040c2da44:-2253911629886400664",
+          "guid": "80e766080270cbd4383fa6e040c2da44",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_d27002d97b4fbcb165f0",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 9,
+          "atlasSlot": 5,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-009.jpg"
+        },
+        {
+          "displayName": "Nautolan Ship   Dreadnought   Base",
+          "category": "Actor",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "80e766080270cbd4383fa6e040c2da44:7538336004649120221",
+          "guid": "80e766080270cbd4383fa6e040c2da44",
+          "localId": "7538336004649120221",
+          "visualReferenceId": "visual_92039399457cd17605d3",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 9,
+          "atlasSlot": 6,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-009.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Designs - Base/Aseprite/Nautolan Ship - Scout - Base.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 2,
+      "reasons": [
+        "EntityKindConflictingCandidates"
+      ],
+      "children": [
+        {
+          "displayName": "Nautolan Ship   Scout   Base",
+          "category": "Actor",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "596146a602fa3c84f9824797d1b41611:-2253911629886400664",
+          "guid": "596146a602fa3c84f9824797d1b41611",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_94a2bb64ca768b61705d",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 10,
+          "atlasSlot": 1,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-010.jpg"
+        },
+        {
+          "displayName": "Nautolan Ship   Scout   Base",
+          "category": "Actor",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "596146a602fa3c84f9824797d1b41611:7536893383084444256",
+          "guid": "596146a602fa3c84f9824797d1b41611",
+          "localId": "7536893383084444256",
+          "visualReferenceId": "visual_f10a5dffbea64d5e2d34",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 10,
+          "atlasSlot": 2,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-010.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Designs - Base/Aseprite/Nautolan Ship - Support - Base.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Actor"
+      ],
+      "entryCount": 2,
+      "reasons": [
+        "EntityKindConflictingCandidates"
+      ],
+      "children": [
+        {
+          "displayName": "Nautolan Ship   Support   Base",
+          "category": "Actor",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "b6980d2e8925de84986d64f644349536:-2253911629886400664",
+          "guid": "b6980d2e8925de84986d64f644349536",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_462281e8701cec1387f6",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 10,
+          "atlasSlot": 5,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-010.jpg"
+        },
+        {
+          "displayName": "Nautolan Ship   Support   Base",
+          "category": "Actor",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "b6980d2e8925de84986d64f644349536:7953995995871120647",
+          "guid": "b6980d2e8925de84986d64f644349536",
+          "localId": "7953995995871120647",
+          "visualReferenceId": "visual_9a94c03deae15e1f99d4",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 10,
+          "atlasSlot": 6,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-010.jpg"
         }
       ],
       "unityActions": {
@@ -231359,6 +231195,55 @@
           "reasons": [],
           "atlasPage": 32,
           "atlasSlot": 3,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Scout - Engine Effect.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Effect"
+      ],
+      "entryCount": 2,
+      "reasons": [],
+      "children": [
+        {
+          "displayName": "Nautolan Ship   Scout   Engine Effect",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "024f1510474d6a945bf0d4eb1ea58862:-2253911629886400664",
+          "guid": "024f1510474d6a945bf0d4eb1ea58862",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_ec555f970dfef3b333da",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 32,
+          "atlasSlot": 8,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
+        },
+        {
+          "displayName": "Nautolan Ship   Scout   Engine Effect Frame",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "024f1510474d6a945bf0d4eb1ea58862:-2689793701429678253",
+          "guid": "024f1510474d6a945bf0d4eb1ea58862",
+          "localId": "-2689793701429678253",
+          "visualReferenceId": "visual_0ad2a4976ecd04b5552b",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 32,
+          "atlasSlot": 9,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
         }
       ],
@@ -231615,6 +231500,55 @@
       }
     },
     {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Fighter - Shield.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Effect"
+      ],
+      "entryCount": 2,
+      "reasons": [],
+      "children": [
+        {
+          "displayName": "Nautolan Ship   Fighter   Shield",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "b79aa9c1bd197b2439affa793ab62681:-2253911629886400664",
+          "guid": "b79aa9c1bd197b2439affa793ab62681",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_3275deaf4b78d6e0c351",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 31,
+          "atlasSlot": 10,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-015.jpg"
+        },
+        {
+          "displayName": "Nautolan Ship   Fighter   Shield Frame",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "b79aa9c1bd197b2439affa793ab62681:4445974820773058877",
+          "guid": "b79aa9c1bd197b2439affa793ab62681",
+          "localId": "4445974820773058877",
+          "visualReferenceId": "visual_7380d116f0ca6d3abf6f",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 31,
+          "atlasSlot": 11,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-015.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
       "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Frigate - Shield.aseprite",
       "statuses": [
         "INCLUDED_IN_ATLAS"
@@ -231653,6 +231587,55 @@
           "reasons": [],
           "atlasPage": 32,
           "atlasSlot": 5,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Scout - Shield.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Effect"
+      ],
+      "entryCount": 2,
+      "reasons": [],
+      "children": [
+        {
+          "displayName": "Nautolan Ship   Scout   Shield",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "f69d7725d66bf8e498ef38ea03095652:-2253911629886400664",
+          "guid": "f69d7725d66bf8e498ef38ea03095652",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_425a58cd569d16f845c1",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 32,
+          "atlasSlot": 10,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
+        },
+        {
+          "displayName": "Nautolan Ship   Scout   Shield Frame",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "f69d7725d66bf8e498ef38ea03095652:1180994541274019408",
+          "guid": "f69d7725d66bf8e498ef38ea03095652",
+          "localId": "1180994541274019408",
+          "visualReferenceId": "visual_2dc2c83301471f013529",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 32,
+          "atlasSlot": 11,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
         }
       ],
@@ -231713,6 +231696,165 @@
       }
     },
     {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Bomb.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Effect"
+      ],
+      "entryCount": 2,
+      "reasons": [
+        "EntityKindConflictingCandidates"
+      ],
+      "children": [
+        {
+          "displayName": "Nautolan   Bomb",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "1560ea936d7437141ae7d442fed88240:-2253911629886400664",
+          "guid": "1560ea936d7437141ae7d442fed88240",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_ffc33b97338a93408cfb",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 29,
+          "atlasSlot": 4,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-013.jpg"
+        },
+        {
+          "displayName": "Nautolan   Bomb Frame",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "1560ea936d7437141ae7d442fed88240:7696667916617574318",
+          "guid": "1560ea936d7437141ae7d442fed88240",
+          "localId": "7696667916617574318",
+          "visualReferenceId": "visual_fa60d98b11c6c758f1f2",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 29,
+          "atlasSlot": 5,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-013.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Bullet.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Effect"
+      ],
+      "entryCount": 2,
+      "reasons": [
+        "EntityKindConflictingCandidates"
+      ],
+      "children": [
+        {
+          "displayName": "Nautolan   Bullet",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "316ef3490a0455745982d5e6da211f81:-2253911629886400664",
+          "guid": "316ef3490a0455745982d5e6da211f81",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_812e97a6a88b667a5595",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 29,
+          "atlasSlot": 6,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-013.jpg"
+        },
+        {
+          "displayName": "Nautolan   Bullet Frame",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "316ef3490a0455745982d5e6da211f81:-4985935641720339655",
+          "guid": "316ef3490a0455745982d5e6da211f81",
+          "localId": "-4985935641720339655",
+          "visualReferenceId": "visual_8815a4d8c6027fccb82e",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 29,
+          "atlasSlot": 7,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-013.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Ray.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Effect"
+      ],
+      "entryCount": 2,
+      "reasons": [
+        "EntityKindConflictingCandidates"
+      ],
+      "children": [
+        {
+          "displayName": "Nautolan   Ray",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "53a6affd7e15a424da2604860c469cbf:-2253911629886400664",
+          "guid": "53a6affd7e15a424da2604860c469cbf",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_065a3234775f0a8de25f",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 29,
+          "atlasSlot": 8,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-013.jpg"
+        },
+        {
+          "displayName": "Nautolan   Ray Frame",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "53a6affd7e15a424da2604860c469cbf:1684248807261343653",
+          "guid": "53a6affd7e15a424da2604860c469cbf",
+          "localId": "1684248807261343653",
+          "visualReferenceId": "visual_d43ea6356bdb0f7c646e",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 29,
+          "atlasSlot": 9,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-013.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
       "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Rocket.aseprite",
       "statuses": [
         "INCLUDED_IN_ATLAS"
@@ -231756,6 +231898,430 @@
           "atlasPage": 29,
           "atlasSlot": 11,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-013.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Spinning Bullet.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Effect"
+      ],
+      "entryCount": 2,
+      "reasons": [
+        "EntityKindConflictingCandidates"
+      ],
+      "children": [
+        {
+          "displayName": "Nautolan   Spinning Bullet",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "ab3982fb65d467f4993bfcaef9d9c202:-2253911629886400664",
+          "guid": "ab3982fb65d467f4993bfcaef9d9c202",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_5f9a8f63313f5f03788e",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 29,
+          "atlasSlot": 12,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-013.jpg"
+        },
+        {
+          "displayName": "Nautolan   Spinning Bullet Frame",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "ab3982fb65d467f4993bfcaef9d9c202:-8992589322347507911",
+          "guid": "ab3982fb65d467f4993bfcaef9d9c202",
+          "localId": "-8992589322347507911",
+          "visualReferenceId": "visual_ab2797b327b84fc53b5f",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 30,
+          "atlasSlot": 1,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-014.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Wave.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Effect"
+      ],
+      "entryCount": 2,
+      "reasons": [
+        "EntityKindConflictingCandidates"
+      ],
+      "children": [
+        {
+          "displayName": "Nautolan   Wave",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "c7d52c929c431ea459801beb60b4fa36:-2253911629886400664",
+          "guid": "c7d52c929c431ea459801beb60b4fa36",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_6c071ec96b07486eea2e",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 30,
+          "atlasSlot": 2,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-014.jpg"
+        },
+        {
+          "displayName": "Nautolan   Wave Frame",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "c7d52c929c431ea459801beb60b4fa36:6708538310797302118",
+          "guid": "c7d52c929c431ea459801beb60b4fa36",
+          "localId": "6708538310797302118",
+          "visualReferenceId": "visual_036909c1d77cbbe48f8a",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 30,
+          "atlasSlot": 3,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-014.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Battlecruiser - Weapons.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Effect"
+      ],
+      "entryCount": 2,
+      "reasons": [
+        "EntityKindConflictingCandidates"
+      ],
+      "children": [
+        {
+          "displayName": "Nautolan Ship   Battlecruiser   Weapons",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "14999e8745e5bd547a501b2044e6de70:-2253911629886400664",
+          "guid": "14999e8745e5bd547a501b2044e6de70",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_55c6eb298e7e7da13297",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 30,
+          "atlasSlot": 8,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-014.jpg"
+        },
+        {
+          "displayName": "Nautolan Ship   Battlecruiser   Weapons Frame",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "14999e8745e5bd547a501b2044e6de70:4695840300268164084",
+          "guid": "14999e8745e5bd547a501b2044e6de70",
+          "localId": "4695840300268164084",
+          "visualReferenceId": "visual_5cb9510e4efe9cb7264d",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 30,
+          "atlasSlot": 9,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-014.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Dreadnought - Weapons.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Effect"
+      ],
+      "entryCount": 2,
+      "reasons": [
+        "EntityKindConflictingCandidates"
+      ],
+      "children": [
+        {
+          "displayName": "Nautolan Ship   Dreadnought   Weapons",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "d777fb452f2183a45b6cc31f492b81f2:-2253911629886400664",
+          "guid": "d777fb452f2183a45b6cc31f492b81f2",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_f604a40d5430cd23c315",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 31,
+          "atlasSlot": 6,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-015.jpg"
+        },
+        {
+          "displayName": "Nautolan Ship   Dreadnought   Weapons Frame",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "d777fb452f2183a45b6cc31f492b81f2:1323809240188320811",
+          "guid": "d777fb452f2183a45b6cc31f492b81f2",
+          "localId": "1323809240188320811",
+          "visualReferenceId": "visual_f5ebffbf4ac9cc5d1089",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 31,
+          "atlasSlot": 7,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-015.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Fighter - Weapons.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Effect"
+      ],
+      "entryCount": 2,
+      "reasons": [
+        "EntityKindConflictingCandidates"
+      ],
+      "children": [
+        {
+          "displayName": "Nautolan Ship   Fighter   Weapons",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "7c84241963b98b94bad55664c49f0a94:-2253911629886400664",
+          "guid": "7c84241963b98b94bad55664c49f0a94",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_50eea41e0467ca2e9d95",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 31,
+          "atlasSlot": 12,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-015.jpg"
+        },
+        {
+          "displayName": "Nautolan Ship   Fighter   Weapons Frame",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "7c84241963b98b94bad55664c49f0a94:-7076886760956826457",
+          "guid": "7c84241963b98b94bad55664c49f0a94",
+          "localId": "-7076886760956826457",
+          "visualReferenceId": "visual_5968fcecce517d31638c",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 32,
+          "atlasSlot": 1,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Frigate - Weapons.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Effect"
+      ],
+      "entryCount": 2,
+      "reasons": [
+        "EntityKindConflictingCandidates"
+      ],
+      "children": [
+        {
+          "displayName": "Nautolan Ship   Frigate   Weapons",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "2dc0c9277773e35479970ebabcd17f62:-2253911629886400664",
+          "guid": "2dc0c9277773e35479970ebabcd17f62",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_c927925805040b7423ef",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 32,
+          "atlasSlot": 6,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
+        },
+        {
+          "displayName": "Nautolan Ship   Frigate   Weapons Frame",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "2dc0c9277773e35479970ebabcd17f62:8869196315713800870",
+          "guid": "2dc0c9277773e35479970ebabcd17f62",
+          "localId": "8869196315713800870",
+          "visualReferenceId": "visual_8c56226adf94b053a29c",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 32,
+          "atlasSlot": 7,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Scout - Weapons.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Effect"
+      ],
+      "entryCount": 2,
+      "reasons": [
+        "EntityKindConflictingCandidates"
+      ],
+      "children": [
+        {
+          "displayName": "Nautolan Ship   Scout   Weapons",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "bde165a34b66def42ae843f224329d6a:-2253911629886400664",
+          "guid": "bde165a34b66def42ae843f224329d6a",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_4ebdae10b0ab603aedab",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 32,
+          "atlasSlot": 12,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-016.jpg"
+        },
+        {
+          "displayName": "Nautolan Ship   Scout   Weapons Frame",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "bde165a34b66def42ae843f224329d6a:1386792776536436067",
+          "guid": "bde165a34b66def42ae843f224329d6a",
+          "localId": "1386792776536436067",
+          "visualReferenceId": "visual_33c29bb86bca1a6124ab",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 33,
+          "atlasSlot": 1,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-017.jpg"
+        }
+      ],
+      "unityActions": {
+        "ping": "AssetDatabase.LoadMainAssetAtPath(assetPath) + EditorGUIUtility.PingObject",
+        "open": "AssetDatabase.OpenAsset(AssetDatabase.LoadMainAssetAtPath(assetPath))",
+        "copyPath": "EditorGUIUtility.systemCopyBuffer = assetPath",
+        "reveal": "EditorUtility.RevealInFinder(assetPath)"
+      }
+    },
+    {
+      "assetPath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Torpedo Ship - Weapons.aseprite",
+      "statuses": [
+        "INCLUDED_IN_ATLAS"
+      ],
+      "categories": [
+        "Effect"
+      ],
+      "entryCount": 2,
+      "reasons": [
+        "EntityKindConflictingCandidates"
+      ],
+      "children": [
+        {
+          "displayName": "Nautolan Ship   Torpedo Ship   Weapons",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "2045744723e86c745a14534eaf363c75:-2253911629886400664",
+          "guid": "2045744723e86c745a14534eaf363c75",
+          "localId": "-2253911629886400664",
+          "visualReferenceId": "visual_1d56f1002c0f56ea9ddf",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [
+            "EntityKindConflictingCandidates"
+          ],
+          "atlasPage": 33,
+          "atlasSlot": 8,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-017.jpg"
+        },
+        {
+          "displayName": "Nautolan Ship   Torpedo Ship   Weapons Frame",
+          "category": "Effect",
+          "status": "INCLUDED_IN_ATLAS",
+          "authoringAssetId": "2045744723e86c745a14534eaf363c75:-5980013677122361328",
+          "guid": "2045744723e86c745a14534eaf363c75",
+          "localId": "-5980013677122361328",
+          "visualReferenceId": "visual_5b68a6cc5bbf9d7e46c6",
+          "recommendationStatus": "RECOMMENDABLE",
+          "eligibilityStatus": "GIT_AUDIT_CLEAR",
+          "reasons": [],
+          "atlasPage": 33,
+          "atlasSlot": 9,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-017.jpg"
         }
       ],
       "unityActions": {
@@ -231837,7 +232403,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 7,
-          "atlasSlot": 2,
+          "atlasSlot": 6,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-007.jpg"
         },
         {
@@ -231852,7 +232418,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 7,
-          "atlasSlot": 3,
+          "atlasSlot": 7,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-007.jpg"
         }
       ],
@@ -231890,7 +232456,7 @@
             "EntityKindConflictingCandidates"
           ],
           "atlasPage": 7,
-          "atlasSlot": 4,
+          "atlasSlot": 8,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-007.jpg"
         }
       ],
@@ -231924,7 +232490,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 7,
-          "atlasSlot": 5,
+          "atlasSlot": 9,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-007.jpg"
         }
       ],
@@ -231962,7 +232528,7 @@
             "EntityKindConflictingCandidates"
           ],
           "atlasPage": 6,
-          "atlasSlot": 4,
+          "atlasSlot": 8,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-006.jpg"
         }
       ],
@@ -232098,7 +232664,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 6,
-          "atlasSlot": 5,
+          "atlasSlot": 9,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-006.jpg"
         }
       ],
@@ -232204,7 +232770,7 @@
             "EntityKindConflictingCandidates"
           ],
           "atlasPage": 12,
-          "atlasSlot": 2,
+          "atlasSlot": 6,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-012.jpg"
         }
       ],
@@ -232586,7 +233152,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 15,
-          "atlasSlot": 7,
+          "atlasSlot": 11,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-015.jpg"
         }
       ],
@@ -232658,7 +233224,7 @@
             "EntityKindConflictingCandidates"
           ],
           "atlasPage": 15,
-          "atlasSlot": 8,
+          "atlasSlot": 12,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-015.jpg"
         }
       ],
@@ -232780,9 +233346,7 @@
         "Effect"
       ],
       "entryCount": 1,
-      "reasons": [
-        "EntityKindUnknown"
-      ],
+      "reasons": [],
       "children": [
         {
           "displayName": "my_FX_Sphere_2_Atom",
@@ -232794,9 +233358,7 @@
           "visualReferenceId": "visual_ae7a50276e0bc0e107ac",
           "recommendationStatus": "RECOMMENDABLE",
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
-          "reasons": [
-            "EntityKindUnknown"
-          ],
+          "reasons": [],
           "atlasPage": 29,
           "atlasSlot": 2,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/effect/page-013.jpg"
@@ -232835,9 +233397,9 @@
           "reasons": [
             "EntityKindConflictingCandidates"
           ],
-          "atlasPage": 3,
-          "atlasSlot": 9,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-003.jpg"
+          "atlasPage": 4,
+          "atlasSlot": 1,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-004.jpg"
         }
       ],
       "unityActions": {
@@ -234680,7 +235242,7 @@
             "EntityKindConflictingCandidates"
           ],
           "atlasPage": 12,
-          "atlasSlot": 1,
+          "atlasSlot": 5,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-012.jpg"
         }
       ],
@@ -234785,9 +235347,9 @@
           "reasons": [
             "EntityKindConflictingCandidates"
           ],
-          "atlasPage": 12,
-          "atlasSlot": 9,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-012.jpg"
+          "atlasPage": 13,
+          "atlasSlot": 1,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-013.jpg"
         }
       ],
       "unityActions": {
@@ -234823,9 +235385,9 @@
           "reasons": [
             "EntityKindConflictingCandidates"
           ],
-          "atlasPage": 12,
-          "atlasSlot": 10,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-012.jpg"
+          "atlasPage": 13,
+          "atlasSlot": 2,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-013.jpg"
         }
       ],
       "unityActions": {
@@ -235103,9 +235665,9 @@
           "reasons": [
             "EntityKindConflictingCandidates"
           ],
-          "atlasPage": 10,
-          "atlasSlot": 11,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-010.jpg"
+          "atlasPage": 11,
+          "atlasSlot": 3,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-011.jpg"
         }
       ],
       "unityActions": {
@@ -235141,9 +235703,9 @@
           "reasons": [
             "EntityKindConflictingCandidates"
           ],
-          "atlasPage": 12,
-          "atlasSlot": 12,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-012.jpg"
+          "atlasPage": 13,
+          "atlasSlot": 4,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-013.jpg"
         }
       ],
       "unityActions": {
@@ -235213,9 +235775,9 @@
           "recommendationStatus": "RECOMMENDABLE",
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
-          "atlasPage": 10,
-          "atlasSlot": 12,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-010.jpg"
+          "atlasPage": 11,
+          "atlasSlot": 4,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-011.jpg"
         }
       ],
       "unityActions": {
@@ -235248,7 +235810,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 11,
-          "atlasSlot": 1,
+          "atlasSlot": 5,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-011.jpg"
         }
       ],
@@ -235282,7 +235844,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 11,
-          "atlasSlot": 2,
+          "atlasSlot": 6,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-011.jpg"
         }
       ],
@@ -237723,9 +238285,9 @@
           "recommendationStatus": "RECOMMENDABLE",
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
-          "atlasPage": 7,
-          "atlasSlot": 10,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-007.jpg"
+          "atlasPage": 8,
+          "atlasSlot": 2,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-008.jpg"
         }
       ],
       "unityActions": {
@@ -237757,9 +238319,9 @@
           "recommendationStatus": "RECOMMENDABLE",
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
-          "atlasPage": 7,
-          "atlasSlot": 11,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-007.jpg"
+          "atlasPage": 8,
+          "atlasSlot": 3,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-008.jpg"
         }
       ],
       "unityActions": {
@@ -237859,9 +238421,9 @@
           "recommendationStatus": "RECOMMENDABLE",
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
-          "atlasPage": 11,
-          "atlasSlot": 12,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-011.jpg"
+          "atlasPage": 12,
+          "atlasSlot": 4,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-012.jpg"
         }
       ],
       "unityActions": {
@@ -237962,7 +238524,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 16,
-          "atlasSlot": 6,
+          "atlasSlot": 10,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-016.jpg"
         }
       ],
@@ -238030,7 +238592,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 13,
-          "atlasSlot": 2,
+          "atlasSlot": 6,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-013.jpg"
         }
       ],
@@ -238063,9 +238625,9 @@
           "recommendationStatus": "RECOMMENDABLE",
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
-          "atlasPage": 6,
-          "atlasSlot": 9,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-006.jpg"
+          "atlasPage": 7,
+          "atlasSlot": 1,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-007.jpg"
         }
       ],
       "unityActions": {
@@ -238098,7 +238660,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 10,
-          "atlasSlot": 6,
+          "atlasSlot": 10,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-010.jpg"
         }
       ],
@@ -238132,7 +238694,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 10,
-          "atlasSlot": 7,
+          "atlasSlot": 11,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-010.jpg"
         }
       ],
@@ -238166,7 +238728,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 10,
-          "atlasSlot": 8,
+          "atlasSlot": 12,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-010.jpg"
         }
       ],
@@ -238199,9 +238761,9 @@
           "recommendationStatus": "RECOMMENDABLE",
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
-          "atlasPage": 10,
-          "atlasSlot": 9,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-010.jpg"
+          "atlasPage": 11,
+          "atlasSlot": 1,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-011.jpg"
         }
       ],
       "unityActions": {
@@ -238985,9 +239547,9 @@
           "reasons": [
             "EntityKindConflictingCandidates"
           ],
-          "atlasPage": 7,
-          "atlasSlot": 12,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-007.jpg"
+          "atlasPage": 8,
+          "atlasSlot": 4,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-008.jpg"
         }
       ],
       "unityActions": {
@@ -239292,7 +239854,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 7,
-          "atlasSlot": 1,
+          "atlasSlot": 5,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-007.jpg"
         }
       ],
@@ -239326,7 +239888,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 7,
-          "atlasSlot": 6,
+          "atlasSlot": 10,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-007.jpg"
         }
       ],
@@ -239360,7 +239922,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 6,
-          "atlasSlot": 8,
+          "atlasSlot": 12,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-006.jpg"
         }
       ],
@@ -239394,7 +239956,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 7,
-          "atlasSlot": 7,
+          "atlasSlot": 11,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-007.jpg"
         }
       ],
@@ -239427,9 +239989,9 @@
           "recommendationStatus": "RECOMMENDABLE",
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
-          "atlasPage": 11,
-          "atlasSlot": 11,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-011.jpg"
+          "atlasPage": 12,
+          "atlasSlot": 3,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-012.jpg"
         }
       ],
       "unityActions": {
@@ -240754,7 +241316,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 4,
-          "atlasSlot": 5,
+          "atlasSlot": 9,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-004.jpg"
         },
         {
@@ -240769,7 +241331,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 4,
-          "atlasSlot": 6,
+          "atlasSlot": 10,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-004.jpg"
         }
       ],
@@ -240803,7 +241365,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 5,
-          "atlasSlot": 1,
+          "atlasSlot": 5,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-005.jpg"
         },
         {
@@ -240818,7 +241380,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 5,
-          "atlasSlot": 2,
+          "atlasSlot": 6,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-005.jpg"
         }
       ],
@@ -240851,9 +241413,9 @@
           "recommendationStatus": "RECOMMENDABLE",
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
-          "atlasPage": 5,
-          "atlasSlot": 11,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-005.jpg"
+          "atlasPage": 6,
+          "atlasSlot": 3,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-006.jpg"
         },
         {
           "displayName": "Doc03 Walk 19",
@@ -240866,9 +241428,9 @@
           "recommendationStatus": "RECOMMENDABLE",
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
-          "atlasPage": 5,
-          "atlasSlot": 12,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-005.jpg"
+          "atlasPage": 6,
+          "atlasSlot": 4,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-006.jpg"
         }
       ],
       "unityActions": {
@@ -241479,7 +242041,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 16,
-          "atlasSlot": 1,
+          "atlasSlot": 5,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-016.jpg"
         }
       ],
@@ -241512,9 +242074,9 @@
           "recommendationStatus": "RECOMMENDABLE",
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
-          "atlasPage": 15,
-          "atlasSlot": 9,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-015.jpg"
+          "atlasPage": 16,
+          "atlasSlot": 1,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-016.jpg"
         }
       ],
       "unityActions": {
@@ -241546,9 +242108,9 @@
           "recommendationStatus": "RECOMMENDABLE",
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
-          "atlasPage": 15,
-          "atlasSlot": 10,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-015.jpg"
+          "atlasPage": 16,
+          "atlasSlot": 2,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-016.jpg"
         }
       ],
       "unityActions": {
@@ -241580,9 +242142,9 @@
           "recommendationStatus": "RECOMMENDABLE",
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
-          "atlasPage": 15,
-          "atlasSlot": 11,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-015.jpg"
+          "atlasPage": 16,
+          "atlasSlot": 3,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-016.jpg"
         }
       ],
       "unityActions": {
@@ -241618,9 +242180,9 @@
           "reasons": [
             "EntityKindConflictingCandidates"
           ],
-          "atlasPage": 15,
-          "atlasSlot": 12,
-          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-015.jpg"
+          "atlasPage": 16,
+          "atlasSlot": 4,
+          "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-016.jpg"
         }
       ],
       "unityActions": {
@@ -243187,7 +243749,7 @@
             "EntityKindConflictingCandidates"
           ],
           "atlasPage": 15,
-          "atlasSlot": 4,
+          "atlasSlot": 8,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-015.jpg"
         }
       ],
@@ -243221,7 +243783,7 @@
           "eligibilityStatus": "GIT_AUDIT_CLEAR",
           "reasons": [],
           "atlasPage": 6,
-          "atlasSlot": 1,
+          "atlasSlot": 5,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-006.jpg"
         }
       ],
@@ -243327,7 +243889,7 @@
             "EntityKindConflictingCandidates"
           ],
           "atlasPage": 15,
-          "atlasSlot": 6,
+          "atlasSlot": 10,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-015.jpg"
         }
       ],
@@ -243365,7 +243927,7 @@
             "EntityKindConflictingCandidates"
           ],
           "atlasPage": 15,
-          "atlasSlot": 5,
+          "atlasSlot": 9,
           "pageImageUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/actor/page-015.jpg"
         }
       ],
@@ -245503,17 +246065,17 @@
   "entriesWithoutSourcePath": [],
   "authoringRuleRegistryRevision": "12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372",
   "provenance": {
-    "publishTransactionId": "20260826-051553630-a396f294",
-    "publishedUtc": "2026-08-26T05:24:59.2009904Z",
+    "publishTransactionId": "20260827-191726725-9a631faa",
+    "publishedUtc": "2026-08-27T19:23:56.7631701Z",
     "publisherVersion": "2.11.0",
-    "bundleIdentity": "C7DBD7B59B6041DF40567087A294ED1A92CDE515391DA431736BB3439DEEF77A"
+    "bundleIdentity": "2C31208D8B305580FE2E34E8427953AA665E7DA0611D8A42E8E834BC7AB2A2F6"
   },
   "atomicIdentity": {
-    "publishTransactionId": "20260826-051553630-a396f294",
-    "catalogRevision": "7624599455088950785",
-    "contractRevision": "BD126A7DE3A31C82CAF2E60FEAB0252F905F97E9878141F5856B64F9A687FD1A",
-    "schemaHash": "BC4E283E855A8ADE4249A2D5F429C7D93EC6641A0038B8F00C5E719636595CA3",
-    "snapshotContentHash": "9274EE1B391DE9756987970E12FE35AA98A04A20E19198CDAC2E73B82C567DD5",
+    "publishTransactionId": "20260827-191726725-9a631faa",
+    "catalogRevision": "7624698995981318909",
+    "contractRevision": "2F9CD64B0DD1AB1CF6D97BA46D32A5FA29199B46FCE0A41972C42655B3543CF8",
+    "schemaHash": "E404BDCE7936602B05FEAE284E25B86B558A92393312D5904CD1F3BC2B2B823F",
+    "snapshotContentHash": "5A2C853B99EFC812C96902251EAFB77E3946AC3625CE9707AD60E5B4780DB2AF",
     "authoringRuleRegistryRevision": "12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372"
   }
 }

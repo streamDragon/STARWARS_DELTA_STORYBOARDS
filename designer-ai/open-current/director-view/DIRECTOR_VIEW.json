@@ -3,15 +3,15 @@
   "schemaVersion": 4,
   "status": "CURRENT_FULL_CATALOG_PROJECTION",
   "sourceOfTruth": "Projection only. The atomic full Catalog remains authoritative for exact IDs, compatibility and validation.",
-  "publishTransactionId": "20260826-051553630-a396f294",
-  "publishedUtc": "2026-08-26T05:24:59.2009904Z",
-  "catalogRevision": "7624599455088950785",
-  "snapshotContentHash": "9274EE1B391DE9756987970E12FE35AA98A04A20E19198CDAC2E73B82C567DD5",
-  "contractRevision": "BD126A7DE3A31C82CAF2E60FEAB0252F905F97E9878141F5856B64F9A687FD1A",
-  "schemaHash": "BC4E283E855A8ADE4249A2D5F429C7D93EC6641A0038B8F00C5E719636595CA3",
-  "lastCompletedScanUtc": "2026-08-25T18:45:36.2726106Z",
-  "catalogGeneratedUtc": "2026-08-26T05:15:53.7636454Z",
-  "sourceCatalogRecordCount": 27882,
+  "publishTransactionId": "20260827-191726725-9a631faa",
+  "publishedUtc": "2026-08-27T19:23:56.7631701Z",
+  "catalogRevision": "7624698995981318909",
+  "snapshotContentHash": "5A2C853B99EFC812C96902251EAFB77E3946AC3625CE9707AD60E5B4780DB2AF",
+  "contractRevision": "2F9CD64B0DD1AB1CF6D97BA46D32A5FA29199B46FCE0A41972C42655B3543CF8",
+  "schemaHash": "E404BDCE7936602B05FEAE284E25B86B558A92393312D5904CD1F3BC2B2B823F",
+  "lastCompletedScanUtc": "2026-08-27T19:14:59.9422569Z",
+  "catalogGeneratedUtc": "2026-08-27T19:17:26.8910526Z",
+  "sourceCatalogRecordCount": 27886,
   "requestScoped": false,
   "diagnostics": {
     "annotated": null,
@@ -21,16 +21,16 @@
     "cutsceneReady": null
   },
   "counts": {
-    "actors": 873,
+    "actors": 892,
     "layers": 7727,
     "effects": 312,
     "ui": 358,
     "animations": 531,
     "audio": 224,
-    "recommendableVisualEntriesBeforeActorCanonicalMerge": 9495,
-    "pixelVerifiedVisualEntries": 902,
-    "pixelMissingRecommendableVisualEntries": 8593,
-    "syntheticCatalogVisualEntriesNotPresentInVisualLibrary": 8592
+    "recommendableVisualEntriesBeforeActorCanonicalMerge": 9527,
+    "pixelVerifiedVisualEntries": 906,
+    "pixelMissingRecommendableVisualEntries": 8621,
+    "syntheticCatalogVisualEntriesNotPresentInVisualLibrary": 8620
   },
   "policies": {
     "visuals": "Use one Director visual identity enriched from all mapped Catalog records. Inspect pixel evidence before visual claims.",
@@ -47,7 +47,7 @@
   "categoryFiles": [
     {
       "category": "Actor",
-      "count": 873,
+      "count": 892,
       "file": "director-view/actors.json",
       "url": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/actors.json"
     },
@@ -88,22 +88,22 @@
   "instructionBookRootUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/instruction-book/",
   "catalogContractRootUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/catalog-contract/",
   "atomicIdentity": {
-    "publishTransactionId": "20260826-051553630-a396f294",
-    "catalogRevision": "7624599455088950785",
-    "contractRevision": "BD126A7DE3A31C82CAF2E60FEAB0252F905F97E9878141F5856B64F9A687FD1A",
-    "schemaHash": "BC4E283E855A8ADE4249A2D5F429C7D93EC6641A0038B8F00C5E719636595CA3",
-    "snapshotContentHash": "9274EE1B391DE9756987970E12FE35AA98A04A20E19198CDAC2E73B82C567DD5",
+    "publishTransactionId": "20260827-191726725-9a631faa",
+    "catalogRevision": "7624698995981318909",
+    "contractRevision": "2F9CD64B0DD1AB1CF6D97BA46D32A5FA29199B46FCE0A41972C42655B3543CF8",
+    "schemaHash": "E404BDCE7936602B05FEAE284E25B86B558A92393312D5904CD1F3BC2B2B823F",
+    "snapshotContentHash": "5A2C853B99EFC812C96902251EAFB77E3946AC3625CE9707AD60E5B4780DB2AF",
     "authoringRuleRegistryRevision": "12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372"
   },
   "quality": {
-    "verifiedVisualEntryCount": 851,
-    "atlasMappedVerifiedVisualEntryCount": 851,
-    "missingVisualEntryCount": 8419,
+    "verifiedVisualEntryCount": 855,
+    "atlasMappedVerifiedVisualEntryCount": 855,
+    "missingVisualEntryCount": 8434,
     "actionablePreviewGenerationCount": 30,
-    "sourceEligibilityReviewBeforePreviewCount": 8389,
+    "sourceEligibilityReviewBeforePreviewCount": 8404,
     "recommendationStatusCounts": {
-      "RECOMMENDABLE": 531,
-      "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW": 8709,
+      "RECOMMENDABLE": 571,
+      "DO_NOT_RECOMMEND_PENDING_SOURCE_REVIEW": 8688,
       "PIXEL_COMPLETION_REQUIRED": 30
     },
     "animationUnknownActorLinkCount": 0,
@@ -111,13 +111,13 @@
     "audioCompletionCount": 224,
     "presentationCoverageByCategory": {
       "Actor": {
-        "total": 873,
-        "description": 873,
-        "locationTypes": 873,
-        "sceneStates": 873,
-        "lightingMoods": 873,
-        "backgroundCoverageKnown": 873,
-        "fitModes": 873
+        "total": 892,
+        "description": 892,
+        "locationTypes": 892,
+        "sceneStates": 892,
+        "lightingMoods": 892,
+        "backgroundCoverageKnown": 892,
+        "fitModes": 892
       },
       "Layer": {
         "total": 7727,
@@ -151,17 +151,17 @@
   "eligibilityAuditUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/eligibility-audit.json",
   "visualScanReportUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/director-view/VISUAL_SCAN_REPORT.json",
   "visualScanSummary": {
-    "directorVisualEntryCount": 9270,
-    "uniqueSourcePathCount": 3666,
+    "directorVisualEntryCount": 9289,
+    "uniqueSourcePathCount": 3681,
     "entriesWithoutSourcePath": 0,
     "entryCountsByStatus": {
-      "INCLUDED_IN_ATLAS": 531,
-      "PENDING_SOURCE_REVIEW": 8709,
+      "INCLUDED_IN_ATLAS": 571,
+      "PENDING_SOURCE_REVIEW": 8688,
       "PREVIEW_GENERATION_REQUIRED": 30
     },
     "uniqueSourcePathsByStatus": {
-      "INCLUDED_IN_ATLAS": 510,
-      "PENDING_SOURCE_REVIEW": 3155,
+      "INCLUDED_IN_ATLAS": 528,
+      "PENDING_SOURCE_REVIEW": 3152,
       "PREVIEW_GENERATION_REQUIRED": 2
     },
     "trueUnexplainedMissEntryCount": 0,
@@ -169,16 +169,16 @@
   },
   "authoringRuleRegistryRevision": "12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372",
   "requiredCurrent": {
-    "catalogRevision": "7624599455088950785",
-    "contractRevision": "BD126A7DE3A31C82CAF2E60FEAB0252F905F97E9878141F5856B64F9A687FD1A",
-    "schemaHash": "BC4E283E855A8ADE4249A2D5F429C7D93EC6641A0038B8F00C5E719636595CA3",
-    "snapshotContentHash": "9274EE1B391DE9756987970E12FE35AA98A04A20E19198CDAC2E73B82C567DD5",
+    "catalogRevision": "7624698995981318909",
+    "contractRevision": "2F9CD64B0DD1AB1CF6D97BA46D32A5FA29199B46FCE0A41972C42655B3543CF8",
+    "schemaHash": "E404BDCE7936602B05FEAE284E25B86B558A92393312D5904CD1F3BC2B2B823F",
+    "snapshotContentHash": "5A2C853B99EFC812C96902251EAFB77E3946AC3625CE9707AD60E5B4780DB2AF",
     "authoringRuleRegistryRevision": "12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372"
   },
   "provenance": {
-    "publishTransactionId": "20260826-051553630-a396f294",
-    "publishedUtc": "2026-08-26T05:24:59.2009904Z",
+    "publishTransactionId": "20260827-191726725-9a631faa",
+    "publishedUtc": "2026-08-27T19:23:56.7631701Z",
     "publisherVersion": "2.11.0",
-    "bundleIdentity": "C7DBD7B59B6041DF40567087A294ED1A92CDE515391DA431736BB3439DEEF77A"
+    "bundleIdentity": "2C31208D8B305580FE2E34E8427953AA665E7DA0611D8A42E8E834BC7AB2A2F6"
   }
 }

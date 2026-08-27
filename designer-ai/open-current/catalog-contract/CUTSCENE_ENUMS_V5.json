@@ -2,7 +2,7 @@
   "schema": "STARWARS_DELTA_CUTSCENE_AUTHORING_CONTRACT",
   "schemaVersion": 5,
   "authoringContractVersion": 1,
-  "contractRevision": "BD126A7DE3A31C82CAF2E60FEAB0252F905F97E9878141F5856B64F9A687FD1A",
+  "contractRevision": "2F9CD64B0DD1AB1CF6D97BA46D32A5FA29199B46FCE0A41972C42655B3543CF8",
   "authoringRuleRegistryRevision": "12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372",
   "authoringRuleRegistry": {
     "revision": "12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372",
@@ -2454,7 +2454,8 @@
       "numericValuesExposed": false,
       "canonicalValues": [
         "AbsoluteStage",
-        "RelativeToStart"
+        "RelativeToStart",
+        "Viewport"
       ],
       "values": [
         {
@@ -2470,6 +2471,16 @@
         {
           "value": "RelativeToStart",
           "description": "Motion Space value RelativeToStart.",
+          "introducedIn": 1,
+          "safeForNewAuthoring": true,
+          "deprecated": false,
+          "replacement": null,
+          "migration": "NONE",
+          "reason": null
+        },
+        {
+          "value": "Viewport",
+          "description": "Motion Space value Viewport.",
           "introducedIn": 1,
           "safeForNewAuthoring": true,
           "deprecated": false,

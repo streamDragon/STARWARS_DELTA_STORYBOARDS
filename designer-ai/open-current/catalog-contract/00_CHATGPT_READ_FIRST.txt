@@ -42,11 +42,11 @@ Copy exact assetId values and exact compatibleAnimationIds values. Never infer c
 EXISTING CUTSCENE REVISION
 Use ADD CATALOG + PRESENT STATE OF THE CUTSCENE + the natural-language requested change. Present State is current Cutscene state only; ADD CATALOG remains the global rules/assets source.
 
-Contract revision: BD126A7DE3A31C82CAF2E60FEAB0252F905F97E9878141F5856B64F9A687FD1A
-Schema hash: BC4E283E855A8ADE4249A2D5F429C7D93EC6641A0038B8F00C5E719636595CA3
+Contract revision: 2F9CD64B0DD1AB1CF6D97BA46D32A5FA29199B46FCE0A41972C42655B3543CF8
+Schema hash: E404BDCE7936602B05FEAE284E25B86B558A92393312D5904CD1F3BC2B2B823F
 Authoring rule registry revision: 12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372
-Snapshot content hash: 9274EE1B391DE9756987970E12FE35AA98A04A20E19198CDAC2E73B82C567DD5
-Snapshot identity: catalogRevision=7624599455088950785;contractRevision=BD126A7DE3A31C82CAF2E60FEAB0252F905F97E9878141F5856B64F9A687FD1A;schemaHash=BC4E283E855A8ADE4249A2D5F429C7D93EC6641A0038B8F00C5E719636595CA3;snapshotContentHash=9274EE1B391DE9756987970E12FE35AA98A04A20E19198CDAC2E73B82C567DD5
+Snapshot content hash: 5A2C853B99EFC812C96902251EAFB77E3946AC3625CE9707AD60E5B4780DB2AF
+Snapshot identity: catalogRevision=7624698995981318909;contractRevision=2F9CD64B0DD1AB1CF6D97BA46D32A5FA29199B46FCE0A41972C42655B3543CF8;schemaHash=E404BDCE7936602B05FEAE284E25B86B558A92393312D5904CD1F3BC2B2B823F;snapshotContentHash=5A2C853B99EFC812C96902251EAFB77E3946AC3625CE9707AD60E5B4780DB2AF
 Do not treat catalogRevision alone as proof that two snapshots are equivalent. Compare the complete snapshot identity: catalogRevision, contractRevision, schemaHash and snapshotContentHash.
 Supported Cutscene package version: 5
 
@@ -111,6 +111,9 @@ delivery.pace uses only CURRENT values Slow, Medium or Fast. Semantic Slow/Measu
 Use speakerExpression/listenerExpression/reaction.expression for acting choices such as Determined, Concerned, Shocked or Relieved. Do not put those expression words into emotion fields.
 
 ACTOR IDENTITY AND PROPORTIONS
+- ACTOR IDENTITY RULE: cast[].identityHandle MUST identify a canonical Actor. Do not put a Sprite frame, portrait frame, AnimationClip, Texture or arbitrary visual asset handle in identityHandle.
+- visible[].handle selects the visible visual representation; actions[].subject references cast[].id. animationIntent/performanceIntent are semantic requests. Never author raw AnimationClip IDs.
+- Example: cast { id: CIV_BOY_SCHOOL_01, identityHandle: <canonical Actor handle> }; visible { id: CIV_BOY_SCHOOL_01, handle: <approved visual handle>, animationIntent: walk }; action { subject: CIV_BOY_SCHOOL_01, animationIntent: walk }.
 - When an Actor record exports preferredActorAssetId, use that exact preferred record for cast[].visualAssetId unless the story explicitly requires a different identity state. Do not use Run/Death/Hit/Jump/mid-animation frames as the persistent cast identity merely because the action name matches.
 - For dialogue, speakerPortraitAssetId/listenerPortraitAssetId must come from that Actor record's compatibleDialogueVisualIds when the list is non-empty. Never borrow a portrait from another character because it looks plausible. An explicit stage body wins over a portrait and prevents portrait fallback; with no body, repair may select a same-identity portrait or use the selected preset's allowsBuiltInParticipantFallback only when exported as true. Otherwise choose another exact compatible tuple/preset. Automatic repair never silently changes the story to SUBTITLE_ONLY.
 - Distinct named Person cast members require distinct preferred Actor identities unless they intentionally represent the same narrative identity/clone. Do not manufacture Pilot/Commander as two frames of the same character family.
@@ -152,7 +155,7 @@ MY_CutsceneCameraActionType: Hold, Snap, Zoom, Pan, Push, Pull, Follow, Track, F
 MY_CutsceneLayerActionType: Activate, Deactivate, Set, Swap, Crossfade, Move, Scroll, Parallax, Tint, Brightness, Fade
 MY_CutsceneLayerRole: FarBackground, Background, Midground, Actor, Foreground, Atmosphere, Overlay, Ui
 MY_CutsceneActorActionType: Activate, Deactivate, Enter, Exit, Move, MoveToMark, FollowPath, Face, Turn, SetSorting, SetScale, Formation, PlayAnimation, VisualWeaponAction, VisualDamageReaction, Hold, FreezePose, LocalSlowMotion, Curve, Orbit
-MY_CutsceneMotionSpace: AbsoluteStage, RelativeToStart
+MY_CutsceneMotionSpace: AbsoluteStage, RelativeToStart, Viewport
 MY_CutsceneMotionOrientation: PreserveRotation, FollowMotion, FaceTarget, Keyframed
 MY_CutsceneEffectType: Activate, Explosion, Impact, MuzzleFlash, EnergyPulse, Glow, Lightning, Shield, Smoke, Fire, Debris, Sparks, Dust, SpeedLines, Vignette, ScreenFlash, ColorFlash, Silhouette, Overlay
 MY_CutsceneAudioActionType: Play, Stop, FadeIn, FadeOut, SetVolume
@@ -198,10 +201,10 @@ SMALL VALID JSON EXAMPLE
   "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
   "schemaVersion": 5,
   "contextVersion": 3,
-  "contractRevision": "BD126A7DE3A31C82CAF2E60FEAB0252F905F97E9878141F5856B64F9A687FD1A",
-  "schemaHash": "BC4E283E855A8ADE4249A2D5F429C7D93EC6641A0038B8F00C5E719636595CA3",
+  "contractRevision": "2F9CD64B0DD1AB1CF6D97BA46D32A5FA29199B46FCE0A41972C42655B3543CF8",
+  "schemaHash": "E404BDCE7936602B05FEAE284E25B86B558A92393312D5904CD1F3BC2B2B823F",
   "contextId": "NEW_CUTSCENE_CONTEXT",
-  "catalogRevision": "7624599455088950785",
+  "catalogRevision": "7624698995981318909",
   "projectId": "",
   "planId": "plan_example_minimal",
   "baseRevision": 0,

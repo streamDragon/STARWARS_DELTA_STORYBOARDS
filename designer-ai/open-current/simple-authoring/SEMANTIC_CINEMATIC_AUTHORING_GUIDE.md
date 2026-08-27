@@ -32,7 +32,41 @@ Recoverable backend-owned presentation/staging omissions may remain Warning/Yell
 
 RED is reserved for genuine integrity/system failures where no valid candidate or preserved Preview can safely remain.
 
+A black or visually empty Preview may be useful diagnostic evidence, but it is not exact success when authored visible obligations were dropped.
+
 Do not serialize backend-only fields merely to silence diagnostics.
+
+## World Actor identity contract
+
+For world Actors, identity, representation and performance are distinct authoring concepts:
+
+```text
+cast[].id
+= logical Actor id used by actions/dialogue/continuity
+
+cast[].identityHandle
+= exact canonical/preferred CURRENT route=Actor authoring identity
+
+visible[].handle
+= exact visible representation handle used for the shot
+
+actions[].subject
+= cast[].id
+
+animationIntent / performanceIntent
+= semantic performance request such as walk / look_up
+```
+
+Rules:
+
+- `cast[].identityHandle` must be a legal canonical/preferred Actor identity with `authorableInSimpleV1=true`.
+- Do not substitute a Sprite frame, Texture, portrait frame, animation frame or raw AnimationClip handle for Actor identity.
+- A visual/frame record may belong to an Actor family without becoming that Actor identity.
+- `visible[].handle` may select a distinct legal visual representation when CURRENT exposes one.
+- `actions[].subject` references `cast[].id`, never an asset handle.
+- Use semantic `animationIntent` / `performanceIntent`; raw AnimationClip identities are backend-only.
+- If CURRENT does not expose a legal canonical Actor identity, do not infer one from filenames/folders/frame names or old JSON. Treat the world Actor as unavailable for authoring until CURRENT exposes it.
+- Candidate/recommendation output for stories that require a world Actor must expose a usable canonical Actor authoring identity, not only Sprite/animation-frame representatives.
 
 ## Emotional Dialogue closed world
 
@@ -289,6 +323,8 @@ Authoring should never depend on generated backend aliases or Timeline implement
 
 Internally, a legal request is expected to survive as the correct generated instance, Timeline representation, binding and interval. If the backend cannot do that, it must diagnose the failure rather than silently dropping the request.
 
+If an authored world Actor is dropped during lowering/materialization, preserve the legal source request and diagnose the original identity handle, normal resolution result, canonical Actor resolution result and final keep/drop result. Do not rewrite cast identity to a Sprite/frame just to make Preview non-black.
+
 A failed new candidate should not destroy the last valid Editable Preview. This is a Studio/backend safety invariant, not a reason for ChatGPT to emit sloppy JSON.
 
 ## What remains backend-owned
@@ -316,14 +352,17 @@ Before delivering production JSON verify:
 3. every required beat field exists
 4. every storyClaim has evidence
 5. every visual handle is exact CURRENT
-6. every dialogue participant/expression is exact CURRENT dialogue vocabulary
-7. every fire action has a schema-legal projectileId
-8. every audio cue uses an exact legal Audio handle
-9. no raw Animation/Catalog/V3/V5 identities were authored
-10. sequential locomotion phases were split across adjacent beats
-11. Actor Orbit centers remain stationary when current runtime still requires fixed-center Orbit
-12. visible Effects are not given meaningless actions merely to force backend existence
-13. frame composition is expressed through legal screen/direction semantics, not invented world units
-14. no unknown properties or remembered legacy field names remain
+6. every cast[].identityHandle is a canonical/preferred legal Actor handle, not a Sprite/frame/Texture/Animation record
+7. every Actor action subject references cast[].id
+8. animationIntent/performanceIntent are semantic and no raw AnimationClip identity is authored
+9. every dialogue participant/expression is exact CURRENT dialogue vocabulary
+10. every fire action has a schema-legal projectileId
+11. every audio cue uses an exact legal Audio handle
+12. no raw Animation/Catalog/V3/V5 identities were authored
+13. sequential locomotion phases were split across adjacent beats
+14. Actor Orbit centers remain stationary when current runtime still requires fixed-center Orbit
+15. visible Effects are not given meaningless actions merely to force backend existence
+16. frame composition is expressed through legal screen/direction semantics, not invented world units
+17. no unknown properties or remembered legacy field names remain
 
 Unity remains authoritative for final runtime validation and Editable Preview acceptance.
