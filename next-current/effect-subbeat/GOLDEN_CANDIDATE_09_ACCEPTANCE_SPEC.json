@@ -3,10 +3,12 @@
   "status": "candidate-only",
   "promotionPolicy": "Do not publish as GOLDEN until LOAD, NORMALIZE, VALIDATE, BUILD EDITABLE PREVIEW, binding-aware interval verification and human visual review all pass.",
   "scope": "CUTSCENE_SCRIPT_V1 visible obligations resolving to route Effect",
+  "currentImplementationFinding": "CURRENT already implements Effect sub-beat timing. The audited defect was negative startOffsetSeconds being clamped to zero instead of rejected.",
   "intervalSemantics": {
     "defaultStartOffsetSeconds": 0,
     "omittedDuration": "until-containing-beat-end",
     "explicitDurationEnd": "min(beatEnd, absoluteStart + durationSeconds)",
+    "negativeStartOffset": "block",
     "outsideBeatStart": "block",
     "spillAcrossBeat": false
   },
@@ -19,9 +21,9 @@
     },
     {
       "id": "G02",
-      "name": "Explicit short burst",
-      "authoring": {"startOffsetSeconds": 0.0, "durationSeconds": 0.6},
-      "expect": ["starts at beat start", "ends after 0.6 seconds unless beat ends first"]
+      "name": "Immediate explicit short burst",
+      "authoring": {"startOffsetSeconds": null, "durationSeconds": 0.6},
+      "expect": ["omitted startOffsetSeconds defaults to zero", "starts at beat start", "ends after 0.6 seconds unless beat ends first"]
     },
     {
       "id": "G03",
@@ -40,7 +42,7 @@
       "id": "G05",
       "name": "Sequential chain",
       "intervals": [[0.5,1.2],[1.4,2.1],[2.3,3.0],[3.2,4.0]],
-      "expect": ["four distinct obligations", "no forced full-beat lifetime", "no beat splitting required"]
+      "expect": ["four distinct obligations", "no forced full-beat lifetime", "no beat splitting required", "explicit offset+duration may be represented directly"]
     },
     {
       "id": "G06",
@@ -73,6 +75,13 @@
       "expect": ["timing remains correct", "screen-relative placement remains correct", "size/depth remain independent per obligation"]
     }
   ],
+  "negativeRegressionCases": [
+    "negative startOffsetSeconds blocks instead of clamping to zero",
+    "non-finite startOffsetSeconds blocks",
+    "zero/negative/non-finite durationSeconds blocks",
+    "resolved start at or after beat end blocks",
+    "non-Effect timing fields block when CURRENT has no explicit support"
+  ],
   "integrationCandidate": {
     "durationSeconds": 32,
     "beats": 4,
@@ -90,6 +99,7 @@
       "foreground/mid/background/far",
       "offset zero with omitted startOffsetSeconds",
       "startOffsetSeconds with omitted durationSeconds extends to beat end",
+      "explicit startOffsetSeconds plus explicit durationSeconds",
       "near-end Effect",
       "Particle and Sprite at same place with distinct owners",
       "camera Hold/Push/Drift/Pull"
