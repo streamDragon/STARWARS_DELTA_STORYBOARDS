@@ -35,20 +35,26 @@ end   = beatEnd
 
 Pass only if no migration or synthetic timing fields are required.
 
-## G02 — Offset + explicit short duration
+## G02 — Immediate explicit short duration
 
-Purpose: prove a transient Effect can begin mid-beat and end before the beat.
+Purpose: prove `durationSeconds` alone creates a transient Effect from beat start without requiring an authored offset.
 
 ```json
 {
-  "id": "fx_delayed_burst",
+  "id": "fx_immediate_burst",
   "handle": "<legal transient Effect handle>",
-  "startOffsetSeconds": 1.5,
   "durationSeconds": 0.6
 }
 ```
 
-Expected: no visibility before `beatStart+1.5`; exact bounded visibility afterward.
+Expected:
+
+```text
+start = beatStart
+end   = min(beatEnd, beatStart + 0.6)
+```
+
+This also proves omitted `startOffsetSeconds` defaults to zero.
 
 ## G03 — Offset with omitted duration
 
@@ -69,13 +75,20 @@ start = beatStart + 2.0
 end   = beatEnd
 ```
 
-## G04 — Near-end flash
+## G04 — Near-end clamped burst
 
-Purpose: catch writers that round, drop, or stretch late Effects.
+Purpose: catch writers that drop, stretch or spill late Effects into the next beat.
 
-Example: 8-second beat, start offset 7.75, explicit duration 0.2.
+Example: 8-second beat, start offset 7.75, explicit duration 1.0.
 
-Expected: brief visible event near the beat boundary with no bleed into the next beat.
+Expected:
+
+```text
+start = beatStart + 7.75
+end   = beatEnd
+```
+
+No bleed into the next beat.
 
 ## G05 — Sequential Effects in one beat
 
@@ -150,9 +163,21 @@ Within one beat author timed Effects across:
 - distinct `screenX/screenY`
 - distinct `screenWidthFraction/screenHeightFraction`
 
-Include at least one sustained Effect and several transient overlapping Effects.
+Include at least one sustained Effect and several transient overlapping Effects. Include at least one explicit delayed burst elsewhere in G05/G06/G09 so offset + explicit duration is also exercised.
 
 Expected: correct interval **and** correct visible placement/scale/depth for every obligation.
+
+## Negative regression cases
+
+These are blockers, not GOLDEN candidates:
+
+- negative `startOffsetSeconds`
+- non-finite `startOffsetSeconds`
+- zero/negative/non-finite explicit `durationSeconds`
+- resolved start at or after beat end
+- timing fields on a non-Effect route when CURRENT does not explicitly support them there
+
+The implementation audit specifically found and fixed the first case: negative offset had been clamped to zero instead of rejected.
 
 ## 32-second integration candidate
 
