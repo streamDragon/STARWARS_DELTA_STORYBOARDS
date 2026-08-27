@@ -71,15 +71,40 @@ Destination capability beats visual resemblance:
 
 A source/member ID appearing inside a projection does not inherit the projection's capability.
 
-## 7. Cast identity and animation
+## 7. Cast identity, visible representation and animation
 
-Cast is identity. Animation frames are not new people.
+Cast is identity. Animation frames are not new people. Sprite frames are not Actor identities.
+
+For world Actors these authoring concepts are separate and must stay separate:
+
+```text
+cast[].id
+= logical Actor id used by actions/dialogue/continuity
+
+cast[].identityHandle
+= exact canonical/preferred CURRENT route=Actor authoring identity
+
+visible[].handle
+= exact visible representation handle for the shot
+
+actions[].subject
+= cast[].id
+
+animationIntent / performanceIntent
+= semantic request such as walk / look_up
+```
+
+Do not put a Sprite frame, Texture, portrait frame, animation frame or raw AnimationClip handle into `cast[].identityHandle` merely because it visually depicts the character.
+
+A visual/frame record may belong to a canonical Actor family without becoming the Actor identity itself. The backend may canonicalize legacy visual handles for compatibility, but authoring must prefer the published canonical Actor handle.
 
 Distinct named people require distinct canonical/preferred identities unless intentionally representing the same identity/clone.
 
-Compatible real `AnimationClip` playback belongs to the native Animation Timeline path. Semantic/procedural movement such as flyby, orbit, formation and pursuit remains owned by the single procedural motion owner. Do not create a second transform owner merely to make a feature look more native.
+Compatible real `AnimationClip` playback belongs to the native Animation Timeline path. Raw AnimationClip ids remain backend-only and must not be authored in Simple V1. Semantic/procedural movement such as flyby, orbit, formation and pursuit remains owned by the single procedural motion owner. Do not create a second transform owner merely to make a feature look more native.
 
 For moving characters, combine compatible animation + movement when available. Move alone can slide a mannequin; animation alone can exercise heroically in place.
+
+If CURRENT does not expose a legal canonical Actor identity for a required world character, do not infer one from filenames, folders, frame names, sprites or old JSON. Treat that world Actor as unavailable until CURRENT exposes it.
 
 ## 8. Frame-relative proportions
 
@@ -263,9 +288,9 @@ source obligation
 
 Wrong/missing bindings, shared instances, wrong assets, orphan clips and interval bleed are materialization failures.
 
-Silent drop is forbidden.
+Silent drop is forbidden. If authored Actors are dropped, the system should preserve the source request and diagnose identity/resolution loss explicitly rather than pretending the black Preview is exact success.
 
-An engine-safe placeholder is a visible degradation, not exact success.
+An engine-safe placeholder or visually empty/black Preview may be useful diagnostic evidence, but it is a degradation, not exact success.
 
 ## 18. Actor lifetime and location ownership
 
@@ -324,19 +349,21 @@ Before final JSON/delivery confirm at least:
 2. story reads coherently without IDs.
 3. important visual choices were inspected as real CURRENT pixels.
 4. every field uses the correct legal destination/handle.
-5. cast identities and animation compatibility are exact.
-6. dialogue participants/expressions are inside the closed-world repertoire.
-7. backgrounds are real environments and fill the intended frame.
-8. semantic depth and occlusion are intentional.
-9. quantity/grouping matches the actual pixels.
-10. every major non-verbal claim has serialized visible evidence.
-11. semantic actor motion maps to current supported execution and uses frame-relative composition intent.
-12. Actor Orbit centers obey current fixed-center limits where applicable.
-13. every fire action uses an exact legal Cutscene projectileId.
-14. every legal visible Effect is authored as a visual obligation without a fake activation workaround.
-15. effects/projectiles/audio are legal and timed.
-16. actor lifetime/location transitions are coherent.
-17. expected genuine unrecoverable blockers = 0.
+5. every cast[].identityHandle is a canonical/preferred legal Actor identity, separate from visible representation.
+6. every Actor action subject references cast[].id, and animation/performance intent remains semantic rather than raw AnimationClip identity.
+7. cast identities and animation compatibility are exact.
+8. dialogue participants/expressions are inside the closed-world repertoire.
+9. backgrounds are real environments and fill the intended frame.
+10. semantic depth and occlusion are intentional.
+11. quantity/grouping matches the actual pixels.
+12. every major non-verbal claim has serialized visible evidence.
+13. semantic actor motion maps to current supported execution and uses frame-relative composition intent.
+14. Actor Orbit centers obey current fixed-center limits where applicable.
+15. every fire action uses an exact legal Cutscene projectileId.
+16. every legal visible Effect is authored as a visual obligation without a fake activation workaround.
+17. effects/projectiles/audio are legal and timed.
+18. actor lifetime/location transitions are coherent.
+19. expected genuine unrecoverable blockers = 0.
 
 ## 23. Pre-publish proof
 
@@ -366,6 +393,7 @@ Historical BAD cases remain engineering evidence, not normal authoring truth. Se
 Durable lessons include:
 
 - semantic intent can be lost after authoring if lowering/materialization coverage is not verified;
+- Actor identity and visible representation are distinct; a frame/sprite record must not silently replace canonical cast identity;
 - generated aliases are backend identities and must never be recommended back as source handles;
 - valid visible Effects must not depend on ChatGPT remembering a secret activation action;
 - a generated Timeline clip without the right binding/interval is not materialization success;
