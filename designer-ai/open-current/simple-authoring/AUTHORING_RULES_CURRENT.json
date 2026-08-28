@@ -73,7 +73,7 @@
     {
       "id": "NO_UNTIMED_MULTI_PHASE_LOCOMOTION",
       "blocks": true,
-      "instruction": "Simple V1 action objects do not carry per-action timing/order. Do not place several sequential locomotion phases for the same subject in one beat. Split approach/pass/bank/exit style choreography across adjacent beats; one primary locomotion phase may coexist with compatible fire/impact/reveal events."
+      "instruction": "Simple V1 action objects may use explicit startOffset/duration, but actions[] array order is never a sequencing language. Use legal explicit intervals for staggering or concurrency. Distinct semantic locomotion phases such as approach/pass/bank/exit should use adjacent beats unless one continuous precise path represents them unambiguously; one primary locomotion phase may coexist with compatible timed fire/impact/reveal events."
     },
     {
       "id": "SEMANTIC_SPEED_ONLY",
