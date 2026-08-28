@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""Stage the canonical Simple V1 schema from the already-published CURRENT release.
+"""Stage the canonical Simple V1 schema for the verified CURRENT transaction.
 
-The Unity publisher owns the Simple authoring contract. GitHub must not silently
-replace that contract with an older repo-static mirror while projecting
-open-current. This helper searches the release artifacts belonging to
-`designer-ai/current.json`, including nested ZIPs, and copies the exact released
-schema bytes into the builder mirror before the FULL projection runs.
+Preferred source is the already-published Unity release. Older publisher bundles
+may carry the verified Unity authoring rule registry without embedding the Simple
+V1 schema file itself. In that compatibility case only, recover the two Effect
+sub-beat timing fields into the repo mirror from the exact verified
+EFFECT_VISIBLE_SUBBEAT_TIMING rule, validate the resulting schema, and continue.
 
-Fail closed: if the matching release does not contain exactly one canonical
-schema payload (allowing byte-identical duplicates), nothing is overwritten.
+This never derives timing from schemaHash: that hash belongs to the V5 package
+schema. It also never invents Effect semantics when the verified CURRENT rule is
+absent or incompatible.
 """
 
 import hashlib
@@ -26,6 +27,7 @@ TARGET_PATH = pathlib.Path(
 )
 TARGET_BASENAME = "CUTSCENE_SCRIPT_V1.schema.json"
 TARGET_ID = "STARWARS_DELTA_CUTSCENE_SCRIPT_V1"
+EFFECT_RULE_ID = "EFFECT_VISIBLE_SUBBEAT_TIMING"
 MAX_DOWNLOAD_BYTES = 80 * 1024 * 1024
 MAX_NESTED_ENTRY_BYTES = 40 * 1024 * 1024
 MAX_DEPTH = 4
@@ -158,6 +160,95 @@ def candidate_asset_rank(name, transaction_id):
     return None
 
 
+def verified_effect_timing_rule(current):
+    registry = current.get("authoringRuleRegistry") or {}
+    rules = registry.get("rules") or []
+    rule = next(
+        (value for value in rules if str(value.get("ruleId") or "") == EFFECT_RULE_ID),
+        None,
+    )
+    if not isinstance(rule, dict):
+        return None
+
+    default_policy = str(rule.get("defaultPolicy") or "")
+    validation_policy = str(rule.get("validationPolicy") or "")
+    auto_repair_policy = str(rule.get("autoRepairPolicy") or "")
+    chat_instruction = str(rule.get("chatInstruction") or "")
+
+    required_tokens = (
+        "startOffsetSeconds",
+        "durationSeconds",
+    )
+    combined = "\n".join(
+        (default_policy, validation_policy, auto_repair_policy, chat_instruction)
+    )
+    if not all(token in combined for token in required_tokens):
+        return None
+    if "Overlap is legal" not in validation_policy:
+        return None
+    if "do not deduplicate repeated Effect handles" not in auto_repair_policy:
+        return None
+    if rule.get("owner") != "BACKEND" or rule.get("blocksCompilation") is not False:
+        return None
+    return rule
+
+
+def recover_from_verified_current_rule(current, transaction_id):
+    rule = verified_effect_timing_rule(current)
+    if rule is None:
+        return None
+    if not TARGET_PATH.is_file():
+        raise SystemExit("RELEASE_SIMPLE_SCHEMA_FALLBACK_MIRROR_MISSING")
+
+    try:
+        payload = json.loads(TARGET_PATH.read_text(encoding="utf-8-sig"))
+    except Exception as exc:
+        raise SystemExit("RELEASE_SIMPLE_SCHEMA_FALLBACK_MIRROR_INVALID: " + str(exc))
+
+    if not isinstance(payload, dict) or payload.get("$id") != TARGET_ID:
+        raise SystemExit("RELEASE_SIMPLE_SCHEMA_FALLBACK_MIRROR_WRONG_ID")
+    visible = (
+        payload.setdefault("$defs", {})
+        .setdefault("visibleElement", {})
+        .setdefault("properties", {})
+    )
+    if not isinstance(visible, dict):
+        raise SystemExit("RELEASE_SIMPLE_SCHEMA_FALLBACK_VISIBLE_PROPERTIES_INVALID")
+
+    visible["startOffsetSeconds"] = {
+        "type": "number",
+        "minimum": 0,
+        "description": (
+            "Visible Effect only. Optional seconds from the containing beat start; "
+            "omitted means beat start."
+        ),
+    }
+    visible["durationSeconds"] = {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "description": (
+            "Visible Effect only. Optional Effect duration; omitted means through "
+            "beat end and explicit duration is clamped to beat end."
+        ),
+    }
+
+    raw = json.dumps(payload, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    candidate, reason = validate_schema(raw, "verified-CURRENT-rule+repo-mirror")
+    if candidate is None:
+        raise SystemExit("RELEASE_SIMPLE_SCHEMA_FALLBACK_INVALID: " + str(reason))
+
+    TARGET_PATH.parent.mkdir(parents=True, exist_ok=True)
+    TARGET_PATH.write_bytes(raw)
+    print(
+        "RELEASE_SIMPLE_SCHEMA_RECOVERED_FROM_VERIFIED_CURRENT_RULE"
+        f" transaction={transaction_id}"
+        f" rule={EFFECT_RULE_ID}"
+        f" sha256={candidate['sha256']}"
+        f" bytes={len(raw)}"
+    )
+    return candidate
+
+
 def main():
     token = os.environ.get("GITHUB_TOKEN", "")
     repository = os.environ.get("GITHUB_REPOSITORY", "").strip()
@@ -197,6 +288,9 @@ def main():
         ranked.append((rank, name, asset))
     ranked.sort(key=lambda item: (item[0], item[1]))
     if not ranked:
+        recovered = recover_from_verified_current_rule(current, transaction_id)
+        if recovered is not None:
+            return
         raise SystemExit("RELEASE_SIMPLE_SCHEMA_NO_CANDIDATE_ASSETS")
 
     valid = []
@@ -228,6 +322,9 @@ def main():
     if not by_digest:
         for label, reason in rejected:
             print(f"RELEASE_SIMPLE_SCHEMA_REJECTED source={label} reason={reason}")
+        recovered = recover_from_verified_current_rule(current, transaction_id)
+        if recovered is not None:
+            return
         raise SystemExit(
             "RELEASE_SIMPLE_SCHEMA_NOT_FOUND: canonical timed Simple V1 schema absent from "
             + ", ".join(scanned_assets)
