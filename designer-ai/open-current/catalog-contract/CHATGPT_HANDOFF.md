@@ -4,7 +4,7 @@ This ZIP is the permanent authoring contract for ChatGPT and Cutscene Studio.
 Read `00_CHATGPT_READ_FIRST.txt` first. It is the required ChatGPT entrypoint; then use catalog records and supporting schema files.
 
 - Scope: `FULLCATALOG`
-- Catalog revision: `7624698995981318909`
+- Catalog revision: `7624700180290740973`
 - Exported records: `27886`
 
 IRONCLAD RULE: `cutscenePrimaryUse` is the authoritative placement of each asset.
