@@ -7,6 +7,10 @@ on:
     paths:
       - 'designer-ai/current.json'
       - 'designer-ai/tools/stage_release_simple_schema.py'
+      - 'designer-ai/tools/seal_atomic_current.py'
+      - 'designer-ai/tools/current-source/CHATGPT_START.txt'
+      - 'designer-ai/tools/current-source/FILM_AUTHORING_GUIDE_CURRENT.md'
+      - 'designer-ai/tools/current-source/simple-authoring/**'
       - '.github/workflows/publish-designer-ai-open-current.yml'
 
 permissions:
@@ -164,6 +168,50 @@ jobs:
           print('CUTSCENE_VALIDATION_PROJECTED', len(rules))
           PY
 
+      - name: Align and verify Simple V1 timing guidance
+        if: env.PUBLISH_MODE == 'FULL'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, pathlib, subprocess
+
+          seal_path = pathlib.Path('designer-ai/tools/seal_atomic_current.py')
+          seal = seal_path.read_text(encoding='utf-8')
+          old = 'Simple V1 action objects do not carry per-action timing/order. Do not place several sequential locomotion phases for the same subject in one beat. Split approach/pass/bank/exit style choreography across adjacent beats; one primary locomotion phase may coexist with compatible fire/impact/reveal events.'
+          new = 'Simple V1 action objects may use explicit startOffset/duration, but actions[] array order is never a sequencing language. Use legal explicit intervals for staggering or concurrency. Distinct semantic locomotion phases such as approach/pass/bank/exit should use adjacent beats unless one continuous precise path represents them unambiguously; one primary locomotion phase may coexist with compatible timed fire/impact/reveal events.'
+          if old in seal:
+              seal = seal.replace(old, new, 1)
+              seal_path.write_text(seal, encoding='utf-8')
+              subprocess.run(['git', 'add', '--', str(seal_path)], check=True)
+              print('AUTHORING_RULE_GENERATOR_TIMING_GUIDANCE_ALIGNED')
+          elif new not in seal:
+              raise SystemExit('AUTHORING_RULE_GENERATOR_TIMING_GUIDANCE_UNKNOWN')
+          else:
+              print('AUTHORING_RULE_GENERATOR_TIMING_GUIDANCE_ALREADY_ALIGNED')
+
+          front = pathlib.Path('designer-ai/tools/current-source/CHATGPT_START.txt').read_text(encoding='utf-8-sig')
+          assert 'visible[].startOffsetSeconds' in front and 'visible[].durationSeconds' in front
+          assert 'startOffset is an optional ACTION field' in front and 'array order' in front
+
+          guide = pathlib.Path('designer-ai/tools/current-source/simple-authoring/SEMANTIC_CINEMATIC_AUTHORING_GUIDE.md').read_text(encoding='utf-8-sig')
+          assert '## Action timing and sequencing' in guide
+          assert '`visible[].startOffsetSeconds`' in guide and '`visible[].durationSeconds`' in guide
+
+          qa = json.loads(pathlib.Path('designer-ai/tools/current-source/simple-authoring/CINEMATIC_INTENT_QA_RULES.json').read_text(encoding='utf-8-sig'))
+          assert int(qa.get('schemaVersion') or 0) >= 6
+          semantics = qa.get('simpleV1Semantics') or {}
+          assert 'startOffset' in str(semantics.get('actionTiming') or '')
+          assert 'startOffsetSeconds' in str(semantics.get('effectTiming') or '')
+
+          schema = json.loads(pathlib.Path('designer-ai/tools/current-source/simple-authoring/CUTSCENE_SCRIPT_V1.schema.json').read_text(encoding='utf-8-sig'))
+          action = (((schema.get('$defs') or {}).get('action') or {}).get('properties') or {})
+          visible = (((schema.get('$defs') or {}).get('visibleElement') or {}).get('properties') or {})
+          assert 'startOffset' in action and 'duration' in action
+          assert 'startOffsetSeconds' in visible and 'durationSeconds' in visible
+          print('SIMPLE_V1_TIMING_GUIDANCE_SOURCE_PASS')
+          PY
+
       - name: Seal and validate FULL CURRENT
         if: env.PUBLISH_MODE == 'FULL'
         run: python3 designer-ai/tools/seal_atomic_current.py
@@ -182,7 +230,7 @@ jobs:
           assert opened.get('status') == 'CURRENT_VERIFIED'
           assert opened.get('publishTransactionId') == source.get('publishTransactionId')
           assert opened_required == required
-          for rel in ['director-view/DIRECTOR_VIEW.json','simple-authoring/AUTHORING_HANDLES.json','simple-authoring/AUTHORING_RULES_CURRENT.json','simple-authoring/CUTSCENE_SCRIPT_V1.schema.json','full-visual-sheets/VISUAL_ATLAS_CURRENT.json','CUTSCENE_VALIDATION_CURRENT.json','CHATGPT_START.txt']:
+          for rel in ['director-view/DIRECTOR_VIEW.json','simple-authoring/AUTHORING_HANDLES.json','simple-authoring/AUTHORING_RULES_CURRENT.json','simple-authoring/CUTSCENE_SCRIPT_V1.schema.json','simple-authoring/CINEMATIC_INTENT_QA_RULES.json','simple-authoring/SEMANTIC_CINEMATIC_AUTHORING_GUIDE.md','full-visual-sheets/VISUAL_ATLAS_CURRENT.json','CUTSCENE_VALIDATION_CURRENT.json','CHATGPT_START.txt']:
               assert (root/rel).is_file(), 'ATOMIC_CURRENT_MISSING '+rel
           handles = json.loads((root/'simple-authoring/AUTHORING_HANDLES.json').read_text(encoding='utf-8-sig'))
           assert {k:str(v) for k,v in handles.get('requiredCurrent',{}).items()} == required
@@ -190,11 +238,27 @@ jobs:
           schema = json.loads((root/'simple-authoring/CUTSCENE_SCRIPT_V1.schema.json').read_text(encoding='utf-8-sig'))
           assert schema.get('$id') == 'STARWARS_DELTA_CUTSCENE_SCRIPT_V1'
           visible = (((schema.get('$defs') or {}).get('visibleElement') or {}).get('properties') or {})
+          action = (((schema.get('$defs') or {}).get('action') or {}).get('properties') or {})
           start = visible.get('startOffsetSeconds') or {}
           duration = visible.get('durationSeconds') or {}
           assert start.get('type') == 'number' and start.get('minimum') == 0, 'ATOMIC_CURRENT_EFFECT_OFFSET_SCHEMA_MISSING_OR_INVALID'
           assert duration.get('type') == 'number' and duration.get('exclusiveMinimum') == 0, 'ATOMIC_CURRENT_EFFECT_DURATION_SCHEMA_MISSING_OR_INVALID'
+          assert (action.get('startOffset') or {}).get('minimum') == 0, 'ATOMIC_CURRENT_ACTION_OFFSET_SCHEMA_MISSING_OR_INVALID'
+          assert (action.get('duration') or {}).get('exclusiveMinimum') == 0, 'ATOMIC_CURRENT_ACTION_DURATION_SCHEMA_MISSING_OR_INVALID'
+
+          front = (root/'CHATGPT_START.txt').read_text(encoding='utf-8-sig')
+          assert 'visible[].startOffsetSeconds' in front and 'visible[].durationSeconds' in front
+          assert 'array order' in front
+          guide = (root/'simple-authoring/SEMANTIC_CINEMATIC_AUTHORING_GUIDE.md').read_text(encoding='utf-8-sig')
+          assert '## Action timing and sequencing' in guide and '`visible[].startOffsetSeconds`' in guide
+          qa = json.loads((root/'simple-authoring/CINEMATIC_INTENT_QA_RULES.json').read_text(encoding='utf-8-sig'))
+          assert int(qa.get('schemaVersion') or 0) >= 6
+          rules = json.loads((root/'simple-authoring/AUTHORING_RULES_CURRENT.json').read_text(encoding='utf-8-sig'))
+          rule = next(r for r in rules.get('rules',[]) if r.get('id') == 'NO_UNTIMED_MULTI_PHASE_LOCOMOTION')
+          assert 'startOffset/duration' in rule.get('instruction','') and 'array order' in rule.get('instruction','')
           print('ATOMIC_EFFECT_TIMING_SCHEMA_READY')
+          print('ATOMIC_ACTION_TIMING_GUIDANCE_READY')
+          print('ATOMIC_DEVORA_GUIDANCE_ALIGNED')
           print('ATOMIC_OPEN_CURRENT_READY', source.get('publishTransactionId'), 'mode', source.get('publishMode') or 'FULL')
           PY
 
@@ -206,7 +270,7 @@ jobs:
           mkdir -p designer-ai/open-current
           cp -a _open_current_stage/. designer-ai/open-current/
           git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.email '41898282+streamDragon@users.noreply.github.com'
           git add -A designer-ai/open-current
           if git diff --cached --quiet; then
             echo 'CURRENT already matches complete staged payload.'
