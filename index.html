@@ -5,9 +5,9 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <script>
-window.STORYBOARD_BUILD_ID="20260828-0112-v3.8.1-HUB-CURRENT-STATUS";
+window.STORYBOARD_BUILD_ID="20260828-structure-cleanup";
 (function(){
-  const check=()=>fetch('current.json?ts='+Date.now(),{cache:'no-store'})
+  const check=()=>fetch('site-build.json?ts='+Date.now(),{cache:'no-store'})
     .then(r=>r.json())
     .then(v=>{
       if(!v||!v.buildId)return;

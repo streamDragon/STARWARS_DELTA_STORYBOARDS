@@ -11,6 +11,7 @@ on:
       - 'designer-ai/index.html'
       - 'designer-ai/simple-preview.html'
       - 'designer-ai/tools/**'
+      - 'designer-ai/delta/**'
       - 'designer-ai/authoring-only/**'
       - 'designer-ai/00_READ_ME_FIRST.txt'
       - 'designer-ai/01_CHATGPT_START.txt'
@@ -20,10 +21,14 @@ on:
       - 'designer-ai/ARCHITECTURE.md'
       - 'designer-ai/OPEN_CURRENT.json'
       - 'designer-ai/debora.html'
+      - 'current.json'
+      - 'site-build.json'
       - 'README.md'
       - '.github/workflows/current-authoring-lint.yml'
+      - '.github/workflows/cutscene-film-qa.yml'
       - '.github/workflows/publish-designer-ai-open-current.yml'
       - '.github/workflows/project-designer-ai-guidance.yml'
+      - 'tools/cutscene-film-qa.mjs'
 
 permissions:
   contents: read
@@ -65,15 +70,20 @@ jobs:
           assert projectile == expected, f'PROJECTILE_SCHEMA_DRIFT: {projectile}'
 
           # CANONICAL SOURCE INVARIANT: one live CURRENT tree and one engineering source tree only.
-          # No legacy/compatibility authoring copies are permitted. If an old path reappears, fail immediately.
+          # No legacy/compatibility authoring copies or archived CURRENT trees are permitted.
           obsolete = [
-              root / 'authoring-only', root / 'simple-authoring', root / 'CHATGPT_START.txt',
+              root / 'delta', root / 'authoring-only', root / 'simple-authoring', root / 'CHATGPT_START.txt',
               root / '00_READ_ME_FIRST.txt', root / '01_CHATGPT_START.txt',
               root / 'FILM_AUTHORING_GUIDE_CURRENT.md', root / 'ARCHITECTURE.md',
-              root / 'OPEN_CURRENT.json', root / 'debora.html'
+              root / 'OPEN_CURRENT.json', root / 'debora.html',
+              Path('current.json'), Path('.github/workflows/cutscene-film-qa.yml'), Path('tools/cutscene-film-qa.mjs')
           ]
           present = [str(p) for p in obsolete if p.exists()]
-          assert not present, 'DUPLICATE_OR_STALE_LIVE_CURRENT_REAPPEARED: ' + ', '.join(present)
+          assert not present, 'DUPLICATE_OR_STALE_CURRENT_SURFACE_REAPPEARED: ' + ', '.join(present)
+
+          site_build = json.loads(Path('site-build.json').read_text(encoding='utf-8-sig'))
+          assert site_build.get('schema') == 'STARWARS_DELTA_SITE_BUILD'
+          assert site_build.get('role') == 'SITE_CACHE_BUST_ONLY'
 
           duplicate_source_names = [
               'ARCHITECTURE.md',
