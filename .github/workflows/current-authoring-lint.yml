@@ -114,8 +114,9 @@ jobs:
 
           source_start = (source_root / 'CHATGPT_START.txt').read_text(encoding='utf-8-sig')
           assert 'VISIBLE EFFECTS' in source_start, 'SOURCE_CHATGPT_VISIBLE_EFFECT_RULE_MISSING'
-          assert 'backend owns default beat-bounded materialization' in source_start, 'SOURCE_CHATGPT_SECRET_REVEAL_WORKAROUND_REAPPEARED'
-          assert 'active camera viewport/frustum' in source_start, 'SOURCE_CHATGPT_VIEWPORT_MOTION_RULE_MISSING'
+          assert 'Do not add meaningless reveal/activate actions merely to force an Effect to exist.' in source_start, 'SOURCE_CHATGPT_EFFECT_WORKAROUND_RULE_MISSING'
+          assert 'Repeated identical Effect handles remain distinct generated instances' in source_start, 'SOURCE_CHATGPT_EFFECT_INSTANCE_RULE_MISSING'
+          assert 'viewport-authored motion against the active Cutscene camera' in source_start, 'SOURCE_CHATGPT_VIEWPORT_MOTION_RULE_MISSING'
 
           designer_index = (root / 'index.html').read_text(encoding='utf-8')
           assert "location.replace('devora.html')" in designer_index, 'DESIGNER_INDEX_NOT_DEVORA_REDIRECT'
