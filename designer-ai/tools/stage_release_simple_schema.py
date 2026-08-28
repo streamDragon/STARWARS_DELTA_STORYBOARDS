@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-"""Stage the verified Simple V1 schema for the current FULL publication.
+"""Verify the canonical Simple V1 schema before a FULL publication.
 
-Prefer an exact CUTSCENE_SCRIPT_V1.schema.json found in the Unity release. Older
-publisher releases may omit that file while still publishing the canonical Unity
-EFFECT_VISIBLE_SUBBEAT_TIMING rule. For those releases only, recover the two
-Effect timing properties into the repo Simple mirror from that verified rule.
-
-The repo mirror is intentionally git-staged when changed so the atomic CURRENT
-commit persists the same Simple contract that was used to build open-current.
+Publication is intentionally read-only with respect to engineering source.
+The canonical repository schema must already be correct before publishing.
+If the matching Unity release exposes an exact Simple V1 schema, it must match
+the canonical repository source byte-for-byte. Older releases that do not carry
+that asset are accepted only when CURRENT contains the verified Effect timing
+rule and the canonical source already implements the required schema contract.
 """
 
 import hashlib
@@ -15,15 +14,13 @@ import io
 import json
 import os
 import pathlib
-import subprocess
 import urllib.parse
 import urllib.request
 import zipfile
 
 CURRENT_PATH = pathlib.Path("designer-ai/current.json")
-TARGET_PATH = pathlib.Path("designer-ai/tools/current-source/simple-authoring/CUTSCENE_SCRIPT_V1.schema.json")
+CANONICAL_SCHEMA_PATH = pathlib.Path("designer-ai/tools/current-source/simple-authoring/CUTSCENE_SCRIPT_V1.schema.json")
 TARGET_ID = "STARWARS_DELTA_CUTSCENE_SCRIPT_V1"
-TARGET_BASENAME = "CUTSCENE_SCRIPT_V1.schema.json"
 EFFECT_RULE_ID = "EFFECT_VISIBLE_SUBBEAT_TIMING"
 MAX_DOWNLOAD_BYTES = 80 * 1024 * 1024
 MAX_ENTRY_BYTES = 40 * 1024 * 1024
@@ -143,48 +140,6 @@ def verified_effect_rule(current):
     return rule
 
 
-def recover_from_verified_rule(current, transaction_id):
-    if verified_effect_rule(current) is None:
-        return None
-    if not TARGET_PATH.is_file():
-        raise SystemExit("RELEASE_SIMPLE_SCHEMA_FALLBACK_MIRROR_MISSING")
-    payload = json.loads(TARGET_PATH.read_text(encoding="utf-8-sig"))
-    if payload.get("$id") != TARGET_ID:
-        raise SystemExit("RELEASE_SIMPLE_SCHEMA_FALLBACK_MIRROR_WRONG_ID")
-    visible = payload.setdefault("$defs", {}).setdefault("visibleElement", {}).setdefault("properties", {})
-    visible["startOffsetSeconds"] = {
-        "type": "number",
-        "minimum": 0,
-        "description": "Visible Effect only. Optional seconds from the containing beat start; omitted means beat start.",
-    }
-    visible["durationSeconds"] = {
-        "type": "number",
-        "exclusiveMinimum": 0,
-        "description": "Visible Effect only. Optional Effect duration; omitted means through beat end and explicit duration is clamped to beat end.",
-    }
-    raw = json.dumps(payload, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
-    candidate = validate_schema(raw, "verified-CURRENT-rule+repo-mirror")
-    if candidate is None:
-        raise SystemExit("RELEASE_SIMPLE_SCHEMA_FALLBACK_INVALID")
-    print(
-        "RELEASE_SIMPLE_SCHEMA_RECOVERED_FROM_VERIFIED_CURRENT_RULE"
-        f" transaction={transaction_id} rule={EFFECT_RULE_ID}"
-        f" sha256={candidate['sha256']} bytes={len(raw)}"
-    )
-    return candidate
-
-
-def write_and_stage(candidate, transaction_id):
-    TARGET_PATH.parent.mkdir(parents=True, exist_ok=True)
-    TARGET_PATH.write_bytes(candidate["raw"])
-    subprocess.run(["git", "add", "--", str(TARGET_PATH)], check=True)
-    print(
-        "RELEASE_SIMPLE_SCHEMA_STAGED_FOR_ATOMIC_COMMIT"
-        f" transaction={transaction_id} source={candidate['label']}"
-        f" sha256={candidate['sha256']} bytes={len(candidate['raw'])}"
-    )
-
-
 def main():
     token = os.environ.get("GITHUB_TOKEN", "")
     repository = os.environ.get("GITHUB_REPOSITORY", "").strip()
@@ -196,6 +151,13 @@ def main():
         raise SystemExit("RELEASE_SIMPLE_SCHEMA_CURRENT_NOT_VERIFIED")
     if str(current.get("publishMode") or "FULL").upper() != "FULL":
         raise SystemExit("RELEASE_SIMPLE_SCHEMA_REQUIRES_FULL_CURRENT")
+
+    if not CANONICAL_SCHEMA_PATH.is_file():
+        raise SystemExit("CANONICAL_SIMPLE_SCHEMA_MISSING")
+    canonical_raw = CANONICAL_SCHEMA_PATH.read_bytes()
+    canonical = validate_schema(canonical_raw, "canonical-repo-source")
+    if canonical is None:
+        raise SystemExit("CANONICAL_SIMPLE_SCHEMA_INVALID")
 
     transaction_id = str(current.get("publishTransactionId") or "").strip()
     release_url = str(current.get("releaseUrl") or "").strip()
@@ -234,16 +196,27 @@ def main():
         scan_blob(name, raw, 0, found, seen)
 
     if len(found) > 1:
-        detail = ", ".join(sorted(found))
-        raise SystemExit("RELEASE_SIMPLE_SCHEMA_AMBIGUOUS: " + detail)
-    if found:
-        candidate = next(iter(found.values()))
-    else:
-        candidate = recover_from_verified_rule(current, transaction_id)
-        if candidate is None:
-            raise SystemExit("RELEASE_SIMPLE_SCHEMA_NOT_FOUND_AND_VERIFIED_RULE_ABSENT")
+        raise SystemExit("RELEASE_SIMPLE_SCHEMA_AMBIGUOUS: " + ", ".join(sorted(found)))
 
-    write_and_stage(candidate, transaction_id)
+    if found:
+        released = next(iter(found.values()))
+        if released["raw"] != canonical_raw:
+            raise SystemExit(
+                "RELEASE_SIMPLE_SCHEMA_SOURCE_DRIFT: "
+                f"release={released['sha256']} canonical={canonical['sha256']}"
+            )
+        mode = "EXACT_RELEASE_MATCH"
+    else:
+        if verified_effect_rule(current) is None:
+            raise SystemExit("RELEASE_SIMPLE_SCHEMA_NOT_FOUND_AND_VERIFIED_RULE_ABSENT")
+        mode = "VERIFIED_CURRENT_RULE_WITH_CANONICAL_SOURCE"
+
+    print(
+        "CANONICAL_SIMPLE_SCHEMA_READ_ONLY_PASS"
+        f" transaction={transaction_id} mode={mode}"
+        f" sha256={canonical['sha256']} bytes={len(canonical_raw)}"
+    )
+    print("PUBLISH_SOURCE_MUTATION=NO")
 
 
 if __name__ == "__main__":

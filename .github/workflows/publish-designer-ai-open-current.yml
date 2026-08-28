@@ -85,7 +85,7 @@ jobs:
         if: env.PUBLISH_MODE == 'FULL'
         run: python3 designer-ai/tools/build_visual_scan_report.py
 
-      - name: Stage Simple V1 schema from published CURRENT release
+      - name: Verify canonical Simple V1 schema against CURRENT release
         if: env.PUBLISH_MODE == 'FULL'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -162,27 +162,20 @@ jobs:
           print('CUTSCENE_VALIDATION_PROJECTED', len(rules))
           PY
 
-      - name: Align and verify Simple V1 timing guidance
+      - name: Verify Simple V1 timing guidance source is already aligned
         if: env.PUBLISH_MODE == 'FULL'
         shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import json, pathlib, subprocess
-
-          seal_path = pathlib.Path('designer-ai/tools/seal_atomic_current.py')
-          seal = seal_path.read_text(encoding='utf-8')
+          import json, pathlib
+          seal = pathlib.Path('designer-ai/tools/seal_atomic_current.py').read_text(encoding='utf-8')
           old = 'Simple V1 action objects do not carry per-action timing/order. Do not place several sequential locomotion phases for the same subject in one beat. Split approach/pass/bank/exit style choreography across adjacent beats; one primary locomotion phase may coexist with compatible fire/impact/reveal events.'
           new = 'Simple V1 action objects may use explicit startOffset/duration, but actions[] array order is never a sequencing language. Use legal explicit intervals for staggering or concurrency. Distinct semantic locomotion phases such as approach/pass/bank/exit should use adjacent beats unless one continuous precise path represents them unambiguously; one primary locomotion phase may coexist with compatible timed fire/impact/reveal events.'
           if old in seal:
-              seal = seal.replace(old, new, 1)
-              seal_path.write_text(seal, encoding='utf-8')
-              subprocess.run(['git', 'add', '--', str(seal_path)], check=True)
-              print('AUTHORING_RULE_GENERATOR_TIMING_GUIDANCE_ALIGNED')
-          elif new not in seal:
+              raise SystemExit('AUTHORING_RULE_GENERATOR_SOURCE_STALE')
+          if new not in seal:
               raise SystemExit('AUTHORING_RULE_GENERATOR_TIMING_GUIDANCE_UNKNOWN')
-          else:
-              print('AUTHORING_RULE_GENERATOR_TIMING_GUIDANCE_ALREADY_ALIGNED')
 
           front = pathlib.Path('designer-ai/tools/current-source/CHATGPT_START.txt').read_text(encoding='utf-8-sig')
           assert 'visible[].startOffsetSeconds' in front and 'visible[].durationSeconds' in front
@@ -204,6 +197,7 @@ jobs:
           assert 'startOffset' in action and 'duration' in action
           assert 'startOffsetSeconds' in visible and 'durationSeconds' in visible
           print('SIMPLE_V1_TIMING_GUIDANCE_SOURCE_PASS')
+          print('PUBLISH_SOURCE_MUTATION=NO')
           PY
 
       - name: Seal and validate FULL CURRENT
