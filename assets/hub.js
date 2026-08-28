@@ -25,7 +25,7 @@ obsoleteBookButton?.remove();
 if(atlasButton)atlasButton.textContent='VISUAL ATLAS';
 
 function verifyAtomicIdentity(o){
-  if(!o||o.status!=='CURRENT_VERIFIED_OPEN')throw new Error('Open CURRENT is not verified');
+  if(!o||!['CURRENT_VERIFIED','CURRENT_VERIFIED_OPEN'].includes(o.status))throw new Error('Open CURRENT is not verified');
   const identity=o.atomicIdentity||{};
   const required=['publishTransactionId','catalogRevision','snapshotContentHash','contractRevision','schemaHash','authoringRuleRegistryRevision'];
   for(const key of required){if(identity[key]===undefined||identity[key]===null||identity[key]==='')throw new Error('Atomic CURRENT identity missing '+key)}
