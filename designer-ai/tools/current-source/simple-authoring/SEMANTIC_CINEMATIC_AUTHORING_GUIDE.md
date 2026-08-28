@@ -112,6 +112,8 @@ Important examples:
 - camera movement values come only from the matching schema.
 - actor `motionIntent` values come only from the matching schema.
 - every `type=fire` action requires a schema-legal `projectileId`.
+- action timing uses `startOffset` / `duration`.
+- visible Effect timing uses `startOffsetSeconds` / `durationSeconds`.
 
 Do not teach shorthand when the schema rejects it.
 
@@ -141,7 +143,13 @@ This is especially important for route=`Effect`:
 - do not add a meaningless `reveal` action merely as a backend workaround to make the Effect exist;
 - add an explicit legal Effect action only when the shot actually needs explicit event semantics such as reveal/impact/other supported behavior;
 - multiple authored instances using the same Effect handle are still multiple visual obligations and must remain distinct;
-- projectiles/impacts do not implicitly satisfy unrelated visible Effect requests.
+- projectiles/impacts do not implicitly satisfy unrelated visible Effect requests;
+- `visible[].startOffsetSeconds` is optional and measured from the containing beat start; omitted means beat start;
+- `visible[].durationSeconds` is optional; omitted means from the resolved Effect start through beat end;
+- explicit Effect duration is clamped to beat end;
+- negative/non-finite offsets, non-positive/non-finite durations, or a resolved start at/after beat end are invalid;
+- overlapping Effects are legal;
+- repeated identical Effect handles remain distinct instances and must not be deduplicated by handle.
 
 If a legal visible Effect later disappears during lowering/materialization, that is BACKEND/ENGINE-owned evidence. Do not corrupt a valid source handle to silence it.
 
@@ -166,6 +174,8 @@ Useful visible-element fields include:
 - `animationIntent`
 - `startState`
 - `endState`
+- `startOffsetSeconds` for visible Effects
+- `durationSeconds` for visible Effects
 
 Useful action fields include:
 
@@ -175,6 +185,8 @@ Useful action fields include:
 - `speed`
 - `performanceIntent`
 - `animationIntent`
+- `startOffset`
+- `duration`
 
 Use `performanceIntent` / `animationIntent` rather than raw Animation IDs.
 
@@ -214,21 +226,28 @@ Important runtime truths:
 - Pursuit/Escort/Intercept are valid semantic choreography concepts but do not automatically promise per-frame moving-target tracking;
 - semantic speed strings are resolved by the backend and are not raw numeric Unity speed values.
 
-## Sequential locomotion rule
+## Action timing and sequencing
 
-Simple V1 actions do not have per-action timing/order.
+Simple V1 action objects support optional explicit timing:
 
-Therefore multiple sequential locomotion phases for the same subject must be represented across adjacent beats.
+- `startOffset` = seconds from the owning beat start;
+- `duration` = seconds for that action.
 
-Do NOT place this conceptual sequence into one beat and assume order:
+When used, `startOffset` must be finite and >= 0, `duration` must be finite and > 0, and the explicit action interval must remain inside the owning beat.
+
+These fields are useful for staggered movement, fire, impacts and other concurrent choreography.
+
+However, `actions[]` array order is not a sequencing language. Do not assume the first array item runs before the second merely because it appears first.
+
+For distinct semantic locomotion phases such as:
 
 ```text
 approach -> pass_camera -> bank_away -> exit
 ```
 
-Instead author adjacent beats that make the order explicit.
+prefer adjacent beats unless the whole movement is deliberately authored as one continuous precise path such as waypoints or Bezier. Explicit action intervals may establish concurrency or staggering, but they do not create a hidden phase system beyond the legal fields in the schema.
 
-One primary locomotion phase may coexist in the same beat with compatible fire, impact, reveal or reaction evidence when no ordering ambiguity is introduced.
+One primary locomotion phase may coexist in the same beat with compatible fire, impact, reveal or reaction evidence when the authored timing is unambiguous.
 
 ## Cinematic move recipes
 
@@ -236,7 +255,7 @@ Recipe names are planning shorthand only. Never serialize a `recipeName` field.
 
 Every recipe must expand into legal Simple V1 fields.
 
-When a recipe implies sequential locomotion, expand it into adjacent beats.
+When a recipe implies distinct semantic locomotion phases, prefer adjacent beats unless one continuous path legitimately represents the intended movement.
 
 Examples:
 
@@ -359,10 +378,12 @@ Before delivering production JSON verify:
 10. every fire action has a schema-legal projectileId
 11. every audio cue uses an exact legal Audio handle
 12. no raw Animation/Catalog/V3/V5 identities were authored
-13. sequential locomotion phases were split across adjacent beats
-14. Actor Orbit centers remain stationary when current runtime still requires fixed-center Orbit
-15. visible Effects are not given meaningless actions merely to force backend existence
-16. frame composition is expressed through legal screen/direction semantics, not invented world units
-17. no unknown properties or remembered legacy field names remain
+13. action `startOffset`/`duration`, when used, are legal and do not rely on array order as hidden sequencing
+14. distinct semantic locomotion phases were split across adjacent beats unless represented as one legitimate continuous precise path
+15. Actor Orbit centers remain stationary when current runtime still requires fixed-center Orbit
+16. visible Effects are not given meaningless actions merely to force backend existence
+17. visible Effect `startOffsetSeconds`/`durationSeconds`, when used, obey CURRENT Effect timing semantics; overlaps and repeated handles remain distinct
+18. frame composition is expressed through legal screen/direction semantics, not invented world units
+19. no unknown properties or remembered legacy field names remain
 
 Unity remains authoritative for final runtime validation and Editable Preview acceptance.
