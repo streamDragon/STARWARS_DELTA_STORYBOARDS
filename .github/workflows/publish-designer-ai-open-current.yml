@@ -6,6 +6,8 @@ on:
     branches: [main]
     paths:
       - 'designer-ai/current.json'
+      - 'designer-ai/tools/stage_release_simple_schema.py'
+      - '.github/workflows/publish-designer-ai-open-current.yml'
 
 permissions:
   contents: write
@@ -84,6 +86,13 @@ jobs:
       - name: Build grouped visual scan report
         if: env.PUBLISH_MODE == 'FULL'
         run: python3 designer-ai/tools/build_visual_scan_report.py
+
+      - name: Stage Simple V1 schema from published CURRENT release
+        if: env.PUBLISH_MODE == 'FULL'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python3 designer-ai/tools/stage_release_simple_schema.py
 
       - name: Build Simple V1 authoring handles
         if: env.PUBLISH_MODE == 'FULL'
@@ -173,11 +182,19 @@ jobs:
           assert opened.get('status') == 'CURRENT_VERIFIED'
           assert opened.get('publishTransactionId') == source.get('publishTransactionId')
           assert opened_required == required
-          for rel in ['director-view/DIRECTOR_VIEW.json','simple-authoring/AUTHORING_HANDLES.json','simple-authoring/AUTHORING_RULES_CURRENT.json','full-visual-sheets/VISUAL_ATLAS_CURRENT.json','CUTSCENE_VALIDATION_CURRENT.json','CHATGPT_START.txt']:
+          for rel in ['director-view/DIRECTOR_VIEW.json','simple-authoring/AUTHORING_HANDLES.json','simple-authoring/AUTHORING_RULES_CURRENT.json','simple-authoring/CUTSCENE_SCRIPT_V1.schema.json','full-visual-sheets/VISUAL_ATLAS_CURRENT.json','CUTSCENE_VALIDATION_CURRENT.json','CHATGPT_START.txt']:
               assert (root/rel).is_file(), 'ATOMIC_CURRENT_MISSING '+rel
           handles = json.loads((root/'simple-authoring/AUTHORING_HANDLES.json').read_text(encoding='utf-8-sig'))
           assert {k:str(v) for k,v in handles.get('requiredCurrent',{}).items()} == required
           assert (handles.get('countsByRoute') or {}).get('Audio',0) > 0
+          schema = json.loads((root/'simple-authoring/CUTSCENE_SCRIPT_V1.schema.json').read_text(encoding='utf-8-sig'))
+          assert schema.get('$id') == 'STARWARS_DELTA_CUTSCENE_SCRIPT_V1'
+          visible = (((schema.get('$defs') or {}).get('visibleElement') or {}).get('properties') or {})
+          start = visible.get('startOffsetSeconds') or {}
+          duration = visible.get('durationSeconds') or {}
+          assert start.get('type') == 'number' and start.get('minimum') == 0, 'ATOMIC_CURRENT_EFFECT_OFFSET_SCHEMA_MISSING_OR_INVALID'
+          assert duration.get('type') == 'number' and duration.get('exclusiveMinimum') == 0, 'ATOMIC_CURRENT_EFFECT_DURATION_SCHEMA_MISSING_OR_INVALID'
+          print('ATOMIC_EFFECT_TIMING_SCHEMA_READY')
           print('ATOMIC_OPEN_CURRENT_READY', source.get('publishTransactionId'), 'mode', source.get('publishMode') or 'FULL')
           PY
 
