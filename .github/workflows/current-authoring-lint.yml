@@ -11,9 +11,19 @@ on:
       - 'designer-ai/index.html'
       - 'designer-ai/simple-preview.html'
       - 'designer-ai/tools/**'
+      - 'designer-ai/authoring-only/**'
+      - 'designer-ai/00_READ_ME_FIRST.txt'
+      - 'designer-ai/01_CHATGPT_START.txt'
+      - 'designer-ai/simple-authoring/**'
+      - 'designer-ai/CHATGPT_START.txt'
+      - 'designer-ai/FILM_AUTHORING_GUIDE_CURRENT.md'
+      - 'designer-ai/ARCHITECTURE.md'
+      - 'designer-ai/OPEN_CURRENT.json'
+      - 'designer-ai/debora.html'
       - 'README.md'
       - '.github/workflows/current-authoring-lint.yml'
       - '.github/workflows/publish-designer-ai-open-current.yml'
+      - '.github/workflows/project-designer-ai-guidance.yml'
 
 permissions:
   contents: read
@@ -54,6 +64,8 @@ jobs:
           expected = ['CS_PROJECTILE_BLUE_BOLT','CS_PROJECTILE_PURPLE_BOLT','CS_PROJECTILE_POWERBALL']
           assert projectile == expected, f'PROJECTILE_SCHEMA_DRIFT: {projectile}'
 
+          # CANONICAL SOURCE INVARIANT: one live CURRENT tree and one engineering source tree only.
+          # No legacy/compatibility authoring copies are permitted. If an old path reappears, fail immediately.
           obsolete = [
               root / 'authoring-only', root / 'simple-authoring', root / 'CHATGPT_START.txt',
               root / '00_READ_ME_FIRST.txt', root / '01_CHATGPT_START.txt',
@@ -63,7 +75,6 @@ jobs:
           present = [str(p) for p in obsolete if p.exists()]
           assert not present, 'DUPLICATE_OR_STALE_LIVE_CURRENT_REAPPEARED: ' + ', '.join(present)
 
-          # There is exactly one publisher/engineering source tree for Simple V1.
           duplicate_source_names = [
               'ARCHITECTURE.md',
               'AUTHORING_PACK_GATE_POLICY.md',
@@ -106,7 +117,6 @@ jobs:
           assert 'backend owns default beat-bounded materialization' in source_start, 'SOURCE_CHATGPT_SECRET_REVEAL_WORKAROUND_REAPPEARED'
           assert 'active camera viewport/frustum' in source_start, 'SOURCE_CHATGPT_VIEWPORT_MOTION_RULE_MISSING'
 
-          # designer-ai/index.html must not re-grow into a competing Designer AI application.
           designer_index = (root / 'index.html').read_text(encoding='utf-8')
           assert "location.replace('devora.html')" in designer_index, 'DESIGNER_INDEX_NOT_DEVORA_REDIRECT'
 
