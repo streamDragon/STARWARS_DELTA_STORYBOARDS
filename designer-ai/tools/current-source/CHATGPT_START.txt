@@ -1,5 +1,5 @@
 STARWARS_DELTA DEVORA - SIMPLE V1 CURRENT
-CURRENT AUTHORING RULE REGISTRY REVISION: 12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372
+CURRENT AUTHORING RULE REGISTRY REVISION: 12F3F91F6EE6CF5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372
 
 CURRENT is the only project truth. CURRENT beats memory. Absence from CURRENT means unavailable. Never infer missing project data.
 
@@ -71,6 +71,11 @@ VISIBLE EFFECTS
 - Do not add meaningless reveal/activate actions merely to force an Effect to exist.
 - Multiple authored instances using the same Effect handle remain distinct obligations.
 - A projectile or impact does not implicitly satisfy an unrelated Effect request.
+- visible[].startOffsetSeconds is optional for Effect obligations and is measured from the containing beat start. Omitted means beat start.
+- visible[].durationSeconds is optional for Effect obligations. Omitted means from the resolved Effect start through beat end; explicit duration is clamped to beat end.
+- Effect startOffsetSeconds must be finite and >= 0. durationSeconds must be finite and > 0. A resolved Effect start at or after beat end is invalid.
+- Effect overlaps are legal. Repeated identical Effect handles remain distinct generated instances and must never be deduplicated by handle.
+- These Effect timing fields are not action timing fields: Effect uses startOffsetSeconds/durationSeconds; actions use startOffset/duration.
 
 MOTION / COMPOSITION - CURRENT CINEMATIC MOTION TOOLKIT
 - Screen coordinates use normalized Unity viewport convention: (0,0)=bottom-left, (1,1)=top-right, center=(0.5,0.5). X increases right; Y increases up.
@@ -125,13 +130,15 @@ BEZIER
 - Use Bezier for cinematic swoops, hooks, banking turns, dives, pull-ups and asymmetric curves.
 - Example cubic swoop: (-0.10,0.72), (0.22,0.18), (0.68,0.22), (1.10,0.68).
 
-PATH TIMING
+ACTION TIMING
 - pathEasing is legal for open path traversal: linear, ease_in, ease_out, ease_in_out, smooth_step.
 - startOffset is an optional ACTION field measured in seconds from the owning beat start.
 - duration is an optional ACTION field measured in seconds for that action.
-- Keep startOffset >= 0, duration > 0 and keep the action interval inside the owning beat.
-- Use different startOffset/duration values to stagger multiple ships instead of making every actor start simultaneously.
-- These action fields are not the same as root/beat durationSeconds.
+- Keep startOffset >= 0, duration > 0 and keep every explicitly timed action interval inside the owning beat.
+- Use different startOffset/duration values to stagger concurrent actions such as multiple ships or timed fire instead of making every action start simultaneously.
+- Explicit action timing does not make actions[] array order a sequencing language. Never assume first array item runs before the second unless their authored intervals actually establish that relationship.
+- A single precise waypoints/bezier action may encode a multi-turn continuous movement. Distinct semantic locomotion phases such as approach -> pass_camera -> bank_away should still use adjacent beats unless represented deliberately as one continuous path.
+- These action fields are not the same as root/beat durationSeconds and are not the same as visible Effect startOffsetSeconds/durationSeconds.
 
 SEQUENTIAL MOTION
 - A single precise waypoints/bezier path may encode a multi-turn continuous movement inside one action.
@@ -189,10 +196,11 @@ Before returning JSON verify:
 17. path_loop actions use only CURRENT pathShape values and required fields.
 18. waypoints use 2..32 pathPoints; bezier uses exactly 3 or 4 pathPoints.
 19. pathPoints stay inside -0.25..1.25 and use Unity viewport Y-up coordinates.
-20. startOffset/duration, when used, stay inside the owning beat.
-21. Precise path geometry uses pathShape/pathPoints rather than pretending trajectory alone defines exact points.
-22. No raw Catalog IDs, raw Animation IDs, V3/V5 bookkeeping, world coordinates or unknown properties appear.
-23. If this is REPAIR, incoming requiredCurrent matches the attached CURRENT; otherwise discard stale diagnostics and re-evaluate the original JSON.
+20. action startOffset/duration, when used, are finite, legal and remain inside the owning beat; array order is never used as hidden sequencing.
+21. visible Effect startOffsetSeconds/durationSeconds, when used, obey the Effect-only CURRENT timing rules; overlaps/repeated handles remain distinct legal obligations.
+22. Precise path geometry uses pathShape/pathPoints rather than pretending trajectory alone defines exact points.
+23. No raw Catalog IDs, raw Animation IDs, V3/V5 bookkeeping, world coordinates or unknown properties appear.
+24. If this is REPAIR, incoming requiredCurrent matches the attached CURRENT; otherwise discard stale diagnostics and re-evaluate the original JSON.
 
 WARNING / ORANGE HYGIENE
 - Group repeated diagnostics by root cause instead of rewriting valid source handles.
