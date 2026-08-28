@@ -8,6 +8,7 @@ STORY EVIDENCE: physical claims require visible serialized evidence; dialogue te
 This package is self-contained. No external Catalog knowledge is required.
 NORMAL NEW AUTHORING: return one complete CUTSCENE_SCRIPT_V1 JSON object. DEVORA owns story, semantic handles, visible evidence, dialogue intent and camera-first screen composition; Unity owns exact runtime IDs, CURRENT fingerprints, route resolution and final V5 serialization.
 TIMING DEFAULTS: always include root durationSeconds, every beat durationSeconds, and durationSeconds on fade_in/fade_out audio cues. If a legacy or hand-authored JSON omits them, Unity normalizes missing beat durations to 3 seconds, fade durations to 0.5 seconds, and missing root durationSeconds to the sum of normalized beats before strict validation; do not invent different timing defaults. play/stop audio may omit durationSeconds.
+EFFECT SUB-BEAT TIMING: only visible[] entries resolved to Effect may use optional startOffsetSeconds and durationSeconds. Offset defaults to beat start and duration defaults to the containing beat end; explicit duration is clamped to that beat. Offset must be finite and non-negative, duration must be finite and positive when supplied, and the resolved start must be before beat end. Overlapping and repeated identical Effect handles are legal and remain separate generated instances. Sprite/static Effects retain Activation/native ownership; Particle/prefab Effects retain Control/lifecycle ownership.
 SIMPLE HANDLE SAFETY: normal NEW authoring uses exact semantic handles from matching CURRENT truth. Never invent a handle or silently substitute a related identity. Unity resolves the handle to exact backend assets.
 SIMPLE AUTHORING DOES NOT CREATE BACKEND TECHNICAL IDS. Unity generates globally unique V5 action/transition/event/audio/line IDs during Simple -> V3 -> V5 compilation.
 PLACEMENT: cutscenePrimaryUse is authoritative. Layer-primary records are layers/backgrounds, Actor-primary records are cast/world actors, Ui-primary records are dialogue/UI presentation, Animation-primary records are animation references, Effect-primary records are effects, and Audio-primary records are audio.
@@ -43,10 +44,10 @@ EXISTING CUTSCENE REVISION
 Use ADD CATALOG + PRESENT STATE OF THE CUTSCENE + the natural-language requested change. Present State is current Cutscene state only; ADD CATALOG remains the global rules/assets source.
 
 Contract revision: 2F9CD64B0DD1AB1CF6D97BA46D32A5FA29199B46FCE0A41972C42655B3543CF8
-Schema hash: E404BDCE7936602B05FEAE284E25B86B558A92393312D5904CD1F3BC2B2B823F
-Authoring rule registry revision: 12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372
-Snapshot content hash: 8161C286C9EE2859F869246163FB6DB025EAD9B20128188664433EA949DAA8A3
-Snapshot identity: catalogRevision=7624700180290740973;contractRevision=2F9CD64B0DD1AB1CF6D97BA46D32A5FA29199B46FCE0A41972C42655B3543CF8;schemaHash=E404BDCE7936602B05FEAE284E25B86B558A92393312D5904CD1F3BC2B2B823F;snapshotContentHash=8161C286C9EE2859F869246163FB6DB025EAD9B20128188664433EA949DAA8A3
+Schema hash: BC2DDE831B46CF0D15C926023FE5DC6CA29D3898BF75569A6524FB03FBD4E94A
+Authoring rule registry revision: A215FB0F8D7648D3BAD5336EFA3189F5D011E8F5C8C218F93F0F2D8DA8D3A4DD
+Snapshot content hash: 58F0C62416E81C049C7A4E7087EAA2E45A6F5B44EEBDF2E3D6E87C774504A8B3
+Snapshot identity: catalogRevision=7624700180290740973;contractRevision=2F9CD64B0DD1AB1CF6D97BA46D32A5FA29199B46FCE0A41972C42655B3543CF8;schemaHash=BC2DDE831B46CF0D15C926023FE5DC6CA29D3898BF75569A6524FB03FBD4E94A;snapshotContentHash=58F0C62416E81C049C7A4E7087EAA2E45A6F5B44EEBDF2E3D6E87C774504A8B3
 Do not treat catalogRevision alone as proof that two snapshots are equivalent. Compare the complete snapshot identity: catalogRevision, contractRevision, schemaHash and snapshotContentHash.
 Supported Cutscene package version: 5
 
@@ -202,7 +203,7 @@ SMALL VALID JSON EXAMPLE
   "schemaVersion": 5,
   "contextVersion": 3,
   "contractRevision": "2F9CD64B0DD1AB1CF6D97BA46D32A5FA29199B46FCE0A41972C42655B3543CF8",
-  "schemaHash": "E404BDCE7936602B05FEAE284E25B86B558A92393312D5904CD1F3BC2B2B823F",
+  "schemaHash": "BC2DDE831B46CF0D15C926023FE5DC6CA29D3898BF75569A6524FB03FBD4E94A",
   "contextId": "NEW_CUTSCENE_CONTEXT",
   "catalogRevision": "7624700180290740973",
   "projectId": "",

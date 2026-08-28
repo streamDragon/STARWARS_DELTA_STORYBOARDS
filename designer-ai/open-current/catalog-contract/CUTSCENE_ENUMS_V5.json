@@ -3,9 +3,9 @@
   "schemaVersion": 5,
   "authoringContractVersion": 1,
   "contractRevision": "2F9CD64B0DD1AB1CF6D97BA46D32A5FA29199B46FCE0A41972C42655B3543CF8",
-  "authoringRuleRegistryRevision": "12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372",
+  "authoringRuleRegistryRevision": "A215FB0F8D7648D3BAD5336EFA3189F5D011E8F5C8C218F93F0F2D8DA8D3A4DD",
   "authoringRuleRegistry": {
-    "revision": "12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372",
+    "revision": "A215FB0F8D7648D3BAD5336EFA3189F5D011E8F5C8C218F93F0F2D8DA8D3A4DD",
     "rules": [
       {
         "ruleId": "ACTOR_IDENTITY_COLLISION",
@@ -336,6 +336,28 @@
         "chatInstruction": "Use an explicit portrait-capable preset or keep subtitles only.",
         "studioMessage": "Dialogue visual source is unsupported by the preset.",
         "regressionTestId": "DIALOGUE_VISUAL_SOURCE_UNSUPPORTED"
+      },
+      {
+        "ruleId": "EFFECT_VISIBLE_SUBBEAT_TIMING",
+        "category": "Timing",
+        "severity": "Default",
+        "blocksCompilation": false,
+        "statusColor": "Yellow",
+        "owner": "BACKEND",
+        "blocksEditablePreview": false,
+        "blocksFinalReadiness": false,
+        "authoringRequirement": "MAY_OMIT_BACKEND_DEFAULT",
+        "diagnosticCode": "EFFECT_VISIBLE_SUBBEAT_TIMING",
+        "description": "Visible Effect obligations may occupy an optional sub-interval of their containing beat.",
+        "defaultPolicy": "Omitted startOffsetSeconds begins at beat start; omitted durationSeconds ends at beat end. Explicit duration is clamped to the beat end.",
+        "normalizationPolicy": "Resolve the interval once at the Simple -> existing V3/V5 execution-plan boundary, then pass that exact interval to the existing Effect materializer.",
+        "autoRepairPolicy": "Do not apply these fields to Actors, Layers, Audio or other visible routes; do not deduplicate repeated Effect handles.",
+        "validationPolicy": "Block negative/non-finite offsets, non-positive/non-finite durations and starts at or after beat end. Overlap is legal.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Use startOffsetSeconds and durationSeconds only for visible Effect entries when a beat-local sub-interval is required.",
+        "studioMessage": "Effect sub-beat timing was resolved into the containing beat interval.",
+        "regressionTestId": "EFFECT_VISIBLE_SUBBEAT_TIMING"
       },
       {
         "ruleId": "GENERATED_ROOT_EXCLUSION",

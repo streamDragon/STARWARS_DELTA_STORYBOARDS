@@ -2,12 +2,12 @@
   "schema": "STARWARS_DELTA_CUTSCENE_INSTRUCTION_BOOK_MANIFEST",
   "schemaVersion": 1,
   "bookVersion": "2.7.0",
-  "generatedUtc": "2026-08-28T01:03:03.2928174Z",
+  "generatedUtc": "2026-08-28T01:31:44.4247457Z",
   "authoringContractRevision": "2F9CD64B0DD1AB1CF6D97BA46D32A5FA29199B46FCE0A41972C42655B3543CF8",
-  "schemaHash": "E404BDCE7936602B05FEAE284E25B86B558A92393312D5904CD1F3BC2B2B823F",
-  "authoringRuleRegistryRevision": "12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372",
+  "schemaHash": "BC2DDE831B46CF0D15C926023FE5DC6CA29D3898BF75569A6524FB03FBD4E94A",
+  "authoringRuleRegistryRevision": "A215FB0F8D7648D3BAD5336EFA3189F5D011E8F5C8C218F93F0F2D8DA8D3A4DD",
   "authoringRuleRegistry": {
-    "revision": "12F3F91F6EE6CF5B5B7C9094F2BA2B10C2339B36E42B7D50F65E40187DED4372",
+    "revision": "A215FB0F8D7648D3BAD5336EFA3189F5D011E8F5C8C218F93F0F2D8DA8D3A4DD",
     "rules": [
       {
         "ruleId": "ACTOR_IDENTITY_COLLISION",
@@ -340,6 +340,28 @@
         "regressionTestId": "DIALOGUE_VISUAL_SOURCE_UNSUPPORTED"
       },
       {
+        "ruleId": "EFFECT_VISIBLE_SUBBEAT_TIMING",
+        "category": "Timing",
+        "severity": "Default",
+        "blocksCompilation": false,
+        "statusColor": "Yellow",
+        "owner": "BACKEND",
+        "blocksEditablePreview": false,
+        "blocksFinalReadiness": false,
+        "authoringRequirement": "MAY_OMIT_BACKEND_DEFAULT",
+        "diagnosticCode": "EFFECT_VISIBLE_SUBBEAT_TIMING",
+        "description": "Visible Effect obligations may occupy an optional sub-interval of their containing beat.",
+        "defaultPolicy": "Omitted startOffsetSeconds begins at beat start; omitted durationSeconds ends at beat end. Explicit duration is clamped to the beat end.",
+        "normalizationPolicy": "Resolve the interval once at the Simple -> existing V3/V5 execution-plan boundary, then pass that exact interval to the existing Effect materializer.",
+        "autoRepairPolicy": "Do not apply these fields to Actors, Layers, Audio or other visible routes; do not deduplicate repeated Effect handles.",
+        "validationPolicy": "Block negative/non-finite offsets, non-positive/non-finite durations and starts at or after beat end. Overlap is legal.",
+        "introducedRevision": 1,
+        "deprecatedRevision": null,
+        "chatInstruction": "Use startOffsetSeconds and durationSeconds only for visible Effect entries when a beat-local sub-interval is required.",
+        "studioMessage": "Effect sub-beat timing was resolved into the containing beat interval.",
+        "regressionTestId": "EFFECT_VISIBLE_SUBBEAT_TIMING"
+      },
+      {
         "ruleId": "GENERATED_ROOT_EXCLUSION",
         "category": "Synchronization",
         "severity": "Blocker",
@@ -653,12 +675,12 @@
   "goldenExampleCount": 1,
   "maxActiveLessons": 50,
   "maxGoldenExamples": 8,
-  "contentHash": "87A97232EDB106F9FFB300D23106531E5DD58DB66DCA3CDE2EB976BC2C07594C",
+  "contentHash": "D4E428B172CD7B1A70B69A8D85F1FCAEC22258C98A330351E273FAB088F72C17",
   "catalogIncluded": false,
   "files": [
     {
       "path": "00_INSTRUCTION_BOOK_READ_FIRST.txt",
-      "sha256": "604889C1C44D43F93046F515019AE1F9335019600AE025621722C5052BAE6F2D",
+      "sha256": "7D7D150709FD3A47EAD71B43F62BEBFDEC26EF5644B7E9811470E6ADD799C482",
       "bytesUtf8": 11511
     },
     {
@@ -843,8 +865,8 @@
     },
     {
       "path": "INSTRUCTION_BOOK.json",
-      "sha256": "C674D03592614318D2EE131FF829097717EDD16D9FC133B7524282F439F046EA",
-      "bytesUtf8": 74014
+      "sha256": "9CBB308B59962EFF0184A260DF0859F1BFD0398FA968F8F3ACEBA5421375BB2B",
+      "bytesUtf8": 75603
     }
   ]
 }
