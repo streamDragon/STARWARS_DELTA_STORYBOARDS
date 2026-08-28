@@ -6,19 +6,13 @@ on:
     branches: [main]
     paths:
       - 'designer-ai/current.json'
-      - 'designer-ai/tools/stage_release_simple_schema.py'
-      - 'designer-ai/tools/seal_atomic_current.py'
-      - 'designer-ai/tools/current-source/CHATGPT_START.txt'
-      - 'designer-ai/tools/current-source/FILM_AUTHORING_GUIDE_CURRENT.md'
-      - 'designer-ai/tools/current-source/simple-authoring/**'
-      - '.github/workflows/publish-designer-ai-open-current.yml'
 
 permissions:
   contents: write
 
 concurrency:
   group: designer-ai-current
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   publish-current:
