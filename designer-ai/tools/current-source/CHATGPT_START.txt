@@ -17,6 +17,13 @@ MANDATORY PRE-AUTHORING STABILITY GATE
 4. Moving/world subjects must use exact CURRENT route=Actor handles with authorableInSimpleV1=true.
 5. Audio, Effect and location handles must resolve exactly to the matching legal CURRENT routes. Never select a handle only because its display name looks right.
 
+STUDIO CONTRACT / CURRENT FINGERPRINTS - BACKEND ONLY
+- CUTSCENE_SCRIPT_V1 is film authoring data. Do NOT serialize CURRENT/session fingerprints into the movie JSON unless a future matching schema explicitly defines them.
+- In particular, do not add schemaHash, authoringRuleRegistryRevision, catalogRevision, contractRevision, snapshotContentHash, publishTransactionId or requiredCurrent to authored Simple V1 JSON.
+- Those values belong to OPEN_CURRENT, request/session metadata and Studio compatibility checks. The Studio already knows which CURRENT/request contract is active.
+- If a supplied JSON contains an old fingerprint and Studio reports AUTHORING_CONTRACT_STALE, remove the non-schema fingerprint metadata and revalidate the same film against the active CURRENT. Do not rewrite valid beats, handles, timing or choreography merely to chase a stale request stamp.
+- Never copy CURRENT identity fields from an old request report into a new CUTSCENE_SCRIPT_V1 file.
+
 ACTOR IDENTITY CONTRACT - REQUIRED
 - cast[].id is the logical Actor id used by actions/dialogue/continuity. It is not an asset handle.
 - cast[].identityHandle MUST be the canonical/preferred CURRENT Actor authoring identity for that person/entity, using route=Actor and authorableInSimpleV1=true.
@@ -26,6 +33,7 @@ ACTOR IDENTITY CONTRACT - REQUIRED
 - visible[].handle selects the visible representation for that visible obligation. A Sprite frame, Texture, portrait frame, animation frame or other visual record may be legal there when CURRENT permits it, but it MUST NOT be substituted for cast[].identityHandle.
 - actions[].subject references cast[].id for Actor actions. Do not put an asset handle in actions[].subject.
 - animationIntent and performanceIntent are semantic requests such as walk or look_up. Never author a raw AnimationClip id/handle.
+- Use animation/performance intent only on an Actor whose CURRENT evidence supports compatible animation (for example hasCompatibleAnimation=true when that capability is published). Do not assume every Actor can play every intent.
 - A visual/frame record that belongs to an Actor does not itself become the Actor identity. The backend may canonicalize legacy visual handles, but authors must still prefer the published canonical Actor handle.
 - If CURRENT does not expose a legal canonical Actor identity for a required world character, do not infer one from filenames, folders, frame names, sprites, GUID:fileId values or old JSON. Treat the Actor as unavailable for world-authoring until CURRENT exposes it.
 
@@ -185,7 +193,7 @@ Before returning JSON verify:
 6. Every WORLD ACTOR cast[].identityHandle is the exact deterministic canonical/preferred route=Actor authoring handle from CURRENT, normally <name>__<runtimeHash>; no GUID:fileId value is used as a world Actor identity.
 7. Curated dialogue cast uses the exact EMOTIONAL_DIALOGUE_CURRENT identityHandle for that actorId.
 8. Every moving/world subject resolves to a legal authorable Actor identity, and actions[].subject references cast[].id.
-9. animationIntent/performanceIntent remain semantic; no raw AnimationClip identity is authored.
+9. animationIntent/performanceIntent remain semantic, are used only with compatible Actor evidence, and no raw AnimationClip identity is authored.
 10. Every action uses subject, not actor, and only schema enum values.
 11. Every camera uses framing/movement, never legacy shot/move fields.
 12. Every locked dialogue beat uses Hold by default; non-Hold locked-dialogue coverage appears only when explicitly legal in matching CURRENT.
@@ -199,8 +207,9 @@ Before returning JSON verify:
 20. action startOffset/duration, when used, are finite, legal and remain inside the owning beat; array order is never used as hidden sequencing.
 21. visible Effect startOffsetSeconds/durationSeconds, when used, obey the Effect-only CURRENT timing rules; overlaps/repeated handles remain distinct legal obligations.
 22. Precise path geometry uses pathShape/pathPoints rather than pretending trajectory alone defines exact points.
-23. No raw Catalog IDs, raw Animation IDs, V3/V5 bookkeeping, world coordinates or unknown properties appear.
-24. If this is REPAIR, incoming requiredCurrent matches the attached CURRENT; otherwise discard stale diagnostics and re-evaluate the original JSON.
+23. No raw Catalog IDs, raw Animation IDs, CURRENT/request fingerprints, V3/V5 bookkeeping, world coordinates or unknown properties appear.
+24. Authored JSON contains none of schemaHash, authoringRuleRegistryRevision, catalogRevision, contractRevision, snapshotContentHash, publishTransactionId or requiredCurrent unless a future matching schema explicitly defines them.
+25. If this is REPAIR, incoming requiredCurrent matches the attached CURRENT; otherwise discard stale diagnostics and re-evaluate the original JSON.
 
 WARNING / ORANGE HYGIENE
 - Group repeated diagnostics by root cause instead of rewriting valid source handles.
