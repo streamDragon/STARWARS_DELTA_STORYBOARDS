@@ -31,10 +31,11 @@ MAX_NESTED_ENTRY_BYTES = 40 * 1024 * 1024
 MAX_DEPTH = 4
 
 
-def request_bytes(url, token, timeout=180):
+def request_bytes(url, token, timeout=180, accept="application/octet-stream"):
     headers = {
-        "Accept": "application/octet-stream",
+        "Accept": accept,
         "User-Agent": "STARWARS-DELTA-release-authoring-source",
+        "X-GitHub-Api-Version": "2022-11-28",
     }
     if token:
         headers["Authorization"] = "Bearer " + token
@@ -50,7 +51,7 @@ def request_bytes(url, token, timeout=180):
 
 
 def request_json(url, token):
-    raw = request_bytes(url, token)
+    raw = request_bytes(url, token, accept="application/vnd.github+json")
     return json.loads(raw.decode("utf-8-sig"))
 
 
