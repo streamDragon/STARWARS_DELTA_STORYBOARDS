@@ -35,18 +35,20 @@ The 2026-08-28 gauntlet exposed a concrete hidden-rule failure: solo portrait-ex
 
 ## Current Cutscene Studio stabilization state
 
-Manual 72-second broad preview now BUILDS and OPENS.
+### 72-second fixture
+
+Manual broad Preview BUILDS and OPENS.
 
 Confirmed working / materially improved:
 
 - Editable Preview build/readback passes after removing invalid custom proof MonoBehaviour materialization.
-- Civilian animation now uses native Unity `AnimationTrack` materialization.
+- Civilian animation uses native Unity `AnimationTrack` materialization.
 - `walk` resolves to real animation assets with `candidateCount > 0` and `result=RESOLVED`.
 - `look_up` resolves to real animation assets with `candidateCount > 0` and `result=RESOLVED`.
-- Manual preview visibly shows animation changes.
-- Motion materialization works.
+- Manual Preview visibly shows animation changes.
+- Motion materialization works independently from semantic animation selection.
 - Dialogue UI is no longer the Missing Script blocker.
-- Projectile preview route binds and reports authoring-ready projectile assets.
+- Projectile Preview route binds and reports authoring-ready projectile assets.
 
 Important implementation correction:
 
@@ -54,24 +56,41 @@ Important implementation correction:
 - Proof/diagnostic calculation may remain editor-side, but generated actors must not depend on a custom proof MonoBehaviour for playback.
 - Animation execution target is: `animationIntent -> resolved AnimationClip -> native Timeline AnimationTrack -> PlayableDirector binding`.
 
+### 296-second CURRENT Mega Component Gauntlet V2
+
+The Mega Gauntlet now reaches the full manual Preview path and OPENS successfully after the canonical Actor identity/materialization mismatch was repaired.
+
+The earlier `M004_doctor` / `M005_doctor` binding-aware coverage failure is therefore obsolete as the current blocker.
+
+Current manual visual findings:
+
+1. Doctor walk-cycle leg animation is visually good, but the Doctor currently faces/walks visually opposite to the authored left-to-right travel direction.
+2. Other sprite animations visibly work but occasionally show visual popping/jumping between frames. This still needs root-cause classification: pivot/bounds discontinuity, visual-child/root binding, clip timing, or late asset substitution. Do not assume which one without reading live code/assets.
+3. A V3 authoring correction has been prepared externally for the Mega Gauntlet that adds explicit `facing=right` to Doctor visuals in M004 and M005. It has not yet been used as proof. If explicit facing fixes the Doctor, treat this as authoring intent, not an engine defect. If not, the Studio facing/materialization contract is incomplete.
+4. Projectile Preview is bound and activates at the authored cue. Current logs show POWERBALL expected=2/actual=2, but BLUE_BOLT expected=5/actual=2 and PURPLE_BOLT expected=4/actual=2 at the sampled active time. This is a separate later stabilization item, not an Animation pass prerequisite.
+5. Dialogue portrait assignment/rendering is working for multiple closed-world identities and expressions in the Mega Gauntlet.
+6. A Unity `ConsoleWindow` GUILayout/InvalidCast exception appeared after heavy logging. Treat it as Editor UI noise unless reproduced independently from the Console window; do not fold it into Cutscene runtime architecture.
+
 ## Current next stabilization task
 
-Do NOT redesign animation again.
+Do NOT redesign animation.
 
-Focus only on visual/playback quality:
+First classify only the remaining animation quality issues:
 
-1. walk animation duration/loop/timeScale vs actor motion,
+1. explicit facing vs travel direction,
 2. stable feet/grounding and Sprite pivot/bounds continuity,
-3. continuity between walk and look_up beats when the narrative actor is intended to persist,
-4. remove the accidental empty Timeline track if its source is local and obvious.
+3. clip duration/loop/timeScale vs authored action interval,
+4. actor/visual continuity between beats,
+5. whether any exact animation choice changes after the initial semantic selection.
 
-The larger 296-second CURRENT mega-gauntlet now reaches `READY TO BUILD` after its portrait JSON correction, but its build currently fails later at `verifying materialization coverage` on an Actor obligation for `M004_doctor`. This is a Studio/materialization-coverage issue, not a schema/preflight blocker. Do not mutate the movie JSON merely to hide this failure.
+The old blanket assumption `candidateCount=0 / ACTOR_HAS_NO_ANIMATION_CAPABILITY` is obsolete for the current working civilian cases.
 
 ## Ownership / boundaries
 
 - User/ChatGPT owns movie JSON and creative authoring.
 - Codex/Unity code owns parser/compiler/resolver/materializer/runtime implementation.
-- Do not modify user JSON to hide a Studio defect.
+- Do not modify user JSON to hide a proven Studio defect.
+- Conversely, do not modify Studio code when the authoring JSON simply omitted a supported intent such as explicit facing.
 - Do not create a new schema generation (`V6`, `V7`, `VNext`) during stabilization.
 - Do not create broad QA frameworks/fixtures as a substitute for fixing a reproduced defect.
 - Generated Cutscene output is disposable and must not become source of truth.
