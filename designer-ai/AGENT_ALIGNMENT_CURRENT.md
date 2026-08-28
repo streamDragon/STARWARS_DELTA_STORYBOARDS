@@ -12,6 +12,22 @@ Purpose: shared runtime/stabilization handoff for all agents working on Cutscene
 - Do not hand-edit generated `designer-ai/open-current/**` files.
 - FULL publish is read-only against canonical source; use the canonical Publisher path for future contract/catalog publication.
 
+## Mandatory authoring validation gates
+
+See `designer-ai/AUTHORING_VALIDATION_GATE.md`.
+
+Never collapse these into one generic `VALID=PASS` claim:
+
+1. `SCHEMA_PASS`
+2. `CURRENT_CONTRACT_PASS`
+3. `STUDIO_PREFLIGHT_PASS`
+
+A JSON produced outside Unity may only claim gates 1-2 unless the real current Cutscene Studio preflight was actually run. If not run, report `STUDIO_PREFLIGHT=NOT_RUN`.
+
+`READY_TO_BUILD` requires the real Studio preflight with zero RED blockers.
+
+The 2026-08-28 gauntlet exposed a concrete hidden-rule failure: solo portrait-expression lines were schema-valid and CURRENT-valid but Studio rejected them with `CUTSCENE_DIALOGUE_PORTRAIT_COUNT_INVALID`. Legitimate permanent authoring rules of this kind should be published canonically rather than left as Studio-only knowledge.
+
 ## Unity baseline
 
 - Unity `6000.6.0b10`.
@@ -48,6 +64,8 @@ Focus only on visual/playback quality:
 2. stable feet/grounding and Sprite pivot/bounds continuity,
 3. continuity between walk and look_up beats when the narrative actor is intended to persist,
 4. remove the accidental empty Timeline track if its source is local and obvious.
+
+The larger 296-second CURRENT mega-gauntlet now reaches `READY TO BUILD` after its portrait JSON correction, but its build currently fails later at `verifying materialization coverage` on an Actor obligation for `M004_doctor`. This is a Studio/materialization-coverage issue, not a schema/preflight blocker. Do not mutate the movie JSON merely to hide this failure.
 
 ## Ownership / boundaries
 
