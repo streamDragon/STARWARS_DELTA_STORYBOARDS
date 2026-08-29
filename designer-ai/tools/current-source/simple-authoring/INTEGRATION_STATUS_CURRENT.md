@@ -2,6 +2,14 @@
 
 This file records durable engineering conclusions only. It is not a second authoring contract and it does not override the published atomic `open-current/**` schema or handles.
 
+## Plastic / Git authority
+
+The Unity/Plastic workspace is canonical for Cutscene Studio runtime implementation and runtime proof.
+
+This Git repository is canonical for maintained external authoring/publishing guidance and the controlled Designer AI CURRENT source. It does not mirror Unity runtime source.
+
+Generated `designer-ai/open-current/**` remains a publication product and is not hand-edited during runtime repair.
+
 ## Particle Effects
 
 Targeted Particle discovery is supported as a Cutscene Catalog enrichment step.
@@ -40,15 +48,65 @@ The intended shapes are rectangle, circle, triangle and sine, with normalized ce
 
 This remains engineering capability until a matching Unity implementation, tests, maintained Simple V1 schema, controlled Publish and sealed `open-current/CHATGPT_START.txt` all agree in one atomic release. Until then, the published schema wins and authors must not serialize unpublished `path_loop` fields from memory.
 
+## Stable Golden QA target
+
+The current verification target is a stable Golden Cutscene regression in the canonical Plastic workspace, not a stream of disposable test movies.
+
+The Golden policy is documented in:
+
+- `CUTSCENE_GOLDEN_QA_POLICY.md`
+
+The representative integration fixture should remain authored-stable while the backend/runtime is repaired against it. Production code must never special-case fixture names, beat IDs, actor IDs or exact fixture timestamps.
+
+The representative Golden film should exercise, where legal:
+
+- actor animation;
+- camera Push/Pull/Track/Follow/Drift/Orbit/Shake/ImpactShake;
+- perspective operations;
+- exact projectile types/counts;
+- explosions/effects;
+- target anchors and collider resolution;
+- moving shooter plus fire;
+- reverse animation;
+- simultaneous actor animation + camera motion;
+- simultaneous firefight + camera motion;
+- repeated camera operations after unrelated activity;
+- a final clean Hold with no leaked motion/state.
+
+The final saved/reopened Editable Preview is the execution truth. Generation-time objects alone do not prove success.
+
+Camera/animation/projectile correctness must survive:
+
+```text
+Build
+-> Save
+-> final Editable Preview
+-> reopen
+-> Timeline evaluation
+```
+
+This includes final Timeline generic bindings, Cinemachine exposed references, required generated animation clips, actor Animator bindings, camera-motion bindings, target/anchor/collider references and active intervals.
+
+No Golden runtime PASS is currently claimed by this status file merely because source code was changed or Unity compiled. `PASS` requires actual Unity execution of the Golden fixture. `SOURCE_READY` / `NOT_RUN` remain honest states when runtime execution has not occurred.
+
 ## Current practical verification target
 
-The next representative Cutscene proof should exercise, in one small fixture where legal:
+Use the same Golden integration fixture and its normal production pipeline as the regression target.
 
-- at least one normal visible Effect;
-- at least one genuine Particle-only Effect;
-- several Effect entries with different `startOffsetSeconds`, `durationSeconds`, screen positions and sizes inside one beat;
-- geometric loop motion only after it is schema-published;
-- frame-relative 2D camera movement that stays fully inside active background coverage;
-- binding-aware materialization coverage through Editable Preview.
+The closed loop is:
+
+```text
+compile
+-> run same Golden QA
+-> find first real failure
+-> trace to first wrong owner/stage
+-> fix production code
+-> compile
+-> rerun same Golden QA
+```
+
+Do not rewrite legal fixture JSON to hide backend/engine failure. Do not create a new fixture for every symptom. Do not treat compile-only success as movie-quality validation.
+
+Representative proof must still include binding-aware materialization coverage, 2D viewport/background coverage, actor animation state change, camera within-shot motion, projectile/effect execution, concurrency and last-good Preview preservation.
 
 Do not turn a single deferred asset such as a questionable Particle candidate into a release blocker when the route itself is already proven by other legal candidates.
