@@ -81,7 +81,7 @@ jobs:
           front=(root/'CHATGPT_START.txt').read_text(encoding='utf-8-sig')
           guide=(root/'FILM_AUTHORING_GUIDE_CURRENT.md').read_text(encoding='utf-8-sig')
           architecture=(root/'simple-authoring/ARCHITECTURE.md').read_text(encoding='utf-8-sig')
-          assert 'CUTSCENE_SCRIPT_V1 is the only normal public movie-authoring format' in architecture
+          assert '`CUTSCENE_SCRIPT_V1`' in architecture and 'only normal public movie-authoring format' in architecture
           assert 'VISIBLE EFFECTS / PARTICLES' in front
           assert 'CUTSCENE PROJECTILES / MISSILES' in front
           assert 'Accepted fixtures and Golden QA' in guide
@@ -103,7 +103,7 @@ jobs:
           mkdir -p designer-ai/open-current
           cp -a _open_current_stage/. designer-ai/open-current/
           git config user.name 'github-actions[bot]'
-          git config user.email '41898282+streamDragon@users.noreply.github.com'
+          git config user.email '41898280+github-actions[bot]@users.noreply.github.com'
           git add -A designer-ai/open-current
           if git diff --cached --quiet; then
             echo 'GUIDANCE_CURRENT_ALREADY_MATCHES'
