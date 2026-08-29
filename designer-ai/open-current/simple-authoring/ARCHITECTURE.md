@@ -33,6 +33,8 @@ The public authoring contract for a published CURRENT is only the matching atomi
 
 Do not maintain duplicate Simple source files at `designer-ai/tools/current-source/` root and do not manually edit generated `open-current/**` as cleanup.
 
+The Unity/Plastic workspace is canonical for runtime implementation and runtime proof. This Git repository documents/publishes authoring and engineering guidance; it does not duplicate Unity runtime source.
+
 ## Authoring boundary
 
 ChatGPT authors semantic film intent only:
@@ -112,6 +114,101 @@ BAD NEW CANDIDATE != DESTROY LAST GOOD PREVIEW
 When a newly generated candidate fails materialization/binding/interval coverage, reject that candidate and preserve the last valid Editable Preview when one exists. Report the exact ENGINE/BACKEND degradation/failure rather than clearing the working film.
 
 See `FAIL_SOFT_MOVIE_AUTHORING_POLICY.md` for the full user-facing policy.
+
+## Final Editable Preview persistence
+
+Generation-time objects are not the final execution truth.
+
+Correctness must survive:
+
+```text
+Build
+-> Save
+-> final Editable Preview
+-> reopen
+-> Timeline evaluation
+```
+
+This includes Timeline generic bindings, Cinemachine exposed references, required generated animation clips, actor Animator bindings, camera-motion bindings, target/anchor/collider references and active intervals.
+
+A candidate that only works before Save is incomplete.
+
+## Camera execution proof
+
+Camera shot selection and within-shot camera motion are separate obligations.
+
+Native Cinemachine Timeline representation remains the preferred owner for selecting the active shot. A CinemachineCamera merely becoming active is not proof that authored Push/Pull/Orbit/Drift/Shake/ImpactShake executed.
+
+For authored within-shot motion:
+
+- Push/Pull require continuous visible framing change during the same shot, not only a cut between static lens sizes;
+- Orbit must preserve authored target and direction and produce meaningful 2D/2.5D composition change;
+- Drift must produce visible frame-relative displacement;
+- Shake must visibly oscillate and return to base;
+- ImpactShake must produce an early strong hit followed by decay to base;
+- Hold must contain no leaked camera motion from a prior interval;
+- strong movement that is only technically non-zero but visually imperceptible is not exact success.
+
+The selected Editable Preview has one authoritative camera route. Sibling generated revisions/projects may exist but must not participate in the selected Preview. Open Preview starts from authored time zero and must not inherit stale camera state from another revision.
+
+Implementation details may evolve in Plastic, but one capability still has one owner for the same interval.
+
+## Actor animation execution proof
+
+For compatible actor animation, success is the complete chain:
+
+```text
+semantic animation intent
+-> resolved compatible AnimationClip
+-> native AnimationTrack
+-> final cloned visual Animator binding
+-> correct interval
+-> observed state/frame change
+```
+
+A generated clip or track count is not enough. A final generic binding of `null` is a backend/engine failure even if the original materialization was correct.
+
+Animation and actor motion remain separate concepts and may execute concurrently when legal.
+
+## Projectile / effect execution proof
+
+Authored quantity is an audience-visible obligation.
+
+For projectiles/effects, acceptance requires:
+
+```text
+source obligation
+-> exact runtime identity
+-> distinct generated instance/event
+-> Timeline representation
+-> valid receiver/binding
+-> correct interval
+-> visible execution
+```
+
+For projectiles, validate exact type/count, launch origin, travel, target/anchor, impact/effect and concurrency with actor/camera motion. A projectile emitted from a stale cached shooter position while the shooter moves is failure.
+
+## Stable Golden regression workflow
+
+Once a legal fixture has passed authoring integrity, backend/engine repair should normally happen against that same fixture. Do not keep rewriting legal source JSON to chase downstream failures.
+
+Production code must not special-case fixture names, beat IDs, actor IDs or exact fixture timestamps.
+
+The closed-loop engineering workflow is:
+
+```text
+compile
+-> run the same Golden QA fixture
+-> find the first real failure
+-> trace to the first wrong owner/stage
+-> fix production code
+-> compile
+-> rerun the same Golden QA fixture
+```
+
+`PASS` requires actual Unity execution. `SOURCE_READY` and `NOT_RUN` are valid engineering states when runtime proof was not performed. Compile-only success is not movie-quality proof.
+
+See `CUTSCENE_GOLDEN_QA_POLICY.md` for the durable integration policy.
 
 ## Camera and viewport-proportional composition
 
