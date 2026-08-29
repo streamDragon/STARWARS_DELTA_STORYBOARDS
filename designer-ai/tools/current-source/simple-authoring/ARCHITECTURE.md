@@ -1,123 +1,147 @@
 # STARWARS_DELTA Simple Cutscene Authoring Architecture
 
-This is maintainer guidance, not a second authoring contract.
+This is maintainer guidance for the existing Cutscene Studio. It is not a second authoring contract.
 
-## Production path
+## Source-of-truth boundary
+
+### Unity / Plastic
+
+The Unity/Plastic workspace is canonical for runtime implementation and runtime proof.
+
+It owns:
+
+- `MY_Cutscene*` production code;
+- parser/compiler/resolver/materializer behavior;
+- Timeline generation and bindings;
+- Cinemachine integration;
+- actor animation execution;
+- projectile/effect execution;
+- Workshop persistence and Editable Preview;
+- regression runners;
+- compile/runtime validation.
+
+### Git
+
+This repository owns authoring/publishing guidance and the maintained Designer AI source.
+
+Canonical maintained authoring source lives under:
+
+- `designer-ai/tools/current-source/CHATGPT_START.txt`
+- `designer-ai/tools/current-source/FILM_AUTHORING_GUIDE_CURRENT.md`
+- `designer-ai/tools/current-source/simple-authoring/**`
+
+Generated `designer-ai/open-current/**` is publication output. Never hand-edit it as cleanup.
+
+Do not mirror Unity runtime source into Git merely to make runtime work easier to inspect.
+
+## Public authoring boundary
+
+`CUTSCENE_SCRIPT_V1` is the only normal public movie-authoring format.
+
+Normal production path:
 
 ```text
 Devora / ChatGPT
 -> CUTSCENE_SCRIPT_V1
 -> existing Simple Adapter
--> existing V3 semantic / narrative beat / cinematic feature owners
--> existing V5
--> existing Validator / Materializer / Timeline
--> Editable Preview
+-> existing semantic/compiler owners
+-> final typed execution plan
+-> existing Unity materializer
+-> Timeline / Cinemachine / prefabs
+-> Save / final Editable Preview / reopen
+-> Unity evaluation
 ```
 
-Do not create a replacement V3/V5 pipeline, Catalog, validator, materializer, Timeline system, camera stack, audio engine, projectile runtime or actor-motion runtime.
+V3/V5 names, generated IDs, runtime GUIDs, Timeline bindings and Golden runner state are backend implementation and never normal authoring vocabulary.
 
-## Canonical source and published truth
+Do not create V6/V7 or a parallel authoring/runtime stack during stabilization.
 
-Publisher/engineering source for Simple V1 lives only under:
+## Authoring responsibilities
 
-- `designer-ai/tools/current-source/simple-authoring/`
+ChatGPT/Devora authors semantic film intent only:
 
-The public authoring contract for a published CURRENT is only the matching atomic projection under `designer-ai/open-current/`, especially:
+- beats and audience-observable evidence;
+- exact CURRENT handles;
+- visible quantity and frame-relative composition;
+- dialogue text and exact curated dialogue identity/expression;
+- semantic camera intent;
+- semantic actor motion/animation intent;
+- explicit legal Audio handles;
+- exact schema-legal Cutscene projectile IDs;
+- legal action/effect timing.
 
-- `open-current/CHATGPT_START.txt`
-- `open-current/simple-authoring/CUTSCENE_SCRIPT_V1.schema.json`
-- `open-current/simple-authoring/AUTHORING_HANDLES.json`
-- `open-current/simple-authoring/AUTHORING_RULES_CURRENT.json`
-- `open-current/EMOTIONAL_DIALOGUE_CURRENT.json`
-- `open-current/CUTSCENE_VALIDATION_CURRENT.json`
-
-Do not maintain duplicate Simple source files at `designer-ai/tools/current-source/` root and do not manually edit generated `open-current/**` as cleanup.
-
-The Unity/Plastic workspace is canonical for runtime implementation and runtime proof. This Git repository documents/publishes authoring and engineering guidance; it does not duplicate Unity runtime source.
-
-## Authoring boundary
-
-ChatGPT authors semantic film intent only:
-
-- beats and audience-observable evidence
-- exact CURRENT handles
-- visible quantity and frame-relative composition
-- dialogue text and exact curated dialogue identity/expression
-- semantic camera intent
-- semantic actor motion intent
-- explicit legal Audio handles
-- exact closed-world Cutscene projectile IDs
-
-Unity owns runtime IDs, CURRENT fingerprints, route resolution, materialization, Timeline bindings, technical defaults and final validation.
+Unity owns runtime IDs, CURRENT fingerprints, route resolution, materialization, bindings, lifecycle, technical defaults and final runtime validation.
 
 ## Native-first Timeline ownership
 
 Native-first means use a native Timeline owner when it correctly owns the capability. It does not mean native-only.
 
-One capability has one execution owner for the same interval.
+**One capability has one execution owner for the same interval.**
 
-| Capability / runtime form | Preferred single owner |
+| Capability | Preferred owner |
 |---|---|
 | Compatible `AnimationClip` playback | Native `AnimationTrack` |
-| Semantic/procedural flyby, orbit, pursuit, formation and screen-space actor motion | Existing single semantic-motion owner |
-| Existing instantiated GameObject/Sprite needing bounded visibility | Native `ActivationTrack` |
-| Prefab, `ParticleSystem` or nested `PlayableDirector` whose lifecycle/evaluation Timeline can own | Native `ControlTrack` |
-| Effect requiring project-specific screen composition, sorting/interpolation or renderer behavior | One existing custom Visual/VFX clip owner |
+| Semantic/procedural actor motion | Existing single semantic-motion owner |
+| Existing GameObject/Sprite bounded visibility | Native `ActivationTrack` when appropriate |
+| Prefab / `ParticleSystem` / nested `PlayableDirector` lifecycle | Native `ControlTrack` when appropriate |
+| Project-specific Effect composition/interpolation | One existing VFX owner |
 | Real audio clip | Native `AudioTrack` |
-| Cinemachine shot | Native Cinemachine Timeline representation |
-| Projectile or instantaneous command | Typed Timeline marker / notification receiver |
-| Dialogue, transition and project-specific layer semantics | Existing corresponding custom track |
+| Cinemachine shot selection | Native Cinemachine Timeline representation |
+| Projectile / instantaneous command | Existing typed marker/receiver route |
+| Dialogue / transition / project-specific semantics | Existing corresponding owner |
 
-Do not generate two competing owners for the same capability. In particular, do not pair Activation + Control for one Effect, native camera + competing custom camera for the same shot, or baked AnimationClip motion + procedural transform motion for the same actor interval.
+Do not pair multiple competing owners for the same property/capability in the same interval.
 
-## Visible obligations and Effect lowering
+## Visible obligations and Effects
 
-Every legal expanded `visible[]` item is an audience-visible obligation. `visible[].count` is real quantity and must not be silently reduced or deduplicated by asset handle.
+Every legal expanded `visible[]` item is an audience-visible obligation.
 
 For route=`Effect`:
 
-- a legal visible Effect must receive a beat-bounded generated representation even when no explicit Effect action exists;
-- an explicit compatible action may refine the Effect semantics but is not a secret activation requirement merely to make the Effect exist;
-- multiple instances using the same exact handle remain distinct instances;
-- backend instance identity must preserve source beat + visible id + expanded instance index;
+- the Effect must receive a beat-bounded generated representation even without a separate activation action;
+- an explicit compatible action may refine real semantics but is not a secret wake-up requirement;
+- repeated identical handles remain distinct instances;
+- backend instance identity preserves source beat + visible id + expanded instance index;
 - projectile/impact semantics do not satisfy unrelated visible Effect obligations.
 
-This rule exists so a clean legal film cannot validate successfully and then silently lose requested Effects during Simple -> V5 -> Timeline lowering.
+`visible[].count` is real quantity and must not be silently reduced or deduplicated by handle.
 
 ## Binding-aware materialization coverage
 
-Candidate acceptance verifies the complete chain for each obligation:
+Candidate acceptance verifies the complete chain:
 
 ```text
 source obligation
 -> exact CURRENT runtime identity
--> distinct generated instance
--> exact Timeline track / clip / marker
--> valid binding / receiver
+-> distinct generated instance/event
+-> exact Timeline representation
+-> valid binding / receiver / exposed reference
 -> correct active interval
+-> Save
+-> final Editable Preview
+-> reopen
+-> observed evaluation
 ```
 
-A clip count alone is not materialization proof. Wrong bindings, wrong assets, shared instances, orphan clips or interval bleed count as missing materialization.
+A track/clip/marker count alone is not proof.
 
-Legal unresolved obligations must never disappear silently. A deterministic engine-safe placeholder may count as materialized but is explicitly `DEGRADED`, not exact success.
+Wrong bindings, wrong assets, shared instances, orphan clips, missing receivers, stale references or interval bleed count as failed materialization.
 
-A candidate with incomplete required materialization is rejected before it replaces the currently valid Editable Preview.
+Legal unresolved obligations must never disappear silently.
 
 ## Fail-soft candidate preservation
 
-Strict internal candidate acceptance and tolerant user experience are complementary:
+Strict candidate acceptance and tolerant user experience are complementary:
 
 ```text
 BAD NEW CANDIDATE != DESTROY LAST GOOD PREVIEW
 ```
 
-When a newly generated candidate fails materialization/binding/interval coverage, reject that candidate and preserve the last valid Editable Preview when one exists. Report the exact ENGINE/BACKEND degradation/failure rather than clearing the working film.
+When a newly generated candidate fails required materialization/persistence, reject that candidate and preserve the last valid Editable Preview where possible. Report BACKEND/ENGINE failure honestly instead of rewriting legal authoring.
 
-See `FAIL_SOFT_MOVIE_AUTHORING_POLICY.md` for the full user-facing policy.
+## Final Editable Preview is execution truth
 
-## Final Editable Preview persistence
-
-Generation-time objects are not the final execution truth.
+Generation-time objects are not enough.
 
 Correctness must survive:
 
@@ -129,33 +153,58 @@ Build
 -> Timeline evaluation
 ```
 
-This includes Timeline generic bindings, Cinemachine exposed references, required generated animation clips, actor Animator bindings, camera-motion bindings, target/anchor/collider references and active intervals.
+This includes:
+
+- Timeline generic bindings;
+- Cinemachine exposed references;
+- generated AnimationClips required for playback;
+- actor Animator bindings;
+- camera-motion bindings;
+- projectile receivers;
+- target/anchor/collider references;
+- active intervals.
 
 A candidate that only works before Save is incomplete.
 
-## Camera execution proof
+## Camera execution contract
 
-Camera shot selection and within-shot camera motion are separate obligations.
+STARWARS_DELTA is a 2D / 2.5D orthographic project. Camera execution must therefore be visibly meaningful in the active 2D composition.
 
-Native Cinemachine Timeline representation remains the preferred owner for selecting the active shot. A CinemachineCamera merely becoming active is not proof that authored Push/Pull/Orbit/Drift/Shake/ImpactShake executed.
+### Shot selection
+
+Preferred route:
+
+```text
+CinemachineTrack
+-> CinemachineBrain
+-> CinemachineCamera
+```
+
+The selected Editable Preview has one authoritative camera route. Sibling generated revisions/projects may exist but must not participate in the selected Preview.
+
+Open Preview begins at authored time zero and must not inherit stale camera/director state from another project or revision.
+
+### Continuous camera motion
+
+Shot activation and continuous motion are separate obligations.
 
 For authored within-shot motion:
 
-- Push/Pull require continuous visible framing change during the same shot, not only a cut between static lens sizes;
-- Orbit must preserve authored target and direction and produce meaningful 2D/2.5D composition change;
-- Drift must produce visible frame-relative displacement;
-- Shake must visibly oscillate and return to base;
-- ImpactShake must produce an early strong hit followed by decay to base;
-- Hold must contain no leaked camera motion from a prior interval;
-- strong movement that is only technically non-zero but visually imperceptible is not exact success.
+- **Push/Pull**: continuous visible framing/lens change inside the same shot, not a static cut;
+- **Track/Follow**: camera state must respond to the authored legal target when the runtime supports target-dependent execution;
+- **Orbit**: preserve authored target + direction and produce meaningful 2D/2.5D composition change;
+- **Drift**: visible frame-relative displacement;
+- **Shake**: visible oscillation that returns to base;
+- **ImpactShake**: strong early hit followed by decay to base;
+- **Hold**: no leaked motion from previous intervals.
 
-The selected Editable Preview has one authoritative camera route. Sibling generated revisions/projects may exist but must not participate in the selected Preview. Open Preview starts from authored time zero and must not inherit stale camera state from another revision.
+Strong motion that is technically non-zero but visually imperceptible is not exact success.
 
-Implementation details may evolve in Plastic, but one capability still has one owner for the same interval.
+Implementation may evolve in Plastic, but continuous camera motion must have one effective writer for the property being animated.
 
-## Actor animation execution proof
+## Actor animation execution contract
 
-For compatible actor animation, success is the complete chain:
+For compatible actor animation, success is:
 
 ```text
 semantic animation intent
@@ -166,127 +215,139 @@ semantic animation intent
 -> observed state/frame change
 ```
 
-A generated clip or track count is not enough. A final generic binding of `null` is a backend/engine failure even if the original materialization was correct.
+A generated clip/track count is not enough. A null final generic binding is a BACKEND/ENGINE failure even if source materialization looked correct earlier.
 
-Animation and actor motion remain separate concepts and may execute concurrently when legal.
+Animation and actor motion remain separate and may run concurrently when legal.
 
-## Projectile / effect execution proof
+## Actor motion and timing
 
-Authored quantity is an audience-visible obligation.
+Simple V1 supports explicit action timing:
 
-For projectiles/effects, acceptance requires:
+- `actions[].startOffset`
+- `actions[].duration`
+
+`actions[]` array order is never hidden sequencing.
+
+Use explicit intervals for legal staggering/concurrency. Distinct semantic locomotion phases should normally use adjacent beats unless one continuous precise path intentionally represents the complete movement.
+
+Precise path geometry uses only fields published by the matching schema. It lowers through the existing semantic-motion owner; it does not create a second actor movement engine.
+
+Actor Orbit remains fixed/stationary-center only while the current runtime requires that limitation. Pursuit/Escort/Intercept names do not promise per-frame moving-target tracking unless runtime implementation actually provides it.
+
+## Projectile execution contract
+
+Authored projectile quantity is an audience-visible obligation.
+
+Acceptance requires:
 
 ```text
-source obligation
--> exact runtime identity
--> distinct generated instance/event
+source fire action
+-> exact projectileId
+-> distinct generated event/instance
 -> Timeline representation
 -> valid receiver/binding
--> correct interval
--> visible execution
+-> correct launch interval
+-> visible travel
+-> target/anchor resolution where authored
+-> impact/effect behavior where authored
 ```
 
-For projectiles, validate exact type/count, launch origin, travel, target/anchor, impact/effect and concurrency with actor/camera motion. A projectile emitted from a stale cached shooter position while the shooter moves is failure.
+Validate exact type/count, moving-shooter origin, target/anchor, collider resolution and concurrency with actor/camera motion.
+
+A projectile emitted from a stale cached shooter position while the shooter moves is a failure.
+
+## Audio
+
+Explicit legal Simple `audio[]` handles survive lowering as their source CURRENT identity and become the existing appropriate Timeline audio representation.
+
+Generated aliases such as `simple_audio_*`, `simple_actor_*`, `generated_*` or `preview_*` are backend identities only and never authoring handles.
 
 ## Stable Golden regression workflow
 
-Once a legal fixture has passed authoring integrity, backend/engine repair should normally happen against that same fixture. Do not keep rewriting legal source JSON to chase downstream failures.
+Once a legal fixture passes schema + CURRENT authoring integrity, backend/engine repair uses that same fixture.
 
-Production code must not special-case fixture names, beat IDs, actor IDs or exact fixture timestamps.
+Do not keep rewriting legal source JSON to chase downstream failures.
 
-The closed-loop engineering workflow is:
+Production code must never special-case fixture names, beat IDs, actor IDs or exact fixture timestamps.
+
+Closed-loop engineering workflow:
 
 ```text
 compile
--> run the same Golden QA fixture
+-> run the same Golden QA fixture through normal production APIs
 -> find the first real failure
 -> trace to the first wrong owner/stage
 -> fix production code
 -> compile
--> rerun the same Golden QA fixture
+-> rerun the same fixture
+-> repeat
 ```
 
-`PASS` requires actual Unity execution. `SOURCE_READY` and `NOT_RUN` are valid engineering states when runtime proof was not performed. Compile-only success is not movie-quality proof.
+A representative full-integration Golden fixture should exercise, where legal:
 
-See `CUTSCENE_GOLDEN_QA_POLICY.md` for the durable integration policy.
+- actor animation;
+- Push/Pull/Track/Follow/Drift/Orbit/Shake/ImpactShake;
+- perspective operations;
+- projectile types/counts;
+- explosions/effects;
+- target anchors and collider resolution;
+- moving shooter + fire;
+- reverse animation;
+- simultaneous actor animation + camera motion;
+- simultaneous firefight + camera motion;
+- repeated operations after unrelated activity;
+- final clean Hold with no leaked state.
 
-## Camera and viewport-proportional composition
+The exact fixture and runner live in Plastic. Git documents only the invariant.
 
-The active camera/frustum is the cinematic composition truth. The editor Stage rectangle is not the scale reference for cinematic motion.
+`PASS` requires actual Unity execution of the final saved/reopened Preview. `SOURCE_READY` and `NOT_RUN` are valid engineering states. Compile-only success is not movie-quality proof.
 
-Authoring remains frame-relative through fields such as `screenX`, `screenY`, `screenWidthFraction`, `screenHeightFraction`, `enterFrom`, `exitTo` and `travelDirection`.
+## Quality gate
 
-The backend maps these semantics through the matching active camera so that:
+A technically non-zero result is not automatically a successful film.
 
-- edge-to-edge flybys traverse a meaningful fraction of the visible frame;
-- diagonals can travel from one viewport edge/corner to the opposite edge/corner instead of collapsing into a few world units;
-- formation offsets preserve distinct screen-space Y/X composition;
-- curve amplitude scales with the visible frame;
-- Orbit radius is proportional to visible camera width/height rather than a tiny fixed Unity-unit radius.
+Exact Golden-quality success requires:
 
-Do not expose numeric world-distance or Stage-scale tuning in Simple V1 merely to compensate for camera size.
+- animation visibly animates;
+- strong camera motion is immediately legible;
+- projectiles visibly travel;
+- impacts/effects visibly execute;
+- simultaneous operations genuinely overlap;
+- backgrounds cover the active camera composition;
+- no black frames, stale foreign Preview, lost bindings or residual motion.
 
-`camera.subject` remains semantic composition intent by default. Target-dependent Follow/Track operations may physically bind an active legal WorldActor when the current runtime representation supports it. Do not manufacture a WorldActor merely to satisfy a semantic subject.
+If a reviewer has to say "maybe it moved a little", strong movement failed.
 
-## Current actor-motion limits
+## Camera / frame-relative composition
 
-- Actor Orbit remains fixed/stationary-center unless matching runtime support says otherwise.
-- Pursuit/Escort/Intercept names do not promise per-frame moving-target tracking unless the runtime actually implements it.
-- Simple V1 has no per-action timing/order; sequential locomotion phases belong in adjacent beats.
-- Semantic speed values remain authoring intent. They are not raw Unity-units-per-second authoring.
+The active camera/frustum is cinematic composition truth. Authoring remains frame-relative through schema fields such as `screenX`, `screenY`, `screenWidthFraction`, `screenHeightFraction`, entry/exit and direction semantics.
 
-## Geometric loop extension lifecycle
+Do not expose raw Unity world distances or Stage-scale tuning in Simple V1 merely to compensate for camera size.
 
-The geometric-loop work belongs in the existing semantic-motion owner and lowers through the existing V5 `FollowPath` route. It must not introduce a parallel movement runtime.
-
-The intended Simple V1 semantic capability is one general loop request with shapes such as rectangle, circle, triangle and sine, plus normalized center/size, period, phase, direction and loop parameters. Multiple expanded actor instances may share a path while receiving distinct phase offsets.
-
-This is engineering status, not permission to author unpublished fields. `path_loop` becomes legal authoring vocabulary only when all of these are true in the same release:
-
-1. the Unity Simple Adapter implementation and regression tests pass;
-2. the maintained source `CUTSCENE_SCRIPT_V1.schema.json` exposes the exact fields and enums;
-3. the controlled publisher creates a new atomic CURRENT containing that schema;
-4. `open-current/CHATGPT_START.txt` and the matching authoring guidance are sealed from the same source revision.
-
-Until then, the live published schema wins. Do not author `path_loop`, rectangle/circle/triangle/sine fields, period or phase from memory merely because an implementation patch or engineering note exists.
+`camera.subject` is semantic composition intent by default. Target-dependent operations may physically bind an active legal WorldActor when supported. Do not manufacture a WorldActor merely to satisfy a semantic subject.
 
 ## FullFrame coverage
 
 FullFrame fitting is renderer-specific and idempotent:
 
-- resolve the exact generated layer/renderer identity;
-- process each unique renderer once for the camera states overlapping its active interval;
-- calculate an absolute target from a stored pre-refit baseline scale;
-- do not repeatedly multiply an already-expanded scale;
-- do not refit renderer A while iterating an unrelated logical layer B.
+- resolve the exact intended renderer;
+- process each unique renderer from a stable baseline;
+- fit it against relevant overlapping camera states;
+- do not repeatedly multiply already-expanded scale;
+- do not refit renderer A while iterating unrelated logical layer B.
 
-The expected invariant is that every visible camera corner is inside the intended FullFrame renderer without cross-product scale growth.
+## Preview authority
 
-## Audio / generated identity provenance
+Web Simple Preview is preflight only. It must never claim Unity runtime acceptance.
 
-Explicit legal Simple `audio[]` handles survive lowering as their source CURRENT identity and become the appropriate native Timeline audio representation. Generated aliases such as `simple_audio_*`, `simple_actor_*`, `generated_*` or `preview_*` are backend identities only and never authoring handles.
-
-## Preview truth
-
-Web Simple Preview is preflight only. Allowed web states are:
-
-```text
-SCRIPT_INVALID
-CURRENT_INVALID
-AUTHORING_INVALID
-PREVIEWABLE
-```
-
-Web Preview must never claim `UNITY_VALIDATED` or `PREVIEW_ACCEPTED`.
-
-Unity remains the final runtime/materialization authority.
+Unity remains final runtime/materialization authority.
 
 ## Publication boundary
 
-Generated `open-current/**` is an atomic publication surface.
+`open-current/**` is atomic generated publication output.
 
-FULL Publish rebuilds source-truth projections when their fingerprints change.
+- **FULL** rebuilds heavy/source-truth projections when fingerprints change.
+- **DELTA/lightweight guidance** reuses unchanged heavy CURRENT data and republishes maintained authoring/guidance artifacts.
+- guidance-only edits do not require Catalog Full Scan or Visual/Vision rebuild.
 
-DELTA Publish is the fast authoring/guidance path when `requiredCurrent` is unchanged. It reuses the existing base CURRENT, applies declared lightweight artifacts, and does not rebuild Catalog, Director, Visual evidence or Atlas.
-
-Source edits do not silently rewrite an existing published CURRENT under the same transaction. The controlled FULL/DELTA publisher establishes the next projection.
+The publisher must sanitize obsolete authoring surfaces so old Catalog-contract/Instruction-Book/V5-era guidance cannot reappear as a competing CURRENT authority.
