@@ -25,24 +25,25 @@ There is one live CURRENT projection:
 - `designer-ai/simple-preview.html` - web preflight only
 - `designer-ai/open-current/` - one atomic published CURRENT
 
-Normal authoring must not use duplicate CURRENT trees or remembered copies.
+Normal authoring must not use duplicate CURRENT trees, archived contracts, Instruction Books, old Catalog contracts or remembered copies.
 
 The normal ChatGPT instruction source consumed by Devora is the sealed publish copy:
 
 - `designer-ai/open-current/CHATGPT_START.txt`
 
-Publisher/engineering source lives under:
+Publisher/engineering source lives only under:
 
 - `designer-ai/tools/current-source/CHATGPT_START.txt`
 - `designer-ai/tools/current-source/FILM_AUTHORING_GUIDE_CURRENT.md`
 - `designer-ai/tools/current-source/simple-authoring/`
 
-The Simple V1 source directory is the only source location for the schema, canonical example, architecture and Simple authoring policies. Do not recreate duplicate copies at `designer-ai/tools/current-source/` root.
+The Simple V1 source directory is the only source location for schema, canonical example, architecture and authoring policies. Do not recreate duplicate copies elsewhere.
 
 For normal ChatGPT cutscene authoring use only the matching published CURRENT:
 
 - `designer-ai/open-current/OPEN_CURRENT.json`
 - `designer-ai/open-current/CHATGPT_START.txt`
+- `designer-ai/open-current/FILM_AUTHORING_GUIDE_CURRENT.md`
 - `designer-ai/open-current/simple-authoring/CUTSCENE_SCRIPT_V1.schema.json`
 - `designer-ai/open-current/simple-authoring/AUTHORING_HANDLES.json`
 - `designer-ai/open-current/simple-authoring/AUTHORING_RULES_CURRENT.json`
@@ -50,62 +51,81 @@ For normal ChatGPT cutscene authoring use only the matching published CURRENT:
 - `designer-ai/open-current/CUTSCENE_VALIDATION_CURRENT.json`
 - the matching Director projection and visual evidence
 
-`requiredCurrent` is the compatibility identity. `publishTransactionId` is provenance.
+`requiredCurrent` is compatibility identity. `publishTransactionId` is provenance.
 
 ## FULL versus DELTA publish
 
-FULL Publish rebuilds heavy source-truth projections when their fingerprints actually changed: Catalog/Director/Visual evidence/Atlas and the rest of the atomic CURRENT.
+FULL Publish rebuilds heavy source-truth projections when their fingerprints actually change: Catalog/Director/Visual evidence/Atlas and the rest of the atomic CURRENT.
 
-DELTA Publish is the fast authoring/guidance path. When `requiredCurrent` is unchanged it:
+DELTA/lightweight guidance publish is the fast path when `requiredCurrent` is unchanged. It:
 
-- reuses the existing `open-current` base;
-- applies only declared changed authoring artifacts;
+- reuses the existing heavy `open-current` base;
+- applies maintained authoring/guidance artifacts;
 - does not rebuild Catalog, Director, Visual evidence or Atlas;
-- does not re-upload the unchanged base bundle.
+- sanitizes obsolete authoring surfaces before publication.
 
-DELTA must refuse heavy/source-truth artifacts or a fingerprint mismatch and require FULL instead.
+FULL is required only when heavy/source-truth artifacts or compatibility fingerprints actually changed.
 
-`designer-ai/tools/apply_delta_current.py` owns this fast path. `.github/workflows/publish-designer-ai-open-current.yml` selects FULL or DELTA from `designer-ai/current.json`.
+A guidance cleanup does not require an unrelated Catalog Full Scan or Vision Batch.
 
-## Runtime / Timeline authoring boundary
+## Runtime / Timeline boundary
 
-`CUTSCENE_SCRIPT_V1` remains the sole public authoring format. V3/V5 and Unity Timeline remain backend implementation.
+`CUTSCENE_SCRIPT_V1` is the sole normal public movie-authoring format. V3/V5, Timeline, Cinemachine wiring, bindings, projectile receivers and Golden runner implementation remain backend/runtime implementation.
 
-Current durable execution invariants are documented in:
+Durable execution architecture is maintained in:
 
 - `designer-ai/tools/current-source/simple-authoring/ARCHITECTURE.md`
-- `designer-ai/tools/current-source/simple-authoring/CUTSCENE_GOLDEN_QA_POLICY.md`
 
 Important consequences:
 
 - every legal `visible[]` request is an audience-visible obligation;
-- a legal visible Effect does not require a secret `reveal` action merely to exist;
-- generated representation, binding and interval coverage must be complete for a candidate to be accepted;
-- a bad new candidate must not destroy the last valid Editable Preview;
-- cinematic movement is composed relative to the active camera viewport/frustum, not an arbitrary small Stage rectangle;
-- native Timeline tracks are preferred where they are the correct single owner, while project-specific tracks remain where native Timeline cannot express the semantics.
-
-The Unity/Plastic workspace remains canonical for the runtime implementation. This Git repository documents and publishes the authoring contract; it does not duplicate Unity runtime source.
+- a legal visible Effect/particle does not require a secret `reveal` action merely to exist;
+- candidate acceptance requires correct generated representation, binding/receiver, interval, persistence and final Preview evaluation;
+- a bad new candidate should not destroy the last valid Editable Preview;
+- compatible animation uses the existing native AnimationTrack route;
+- Cinemachine shot selection and continuous camera motion are separate proof obligations;
+- projectile counts/types/targets are visible obligations, not marker-count bookkeeping;
+- legal simultaneous operations must genuinely overlap;
+- strong authored camera motion must be visually legible, not merely technically non-zero.
 
 ## Plastic runtime / Git guidance boundary
 
-The Unity project, Cutscene Studio implementation, Timeline/Cinemachine materialization, Workshop persistence, runtime bindings and Golden regression runner live in the canonical Plastic workspace.
+The Unity project, Cutscene Studio implementation, Timeline/Cinemachine materialization, Workshop persistence, runtime bindings and regression runners live in the canonical Plastic workspace.
 
-This Git repository does not mirror those runtime sources. Its responsibility is the maintained authoring/publishing guidance and the controlled CURRENT publication surface.
+This Git repository does not mirror those runtime sources. Its responsibility is maintained authoring/publishing guidance and the controlled CURRENT publication surface.
 
-Stable legal Golden fixtures are runtime specifications: when backend/engine execution is wrong, repair the system against the same fixture instead of rewriting legal authored JSON to make a broken path appear successful. Fixture names, beat IDs and timestamps must never become production special cases.
+Stable legal Golden fixtures are runtime specifications: when backend/engine execution is wrong, repair the system against the same fixture instead of rewriting legal authored JSON. Fixture names, beat IDs, actor IDs and timestamps must never become production special cases.
 
-Compile-only success is not movie-quality proof. `PASS` for a Golden Cutscene requires actual Unity execution of the final saved/reopened Editable Preview. `SOURCE_READY` and `NOT_RUN` remain honest engineering states when runtime execution was not performed.
+Compile-only success is not movie-quality proof. Golden `PASS` requires actual Unity execution of the final saved/reopened Editable Preview.
+
+## Catalog / Director / visual evidence
+
+Catalog/Director/Atlas data remain exact project truth and engineering evidence, but normal Simple V1 authoring consumes direct CURRENT handles rather than raw Catalog IDs.
+
+- `AUTHORING_HANDLES.json` is the normal direct authoring selection surface.
+- Director/Atlas pixel evidence is used to verify appearance and suitability.
+- raw Catalog IDs, raw Animation IDs, V3/V5 bookkeeping and generated aliases do not become authoring vocabulary.
+- old `catalog-contract/**` and `instruction-book/**` trees are not public CURRENT authoring authorities and are removed by publication sanitization.
+
+## Camera / animation / Effects / projectiles
+
+The public authoring contract expresses semantic intent; Plastic owns execution.
+
+- Camera: framing/movement/subject/direction/intensity only through the current schema; final runtime proof is Timeline/Cinemachine execution.
+- Animation: semantic animation/performance intent -> compatible AnimationClip -> final native AnimationTrack binding.
+- Effects/particles: route=`Effect` visible obligations materialize through the existing Effect owner; repeated handles remain distinct.
+- Projectiles/missiles: `type=fire` uses only schema-legal closed `projectileId` values and real authored counts; launcher/muzzle/collider/receiver mechanics remain Unity-owned.
+- Audio: exact CURRENT Audio handles; repeated cues remain separate events.
 
 ## Devora Context Pack
 
-The normal Devora Context Pack is self-contained for authoring and includes the sealed start instructions, Simple V1 schema/handles/rules/canonical example, closed-world Emotional Dialogue CURRENT when published, Cutscene Validation CURRENT, Director projections, and matching Visual Atlas evidence.
+The normal Devora Context Pack is self-contained for authoring and includes the sealed start instructions, Film Guide, Simple V1 schema/handles/rules/canonical example, closed-world Emotional Dialogue CURRENT when published, Cutscene Validation CURRENT, Director projections and matching Visual Atlas evidence.
 
-The large engineering archives remain Release assets rather than normal ChatGPT downloads.
+Large engineering archives remain Release assets rather than competing normal authoring entrypoints.
 
 ## Simple Preview
 
-`designer-ai/simple-preview.html` is a web preflight/visual preview for `CUTSCENE_SCRIPT_V1`.
+`designer-ai/simple-preview.html` is web preflight/visual preview for `CUTSCENE_SCRIPT_V1`.
 
 It may report:
 - `SCRIPT_INVALID`
@@ -121,11 +141,11 @@ This repository is not a museum of abandoned CURRENT generations.
 
 Keep only:
 1. active production/UI/publisher sources;
-2. the one current atomic `open-current` projection;
-3. durable authoring/engineering guidance that is still referenced;
-4. unique regression/learning evidence that still proves behavior;
+2. one current atomic `open-current` projection;
+3. durable guidance still referenced by that projection;
+4. unique regression/learning evidence that does not pretend to be CURRENT authoring truth;
 5. published Storyboard data and the minimum viewer surface required to consume it.
 
-Delete task-specific prompts, temporary QA pages, superseded handoff documents, stale baseline snapshots, duplicate CURRENT aliases, duplicate publisher-source copies and obsolete parallel UIs once their durable lesson has been absorbed into active guidance, tests or implementation.
+Delete task-specific prompts, stale handoffs/status reports, superseded contracts, duplicate CURRENT aliases, obsolete parallel UIs and historical public authoring surfaces once their durable lesson has been absorbed into active guidance/tests.
 
-Do not manually edit `designer-ai/open-current/**` as cleanup. It is a generated atomic publication surface and changes only through the controlled FULL/DELTA publish workflow.
+Do not manually edit `designer-ai/open-current/**` as cleanup. It is generated output and changes only through controlled publication.
