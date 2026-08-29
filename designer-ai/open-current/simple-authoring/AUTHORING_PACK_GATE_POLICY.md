@@ -1,35 +1,91 @@
 # Simple V1 Authoring Pack Gate
 
-This gate protects the existing Unity -> Publish -> Git CURRENT -> Open CURRENT rebuild -> Devora Context Pack pipeline. It does not define a second publishing system.
+This gate protects the canonical Unity -> Publish -> Git CURRENT -> Open CURRENT -> Devora authoring pipeline. It does not define a second publishing or runtime system.
 
-A CURRENT authoring projection must stop instead of silently publishing contradictory data when any of these invariants fail:
+## Authority
 
-- `requiredCurrent.catalogRevision` is serialized as a decimal string wherever the authoring/web layer consumes it. It must never depend on JavaScript Number precision.
-- `CUTSCENE_VALIDATION_CURRENT.json` conforms to the published validation schema vocabulary. `blocksCompilation=true` remains the authoritative hard-block signal; Warning rules never block compilation.
-- `CUTSCENE_SCRIPT_V1` is the normal authoring surface. V3/V5 remain backend implementation layers.
-- The only legal Simple V1 root header is exactly `schema = STARWARS_DELTA_CUTSCENE_SCRIPT` and `schemaVersion = 1`. A remembered/legacy label such as `CUTSCENE_SCRIPT_V1` is not a valid root schema value.
-- Every production beat carries `durationSeconds` and non-empty `evidence`. `evidence` is audience-observable proof for the beat, not backend bookkeeping. A `storyClaim` without serialized evidence is not acceptable authoring output.
-- Simple V1 field names are literal. Do not emit remembered aliases such as `start`, `duration`, `location`, `camera.shot`, `camera.move`, `action.actor`, or `dialogue.expression`. Use the exact schema names (`durationSeconds`, `locationHandle`, `camera.framing`, `camera.movement`, `action.subject`, `expressionIntent`, etc.).
-- `visible[]` entries are structured objects with `id` + exact CURRENT `handle`; they are never shorthand strings. `audio[]` entries are structured objects with `kind` + exact CURRENT Audio `handle`; they are never shorthand strings.
-- `AUTHORING_HANDLES.json` is a direct Simple V1 selection surface. Every exposed entry has `authorableInSimpleV1=true`.
-- Raw Animation identities remain available in Director/CURRENT engineering compatibility data, but they are backend-only and are not exposed as direct Simple V1 handles. Simple V1 authors animation semantically through `animationIntent` / `performanceIntent`; Actor-Animation legality remains a backend pairing rule.
-- Devora-facing instructions never ask the author to serialize raw Catalog IDs, raw Animation IDs, V3 fields, V5 bookkeeping, lifetime ownership, mechanical IDs, or project-owned Dialogue Stage mechanics merely to silence a warning.
-- A visual entry is not exposed as an ordinary direct-authoring choice when it requires human review, is unsafe for publish, or carries explicit direct-use exclusions such as `do-not-use-container-directly`, `requires-assembly`, `source-sheet`, or `sprite-part`.
-- Every direct visual handle on Actor/Layer/Effect/Ui has exact CURRENT visual identity plus positive integer `atlasPage` and `atlasSlot` derived from the published Director visual evidence. Normal authoring can therefore use Handle -> Atlas page/slot directly. FULL_VISUAL_INDEX and ASSET_VISUAL_LOOKUP remain engineering/debug evidence rather than mandatory authoring hops.
-- Audio remains a non-visual route. The existing exact-current Audio projection may certify authoring safety independently of Vision review while preserving the original source safety field.
-- Dialogue remains closed-world. Speakers/listeners come only from `EMOTIONAL_DIALOGUE_CURRENT.json` authoring-ready characters, using exact identity and exact supported expressions. Unsupported explicit expressions never fall back to Neutral, Actor, UI, Atlas or visual similarity.
-- Every `type=fire` action authors an exact closed-world `projectileId`. The legal projectile vocabulary is owned by the matching `CUTSCENE_SCRIPT_V1.schema.json` / Unity-published capability and must not be independently maintained by this policy. For the matching CURRENT audited on 2026-08-24 the schema exposes `CS_PROJECTILE_BLUE_BOLT`, `CS_PROJECTILE_PURPLE_BOLT`, and `CS_PROJECTILE_POWERBALL`. `effectHandle`, `viaHandle`, gameplay projectile prefabs, filenames and fuzzy matching are never substitutes for projectile identity.
-- Fire `count` remains the existing burst quantity field. Launcher attachment, muzzle transform, interval/cadence (unless a future schema explicitly exposes it), Rigidbody2D mechanics and projectile materialization remain Unity-owned.
-- The canonical Simple V1 example is one production-shaped 30-60 second fixture. Before sealing the pack, its root header, summed duration, per-beat duration/evidence, schema vocabulary, handles, dialogue identities/expressions, projectile vocabulary and motion constraints are checked against the same CURRENT projection.
-- Actor Orbit remains fixed-center only. A moving center during the Orbit interval is unsupported and remains a real blocker.
-- Simple V1 actions do not carry per-action timing/order. Several sequential locomotion phases for the same subject must be split across adjacent beats. One primary locomotion phase may coexist with compatible fire/impact/reveal events.
-- Semantic speed authoring uses only `slow`, `medium`, `fast`, `burst`.
-- V4 move recipe names are directing guidance only and are never serialized. Recipes expand into legal Simple V1 beats/actions using the currently supported motion vocabulary.
-- `camera.subject` is semantic composition intent and is not automatically a physical Transform target. DialoguePortrait participants do not become WorldActors merely to satisfy camera targeting.
-- Recoverable backend-owned presentation/staging omissions remain Warning/Yellow when a legal deterministic system default exists. RED is reserved for real identity, CURRENT, capability, compatibility or unresolvable integrity failures.
-- Before ChatGPT/Devora delivers final JSON, it must perform a literal schema self-check rather than relying on Unity Studio to discover basic shape mistakes one at a time. At minimum: exact root header; duration sum; required beat fields/evidence; structured visible/audio entries; exact schema field names; exact dialogue vocabulary; exact fire projectileId; no unknown properties/raw backend identities.
+- Unity/Plastic is canonical for runtime implementation and runtime proof.
+- Git `designer-ai/tools/current-source/**` is the maintained authoring/publishing source.
+- `designer-ai/open-current/**` is generated publication output and must not be hand-edited.
+- `CUTSCENE_SCRIPT_V1` is the only normal public movie-authoring format. V3/V5 remain backend implementation.
 
-The full Director, raw Animation compatibility identities and backend validation remain available to engineering. Their presence does not turn those fields into Simple V1 authoring obligations.
+## Required CURRENT invariants
 
-This policy is intentionally count-free except for closed vocabulary membership. Asset counts belong to the CURRENT being rebuilt and must be derived at build time rather than hardcoded into permanent guidance.
+A CURRENT authoring projection must stop instead of publishing contradictory data when any of these invariants fail:
 
+- `requiredCurrent.catalogRevision` is serialized as a decimal string wherever the web/authoring layer consumes it.
+- `CUTSCENE_VALIDATION_CURRENT.json` conforms to its published schema. `blocksCompilation=true` is the authoritative hard-block signal; Warning rules never block compilation.
+- The only legal Simple V1 root header is `schema = STARWARS_DELTA_CUTSCENE_SCRIPT` and `schemaVersion = 1`.
+- Every production beat carries `durationSeconds` and non-empty `evidence`.
+- Simple V1 field names are literal. Do not emit remembered aliases.
+- `visible[]` entries are structured objects with `id` + exact CURRENT `handle`.
+- `audio[]` entries are structured objects with `kind` + exact CURRENT Audio `handle`.
+- `AUTHORING_HANDLES.json` is the direct Simple V1 selection surface and every exposed entry has `authorableInSimpleV1=true`.
+- Raw Animation identities may remain in Director/backend compatibility data but are never direct Simple V1 handles. Authors use `animationIntent` / `performanceIntent`.
+- Devora-facing instructions never ask authors to serialize raw Catalog IDs, raw Animation IDs, V3/V5 bookkeeping, runtime GUIDs, project-owned Timeline bindings or Golden QA data.
+- Direct visual handles expose exact CURRENT visual identity plus positive `atlasPage` and `atlasSlot` where visual evidence exists.
+- Dialogue remains closed-world through `EMOTIONAL_DIALOGUE_CURRENT.json`.
+- Every `type=fire` action carries a schema-legal `projectileId`; projectile identity is never inferred from an Effect handle, filename or gameplay prefab.
+
+## Timing and concurrency
+
+Simple V1 supports explicit action timing.
+
+- `actions[].startOffset` is optional seconds from beat start.
+- `actions[].duration` is optional action duration.
+- explicit intervals must be finite, legal and remain inside the owning beat.
+- `actions[]` array order is never hidden sequencing.
+- staggered or concurrent behavior is authored through legal overlapping/non-overlapping intervals.
+- distinct semantic locomotion phases should normally use adjacent beats unless one continuous precise path intentionally represents them.
+
+Visible Effects use their own timing fields:
+
+- `visible[].startOffsetSeconds`
+- `visible[].durationSeconds`
+
+These apply only to Effect obligations, not generic actions. Repeated identical Effect handles remain distinct instances and may overlap.
+
+## Motion and camera authoring
+
+- Semantic speed values are only `slow`, `medium`, `fast`, `burst`.
+- Precise actor motion uses only fields and shapes actually present in the matching `CUTSCENE_SCRIPT_V1.schema.json`.
+- `camera.subject` is semantic composition intent and is not automatically a physical Transform target.
+- Camera movement values come only from the matching schema.
+- Backend/runtime implementation details for Cinemachine, AnimationTrack, camera-motion curves and Preview evaluation never become authored fields.
+
+## Catalog and visual evidence
+
+- CURRENT handles are the normal authoring vocabulary.
+- Raw Catalog IDs remain engineering/runtime identity evidence, not direct Simple V1 authoring values.
+- `FULL_VISUAL_INDEX` and `ASSET_VISUAL_LOOKUP` are engineering/debug evidence, not mandatory authoring hops.
+- Do not expose an ordinary direct visual choice when source evidence says it is unsafe, pending review, source-sheet-only, requires assembly, or otherwise excluded from direct use.
+- Asset counts belong to the CURRENT being built and must not be hardcoded into permanent guidance.
+
+## Accepted fixture discipline
+
+Once a legal authored fixture has passed schema + CURRENT authoring integrity, downstream BACKEND/ENGINE defects are repaired against the same fixture.
+
+Do not rewrite legal beats, timing, camera intent, animation intent, projectile count/type, target, anchor or other authored semantics merely to hide Timeline/Preview failures.
+
+Golden regression identity, runner state, Timeline bindings and runtime PASS/FAIL remain Plastic-owned engineering evidence.
+
+## Final authoring self-check
+
+Before ChatGPT/Devora delivers final JSON, verify at minimum:
+
+1. exact root header;
+2. coherent root/beat durations;
+3. required beat fields and audience-observable evidence;
+4. exact CURRENT handles and dialogue vocabulary;
+5. exact schema field names;
+6. schema-legal projectile IDs and counts;
+7. legal action/effect timing;
+8. no unknown properties or backend/runtime identities;
+9. no reliance on array order as sequencing;
+10. no authored Golden QA, Timeline, binding or runtime probe fields.
+
+## Publication rule
+
+Guidance-only changes use the controlled lightweight/DELTA path when `requiredCurrent` and heavy source-truth fingerprints are unchanged. FULL Publish is reserved for actual heavy/source-truth changes.
+
+A guidance cleanup does not require an unrelated Catalog Full Scan or Vision Batch.
