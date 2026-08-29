@@ -1,6 +1,6 @@
 {
   "schema": "STARWARS_DELTA_CINEMATIC_INTENT_QA_RULES",
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "status": "ACTIVE_SIMPLE_V1_SEMANTIC_EXPANSION",
   "purpose": "Pre-Unity cinematic-intent QA for CUTSCENE_SCRIPT_V1. These checks protect authoring truth and do not replace Unity validation. The status model is GREEN exact, YELLOW deterministic auto-repair/minor, ORANGE visible semantic or preview degradation, RED only when an honest result cannot safely continue.",
   "validationStatusModel": {
@@ -56,7 +56,8 @@
     "dialogueShotPreset": "Raw cameraCue.shotPreset is backend-owned. Blank generated presets are deterministically defaulted before strict contract validation.",
     "dialogueStageDefaults": "Dialogue background/frame defaults are backend-owned and should be projected early enough that validation sees the same deterministic stage that Preview will render.",
     "dialogue": "Dialogue-only curated participants remain Dialogue Stage anchors and do not become WorldActors merely to satisfy camera or legacy character-role validation. Exact CharacterPack portrait legality is authoritative over generic closeUpSuitable metadata.",
-    "quantity": "visible[].count expands actual actor instances. Do not multiply a precomposed fleet/group image as if it were one single-ship actor; inspect pixels before choosing grouped versus reusable-single-actor evidence."
+    "quantity": "visible[].count expands actual actor instances. Do not multiply a precomposed fleet/group image as if each visual represented one actor; inspect pixels before choosing grouped versus reusable-single-actor evidence.",
+    "acceptedFixtureStability": "Once a legal fixture passes authoring integrity, downstream BACKEND/ENGINE failures are repaired against that same source. Runtime Golden status, Timeline binding state and Preview diagnostics are engineering evidence only and never become authored Simple V1 fields."
   },
   "rules": [
     {"code":"CAMERA_SUBJECT_DEFAULTED","severity":"Warning","scope":"camera","description":"Simple V1 omitted camera.subject but exactly one deterministic primary semantic subject exists; backend binds it before V3 validation."},
@@ -77,6 +78,7 @@
     {"code":"AUDIO_HANDLE_ROUTE_MISMATCH","severity":"Error","scope":"audio","description":"audio[].handle does not resolve exactly to CURRENT route Audio."},
     {"code":"DIALOGUE_STAGE_UNRESOLVABLE","severity":"Error","scope":"dialogue","description":"The requested dialogue presentation cannot obtain a legal deterministic stage/background/frame through the existing dialogue-stage owner."},
     {"code":"SEMANTIC_PRESENTATION_DEGRADED","severity":"Orange","scope":"beat/camera/visual","description":"A legal cutscene can continue, but visible authored intent cannot be reproduced exactly and is downgraded to a disclosed legal presentation."},
+    {"code":"FINAL_PREVIEW_EXECUTION_LOST","severity":"Orange","scope":"backend/engine","description":"Legal authored intent reached generation but the final saved/reopened Editable Preview lost the required binding, exposed reference, receiver or active interval. Preserve the accepted source fixture and repair persistence/execution rather than rewriting legal authoring."},
     {"code":"COMPOSITE_GROUP_MULTIPLIED_AS_ACTOR","severity":"Error","scope":"actor/quantity","description":"A precomposed fleet/group visual is being count-expanded as if each visual represented one actor. Use a true single-actor handle for instance expansion or one verified grouped asset without multiplication."}
   ],
   "hardAuthoringInvariants": [
@@ -97,6 +99,7 @@
     "motionIntent=orbit compiles to V5 Orbit, but current actor Orbit v1 requires a stationary center and must reject overlapping center movement.",
     "Semantic speed strings must never be passed directly to numeric conversion APIs.",
     "Count expansion applies to each generated instance and must not multiply a precomposed group visual as if it were a single actor.",
+    "Runtime Golden PASS/FAIL, Timeline binding state, Preview scope and probe data are engineering evidence only and must never be serialized into CUTSCENE_SCRIPT_V1 or used as a reason to rewrite otherwise legal accepted fixture semantics.",
     "ORANGE never silently changes identity."
   ]
 }
