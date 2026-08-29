@@ -4,250 +4,127 @@
 
 The end user is making a movie, not debugging a compiler.
 
-When the Cutscene system itself is healthy, **Editable Preview should continue to exist and remain usable even when authored input contains recoverable mistakes, unavailable optional capabilities, stale references, or imperfect artistic choices.**
+When the Cutscene system itself is healthy, Editable Preview should remain usable through recoverable authoring or optional-content problems. A fallback is never reported as exact success.
 
-Normal user-facing status is:
+User-facing status:
 
-- **GREEN** - the requested behavior can materialize exactly.
-- **YELLOW** - artistic, quality, readability, continuity, or directing advice. Preview continues.
-- **ORANGE** - a technical repair, substitution, omission, placeholder, or degradation was required. Preview continues and the compromise is disclosed.
-- **RED** - reserved for an unrecoverable system condition where no valid Preview can be produced or preserved.
-
-RED must not be used as a normal authoring workflow state.
+- **GREEN** - requested behavior is represented exactly.
+- **YELLOW** - quality/directing advice or deterministic low-level repair with no material visible change.
+- **ORANGE** - visible semantic degradation, omission, placeholder or substitution was required; Preview continues.
+- **RED** - no honest legal Preview can be produced or preserved.
 
 ## Author strict, Studio tolerant
 
-This policy has two complementary sides.
+ChatGPT/Devora must still emit clean schema-valid `CUTSCENE_SCRIPT_V1` using exact CURRENT handles, legal enums, exact dialogue vocabulary, semantic animation/performance intent and the closed projectile vocabulary.
 
-### ChatGPT / authoring output
+Fail-soft behavior is not permission to author invalid JSON.
 
-ChatGPT must still return clean, schema-valid `CUTSCENE_SCRIPT_V1` and run the final self-check before delivery.
+Studio is the safety net. For recoverable defects it may, in order:
 
-Fail-soft behavior is **not permission to emit invalid JSON**.
+1. apply deterministic CURRENT-backed repair;
+2. apply a safe supported fallback;
+3. omit only the unsupported optional operation;
+4. use an explicit diagnostic placeholder;
+5. preserve the last valid Preview when a new candidate cannot be accepted.
 
-The author should use exact CURRENT handles, legal enum values, legal dialogue vocabulary, semantic animation intents, and the exact Cutscene projectile vocabulary.
+Use RED only when none of those preserve an honest result.
 
-### Studio / imported user input
+## Ownership boundary
 
-Studio is the safety net.
+Keep AUTHORING, BACKEND and ENGINE distinct.
 
-If imported input contains a recoverable defect, Studio should normalize, repair, omit only the defective optional operation, or use an explicit diagnostic placeholder while keeping the rest of the movie buildable.
+- **AUTHORING**: source JSON or CURRENT choice itself is illegal.
+- **BACKEND**: legal source intent is lost, mis-lowered, mis-scoped, mis-bound or mis-persisted before final execution.
+- **ENGINE**: legal materialized intent cannot execute correctly in Unity/editor/runtime.
 
-Never report a fallback as exact success.
+A BACKEND/ENGINE failure is not permission to rewrite otherwise legal source JSON.
 
-## Repair order
+## Handles and identity
 
-Use this order for recoverable input:
+If a stale/internal reference can be mapped uniquely to an exact CURRENT authoring identity, Studio may repair it internally and disclose the repair.
 
-1. **Deterministic repair** using CURRENT identity/capability truth.
-2. **Safe supported fallback** using an already-supported representation.
-3. **Omit only the unsupported optional operation** while preserving the rest of the shot.
-4. **Diagnostic placeholder** when a visible object cannot be resolved but the shot can still exist.
-5. **Preserve the last valid Preview** when a new import cannot be safely interpreted.
+If no unique legal mapping exists, use a placeholder/omission where the movie can still continue. Never ask the user to edit runtime hashes or infer identity from filenames, display names or visual similarity.
 
-Only use RED when none of these can preserve a valid Preview because the system itself cannot continue.
+Generated runtime aliases are never authoring handles.
 
-## Required fail-soft cases
+## Animation
 
-### Handle/reference problem
+If a valid Actor requests unsupported animation/performance intent:
 
-If a stale/raw/internal reference can be mapped uniquely to a CURRENT deterministic authoring identity:
+- preserve the valid Actor identity/visual;
+- use a deterministic supported static/default pose or explicitly supported fallback only when honest;
+- report ORANGE when the visible performance differs materially;
+- never claim the requested animation succeeded when it did not.
 
-- repair it internally;
-- report `ORANGE AUTO_REPAIRED_HANDLE`;
-- show requested and resolved friendly names under Details;
-- continue Preview.
+A generated `AnimationTrack` or clip count without the correct final Animator binding is a BACKEND/ENGINE failure, not authoring success.
 
-If no safe mapping exists:
+## Visible Effects
 
-- use a diagnostic placeholder for a visual object, or omit an optional non-visual cue;
-- report ORANGE;
-- continue Preview.
+A legal route=`Effect` entry in `visible[]` is already an audience-visible obligation.
 
-Do not make the user edit a runtime hash by hand.
+Do **not** require a meaningless `reveal`, `activate` or other secret action merely to make that Effect exist.
 
-### Unsupported animation
+Studio must materialize the visible Effect through the existing Effect owner for its authored interval. An explicit Effect action may refine real event semantics when the schema supports it, but it is not a wake-up switch.
 
-If an actor is valid but the requested animation/performance intent has no executable compatible animation:
+If an optional Effect cannot materialize, omit only that Effect or show a diagnostic placeholder and report ORANGE. Repeated identical handles remain distinct obligations.
 
-- keep the valid actor visual;
-- use a supported static/default pose or another explicitly supported safe fallback;
-- report `ORANGE ANIMATION_FALLBACK`;
-- continue Preview.
+## Projectiles versus visual Effects
 
-Example: requested `run`, available `walk` only. Preview may use fast walk only when that fallback is deterministic and must state the substitution. It must not claim RUN succeeded.
+A real Cutscene projectile uses `type=fire` with a schema-legal `projectileId`.
 
-### Missing optional visual/VFX
+A visual beam/muzzle/explosion Effect is not projectile identity. `effectHandle`, `viaHandle`, filenames and gameplay prefab names are never substitutes for `projectileId`.
 
-- omit the optional effect or use a diagnostic placeholder where useful;
-- report `ORANGE VFX_OMITTED` or `ORANGE VISUAL_PLACEHOLDER`;
-- continue Preview.
+Malformed `fire` without `projectileId` is an authoring defect unless the imported input can be deterministically interpreted by an already-supported recovery rule. Any recovery must be disclosed and must not silently invent projectile identity.
 
-### Missing optional audio
+Projectile execution must preserve authored type/count, launch origin, target/anchor, timing, travel and impact/effect expectations through the final Preview.
 
-- use silence;
-- report `ORANGE AUDIO_OMITTED`;
-- continue Preview.
+## Camera
 
-### Camera subject unavailable
+If a semantic camera subject is unavailable but a deterministic safe composition fallback exists, Preview may continue with disclosed degradation.
 
-- fall back to a safe Hold/default composition;
-- report `ORANGE CAMERA_FALLBACK`;
-- continue Preview.
+Do not weaken or rewrite legal camera intent merely because the current Timeline/Cinemachine route lost movement, target, direction or binding downstream.
 
-### Dialogue presentation degradation
+A CinemachineCamera becoming active is not proof that authored Push/Pull/Orbit/Drift/Shake/ImpactShake executed.
 
-If identity is known but an optional requested presentation cannot materialize safely:
+## Dialogue
 
-- use a legal published/default presentation when one exists, otherwise preserve the dialogue with the safest available presentation;
-- report ORANGE;
-- continue Preview.
-
-Do not invent a dialogue identity or expression.
-
-## Fire versus visual beam/VFX
-
-This distinction is mandatory for authoring and must also be handled fail-soft on import.
-
-A real Cutscene projectile uses:
-
-```json
-{
-  "type": "fire",
-  "subject": "enemy",
-  "target": "hero",
-  "projectileId": "CS_PROJECTILE_PURPLE_BOLT",
-  "count": 1
-}
-```
-
-A visual-only laser/beam/muzzle Effect is not automatically a projectile action. Put the Effect in `visible[]` and activate/reveal it through a legal visual action.
-
-Conceptual example:
-
-```json
-{
-  "visible": [
-    {
-      "id": "beam_fx",
-      "handle": "<exact CURRENT Effect handle>"
-    }
-  ],
-  "actions": [
-    {
-      "type": "reveal",
-      "subject": "beam_fx"
-    }
-  ]
-}
-```
-
-Do not author:
-
-```json
-{
-  "type": "fire",
-  "subject": "enemy",
-  "effectHandle": "<laser Effect handle>"
-}
-```
-
-### Studio import behavior for malformed fire
-
-If imported `type=fire` lacks `projectileId`:
-
-- if the action contains enough exact Effect evidence for a deterministic visual-only interpretation, normalize only that action to the existing visual-effect path and report `ORANGE AUTO_REPAIRED_FIRE_TO_VFX`;
-- otherwise omit only that fire action and report `ORANGE FIRE_OMITTED_NO_PROJECTILE`;
-- keep the rest of the beat/movie buildable.
+Dialogue identity/expression remain closed-world. Studio may degrade optional presentation mechanics only through existing legal defaults; it must never invent a speaker, listener, expression or unrelated visual identity.
 
 ## Schema defects
 
-The schema remains the canonical authoring contract. ChatGPT must not knowingly violate it.
+Recoverable structural defects may degrade only when the schema/runtime already defines a deterministic safe interpretation.
 
-Studio should distinguish:
+Unparseable/corrupt documents, irreconcilable identity ambiguity, or true generator/Timeline failure may be RED when no valid Preview can be produced or preserved.
 
-### Recoverable structural defect
+## Candidate acceptance and persistence
 
-Examples:
+A new candidate is accepted only when required obligations survive the complete chain:
 
-- missing optional field;
-- invalid optional enum with a deterministic default;
-- malformed optional action that can be safely omitted;
-- stale handle that can be repaired.
+`source -> resolution -> materialization -> binding/receiver -> interval -> Save -> final Editable Preview -> reopen -> evaluation`
 
-Result: ORANGE and Preview continues.
+A candidate that works only before Save is incomplete.
 
-### Unrecoverable document defect
+A bad new candidate should not destroy the last valid Preview when preservation is possible.
 
-Examples:
+## Diagnostics
 
-- file is not parseable JSON and there is no previously valid Preview to preserve;
-- root object/beat structure is so corrupt that no safe film representation can be recovered;
-- internal generator/Timeline creation fails even after safe fallback handling.
+Primary diagnostics should be human-readable and answer:
 
-Result: RED may be used because the system cannot produce a valid Preview.
+1. what was requested;
+2. what failed or changed;
+3. what Studio did instead;
+4. whether the film remains playable.
 
-When possible, preserve the last valid Preview and show the failed import as an ORANGE import note instead of replacing the working movie with a dead state.
+Technical codes belong in details/advanced output. Diagnostics must be bounded and grouped by root cause rather than flooding the Console every evaluation tick.
 
-## User-facing diagnostics
+## Regression principle
 
-Primary UI should be human-readable.
+Regression tests use normal production APIs. They do not create a parallel renderer or fixture-specific production behavior.
 
-Bad primary message:
+Once a legal fixture is accepted, backend/runtime repairs use that same fixture until it passes. Golden fixture identity, runner state and PASS/FAIL remain Plastic-owned engineering evidence, never Simple V1 authoring data.
 
-`SIMPLE_ANIMATION_CAPABILITY_MISSING`
+## Ownership summary
 
-Good primary message:
-
-> Animation unavailable. You asked for RUN. This character currently supports WALK. Preview uses WALK.
-
-Technical diagnostic codes belong under Advanced / Details.
-
-Every ORANGE should answer:
-
-1. What was requested?
-2. What could not be done exactly?
-3. What did Studio do instead?
-4. Does the film still build?
-
-## Build invariant
-
-**NO UNRECOVERABLE SYSTEM FAILURE => EDITABLE PREVIEW BUILDS OR THE LAST VALID PREVIEW IS PRESERVED.**
-
-A single bad optional action, missing effect, unavailable animation, stale handle, missing camera subject, or artistic problem must not destroy the whole film.
-
-## Storyboard / Director behavior
-
-Storyboard Cards should display GREEN/YELLOW/ORANGE state per shot.
-
-- GREEN: exact.
-- YELLOW: director note.
-- ORANGE: technical degradation/repair.
-
-Cards remain playable when YELLOW/ORANGE.
-
-`PLAY SHOT` and `PLAY FILM` remain available whenever a valid Preview exists.
-
-## Ownership
-
-- `CUTSCENE_SCRIPT_V1` remains the sole public authoring format.
-- V3/V5 and Timeline remain backend implementation.
-- This policy does not create a second schema, runtime identity system, gameplay system, or fallback asset catalog.
-- Repairs must reuse existing CURRENT/Catalog/runtime owners.
-
-## Regression expectations
-
-At minimum keep fixtures for:
-
-1. valid exact film -> GREEN -> builds;
-2. unsupported animation -> ORANGE fallback -> builds;
-3. missing optional VFX -> ORANGE omission -> builds;
-4. stale but uniquely repairable handle -> ORANGE repair -> builds;
-5. missing camera subject -> ORANGE Hold/default -> builds;
-6. `fire` without `projectileId` but exact Effect evidence -> ORANGE visual repair -> builds;
-7. `fire` without `projectileId` and no safe interpretation -> ORANGE fire omitted -> builds;
-8. artistic/continuity problem -> YELLOW -> builds;
-9. unparseable/corrupt film with no recoverable structure -> RED allowed;
-10. true generator/Timeline failure -> RED allowed.
-
-The purpose of these regressions is not to make invalid authoring desirable. It is to guarantee that a user mistake does not unnecessarily destroy the filmmaking session.
+- `CUTSCENE_SCRIPT_V1` is the sole public authoring format.
+- V3/V5, Timeline, Cinemachine wiring, AnimationTrack bindings, projectile receivers and Preview persistence are backend/runtime implementation.
+- This policy creates no second schema, fallback Catalog, camera engine, projectile runtime or animation system.
