@@ -7,14 +7,9 @@ on:
     paths:
       - 'designer-ai/tools/current-source/CHATGPT_START.txt'
       - 'designer-ai/tools/current-source/FILM_AUTHORING_GUIDE_CURRENT.md'
-      - 'designer-ai/tools/current-source/simple-authoring/CINEMATIC_INTENT_QA_RULES.json'
-      - 'designer-ai/tools/current-source/simple-authoring/SEMANTIC_CINEMATIC_AUTHORING_GUIDE.md'
-      - 'designer-ai/tools/current-source/simple-authoring/ARCHITECTURE.md'
-      - 'designer-ai/tools/current-source/simple-authoring/AUTHORING_PACK_GATE_POLICY.md'
-      - 'designer-ai/tools/current-source/simple-authoring/EMOTIONAL_DIALOGUE_AUTHORING_POLICY.json'
-      - 'designer-ai/tools/current-source/simple-authoring/FAIL_SOFT_MOVIE_AUTHORING_POLICY.md'
-      - 'designer-ai/tools/current-source/simple-authoring/LEARNING_CASES_POLICY.md'
+      - 'designer-ai/tools/current-source/simple-authoring/**'
       - 'designer-ai/tools/seal_atomic_current.py'
+      - 'designer-ai/tools/sanitize_current_surface.py'
       - '.github/workflows/project-designer-ai-guidance.yml'
 
 permissions:
@@ -56,13 +51,26 @@ jobs:
           mkdir -p _open_current_stage
           cp -a designer-ai/open-current/. _open_current_stage/
           cp designer-ai/tools/current-source/CHATGPT_START.txt _open_current_stage/CHATGPT_START.txt
+          cp designer-ai/tools/current-source/FILM_AUTHORING_GUIDE_CURRENT.md _open_current_stage/FILM_AUTHORING_GUIDE_CURRENT.md
           echo 'GUIDANCE_HEAVY_REBUILD_SKIPPED=YES'
 
-      - name: Seal and validate lightweight guidance projection
+      - name: Seal canonical Simple V1 guidance
         shell: bash
         run: |
           set -euo pipefail
           python3 designer-ai/tools/seal_atomic_current.py
+
+      - name: Remove obsolete authoring surfaces
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 designer-ai/tools/sanitize_current_surface.py
+
+      - name: Verify lightweight CURRENT projection
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 designer-ai/tools/sanitize_current_surface.py --check
           python3 - <<'PY'
           import json, pathlib
           root=pathlib.Path('_open_current_stage')
@@ -71,11 +79,16 @@ jobs:
           assert opened.get('publishTransactionId')==source.get('publishTransactionId')
           assert opened.get('requiredCurrent')==source.get('requiredCurrent')
           front=(root/'CHATGPT_START.txt').read_text(encoding='utf-8-sig')
-          assert 'visible[].startOffsetSeconds' in front
-          assert 'STUDIO CONTRACT / CURRENT FINGERPRINTS - BACKEND ONLY' in front
-          assert 'animationIntent' in front and 'performanceIntent' in front
+          guide=(root/'FILM_AUTHORING_GUIDE_CURRENT.md').read_text(encoding='utf-8-sig')
+          architecture=(root/'simple-authoring/ARCHITECTURE.md').read_text(encoding='utf-8-sig')
+          assert 'CUTSCENE_SCRIPT_V1 is the only normal public movie-authoring format' in architecture
+          assert 'VISIBLE EFFECTS / PARTICLES' in front
+          assert 'CUTSCENE PROJECTILES / MISSILES' in front
+          assert 'Accepted fixtures and Golden QA' in guide
+          assert not (root/'catalog-contract').exists()
+          assert not (root/'instruction-book').exists()
           rules=json.loads((root/'simple-authoring/AUTHORING_RULES_CURRENT.json').read_text(encoding='utf-8-sig'))
-          assert rules.get('requiredCurrent')==source.get('requiredCurrent')
+          assert all(r.get('id')!='V4_RECIPES_ARE_AUTHORING_ONLY' for r in rules.get('rules',[]))
           print('GUIDANCE_PROJECTION_GATE_PASS')
           print('CATALOG_BUILD=NOT_RUN')
           print('VISUAL_ATLAS_BUILD=NOT_RUN')
