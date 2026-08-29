@@ -44,7 +44,6 @@ jobs:
           source_simple=source/'simple-authoring'
           simple=live/'simple-authoring'
 
-          # One maintained source tree, one generated CURRENT tree.
           obsolete=[
               root/'delta', root/'authoring-only', root/'simple-authoring', root/'CHATGPT_START.txt',
               root/'00_READ_ME_FIRST.txt', root/'01_CHATGPT_START.txt', root/'FILM_AUTHORING_GUIDE_CURRENT.md',
@@ -71,7 +70,6 @@ jobs:
           missing=[str(p) for p in required_source if not p.is_file()]
           assert not missing, 'CANONICAL_AUTHORING_SOURCE_MISSING: '+', '.join(missing)
 
-          # Runtime status / Golden runner implementation does not belong in Git authoring source.
           forbidden_source=[
               source_simple/'CUTSCENE_GOLDEN_QA_POLICY.md',
               source_simple/'INTEGRATION_STATUS_CURRENT.md',
@@ -108,14 +106,13 @@ jobs:
           ids={r.get('id') for r in rules.get('rules',[])}
           assert 'V4_RECIPES_ARE_AUTHORING_ONLY' not in ids, 'LEGACY_V4_RECIPE_RULE_REAPPEARED'
 
-          # No competing historical public authoring authorities.
           assert not (live/'catalog-contract').exists(), 'LEGACY_CATALOG_CONTRACT_REAPPEARED'
           assert not (live/'instruction-book').exists(), 'LEGACY_INSTRUCTION_BOOK_REAPPEARED'
 
           start=(live/'CHATGPT_START.txt').read_text(encoding='utf-8-sig')
           guide=(live/'FILM_AUTHORING_GUIDE_CURRENT.md').read_text(encoding='utf-8-sig')
           arch=(simple/'ARCHITECTURE.md').read_text(encoding='utf-8-sig')
-          failsoft=(simple/'FAIL_SOFT_MOVIE_AUTHORING_POLICY.md').read_text(encoding='utf-8-sig')
+          failsoft=(source_simple/'FAIL_SOFT_MOVIE_AUTHORING_POLICY.md').read_text(encoding='utf-8-sig')
 
           forbidden_phrases=[
               'Create a current V5 package',
@@ -123,7 +120,7 @@ jobs:
               'V4_RECIPES_ARE_AUTHORING_ONLY',
               'CUTSCENE_GOLDEN_QA_POLICY.md',
           ]
-          for label,text in [('CHATGPT_START',start),('FILM_GUIDE',guide),('ARCHITECTURE',arch),('FAIL_SOFT',failsoft)]:
+          for label,text in [('CHATGPT_START',start),('FILM_GUIDE',guide),('ARCHITECTURE',arch),('FAIL_SOFT_SOURCE',failsoft)]:
               hits=[p for p in forbidden_phrases if p in text]
               assert not hits, f'{label}_LEGACY_GUIDANCE: {hits}'
 
