@@ -1,450 +1,326 @@
 # STARWARS_DELTA Film Authoring Guide CURRENT
 
-This is the filmmaking layer for Designer AI / Devora authoring. It complements the atomic CURRENT Director, Catalog contract, Instruction Book and Simple Authoring rules. It does not replace exact IDs, compatibility or Unity validation.
+This is the filmmaking layer for Devora / Designer AI authoring. It complements the canonical Simple V1 CURRENT surface. It does not create a second contract and it does not replace Unity runtime validation.
+
+## Authority
+
+Use only the matching CURRENT:
+
+- `OPEN_CURRENT.json`
+- `simple-authoring/CUTSCENE_SCRIPT_V1.schema.json`
+- `simple-authoring/AUTHORING_HANDLES.json`
+- `simple-authoring/AUTHORING_RULES_CURRENT.json`
+- `simple-authoring/CINEMATIC_INTENT_QA_RULES.json`
+- `EMOTIONAL_DIALOGUE_CURRENT.json` when dialogue is used
+- exact Atlas page/slot evidence on direct visual handles
+
+Unity/Plastic is canonical for runtime implementation and runtime proof. Git CURRENT is canonical for authoring/publishing guidance.
+
+`CUTSCENE_SCRIPT_V1` is the only normal public authoring format. V3/V5, Timeline, Cinemachine wiring, generated IDs, bindings and Golden runner details are backend implementation.
 
 ## Core principle
 
-A technically valid cutscene is not automatically a good or representative film.
+A technically valid cutscene is not automatically a good film.
 
 Author in this order:
 
-**Story -> CURRENT search -> real-pixel inspection -> exact-asset shot plan/storyboard -> semantic action and composition -> dialogue/VFX/audio -> film preflight -> JSON -> Unity Validate -> Editable Preview.**
+**Story -> CURRENT search -> real-pixel inspection -> exact-asset shot plan -> semantic choreography -> dialogue/VFX/audio -> schema/current self-check -> Unity Validate -> Editable Preview.**
 
-The storyboard and JSON are one film expressed twice. They must not become independently invented versions.
+The storyboard and JSON are one film expressed twice. Do not let them become independently invented versions.
 
-## 1. Story first
+## Story first
 
-Write the dramatic progression in plain language before building JSON. Define beginning state, change, ending state and what the audience should understand or feel.
+Define:
 
-Use variable shot duration according to dramatic purpose. Long duration creates a content obligation; it is not permission to clone static shots until the clock gives up.
+- beginning state;
+- visible change;
+- ending state;
+- what the audience should understand or feel.
 
-## 2. Production storyboard means exact game assets
+Long duration creates a content obligation. It is not permission to leave a shot visually inert.
 
-A STARWARS_DELTA production storyboard is not concept art.
+## Real assets, not concept art
 
-Every visible principal object must come from matching CURRENT visual evidence and legal authoring identity. Use the real source pixels. Do not redraw, beautify, restyle, change view angle or synthesize a missing object.
+Production authoring uses exact CURRENT assets and exact published pixels.
 
-AI-generated/redrawn art is CONCEPT / REFERENCE ART only and cannot predict Unity output.
+Do not redraw, restyle, invent an unseen angle, infer a missing object or select an asset because the filename sounds useful.
 
-If a requested visual does not exist, change the composition, choose another genuinely suitable exact CURRENT asset, or record an explicit gap.
-
-## 3. Visual verification chain
-
-Metadata is search evidence, not proof of appearance.
+Metadata helps search. Pixels prove appearance.
 
 For important visual choices preserve:
 
 ```text
 OBSERVED PIXELS
--> EXACT ATLAS PAGE/SLOT / visualReferenceId
--> EXACT DIRECTOR ENTRY
--> EXACT AUTHORING/CANONICAL RUNTIME ID
--> LEGAL DESTINATION/CAPABILITY
+-> exact Atlas page/slot or visualReferenceId
+-> exact direct CURRENT handle
+-> legal route/capability
 ```
 
-## 4. Build one coherent 2D visual world
+## One coherent 2D / 2.5D world
 
-STARWARS_DELTA is 2D. Do not force flat assets into fake 3D with arbitrary perspective rotation or invented viewpoints.
+STARWARS_DELTA is primarily 2D / 2.5D. Compose with:
 
-Use cuts, close/medium/wide variation, real foreground/midground/background depth, screen direction, parallax, reaction shots, monitor communication and side-view action when the actual assets support it.
+- FarBackground / Background;
+- world Actors;
+- Effects / particles;
+- Foreground;
+- UI / dialogue presentation;
+- clear screen direction and depth;
+- cuts, push/pull, follow/track, drift/orbit/shake when dramatically useful.
 
-Camera motion needs a purpose. If the purpose is unclear, Hold is better than movement performed mainly to prove that code exists.
+Do not fake 3D viewpoints that the actual art cannot support.
 
-## 5. Search CURRENT broadly
+## Route legality
 
-Do not repeatedly reuse one familiar ship or background because its handle is easy to remember. Search CURRENT and inspect multiple legal candidates.
-
-Names/tags are search prompts, never permission. Exact route/capability and actual pixels decide.
-
-## 6. Recommendation and route legality
-
-Normal creative selection requires `recommendationStatus = RECOMMENDABLE` unless the user deliberately chooses otherwise with explicit evidence.
-
-Destination capability beats visual resemblance:
+Destination capability beats resemblance:
 
 - Actor -> world/cast identity
 - Layer -> environment/scenery
-- Effect -> visual effect/accent
-- Ui -> interface/dialogue presentation where legal
-- Animation -> exact compatible animation
-- Audio -> exact Audio handle
+- Effect -> particles/VFX/visible accents
+- Ui -> interface/dialogue presentation
+- Audio -> sound
 
-A source/member ID appearing inside a projection does not inherit the projection's capability.
+Raw Animation identities remain backend compatibility data. Simple V1 authors animation semantically.
 
-## 7. Cast identity, visible representation and animation
+Raw Catalog IDs are not normal authoring handles.
 
-Cast is identity. Animation frames are not new people. Sprite frames are not Actor identities.
+## Identity, visible representation and performance
 
-For world Actors these authoring concepts are separate and must stay separate:
+Keep these separate:
 
 ```text
 cast[].id
-= logical Actor id used by actions/dialogue/continuity
+= logical story identity
 
 cast[].identityHandle
-= exact canonical/preferred CURRENT route=Actor authoring identity
+= canonical CURRENT Actor identity
 
 visible[].handle
-= exact visible representation handle for the shot
+= visible representation
 
 actions[].subject
 = cast[].id
 
 animationIntent / performanceIntent
-= semantic request such as walk / look_up
+= semantic performance request
 ```
 
-Do not put a Sprite frame, Texture, portrait frame, animation frame or raw AnimationClip handle into `cast[].identityHandle` merely because it visually depicts the character.
+A Sprite frame, portrait, Texture or animation frame does not become Actor identity merely because it depicts the character.
 
-A visual/frame record may belong to a canonical Actor family without becoming the Actor identity itself. The backend may canonicalize legacy visual handles for compatibility, but authoring must prefer the published canonical Actor handle.
+Distinct named people require distinct identities unless intentionally the same identity/clone.
 
-Distinct named people require distinct canonical/preferred identities unless intentionally representing the same identity/clone.
+## Animation and movement
 
-Compatible real `AnimationClip` playback belongs to the native Animation Timeline path. Raw AnimationClip ids remain backend-only and must not be authored in Simple V1. Semantic/procedural movement such as flyby, orbit, formation and pursuit remains owned by the single procedural motion owner. Do not create a second transform owner merely to make a feature look more native.
+Animation and movement are independent and may run simultaneously.
 
-For moving characters, combine compatible animation + movement when available. Move alone can slide a mannequin; animation alone can exercise heroically in place.
+A convincing moving character normally needs both when compatible animation exists:
 
-If CURRENT does not expose a legal canonical Actor identity for a required world character, do not infer one from filenames, folders, frame names, sprites or old JSON. Treat that world Actor as unavailable until CURRENT exposes it.
+- animation supplies body performance;
+- actor motion supplies world/screen travel.
 
-## 8. Frame-relative proportions
+Compatible real AnimationClip playback is Unity-owned native Timeline behavior. Authors request it semantically.
 
-Use Simple V1 frame-relative composition fields when available: `screenX`, `screenY`, `screenWidthFraction`, `screenHeightFraction`, saliency and depth.
+Do not author raw Animation IDs or create a second transform owner to imitate animation.
 
-Do not use extreme raw Unity scale to compensate for wrong asset selection, source PNG dimensions, bad framing or missing background coverage.
+## Actor choreography and timing
 
-The active camera/frustum is the cinematic scale reference. The editor Stage rectangle is not the truth for apparent on-screen size or travel distance.
+Use schema-legal motion intents and path fields only.
 
-## 9. Backgrounds and depth
+Simple V1 supports:
 
-Background/FarBackground art must actually function as the intended environment.
+- `actions[].startOffset`
+- `actions[].duration`
 
-A useful visual stack is:
+Use them for legal staggering and concurrency.
 
-```text
-FarBackground
--> Background
--> distant world actors
--> principal world actors
--> foreground actors/effects
--> Foreground
--> dialogue portraits/frame/text
--> overlays
-```
+`actions[]` array order is never hidden sequencing.
 
-A Timeline that plays with postage-stamp backgrounds, black borders or unreadable principal subjects is still a failed movie.
+Use adjacent beats for distinct semantic locomotion phases unless one precise continuous path intentionally represents the entire movement.
 
-FullFrame fitting is renderer-specific: each unique intended background renderer is fit against the overlapping camera states from a stable baseline. Repeated cross-product refitting and multiplicative scale drift are engine defects, not authoring techniques.
+### Precise paths
 
-## 10. Semantic camera subject versus physical target
+When exact screen geometry matters, use the matching schema's path fields such as `pathShape`, `pathPoints`, center/size/period/direction/easing where legal.
 
-Camera subject is directing truth; physical Transform target is an execution detail.
+Author frame-relative geometry, not arbitrary Unity world distances.
 
-Current rules:
+### Orbit and relative motion
 
-- a `Hold` shot may preserve a semantic non-Actor composition subject with no physical world target;
-- curated dialogue participants may be semantic/dialogue composition subjects without spawning WorldActors;
-- Follow/Track and other genuinely target-dependent operations may physically bind an active legal WorldActor when the current Cinemachine representation supports it;
-- when native Cinemachine owns the shot, do not generate a competing custom camera owner for the same interval;
-- do not manufacture a physical target merely to satisfy a semantic subject.
+Actor Orbit remains fixed-center while the current runtime capability requires it.
 
-Camera orbit is a separate 2D/2.5D parallax concept and must never invent unseen 3D geometry.
+Pursuit/Escort/Intercept are semantic directing concepts. Do not promise per-frame moving-target tracking unless the runtime actually provides it.
 
-## 11. Dialogue is a closed-world presentation system
+## Frame-relative composition
 
-Dialogue identity comes only from matching `EMOTIONAL_DIALOGUE_CURRENT` / CharacterPack authoring-ready characters.
+Use normalized screen semantics such as:
 
-Dialogue-only participants use `DialoguePortrait` with `spawnWorldActor=false`.
+- `screenX`, `screenY`
+- `screenWidthFraction`, `screenHeightFraction`
+- `enterFrom`, `exitTo`
+- `travelDirection`
+- camera framing/movement/subject/direction/intensity
 
-Exact CharacterPack portrait/expression legality is authoritative. Generic Catalog metadata does not create or replace curated dialogue presentation.
+The active camera/frustum is the composition truth. The editor Stage rectangle is not the cinematic scale reference.
 
-Locked dialogue uses legal static/cut-based framing. Do not keep speaker/listener as simultaneous world actors inside the same locked portrait window unless CURRENT explicitly declares the presentation overlay-safe.
+Do not compensate for wrong assets or camera scale with extreme raw Unity scale values.
 
-### Dialogue defaults
+## Camera directing
 
-Background, frame and raw shot preset are backend presentation mechanics when deterministically derivable.
+Camera subject is semantic directing truth. Physical target binding is runtime implementation.
 
-The backend should project those defaults before early validation where possible. Authors should not stuff low-level stage IDs into Simple V1 merely to silence warnings for values Preview already supplies deterministically.
+### Hold
+Stable composition. No leaked motion from a previous shot.
 
-### Dialogue may need world evidence
+### Push / Pull
+Continuous within-shot framing change. A cut between static lens values is not Push/Pull.
 
-Do not default every speaking beat to portrait-only presentation. If the audience must still see a blockade, damaged ship, radar target, convoy or environmental threat, choose a legal radio/monitor/environment presentation that preserves the world evidence.
+### Follow / Track
+When target-dependent runtime support exists, the camera must react to the authored legal subject through time. Merely activating a different CinemachineCamera is not enough.
 
-## 12. Actor motion: semantic authoring, viewport-proportional execution
-
-Simple V1 authors semantic actor motion. The adapter lowers it into the existing V5 actor-action / Timeline path.
-
-Semantic source intents may include flyby, approach, pursuit, intercept, escort, formation break, bank-away, landing, takeoff, escape and orbit.
-
-The semantic word itself is not proof of a sophisticated solver. Author only what current execution can honestly represent.
-
-### Camera-relative travel
-
-Cinematic movement is composed against the active camera viewport/frustum, not a small arbitrary Stage rectangle.
-
-Therefore:
-
-- edge-to-edge flybys should traverse a meaningful fraction of the visible frame;
-- a bottom-right -> top-left diagonal should remain a real diagonal across the frame even if camera size changes;
-- formation members preserve distinct frame-relative X/Y offsets;
-- curve/control-point amplitude scales with the visible frame;
-- default Orbit radii are proportional to visible camera width/height rather than a tiny fixed world-unit radius.
-
-Author the intent with legal screen position, entry/exit, direction, trajectory and semantic speed. Do not invent world-unit distances or movement-scale escape hatches.
+### Drift
+Visible 2D frame-relative displacement.
 
 ### Orbit
+Visible 2D/2.5D movement around the authored subject, preserving direction. Do not invent unseen 3D geometry.
 
-`motionIntent = orbit` lowers to the current Actor Orbit owner.
+### Shake
+Visible oscillation that returns to base.
 
-Actor Orbit remains fixed-center while the matching runtime requires it. The center/target actor must remain stationary during the Orbit interval. A moving-center Orbit is not silently implied by the semantic name.
+### ImpactShake
+Strong early impact, correction/decay, return to base.
 
-### Pursuit / Escort / Intercept
+### Quality rule
+If strong camera motion is so subtle that a reviewer says "maybe it moved a little", it failed the film-quality gate.
 
-These are valid semantic concepts, but do not describe them as per-frame moving-target tracking unless an actual current runtime component implements that behavior.
+## Backgrounds and coverage
 
-## 13. Semantic speed and safe numeric parsing
+Background/FarBackground art must actually cover the intended active camera composition.
 
-Simple V1 speed vocabulary includes:
+A technically playing Timeline with postage-stamp scenery, black borders or unreadable focal subjects is still a failed movie.
 
-```text
-slow
-medium
-fast
-burst
-```
+FullFrame fitting is Unity-owned and should be renderer-specific and idempotent. Authors should not compensate with arbitrary scale hacks.
 
-These are semantic strings. They are not numeric Unity units per second and must not be used to determine how much of the screen a supposedly edge-to-edge path traverses.
+## Dialogue
 
-Path geometry comes from composition intent; semantic speed controls pacing within that path.
+Dialogue is closed-world through `EMOTIONAL_DIALOGUE_CURRENT.json`.
 
-## 14. Quantity: many means many, but one grouped image is already many
+- speaker/listener are exact published actorIds matching cast[].id;
+- identityHandle matches the published dialogue identity;
+- expressionIntent is exact and case-sensitive;
+- optional presentation may degrade only through legal deterministic system behavior;
+- do not invent dialogue identity/expression from generic Catalog evidence.
 
-`visible[].count` is a real visual obligation.
+Locked portrait dialogue should use stable legal coverage and avoid unsupported world locomotion/camera choreography in the same interval.
 
-Use either:
+When the story requires environmental evidence during speech, use an appropriate supported radio/monitor/environment composition rather than hiding the world merely because portrait dialogue is convenient.
 
-1. multiple instances of a true reusable single-entity visual;
-2. one exact grouped/fleet/crowd asset whose inspected pixels already contain the required plurality;
-3. an explicit gap/reframed composition.
+## Effects / particles
 
-Do not take a precomposed fleet image and then count-expand it as though it were one ship. That multiplies groups by groups and produces a glorious but incorrect interstellar traffic jam.
+A legal route=`Effect` item in `visible[]` is already a visible obligation.
 
-## 15. Story claims require visible proof
+Do not add a meaningless `reveal`/`activate` action just to make the backend instantiate it.
 
-Every major non-verbal story claim must map to serialized visible evidence:
+Repeated identical Effect handles remain distinct authored instances.
+
+Effect timing may use:
+
+- `visible[].startOffsetSeconds`
+- `visible[].durationSeconds`
+
+when legal in the matching schema.
+
+Projectile/impact semantics do not satisfy unrelated Effect obligations.
+
+ParticleSystem/prefab lifecycle and Timeline Control/Activation ownership are Unity-owned implementation details.
+
+## Projectiles / missiles
+
+Cutscene projectile fire is closed-world.
+
+Every `type=fire` action uses a schema-legal `projectileId` and authored `count`.
+
+Do not substitute:
+
+- Effect handles;
+- filenames;
+- gameplay projectile prefab names;
+- fuzzy Catalog matches.
+
+When authored, preserve target/anchor intent.
+
+A convincing projectile sequence requires visible launch/travel and the intended impact/effect behavior. Marker count alone is not film proof.
+
+A moving shooter must fire from its current moving origin, not a stale cached position.
+
+## Audio
+
+Use exact CURRENT Audio handles.
+
+Visual Effects and projectiles do not automatically supply sound.
+
+Repeated use of the same Audio handle is legal and remains separate authored occurrences.
+
+## Quantity
+
+`visible[].count` and projectile `count` are real audience-visible obligations.
+
+Before count-expanding a visual, verify that the source image represents one reusable entity rather than an already grouped fleet/crowd composition.
+
+Do not multiply a precomposed fleet as though it were one ship.
+
+## Concurrency
+
+Real films require overlap.
+
+Legal examples include:
+
+- moving actor + animation;
+- animated bomber + Push;
+- Doctor animation + Track;
+- moving shooter + eight shots;
+- two animated ships + Follow;
+- two-way firefight + Shake;
+- Push + a compatible perspective operation.
+
+Do not serialize these merely to avoid ownership bugs. Instead keep one effective runtime owner per property/capability.
+
+## Story claims require proof
+
+Major non-verbal claims should map to visible/audible evidence:
 
 ```text
 STORY CLAIM
--> VISIBLE ELEMENTS
--> START STATE
--> ACTION / CHANGE
--> CONSEQUENCE
--> FINAL STATE
+-> visible/audible evidence
+-> action/change
+-> consequence/final state
 ```
 
-Dialogue saying that an explosion happened does not visually implement an explosion. A sequence named `FLEET_ARRIVES` does not make one stationary ship a fleet arrival.
+A label or dialogue sentence does not implement an unseen event.
 
-## 16. Projectiles, visible Effects and audio
+## Accepted fixtures and Golden QA
 
-### Cutscene projectiles are closed-world
+Once a legal authored fixture passes schema + CURRENT authoring integrity, backend/engine repair happens against that same fixture.
 
-Simple V1 projectile fire uses `type = fire` with the dedicated `projectileId` field. Unity owns launcher, muzzle attachment, movement and cadence mechanics.
+Do not rewrite legal beats, timing, camera intent, animation intent, projectile counts/types, targets, anchors or handles just to make broken Timeline/Preview code appear successful.
 
-Use only the exact projectile IDs exported by the matching CURRENT schema. Do not substitute gameplay projectile names, filenames, Catalog lookalikes, `effectHandle` or `viaHandle`.
+Golden regression fixtures and runner implementation live in Plastic. Production code must never special-case fixture names, beat IDs, actor IDs or exact fixture timestamps.
 
-A projectile burst does not automatically prove impact/destruction; author separate visible evidence when the story requires it.
+Runtime PASS requires actual Unity execution of the final saved/reopened Editable Preview. Compile-only success is not movie-quality proof.
 
-### Visible Effects are real obligations
+## Final film-quality check
 
-A legal route=`Effect` entry in `visible[]` requests beat-bounded audience visibility even when there is no explicit Effect action.
+Before calling a movie exact success, verify:
 
-Do not add a meaningless `reveal` merely to wake up the backend.
+1. important visual choices match inspected pixels;
+2. world Actor identity and visible representation are not conflated;
+3. animation visibly animates;
+4. movement visibly travels;
+5. strong camera moves are obvious;
+6. projectiles visibly launch/travel in authored quantity;
+7. Effects/particles visibly execute;
+8. simultaneous operations genuinely overlap;
+9. backgrounds cover the active camera;
+10. no black frame, stale foreign Preview, lost binding or residual motion remains;
+11. Save -> final Editable Preview -> reopen preserves behavior;
+12. Unity actually ran before claiming runtime PASS.
 
-Use an explicit supported Effect action only when the film needs explicit event semantics beyond ordinary beat visibility.
-
-Three authored visible instances using the same exact Effect handle are still three distinct instances. Do not deduplicate them by handle.
-
-The backend selects one correct Timeline owner according to resolved runtime form: native Activation where bounded visibility is sufficient, native Control where prefab/Particle/nested-director lifecycle is correctly owned by Timeline, or one existing custom visual/VFX clip where project-specific composition behavior truly requires it.
-
-### Audio
-
-Audio is first-class and non-visual. Exact legal Audio handles lower to the native audio execution path. Generated aliases such as `simple_audio_*` are not authoring identities.
-
-A visual Effect does not automatically supply sound.
-
-## 17. Binding-aware materialization coverage
-
-A legal authored request is not complete merely because some clip was generated.
-
-Candidate acceptance must verify:
-
-```text
-source obligation
--> exact CURRENT runtime identity
--> distinct generated instance
--> exact Timeline representation
--> valid binding / receiver
--> correct active interval
-```
-
-Wrong/missing bindings, shared instances, wrong assets, orphan clips and interval bleed are materialization failures.
-
-Silent drop is forbidden. If authored Actors are dropped, the system should preserve the source request and diagnose identity/resolution loss explicitly rather than pretending the black Preview is exact success.
-
-An engine-safe placeholder or visually empty/black Preview may be useful diagnostic evidence, but it is a degradation, not exact success.
-
-## 18. Actor lifetime and location ownership
-
-Old actors from a previous location must not leak into the next location. Dialogue-only cast must not spawn world actors. Effects/UI end with their owning interval unless deliberately transferred.
-
-Location changes must visibly change location, not merely rename a field.
-
-One capability has one execution owner for the same interval. Avoid duplicate native/custom execution of the same audio, camera, effect or transform behavior.
-
-## 19. Validation colors and ownership
-
-Normal user-facing states:
-
-```text
-GREEN  exact
-YELLOW artistic/quality/continuity note
-ORANGE technical repair/degradation; usable Preview continues or last valid Preview is preserved
-RED    unrecoverable condition where no valid candidate/Preview can safely be produced or preserved
-```
-
-Owner is separate:
-
-```text
-AUTHORING
-BACKEND
-ENGINE
-```
-
-A legal exact CURRENT identity that later fails materialization is BACKEND/ENGINE-owned evidence, not permission to substitute identity.
-
-Strict candidate acceptance does not mean destroying the user's previous film:
-
-```text
-BAD NEW CANDIDATE != DESTROY LAST GOOD PREVIEW
-```
-
-## 20. Accepted JSON freeze
-
-Once authoring integrity is accepted, downstream BACKEND/ENGINE findings should normally be fixed against the same fixture rather than repeatedly rewriting legal source JSON.
-
-The freeze does not protect newly discovered genuine representation conflicts. If runtime truly cannot represent the choreography, either change choreography deliberately or implement the missing capability.
-
-## 21. Stable Golden integration film
-
-For runtime engineering, use a stable representative Golden Cutscene instead of creating a new disposable test movie for every symptom.
-
-The exact Golden fixture and runner live in the canonical Plastic workspace. Git documents the invariant, not a duplicate Unity fixture.
-
-The Golden should exercise, where legal, actor animation, camera Push/Pull/Track/Follow/Drift/Orbit/Shake/ImpactShake, perspective operations, projectile counts/types, explosions/effects, anchors/colliders, moving-shooter fire, reverse animation, simultaneous operations and a final clean Hold.
-
-The authored Golden fixture is not changed merely because backend/engine execution is wrong. Production code must never special-case fixture names, beat IDs, actor IDs or exact fixture timestamps.
-
-Final saved/reopened Editable Preview behavior is the execution truth. Generation-time clip creation alone is not enough.
-
-Observable quality matters:
-
-- animation must visibly animate;
-- strong camera motion must be immediately legible, not merely numerically non-zero;
-- Push/Pull must change framing continuously inside the same shot;
-- projectiles must visibly travel and preserve exact type/count/targeting semantics;
-- impacts/effects must visibly execute;
-- simultaneous operations must genuinely overlap;
-- final Hold must contain no residual camera/effect state.
-
-If a reviewer must say “maybe it moved a little”, a strong motion request failed the quality gate.
-
-The closed-loop engineering workflow is:
-
-```text
-compile
--> run same Golden QA
--> find first real failure
--> trace to first wrong owner/stage
--> fix production code
--> compile
--> rerun same Golden QA
-```
-
-Do not claim runtime PASS unless actual Unity execution proved it. `SOURCE_READY` and `NOT_RUN` are honest states when runtime execution was not performed.
-
-See `simple-authoring/CUTSCENE_GOLDEN_QA_POLICY.md` for durable engineering rules.
-
-## 22. CURRENT and publication discipline
-
-Normal authoring uses only the matching public `open-current` atomic set. Compatibility is `requiredCurrent`; `publishTransactionId` is provenance.
-
-Source guidance in Git may be prepared for the next publication, but generated `designer-ai/open-current/**` files must not be hand-edited to pretend a new CURRENT exists.
-
-FULL Publish rebuilds heavy source truth when fingerprints changed. DELTA Publish updates lightweight authoring/guidance artifacts when `requiredCurrent` is unchanged and must not rebuild/re-upload the unchanged heavy base.
-
-## 23. Film preflight before delivery
-
-Before final JSON/delivery confirm at least:
-
-1. requiredCurrent matches.
-2. story reads coherently without IDs.
-3. important visual choices were inspected as real CURRENT pixels.
-4. every field uses the correct legal destination/handle.
-5. every cast[].identityHandle is a canonical/preferred legal Actor identity, separate from visible representation.
-6. every Actor action subject references cast[].id, and animation/performance intent remains semantic rather than raw AnimationClip identity.
-7. cast identities and animation compatibility are exact.
-8. dialogue participants/expressions are inside the closed-world repertoire.
-9. backgrounds are real environments and fill the intended frame.
-10. semantic depth and occlusion are intentional.
-11. quantity/grouping matches the actual pixels.
-12. every major non-verbal claim has serialized visible evidence.
-13. semantic actor motion maps to current supported execution and uses frame-relative composition intent.
-14. Actor Orbit centers obey current fixed-center limits where applicable.
-15. every fire action uses an exact legal Cutscene projectileId.
-16. every legal visible Effect is authored as a visual obligation without a fake activation workaround.
-17. effects/projectiles/audio are legal and timed.
-18. actor lifetime/location transitions are coherent.
-19. expected genuine unrecoverable blockers = 0.
-
-## 24. Pre-publish proof
-
-Do not Publish because Unity merely compiled.
-
-Before a user-controlled Publish, run the stable Golden/representative fixtures through:
-
-```text
-compile
--> Validate
--> Build Editable Preview
--> Save / reopen final Preview
--> binding-aware materialization coverage
--> inspect viewport-proportional horizontal/diagonal/orbit/formation motion
--> inspect camera within-shot Push/Pull/Drift/Shake/Impact behavior
--> inspect actor animation state/frame change
--> inspect FullFrame coverage/idempotence
--> inspect curated dialogue presentation
--> inspect projectile path/type/count/targeting
--> inspect generic visible Effect path with no secret activation action
--> inspect simultaneous operations
--> verify final Hold has no leaked state
--> verify last-good Preview preservation on a rejected candidate
-```
-
-Only then is Publish justified.
-
-## 25. Learning cases
-
-Historical BAD cases remain engineering evidence, not normal authoring truth. See `simple-authoring/LEARNING_CASES_POLICY.md`.
-
-Durable lessons include:
-
-- semantic intent can be lost after authoring if lowering/materialization coverage is not verified;
-- Actor identity and visible representation are distinct; a frame/sprite record must not silently replace canonical cast identity;
-- generated aliases are backend identities and must never be recommended back as source handles;
-- valid visible Effects must not depend on ChatGPT remembering a secret activation action;
-- a generated Timeline clip without the right binding/interval is not materialization success;
-- Stage-sized motion can make valid choreography visually microscopic; camera viewport/frustum is the correct cinematic scale reference;
-- FullFrame fitting must be exact-renderer/idempotent, not a layer x renderer cross-product;
-- a bad new candidate must not erase the last valid Preview;
-- raw Learning Cases must remain quarantined from normal NEW/REVISE/REPAIR authoring until separately curated and re-verified.
-
-A repaired result becomes GOLDEN only after normal Unity Validate + representative final saved/reopened Preview proves it.
+The author writes the film. Unity performs the accounting and execution.
