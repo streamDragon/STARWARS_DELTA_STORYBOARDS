@@ -74,6 +74,7 @@ DELTA must refuse heavy/source-truth artifacts or a fingerprint mismatch and req
 Current durable execution invariants are documented in:
 
 - `designer-ai/tools/current-source/simple-authoring/ARCHITECTURE.md`
+- `designer-ai/tools/current-source/simple-authoring/CUTSCENE_GOLDEN_QA_POLICY.md`
 
 Important consequences:
 
@@ -85,6 +86,16 @@ Important consequences:
 - native Timeline tracks are preferred where they are the correct single owner, while project-specific tracks remain where native Timeline cannot express the semantics.
 
 The Unity/Plastic workspace remains canonical for the runtime implementation. This Git repository documents and publishes the authoring contract; it does not duplicate Unity runtime source.
+
+## Plastic runtime / Git guidance boundary
+
+The Unity project, Cutscene Studio implementation, Timeline/Cinemachine materialization, Workshop persistence, runtime bindings and Golden regression runner live in the canonical Plastic workspace.
+
+This Git repository does not mirror those runtime sources. Its responsibility is the maintained authoring/publishing guidance and the controlled CURRENT publication surface.
+
+Stable legal Golden fixtures are runtime specifications: when backend/engine execution is wrong, repair the system against the same fixture instead of rewriting legal authored JSON to make a broken path appear successful. Fixture names, beat IDs and timestamps must never become production special cases.
+
+Compile-only success is not movie-quality proof. `PASS` for a Golden Cutscene requires actual Unity execution of the final saved/reopened Editable Preview. `SOURCE_READY` and `NOT_RUN` remain honest engineering states when runtime execution was not performed.
 
 ## Devora Context Pack
 
