@@ -6,6 +6,8 @@ on:
     branches: [main]
     paths:
       - 'designer-ai/open-current/**'
+      - 'designer-ai/tools/current-source/**'
+      - 'designer-ai/tools/seal_atomic_current.py'
       - 'designer-ai/tools/sanitize_current_surface.py'
       - '.github/workflows/sanitize-designer-ai-current.yml'
 
@@ -25,13 +27,16 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Stage current published surface
+      - name: Stage current published surface from canonical source
         shell: bash
         run: |
           set -euo pipefail
           rm -rf _open_current_stage
           mkdir -p _open_current_stage
           cp -a designer-ai/open-current/. _open_current_stage/
+          cp designer-ai/tools/current-source/CHATGPT_START.txt _open_current_stage/CHATGPT_START.txt
+          cp designer-ai/tools/current-source/FILM_AUTHORING_GUIDE_CURRENT.md _open_current_stage/FILM_AUTHORING_GUIDE_CURRENT.md
+          python3 designer-ai/tools/seal_atomic_current.py
 
       - name: Sanitize public CURRENT
         shell: bash
@@ -52,6 +57,8 @@ jobs:
           assert staged.get('status')=='CURRENT_VERIFIED'
           assert source.get('publishTransactionId')==staged.get('publishTransactionId')
           assert source.get('requiredCurrent')==staged.get('requiredCurrent')
+          assert not pathlib.Path('_open_current_stage/catalog-contract').exists()
+          assert not pathlib.Path('_open_current_stage/instruction-book').exists()
           print('SANITIZED_CURRENT_IDENTITY_PASS', source.get('publishTransactionId'))
           PY
 
