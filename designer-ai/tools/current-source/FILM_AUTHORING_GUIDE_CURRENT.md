@@ -333,7 +333,47 @@ Once authoring integrity is accepted, downstream BACKEND/ENGINE findings should 
 
 The freeze does not protect newly discovered genuine representation conflicts. If runtime truly cannot represent the choreography, either change choreography deliberately or implement the missing capability.
 
-## 21. CURRENT and publication discipline
+## 21. Stable Golden integration film
+
+For runtime engineering, use a stable representative Golden Cutscene instead of creating a new disposable test movie for every symptom.
+
+The exact Golden fixture and runner live in the canonical Plastic workspace. Git documents the invariant, not a duplicate Unity fixture.
+
+The Golden should exercise, where legal, actor animation, camera Push/Pull/Track/Follow/Drift/Orbit/Shake/ImpactShake, perspective operations, projectile counts/types, explosions/effects, anchors/colliders, moving-shooter fire, reverse animation, simultaneous operations and a final clean Hold.
+
+The authored Golden fixture is not changed merely because backend/engine execution is wrong. Production code must never special-case fixture names, beat IDs, actor IDs or exact fixture timestamps.
+
+Final saved/reopened Editable Preview behavior is the execution truth. Generation-time clip creation alone is not enough.
+
+Observable quality matters:
+
+- animation must visibly animate;
+- strong camera motion must be immediately legible, not merely numerically non-zero;
+- Push/Pull must change framing continuously inside the same shot;
+- projectiles must visibly travel and preserve exact type/count/targeting semantics;
+- impacts/effects must visibly execute;
+- simultaneous operations must genuinely overlap;
+- final Hold must contain no residual camera/effect state.
+
+If a reviewer must say “maybe it moved a little”, a strong motion request failed the quality gate.
+
+The closed-loop engineering workflow is:
+
+```text
+compile
+-> run same Golden QA
+-> find first real failure
+-> trace to first wrong owner/stage
+-> fix production code
+-> compile
+-> rerun same Golden QA
+```
+
+Do not claim runtime PASS unless actual Unity execution proved it. `SOURCE_READY` and `NOT_RUN` are honest states when runtime execution was not performed.
+
+See `simple-authoring/CUTSCENE_GOLDEN_QA_POLICY.md` for durable engineering rules.
+
+## 22. CURRENT and publication discipline
 
 Normal authoring uses only the matching public `open-current` atomic set. Compatibility is `requiredCurrent`; `publishTransactionId` is provenance.
 
@@ -341,7 +381,7 @@ Source guidance in Git may be prepared for the next publication, but generated `
 
 FULL Publish rebuilds heavy source truth when fingerprints changed. DELTA Publish updates lightweight authoring/guidance artifacts when `requiredCurrent` is unchanged and must not rebuild/re-upload the unchanged heavy base.
 
-## 22. Film preflight before delivery
+## 23. Film preflight before delivery
 
 Before final JSON/delivery confirm at least:
 
@@ -365,28 +405,33 @@ Before final JSON/delivery confirm at least:
 18. actor lifetime/location transitions are coherent.
 19. expected genuine unrecoverable blockers = 0.
 
-## 23. Pre-publish proof
+## 24. Pre-publish proof
 
 Do not Publish because Unity merely compiled.
 
-Before a user-controlled Publish, run representative fixtures through:
+Before a user-controlled Publish, run the stable Golden/representative fixtures through:
 
 ```text
 compile
 -> Validate
 -> Build Editable Preview
+-> Save / reopen final Preview
 -> binding-aware materialization coverage
 -> inspect viewport-proportional horizontal/diagonal/orbit/formation motion
+-> inspect camera within-shot Push/Pull/Drift/Shake/Impact behavior
+-> inspect actor animation state/frame change
 -> inspect FullFrame coverage/idempotence
 -> inspect curated dialogue presentation
--> inspect projectile path
+-> inspect projectile path/type/count/targeting
 -> inspect generic visible Effect path with no secret activation action
+-> inspect simultaneous operations
+-> verify final Hold has no leaked state
 -> verify last-good Preview preservation on a rejected candidate
 ```
 
 Only then is Publish justified.
 
-## 24. Learning cases
+## 25. Learning cases
 
 Historical BAD cases remain engineering evidence, not normal authoring truth. See `simple-authoring/LEARNING_CASES_POLICY.md`.
 
@@ -402,4 +447,4 @@ Durable lessons include:
 - a bad new candidate must not erase the last valid Preview;
 - raw Learning Cases must remain quarantined from normal NEW/REVISE/REPAIR authoring until separately curated and re-verified.
 
-A repaired result becomes GOLDEN only after normal Unity Validate + representative Preview proves it.
+A repaired result becomes GOLDEN only after normal Unity Validate + representative final saved/reopened Preview proves it.
