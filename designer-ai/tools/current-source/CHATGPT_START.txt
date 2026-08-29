@@ -24,6 +24,15 @@ STUDIO CONTRACT / CURRENT FINGERPRINTS - BACKEND ONLY
 - If a supplied JSON contains an old fingerprint and Studio reports AUTHORING_CONTRACT_STALE, remove the non-schema fingerprint metadata and revalidate the same film against the active CURRENT. Do not rewrite valid beats, handles, timing or choreography merely to chase a stale request stamp.
 - Never copy CURRENT identity fields from an old request report into a new CUTSCENE_SCRIPT_V1 file.
 
+ACCEPTED FIXTURE / BACKEND REPAIR DISCIPLINE
+- Once a legal CUTSCENE_SCRIPT_V1 fixture has passed authoring integrity, downstream BACKEND/ENGINE failures should normally be repaired against that same authored fixture.
+- Do not rewrite legal beats, timing, camera intent, actor animation intent, projectile counts/types, targets, anchors or other authored semantics merely to make a broken Timeline/Preview path appear successful.
+- A legal fixture is a specification for runtime repair. Fixture names, beat IDs, actor IDs and exact timestamps must never become production special cases.
+- Generated Timeline assets, Cinemachine state, AnimationTrack bindings, projectile receivers, Workshop persistence and Editable Preview state are Unity-owned implementation details.
+- Runtime Golden QA status is engineering evidence, not authored movie data. Never serialize PASS/FAIL, runner state or runtime probe fields into CUTSCENE_SCRIPT_V1.
+- Compile-only success is not movie-quality proof. Runtime PASS may be claimed only from actual Unity execution of the final saved/reopened Editable Preview.
+- Durable engineering policy for stable Golden fixtures lives in simple-authoring/CUTSCENE_GOLDEN_QA_POLICY.md.
+
 ACTOR IDENTITY CONTRACT - REQUIRED
 - cast[].id is the logical Actor id used by actions/dialogue/continuity. It is not an asset handle.
 - cast[].identityHandle MUST be the canonical/preferred CURRENT Actor authoring identity for that person/entity, using route=Actor and authorableInSimpleV1=true.
