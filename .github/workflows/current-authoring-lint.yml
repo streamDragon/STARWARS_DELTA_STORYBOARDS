@@ -10,11 +10,8 @@ on:
       - 'designer-ai/open-current/**'
       - 'designer-ai/devora.html'
       - 'designer-ai/simple-preview.html'
-      - 'designer-ai/tools/**'
+      - 'designer-ai/tools/current-source/**'
       - '.github/workflows/current-authoring-lint.yml'
-      - '.github/workflows/project-designer-ai-guidance.yml'
-      - '.github/workflows/publish-designer-ai-open-current.yml'
-      - '.github/workflows/sanitize-designer-ai-current.yml'
 
 permissions:
   contents: read
@@ -103,8 +100,28 @@ jobs:
           assert all(h.get('route')!='Animation' for h in handles.get('handles',[])), 'RAW_ANIMATION_HANDLE_EXPOSED'
 
           rules=json.loads((simple/'AUTHORING_RULES_CURRENT.json').read_text(encoding='utf-8-sig'))
-          ids={r.get('id') for r in rules.get('rules',[])}
-          assert 'V4_RECIPES_ARE_AUTHORING_ONLY' not in ids, 'LEGACY_V4_RECIPE_RULE_REAPPEARED'
+          actual=[r.get('id') for r in rules.get('rules',[])]
+          expected_rule_ids=[
+              'CURRENT_ONLY',
+              'HANDLE_ONLY',
+              'ANIMATION_SEMANTIC_ONLY',
+              'DIALOGUE_CLOSED_WORLD',
+              'DIALOGUE_IDENTITY',
+              'DIALOGUE_EXPRESSION',
+              'DIALOGUE_LOCKED_STAGING',
+              'ONE_PRESENTATION_SOURCE',
+              'VISUAL_EVIDENCE',
+              'BACKEND_FIELDS_OMITTED',
+              'SEMANTIC_CAMERA_SUBJECT',
+              'ACTOR_ORBIT_FIXED_CENTER_ONLY',
+              'NO_UNTIMED_MULTI_PHASE_LOCOMOTION',
+              'SEMANTIC_SPEED_ONLY',
+              'WARNING_FIRST',
+              'SCHEMA_ONLY',
+              'V4_RECIPES_ARE_AUTHORING_ONLY',
+          ]
+          assert len(actual)==17, f'SIMPLE_V1_RULE_COUNT_DRIFT: {len(actual)}'
+          assert set(actual)==set(expected_rule_ids), f'SIMPLE_V1_RULE_SET_DRIFT: actual={sorted(actual)} expected={sorted(expected_rule_ids)}'
 
           assert not (live/'catalog-contract').exists(), 'LEGACY_CATALOG_CONTRACT_REAPPEARED'
           assert not (live/'instruction-book').exists(), 'LEGACY_INSTRUCTION_BOOK_REAPPEARED'
@@ -117,7 +134,6 @@ jobs:
           forbidden_phrases=[
               'Create a current V5 package',
               'CURRENT AUTHORITATIVE RULES\nV2.7',
-              'V4_RECIPES_ARE_AUTHORING_ONLY',
               'CUTSCENE_GOLDEN_QA_POLICY.md',
           ]
           for label,text in [('CHATGPT_START',start),('FILM_GUIDE',guide),('ARCHITECTURE',arch),('FAIL_SOFT_SOURCE',failsoft)]:
@@ -148,6 +164,7 @@ jobs:
           print('CURRENT_AUTHORING_SOURCE_LINT_PASS')
           print('CURRENT', current.get('publishTransactionId'))
           print('CATALOG', current.get('requiredCurrent',{}).get('catalogRevision'))
+          print('SIMPLE_V1_RULE_COUNT', len(actual))
           print('LEGACY_PUBLIC_SURFACES', 0)
           print('GENERATED_ROOT_PUBLIC_PROJECTION_LEAKS', len(leaked))
           PY
