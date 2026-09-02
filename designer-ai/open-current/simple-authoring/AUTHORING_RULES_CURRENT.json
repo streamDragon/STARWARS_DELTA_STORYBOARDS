@@ -2,10 +2,10 @@
   "schema": "STARWARS_DELTA_SIMPLE_V1_AUTHORING_RULES_CURRENT",
   "schemaVersion": 3,
   "requiredCurrent": {
-    "catalogRevision": "7624700180290740973",
-    "contractRevision": "2F9CD64B0DD1AB1CF6D97BA46D32A5FA29199B46FCE0A41972C42655B3543CF8",
-    "schemaHash": "BC2DDE831B46CF0D15C926023FE5DC6CA29D3898BF75569A6524FB03FBD4E94A",
-    "snapshotContentHash": "58F0C62416E81C049C7A4E7087EAA2E45A6F5B44EEBDF2E3D6E87C774504A8B3",
+    "catalogRevision": "7624414197416586144",
+    "contractRevision": "8E25E6F5488A9A89E3829EF234E36C465108EC993A08A42F0FDBBADAE79812D3",
+    "schemaHash": "21D9BD398D886F80FCF8E553A80242819FA44FE6DFF75A368FEC57C432099E4A",
+    "snapshotContentHash": "7C26BD78ED8487625D614D2A957DD1F3FF1496B0213AB894C7115C1557585BBB",
     "authoringRuleRegistryRevision": "A215FB0F8D7648D3BAD5336EFA3189F5D011E8F5C8C218F93F0F2D8DA8D3A4DD"
   },
   "purpose": "Author-facing rules for CUTSCENE_SCRIPT_V1 only. Backend/internal rules are intentionally omitted.",
@@ -79,6 +79,11 @@
       "id": "SEMANTIC_SPEED_ONLY",
       "blocks": true,
       "instruction": "Use semantic speed values slow, medium, fast or burst. Do not author numeric runtime speed values."
+    },
+    {
+      "id": "V4_RECIPES_ARE_AUTHORING_ONLY",
+      "blocks": false,
+      "instruction": "V4 move recipe names are directing guidance only. Never serialize recipe names. Expand them into legal CUTSCENE_SCRIPT_V1 beats/actions using the current supported motion vocabulary."
     },
     {
       "id": "WARNING_FIRST",

@@ -1,0 +1,181 @@
+{
+  "schema": "STARWARS_DELTA_V3_CINEMATIC_COVERAGE_CONTRACT",
+  "schemaVersion": 1,
+  "implementationStatus": "IMPLEMENTED_UNVERIFIED",
+  "shotSizes": [
+    "ExtremeWide",
+    "Wide",
+    "Medium",
+    "MediumCloseUp",
+    "CloseUp",
+    "ExtremeCloseUp",
+    "Insert",
+    "TwoShot",
+    "OverTheShoulder",
+    "ForegroundFrame",
+    "MonitorCloseUp"
+  ],
+  "shotPurposes": [
+    "Establish",
+    "Reveal",
+    "Relationship",
+    "Emotion",
+    "Threat",
+    "Action",
+    "Impact",
+    "Reaction",
+    "Information",
+    "Scale",
+    "Transition",
+    "Aftermath",
+    "Orientation",
+    "Suspense"
+  ],
+  "compositions": [
+    "LeftThird",
+    "Center",
+    "RightThird",
+    "ForegroundLeft",
+    "ForegroundRight",
+    "BalancedTwoShot",
+    "OpposedTwoShot",
+    "CenteredThreat",
+    "NegativeSpaceLeft",
+    "NegativeSpaceRight",
+    "LayeredDepth",
+    "MonitorFraming",
+    "SymmetricalEstablishing",
+    "SubjectDominatesForeground"
+  ],
+  "cameraMovements": [
+    "Hold",
+    "Cut",
+    "Snap",
+    "PushIn",
+    "PullBack",
+    "Pan",
+    "Track",
+    "Follow",
+    "ForegroundPass",
+    "Parallax",
+    "GroupFraming",
+    "Flyby",
+    "SplineDolly"
+  ],
+  "patterns": [
+    {
+      "id": "DetailRelationshipWorld",
+      "name": "Detail -> Relationship -> World",
+      "purpose": "Detail, relation, geography reset.",
+      "stages": [
+        "DETAIL",
+        "RELATIONSHIP",
+        "WORLD"
+      ]
+    },
+    {
+      "id": "ActionImpactReaction",
+      "name": "Action -> Impact -> Reaction",
+      "purpose": "Performance event coverage.",
+      "stages": [
+        "ANTICIPATION",
+        "ACTION",
+        "IMPACT",
+        "REACTION",
+        "SETTLE"
+      ]
+    },
+    {
+      "id": "ThreatReveal",
+      "name": "Threat Reveal",
+      "purpose": "Withhold, reveal, compare, react.",
+      "stages": [
+        "PARTIAL",
+        "REVEAL",
+        "SCALE",
+        "REACTION"
+      ]
+    },
+    {
+      "id": "MonitorCommunication",
+      "name": "Monitor Communication",
+      "purpose": "World, monitor, portrait, listener, return.",
+      "stages": [
+        "WORLD",
+        "MONITOR",
+        "SPEAKER",
+        "LISTENER",
+        "WORLD_RETURN"
+      ]
+    },
+    {
+      "id": "LaunchSequence",
+      "name": "Launch Sequence",
+      "purpose": "Control, pilot, exterior, flyby, departure.",
+      "stages": [
+        "INSERT",
+        "PILOT",
+        "EXTERIOR",
+        "FLYBY",
+        "DEPARTURE"
+      ]
+    },
+    {
+      "id": "FaceOffWithDepth",
+      "name": "Face-Off With Depth",
+      "purpose": "Foreground opposition and geography.",
+      "stages": [
+        "FOREGROUND",
+        "OPPOSITION",
+        "RELATIONSHIP",
+        "REACTION",
+        "WORLD"
+      ]
+    },
+    {
+      "id": "HeroInEnvironment",
+      "name": "Hero In Environment",
+      "purpose": "Location, subject, hero, environmental motion.",
+      "stages": [
+        "LOCATION",
+        "REVEAL",
+        "HERO",
+        "ENVIRONMENT"
+      ]
+    },
+    {
+      "id": "PullbackScaleReveal",
+      "name": "Pullback Scale Reveal",
+      "purpose": "Detail opens to environmental scale.",
+      "stages": [
+        "DETAIL",
+        "PULLBACK",
+        "SCALE"
+      ]
+    },
+    {
+      "id": "ShipFlybyCoverage",
+      "name": "Ship Flyby Coverage",
+      "purpose": "Approach, pass, track, departure.",
+      "stages": [
+        "APPROACH",
+        "PASS",
+        "TRACK",
+        "DEPARTURE"
+      ]
+    },
+    {
+      "id": "CommandRoomEscalation",
+      "name": "Command Room Escalation",
+      "purpose": "Room, information, response, alarm, reset.",
+      "stages": [
+        "ROOM",
+        "INFORMATION",
+        "COMMANDER",
+        "CREW",
+        "ALARM",
+        "RESET"
+      ]
+    }
+  ]
+}
