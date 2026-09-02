@@ -16,6 +16,7 @@
 <p>One CURRENT. One Context Pack. Normal output is <b>CUTSCENE_SCRIPT_V1</b>; V3/V5 remain backend implementation.</p>
 <div id="currentStatus" class="status warning"><b>CHECKING GIT CURRENT…</b><small>Reading committed main.</small></div>
 <div id="pipelineStatus" class="status warning"><b>CHECKING PAGES…</b><small>Pages may trail Git main briefly.</small></div>
+<div id="authoringStatus" class="status warning"><b>CHECKING AUTHORING PROJECTION…</b></div>
 <div id="dialogueStatus" class="status warning"><b>CHECKING DIALOGUE…</b></div>
 <div id="validationStatus" class="status warning"><b>CHECKING VALIDATION CONTRACT…</b></div>
 <div id="visualStatus" class="status warning"><b>CHECKING DIRECT VISUAL ACCESS…</b><small>Loading AI-direct Atlas PDFs.</small></div>
@@ -27,7 +28,7 @@
 <div class="step chat"><div class="stepnum">2 · START THE MOVIE</div><div class="title">Open ChatGPT and attach the ZIP</div><p class="helper">The attached ZIP is self-contained for normal authoring. CURRENT beats memory. Absence from CURRENT means unavailable.</p><a class="button openchat" href="https://chatgpt.com/" target="_blank" rel="noopener">OPEN CHATGPT</a><div id="startInstruction" class="instruction">Canonical start appears after verification.</div></div>
 <div class="step preview"><div class="stepnum">3 · CHECK BEFORE UNITY</div><div class="title">Open Simple Cutscene Preview</div><p class="helper">Uses the same exact CURRENT and the published CUTSCENE_SCRIPT_V1 schema.</p><a id="previewLink" class="button previewbtn" href="simple-preview.html">OPEN SIMPLE CUTSCENE PREVIEW</a></div>
 </section>
-<details><summary>ADVANCED / MANUAL FILES</summary><div class="advanced">
+<details open><summary>ADVANCED / MANUAL FILES</summary><div class="advanced">
 <a id="atlas" class="button secondary disabled" href="#" download>MASTER VISUAL ATLAS PDF</a>
 <a class="button secondary" href="open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_ACTOR_CURRENT.pdf">AI ACTOR ATLAS PDF</a>
 <a class="button secondary" href="open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_EFFECT_CURRENT.pdf">AI EFFECT ATLAS PDF</a>
@@ -74,20 +75,23 @@ try{
   git('open-current/full-visual-sheets/VISUAL_ATLAS_CURRENT.json'),
   git('open-current/CHATGPT_START.txt','bytes',false,60000)
  ]);
- if(source.status!=='CURRENT_VERIFIED'||open.status!=='CURRENT_VERIFIED'||tx(source)!==tx(open)||!same(source.requiredCurrent,open.requiredCurrent)||!same(open.requiredCurrent,director.requiredCurrent)||!validHandles(handles,open)||!validRules(rules,open)||!startBytes?.byteLength)throw Error('CURRENT identity or direct Simple V1 authoring projection mismatch in Git main');
+ if(source.status!=='CURRENT_VERIFIED'||open.status!=='CURRENT_VERIFIED'||tx(source)!==tx(open)||!same(source.requiredCurrent,open.requiredCurrent)||!same(open.requiredCurrent,director.requiredCurrent)||!validRules(rules,open)||!startBytes?.byteLength)throw Error('CURRENT identity mismatch or required canonical source missing in Git main');
  state('currentStatus','verified','GIT CURRENT VERIFIED',tx(open));
+ const handlesReady=validHandles(handles,open);
+ if(handlesReady){state('authoringStatus','verified','AUTHORING HANDLES READY',Number(handles.count||handles.handles.length||0).toLocaleString()+' direct Simple V1 handles.')}else{state('authoringStatus','warning','AUTHORING PROJECTION DEGRADED','Direct Simple V1 handles are empty or invalid. Normal package authoring is blocked, but Atlas and independent CURRENT artifacts remain available.')}
  try{const [pc,po]=await Promise.all([pages('current.json','json',false,8000),pages('open-current/OPEN_CURRENT.json','json',false,8000)]);state('pipelineStatus',tx(pc)===tx(open)&&tx(po)===tx(open)?'verified':'warning',tx(pc)===tx(open)&&tx(po)===tx(open)?'PAGES SYNCED':'PAGES PROPAGATING','Git main is authoritative.')}catch{state('pipelineStatus','warning','PAGES PROPAGATING','Git main is authoritative.')}
- const counts=handles.countsByRoute||{};$('actors').textContent=String(counts.Actor??0);$('layers').textContent=String(counts.Layer??0);$('effects').textContent=String(counts.Effect??0);$('ui').textContent=String(counts.Ui??0);$('audio').textContent=String(counts.Audio??0);$('metrics').hidden=false;
+ const counts=handles?.countsByRoute||{};$('actors').textContent=String(counts.Actor??0);$('layers').textContent=String(counts.Layer??0);$('effects').textContent=String(counts.Effect??0);$('ui').textContent=String(counts.Ui??0);$('audio').textContent=String(counts.Audio??0);$('metrics').hidden=false;
  $('atlas').href=RAW+'open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf';$('atlas').classList.remove('disabled');$('previewLink').href='simple-preview.html?current='+encodeURIComponent(tx(open));
  const publishedParts=(visualAtlas?.aiDirectPdfParts||[]).filter(p=>p.preferredForAiDirectAccess===true);
- state('visualStatus',publishedParts.length===4?'verified':'warning',publishedParts.length===4?'AI VISUAL ACCESS READY':'AI VISUAL ACCESS DEGRADED',publishedParts.length+' direct category PDF(s) published.');
+ const visualReady=publishedParts.length===4;
+ state('visualStatus',visualReady?'verified':'warning',visualReady?'AI VISUAL ACCESS READY':'AI VISUAL ACCESS DEGRADED',publishedParts.length+' direct category PDF(s) published. Visual access is independent from direct authoring handles.');
  [dialogue,validation]=await Promise.all([git('open-current/EMOTIONAL_DIALOGUE_CURRENT.json','json',true,8000),git('open-current/CUTSCENE_VALIDATION_CURRENT.json','json',true,8000)]);
  if(validDialogue(dialogue,source,open)){readyChars=(dialogue.characters||[]).filter(c=>c.authoringReady===true);state('dialogueStatus','verified','DIALOGUE READY',readyChars.length+' curated character(s)')}else{dialogue=null;state('dialogueStatus','warning','DIALOGUE DISABLED','No coherent closed-world repertoire for this CURRENT.')}
  if(validValidation(validation,source,open)){state('validationStatus','verified','VALIDATION READY',(validation.rules||[]).length+' Unity rule(s)')}else{validation=null;state('validationStatus','warning','VALIDATION DEGRADED','Validation contract is absent or stale; Unity remains final validator.')}
  START=dec.decode(startBytes);
- $('startInstruction').textContent=START;$('copy').disabled=false;$('bundle').disabled=false;$('copy').onclick=async()=>{await navigator.clipboard.writeText(START);$('copy').textContent='COPIED';setTimeout(()=>$('copy').textContent='COPY CANONICAL START',1300)};
- $('packInfo').textContent='Ready · '+tx(open)+' · '+Number(handles.count||handles.handles.length||0).toLocaleString()+' direct Simple V1 handles · sealed CHATGPT_START · 4 AI-direct Visual Atlas PDFs · dialogue '+(dialogue?'ready':'disabled')+' · validation '+(validation?'ready':'degraded')+'.';
-}catch(e){state('currentStatus','error','CURRENT ERROR',e.message);state('pipelineStatus','error','PIPELINE BLOCKED','Committed Git CURRENT could not be verified.');state('dialogueStatus','warning','DIALOGUE DISABLED');state('validationStatus','warning','VALIDATION DEGRADED');state('visualStatus','error','AI VISUAL ACCESS ERROR',e.message);$('packInfo').textContent='Context Pack unavailable until CURRENT is coherent.';return}
+ $('startInstruction').textContent=START;$('copy').disabled=false;$('copy').onclick=async()=>{await navigator.clipboard.writeText(START);$('copy').textContent='COPIED';setTimeout(()=>$('copy').textContent='COPY CANONICAL START',1300)};
+ if(handlesReady&&visualReady){$('bundle').disabled=false;$('packInfo').textContent='Ready · '+tx(open)+' · '+Number(handles.count||handles.handles.length||0).toLocaleString()+' direct Simple V1 handles · sealed CHATGPT_START · 4 AI-direct Visual Atlas PDFs · dialogue '+(dialogue?'ready':'disabled')+' · validation '+(validation?'ready':'degraded')+'.'}else{$('bundle').disabled=true;$('packInfo').textContent='Context Pack blocked by degraded direct authoring projection. Visual Atlas remains available below and canonical START can still be inspected/copied.'}
+}catch(e){state('currentStatus','error','CURRENT ERROR',e.message);state('pipelineStatus','error','PIPELINE BLOCKED','Committed Git CURRENT identity could not be verified.');state('authoringStatus','warning','AUTHORING STATUS UNKNOWN');state('dialogueStatus','warning','DIALOGUE STATUS UNKNOWN');state('validationStatus','warning','VALIDATION STATUS UNKNOWN');state('visualStatus','warning','VISUAL STATUS UNKNOWN','Core CURRENT identity failed before independent visual verification.');$('packInfo').textContent='Context Pack unavailable until CURRENT identity is coherent.';return}
 let zipPromise;function jszip(){if(window.JSZip)return Promise.resolve(window.JSZip);if(zipPromise)return zipPromise;zipPromise=new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js';s.onload=()=>res(window.JSZip);s.onerror=()=>rej(Error('JSZip load failed'));document.head.appendChild(s)});return zipPromise}
 async function add(zip,list,name,src,data,kind='github-main'){const b=bytes(data);zip.file(name,b);list.push({packPath:name,sourcePath:src||null,sourceKind:kind,sizeBytes:b.byteLength,sha256:await hash(b)})}
 const fixed=[
@@ -127,5 +131,3 @@ $('bundle').onclick=async()=>{const old=$('bundle').textContent;$('bundle').disa
 })();
 </script>
 </body></html>
-
-
