@@ -24,6 +24,7 @@
 <div class="metric"><b id="actors">-</b><span>Actors</span></div><div class="metric"><b id="layers">-</b><span>Layers</span></div><div class="metric"><b id="effects">-</b><span>Effects</span></div><div class="metric"><b id="ui">-</b><span>UI</span></div><div class="metric"><b id="audio">-</b><span>Audio</span></div>
 </div>
 <section class="flow">
+<div class="step primary"><div class="stepnum">LATEST PUBLISHED RELEASE · 20260904-124737387-0aa40698</div><div class="title">Download the latest published package now</div><p class="helper">Temporary release bridge while the Git CURRENT cutover is repaired. These links point directly to the verified GitHub Release published on 2026-09-04.</p><div class="actions"><a id="latestPublishedBundle" class="button download" href="https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/releases/download/designer-ai-current-20260904-125548729-dbd6639cac/STARWARS_DELTA_DESIGNER_AI_BUNDLE_20260904-124737387-0aa40698.zip">DOWNLOAD LATEST PUBLISHED BUNDLE</a><a id="latestAuthoringPackage" class="button secondary" href="https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/releases/download/designer-ai-current-20260904-125548729-dbd6639cac/STARWARS_DELTA_CHATGPT_AUTHORING_PACKAGE_CURRENT.zip">DOWNLOAD AUTHORING PACKAGE</a></div><div class="info">Publish transaction: 20260904-124737387-0aa40698 · Catalog revision: 7624471883407822870 · Full bundle SHA256: 27D35FEC8338AB5C8DF515B73F715C87D065EF368CA0BC688F2DF84662AC9D9E</div></div>
 <div class="step primary"><div class="stepnum">1 · PREPARE DEVORA</div><div class="title">Download one verified CURRENT Context Pack</div><p class="helper">The ZIP includes the sealed CURRENT start instructions and four AI-direct Visual Atlas PDFs for Actor, Effect, Layer and UI.</p><div class="actions"><button id="bundle" class="download" disabled>DOWNLOAD DEVORA CONTEXT ZIP</button><button id="copy" class="copy" disabled>COPY CANONICAL START</button></div><div id="packInfo" class="info">Waiting for CURRENT…</div></div>
 <div class="step chat"><div class="stepnum">2 · START THE MOVIE</div><div class="title">Open ChatGPT and attach the ZIP</div><p class="helper">The attached ZIP is self-contained for normal authoring. CURRENT beats memory. Absence from CURRENT means unavailable.</p><a class="button openchat" href="https://chatgpt.com/" target="_blank" rel="noopener">OPEN CHATGPT</a><div id="startInstruction" class="instruction">Canonical start appears after verification.</div></div>
 <div class="step preview"><div class="stepnum">3 · CHECK BEFORE UNITY</div><div class="title">Open Simple Cutscene Preview</div><p class="helper">Uses the same exact CURRENT and the published CUTSCENE_SCRIPT_V1 schema.</p><a id="previewLink" class="button previewbtn" href="simple-preview.html">OPEN SIMPLE CUTSCENE PREVIEW</a></div>
@@ -115,7 +116,21 @@ const fixed=[
 ];
 $('bundle').onclick=async()=>{const old=$('bundle').textContent;$('bundle').disabled=true;try{
  const Zip=await jszip(),z=new Zip(),files=[];
- const readme='STARWARS_DELTA DEVORA CURRENT CONTEXT PACK\n\nCURRENT beats memory. Absence from CURRENT means unavailable. CUTSCENE_SCRIPT_V1 is the authoring surface; V3/V5 and raw Animation identities remain backend.\n\n01_CHATGPT_START.txt is copied byte-for-byte from the sealed CURRENT CHATGPT_START. It is the canonical instruction source.\n\nVISUALS ARE INCLUDED DIRECTLY:\n- visual-atlas/ACTOR_CURRENT.pdf\n- visual-atlas/EFFECT_CURRENT.pdf\n- visual-atlas/LAYER_CURRENT.pdf\n- visual-atlas/UI_CURRENT.pdf\n- visual-atlas/VISUAL_ATLAS_CURRENT.json\n\nUse a handle route to choose the category PDF. Find that category in VISUAL_ATLAS_CURRENT.json categoryRanges. localPage = handle.atlasPage - category.atlasStartPage + 1. Use handle.atlasSlot unchanged. Inspect pixels before visual claims.\n';
+ const readme='STARWARS_DELTA DEVORA CURRENT CONTEXT PACK\
+\
+CURRENT beats memory. Absence from CURRENT means unavailable. CUTSCENE_SCRIPT_V1 is the authoring surface; V3/V5 and raw Animation identities remain backend.\
+\
+01_CHATGPT_START.txt is copied byte-for-byte from the sealed CURRENT CHATGPT_START. It is the canonical instruction source.\
+\
+VISUALS ARE INCLUDED DIRECTLY:\
+- visual-atlas/ACTOR_CURRENT.pdf\
+- visual-atlas/EFFECT_CURRENT.pdf\
+- visual-atlas/LAYER_CURRENT.pdf\
+- visual-atlas/UI_CURRENT.pdf\
+- visual-atlas/VISUAL_ATLAS_CURRENT.json\
+\
+Use a handle route to choose the category PDF. Find that category in VISUAL_ATLAS_CURRENT.json categoryRanges. localPage = handle.atlasPage - category.atlasStartPage + 1. Use handle.atlasSlot unchanged. Inspect pixels before visual claims.\
+';
  await add(z,files,'00_READ_ME_FIRST.txt',null,readme,'generated-context');
  await add(z,files,'01_CHATGPT_START.txt','designer-ai/open-current/CHATGPT_START.txt',startBytes,'github-main');
  await add(z,files,'02_OPEN_CURRENT.json','designer-ai/open-current/OPEN_CURRENT.json',await git('open-current/OPEN_CURRENT.json','bytes',false,60000));
