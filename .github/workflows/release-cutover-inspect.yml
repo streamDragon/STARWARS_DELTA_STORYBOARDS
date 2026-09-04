@@ -1,0 +1,52 @@
+name: Release Cutover Inspect
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/release-cutover-inspect.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download latest release packages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/release
+          gh release download designer-ai-current-20260904-125548729-dbd6639cac \
+            --repo streamDragon/STARWARS_DELTA_STORYBOARDS \
+            --pattern 'STARWARS_DELTA_CHATGPT_AUTHORING_PACKAGE_CURRENT.zip' \
+            --pattern 'STARWARS_DELTA_DESIGNER_AI_BUNDLE_20260904-124737387-0aa40698.zip' \
+            --dir /tmp/release
+          ls -lh /tmp/release
+      - name: Inspect authoring package
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/authoring
+          unzip -q /tmp/release/STARWARS_DELTA_CHATGPT_AUTHORING_PACKAGE_CURRENT.zip -d /tmp/authoring
+          echo '=== AUTHORING TOP ==='
+          find /tmp/authoring -maxdepth 3 -type f | sort | head -200
+          echo '=== AUTHORING TARGETS ==='
+          find /tmp/authoring -type f \( -name 'OPEN_CURRENT.json' -o -name 'AUTHORING_HANDLES.json' -o -name 'VISUAL_ATLAS_CURRENT.json' -o -name 'CURRENT_AUTHORING_PROFILE.json' -o -name 'CHATGPT_START.txt' -o -name 'CUTSCENE_SCRIPT_V1.schema.json' \) -print | sort
+          for f in $(find /tmp/authoring -type f -name 'AUTHORING_HANDLES.json'); do echo "--- $f"; jq '{count,countsByRoute,requiredCurrent}' "$f"; done
+          for f in $(find /tmp/authoring -type f -name 'OPEN_CURRENT.json'); do echo "--- $f"; jq '{status,publishTransactionId,requiredCurrent}' "$f"; done
+      - name: Inspect full bundle cutover surface
+        run: |
+          set -euo pipefail
+          echo '=== FULL BUNDLE TARGET PATHS ==='
+          unzip -Z1 /tmp/release/STARWARS_DELTA_DESIGNER_AI_BUNDLE_20260904-124737387-0aa40698.zip \
+            | grep -E '(^|/)(current\.json|OPEN_CURRENT\.json|AUTHORING_HANDLES\.json|VISUAL_ATLAS_CURRENT\.json|CHATGPT_START\.txt|DIRECTOR_VIEW\.json|STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_(ACTOR|EFFECT|LAYER|UI)_CURRENT\.pdf)$' \
+            | sort | head -300
+          mkdir -p /tmp/full
+          unzip -q /tmp/release/STARWARS_DELTA_DESIGNER_AI_BUNDLE_20260904-124737387-0aa40698.zip -d /tmp/full
+          for f in $(find /tmp/full -type f -name 'AUTHORING_HANDLES.json'); do echo "--- $f"; jq '{count,countsByRoute,requiredCurrent}' "$f"; done
+          for f in $(find /tmp/full -type f -name 'OPEN_CURRENT.json'); do echo "--- $f"; jq '{status,publishTransactionId,requiredCurrent}' "$f"; done
+          for f in $(find /tmp/full -type f -name 'current.json'); do echo "--- $f"; jq '{status,publishTransactionId,requiredCurrent}' "$f" 2>/dev/null || true; done
