@@ -1,0 +1,68 @@
+name: Publish Release Inventory
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-release-inventory.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download published release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/release
+          gh release download designer-ai-current-20260904-125548729-dbd6639cac \
+            --repo streamDragon/STARWARS_DELTA_STORYBOARDS \
+            --dir /tmp/release
+          echo '=== RELEASE ASSETS ==='
+          find /tmp/release -maxdepth 1 -type f -printf '%f|%s\n' | sort
+      - name: Inventory all archives and recoverable CURRENT-shaped files
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/unpacked
+          for f in /tmp/release/*; do
+            name=$(basename "$f")
+            case "$name" in
+              *.zip)
+                out="/tmp/unpacked/${name%.zip}"
+                mkdir -p "$out"
+                unzip -q "$f" -d "$out" || true
+                ;;
+            esac
+          done
+          echo '=== TARGET FILENAMES FOUND ==='
+          find /tmp/unpacked -type f \( \
+            -name 'DIRECTOR_VIEW.json' -o \
+            -name 'asset-lookup.json' -o \
+            -name 'OPEN_CURRENT.json' -o \
+            -name 'current.json' -o \
+            -name 'AUTHORING_HANDLES.json' -o \
+            -name 'VISUAL_ATLAS_CURRENT.json' -o \
+            -name 'FULL_VISUAL_INDEX.json' -o \
+            -name 'ASSET_VISUAL_LOOKUP.json' -o \
+            -name 'actors.json' -o \
+            -name 'animations.json' -o \
+            -name 'effects.json' -o \
+            -name 'layers.json' -o \
+            -name 'ui.json' -o \
+            -name 'audio.json' \
+          \) -printf '%p|%s\n' | sort
+          echo '=== ALL LARGE JSON >= 5 MiB ==='
+          find /tmp/unpacked -type f -name '*.json' -size +5M -printf '%p|%s\n' | sort
+          echo '=== TRANSACTION REFERENCES ==='
+          grep -RIl '20260904-124737387-0aa40698' /tmp/unpacked | head -200 || true
+          echo '=== AUTHORING PROFILE SUMMARY ==='
+          for f in $(find /tmp/unpacked -type f -name 'CURRENT_AUTHORING_PROFILE.json'); do
+            echo "--- $f"
+            jq '{publishTransactionId,requiredCurrent,countsByRoute,count}' "$f" 2>/dev/null || true
+          done
+          echo 'INVENTORY_COMPLETE=YES'
