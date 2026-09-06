@@ -31,6 +31,17 @@ The normal ChatGPT instruction source consumed by Devora is the sealed publish c
 
 - `designer-ai/open-current/CHATGPT_START.txt`
 
+There is no second `CHATGPT_READ_FIRST.txt` entrypoint and no legacy Director-pack authority.
+
+### Normal movie flow
+
+1. The designer supplies the natural-language movie request.
+2. Devora/ChatGPT reads the matching CURRENT and authors exactly one `CUTSCENE_SCRIPT_V1` JSON.
+3. Unity lowers Simple V1 through the backend layers, validates it, builds the Editable Preview and runs it.
+4. V3/V5, raw Actor IDs, raw Animation IDs and runtime bookkeeping are backend implementation, not NEW authoring vocabulary.
+5. A Request Report is **not** part of normal NEW authoring.
+6. REPAIR begins only after Unity rejects a specific candidate and supplies diagnostics. A legal Simple V1 fixture is not rewritten merely to hide a backend/engine defect.
+
 Publisher/engineering source lives only under:
 
 - `designer-ai/tools/current-source/CHATGPT_START.txt`
@@ -148,4 +159,6 @@ Keep only:
 
 Delete task-specific prompts, stale handoffs/status reports, superseded contracts, duplicate CURRENT aliases, obsolete parallel UIs and historical public authoring surfaces once their durable lesson has been absorbed into active guidance/tests.
 
-Do not manually edit `designer-ai/open-current/**` as cleanup. It is generated output and changes only through controlled publication.
+Forbidden legacy files in the live `open-current` root include `CHATGPT_READ_FIRST.txt`, `DIRECTOR_PACK_MANIFEST.json`, `SOURCE_CURRENT.json` and `STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip`. The CURRENT lint must fail if any of them reappear.
+
+Do not manually edit `designer-ai/open-current/**` as routine cleanup. It is generated output and normally changes only through controlled publication; emergency removal of proven stale public artifacts must be followed by a source/lint gate that prevents regeneration.

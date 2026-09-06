@@ -29,6 +29,19 @@ NORMAL AUTHORING
 6. Treat Web Preview as preflight only.
 7. Unity remains final runtime/Editable Preview authority.
 
+NORMAL FLOW LOCK
+- The designer gives a natural-language movie request. Devora/ChatGPT returns one complete CUTSCENE_SCRIPT_V1 JSON.
+- Do not ask for, generate, or depend on a COPY REQUEST / REQUEST REPORT step for normal NEW authoring.
+- Do not use an old V5 package as a template for NEW authoring. V5 is backend output after Simple V1 lowering.
+- Do not expose raw Actor/Animation runtime IDs merely because legacy V5 accepted them.
+- A stale legacy fixture is evidence about compatibility, not the canonical way to author a new movie.
+
+REPAIR FLOW
+- REPAIR is exceptional and begins only after Unity has rejected a specific candidate and produced a diagnostic/repair payload.
+- Keep the original creative intent. Repair only the concrete rejected authoring/runtime issue.
+- If the rejected input is legacy V3/V5, do not teach its backend fields back into normal NEW authoring.
+- If a legal CURRENT CUTSCENE_SCRIPT_V1 fixture reaches a backend/engine failure, repair the backend against the same fixture instead of rewriting valid source intent.
+
 FORMAT LOCK
 The only legal root header is:
 {
