@@ -7,6 +7,7 @@ if(!document.querySelector('script[data-ui-polish]')){const s=document.createEle
 const status=document.getElementById('designerStatus');
 const meta=document.getElementById('designerMeta');
 const note=document.getElementById('designerNote');
+const authoringPackageButton=document.getElementById('downloadAuthoringPackage');
 const atlasDownloadButton=document.getElementById('downloadAtlasOnly');
 const atlasButton=document.getElementById('downloadBundle');
 const obsoleteCatalogButton=document.getElementById('downloadCatalog');
@@ -21,11 +22,12 @@ const setStatus=(text,kind)=>{if(!status)return;status.textContent=text;status.c
 const resetDownload=el=>{if(!el)return;el.classList.add('disabled');el.removeAttribute('href');delete el.dataset.downloadUrl};
 const activate=(el,url,label)=>{if(!el||!url){resetDownload(el);return}el.textContent=label;el.href=url;el.dataset.downloadUrl=url;el.classList.remove('disabled');el.removeAttribute('aria-disabled')};
 
-// Normal authoring has one public source: designer-ai/open-current/OPEN_CURRENT.json.
+// One public authoring site: the main Hub. OPEN_CURRENT is the single public CURRENT source.
 // Git main is authoritative while GitHub Pages may briefly trail after a publish.
 // designer-ai/current.json is publisher input only and must never be consumed by public UI.
 obsoleteCatalogButton?.remove();
 obsoleteBookButton?.remove();
+if(authoringPackageButton)authoringPackageButton.textContent='DOWNLOAD DEVORA AUTHORING PACKAGE';
 if(atlasDownloadButton)atlasDownloadButton.textContent='DOWNLOAD ATLAS ONLY';
 if(atlasButton)atlasButton.textContent='VISUAL ATLAS';
 
@@ -46,6 +48,8 @@ function verifyAtomicIdentity(o){
   if(o.directorView?.requestScoped!==false)throw new Error('Director CURRENT is not full-catalog');
   if(o.visualAtlas?.publishTransactionId!==identity.publishTransactionId)throw new Error('Visual Atlas transaction mismatch');
   if(!o.visualAtlas?.pdfUrl)throw new Error('Visual Atlas URL missing');
+  if(o.authoringPackage?.publishTransactionId!==identity.publishTransactionId)throw new Error('Authoring package transaction mismatch');
+  if(!o.authoringPackage?.downloadUrl)throw new Error('Authoring package URL missing');
   return identity;
 }
 
@@ -71,6 +75,7 @@ async function load(){
     const identity=verifyAtomicIdentity(openCurrent);
     const counts=openCurrent.directorView?.counts||{};
     const atlas=openCurrent.visualAtlas||{};
+    const authoringPackage=openCurrent.authoringPackage||{};
     const pagesSynced=!!pagesCurrent&&pagesCurrent.publishTransactionId===openCurrent.publishTransactionId;
 
     if(gitCurrent&&!pagesSynced){
@@ -80,15 +85,17 @@ async function load(){
     }
 
     if(meta)meta.innerHTML=`<span>Transaction: <b>${identity.publishTransactionId}</b></span><span>Catalog revision: <b>${identity.catalogRevision}</b></span><span>Rules: <b>${short(identity.authoringRuleRegistryRevision)}</b></span><span>Director: <b>${counts.actors||0} actors / ${counts.layers||0} layers / ${counts.effects||0} effects / ${counts.ui||0} UI</b></span><span>Visual Atlas: <b>${atlas.totalPages||0} pages</b></span>`;
+    activate(authoringPackageButton,authoringPackage.downloadUrl,'DOWNLOAD DEVORA AUTHORING PACKAGE');
     activate(atlasDownloadButton,atlas.pdfUrl,'DOWNLOAD ATLAS ONLY');
     activate(atlasButton,atlas.pdfUrl,'VISUAL ATLAS');
     if(note)note.textContent=pagesSynced
-      ?'One normal path: DEBORA CUTSCENE START → COPY FOR CHAT → describe the film. OPEN_CURRENT is the only public CURRENT source; advanced metadata stays inside Debora.'
+      ?'One normal path: download the current authoring package here, attach it to ChatGPT, and describe the film. OPEN_CURRENT is the only public CURRENT source.'
       :'Git main CURRENT is verified. GitHub Pages is still propagating; this is not a CURRENT failure.';
   }catch(e){
     setStatus('CURRENT UNAVAILABLE','failed');
     if(meta)meta.innerHTML=`<span>${String(e.message||e)}</span>`;
     if(note)note.textContent='Storyboard access still works. Designer AI authoring is blocked only because neither Git main nor Pages contains a verifiable OPEN_CURRENT.';
+    resetDownload(authoringPackageButton);
     resetDownload(atlasDownloadButton);
     resetDownload(atlasButton);
   }
