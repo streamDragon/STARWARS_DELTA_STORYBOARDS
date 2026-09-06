@@ -1,0 +1,27 @@
+name: Silent Audio Authoring Policy Lint
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'designer-ai/open-current/CHATGPT_START.txt'
+      - 'designer-ai/tools/current-source/CHATGPT_START.txt'
+      - 'designer-ai/simple-preview.html'
+      - '.github/workflows/silent-audio-policy-lint.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify silent cutscenes are explicitly non-blocking
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'SILENT AUDIO POLICY' designer-ai/tools/current-source/CHATGPT_START.txt
+          grep -Fq 'SILENT AUDIO POLICY' designer-ai/open-current/CHATGPT_START.txt
+          grep -Fq 'AUDIO_UNAVAILABLE_IN_CURRENT' designer-ai/simple-preview.html
+          grep -Fq 'A silent cutscene is legal' designer-ai/tools/current-source/CHATGPT_START.txt
