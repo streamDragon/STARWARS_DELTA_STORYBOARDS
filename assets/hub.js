@@ -1,6 +1,6 @@
 (()=>{
 'use strict';
-const UI_BUILD='20260906-1900-v3.9.0-AUTHORING-FLOW';
+const UI_BUILD='20260906-1930-v3.9.1-NO-LEGACY-PACK';
 if(!document.querySelector('link[data-ui-polish]')){const l=document.createElement('link');l.rel='stylesheet';l.href=`assets/ui-polish.css?build=${UI_BUILD}`;l.dataset.uiPolish='1';document.head.appendChild(l)}
 if(!document.querySelector('script[data-ui-polish]')){const s=document.createElement('script');s.src=`assets/ui-polish.js?build=${UI_BUILD}`;s.defer=true;s.dataset.uiPolish='1';document.head.appendChild(s)}
 
@@ -20,15 +20,16 @@ const RAW_CURRENT='https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA
 const short=s=>s?String(s).slice(0,12)+'…':'—';
 const mb=n=>Number.isFinite(Number(n))?(Number(n)/1048576).toFixed(1)+' MB':'—';
 const setStatus=(text,kind)=>{if(!status)return;status.textContent=text;status.className='hub-status'+(kind?' '+kind:'')};
-const resetDownload=el=>{if(!el)return;el.classList.add('disabled');el.removeAttribute('href');delete el.dataset.downloadUrl};
+const resetDownload=el=>{if(!el)return;el.classList.add('disabled');el.removeAttribute('href');el.setAttribute('aria-disabled','true');delete el.dataset.downloadUrl};
 const activate=(el,url,label)=>{if(!el||!url){resetDownload(el);return}el.textContent=label;el.href=url;el.dataset.downloadUrl=url;el.classList.remove('disabled');el.removeAttribute('aria-disabled')};
 
 // One public authoring site: the main Hub. OPEN_CURRENT is the single public CURRENT source.
 // Git main is authoritative while GitHub Pages may briefly trail after a publish.
-// designer-ai/current.json is publisher input only and must never be consumed by public UI.
+// Normal NEW authoring is Simple V1. The previous request-scoped package is intentionally not exposed.
 obsoleteCatalogButton?.remove();
 obsoleteBookButton?.remove();
-if(authoringPackageButton)authoringPackageButton.textContent='DOWNLOAD DEVORA AUTHORING PACKAGE';
+resetDownload(authoringPackageButton);
+if(authoringPackageButton)authoringPackageButton.textContent='AUTHORING PACKAGE AWAITING CLEAN REPUBLISH';
 if(atlasDownloadButton)atlasDownloadButton.textContent='VISUAL PDF NOT PUBLISHED';
 if(visualLibraryButton)visualLibraryButton.textContent='DOWNLOAD VISUAL LIBRARY';
 
@@ -50,8 +51,6 @@ function verifyCurrent(o){
   if(required.schemaHash!==o.schemaHash)throw new Error('CURRENT schema hash mismatch');
   if(required.authoringRuleRegistryRevision!==o.authoringRuleRegistryRevision)throw new Error('CURRENT rules revision mismatch');
   if(o.provenance?.publishTransactionId!==o.publishTransactionId)throw new Error('CURRENT provenance transaction mismatch');
-  if(o.authoringPackage?.publishTransactionId!==o.publishTransactionId)throw new Error('Authoring package transaction mismatch');
-  if(!o.authoringPackage?.downloadUrl)throw new Error('Authoring package URL missing');
   if(!o.visualLibrary?.downloadUrl)throw new Error('Visual Library URL missing');
   if(o.visualLibrary?.catalogRevision!==required.catalogRevision)throw new Error('Visual Library catalog revision mismatch');
   if(o.visualLibrary?.snapshotContentHash!==required.snapshotContentHash)throw new Error('Visual Library snapshot mismatch');
@@ -77,7 +76,6 @@ async function load(){
 
     openCurrent=gitCurrent||pagesCurrent;
     const identity=verifyCurrent(openCurrent);
-    const authoringPackage=openCurrent.authoringPackage||{};
     const visualLibrary=openCurrent.visualLibrary||{};
     const atlasPdfUrl=openCurrent.visualAtlas?.pdfUrl||null;
     const pagesSynced=!!pagesCurrent&&pagesCurrent.publishTransactionId===openCurrent.publishTransactionId;
@@ -88,9 +86,10 @@ async function load(){
       setStatus('CURRENT VERIFIED','');
     }
 
-    if(meta)meta.innerHTML=`<span>Transaction: <b>${identity.publishTransactionId}</b></span><span>Catalog revision: <b>${identity.catalogRevision}</b></span><span>Rules: <b>${short(identity.authoringRuleRegistryRevision)}</b></span><span>Authoring package: <b>${mb(authoringPackage.sizeBytes)}</b></span><span>Visual library: <b>${visualLibrary.assetCount||0} assets / ${mb(visualLibrary.sizeBytes)}</b></span>`;
+    if(meta)meta.innerHTML=`<span>Transaction: <b>${identity.publishTransactionId}</b></span><span>Catalog revision: <b>${identity.catalogRevision}</b></span><span>Rules: <b>${short(identity.authoringRuleRegistryRevision)}</b></span><span>Authoring: <b>Simple V1 CURRENT</b></span><span>Visual library: <b>${visualLibrary.assetCount||0} assets / ${mb(visualLibrary.sizeBytes)}</b></span>`;
 
-    activate(authoringPackageButton,authoringPackage.downloadUrl,'DOWNLOAD DEVORA AUTHORING PACKAGE');
+    resetDownload(authoringPackageButton);
+    if(authoringPackageButton)authoringPackageButton.textContent='AUTHORING PACKAGE AWAITING CLEAN REPUBLISH';
     activate(visualLibraryButton,visualLibrary.downloadUrl,'DOWNLOAD VISUAL LIBRARY');
     if(atlasPdfUrl){
       activate(atlasDownloadButton,atlasPdfUrl,'DOWNLOAD VISUAL PDF ONLY');
@@ -99,13 +98,11 @@ async function load(){
       if(atlasDownloadButton)atlasDownloadButton.textContent='VISUAL PDF NOT PUBLISHED';
     }
 
-    if(note)note.textContent=atlasPdfUrl
-      ?'One site, one CURRENT. Download the authoring package for normal movie work; the Visual PDF is available separately.'
-      :'One site, one CURRENT. The authoring package and full Visual Library are published. A separate Visual PDF artifact is not published in this CURRENT.';
+    if(note)note.textContent='Normal NEW authoring uses COPY FOR CHAT and the sealed public CURRENT. The previous request-scoped authoring ZIP is intentionally blocked until a clean Simple V1 package is republished.';
   }catch(e){
     setStatus('CURRENT UNAVAILABLE','failed');
     if(meta)meta.innerHTML=`<span>${String(e.message||e)}</span>`;
-    if(note)note.textContent='Storyboard access still works. Designer AI downloads are blocked because OPEN_CURRENT could not be verified.';
+    if(note)note.textContent='Storyboard access still works. Designer AI authoring is blocked because OPEN_CURRENT could not be verified.';
     resetDownload(authoringPackageButton);
     resetDownload(atlasDownloadButton);
     resetDownload(visualLibraryButton);

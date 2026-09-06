@@ -6,6 +6,8 @@ on:
     branches: [main]
     paths:
       - 'README.md'
+      - 'index.html'
+      - 'assets/hub.js'
       - 'designer-ai/current.json'
       - 'designer-ai/open-current/**'
       - 'designer-ai/devora.html'
@@ -16,6 +18,8 @@ on:
     branches: [main]
     paths:
       - 'README.md'
+      - 'index.html'
+      - 'assets/hub.js'
       - 'designer-ai/current.json'
       - 'designer-ai/open-current/**'
       - 'designer-ai/devora.html'
@@ -65,6 +69,7 @@ jobs:
               live/'DIRECTOR_PACK_MANIFEST.json',
               live/'SOURCE_CURRENT.json',
               live/'STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip',
+              live/'context-pack',
           ]
           stale_live=[str(p) for p in forbidden_live if p.exists()]
           assert not stale_live, 'LEGACY_PUBLIC_CURRENT_SURFACE_REAPPEARED: '+', '.join(stale_live)
@@ -173,6 +178,8 @@ jobs:
           guide=(live/'FILM_AUTHORING_GUIDE_CURRENT.md').read_text(encoding='utf-8-sig')
           arch=(simple/'ARCHITECTURE.md').read_text(encoding='utf-8-sig')
           failsoft=(source_simple/'FAIL_SOFT_MOVIE_AUTHORING_POLICY.md').read_text(encoding='utf-8-sig')
+          hub=pathlib.Path('assets/hub.js').read_text(encoding='utf-8-sig')
+          index=pathlib.Path('index.html').read_text(encoding='utf-8-sig')
 
           forbidden_phrases=[
               'Create a current V5 package',
@@ -194,6 +201,12 @@ jobs:
           assert 'Do **not** require a meaningless `reveal`' in failsoft, 'FAIL_SOFT_REVEAL_POLICY_MISSING'
           assert 'Accepted fixtures and Golden QA' in guide, 'GOLDEN_FIXTURE_GUIDANCE_MISSING'
 
+          # Public Devora UI must not silently re-enable the known legacy request-scoped ZIP.
+          assert 'COPY FOR CHAT' in index, 'DEVORA_COPY_FOR_CHAT_CONTROL_MISSING'
+          assert 'AUTHORING PACKAGE AWAITING CLEAN REPUBLISH' in index, 'DEVORA_PACKAGE_BLOCK_STATE_MISSING'
+          assert "activate(authoringPackageButton" not in hub, 'LEGACY_AUTHORING_PACKAGE_REEXPOSED'
+          assert 'Do NOT ask me for a Request Report/COPY REQUEST' in hub, 'DEVORA_COPY_FLOW_GUARD_MISSING'
+
           generated_root='Assets/_Game/MY_Core/MY_Data/Cutscenes/Generated'
           projection_paths=[live/'ASSET_VISUAL_LOOKUP.json', live/'FULL_VISUAL_INDEX.json', live/'VISUAL_UNAVAILABLE.json', simple/'AUTHORING_HANDLES.json']
           director=live/'director-view'
@@ -209,5 +222,6 @@ jobs:
           print('AUDIO_DIRECT_HANDLES', counts.get('Audio'))
           print('SEALED_GUIDANCE_PARITY_PAIRS', len(maintained_pairs))
           print('LEGACY_PUBLIC_SURFACES', len(stale_live))
+          print('DEVORA_LEGACY_PACKAGE_EXPOSED', 0)
           print('GENERATED_ROOT_PUBLIC_PROJECTION_LEAKS', len(leaked))
           PY
