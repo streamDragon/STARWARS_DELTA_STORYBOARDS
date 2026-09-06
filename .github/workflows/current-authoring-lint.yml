@@ -108,15 +108,20 @@ jobs:
 
           current=json.loads((root/'current.json').read_text(encoding='utf-8-sig'))
           opened=json.loads((live/'OPEN_CURRENT.json').read_text(encoding='utf-8-sig'))
-          assert current.get('status')=='CURRENT_VERIFIED'
-          assert opened.get('status')=='CURRENT_VERIFIED'
-          assert current.get('publishTransactionId')==opened.get('publishTransactionId')
-          assert current.get('requiredCurrent')==opened.get('requiredCurrent')
+          assert current.get('status')=='CURRENT_VERIFIED', 'CURRENT_POINTER_NOT_VERIFIED'
+          assert opened.get('status')=='CURRENT_VERIFIED', 'OPEN_CURRENT_NOT_VERIFIED'
+          assert current.get('publishTransactionId')==opened.get('publishTransactionId'), 'CURRENT_TRANSACTION_MISMATCH'
+          assert current.get('requiredCurrent')==opened.get('requiredCurrent'), 'CURRENT_IDENTITY_MISMATCH'
 
           handles=json.loads((simple/'AUTHORING_HANDLES.json').read_text(encoding='utf-8-sig'))
-          assert handles.get('requiredCurrent')==opened.get('requiredCurrent')
-          assert (handles.get('countsByRoute') or {}).get('Audio',0)>0
-          assert all(h.get('route')!='Animation' for h in handles.get('handles',[])), 'RAW_ANIMATION_HANDLE_EXPOSED'
+          assert handles.get('requiredCurrent')==opened.get('requiredCurrent'), 'AUTHORING_HANDLES_IDENTITY_MISMATCH'
+          counts=handles.get('countsByRoute') or {}
+          direct_handles=handles.get('handles',[])
+          for route in ('Actor','Audio','Effect','Layer','Ui'):
+              assert route in counts, f'AUTHORING_ROUTE_COUNT_MISSING: {route}'
+              actual_count=sum(1 for h in direct_handles if h.get('route')==route)
+              assert counts.get(route)==actual_count, f'AUTHORING_ROUTE_COUNT_DRIFT: route={route} declared={counts.get(route)} actual={actual_count}'
+          assert all(h.get('route')!='Animation' for h in direct_handles), 'RAW_ANIMATION_HANDLE_EXPOSED'
 
           rules=json.loads((simple/'AUTHORING_RULES_CURRENT.json').read_text(encoding='utf-8-sig'))
           actual=[r.get('id') for r in rules.get('rules',[])]
@@ -160,15 +165,15 @@ jobs:
               hits=[p for p in forbidden_phrases if p in text]
               assert not hits, f'{label}_LEGACY_GUIDANCE: {hits}'
 
-          assert 'VISIBLE EFFECTS / PARTICLES' in start
-          assert 'CUTSCENE PROJECTILES / MISSILES' in start
-          assert 'NORMAL FLOW LOCK' in source_start
-          assert 'REPAIR FLOW' in source_start
-          assert 'Do not ask for, generate, or depend on a COPY REQUEST / REQUEST REPORT step for normal NEW authoring.' in source_start
-          assert 'Do not use an old V5 package as a template for NEW authoring.' in source_start
-          assert 'Action timing' in arch or 'Actor motion and timing' in arch
-          assert 'Do **not** require a meaningless `reveal`' in failsoft
-          assert 'Accepted fixtures and Golden QA' in guide
+          assert 'VISIBLE EFFECTS / PARTICLES' in start, 'LIVE_START_EFFECT_GUIDANCE_MISSING'
+          assert 'CUTSCENE PROJECTILES / MISSILES' in start, 'LIVE_START_PROJECTILE_GUIDANCE_MISSING'
+          assert 'NORMAL FLOW LOCK' in source_start, 'SOURCE_NORMAL_FLOW_LOCK_MISSING'
+          assert 'REPAIR FLOW' in source_start, 'SOURCE_REPAIR_FLOW_MISSING'
+          assert 'Do not ask for, generate, or depend on a COPY REQUEST / REQUEST REPORT step for normal NEW authoring.' in source_start, 'SOURCE_REQUEST_REPORT_BAN_MISSING'
+          assert 'Do not use an old V5 package as a template for NEW authoring.' in source_start, 'SOURCE_LEGACY_V5_BAN_MISSING'
+          assert 'Action timing' in arch or 'Actor motion and timing' in arch, 'ARCHITECTURE_ACTION_TIMING_GUIDANCE_MISSING'
+          assert 'Do **not** require a meaningless `reveal`' in failsoft, 'FAIL_SOFT_REVEAL_POLICY_MISSING'
+          assert 'Accepted fixtures and Golden QA' in guide, 'GOLDEN_FIXTURE_GUIDANCE_MISSING'
 
           generated_root='Assets/_Game/MY_Core/MY_Data/Cutscenes/Generated'
           projection_paths=[live/'ASSET_VISUAL_LOOKUP.json', live/'FULL_VISUAL_INDEX.json', live/'VISUAL_UNAVAILABLE.json', simple/'AUTHORING_HANDLES.json']
@@ -182,6 +187,7 @@ jobs:
           print('CURRENT', current.get('publishTransactionId'))
           print('CATALOG', current.get('requiredCurrent',{}).get('catalogRevision'))
           print('SIMPLE_V1_RULE_COUNT', len(actual))
+          print('AUDIO_DIRECT_HANDLES', counts.get('Audio'))
           print('LEGACY_PUBLIC_SURFACES', len(stale_live))
           print('GENERATED_ROOT_PUBLIC_PROJECTION_LEAKS', len(leaked))
           PY
