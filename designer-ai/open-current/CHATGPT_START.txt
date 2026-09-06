@@ -1,307 +1,175 @@
-STARWARS_DELTA ADD CATALOG - CHATGPT CUTSCENE WORKFLOW
+STARWARS_DELTA DEVORA - SIMPLE V1 CURRENT
 
-AUTHORING RULES - READ BEFORE USING ANY RECORD
-DEVORA NORMAL FRONTEND: DEVORA / ChatGPT authors CUTSCENE_SCRIPT_V1. The Simple Adapter resolves CURRENT handles/routes and compiles through existing V3 into V5. V5 is backend, not the normal NEW authoring format.
-CAMERA FIRST: camera framing -> screenX/screenY -> screenWidthFraction/screenHeightFraction -> real Renderer bounds -> Unity scale.
-DIALOGUE NEAR/FAR: in normal locked two-person portrait dialogue the active speaker is NEAR/larger and the listener is FAR/smaller; speaker change reverses dominance without changing identity.
-STORY EVIDENCE: physical claims require visible serialized evidence; dialogue text alone does not prove an unseen physical event.
-This package is self-contained. No external Catalog knowledge is required.
-NORMAL NEW AUTHORING: return one complete CUTSCENE_SCRIPT_V1 JSON object. DEVORA owns story, semantic handles, visible evidence, dialogue intent and camera-first screen composition; Unity owns exact runtime IDs, CURRENT fingerprints, route resolution and final V5 serialization.
-TIMING DEFAULTS: always include root durationSeconds, every beat durationSeconds, and durationSeconds on fade_in/fade_out audio cues. If a legacy or hand-authored JSON omits them, Unity normalizes missing beat durations to 3 seconds, fade durations to 0.5 seconds, and missing root durationSeconds to the sum of normalized beats before strict validation; do not invent different timing defaults. play/stop audio may omit durationSeconds.
-EFFECT SUB-BEAT TIMING: only visible[] entries resolved to Effect may use optional startOffsetSeconds and durationSeconds. Offset defaults to beat start and duration defaults to the containing beat end; explicit duration is clamped to that beat. Offset must be finite and non-negative, duration must be finite and positive when supplied, and the resolved start must be before beat end. Overlapping and repeated identical Effect handles are legal and remain separate generated instances. Sprite/static Effects retain Activation/native ownership; Particle/prefab Effects retain Control/lifecycle ownership.
-SIMPLE HANDLE SAFETY: normal NEW authoring uses exact semantic handles from matching CURRENT truth. Never invent a handle or silently substitute a related identity. Unity resolves the handle to exact backend assets.
-SIMPLE AUTHORING DOES NOT CREATE BACKEND TECHNICAL IDS. Unity generates globally unique V5 action/transition/event/audio/line IDs during Simple -> V3 -> V5 compilation.
-PLACEMENT: cutscenePrimaryUse is authoritative. Layer-primary records are layers/backgrounds, Actor-primary records are cast/world actors, Ui-primary records are dialogue/UI presentation, Animation-primary records are animation references, Effect-primary records are effects, and Audio-primary records are audio.
-ACTOR PRESENTATION: set cast[].presentationMode exactly to WorldActor, DialoguePortrait, or Both. Both permits world-action and portrait shots only when their active intervals do not overlap. An omitted presentationMode uses legacy spawnWorldActor as WorldActor/DialoguePortrait; it never infers Both.
-ANIMATION: PlayAnimation is legal only when the exact animationAssetId appears in that actor record's compatibleAnimationIds. Never infer compatibility from names, folders, packs or visual similarity. If the list is empty, use another legal non-animation action.
-DIALOGUE: normally show only speaker + listener and rotate pairs for larger conversations. Use current canonical layout enums. If any line in a shot has stage.lockStaging=true, that shot's actorActions must be empty: no Hold, Move, Enter, Exit or PlayAnimation.
-LOCKED DIALOGUE CAMERA: for locked portrait / monitor / radio dialogue, author camera.movement as hold or omit it. Do not author push/pull/follow/track on that same locked dialogue beat; place cinematic camera movement in an adjacent non-dialogue beat. Environment/world dialogue may retain supported cinematic camera intent.
-PREFER SIMPLE COMPOSITIONS: use the fewest fragile dependencies that tell the story. Preview-safe records may produce yellow review notes even when not publish-safe; simplify or omit optional elements instead of inventing unsupported data.
-Return canonical enum spellings only. Do not copy an example when it conflicts with these rules; these rules are authoritative.
-SEMANTIC FIREWALL: descriptive semantic language is not automatically legal V5 vocabulary. Creative intent flows through semantic IR, explicit CURRENT mapping and canonical validation before serialization. Never assign a semantic string directly to a closed V5 field.
-BAD: { role: RemoteOfficer, listenerEmotion: Neutral }
-GOOD: { role: SupportingCharacter, entityKind: Person, entitySubKind: RemoteOfficer, listenerEmotion: Serious }
-STRUCTURED CREATIVE INTENT: creativeIntent is always an object with summary, style and mood string fields. Never serialize creativeIntent as a plain string.
-CLOSED-FIELD GUARDRAILS: never put a story job, rank, species, ship class or beat label into a structural enum field.
-- cast[].role is only Hero, SupportingCharacter, Antagonist, Prop, Environment or Ui. Commander/Pilot/RemoteOfficer/RemoteAnalyst are SupportingCharacter; EnemyCommander/Villain/Boss are Antagonist. Keep the specific narrative label in entitySubKind or intention.
-- shotType is camera grammar only: Establishing, CloseUp, Medium, Wide, ExtremeCloseUp, TwoShot, OverTheShoulder, Reaction, Insert, Reveal, Tracking, Follow or Static. Put Launch/Chase/Threat/Counterattack and other beat names in intention; choose shotType from framing and camera behavior.
-- layer role uses Midground, never MidBackground. Dialogue emotion and expression are separate closed vocabularies: Serious is an emotion; Determined/Concerned/Urgent/Relieved are expressions.
-FINAL CLOSED-FIELD CHECK: before returning JSON, compare every closed value with CONTRACT/CUTSCENE_ENUMS_V5.json. Never serialize an import alias even when Unity can recover it for Editable Preview.
+CURRENT is the only authoring truth. CURRENT beats memory. Absence from CURRENT means unavailable. Never infer missing project data, handles, identities or runtime capabilities.
 
-NEW CUTSCENE
-ADD CATALOG is already loaded in the ChatGPT Project. The designer supplies only a natural-language creative request.
-Understand the story, select legal CURRENT semantic identities/handles and visible evidence, then build one complete CUTSCENE_SCRIPT_V1 document for normal NEW authoring. Do not hand-author V5 linker fields unless this is an explicit legacy/revision/repair workflow.
-Do not ask the designer for COPY FOR CHAT, Present State, projectId, baseRevision, another Catalog upload, manual extraction, or asset paths instead of assetIds.
-For a genuinely new Cutscene, CUTSCENE_SCRIPT_V1 contains no projectId, baseRevision, catalogRevision, contractRevision, schemaHash or runtime GUIDs. Unity injects technical CURRENT identity/bookkeeping after Simple authoring.
+SOURCE-OF-TRUTH BOUNDARY
+- Unity/Plastic is canonical for runtime implementation and runtime proof.
+- This Git CURRENT is canonical for authoring/publishing guidance and exact authoring choices.
+- Author CUTSCENE_SCRIPT_V1 only.
+- V3/V5, Timeline bindings, Cinemachine wiring, runtime GUIDs, generated aliases, projectile receivers, Golden runner state and Preview persistence are backend/runtime implementation.
+- Never hand-author or request backend bookkeeping merely to silence a validator.
 
-CATALOG FREEZE AND STARTER INDEX
-The FullCatalog export is the authoritative snapshot for all legal asset selection. 01_DEVORA_CUTSCENE_STARTER_INDEX.md is only a convenience shortlist for fast planning; omitted assets may still be legal, so search catalog_records.jsonl before deciding an asset is unavailable.
-The same FullCatalog snapshot can be reused for multiple Cutscenes. Do not ask for a new Catalog export per Cutscene; continue using this snapshot until a newer authoritative snapshot is supplied.
-Request a newer snapshot only after a material asset, classification, verified animation compatibility, or authoring-contract change. Catalog maintenance is not part of the normal Cutscene workflow.
-Copy exact assetId values and exact compatibleAnimationIds values. Never infer compatibility from a filename, path, display name, or starter-index omission.
+AUTHORING SOURCES
+Use only the matching CURRENT artifacts:
+- OPEN_CURRENT.json
+- simple-authoring/CUTSCENE_SCRIPT_V1.schema.json
+- simple-authoring/AUTHORING_HANDLES.json
+- simple-authoring/AUTHORING_RULES_CURRENT.json
+- simple-authoring/CINEMATIC_INTENT_QA_RULES.json
+- EMOTIONAL_DIALOGUE_CURRENT.json when dialogue is used
+- CUTSCENE_VALIDATION_CURRENT.json when present
+- exact Atlas page/slot evidence carried by direct visual handles
 
-EXISTING CUTSCENE REVISION
-Use ADD CATALOG + PRESENT STATE OF THE CUTSCENE + the natural-language requested change. Present State is current Cutscene state only; ADD CATALOG remains the global rules/assets source.
+NORMAL AUTHORING
+1. Read CURRENT identity and the exact schema.
+2. Select exact legal CURRENT handles.
+3. Inspect real pixels for important visual choices.
+4. Author one complete CUTSCENE_SCRIPT_V1 object.
+5. Run literal schema/current self-check.
+6. Treat Web Preview as preflight only.
+7. Unity remains final runtime/Editable Preview authority.
 
-Contract revision: 76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF
-Schema hash: CF0ABC51E3C5889E757B026F30A7F5BC50C7CDA00360FE7FB4C967E27C6FE4E7
-Authoring rule registry revision: 997510F2702310B3D6EF85089CA642DCF9F05331DDD10FE1894AE3E6CC8E879E
-Snapshot content hash: DBD6639CAC2ED78E227D3BBD84386ECF5C25C9B095C308FA22086D28DD53DD72
-Snapshot identity: catalogRevision=7624471883407822870;contractRevision=76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF;schemaHash=CF0ABC51E3C5889E757B026F30A7F5BC50C7CDA00360FE7FB4C967E27C6FE4E7;snapshotContentHash=DBD6639CAC2ED78E227D3BBD84386ECF5C25C9B095C308FA22086D28DD53DD72
-Do not treat catalogRevision alone as proof that two snapshots are equivalent. Compare the complete snapshot identity: catalogRevision, contractRevision, schemaHash and snapshotContentHash.
-Supported Cutscene package version: 5
+NORMAL FLOW LOCK
+- The designer gives a natural-language movie request. Devora/ChatGPT returns one complete CUTSCENE_SCRIPT_V1 JSON.
+- Do not ask for, generate, or depend on a COPY REQUEST / REQUEST REPORT step for normal NEW authoring.
+- Do not use an old V5 package as a template for NEW authoring. V5 is backend output after Simple V1 lowering.
+- Do not expose raw Actor/Animation runtime IDs merely because legacy V5 accepted them.
+- A stale legacy fixture is evidence about compatibility, not the canonical way to author a new movie.
 
-ASSET DECISION ORDER
-1. The record must be legal for the exact destination field.
-2. cutscenePrimaryUse is authoritative.
-3. cutsceneSafeForPreview must be true for normal Preview authoring.
-4. Prefer capabilities, tags and description that directly match the dramatic purpose.
-5. Prefer human-reviewed records among equally good choices.
-6. Copy the exact assetId string.
-Use the exact exported assetId value verbatim; never reconstruct, shorten, infer or substitute it.
-7. Never infer another use from filename, folder, path or appearance.
-cast[].visualAssetId -> Actor-primary
-background/layer asset -> Layer-primary
-dialogue portrait/body/frame/bubble -> Ui-primary
-effect -> Effect-primary; audio -> Audio-primary; animationAssetId -> Animation-primary plus exact actor compatibility proof.
-CAST IDENTITY: cast[].visualAssetId is the Actor-primary world/character identity record only.
-DIALOGUE PRESENTATION: portrait/body/frame/balloon records are Ui-primary presentation assets only.
-If any generated example conflicts with these rules, the rule wins; do not copy the invalid example pattern.
+REPAIR FLOW
+- REPAIR is exceptional and begins only after Unity has rejected a specific candidate and produced a diagnostic/repair payload.
+- Keep the original creative intent. Repair only the concrete rejected authoring/runtime issue.
+- If the rejected input is legacy V3/V5, do not teach its backend fields back into normal NEW authoring.
+- If a legal CURRENT CUTSCENE_SCRIPT_V1 fixture reaches a backend/engine failure, repair the backend against the same fixture instead of rewriting valid source intent.
 
-CINEMATIC MULTI-PLANE COMPOSITION
-For Establishing, Exterior, Action or Reveal beats, prefer a coherent multi-plane composition when materially useful Catalog planes exist; aim for roughly three useful planes rather than an arbitrary count.
-Use FarBackground, Background, Midground, Foreground and Layer-primary Atmosphere roles when supported by reviewed metadata. Prefer one coherent familyId/collection and mix only when compatible planes are genuinely missing.
-Space, planet and interior examples may use distant world/sky, readable set, actor-supporting midground and restrained foreground framing or haze. Do not flatten every Layer-primary record to Background.
-The destination field remains authoritative: sequence.layers and shot.layerActions require Layer-primary records even when role is Overlay or Ui; dedicated dialogue/UI fields require Ui-primary records.
-Layer-role Atmosphere is legal only in a Layer field. stage.atmosphereVfxAssetIds always resolve to Effect-primary records; smoke, fire and other Effect-primary VFX do not belong in sequence.layers.
-FarBackground and Background use sortingOrder < 0. For Move/Parallax, parallaxFactor multiplies authored displacement (0=no displacement, 1=full delta); Scroll uses scrollUnitsPerSecond. Distant planes generally move less than nearer planes.
-Locked dialogue remains line/stage-driven with one explicit stage.backgroundAssetId plus presentation assets and optional Effect-primary atmosphere VFX. With lockStaging=true, actorActions and moving parallax are not authored in that dialogue beat.
-Give each shot one dominant intention, use compositionTargetId for the focal entity, choose one dominant base camera action, and use HardCut only for a genuine framing reset. Shake, ImpactShake and Recoil support the beat additively.
-
-Return one complete JSON object only. Do not wrap JSON in Markdown. Do not add explanations before or after the JSON.
-Required string fields must be emitted with non-null valid values. For optional string fields with no value, omit the property; never emit null or an empty placeholder unless this contract explicitly requires it.
-Use exact supplied assetId strings; never reconstruct, shorten, replace a Sprite sub-asset with a guessed parent, or invent a fallback. Use only assets the runtime resolver can resolve.
-Use exact enum spelling and casing. Do not use human-readable labels, synonyms, abbreviations, title-case names, or invented values. Use HardCut rather than Cut.
-Do not infer placement from entityKind. cutscenePrimaryUse is authoritative for Cutscene use. cutsceneSafeForPreview controls Preview safety. cutsceneNeedsHumanReview remains publish-gate compatibility metadata; use cutsceneReviewSeverity and cutsceneReviewReasons as the actionable yellow designer-warning signal.
-Catalog metadata selects assets; package fields author the package. Never invent fields, enum values, or asset IDs.
-
-DIALOGUE PRESENTATION RULES
-- cast[] is identity only; it never creates a world actor by itself.
-- Set cast[].presentationMode=WorldActor for world-only, DialoguePortrait for portrait-only, or Both for an explicitly authored actor used in both isolated routes.
-- Set useGameplayObject=true for the gameplay-object route; it never creates a generated clone.
-- Dialogue visuals are line/stage-driven. Use exactly one portrait or body source per visible participant; an explicit body is authoritative and suppresses portrait fallback.
-- Portrait, body, head and speech-bubble assets are Ui dialogue presentation; they do not create world actors.
-- Standard dialogue has one speaker and one listener, with one visible background.
-- Rotate speaker/listener pairs for 3+ character conversations; do not add a third visible participant.
-- If you select a Ui-primary DialogueBubble / SpeechBalloon asset, put its exact assetId in $.sequences[].shots[].dialogue[].dialogueFrameAssetId. Do not invent dialogueBubbleAssetId.
-- stage.uiForm at $.sequences[].shots[].dialogue[].stage.uiForm is the existing presentation-layout field; it does not create a second bubble asset field.
-- When any dialogue line in a shot has stage.lockStaging=true, the owning shot.actorActions MUST be empty. Do not use Hold, FreezePose, Enter, Exit, Move, PlayAnimation, or any other world-actor action to keep a dialogue actor static. Dialogue visuals are controlled by the dialogue presentation fields only; place world-actor activity in a separate action shot before or after the locked dialogue shot.
-- Use HardCut between framing changes. Never silently fall back to SUBTITLE_ONLY.
-- Full preset/layout/grammar/camera semantics are in CUTSCENE_AUTHORING_CONTRACT.json. For new authoring, choose one exact compatibleTuples entry for the selected presentationPreset; do not mix the three independent lists by guesswork.
-- Speech balloons are optional. Use one only when an exact Preview-safe Ui-primary balloon exists, its tail matches the visual speaker position, and the selected presentation supports that route.
-- Left speaker -> prefer an explicit LeftSpeaker / TailLeft variant; right speaker -> RightSpeaker / TailRight; center or monologue -> CenterSpeaker / TailDown where appropriate.
-- Do not invent NearSpeaker, FarSpeaker, RadioSpeech, ThoughtBubble or ShoutBubble semantics. If no appropriate explicit balloon exists, use the canonical Dialogue Stage frame/presentation.
-
-SPATIAL COMPOSITION
-Unity owns routine frame fitting: Background/FarBackground layers are Cover-fit to the generated camera, actors receive bounded semantic base sizing, and ordinary generated UI gets screen-space placement defaults. Do not compensate for source texture size by inventing extreme x/y/scale values.
-Do not author defensive cleanup merely to stop generated content at its owner boundary: sequence-owned content ends with the sequence and shot-local content ends with the shot. Use explicit Exit/Deactivate when the story needs an earlier disappearance or an explicit hide/re-entry beat.
-
-DIALOGUE EMOTION VS EXPRESSION
-stage.speakerEmotion, stage.listenerEmotion and delivery.emotion use only: Serious, Shock, Anger, Perplexed, Sad, Happy.
-delivery.pace uses only CURRENT values Slow, Medium or Fast. Semantic Slow/Measured/Conversational/Natural/Hesitant/Rapid/Urgent values are mapped before serialization.
-Use speakerExpression/listenerExpression/reaction.expression for acting choices such as Determined, Concerned, Shocked or Relieved. Do not put those expression words into emotion fields.
-
-ACTOR IDENTITY AND PROPORTIONS
-- ACTOR IDENTITY RULE: cast[].identityHandle MUST identify a canonical Actor. Do not put a Sprite frame, portrait frame, AnimationClip, Texture or arbitrary visual asset handle in identityHandle.
-- cast[].identityHandle is the exact Actor identity; cast[].semanticRole is the narrative role this character performs in this movie. Do not copy Catalog/Vision annotation roles into semanticRole or infer it silently.
-- visible[].role is the role of a visible instance/composition element; beat.dramaticFunction is the role of the beat. These fields are distinct from cast[].semanticRole.
-- visible[].handle selects the visible visual representation; actions[].subject references cast[].id. animationIntent/performanceIntent are semantic requests. Never author raw AnimationClip IDs.
-- Example: cast { id: CIV_BOY_SCHOOL_01, identityHandle: <canonical Actor handle> }; visible { id: CIV_BOY_SCHOOL_01, handle: <approved visual handle>, animationIntent: walk }; action { subject: CIV_BOY_SCHOOL_01, animationIntent: walk }.
-- When an Actor record exports preferredActorAssetId, use that exact preferred record for cast[].visualAssetId unless the story explicitly requires a different identity state. Do not use Run/Death/Hit/Jump/mid-animation frames as the persistent cast identity merely because the action name matches.
-- For dialogue, speakerPortraitAssetId/listenerPortraitAssetId must come from that Actor record's compatibleDialogueVisualIds when the list is non-empty. Never borrow a portrait from another character because it looks plausible. An explicit stage body wins over a portrait and prevents portrait fallback; with no body, repair may select a same-identity portrait or use the selected preset's allowsBuiltInParticipantFallback only when exported as true. Otherwise choose another exact compatible tuple/preset. Automatic repair never silently changes the story to SUBTITLE_ONLY.
-- Distinct named Person cast members require distinct preferred Actor identities unless they intentionally represent the same narrative identity/clone. Do not manufacture Pilot/Commander as two frames of the same character family.
-- Layer-only rocks/meteorites are not cast actors. Use Layer Move/Parallax for scenery/debris, or choose an Actor-primary movable asset when independent Actor actions are required.
-- cutsceneSystemManagedProportions=true means Unity owns ordinary visual scale. Author scaleX/scaleY near 1.0 as a hint only; do not hand-tune different source pixel sizes into fake world proportions. Use cutsceneProportionClass, cutsceneScaleBasis and cutsceneTargetScreenFraction as the semantic baseline.
-- Human/robot/ship/fighter/large-ship proportions are relative screen composition classes, not real-world meters. A fighter should not be human-sized, a robot should not accidentally fill the frame, and a rescue/capital ship should not inherit the same raw scale as a small fighter.
-
-CURRENT V2.7 TRUTH + TIME
-Catalog, authoring instructions, IRONCLAD normalization, validation and runtime use one contract. A safe automatic repair must produce a canonical package accepted by the same validator.
-Generated actors begin hidden; sequence-owned actors/layers end at sequence end; shot-local layers end at shot end; temporary UI/VFX are inactive before and after their intervals. Do not add cleanup boilerplate merely to compensate for Timeline leakage.
-Procedural built-ins SpeedLines, Vignette, ScreenFlash, ColorFlash, Silhouette and Overlay omit assetId. All other effects require exact Effect-primary assets or visible diagnostics.
-Editor Evaluate/scrub never performs real audio playback. Runtime playback owns AudioSource.Play.
-Composition priority is location, focal actor, relationships, action direction, dialogue/UI, then extra VFX/parallax/camera. Prefer fewer coherent assets over a legal pile.
-Background art should contain environment, not baked speaker names/dialogue/messages; dynamic dialogue content belongs to runtime presentation fields.
-
-ANIMATION SAFETY
-PlayAnimation is legal only when the exact animationAssetId appears in the exact Actor record's compatibleAnimationIds.
-Never infer compatibility from folder, filename, common prefix, package name, actor name or visual similarity.
-VERIFIED COMPATIBLE ANIMATIONS: when compatibleAnimationOptions are supplied, use their exact assetId and prefer the matching verified Run, Walk, Hit or Idle animation when the requested action clearly asks for it.
-Move controls world movement; PlayAnimation controls visual character animation. A running person normally uses PlayAnimation(Run) plus Move(...). If no verified Run exists, use Move without PlayAnimation and keep Preview working.
-If compatibleAnimationIds is empty, do not author PlayAnimation for that actor; use another legal action.
-
-WARNINGS, ERRORS AND MISSING ASSETS
-Preview-safe records requiring human review remain usable for Editable Preview and may produce yellow notes. Yellow warnings are not reasons to abandon a good Cutscene.
-Blocking errors remain blocking: do not intentionally author unresolved required IDs, Unsafe assets or incompatible field placement.
-If an exact requested asset is absent, choose the closest legal explicitly-described Preview-safe alternative. Otherwise omit an optional element where possible and use missingAssets only when required. Never invent an assetId or silently rewrite the core story.
-
-CANONICAL ENUM VALUES
-MY_CutsceneKitRole: Primary, Supporting, AlternateLocation, Effects, Audio, Ui
-MY_CutsceneCastRole: Hero, SupportingCharacter, Antagonist, Prop, Environment, Ui
-MY_CutsceneEntityKind: Unknown, Person, Robot, Creature, Spaceship, Vehicle, Plant, Rock, CelestialBody, Structure, Machine, Weapon, Projectile, Object
-MY_CutsceneEntityKindSource: HumanOverride, CuratedMetadata, ReviewedVisualMetadata, DeterministicInference, LegacyInference, Unknown
-MY_CutsceneActorPresentationMode: WorldActor, DialoguePortrait, Both
-MY_CutsceneShotType: Establishing, CloseUp, Medium, Wide, ExtremeCloseUp, TwoShot, OverTheShoulder, Reaction, Insert, Reveal, Tracking, Follow, Static
-MY_CutsceneFraming: ExtremeCloseUp, CloseUp, Medium, Wide, ExtremeWide, TwoShot, FullFrame
-MY_CutsceneTransitionType: HardCut, CutOnAction, Crossfade, FadeIn, FadeOut, DipToBlack, DipToWhite, Wipe, ForegroundWipe, FlashCut, MatchCut, SoundLed
-MY_CutsceneEasing: Linear, EaseIn, EaseOut, EaseInOut, SmoothStep
-MY_CutsceneCameraActionType: Hold, Snap, Zoom, Pan, Push, Pull, Follow, Track, Focus, RevealTarget, Drift, Shake, ImpactShake, Recoil, ReturnToNeutral
-MY_CutsceneLayerActionType: Activate, Deactivate, Set, Swap, Crossfade, Move, Scroll, Parallax, Tint, Brightness, Fade
-MY_CutsceneLayerRole: FarBackground, Background, Midground, Actor, Foreground, Atmosphere, Overlay, Ui
-MY_CutsceneActorActionType: Activate, Deactivate, Enter, Exit, Move, MoveToMark, FollowPath, Face, Turn, SetSorting, SetScale, Formation, PlayAnimation, VisualWeaponAction, VisualDamageReaction, Hold, FreezePose, LocalSlowMotion, Curve, Orbit
-MY_CutsceneMotionSpace: AbsoluteStage, RelativeToStart, Viewport
-MY_CutsceneMotionOrientation: PreserveRotation, FollowMotion, FaceTarget, Keyframed
-MY_CutsceneEffectType: Activate, Explosion, Impact, MuzzleFlash, EnergyPulse, Glow, Lightning, Shield, Smoke, Fire, Debris, Sparks, Dust, SpeedLines, Vignette, ScreenFlash, ColorFlash, Silhouette, Overlay
-MY_CutsceneAudioActionType: Play, Stop, FadeIn, FadeOut, SetVolume
-MY_CutsceneAudioBus: Music, Ambience, Dialogue, Sfx, Ui
-MY_CutsceneEventType: ActivateObject, DeactivateObject, ChangeBackground, PlayEffect, TriggerAnimation, SetSortingOrder, ChangeCameraTarget, StartShake, UpdateDialogue, ShowUi, HideUi, CutsceneSignal, EnableGameplay, DisableGameplay, ShotBoundary, DramaticBeat, FreezePose, LocalSlowMotion
-MY_CutsceneDialogueStageLayout: SPEAKER_FOCUS, TWO_SHOT, COMMAND_SCREEN
-MY_CutsceneDialogueDistancePreset: NEAR, MID, FAR
-MY_CutsceneDialogueCharacterSlot: NearLeft, FarLeft, CenterMonitor, FarRight, NearRight
-MY_CutsceneDialogueUiForm: FloatingDialogueBox, ClearPrimaryBox, CommsMonitor, HandheldTablet, AlertPanel
-MY_CutsceneDialogueTextMode: Instant, Typewriter
-MY_CutsceneDialogueTypewriterSpeed: Slow, Normal, Fast
-MY_CutsceneDialogueAdvanceMode: Automatic, WaitForContinue
-MY_CutsceneDialogueTextDirection: Auto, LTR, RTL
-MY_CutsceneDialogueEmotionV1: Serious, Shock, Anger, Perplexed, Sad, Happy
-MY_CutsceneDialoguePaceV1: Slow, Medium, Fast
-MY_CutsceneDialoguePoseV1: IdleListening, Speaking, WorkingAtConsole, RunningAction, BracingAlert
-MY_CutsceneDialogueShotGrammar: DialogueWide, DialogueCloseup, DialogueTwoShot, AlertInsert, RevealWide
-MY_CutsceneDialoguePresentationPreset: RADIO_COMMUNICATION, FACE_TO_FACE_PORTRAITS, COMMAND_SCREEN, SUBTITLE_ONLY, EMERGENCY_BROADCAST, CAPTAIN_LOG
-MY_CutsceneDialogueExpression: Neutral, Listening, Concerned, Shocked, Urgent, Determined, ControlledGrief, Exhausted, Relieved, Defiant, Angry, Fearful, SpeakingCalm, SpeakingFirm, Commanding, Reassuring, Warning, Thinking, Pointing, HandRaised, ArmsCrossed, ConsoleWork, BracingAlert, Vulnerable, LookLeft, LookRight, Injured, Suspicious, Hopeful, Resolute
-MY_CutsceneDialogueMouthMode: None, TimedSimple, VoiceReactiveSimple
-MY_CutsceneDialogueShotPreset: ESTABLISHING_WIDE, COCKPIT_WIDE, CLOSE_UP_SPEAKER, CLOSE_UP_LISTENER, TWO_PORTRAIT_SHOT, REACTION_CLOSE_UP, RADIO_SCREEN, HERO_PUSH_IN, OBJECTIVE_REVEAL
-
-presentationPreset must be exactly one of:
-- RADIO_COMMUNICATION
-- FACE_TO_FACE_PORTRAITS
-- COMMAND_SCREEN
-- SUBTITLE_ONLY
-- EMERGENCY_BROADCAST
-- CAPTAIN_LOG
-Do not use human-readable labels, synonyms, abbreviations, title-case names, or invented values.
-Invalid-to-valid explanation mappings only; never serialize aliases into production output:
-- CaptainLog -> CAPTAIN_LOG
-- CommandScreen -> COMMAND_SCREEN
-- EmergencyBroadcast -> EMERGENCY_BROADCAST
-- Radio -> RADIO_COMMUNICATION
-- RadioCommunication -> RADIO_COMMUNICATION
-- SUBTITLE -> SUBTITLE_ONLY
-- Subtitle -> SUBTITLE_ONLY
-- SubtitleOnly -> SUBTITLE_ONLY
-
-SMALL VALID JSON EXAMPLE
+FORMAT LOCK
+The only legal root header is:
 {
-  "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
-  "schemaVersion": 5,
-  "contextVersion": 3,
-  "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
-  "schemaHash": "CF0ABC51E3C5889E757B026F30A7F5BC50C7CDA00360FE7FB4C967E27C6FE4E7",
-  "contextId": "NEW_CUTSCENE_CONTEXT",
-  "catalogRevision": "7624471883407822870",
-  "projectId": "",
-  "planId": "plan_example_minimal",
-  "baseRevision": 0,
-  "displayName": "Valid Minimal Cutscene",
-  "duration": 20.0,
-  "creativeIntent": {
-    "summary": "A schema-valid, asset-free timing example.",
-    "style": "Editable cinematic",
-    "mood": "Neutral"
-  },
-  "selectedKits": [],
-  "cast": [],
-  "sequences": [
-    {
-      "sequenceId": "sequence_main",
-      "startTime": 0.0,
-      "duration": 20.0,
-      "intention": "Demonstrate one sequence, one shot and owner-local offsets.",
-      "layers": [],
-      "actorActions": [],
-      "dialogue": [],
-      "effects": [],
-      "audio": [],
-      "events": [],
-      "shots": [
-        {
-          "shotId": "shot_main",
-          "startOffset": 0.0,
-          "duration": 20.0,
-          "shotType": "Establishing",
-          "framing": "Wide",
-          "intention": "Hold on an empty authored frame.",
-          "continuity": {
-            "preserveScreenDirection": true,
-            "matchedEntityIds": []
-          },
-          "transitionIn": {
-            "transitionId": "transition_in",
-            "type": "FadeIn",
-            "duration": 0.5,
-            "easing": "EaseInOut"
-          },
-          "transitionOut": {
-            "transitionId": "transition_out",
-            "type": "HardCut",
-            "duration": 0.0,
-            "easing": "Linear"
-          },
-          "cameraActions": [
-            {
-              "actionId": "camera_hold",
-              "type": "Hold",
-              "startOffset": 0.0,
-              "duration": 20.0,
-              "holdDuration": 0.0,
-              "fromX": 0.0,
-              "fromY": 0.0,
-              "toX": 0.0,
-              "toY": 0.0,
-              "fromRotation": 0.0,
-              "toRotation": 0.0,
-              "fromOrthographicSize": 8.0,
-              "toOrthographicSize": 8.0,
-              "amplitude": 0.0,
-              "frequency": 0.0,
-              "easing": "Linear"
-            }
-          ],
-          "layerActions": [],
-          "actorActions": [],
-          "dialogue": [],
-          "effects": [],
-          "audio": [],
-          "events": [
-            {
-              "eventId": "beat_final",
-              "type": "DramaticBeat",
-              "startOffset": 19.5,
-              "stringValue": "Final hold",
-              "floatValue": 0.0,
-              "intValue": 0,
-              "boolValue": false
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "missingAssets": [],
-  "handoff": {
-    "enabled": true,
-    "time": 20.0,
-    "disableCutsceneRoot": true,
-    "events": []
-  },
-  "extensions": []
+  "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+  "schemaVersion": 1
 }
+
+Use the schema literally. Unknown fields and remembered aliases are forbidden.
+
+CURRENT FINGERPRINTS ARE NOT MOVIE FIELDS
+Do not serialize catalogRevision, contractRevision, schemaHash, snapshotContentHash, authoringRuleRegistryRevision, publishTransactionId, requiredCurrent or runtime GUIDs into normal CUTSCENE_SCRIPT_V1 unless a future matching schema explicitly defines them.
+
+IDENTITY
+- cast[].id is narrative identity used by actions/dialogue/continuity.
+- cast[].identityHandle is the exact CURRENT canonical/preferred route=Actor authoring identity.
+- visible[].handle selects the visible representation.
+- actions[].subject references cast[].id.
+- animationIntent/performanceIntent are semantic requests. Never author raw AnimationClip IDs.
+- Sprite frames, portraits, textures, animation frames and raw Catalog IDs do not become Actor identity because they look related.
+- If CURRENT does not expose a legal Actor handle, the Actor is unavailable for direct authoring. Do not infer one.
+
+CATALOG / VISUAL EVIDENCE
+- AUTHORING_HANDLES.json is the normal direct selection surface.
+- Raw Catalog IDs are engineering/runtime evidence, not normal authoring vocabulary.
+- Destination route/capability beats filename, folder, display name and visual resemblance.
+- Use route=Actor for world identity, Layer for scenery, Effect for VFX, Ui for UI/dialogue presentation and Audio for sound.
+- Real pixel evidence decides appearance. Metadata is search evidence only.
+- Do not directly author source sheets, assembly parts, unsafe/pending-review assets or technical helper content when CURRENT excludes them.
+
+STORY AND EVIDENCE
+Every production beat needs a clear audience-observable purpose. Dialogue or a title saying an event happened does not implement the visible event.
+
+VISIBLE EFFECTS / PARTICLES
+- A legal route=Effect item in visible[] is already an audience-visible obligation.
+- Do not add meaningless reveal/activate actions merely to wake up an Effect.
+- repeated identical Effect handles remain distinct authored instances.
+- Effect timing uses visible[].startOffsetSeconds / visible[].durationSeconds when present.
+- overlaps are legal.
+- projectiles/impacts do not implicitly satisfy unrelated visible Effects.
+- Particle/prefab lifecycle is Unity-owned; authoring expresses the visible obligation, not the low-level particle component wiring.
+
+ACTOR ANIMATION AND MOTION
+- Animation and movement are separate and may run simultaneously.
+- compatible real animation is requested through semantic animationIntent/performanceIntent.
+- actor motion uses only schema-legal motionIntent/path fields.
+- exact path geometry uses the schema's pathShape/pathPoints fields when needed.
+- semantic speed is only slow, medium, fast or burst.
+- Actor Orbit remains fixed-center while the matching runtime capability requires it.
+- do not assume pursuit/escort/intercept means per-frame moving-target tracking unless CURRENT/runtime explicitly supports it.
+
+ACTION TIMING
+- actions[].startOffset is optional seconds from beat start.
+- actions[].duration is optional action duration.
+- explicit intervals must remain legal and inside the owning beat.
+- actions[] array order is never hidden sequencing.
+- use explicit intervals for staggering/concurrency.
+- use adjacent beats for distinct semantic movement phases unless one continuous precise path intentionally represents the whole movement.
+
+CAMERA
+Camera authoring is semantic directing intent.
+- framing/movement/subject/direction/intensity use only matching schema values.
+- camera.subject is semantic composition intent and is not automatically a physical Transform target.
+- Hold may preserve semantic composition without a physical target.
+- Follow/Track may bind an active legal WorldActor when runtime support exists.
+- camera Orbit is a 2D/2.5D composition concept, not invented unseen 3D geometry.
+- Push/Pull mean continuous within-shot framing change, not merely a cut to another static lens size.
+- Drift/Orbit/Shake/ImpactShake must be visibly meaningful when Unity executes them; technical non-zero movement that is imperceptible is not exact success.
+- locked portrait dialogue defaults to stable legal coverage; do not mix unsupported world-camera motion into a locked dialogue beat.
+
+DIALOGUE
+Dialogue is closed-world.
+- speaker/listener must be exact authoringReady actorId values from EMOTIONAL_DIALOGUE_CURRENT and match cast[].id.
+- dialogue cast identityHandle must equal the published identityHandle for that actorId.
+- expressionIntent is exact and case-sensitive; omit it to request the published default.
+- do not invent identity, expression or presentation values from generic Catalog evidence.
+
+AUDIO
+- each cue uses kind + exact CURRENT route=Audio handle.
+- repeated uses remain separate authored occurrences.
+- visual Effects and projectiles do not automatically supply sound.
+- generated simple_audio_* identities are backend-only.
+
+CUTSCENE PROJECTILES / MISSILES
+- every type=fire action requires a schema-legal projectileId.
+- projectileId is closed-world and comes from the matching schema.
+- count is a real authored quantity.
+- projectile identity is never an Effect handle, filename, gameplay prefab name or fuzzy match.
+- target/anchor intent must remain exact when authored.
+- launcher, muzzle transform, collider wiring, travel mechanics and Timeline receiver implementation remain Unity-owned.
+
+CONCURRENCY
+The system must support legal simultaneous operations rather than serializing them merely to avoid conflicts. Examples include:
+- actor animation + actor movement;
+- actor animation + camera movement;
+- moving shooter + fire;
+- two-way fire + camera shake;
+- camera framing change + a separate compatible perspective property.
+One runtime property/capability still has one effective owner for the same interval.
+
+ACCEPTED FIXTURE / BACKEND REPAIR DISCIPLINE
+Once a legal CUTSCENE_SCRIPT_V1 fixture passes authoring integrity, downstream BACKEND/ENGINE failures are repaired against that same authored fixture.
+- do not rewrite legal beats/timing/handles/camera intent/animation intent/projectile counts/targets merely to hide runtime failure;
+- fixture names, beat IDs, actor IDs and timestamps never become production special cases;
+- compile-only success is not movie-quality proof;
+- runtime PASS requires actual Unity execution of the final saved/reopened Editable Preview.
+
+FAIL-SOFT DISCIPLINE
+- Author strict, Studio tolerant.
+- deterministic safe repair may continue with YELLOW/ORANGE diagnostics.
+- never report fallback/degradation as exact success.
+- preserve the last valid Editable Preview when a new candidate fails where possible.
+- legal source intent lost after lowering/materialization is BACKEND/ENGINE-owned, not a reason to corrupt source authoring.
+
+FINAL JSON SELF-CHECK
+Before returning JSON verify:
+1. exact root schema/header;
+2. coherent root and beat durations;
+3. every required beat field/evidence exists;
+4. every handle is exact CURRENT and route-legal;
+5. world Actor identity is a legal CURRENT Actor handle;
+6. dialogue identity/expression is exact CURRENT closed-world vocabulary;
+7. animation/performance intent is semantic, never raw Animation ID;
+8. every action uses schema-legal type/subject/motion/timing fields;
+9. every fire action has legal projectileId and count;
+10. Effect timing uses Effect-only fields and repeated instances are preserved;
+11. camera fields use exact schema vocabulary;
+12. no unknown properties, raw Catalog IDs, runtime GUIDs, V3/V5 bookkeeping, Timeline bindings or Golden QA fields appear;
+13. no array-order sequencing assumption exists;
+14. no visual claim is made from metadata without pixel evidence when appearance matters.
+
+Unity remains authoritative for final runtime validation and Editable Preview acceptance.
