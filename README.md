@@ -25,13 +25,13 @@ There is one live CURRENT projection:
 - `designer-ai/simple-preview.html` - web preflight only
 - `designer-ai/open-current/` - one atomic published CURRENT
 
-Normal authoring must not use duplicate CURRENT trees, archived contracts, Instruction Books, old Catalog contracts or remembered copies.
+Normal authoring must not use duplicate CURRENT trees, archived contracts, Instruction Books, request-scoped candidate packs, old Catalog contracts or remembered copies.
 
 The normal ChatGPT instruction source consumed by Devora is the sealed publish copy:
 
 - `designer-ai/open-current/CHATGPT_START.txt`
 
-There is no second `CHATGPT_READ_FIRST.txt` entrypoint and no legacy Director-pack authority.
+There is no second `CHATGPT_READ_FIRST.txt` entrypoint, no legacy Director-pack authority and no request-scoped `context-pack` authority.
 
 ### Normal movie flow
 
@@ -39,8 +39,10 @@ There is no second `CHATGPT_READ_FIRST.txt` entrypoint and no legacy Director-pa
 2. Devora/ChatGPT reads the matching CURRENT and authors exactly one `CUTSCENE_SCRIPT_V1` JSON.
 3. Unity lowers Simple V1 through the backend layers, validates it, builds the Editable Preview and runs it.
 4. V3/V5, raw Actor IDs, raw Animation IDs and runtime bookkeeping are backend implementation, not NEW authoring vocabulary.
-5. A Request Report is **not** part of normal NEW authoring.
+5. A Request Report / COPY REQUEST is **not** part of normal NEW authoring.
 6. REPAIR begins only after Unity rejects a specific candidate and supplies diagnostics. A legal Simple V1 fixture is not rewritten merely to hide a backend/engine defect.
+
+The Hub `COPY FOR CHAT` control is the normal handoff. It explicitly points ChatGPT to sealed CURRENT and asks for a real downloadable `.json` output.
 
 Publisher/engineering source lives only under:
 
@@ -48,7 +50,7 @@ Publisher/engineering source lives only under:
 - `designer-ai/tools/current-source/FILM_AUTHORING_GUIDE_CURRENT.md`
 - `designer-ai/tools/current-source/simple-authoring/`
 
-The Simple V1 source directory is the only source location for schema, canonical example, architecture and authoring policies. Do not recreate duplicate copies elsewhere.
+The Simple V1 source directory is the only source location for schema, canonical example, architecture and maintained authoring policies. Sealed public guidance must be byte-identical to its maintained source counterpart; CI rejects drift.
 
 For normal ChatGPT cutscene authoring use only the matching published CURRENT:
 
@@ -58,11 +60,18 @@ For normal ChatGPT cutscene authoring use only the matching published CURRENT:
 - `designer-ai/open-current/simple-authoring/CUTSCENE_SCRIPT_V1.schema.json`
 - `designer-ai/open-current/simple-authoring/AUTHORING_HANDLES.json`
 - `designer-ai/open-current/simple-authoring/AUTHORING_RULES_CURRENT.json`
+- `designer-ai/open-current/simple-authoring/CINEMATIC_INTENT_QA_RULES.json`
 - `designer-ai/open-current/EMOTIONAL_DIALOGUE_CURRENT.json`
 - `designer-ai/open-current/CUTSCENE_VALIDATION_CURRENT.json`
 - the matching Director projection and visual evidence
 
 `requiredCurrent` is compatibility identity. `publishTransactionId` is provenance.
+
+### Downloadable authoring package safety
+
+The previous release authoring ZIP was generated from a request-scoped legacy/debug context pack whose instructions still described NEW/REVISE/REPAIR envelopes and raw V5-style authoring. That package is therefore not exposed by the Hub as a normal authoring entry.
+
+The Hub keeps `COPY FOR CHAT`, CURRENT, Visual Library and Atlas access available. `DOWNLOAD DEVORA AUTHORING PACKAGE` remains blocked until the Unity publisher produces a clean Simple V1 package from the maintained CURRENT sources above. A future package must not become authoritative merely because it exists; its guidance must match canonical Simple V1 CURRENT.
 
 ## FULL versus DELTA publish
 
@@ -116,7 +125,7 @@ Catalog/Director/Atlas data remain exact project truth and engineering evidence,
 - `AUTHORING_HANDLES.json` is the normal direct authoring selection surface.
 - Director/Atlas pixel evidence is used to verify appearance and suitability.
 - raw Catalog IDs, raw Animation IDs, V3/V5 bookkeeping and generated aliases do not become authoring vocabulary.
-- old `catalog-contract/**` and `instruction-book/**` trees are not public CURRENT authoring authorities and are removed by publication sanitization.
+- old `catalog-contract/**`, `instruction-book/**` and request-scoped `context-pack/**` trees are not public CURRENT authoring authorities and are removed by publication sanitization.
 
 ## Camera / animation / Effects / projectiles
 
@@ -126,13 +135,7 @@ The public authoring contract expresses semantic intent; Plastic owns execution.
 - Animation: semantic animation/performance intent -> compatible AnimationClip -> final native AnimationTrack binding.
 - Effects/particles: route=`Effect` visible obligations materialize through the existing Effect owner; repeated handles remain distinct.
 - Projectiles/missiles: `type=fire` uses only schema-legal closed `projectileId` values and real authored counts; launcher/muzzle/collider/receiver mechanics remain Unity-owned.
-- Audio: exact CURRENT Audio handles; repeated cues remain separate events.
-
-## Devora Context Pack
-
-The normal Devora Context Pack is self-contained for authoring and includes the sealed start instructions, Film Guide, Simple V1 schema/handles/rules/canonical example, closed-world Emotional Dialogue CURRENT when published, Cutscene Validation CURRENT, Director projections and matching Visual Atlas evidence.
-
-Large engineering archives remain Release assets rather than competing normal authoring entrypoints.
+- Audio: exact CURRENT Audio handles; repeated cues remain separate events. If CURRENT exposes zero Audio handles, authors do not invent one from raw Catalog data.
 
 ## Simple Preview
 
@@ -159,6 +162,6 @@ Keep only:
 
 Delete task-specific prompts, stale handoffs/status reports, superseded contracts, duplicate CURRENT aliases, obsolete parallel UIs and historical public authoring surfaces once their durable lesson has been absorbed into active guidance/tests.
 
-Forbidden legacy files in the live `open-current` root include `CHATGPT_READ_FIRST.txt`, `DIRECTOR_PACK_MANIFEST.json`, `SOURCE_CURRENT.json` and `STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip`. The CURRENT lint must fail if any of them reappear.
+Forbidden legacy surfaces in live `open-current` include `CHATGPT_READ_FIRST.txt`, `DIRECTOR_PACK_MANIFEST.json`, `SOURCE_CURRENT.json`, `STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip` and `context-pack/`. The CURRENT lint must fail if any of them reappear.
 
 Do not manually edit `designer-ai/open-current/**` as routine cleanup. It is generated output and normally changes only through controlled publication; emergency removal of proven stale public artifacts must be followed by a source/lint gate that prevents regeneration.
