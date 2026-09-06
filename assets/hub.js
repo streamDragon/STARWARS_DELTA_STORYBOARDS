@@ -7,6 +7,7 @@ if(!document.querySelector('script[data-ui-polish]')){const s=document.createEle
 const status=document.getElementById('designerStatus');
 const meta=document.getElementById('designerMeta');
 const note=document.getElementById('designerNote');
+const atlasDownloadButton=document.getElementById('downloadAtlasOnly');
 const atlasButton=document.getElementById('downloadBundle');
 const obsoleteCatalogButton=document.getElementById('downloadCatalog');
 const obsoleteBookButton=document.getElementById('downloadBook');
@@ -25,6 +26,7 @@ const activate=(el,url,label)=>{if(!el||!url){resetDownload(el);return}el.textCo
 // designer-ai/current.json is publisher input only and must never be consumed by public UI.
 obsoleteCatalogButton?.remove();
 obsoleteBookButton?.remove();
+if(atlasDownloadButton)atlasDownloadButton.textContent='DOWNLOAD ATLAS ONLY';
 if(atlasButton)atlasButton.textContent='VISUAL ATLAS';
 
 function verifyAtomicIdentity(o){
@@ -78,6 +80,7 @@ async function load(){
     }
 
     if(meta)meta.innerHTML=`<span>Transaction: <b>${identity.publishTransactionId}</b></span><span>Catalog revision: <b>${identity.catalogRevision}</b></span><span>Rules: <b>${short(identity.authoringRuleRegistryRevision)}</b></span><span>Director: <b>${counts.actors||0} actors / ${counts.layers||0} layers / ${counts.effects||0} effects / ${counts.ui||0} UI</b></span><span>Visual Atlas: <b>${atlas.totalPages||0} pages</b></span>`;
+    activate(atlasDownloadButton,atlas.pdfUrl,'DOWNLOAD ATLAS ONLY');
     activate(atlasButton,atlas.pdfUrl,'VISUAL ATLAS');
     if(note)note.textContent=pagesSynced
       ?'One normal path: DEBORA CUTSCENE START → COPY FOR CHAT → describe the film. OPEN_CURRENT is the only public CURRENT source; advanced metadata stays inside Debora.'
@@ -86,6 +89,7 @@ async function load(){
     setStatus('CURRENT UNAVAILABLE','failed');
     if(meta)meta.innerHTML=`<span>${String(e.message||e)}</span>`;
     if(note)note.textContent='Storyboard access still works. Designer AI authoring is blocked only because neither Git main nor Pages contains a verifiable OPEN_CURRENT.';
+    resetDownload(atlasDownloadButton);
     resetDownload(atlasButton);
   }
 }
