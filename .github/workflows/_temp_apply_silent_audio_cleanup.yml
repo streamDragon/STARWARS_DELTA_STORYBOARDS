@@ -1,0 +1,96 @@
+name: TEMP Apply Silent Audio Cleanup
+
+on:
+  push:
+    branches: [silent-audio-current-policy]
+    paths:
+      - '.github/workflows/_temp_apply_silent_audio_cleanup.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: silent-audio-current-policy
+      - name: Apply bounded cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          policy = '''SILENT AUDIO POLICY
+- Audio is optional in CUTSCENE_SCRIPT_V1. A silent cutscene is legal.
+- When CURRENT exposes zero route=Audio handles, omit beat.audio entirely. Never invent or infer an audio handle.
+- Missing/unavailable CURRENT audio is a non-blocking YELLOW warning: AUDIO_UNAVAILABLE_IN_CURRENT. It must not block schema validation, Editable Preview or Build.
+- If an explicit audio cue is authored, its handle must still be an exact CURRENT route=Audio handle; an explicit invalid/fabricated cue remains an authoring error.
+'''
+
+          for p in [Path('designer-ai/tools/current-source/CHATGPT_START.txt'), Path('designer-ai/open-current/CHATGPT_START.txt')]:
+              s=p.read_text(encoding='utf-8')
+              old='''AUDIO\n- each cue uses kind + exact CURRENT route=Audio handle.\n- repeated uses remain separate authored occurrences.\n- visual Effects and projectiles do not automatically supply sound.\n- generated simple_audio_* identities are backend-only.\n'''
+              new='''AUDIO\n- each authored cue uses kind + exact CURRENT route=Audio handle.\n- repeated uses remain separate authored occurrences.\n- visual Effects and projectiles do not automatically supply sound.\n- generated simple_audio_* identities are backend-only.\n\n'''+policy.rstrip()+'''\n'''
+              if old not in s:
+                  raise SystemExit(f'AUDIO_SECTION_NOT_FOUND: {p}')
+              p.write_text(s.replace(old,new,1),encoding='utf-8')
+
+          preview=Path('designer-ai/simple-preview.html')
+          s=preview.read_text(encoding='utf-8')
+          old="let state={ready:false,validate:null,handles:new Map(),visual:new Map(),dialogue:new Map(),beats:[],index:0,timer:null,playing:false};"
+          new="let state={ready:false,validate:null,handles:new Map(),visual:new Map(),dialogue:new Map(),audioAvailable:false,beats:[],index:0,timer:null,playing:false};"
+          if old not in s: raise SystemExit('PREVIEW_STATE_ANCHOR_NOT_FOUND')
+          s=s.replace(old,new,1)
+          old="for(const h of handles.handles||[])state.handles.set(L(h.handle),h);"
+          new="for(const h of handles.handles||[]){state.handles.set(L(h.handle),h);if(h.route==='Audio')state.audioAvailable=true;}"
+          if old not in s: raise SystemExit('PREVIEW_HANDLE_ANCHOR_NOT_FOUND')
+          s=s.replace(old,new,1)
+          old="diag.innerHTML='<b class=ok>PREVIEWABLE</b><br><span class=warn>Web preflight only. Counts and dialogue portraits are visualized; Unity remains final runtime authority.</span>';render()}"
+          new="const silentWarning=!state.audioAvailable?'AUDIO_UNAVAILABLE_IN_CURRENT · YELLOW · No CURRENT Audio handles are published. Silent cutscene is legal and non-blocking.<br>':'';diag.innerHTML='<b class=ok>PREVIEWABLE</b><br><span class=warn>'+silentWarning+'Web preflight only. Counts and dialogue portraits are visualized; Unity remains final runtime authority.</span>';render()}"
+          if old not in s: raise SystemExit('PREVIEW_DIAG_ANCHOR_NOT_FOUND')
+          preview.write_text(s.replace(old,new,1),encoding='utf-8')
+
+          def remove_top_level_object(path, key):
+              p=Path(path); s=p.read_text(encoding='utf-8-sig')
+              needle='  "'+key+'": {'
+              start=s.find(needle)
+              if start<0: return False
+              brace=s.find('{', start)
+              depth=0; in_string=False; esc=False; end=None
+              for i in range(brace,len(s)):
+                  c=s[i]
+                  if in_string:
+                      if esc: esc=False
+                      elif c=='\\\\': esc=True
+                      elif c=='"': in_string=False
+                      continue
+                  if c=='"': in_string=True
+                  elif c=='{': depth+=1
+                  elif c=='}':
+                      depth-=1
+                      if depth==0: end=i+1; break
+              if end is None: raise SystemExit(f'UNBALANCED_{key}: {path}')
+              # Remove the entire top-level member plus its following comma/newline.
+              j=end
+              while j<len(s) and s[j] in ' \t': j+=1
+              if j<len(s) and s[j]==',': j+=1
+              if j<len(s) and s[j]=='\r': j+=1
+              if j<len(s) and s[j]=='\n': j+=1
+              p.write_text(s[:start]+s[j:],encoding='utf-8')
+              return True
+
+          for p in ('designer-ai/current.json','designer-ai/open-current/OPEN_CURRENT.json'):
+              remove_top_level_object(p,'authoringPackage')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add designer-ai/current.json designer-ai/open-current/OPEN_CURRENT.json designer-ai/open-current/CHATGPT_START.txt designer-ai/tools/current-source/CHATGPT_START.txt designer-ai/simple-preview.html
+          if git diff --cached --quiet; then
+            echo NO_CHANGES
+            exit 0
+          fi
+          git commit -m 'Allow silent cutscenes and remove stale package metadata'
+          git push origin HEAD:silent-audio-current-policy
