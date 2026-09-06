@@ -86,6 +86,24 @@ jobs:
           missing=[str(p) for p in required_source if not p.is_file()]
           assert not missing, 'CANONICAL_AUTHORING_SOURCE_MISSING: '+', '.join(missing)
 
+          # Maintained guidance has one engineering source and one sealed public copy.
+          # These pairs must be byte-identical; publication is not allowed to invent a second rulebook.
+          maintained_pairs=[
+              (source/'CHATGPT_START.txt', live/'CHATGPT_START.txt'),
+              (source/'FILM_AUTHORING_GUIDE_CURRENT.md', live/'FILM_AUTHORING_GUIDE_CURRENT.md'),
+              (source_simple/'ARCHITECTURE.md', simple/'ARCHITECTURE.md'),
+              (source_simple/'AUTHORING_PACK_GATE_POLICY.md', simple/'AUTHORING_PACK_GATE_POLICY.md'),
+              (source_simple/'CINEMATIC_INTENT_QA_RULES.json', simple/'CINEMATIC_INTENT_QA_RULES.json'),
+              (source_simple/'CUTSCENE_SCRIPT_V1.schema.json', simple/'CUTSCENE_SCRIPT_V1.schema.json'),
+              (source_simple/'CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json', simple/'CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json'),
+              (source_simple/'CUTSCENE_VALIDATION_CURRENT.schema.json', simple/'CUTSCENE_VALIDATION_CURRENT.schema.json'),
+              (source_simple/'EMOTIONAL_DIALOGUE_AUTHORING_POLICY.json', simple/'EMOTIONAL_DIALOGUE_AUTHORING_POLICY.json'),
+          ]
+          parity_missing=[str(dst) for _,dst in maintained_pairs if not dst.is_file()]
+          assert not parity_missing, 'SEALED_GUIDANCE_COPY_MISSING: '+', '.join(parity_missing)
+          parity_drift=[f'{src} != {dst}' for src,dst in maintained_pairs if src.read_bytes()!=dst.read_bytes()]
+          assert not parity_drift, 'SEALED_GUIDANCE_PARITY_DRIFT: '+', '.join(parity_drift)
+
           forbidden_source=[
               source_simple/'CUTSCENE_GOLDEN_QA_POLICY.md',
               source_simple/'INTEGRATION_STATUS_CURRENT.md',
@@ -160,6 +178,7 @@ jobs:
               'Create a current V5 package',
               'CURRENT AUTHORITATIVE RULES\nV2.7',
               'CUTSCENE_GOLDEN_QA_POLICY.md',
+              'Required entrypoint: read `00_CHATGPT_READ_FIRST.txt`',
           ]
           for label,text in [('CHATGPT_START',start),('SOURCE_CHATGPT_START',source_start),('FILM_GUIDE',guide),('ARCHITECTURE',arch),('FAIL_SOFT_SOURCE',failsoft)]:
               hits=[p for p in forbidden_phrases if p in text]
@@ -188,6 +207,7 @@ jobs:
           print('CATALOG', current.get('requiredCurrent',{}).get('catalogRevision'))
           print('SIMPLE_V1_RULE_COUNT', len(actual))
           print('AUDIO_DIRECT_HANDLES', counts.get('Audio'))
+          print('SEALED_GUIDANCE_PARITY_PAIRS', len(maintained_pairs))
           print('LEGACY_PUBLIC_SURFACES', len(stale_live))
           print('GENERATED_ROOT_PUBLIC_PROJECTION_LEAKS', len(leaked))
           PY
