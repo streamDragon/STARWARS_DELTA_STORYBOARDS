@@ -1,18 +1,18 @@
 {
   "schema": "STARWARS_DELTA_CURRENT_AUTHORING_PROFILE",
   "profileSchemaVersion": 2,
-  "publishTransactionId": "20260902-023015026-a608ffa7",
-  "contractRevision": "8E25E6F5488A9A89E3829EF234E36C465108EC993A08A42F0FDBBADAE79812D3",
-  "authoringContractRevision": "8E25E6F5488A9A89E3829EF234E36C465108EC993A08A42F0FDBBADAE79812D3",
-  "schemaHash": "21D9BD398D886F80FCF8E553A80242819FA44FE6DFF75A368FEC57C432099E4A",
-  "catalogRevision": "7624414197416586144",
+  "publishTransactionId": "20260906-030421962-70241c07",
+  "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
+  "authoringContractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
+  "schemaHash": "CF0ABC51E3C5889E757B026F30A7F5BC50C7CDA00360FE7FB4C967E27C6FE4E7",
+  "catalogRevision": "7624471883407822870",
   "schemaVersion": 5,
   "packageSchema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
   "serializer": {
     "name": "Newtonsoft.Json",
     "version": "13.0.0.0"
   },
-  "unityEditorVersion": "6000.6.0b10",
+  "unityEditorVersion": "6000.6.0f1",
   "requiredTopLevelFields": [
     "schema",
     "schemaVersion",
@@ -216,6 +216,20 @@
       "defaultSafeValue": "",
       "migrationRule": "PRESERVE",
       "validationId": "CUTSCENE_FIELD_SAME_IDENTITY_AS",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.cast[].semanticRole",
+      "name": "semanticRole",
+      "type": "String",
+      "required": false,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "",
+      "migrationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_SEMANTIC_ROLE",
       "closedEnum": "",
       "openCreativeText": false
     },
@@ -10950,7 +10964,7 @@
     }
   ],
   "authoringRuleRegistry": {
-    "revision": "A215FB0F8D7648D3BAD5336EFA3189F5D011E8F5C8C218F93F0F2D8DA8D3A4DD",
+    "revision": "997510F2702310B3D6EF85089CA642DCF9F05331DDD10FE1894AE3E6CC8E879E",
     "rules": [
       {
         "ruleId": "ACTOR_IDENTITY_COLLISION",
@@ -11008,7 +11022,7 @@
         "authoringRequirement": "MUST_AUTHOR",
         "diagnosticCode": "ANIMATION_COMPATIBILITY",
         "description": "Explicit animation IDs must belong to the selected Actor compatibility set.",
-        "defaultPolicy": "Only an underspecified semantic request may use a safe static fallback.",
+        "defaultPolicy": "An underspecified semantic request may omit animation; an explicit animation request never degrades to static presentation.",
         "normalizationPolicy": "Resolve the exact serialized animation ID against CURRENT.",
         "autoRepairPolicy": "Never replace an explicit illegal animation with a guessed animation.",
         "validationPolicy": "Block explicit incompatible animation IDs.",
@@ -11721,10 +11735,10 @@
     "$id": "STARWARS_DELTA_CUTSCENE_PACKAGE_V5",
     "title": "STARWARS_DELTA Cutscene Package v5",
     "description": "Machine-readable shape generated from the current Unity schema-v5 DTO. Semantic rules are in the companion contract files.",
-    "x-enumContractRevision": "8E25E6F5488A9A89E3829EF234E36C465108EC993A08A42F0FDBBADAE79812D3",
-    "x-authoringRuleRegistryRevision": "A215FB0F8D7648D3BAD5336EFA3189F5D011E8F5C8C218F93F0F2D8DA8D3A4DD",
+    "x-enumContractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
+    "x-authoringRuleRegistryRevision": "997510F2702310B3D6EF85089CA642DCF9F05331DDD10FE1894AE3E6CC8E879E",
     "x-authoringRuleRegistry": {
-      "revision": "A215FB0F8D7648D3BAD5336EFA3189F5D011E8F5C8C218F93F0F2D8DA8D3A4DD",
+      "revision": "997510F2702310B3D6EF85089CA642DCF9F05331DDD10FE1894AE3E6CC8E879E",
       "rules": [
         {
           "ruleId": "ACTOR_IDENTITY_COLLISION",
@@ -11782,7 +11796,7 @@
           "authoringRequirement": "MUST_AUTHOR",
           "diagnosticCode": "ANIMATION_COMPATIBILITY",
           "description": "Explicit animation IDs must belong to the selected Actor compatibility set.",
-          "defaultPolicy": "Only an underspecified semantic request may use a safe static fallback.",
+          "defaultPolicy": "An underspecified semantic request may omit animation; an explicit animation request never degrades to static presentation.",
           "normalizationPolicy": "Resolve the exact serialized animation ID against CURRENT.",
           "autoRepairPolicy": "Never replace an explicit illegal animation with a guessed animation.",
           "validationPolicy": "Block explicit incompatible animation IDs.",
@@ -12465,6 +12479,9 @@
               "Environment",
               "Ui"
             ]
+          },
+          "semanticRole": {
+            "type": "string"
           },
           "entityKind": {
             "type": "string",
@@ -14128,10 +14145,10 @@
   },
   "authoringContract": {
     "schema": "STARWARS_DELTA_CUTSCENE_AUTHORING_CONTRACT",
-    "contractRevision": "8E25E6F5488A9A89E3829EF234E36C465108EC993A08A42F0FDBBADAE79812D3",
-    "authoringRuleRegistryRevision": "A215FB0F8D7648D3BAD5336EFA3189F5D011E8F5C8C218F93F0F2D8DA8D3A4DD",
+    "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
+    "authoringRuleRegistryRevision": "997510F2702310B3D6EF85089CA642DCF9F05331DDD10FE1894AE3E6CC8E879E",
     "authoringRuleRegistry": {
-      "revision": "A215FB0F8D7648D3BAD5336EFA3189F5D011E8F5C8C218F93F0F2D8DA8D3A4DD",
+      "revision": "997510F2702310B3D6EF85089CA642DCF9F05331DDD10FE1894AE3E6CC8E879E",
       "rules": [
         {
           "ruleId": "ACTOR_IDENTITY_COLLISION",
@@ -14189,7 +14206,7 @@
           "authoringRequirement": "MUST_AUTHOR",
           "diagnosticCode": "ANIMATION_COMPATIBILITY",
           "description": "Explicit animation IDs must belong to the selected Actor compatibility set.",
-          "defaultPolicy": "Only an underspecified semantic request may use a safe static fallback.",
+          "defaultPolicy": "An underspecified semantic request may omit animation; an explicit animation request never degrades to static presentation.",
           "normalizationPolicy": "Resolve the exact serialized animation ID against CURRENT.",
           "autoRepairPolicy": "Never replace an explicit illegal animation with a guessed animation.",
           "validationPolicy": "Block explicit incompatible animation IDs.",
@@ -14795,7 +14812,7 @@
         }
       ]
     },
-    "schemaHash": "21D9BD398D886F80FCF8E553A80242819FA44FE6DFF75A368FEC57C432099E4A",
+    "schemaHash": "CF0ABC51E3C5889E757B026F30A7F5BC50C7CDA00360FE7FB4C967E27C6FE4E7",
     "packageVersion": 5,
     "fieldDefinitions": [
       {
@@ -14977,6 +14994,20 @@
         "defaultSafeValue": "",
         "migrationRule": "PRESERVE",
         "validationId": "CUTSCENE_FIELD_SAME_IDENTITY_AS",
+        "closedEnum": "",
+        "openCreativeText": false
+      },
+      {
+        "jsonPath": "$.cast[].semanticRole",
+        "name": "semanticRole",
+        "type": "String",
+        "required": false,
+        "description": "Typed cutscene package field.",
+        "hint": "Use the serialized field type and preserve approved values.",
+        "introducedIn": 1,
+        "defaultSafeValue": "",
+        "migrationRule": "PRESERVE",
+        "validationId": "CUTSCENE_FIELD_SEMANTIC_ROLE",
         "closedEnum": "",
         "openCreativeText": false
       },
@@ -21748,6 +21779,7 @@
       "$.cast[].kitUseId",
       "$.cast[].presentationMode",
       "$.cast[].sameIdentityAs",
+      "$.cast[].semanticRole",
       "$.cast[].spawnWorldActor",
       "$.contractRevision",
       "$.handoff.events[].assetId",
@@ -26674,7 +26706,7 @@
         "Overlay"
       ],
       "proceduralRule": "Procedural built-ins MUST omit assetId. IRONCLAD removes an authored assetId and records the canonicalization.",
-      "catalogEffectRule": "All other Effect types use an exact Preview-safe Effect-primary assetId; unresolved content degrades to a visible yellow diagnostic placeholder.",
+      "catalogEffectRule": "All other Effect types use an exact Preview-safe Effect-primary assetId; unresolved or incompatible authored content blocks validation and ExecutionPlan creation.",
       "uiSupportRule": "Ui-primary generated support sprites are not authored into Effect assetId fields merely because they resemble an effect."
     },
     "evaluationVsPlayback": {
@@ -26684,7 +26716,7 @@
     },
     "debugIdentity": {
       "generatedVisual": "Every generated visual exposes category, authored source ID, requested assetId, semantic type and owner ID in serialized debug metadata.",
-      "placeholder": "Unresolved visuals use bright yellow self-identifying diagnostics rather than anonymous gray rectangles.",
+      "placeholder": "Legacy generated placeholder metadata remains inspectable for old previews, but new authored visual resolution failures block materialization instead of creating replacement art.",
       "builtIn": "Procedural visuals are explicitly marked builtInProcedural and named separately from catalog-backed VFX."
     },
     "semanticCompositionPriority": [
@@ -26817,7 +26849,7 @@
       "hideUi": "HideUi targets a ShowUi eventId in the same owner and normally omits assetId.",
       "visibility": "If ShowUi.floatValue is positive it is the requested visibility duration. Otherwise Unity derives duration from the first later matching HideUi; without one, the presentation remains visible to the end of the owner.",
       "targetNamespaceException": "UI event targetEntityId references generated UI event identity, not cast identity.",
-      "failSoft": "An invalid HideUi is optional and may be omitted with a yellow warning; it must not destroy an otherwise usable Preview."
+      "invalidHideUi": "An invalid HideUi is a structured authoring error. Unity does not omit, retarget or repair it silently."
     },
     "shotPrinciples": {
       "intention": "Give each shot one dominant intention or beat and set compositionTargetId when a focal entity is intended.",
@@ -26901,10 +26933,10 @@
     "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
     "schemaVersion": 5,
     "contextVersion": 3,
-    "contractRevision": "8E25E6F5488A9A89E3829EF234E36C465108EC993A08A42F0FDBBADAE79812D3",
-    "schemaHash": "21D9BD398D886F80FCF8E553A80242819FA44FE6DFF75A368FEC57C432099E4A",
+    "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
+    "schemaHash": "CF0ABC51E3C5889E757B026F30A7F5BC50C7CDA00360FE7FB4C967E27C6FE4E7",
     "contextId": "NEW_CUTSCENE_CONTEXT",
-    "catalogRevision": "7624414197416586144",
+    "catalogRevision": "7624471883407822870",
     "projectId": "",
     "planId": "plan_example_minimal",
     "baseRevision": 0,

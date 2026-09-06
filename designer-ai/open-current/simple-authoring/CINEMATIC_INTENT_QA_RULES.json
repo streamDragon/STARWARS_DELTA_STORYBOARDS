@@ -1,5 +1,5 @@
 {
-  "revision": "A215FB0F8D7648D3BAD5336EFA3189F5D011E8F5C8C218F93F0F2D8DA8D3A4DD",
+  "revision": "997510F2702310B3D6EF85089CA642DCF9F05331DDD10FE1894AE3E6CC8E879E",
   "rules": [
     {
       "ruleId": "ACTOR_IDENTITY_COLLISION",
@@ -57,7 +57,7 @@
       "authoringRequirement": "MUST_AUTHOR",
       "diagnosticCode": "ANIMATION_COMPATIBILITY",
       "description": "Explicit animation IDs must belong to the selected Actor compatibility set.",
-      "defaultPolicy": "Only an underspecified semantic request may use a safe static fallback.",
+      "defaultPolicy": "An underspecified semantic request may omit animation; an explicit animation request never degrades to static presentation.",
       "normalizationPolicy": "Resolve the exact serialized animation ID against CURRENT.",
       "autoRepairPolicy": "Never replace an explicit illegal animation with a guessed animation.",
       "validationPolicy": "Block explicit incompatible animation IDs.",
@@ -665,13 +665,13 @@
   "schema": "STARWARS_DELTA_CINEMATIC_INTENT_QA_RULES",
   "schemaVersion": 1,
   "status": "CURRENT_VERIFIED_CUTSCENE_VALIDATION",
-  "publishTransactionId": "20260902-023015026-a608ffa7",
-  "catalogRevision": "7624414197416586144",
+  "publishTransactionId": "20260906-030421962-70241c07",
+  "catalogRevision": "7624471883407822870",
   "requiredCurrent": {
-    "catalogRevision": "7624414197416586144",
-    "contractRevision": "8E25E6F5488A9A89E3829EF234E36C465108EC993A08A42F0FDBBADAE79812D3",
-    "schemaHash": "21D9BD398D886F80FCF8E553A80242819FA44FE6DFF75A368FEC57C432099E4A",
-    "snapshotContentHash": "7C26BD78ED8487625D614D2A957DD1F3FF1496B0213AB894C7115C1557585BBB",
-    "authoringRuleRegistryRevision": "A215FB0F8D7648D3BAD5336EFA3189F5D011E8F5C8C218F93F0F2D8DA8D3A4DD"
+    "catalogRevision": "7624471883407822870",
+    "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
+    "schemaHash": "CF0ABC51E3C5889E757B026F30A7F5BC50C7CDA00360FE7FB4C967E27C6FE4E7",
+    "snapshotContentHash": "DBD6639CAC2ED78E227D3BBD84386ECF5C25C9B095C308FA22086D28DD53DD72",
+    "authoringRuleRegistryRevision": "997510F2702310B3D6EF85089CA642DCF9F05331DDD10FE1894AE3E6CC8E879E"
   }
 }

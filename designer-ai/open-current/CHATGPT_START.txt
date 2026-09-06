@@ -43,11 +43,11 @@ Copy exact assetId values and exact compatibleAnimationIds values. Never infer c
 EXISTING CUTSCENE REVISION
 Use ADD CATALOG + PRESENT STATE OF THE CUTSCENE + the natural-language requested change. Present State is current Cutscene state only; ADD CATALOG remains the global rules/assets source.
 
-Contract revision: 8E25E6F5488A9A89E3829EF234E36C465108EC993A08A42F0FDBBADAE79812D3
-Schema hash: 21D9BD398D886F80FCF8E553A80242819FA44FE6DFF75A368FEC57C432099E4A
-Authoring rule registry revision: A215FB0F8D7648D3BAD5336EFA3189F5D011E8F5C8C218F93F0F2D8DA8D3A4DD
-Snapshot content hash: 7C26BD78ED8487625D614D2A957DD1F3FF1496B0213AB894C7115C1557585BBB
-Snapshot identity: catalogRevision=7624414197416586144;contractRevision=8E25E6F5488A9A89E3829EF234E36C465108EC993A08A42F0FDBBADAE79812D3;schemaHash=21D9BD398D886F80FCF8E553A80242819FA44FE6DFF75A368FEC57C432099E4A;snapshotContentHash=7C26BD78ED8487625D614D2A957DD1F3FF1496B0213AB894C7115C1557585BBB
+Contract revision: 76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF
+Schema hash: CF0ABC51E3C5889E757B026F30A7F5BC50C7CDA00360FE7FB4C967E27C6FE4E7
+Authoring rule registry revision: 997510F2702310B3D6EF85089CA642DCF9F05331DDD10FE1894AE3E6CC8E879E
+Snapshot content hash: DBD6639CAC2ED78E227D3BBD84386ECF5C25C9B095C308FA22086D28DD53DD72
+Snapshot identity: catalogRevision=7624471883407822870;contractRevision=76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF;schemaHash=CF0ABC51E3C5889E757B026F30A7F5BC50C7CDA00360FE7FB4C967E27C6FE4E7;snapshotContentHash=DBD6639CAC2ED78E227D3BBD84386ECF5C25C9B095C308FA22086D28DD53DD72
 Do not treat catalogRevision alone as proof that two snapshots are equivalent. Compare the complete snapshot identity: catalogRevision, contractRevision, schemaHash and snapshotContentHash.
 Supported Cutscene package version: 5
 
@@ -113,6 +113,8 @@ Use speakerExpression/listenerExpression/reaction.expression for acting choices 
 
 ACTOR IDENTITY AND PROPORTIONS
 - ACTOR IDENTITY RULE: cast[].identityHandle MUST identify a canonical Actor. Do not put a Sprite frame, portrait frame, AnimationClip, Texture or arbitrary visual asset handle in identityHandle.
+- cast[].identityHandle is the exact Actor identity; cast[].semanticRole is the narrative role this character performs in this movie. Do not copy Catalog/Vision annotation roles into semanticRole or infer it silently.
+- visible[].role is the role of a visible instance/composition element; beat.dramaticFunction is the role of the beat. These fields are distinct from cast[].semanticRole.
 - visible[].handle selects the visible visual representation; actions[].subject references cast[].id. animationIntent/performanceIntent are semantic requests. Never author raw AnimationClip IDs.
 - Example: cast { id: CIV_BOY_SCHOOL_01, identityHandle: <canonical Actor handle> }; visible { id: CIV_BOY_SCHOOL_01, handle: <approved visual handle>, animationIntent: walk }; action { subject: CIV_BOY_SCHOOL_01, animationIntent: walk }.
 - When an Actor record exports preferredActorAssetId, use that exact preferred record for cast[].visualAssetId unless the story explicitly requires a different identity state. Do not use Run/Death/Hit/Jump/mid-animation frames as the persistent cast identity merely because the action name matches.
@@ -202,10 +204,10 @@ SMALL VALID JSON EXAMPLE
   "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
   "schemaVersion": 5,
   "contextVersion": 3,
-  "contractRevision": "8E25E6F5488A9A89E3829EF234E36C465108EC993A08A42F0FDBBADAE79812D3",
-  "schemaHash": "21D9BD398D886F80FCF8E553A80242819FA44FE6DFF75A368FEC57C432099E4A",
+  "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
+  "schemaHash": "CF0ABC51E3C5889E757B026F30A7F5BC50C7CDA00360FE7FB4C967E27C6FE4E7",
   "contextId": "NEW_CUTSCENE_CONTEXT",
-  "catalogRevision": "7624414197416586144",
+  "catalogRevision": "7624471883407822870",
   "projectId": "",
   "planId": "plan_example_minimal",
   "baseRevision": 0,
