@@ -4,6 +4,8 @@ on:
   pull_request:
     branches: [main]
     paths:
+      - 'designer-ai/current.json'
+      - 'designer-ai/open-current/OPEN_CURRENT.json'
       - 'designer-ai/open-current/CHATGPT_START.txt'
       - 'designer-ai/tools/current-source/CHATGPT_START.txt'
       - 'designer-ai/simple-preview.html'
@@ -25,3 +27,10 @@ jobs:
           grep -Fq 'SILENT AUDIO POLICY' designer-ai/open-current/CHATGPT_START.txt
           grep -Fq 'AUDIO_UNAVAILABLE_IN_CURRENT' designer-ai/simple-preview.html
           grep -Fq 'A silent cutscene is legal' designer-ai/tools/current-source/CHATGPT_START.txt
+          python3 - <<'PY'
+          import json
+          for path in ('designer-ai/current.json','designer-ai/open-current/OPEN_CURRENT.json'):
+              with open(path, encoding='utf-8-sig') as f:
+                  current=json.load(f)
+              assert 'authoringPackage' not in current, f'STALE_AUTHORING_PACKAGE_METADATA: {path}'
+          PY
