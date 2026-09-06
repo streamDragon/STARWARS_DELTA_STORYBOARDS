@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <script>
-window.STORYBOARD_BUILD_ID="20260828-structure-cleanup";
+window.STORYBOARD_BUILD_ID="20260906-devora-clean-authoring";
 (function(){
   const check=()=>fetch('site-build.json?ts='+Date.now(),{cache:'no-store'})
     .then(r=>r.json())
@@ -79,10 +79,11 @@ window.STORYBOARD_BUILD_ID="20260828-structure-cleanup";
       <div class="hub-kicker">Designer AI</div>
       <div id="designerStatus" class="hub-status warn">CHECKING CURRENT...</div>
       <h2>DEVORA THE QUEEN</h2>
-      <p>This is the single normal cutscene-authoring entry. Download the authoring package here; use the Visual Atlas only when ChatGPT needs direct pixel access.</p>
+      <p>This is the single normal cutscene-authoring entry. For a new movie use COPY FOR CHAT: natural-language request in, one CUTSCENE_SCRIPT_V1 out. V3/V5 and raw runtime IDs stay in the backend.</p>
       <div id="designerMeta" class="hub-meta"><span>Loading current manifest...</span></div>
       <div class="hub-actions">
-        <a id="downloadAuthoringPackage" class="button disabled" href="#" download>DOWNLOAD DEVORA AUTHORING PACKAGE</a>
+        <button id="copyChatStart" class="button" type="button">COPY FOR CHAT</button>
+        <a id="downloadAuthoringPackage" class="button secondary disabled" href="#" aria-disabled="true">AUTHORING PACKAGE AWAITING CLEAN REPUBLISH</a>
         <a id="downloadAtlasOnly" class="button secondary disabled" href="#" download>DOWNLOAD ATLAS ONLY</a>
         <a id="downloadBundle" class="button secondary disabled" href="#">VISUAL ATLAS</a>
       </div>
@@ -110,7 +111,7 @@ window.STORYBOARD_BUILD_ID="20260828-structure-cleanup";
   </section>
 </main>
 <footer>STARWARS_DELTA - Shared Storyboard Library - CURRENT</footer>
-<script src="assets/hub.js?build=20260906-1900-v3.9.0-AUTHORING-FLOW"></script>
+<script src="assets/hub.js?build=20260906-1930-v3.9.1-NO-LEGACY-PACK"></script>
 <script src="assets/storyboards.js?build=20260825-1530-v3.8.1-SINGLE-STORYBOARD"></script>
 </body>
 </html>
