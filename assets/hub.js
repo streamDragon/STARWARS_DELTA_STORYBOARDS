@@ -9,7 +9,7 @@ const meta=document.getElementById('designerMeta');
 const note=document.getElementById('designerNote');
 const authoringPackageButton=document.getElementById('downloadAuthoringPackage');
 const atlasDownloadButton=document.getElementById('downloadAtlasOnly');
-const atlasButton=document.getElementById('downloadBundle');
+const visualLibraryButton=document.getElementById('downloadBundle');
 const obsoleteCatalogButton=document.getElementById('downloadCatalog');
 const obsoleteBookButton=document.getElementById('downloadBook');
 const copy=document.getElementById('copyChatStart');
@@ -18,6 +18,7 @@ let openCurrent=null;
 const LOCAL_CURRENT='designer-ai/open-current/OPEN_CURRENT.json';
 const RAW_CURRENT='https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/main/designer-ai/open-current/OPEN_CURRENT.json';
 const short=s=>s?String(s).slice(0,12)+'…':'—';
+const mb=n=>Number.isFinite(Number(n))?(Number(n)/1048576).toFixed(1)+' MB':'—';
 const setStatus=(text,kind)=>{if(!status)return;status.textContent=text;status.className='hub-status'+(kind?' '+kind:'')};
 const resetDownload=el=>{if(!el)return;el.classList.add('disabled');el.removeAttribute('href');delete el.dataset.downloadUrl};
 const activate=(el,url,label)=>{if(!el||!url){resetDownload(el);return}el.textContent=label;el.href=url;el.dataset.downloadUrl=url;el.classList.remove('disabled');el.removeAttribute('aria-disabled')};
@@ -28,28 +29,32 @@ const activate=(el,url,label)=>{if(!el||!url){resetDownload(el);return}el.textCo
 obsoleteCatalogButton?.remove();
 obsoleteBookButton?.remove();
 if(authoringPackageButton)authoringPackageButton.textContent='DOWNLOAD DEVORA AUTHORING PACKAGE';
-if(atlasDownloadButton)atlasDownloadButton.textContent='DOWNLOAD ATLAS ONLY';
-if(atlasButton)atlasButton.textContent='VISUAL ATLAS';
+if(atlasDownloadButton)atlasDownloadButton.textContent='VISUAL PDF NOT PUBLISHED';
+if(visualLibraryButton)visualLibraryButton.textContent='DOWNLOAD VISUAL LIBRARY';
 
-function verifyAtomicIdentity(o){
+function verifyCurrent(o){
   if(!o||!['CURRENT_VERIFIED','CURRENT_VERIFIED_OPEN'].includes(o.status))throw new Error('Open CURRENT is not verified');
-  const identity=o.atomicIdentity||{};
-  const required=['publishTransactionId','catalogRevision','snapshotContentHash','contractRevision','schemaHash','authoringRuleRegistryRevision'];
-  for(const key of required){if(identity[key]===undefined||identity[key]===null||identity[key]==='')throw new Error('Atomic CURRENT identity missing '+key)}
-  const expected={
+  const required=o.requiredCurrent||{};
+  const identity={
     publishTransactionId:o.publishTransactionId,
-    catalogRevision:o.catalogRevision,
-    snapshotContentHash:o.snapshotContentHash,
+    catalogRevision:required.catalogRevision,
+    snapshotContentHash:required.snapshotContentHash,
     contractRevision:o.contractRevision,
     schemaHash:o.schemaHash,
     authoringRuleRegistryRevision:o.authoringRuleRegistryRevision
   };
-  for(const key of required){if(identity[key]!==expected[key])throw new Error('Atomic CURRENT identity mismatch: '+key)}
-  if(o.directorView?.requestScoped!==false)throw new Error('Director CURRENT is not full-catalog');
-  if(o.visualAtlas?.publishTransactionId!==identity.publishTransactionId)throw new Error('Visual Atlas transaction mismatch');
-  if(!o.visualAtlas?.pdfUrl)throw new Error('Visual Atlas URL missing');
-  if(o.authoringPackage?.publishTransactionId!==identity.publishTransactionId)throw new Error('Authoring package transaction mismatch');
+  for(const [key,value] of Object.entries(identity)){
+    if(value===undefined||value===null||value==='')throw new Error('CURRENT identity missing '+key);
+  }
+  if(required.contractRevision!==o.contractRevision)throw new Error('CURRENT contract revision mismatch');
+  if(required.schemaHash!==o.schemaHash)throw new Error('CURRENT schema hash mismatch');
+  if(required.authoringRuleRegistryRevision!==o.authoringRuleRegistryRevision)throw new Error('CURRENT rules revision mismatch');
+  if(o.provenance?.publishTransactionId!==o.publishTransactionId)throw new Error('CURRENT provenance transaction mismatch');
+  if(o.authoringPackage?.publishTransactionId!==o.publishTransactionId)throw new Error('Authoring package transaction mismatch');
   if(!o.authoringPackage?.downloadUrl)throw new Error('Authoring package URL missing');
+  if(!o.visualLibrary?.downloadUrl)throw new Error('Visual Library URL missing');
+  if(o.visualLibrary?.catalogRevision!==required.catalogRevision)throw new Error('Visual Library catalog revision mismatch');
+  if(o.visualLibrary?.snapshotContentHash!==required.snapshotContentHash)throw new Error('Visual Library snapshot mismatch');
   return identity;
 }
 
@@ -58,7 +63,7 @@ async function fetchCurrent(url){
   const response=await fetch(url+joiner+'ts='+Date.now(),{cache:'no-store'});
   if(!response.ok)throw new Error(`OPEN CURRENT HTTP ${response.status}`);
   const value=await response.json();
-  verifyAtomicIdentity(value);
+  verifyCurrent(value);
   return value;
 }
 
@@ -70,12 +75,11 @@ async function load(){
 
     if(!pagesCurrent&&!gitCurrent)throw new Error(`Pages: ${pagesError?.message||'unavailable'}; Git main: ${gitError?.message||'unavailable'}`);
 
-    // Prefer Git main when available. A temporarily stale/broken Pages copy is propagation state, not a false product failure.
     openCurrent=gitCurrent||pagesCurrent;
-    const identity=verifyAtomicIdentity(openCurrent);
-    const counts=openCurrent.directorView?.counts||{};
-    const atlas=openCurrent.visualAtlas||{};
+    const identity=verifyCurrent(openCurrent);
     const authoringPackage=openCurrent.authoringPackage||{};
+    const visualLibrary=openCurrent.visualLibrary||{};
+    const atlasPdfUrl=openCurrent.visualAtlas?.pdfUrl||null;
     const pagesSynced=!!pagesCurrent&&pagesCurrent.publishTransactionId===openCurrent.publishTransactionId;
 
     if(gitCurrent&&!pagesSynced){
@@ -84,25 +88,32 @@ async function load(){
       setStatus('CURRENT VERIFIED','');
     }
 
-    if(meta)meta.innerHTML=`<span>Transaction: <b>${identity.publishTransactionId}</b></span><span>Catalog revision: <b>${identity.catalogRevision}</b></span><span>Rules: <b>${short(identity.authoringRuleRegistryRevision)}</b></span><span>Director: <b>${counts.actors||0} actors / ${counts.layers||0} layers / ${counts.effects||0} effects / ${counts.ui||0} UI</b></span><span>Visual Atlas: <b>${atlas.totalPages||0} pages</b></span>`;
+    if(meta)meta.innerHTML=`<span>Transaction: <b>${identity.publishTransactionId}</b></span><span>Catalog revision: <b>${identity.catalogRevision}</b></span><span>Rules: <b>${short(identity.authoringRuleRegistryRevision)}</b></span><span>Authoring package: <b>${mb(authoringPackage.sizeBytes)}</b></span><span>Visual library: <b>${visualLibrary.assetCount||0} assets / ${mb(visualLibrary.sizeBytes)}</b></span>`;
+
     activate(authoringPackageButton,authoringPackage.downloadUrl,'DOWNLOAD DEVORA AUTHORING PACKAGE');
-    activate(atlasDownloadButton,atlas.pdfUrl,'DOWNLOAD ATLAS ONLY');
-    activate(atlasButton,atlas.pdfUrl,'VISUAL ATLAS');
-    if(note)note.textContent=pagesSynced
-      ?'One normal path: download the current authoring package here, attach it to ChatGPT, and describe the film. OPEN_CURRENT is the only public CURRENT source.'
-      :'Git main CURRENT is verified. GitHub Pages is still propagating; this is not a CURRENT failure.';
+    activate(visualLibraryButton,visualLibrary.downloadUrl,'DOWNLOAD VISUAL LIBRARY');
+    if(atlasPdfUrl){
+      activate(atlasDownloadButton,atlasPdfUrl,'DOWNLOAD VISUAL PDF ONLY');
+    }else{
+      resetDownload(atlasDownloadButton);
+      if(atlasDownloadButton)atlasDownloadButton.textContent='VISUAL PDF NOT PUBLISHED';
+    }
+
+    if(note)note.textContent=atlasPdfUrl
+      ?'One site, one CURRENT. Download the authoring package for normal movie work; the Visual PDF is available separately.'
+      :'One site, one CURRENT. The authoring package and full Visual Library are published. A separate Visual PDF artifact is not published in this CURRENT.';
   }catch(e){
     setStatus('CURRENT UNAVAILABLE','failed');
     if(meta)meta.innerHTML=`<span>${String(e.message||e)}</span>`;
-    if(note)note.textContent='Storyboard access still works. Designer AI authoring is blocked only because neither Git main nor Pages contains a verifiable OPEN_CURRENT.';
+    if(note)note.textContent='Storyboard access still works. Designer AI downloads are blocked because OPEN_CURRENT could not be verified.';
     resetDownload(authoringPackageButton);
     resetDownload(atlasDownloadButton);
-    resetDownload(atlasButton);
+    resetDownload(visualLibraryButton);
   }
 }
 
 copy?.addEventListener('click',async()=>{
-  const text='Use the sealed STARWARS_DELTA FULL DIRECTOR CURRENT instructions at https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/CHATGPT_START.txt . Read https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/OPEN_CURRENT.json and verify the complete atomic identity including authoringRuleRegistryRevision. Use only that matching Director, Catalog contract, Instruction Book and Visual Atlas. Create a NEW cutscene from my request.';
+  const text='Use the sealed STARWARS_DELTA FULL DIRECTOR CURRENT instructions at https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/CHATGPT_START.txt . Read https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/OPEN_CURRENT.json and verify its requiredCurrent identity. Use only the matching Authoring Package, Instruction Book and Visual Library. Create a NEW cutscene from my request.';
   try{await navigator.clipboard.writeText(text);copy.textContent='COPIED';setTimeout(()=>copy.textContent='COPY FOR CHAT',1600)}catch(_){window.prompt('Copy this message for ChatGPT:',text)}
 });
 
