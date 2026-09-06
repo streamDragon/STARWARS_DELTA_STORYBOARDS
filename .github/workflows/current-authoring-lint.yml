@@ -12,6 +12,16 @@ on:
       - 'designer-ai/simple-preview.html'
       - 'designer-ai/tools/current-source/**'
       - '.github/workflows/current-authoring-lint.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'README.md'
+      - 'designer-ai/current.json'
+      - 'designer-ai/open-current/**'
+      - 'designer-ai/devora.html'
+      - 'designer-ai/simple-preview.html'
+      - 'designer-ai/tools/current-source/**'
+      - '.github/workflows/current-authoring-lint.yml'
 
 permissions:
   contents: read
@@ -32,7 +42,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import json, pathlib, zipfile
+          import json, pathlib
           from jsonschema import Draft202012Validator
 
           root=pathlib.Path('designer-ai')
@@ -49,6 +59,15 @@ jobs:
           ]
           present=[str(p) for p in obsolete if p.exists()]
           assert not present, 'DUPLICATE_OR_STALE_CURRENT_SURFACE_REAPPEARED: '+', '.join(present)
+
+          forbidden_live=[
+              live/'CHATGPT_READ_FIRST.txt',
+              live/'DIRECTOR_PACK_MANIFEST.json',
+              live/'SOURCE_CURRENT.json',
+              live/'STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip',
+          ]
+          stale_live=[str(p) for p in forbidden_live if p.exists()]
+          assert not stale_live, 'LEGACY_PUBLIC_CURRENT_SURFACE_REAPPEARED: '+', '.join(stale_live)
 
           required_source=[
               source/'CHATGPT_START.txt',
@@ -127,6 +146,7 @@ jobs:
           assert not (live/'instruction-book').exists(), 'LEGACY_INSTRUCTION_BOOK_REAPPEARED'
 
           start=(live/'CHATGPT_START.txt').read_text(encoding='utf-8-sig')
+          source_start=(source/'CHATGPT_START.txt').read_text(encoding='utf-8-sig')
           guide=(live/'FILM_AUTHORING_GUIDE_CURRENT.md').read_text(encoding='utf-8-sig')
           arch=(simple/'ARCHITECTURE.md').read_text(encoding='utf-8-sig')
           failsoft=(source_simple/'FAIL_SOFT_MOVIE_AUTHORING_POLICY.md').read_text(encoding='utf-8-sig')
@@ -136,12 +156,16 @@ jobs:
               'CURRENT AUTHORITATIVE RULES\nV2.7',
               'CUTSCENE_GOLDEN_QA_POLICY.md',
           ]
-          for label,text in [('CHATGPT_START',start),('FILM_GUIDE',guide),('ARCHITECTURE',arch),('FAIL_SOFT_SOURCE',failsoft)]:
+          for label,text in [('CHATGPT_START',start),('SOURCE_CHATGPT_START',source_start),('FILM_GUIDE',guide),('ARCHITECTURE',arch),('FAIL_SOFT_SOURCE',failsoft)]:
               hits=[p for p in forbidden_phrases if p in text]
               assert not hits, f'{label}_LEGACY_GUIDANCE: {hits}'
 
           assert 'VISIBLE EFFECTS / PARTICLES' in start
           assert 'CUTSCENE PROJECTILES / MISSILES' in start
+          assert 'NORMAL FLOW LOCK' in source_start
+          assert 'REPAIR FLOW' in source_start
+          assert 'Do not ask for, generate, or depend on a COPY REQUEST / REQUEST REPORT step for normal NEW authoring.' in source_start
+          assert 'Do not use an old V5 package as a template for NEW authoring.' in source_start
           assert 'Action timing' in arch or 'Actor motion and timing' in arch
           assert 'Do **not** require a meaningless `reveal`' in failsoft
           assert 'Accepted fixtures and Golden QA' in guide
@@ -154,17 +178,10 @@ jobs:
           leaked=[str(p) for p in projection_paths if p.is_file() and generated_root in p.read_text(encoding='utf-8-sig',errors='replace')]
           assert not leaked, 'GENERATED_CUTSCENE_SOURCE_LEAK_IN_PUBLIC_CURRENT: '+', '.join(leaked)
 
-          pack=live/'STARWARS_DELTA_CHATGPT_DIRECTOR_CURRENT.zip'
-          if pack.is_file():
-              with zipfile.ZipFile(pack,'r') as z:
-                  names=[n.replace('\\','/') for n in z.namelist()]
-                  stale=[n for n in names if n.startswith('catalog-contract/') or n.startswith('instruction-book/')]
-                  assert not stale, 'LEGACY_SURFACE_INSIDE_DIRECTOR_PACK: '+', '.join(stale[:20])
-
           print('CURRENT_AUTHORING_SOURCE_LINT_PASS')
           print('CURRENT', current.get('publishTransactionId'))
           print('CATALOG', current.get('requiredCurrent',{}).get('catalogRevision'))
           print('SIMPLE_V1_RULE_COUNT', len(actual))
-          print('LEGACY_PUBLIC_SURFACES', 0)
+          print('LEGACY_PUBLIC_SURFACES', len(stale_live))
           print('GENERATED_ROOT_PUBLIC_PROJECTION_LEAKS', len(leaked))
           PY
