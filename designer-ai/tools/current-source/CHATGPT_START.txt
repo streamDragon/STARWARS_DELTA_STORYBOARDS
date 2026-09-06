@@ -119,10 +119,16 @@ Dialogue is closed-world.
 - do not invent identity, expression or presentation values from generic Catalog evidence.
 
 AUDIO
-- each cue uses kind + exact CURRENT route=Audio handle.
+- each authored cue uses kind + exact CURRENT route=Audio handle.
 - repeated uses remain separate authored occurrences.
 - visual Effects and projectiles do not automatically supply sound.
 - generated simple_audio_* identities are backend-only.
+
+SILENT AUDIO POLICY
+- Audio is optional in CUTSCENE_SCRIPT_V1. A silent cutscene is legal.
+- When CURRENT exposes zero route=Audio handles, omit beat.audio entirely. Never invent or infer an audio handle.
+- Missing/unavailable CURRENT audio is a non-blocking YELLOW warning: AUDIO_UNAVAILABLE_IN_CURRENT. It must not block schema validation, Editable Preview or Build.
+- If an explicit audio cue is authored, its handle must still be an exact CURRENT route=Audio handle; an explicit invalid/fabricated cue remains an authoring error.
 
 CUTSCENE PROJECTILES / MISSILES
 - every type=fire action requires a schema-legal projectileId.
