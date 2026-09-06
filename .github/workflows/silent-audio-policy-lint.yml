@@ -1,6 +1,15 @@
 name: Silent Audio Authoring Policy Lint
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'designer-ai/current.json'
+      - 'designer-ai/open-current/OPEN_CURRENT.json'
+      - 'designer-ai/open-current/CHATGPT_START.txt'
+      - 'designer-ai/tools/current-source/CHATGPT_START.txt'
+      - 'designer-ai/simple-preview.html'
+      - '.github/workflows/silent-audio-policy-lint.yml'
   pull_request:
     branches: [main]
     paths:
@@ -29,8 +38,16 @@ jobs:
           grep -Fq 'A silent cutscene is legal' designer-ai/tools/current-source/CHATGPT_START.txt
           python3 - <<'PY'
           import json
+          old_sha='445d9becc9f8a19cac459e0d677b010ad6f49b3652a57abb8a1ec3b6268f36dd'
+          old_tag='designer-ai-current-20260906-123745818-dbd6639cac'
+          values=[]
           for path in ('designer-ai/current.json','designer-ai/open-current/OPEN_CURRENT.json'):
               with open(path, encoding='utf-8-sig') as f:
                   current=json.load(f)
-              assert 'authoringPackage' not in current, f'STALE_AUTHORING_PACKAGE_METADATA: {path}'
+              pkg=current.get('authoringPackage')
+              if pkg:
+                  assert pkg.get('sha256') != old_sha, f'STALE_AUTHORING_PACKAGE_SHA: {path}'
+                  assert old_tag not in str(pkg.get('downloadUrl','')), f'STALE_AUTHORING_PACKAGE_URL: {path}'
+              values.append(pkg)
+          assert values[0] == values[1], 'AUTHORING_PACKAGE_METADATA_CURRENT_MISMATCH'
           PY
