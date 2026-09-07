@@ -1,13 +1,12 @@
 (()=>{
 'use strict';
-const UI_BUILD='20260906-1930-v3.9.1-NO-LEGACY-PACK';
+const UI_BUILD='20260907-simple-v1-guard';
 if(!document.querySelector('link[data-ui-polish]')){const l=document.createElement('link');l.rel='stylesheet';l.href=`assets/ui-polish.css?build=${UI_BUILD}`;l.dataset.uiPolish='1';document.head.appendChild(l)}
 if(!document.querySelector('script[data-ui-polish]')){const s=document.createElement('script');s.src=`assets/ui-polish.js?build=${UI_BUILD}`;s.defer=true;s.dataset.uiPolish='1';document.head.appendChild(s)}
 
 const status=document.getElementById('designerStatus');
 const meta=document.getElementById('designerMeta');
 const note=document.getElementById('designerNote');
-const authoringPackageButton=document.getElementById('downloadAuthoringPackage');
 const atlasDownloadButton=document.getElementById('downloadAtlasOnly');
 const visualLibraryButton=document.getElementById('downloadBundle');
 const obsoleteCatalogButton=document.getElementById('downloadCatalog');
@@ -24,12 +23,9 @@ const resetDownload=el=>{if(!el)return;el.classList.add('disabled');el.removeAtt
 const activate=(el,url,label)=>{if(!el||!url){resetDownload(el);return}el.textContent=label;el.href=url;el.dataset.downloadUrl=url;el.classList.remove('disabled');el.removeAttribute('aria-disabled')};
 
 // One public authoring site: the main Hub. OPEN_CURRENT is the single public CURRENT source.
-// Git main is authoritative while GitHub Pages may briefly trail after a publish.
-// Normal NEW authoring is Simple V1. The previous request-scoped package is intentionally not exposed.
+// Normal NEW authoring is Simple V1. Legacy request-scoped authoring packages are not part of the UI.
 obsoleteCatalogButton?.remove();
 obsoleteBookButton?.remove();
-resetDownload(authoringPackageButton);
-if(authoringPackageButton)authoringPackageButton.textContent='AUTHORING PACKAGE AWAITING CLEAN REPUBLISH';
 if(atlasDownloadButton)atlasDownloadButton.textContent='VISUAL PDF NOT PUBLISHED';
 if(visualLibraryButton)visualLibraryButton.textContent='DOWNLOAD VISUAL LIBRARY';
 
@@ -88,8 +84,6 @@ async function load(){
 
     if(meta)meta.innerHTML=`<span>Transaction: <b>${identity.publishTransactionId}</b></span><span>Catalog revision: <b>${identity.catalogRevision}</b></span><span>Rules: <b>${short(identity.authoringRuleRegistryRevision)}</b></span><span>Authoring: <b>Simple V1 CURRENT</b></span><span>Visual library: <b>${visualLibrary.assetCount||0} assets / ${mb(visualLibrary.sizeBytes)}</b></span>`;
 
-    resetDownload(authoringPackageButton);
-    if(authoringPackageButton)authoringPackageButton.textContent='AUTHORING PACKAGE AWAITING CLEAN REPUBLISH';
     activate(visualLibraryButton,visualLibrary.downloadUrl,'DOWNLOAD VISUAL LIBRARY');
     if(atlasPdfUrl){
       activate(atlasDownloadButton,atlasPdfUrl,'DOWNLOAD VISUAL PDF ONLY');
@@ -98,12 +92,11 @@ async function load(){
       if(atlasDownloadButton)atlasDownloadButton.textContent='VISUAL PDF NOT PUBLISHED';
     }
 
-    if(note)note.textContent='Normal NEW authoring uses COPY FOR CHAT and the sealed public CURRENT. The previous request-scoped authoring ZIP is intentionally blocked until a clean Simple V1 package is republished.';
+    if(note)note.textContent='Normal NEW authoring uses COPY FOR CHAT and the sealed Simple V1 CURRENT. V3/V5 remain backend-only.';
   }catch(e){
     setStatus('CURRENT UNAVAILABLE','failed');
     if(meta)meta.innerHTML=`<span>${String(e.message||e)}</span>`;
     if(note)note.textContent='Storyboard access still works. Designer AI authoring is blocked because OPEN_CURRENT could not be verified.';
-    resetDownload(authoringPackageButton);
     resetDownload(atlasDownloadButton);
     resetDownload(visualLibraryButton);
   }

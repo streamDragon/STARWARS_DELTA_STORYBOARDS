@@ -1,0 +1,90 @@
+name: Simple V1 Publication Guard
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'designer-ai/open-current/**'
+      - 'designer-ai/tools/current-source/**'
+      - 'index.html'
+      - 'assets/hub.js'
+      - '.github/workflows/simple-v1-publication-guard.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'designer-ai/open-current/**'
+      - 'designer-ai/tools/current-source/**'
+      - 'index.html'
+      - 'assets/hub.js'
+      - '.github/workflows/simple-v1-publication-guard.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install schema validator
+        run: python3 -m pip install --disable-pip-version-check jsonschema
+      - name: Enforce one Simple V1 authoring contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, pathlib
+          from jsonschema import Draft202012Validator
+
+          root = pathlib.Path('designer-ai')
+          source = root/'tools'/'current-source'
+          live = root/'open-current'
+          source_start = source/'CHATGPT_START.txt'
+          live_start = live/'CHATGPT_START.txt'
+          schema_path = live/'simple-authoring'/'CUTSCENE_SCRIPT_V1.schema.json'
+          example_path = live/'simple-authoring'/'CUTSCENE_SCRIPT_V1_CANONICAL_EXAMPLE.json'
+
+          for p in (source_start, live_start, schema_path, example_path):
+              assert p.is_file(), f'REQUIRED_SIMPLE_V1_FILE_MISSING: {p}'
+
+          assert source_start.read_bytes() == live_start.read_bytes(), 'SEALED_CHATGPT_START_PARITY_DRIFT'
+
+          start = live_start.read_text(encoding='utf-8-sig')
+          forbidden = [
+              'STARWARS_DELTA ADD CATALOG',
+              'STRUCTURED CREATIVE INTENT',
+              'Use HardCut rather than Cut',
+              'ADD CATALOG + PRESENT STATE',
+              'CURRENT AUTHORITATIVE RULES\nV2.7',
+              'Create a current V5 package',
+          ]
+          hits = [p for p in forbidden if p in start]
+          assert not hits, 'LEGACY_NEW_AUTHORING_GUIDANCE: ' + ', '.join(hits)
+          assert 'Author CUTSCENE_SCRIPT_V1 only.' in start, 'SIMPLE_V1_ONLY_LOCK_MISSING'
+          assert 'Do not ask for, generate, or depend on a COPY REQUEST / REQUEST REPORT step for normal NEW authoring.' in start, 'NORMAL_REQUEST_FLOW_BAN_MISSING'
+          assert 'Use the schema literally.' in start, 'SCHEMA_LITERALITY_LOCK_MISSING'
+
+          schema = json.loads(schema_path.read_text(encoding='utf-8-sig'))
+          example = json.loads(example_path.read_text(encoding='utf-8-sig'))
+          Draft202012Validator.check_schema(schema)
+          errors = list(Draft202012Validator(schema).iter_errors(example))
+          assert not errors, 'CANONICAL_SIMPLE_V1_SCHEMA_INVALID: ' + ' | '.join(e.message for e in errors[:10])
+
+          creative = schema['properties']['creativeIntent']
+          assert creative.get('type') == 'string', f'CREATIVE_INTENT_SCHEMA_DRIFT: {creative}'
+          transition = schema['$defs']['transition']['properties']['style']['enum']
+          assert transition == ['cut','crossfade','fade_to_black','fade_from_black'], f'TRANSITION_STYLE_SCHEMA_DRIFT: {transition}'
+          projectile = schema['$defs']['action']['properties']['projectileId']['enum']
+          assert projectile == ['CS_PROJECTILE_BLUE_BOLT','CS_PROJECTILE_PURPLE_BOLT','CS_PROJECTILE_POWERBALL'], f'PROJECTILE_SCHEMA_DRIFT: {projectile}'
+          speed = schema['$defs']['action']['properties']['speed']['enum']
+          assert speed == ['slow','medium','fast','burst'], f'SEMANTIC_SPEED_SCHEMA_DRIFT: {speed}'
+
+          index = pathlib.Path('index.html').read_text(encoding='utf-8-sig')
+          hub = pathlib.Path('assets/hub.js').read_text(encoding='utf-8-sig')
+          assert 'AUTHORING PACKAGE AWAITING CLEAN REPUBLISH' not in index, 'LEGACY_AUTHORING_PACKAGE_UI_REAPPEARED'
+          assert 'downloadAuthoringPackage' not in index, 'LEGACY_AUTHORING_PACKAGE_CONTROL_REAPPEARED'
+          assert 'authoringPackageButton' not in hub, 'LEGACY_AUTHORING_PACKAGE_JS_REAPPEARED'
+
+          print('SIMPLE_V1_PUBLICATION_GUARD_PASS')
+          PY

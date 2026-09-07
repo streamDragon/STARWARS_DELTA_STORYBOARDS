@@ -91,8 +91,6 @@ jobs:
           missing=[str(p) for p in required_source if not p.is_file()]
           assert not missing, 'CANONICAL_AUTHORING_SOURCE_MISSING: '+', '.join(missing)
 
-          # Maintained guidance has one engineering source and one sealed public copy.
-          # These pairs must be byte-identical; publication is not allowed to invent a second rulebook.
           maintained_pairs=[
               (source/'CHATGPT_START.txt', live/'CHATGPT_START.txt'),
               (source/'FILM_AUTHORING_GUIDE_CURRENT.md', live/'FILM_AUTHORING_GUIDE_CURRENT.md'),
@@ -121,9 +119,15 @@ jobs:
           errors=list(Draft202012Validator(schema).iter_errors(example))
           assert not errors, 'CANONICAL_SIMPLE_V1_SCHEMA_INVALID: '+' | '.join(e.message for e in errors[:10])
 
+          creative=schema['properties']['creativeIntent']
+          assert creative.get('type')=='string', f'CREATIVE_INTENT_SCHEMA_DRIFT: {creative}'
+          transition=schema['$defs']['transition']['properties']['style']['enum']
+          assert transition==['cut','crossfade','fade_to_black','fade_from_black'], f'TRANSITION_STYLE_SCHEMA_DRIFT: {transition}'
           projectile=schema['$defs']['action']['properties']['projectileId']['enum']
           expected=['CS_PROJECTILE_BLUE_BOLT','CS_PROJECTILE_PURPLE_BOLT','CS_PROJECTILE_POWERBALL']
           assert projectile==expected, f'PROJECTILE_SCHEMA_DRIFT: {projectile}'
+          speed=schema['$defs']['action']['properties']['speed']['enum']
+          assert speed==['slow','medium','fast','burst'], f'SEMANTIC_SPEED_SCHEMA_DRIFT: {speed}'
           action=schema['$defs']['action']['properties']
           visible=schema['$defs']['visibleElement']['properties']
           assert 'startOffset' in action and 'duration' in action, 'ACTION_TIMING_SCHEMA_MISSING'
@@ -182,6 +186,10 @@ jobs:
           index=pathlib.Path('index.html').read_text(encoding='utf-8-sig')
 
           forbidden_phrases=[
+              'STARWARS_DELTA ADD CATALOG',
+              'STRUCTURED CREATIVE INTENT',
+              'Use HardCut rather than Cut',
+              'ADD CATALOG + PRESENT STATE',
               'Create a current V5 package',
               'CURRENT AUTHORITATIVE RULES\nV2.7',
               'CUTSCENE_GOLDEN_QA_POLICY.md',
@@ -191,6 +199,9 @@ jobs:
               hits=[p for p in forbidden_phrases if p in text]
               assert not hits, f'{label}_LEGACY_GUIDANCE: {hits}'
 
+          assert start.startswith('STARWARS_DELTA DEVORA - SIMPLE V1 CURRENT'), 'LIVE_START_SIMPLE_V1_HEADER_MISSING'
+          assert 'Author CUTSCENE_SCRIPT_V1 only.' in start, 'LIVE_START_SIMPLE_V1_ONLY_LOCK_MISSING'
+          assert 'Use the schema literally.' in start, 'LIVE_START_SCHEMA_LITERALITY_LOCK_MISSING'
           assert 'VISIBLE EFFECTS / PARTICLES' in start, 'LIVE_START_EFFECT_GUIDANCE_MISSING'
           assert 'CUTSCENE PROJECTILES / MISSILES' in start, 'LIVE_START_PROJECTILE_GUIDANCE_MISSING'
           assert 'NORMAL FLOW LOCK' in source_start, 'SOURCE_NORMAL_FLOW_LOCK_MISSING'
@@ -201,10 +212,10 @@ jobs:
           assert 'Do **not** require a meaningless `reveal`' in failsoft, 'FAIL_SOFT_REVEAL_POLICY_MISSING'
           assert 'Accepted fixtures and Golden QA' in guide, 'GOLDEN_FIXTURE_GUIDANCE_MISSING'
 
-          # Public Devora UI must not silently re-enable the known legacy request-scoped ZIP.
           assert 'COPY FOR CHAT' in index, 'DEVORA_COPY_FOR_CHAT_CONTROL_MISSING'
-          assert 'AUTHORING PACKAGE AWAITING CLEAN REPUBLISH' in index, 'DEVORA_PACKAGE_BLOCK_STATE_MISSING'
-          assert "activate(authoringPackageButton" not in hub, 'LEGACY_AUTHORING_PACKAGE_REEXPOSED'
+          assert 'AUTHORING PACKAGE AWAITING CLEAN REPUBLISH' not in index, 'LEGACY_AUTHORING_PACKAGE_BLOCK_STATE_REAPPEARED'
+          assert 'downloadAuthoringPackage' not in index, 'LEGACY_AUTHORING_PACKAGE_CONTROL_REAPPEARED'
+          assert 'authoringPackageButton' not in hub, 'LEGACY_AUTHORING_PACKAGE_JS_REAPPEARED'
           assert 'Do NOT ask me for a Request Report/COPY REQUEST' in hub, 'DEVORA_COPY_FLOW_GUARD_MISSING'
 
           generated_root='Assets/_Game/MY_Core/MY_Data/Cutscenes/Generated'
