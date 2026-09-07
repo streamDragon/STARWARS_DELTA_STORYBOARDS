@@ -5,7 +5,7 @@
     "catalogRevision": "7624471883407822870",
     "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
     "schemaHash": "CF0ABC51E3C5889E757B026F30A7F5BC50C7CDA00360FE7FB4C967E27C6FE4E7",
-    "snapshotContentHash": "574AE9C38CEE089035B206D36E5EE3B65E472A3080B049F3C7D75603CEF50DA2",
+    "snapshotContentHash": "65CF5A5FF516A3DDC248D4B68EC76C0E820773600D2238F7CC7CBE7A6DE2B7F5",
     "authoringRuleRegistryRevision": "997510F2702310B3D6EF85089CA642DCF9F05331DDD10FE1894AE3E6CC8E879E"
   },
   "purpose": "Author-facing rules for CUTSCENE_SCRIPT_V1 only. Backend/internal rules are intentionally omitted.",
@@ -23,7 +23,7 @@
     {
       "id": "ANIMATION_SEMANTIC_ONLY",
       "blocks": true,
-      "instruction": "Author animation/performance through animationIntent or performanceIntent. Raw Animation identities remain backend compatibility vocabulary and are not direct Simple V1 handles."
+      "instruction": "animationIntent is the only field that requests an exact compatible animation capability. performanceIntent is descriptive directing intent and does not independently request or grant an Animation clip. Raw Animation identities remain backend compatibility vocabulary and are not direct Simple V1 handles."
     },
     {
       "id": "DIALOGUE_CLOSED_WORLD",
@@ -81,9 +81,14 @@
       "instruction": "Use semantic speed values slow, medium, fast or burst. Do not author numeric runtime speed values."
     },
     {
-      "id": "V4_RECIPES_ARE_AUTHORING_ONLY",
+      "id": "V1_V4_BACKEND_BOUNDARY",
+      "blocks": true,
+      "instruction": "V1 owns WHAT: author only legal CUTSCENE_SCRIPT_V1 semantic intent. V4 owns HOW: internal directing/execution recipes may implement an already-legal V1 request, but V4 recipe IDs must never grant Actor capability and must never be serialized into CUTSCENE_SCRIPT_V1."
+    },
+    {
+      "id": "EDITING_MOVE_LIBRARY",
       "blocks": false,
-      "instruction": "V4 move recipe names are directing guidance only. Never serialize recipe names. Expand them into legal CUTSCENE_SCRIPT_V1 beats/actions using the current supported motion vocabulary."
+      "instruction": "Schema-exposed editingMoves are legal authoring fields and may be selected automatically by ChatGPT or forced explicitly. They reference existing consecutive beats and do not silently rewrite authored beat IDs/order/durations. Current repertoire: EyelineMatch [LOOKER -> LOOKED_AT_OBJECT -> REACTION_LOOKER]: A looker, the looked-at object, then the same looker confirming the relation.; TravelThenReveal [TRAVEL -> DESTINATION_REVEAL -> SPATIAL_CONFIRMATION]: Visible travel, reveal the destination, then confirm traveler and destination share the established space.; ConvergingAction [ACTION_LINE_A -> ACTION_LINE_B -> CONVERGENCE]: Two distinct lines of visible action resolve into one shared frame or encounter.; KuleshovAssociation [SUBJECT -> ASSOCIATED_IMAGE -> SUBJECT_RETURN]: The same subject surrounds an associated image so the audience infers a subjective or emotional relation.; ParallelCrossCut [LINE_A -> LINE_B -> RETURN_A]: Alternate two distinct lines of action and return to the first so the audience infers simultaneity or comparison.; MatchOnAction [ACTION_START -> ACTION_CONTINUATION -> ACTION_RESULT]: Carry one subject's visible action across a cut so motion continuity joins different framings.; RevealThenReaction [REVEAL -> REACTION -> SHARED_CONTEXT]: Reveal new information, cut to a visible reaction, then restore shared context between cause and reactor."
     },
     {
       "id": "WARNING_FIRST",
