@@ -4,9 +4,9 @@
   "requiredCurrent": {
     "catalogRevision": "7624471883407822870",
     "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
-    "schemaHash": "CF0ABC51E3C5889E757B026F30A7F5BC50C7CDA00360FE7FB4C967E27C6FE4E7",
-    "snapshotContentHash": "65CF5A5FF516A3DDC248D4B68EC76C0E820773600D2238F7CC7CBE7A6DE2B7F5",
-    "authoringRuleRegistryRevision": "997510F2702310B3D6EF85089CA642DCF9F05331DDD10FE1894AE3E6CC8E879E"
+    "schemaHash": "CC97802C1A6A6EFF291623AE7A46C6E349599461D67EF764E2FF5EACD30EF947",
+    "snapshotContentHash": "0B52C0F27737A93B630B91B0C0A5C34095F2825EC8615C241AFF20AAAF1E52D2",
+    "authoringRuleRegistryRevision": "8CBCE85AF0FC24743F97AA4F104C31857926A98DAB52749CA75A2B7F6BF27F12"
   },
   "purpose": "Author-facing rules for CUTSCENE_SCRIPT_V1 only. Backend/internal rules are intentionally omitted.",
   "rules": [
@@ -24,6 +24,11 @@
       "id": "ANIMATION_SEMANTIC_ONLY",
       "blocks": true,
       "instruction": "animationIntent is the only field that requests an exact compatible animation capability. performanceIntent is descriptive directing intent and does not independently request or grant an Animation clip. Raw Animation identities remain backend compatibility vocabulary and are not direct Simple V1 handles."
+    },
+    {
+      "id": "ANIMATION_OWNERSHIP",
+      "blocks": true,
+      "instruction": "Within one beat, explicit actions[].animationIntent is the animation owner for that Actor and suppresses inferred/default animation from other actions for the same Actor. Movement, fire and camera motion may still run concurrently; Unity owns collision-free backend action IDs."
     },
     {
       "id": "DIALOGUE_CLOSED_WORLD",
@@ -64,6 +69,11 @@
       "id": "SEMANTIC_CAMERA_SUBJECT",
       "blocks": false,
       "instruction": "camera.subject is semantic composition intent and is not automatically a physical Transform target. DialoguePortrait participants do not become WorldActors merely to satisfy camera targeting."
+    },
+    {
+      "id": "CAMERA_TARGET_RESOLUTION",
+      "blocks": true,
+      "instruction": "Follow and Track require one resolvable WorldActor target. Author camera.subject when the beat contains multiple possible Actor targets; when omitted and exactly one cast Actor is referenced by the beat actions, Unity resolves that Actor deterministically. Never author backend targetEntityId."
     },
     {
       "id": "ACTOR_ORBIT_FIXED_CENTER_ONLY",
