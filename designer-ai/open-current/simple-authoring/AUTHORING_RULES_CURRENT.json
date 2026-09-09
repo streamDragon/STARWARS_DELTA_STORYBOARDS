@@ -91,6 +91,16 @@
       "instruction": "Use semantic speed values slow, medium, fast or burst. Do not author numeric runtime speed values."
     },
     {
+      "id": "PATH_POINTS_CANONICAL",
+      "blocks": true,
+      "instruction": "Every actions[].pathPoints[] item is exactly an object with numeric x and y fields, for example {\"x\": 0.1, \"y\": 0.3}. Array/tuple points such as [x,y] are forbidden."
+    },
+    {
+      "id": "SPATIAL_CONFIRMATION_VISIBLE_PAIR",
+      "blocks": true,
+      "instruction": "For editingMove TravelThenReveal, the third SPATIAL_CONFIRMATION beat must visibly contain both the same traveler from TRAVEL and the revealed destination from DESTINATION_REVEAL together in visible[]."
+    },
+    {
       "id": "V1_V4_BACKEND_BOUNDARY",
       "blocks": true,
       "instruction": "V1 owns WHAT: author only legal CUTSCENE_SCRIPT_V1 semantic intent. V4 owns HOW: internal directing/execution recipes may implement an already-legal V1 request, but V4 recipe IDs must never grant Actor capability and must never be serialized into CUTSCENE_SCRIPT_V1."

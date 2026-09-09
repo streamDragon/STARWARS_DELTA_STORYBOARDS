@@ -88,6 +88,7 @@ ACTOR ANIMATION AND MOTION
 - compatible real animation is requested through semantic animationIntent/performanceIntent.
 - actor motion uses only schema-legal motionIntent/path fields.
 - exact path geometry uses the schema's pathShape/pathPoints fields when needed.
+- pathPoints[] is canonical JSON object geometry: every point is exactly {"x": 0.1, "y": 0.3}-style with numeric x/y fields. Tuple/array forms such as [x,y] are forbidden.
 - semantic speed is only slow, medium, fast or burst.
 - Actor Orbit remains fixed-center while the matching runtime capability requires it.
 - do not assume pursuit/escort/intercept means per-frame moving-target tracking unless CURRENT/runtime explicitly supports it.
@@ -106,6 +107,7 @@ CINEMATIC EDITING MOVES
 - editingMoves reference authored beatIds and do not silently rewrite their IDs, order or durations.
 - current inference repertoire is exactly the IDs exposed by CUTSCENE_SCRIPT_V1.schema.json; never remember or invent a move that the matching schema does not expose.
 - within-shot V4 recipe names that are not schema fields remain guidance and must be expanded into legal beat camera/action fields.
+- TravelThenReveal is strict: its SPATIAL_CONFIRMATION beat must visibly contain both the same traveler and the revealed destination together in visible[].
 
 CAMERA
 Camera authoring is semantic directing intent.
@@ -185,6 +187,8 @@ Before returning JSON verify:
 11. camera fields use exact schema vocabulary;
 12. no unknown properties, raw Catalog IDs, runtime GUIDs, V3/V5 bookkeeping, Timeline bindings or Golden QA fields appear;
 13. no array-order sequencing assumption exists;
-14. no visual claim is made from metadata without pixel evidence when appearance matters.
+14. no visual claim is made from metadata without pixel evidence when appearance matters;
+15. every pathPoints[] item is an object with numeric x/y fields, never [x,y];
+16. every TravelThenReveal SPATIAL_CONFIRMATION visibly contains both traveler and destination together in visible[].
 
 Unity remains authoritative for final runtime validation and Editable Preview acceptance.

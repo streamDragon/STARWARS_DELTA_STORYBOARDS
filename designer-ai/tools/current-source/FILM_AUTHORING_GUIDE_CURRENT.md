@@ -142,13 +142,15 @@ Use adjacent beats for distinct semantic locomotion phases unless one precise co
 
 `editingMoves` expresses meaning created **between shots**, rather than another low-level camera primitive. ChatGPT may choose one automatically from natural-language intent or author an exact schema-exposed move explicitly.
 
-Examples include looker -> looked-at object -> reaction, travel -> destination reveal -> spatial confirmation, and two distinct action lines -> shared convergence. The exact legal move IDs always come from the matching Simple V1 schema/authoring rules.
+Examples include looker -> looked-at object -> reaction, travel -> destination reveal -> spatial confirmation, and two distinct action lines -> shared convergence. For TravelThenReveal specifically, the SPATIAL_CONFIRMATION beat must visibly contain both traveler and destination together in `visible[]`, using the same traveler from TRAVEL and the revealed destination from DESTINATION_REVEAL. The exact legal move IDs always come from the matching Simple V1 schema/authoring rules.
 
 When a move references existing beats, it preserves their IDs, order and durations. Within-shot V4 recipes that are not schema fields remain guidance and are expanded into legal camera/actions instead of being serialized as imaginary fields.
 
 ### Precise paths
 
 When exact screen geometry matters, use the matching schema's path fields such as `pathShape`, `pathPoints`, center/size/period/direction/easing where legal.
+
+`pathPoints[]` is not shorthand. Every point is an object with numeric `x` and `y`, for example `{"x": 0.1, "y": 0.3}`. Array/tuple points such as `[0.1, 0.3]` or `[x,y]` are forbidden.
 
 Author frame-relative geometry, not arbitrary Unity world distances.
 
