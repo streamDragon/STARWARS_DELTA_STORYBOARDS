@@ -156,6 +156,7 @@ jobs:
               'CURRENT_ONLY',
               'HANDLE_ONLY',
               'ANIMATION_SEMANTIC_ONLY',
+              'ANIMATION_OWNERSHIP',
               'DIALOGUE_CLOSED_WORLD',
               'DIALOGUE_IDENTITY',
               'DIALOGUE_EXPRESSION',
@@ -164,14 +165,16 @@ jobs:
               'VISUAL_EVIDENCE',
               'BACKEND_FIELDS_OMITTED',
               'SEMANTIC_CAMERA_SUBJECT',
+              'CAMERA_TARGET_RESOLUTION',
               'ACTOR_ORBIT_FIXED_CENTER_ONLY',
               'NO_UNTIMED_MULTI_PHASE_LOCOMOTION',
               'SEMANTIC_SPEED_ONLY',
               'WARNING_FIRST',
               'SCHEMA_ONLY',
-              'V4_RECIPES_ARE_AUTHORING_ONLY',
+              'V1_V4_BACKEND_BOUNDARY',
+              'EDITING_MOVE_LIBRARY',
           ]
-          assert len(actual)==17, f'SIMPLE_V1_RULE_COUNT_DRIFT: {len(actual)}'
+          assert len(actual)==len(expected_rule_ids), f'SIMPLE_V1_RULE_COUNT_DRIFT: actual={len(actual)} expected={len(expected_rule_ids)}'
           assert set(actual)==set(expected_rule_ids), f'SIMPLE_V1_RULE_SET_DRIFT: actual={sorted(actual)} expected={sorted(expected_rule_ids)}'
 
           assert not (live/'catalog-contract').exists(), 'LEGACY_CATALOG_CONTRACT_REAPPEARED'
