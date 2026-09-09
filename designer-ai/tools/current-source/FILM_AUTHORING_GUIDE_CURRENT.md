@@ -66,7 +66,8 @@ STARWARS_DELTA is primarily 2D / 2.5D. Compose with:
 - Foreground;
 - UI / dialogue presentation;
 - clear screen direction and depth;
-- cuts, push/pull, follow/track, drift/orbit/shake when dramatically useful.
+- cuts, push/pull, follow/track, pan/drift/shake and depth parallax when dramatically useful;
+- Actor Orbit through legal actor motion intent when a fixed-center orbit is desired.
 
 Do not fake 3D viewpoints that the actual art cannot support.
 
@@ -137,6 +138,14 @@ Use them for legal staggering and concurrency.
 
 Use adjacent beats for distinct semantic locomotion phases unless one precise continuous path intentionally represents the entire movement.
 
+## Cinematic editing grammar
+
+`editingMoves` expresses meaning created **between shots**, rather than another low-level camera primitive. ChatGPT may choose one automatically from natural-language intent or author an exact schema-exposed move explicitly.
+
+Examples include looker -> looked-at object -> reaction, travel -> destination reveal -> spatial confirmation, and two distinct action lines -> shared convergence. The exact legal move IDs always come from the matching Simple V1 schema/authoring rules.
+
+When a move references existing beats, it preserves their IDs, order and durations. Within-shot V4 recipes that are not schema fields remain guidance and are expanded into legal camera/actions instead of being serialized as imaginary fields.
+
 ### Precise paths
 
 When exact screen geometry matters, use the matching schema's path fields such as `pathShape`, `pathPoints`, center/size/period/direction/easing where legal.
@@ -179,8 +188,14 @@ When target-dependent runtime support exists, the camera must react to the autho
 ### Drift
 Visible 2D frame-relative displacement.
 
-### Orbit
-Visible 2D/2.5D movement around the authored subject, preserving direction. Do not invent unseen 3D geometry.
+### Pan / Tilt-style reveal
+Use `camera.movement=pan` with left/right/up/down. Up/down is the current 2D tilt-style route for revealing something above or below the established frame.
+
+### Parallax
+Use `camera.parallax` only with legal physical scenery layers. Distant layers move less than nearer layers; UI/Overlay and locked dialogue do not inherit scenery parallax.
+
+### Camera Orbit
+Camera Orbit is not a legal Simple V1 camera movement in this CURRENT. For a fixed-center object/ship orbit use actor `motionIntent=orbit`. A future camera-orbit implementation must not invent unseen 3D geometry or alternate views.
 
 ### Shake
 Visible oscillation that returns to base.

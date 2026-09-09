@@ -1,6 +1,6 @@
 {
   "schema": "STARWARS_DELTA_CINEMATIC_INTENT_QA_RULES",
-  "schemaVersion": 7,
+  "schemaVersion": 8,
   "status": "ACTIVE_SIMPLE_V1_SEMANTIC_EXPANSION",
   "purpose": "Pre-Unity cinematic-intent QA for CUTSCENE_SCRIPT_V1. These checks protect authoring truth and do not replace Unity validation. The status model is GREEN exact, YELLOW deterministic auto-repair/minor, ORANGE visible semantic or preview degradation, RED only when an honest result cannot safely continue.",
   "validationStatusModel": {
@@ -45,6 +45,7 @@
     "dialogueSubject": "For curated DialoguePortrait participants, preserve the dialogue/composition subject directly and leave the physical world camera target empty instead of creating then repairing an illegal WorldActor target.",
     "sourceProvenance": "A handle resolved through Actor/Layer/Ui/Effect/Audio keeps that route downstream; generated legacy role labels do not replace authoritative Simple V1 source provenance.",
     "cinematicMove": "Maps to existing V3/V5 vocabulary when exact. Semantic vocabulary does not imply a stronger runtime behavior than the current Timeline writer implements.",
+    "editingMoves": "editingMoves are schema-exposed multi-shot inference grammar. ChatGPT may select them automatically from natural-language intent or author an exact exposed move explicitly. Referenced beat IDs/order/durations are preserved; unknown remembered move IDs are invalid.",
     "actorMotion": "Simple V1 actor motion compiles into existing V5 actorActions. motionIntent=orbit lowers to real V5 Orbit even when source action type is move. Count-expanded instances inherit the source motion deterministically.",
     "actionTiming": "CUTSCENE_SCRIPT_V1 action objects may use optional startOffset and duration fields. startOffset is measured from beat start and duration is the action interval. Explicit intervals must be finite, legal and contained by the owning beat. actions[] array order alone never establishes sequencing.",
     "actionSequencing": "Use explicit startOffset/duration for legal staggering or concurrency. Do not treat actions[] order as a hidden phase system. Distinct semantic locomotion phases such as approach -> pass_camera -> bank_away should normally use adjacent beats unless intentionally represented as one continuous precise path; one primary locomotion phase may coexist with compatible timed fire/impact/reveal evidence when the interval is unambiguous.",
@@ -52,7 +53,9 @@
     "actorOrbit": "Current V5 actor Orbit v1 uses a fixed/stationary center. It does not sample a moving target Transform each frame. Simultaneous moving-center Orbit is unsupported and CUTSCENE_ORBIT_CENTER_MOVES remains RED.",
     "relativeMotion": "Pursuit/Escort/Intercept semantic wording must not be described as per-frame target-relative tracking unless the current runtime actually implements that behavior.",
     "semanticSpeed": "Simple V1 speeds slow/medium/fast/burst are semantic strings and must be parsed deterministically; never parse them directly with Value<float>. Numeric action fields must use tolerant extraction so malformed data becomes diagnostics rather than a Studio exception.",
-    "cameraOrbit": "Camera orbit is 2D/2.5D orbit-like parallax only. Never synthesize an unseen 3D side/back view and do not confuse camera orbit with actor Orbit v1.",
+    "cameraPan": "camera.movement=pan lowers through the existing Pan camera primitive. left/right/up/down are legal; up/down is the current 2D tilt-style reveal route.",
+    "cameraParallax": "camera.parallax lowers to separate depth-scaled Parallax actions on legal physical scenery layers. Far layers move less than near layers; UI/Overlay and locked dialogue remain stable.",
+    "cameraOrbit": "Camera orbit is not a legal Simple V1 camera movement in this CURRENT. Use actor motionIntent=orbit for fixed-center Actor Orbit. Never synthesize an unseen 3D side/back view or pretend a Hold is camera orbit.",
     "dialogueShotPreset": "Raw cameraCue.shotPreset is backend-owned. Blank generated presets are deterministically defaulted before strict contract validation.",
     "dialogueStageDefaults": "Dialogue background/frame defaults are backend-owned and should be projected early enough that validation sees the same deterministic stage that Preview will render.",
     "dialogue": "Dialogue-only curated participants remain Dialogue Stage anchors and do not become WorldActors merely to satisfy camera or legacy character-role validation. Exact CharacterPack portrait legality is authoritative over generic closeUpSuitable metadata.",
