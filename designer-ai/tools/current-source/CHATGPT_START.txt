@@ -100,15 +100,24 @@ ACTION TIMING
 - use explicit intervals for staggering/concurrency.
 - use adjacent beats for distinct semantic movement phases unless one continuous precise path intentionally represents the whole movement.
 
+CINEMATIC EDITING MOVES
+- editingMoves are schema-exposed multi-shot directing grammar, not V3/V5 bookkeeping.
+- ChatGPT may select an editing move automatically from the designer's natural-language intent or author an exact move explicitly when the schema exposes it.
+- editingMoves reference authored beatIds and do not silently rewrite their IDs, order or durations.
+- current inference repertoire is exactly the IDs exposed by CUTSCENE_SCRIPT_V1.schema.json; never remember or invent a move that the matching schema does not expose.
+- within-shot V4 recipe names that are not schema fields remain guidance and must be expanded into legal beat camera/action fields.
+
 CAMERA
 Camera authoring is semantic directing intent.
-- framing/movement/subject/direction/intensity use only matching schema values.
+- framing/movement/subject/direction/intensity/parallax use only matching schema values.
 - camera.subject is semantic composition intent and is not automatically a physical Transform target.
 - Hold may preserve semantic composition without a physical target.
 - Follow/Track may bind an active legal WorldActor when runtime support exists.
-- camera Orbit is a 2D/2.5D composition concept, not invented unseen 3D geometry.
+- Pan supports left/right/up/down reveal; up/down is the current 2D tilt-style reveal route.
+- camera.parallax moves legal physical scenery layers with depth-scaled offsets and never moves UI/Overlay; locked dialogue remains stable.
 - Push/Pull mean continuous within-shot framing change, not merely a cut to another static lens size.
-- Drift/Orbit/Shake/ImpactShake must be visibly meaningful when Unity executes them; technical non-zero movement that is imperceptible is not exact success.
+- Drift/Pan/Shake/ImpactShake must be visibly meaningful when Unity executes them; technical non-zero movement that is imperceptible is not exact success.
+- Camera Orbit is not a legal Simple V1 camera movement in this CURRENT. Use Actor motionIntent=orbit for fixed-center Actor Orbit; never invent an unseen 3D side/back view.
 - locked portrait dialogue defaults to stable legal coverage; do not mix unsupported world-camera motion into a locked dialogue beat.
 
 DIALOGUE
