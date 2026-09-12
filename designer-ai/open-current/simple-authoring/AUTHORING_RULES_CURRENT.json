@@ -2,10 +2,10 @@
   "schema": "STARWARS_DELTA_SIMPLE_V1_AUTHORING_RULES_CURRENT",
   "schemaVersion": 3,
   "requiredCurrent": {
-    "catalogRevision": "7624471883407822870",
+    "catalogRevision": "7623914094845614616",
     "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
     "schemaHash": "CC97802C1A6A6EFF291623AE7A46C6E349599461D67EF764E2FF5EACD30EF947",
-    "snapshotContentHash": "0B52C0F27737A93B630B91B0C0A5C34095F2825EC8615C241AFF20AAAF1E52D2",
+    "snapshotContentHash": "091801A77B92FEBE57A553434BA3EF7FBE114FBAB8221CF7474113EC0AEB45B0",
     "authoringRuleRegistryRevision": "8CBCE85AF0FC24743F97AA4F104C31857926A98DAB52749CA75A2B7F6BF27F12"
   },
   "purpose": "Author-facing rules for CUTSCENE_SCRIPT_V1 only. Backend/internal rules are intentionally omitted.",
@@ -18,7 +18,7 @@
     {
       "id": "HANDLE_ONLY",
       "blocks": true,
-      "instruction": "For locationHandle, visible.handle, effectHandle, viaHandle and audio.handle use an exact CURRENT Simple V1 authoring handle. Never serialize a raw Catalog asset ID."
+      "instruction": "For locationHandle, visible.handle, effectHandle and audio.handle use an exact CURRENT Simple V1 authoring handle. Never serialize a raw Catalog asset ID."
     },
     {
       "id": "ANIMATION_SEMANTIC_ONLY",
@@ -108,7 +108,7 @@
     {
       "id": "EDITING_MOVE_LIBRARY",
       "blocks": false,
-      "instruction": "Schema-exposed editingMoves are legal authoring fields and may be selected automatically by ChatGPT or forced explicitly. They reference existing consecutive beats and do not silently rewrite authored beat IDs/order/durations. Current repertoire: EyelineMatch [LOOKER -> LOOKED_AT_OBJECT -> REACTION_LOOKER]: A looker, the looked-at object, then the same looker confirming the relation.; TravelThenReveal [TRAVEL -> DESTINATION_REVEAL -> SPATIAL_CONFIRMATION]: Visible travel, reveal the destination, then confirm traveler and destination share the established space.; ConvergingAction [ACTION_LINE_A -> ACTION_LINE_B -> CONVERGENCE]: Two distinct lines of visible action resolve into one shared frame or encounter.; KuleshovAssociation [SUBJECT -> ASSOCIATED_IMAGE -> SUBJECT_RETURN]: The same subject surrounds an associated image so the audience infers a subjective or emotional relation.; ParallelCrossCut [LINE_A -> LINE_B -> RETURN_A]: Alternate two distinct lines of action and return to the first so the audience infers simultaneity or comparison.; MatchOnAction [ACTION_START -> ACTION_CONTINUATION -> ACTION_RESULT]: Carry one subject's visible action across a cut so motion continuity joins different framings.; RevealThenReaction [REVEAL -> REACTION -> SHARED_CONTEXT]: Reveal new information, cut to a visible reaction, then restore shared context between cause and reactor."
+      "instruction": "Schema-exposed editingMoves are legal authoring fields and may be selected automatically by ChatGPT or forced explicitly. They reference existing consecutive beats and do not silently rewrite authored beat IDs/order/durations. Current repertoire: EyelineMatch [LOOKER -> LOOKED_AT_OBJECT -> REACTION_LOOKER]: A looker, the looked-at object, then the same looker confirming the relation.; TravelThenReveal [TRAVEL -> DESTINATION_REVEAL -> SPATIAL_CONFIRMATION]: Visible travel, reveal the destination, then confirm traveler and destination share the established space.; ConvergingAction [ACTION_LINE_A -> ACTION_LINE_B -> CONVERGENCE]: Two distinct lines of visible action resolve into one shared frame or encounter.; KuleshovAssociation [SUBJECT -> ASSOCIATED_IMAGE -> SUBJECT_RETURN]: The same subject surrounds an associated image so the audience infers a subjective or emotional relation.; ParallelCrossCut [LINE_A -> LINE_B -> RETURN_A]: Alternate two distinct lines of action and return to the first so the audience infers simultaneity or comparison.; MatchOnAction [ACTION_START -> ACTION_CONTINUATION -> ACTION_RESULT]: Carry one subject's visible action across a cut so motion continuity joins different framings.; RevealThenReaction [REVEAL -> REACTION -> SHARED_CONTEXT]: Reveal new information, cut to a visible reaction, then restore shared context between cause and reactor. Validator requirements: EyelineMatch requires explicit visible camera.subject in the first and third beats, and LOOKED_AT_OBJECT camera.subject must identify a visible object; first and third subjects must resolve to the same narrative identity. TravelThenReveal requires one visible unambiguous moving traveler in TRAVEL, a visible destination selected by camera.subject in DESTINATION_REVEAL, and both traveler and destination together in SPATIAL_CONFIRMATION. ConvergingAction requires two distinct visible unambiguous moving subjects on the two action lines and both together in CONVERGENCE. KuleshovAssociation requires one explicit visible camera.subject in each stage, with first and third subjects resolving to the same narrative identity. ParallelCrossCut requires one explicit visible camera.subject in each stage; first and RETURN_A resolve to the same narrative identity and LINE_B resolves to a distinct identity. MatchOnAction requires one visible unambiguous moving subject before and after the cut, an explicit visible camera.subject in ACTION_RESULT, and all three subjects resolving to the same narrative identity. RevealThenReaction requires an explicit visible camera.subject in REVEAL, one visible unambiguous react action subject in REACTION, and both reveal target and reactor together in SHARED_CONTEXT."
     },
     {
       "id": "WARNING_FIRST",

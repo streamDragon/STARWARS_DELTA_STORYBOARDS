@@ -16,7 +16,7 @@ Use only the matching CURRENT:
 
 Unity/Plastic is canonical for runtime implementation and runtime proof. Git CURRENT is canonical for authoring/publishing guidance.
 
-`CUTSCENE_SCRIPT_V1` is the only normal public authoring format. V3/V5, Timeline, Cinemachine wiring, generated IDs, bindings and Golden runner details are backend implementation.
+`CUTSCENE_SCRIPT_V1` is the only normal public authoring format. V3/V5, Timeline, Cinemachine wiring, generated IDs, bindings and test-runner details are backend implementation.
 
 ## Core principle
 
@@ -313,13 +313,13 @@ STORY CLAIM
 
 A label or dialogue sentence does not implement an unseen event.
 
-## Accepted fixtures and Golden QA
+## Accepted fixtures and runtime QA
 
 Once a legal authored fixture passes schema + CURRENT authoring integrity, backend/engine repair happens against that same fixture.
 
 Do not rewrite legal beats, timing, camera intent, animation intent, projectile counts/types, targets, anchors or handles just to make broken Timeline/Preview code appear successful.
 
-Golden regression fixtures and runner implementation live in Plastic. Production code must never special-case fixture names, beat IDs, actor IDs or exact fixture timestamps.
+Regression fixtures and runner implementation are engineering-only evidence in Plastic, never authoring authority. Production code must never special-case fixture names, beat IDs, actor IDs or exact fixture timestamps.
 
 Runtime PASS requires actual Unity execution of the final saved/reopened Editable Preview. Compile-only success is not movie-quality proof.
 

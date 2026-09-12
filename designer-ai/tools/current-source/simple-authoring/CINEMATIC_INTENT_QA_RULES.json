@@ -60,7 +60,7 @@
     "dialogueStageDefaults": "Dialogue background/frame defaults are backend-owned and should be projected early enough that validation sees the same deterministic stage that Preview will render.",
     "dialogue": "Dialogue-only curated participants remain Dialogue Stage anchors and do not become WorldActors merely to satisfy camera or legacy character-role validation. Exact CharacterPack portrait legality is authoritative over generic closeUpSuitable metadata.",
     "quantity": "visible[].count expands actual actor instances. Do not multiply a precomposed fleet/group image as if each visual represented one actor; inspect pixels before choosing grouped versus reusable-single-actor evidence.",
-    "acceptedFixtureStability": "Once a legal fixture passes authoring integrity, downstream BACKEND/ENGINE failures are repaired against that same source. Runtime Golden status, Timeline binding state and Preview diagnostics are engineering evidence only and never become authored Simple V1 fields."
+    "acceptedFixtureStability": "Once a legal fixture passes authoring integrity, downstream BACKEND/ENGINE failures are repaired against that same source. Runtime regression status, Timeline binding state and Preview diagnostics are engineering evidence only and never become authored Simple V1 fields."
   },
   "rules": [
     {"code":"CAMERA_SUBJECT_DEFAULTED","severity":"Warning","scope":"camera","description":"Simple V1 omitted camera.subject but exactly one deterministic primary semantic subject exists; backend binds it before V3 validation."},
@@ -102,7 +102,7 @@
     "motionIntent=orbit compiles to V5 Orbit, but current actor Orbit v1 requires a stationary center and must reject overlapping center movement.",
     "Semantic speed strings must never be passed directly to numeric conversion APIs.",
     "Count expansion applies to each generated instance and must not multiply a precomposed group visual as if it were a single actor.",
-    "Runtime Golden PASS/FAIL, Timeline binding state, Preview scope and probe data are engineering evidence only and must never be serialized into CUTSCENE_SCRIPT_V1 or used as a reason to rewrite otherwise legal accepted fixture semantics.",
+    "Runtime regression PASS/FAIL, Timeline binding state, Preview scope and probe data are engineering evidence only and must never be serialized into CUTSCENE_SCRIPT_V1 or used as a reason to rewrite otherwise legal accepted fixture semantics.",
     "ORANGE never silently changes identity."
   ]
 }

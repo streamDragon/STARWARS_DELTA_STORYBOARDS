@@ -6,7 +6,7 @@ SOURCE-OF-TRUTH BOUNDARY
 - Unity/Plastic is canonical for runtime implementation and runtime proof.
 - This Git CURRENT is canonical for authoring/publishing guidance and exact authoring choices.
 - Author CUTSCENE_SCRIPT_V1 only.
-- V3/V5, Timeline bindings, Cinemachine wiring, runtime GUIDs, generated aliases, projectile receivers, Golden runner state and Preview persistence are backend/runtime implementation.
+- V3/V5, Timeline bindings, Cinemachine wiring, runtime GUIDs, generated aliases, projectile receivers, regression-runner state and Preview persistence are backend/runtime implementation.
 - Never hand-author or request backend bookkeeping merely to silence a validator.
 
 AUTHORING SOURCES
@@ -108,6 +108,12 @@ CINEMATIC EDITING MOVES
 - current inference repertoire is exactly the IDs exposed by CUTSCENE_SCRIPT_V1.schema.json; never remember or invent a move that the matching schema does not expose.
 - within-shot V4 recipe names that are not schema fields remain guidance and must be expanded into legal beat camera/action fields.
 - TravelThenReveal is strict: its SPATIAL_CONFIRMATION beat must visibly contain both the same traveler and the revealed destination together in visible[].
+- EyelineMatch requires explicit visible camera.subject in the first and third beats; LOOKED_AT_OBJECT camera.subject identifies a visible object; first/third subjects resolve to the same narrative identity.
+- ConvergingAction requires two distinct visible unambiguous moving subjects on the two action lines and both together in CONVERGENCE.
+- KuleshovAssociation requires one explicit visible camera.subject in each stage; first/third subjects resolve to the same narrative identity.
+- ParallelCrossCut requires one explicit visible camera.subject in each stage; first/RETURN_A resolve to the same narrative identity and LINE_B resolves to a distinct identity.
+- MatchOnAction requires one visible unambiguous moving subject before and after the cut, one explicit visible camera.subject in ACTION_RESULT, and one narrative identity across all three stages.
+- RevealThenReaction requires one explicit visible camera.subject in REVEAL, one visible unambiguous react subject in REACTION, and both together in SHARED_CONTEXT.
 
 CAMERA
 Camera authoring is semantic directing intent.
@@ -140,6 +146,7 @@ SILENT AUDIO POLICY
 - When CURRENT exposes zero route=Audio handles, omit beat.audio entirely. Never invent or infer an audio handle.
 - Missing/unavailable CURRENT audio is a non-blocking YELLOW warning: AUDIO_UNAVAILABLE_IN_CURRENT. It must not block schema validation, Editable Preview or Build.
 - If an explicit audio cue is authored, its handle must still be an exact CURRENT route=Audio handle; an explicit invalid/fabricated cue remains an authoring error.
+- For a requested full cinematic scene, when CURRENT exposes suitable Layer/Effect/Audio handles, deliberately establish location, atmosphere and timed accents instead of leaving the scene visually empty. This is authoring guidance, not a blocker: intentionally minimal or silent films remain legal.
 
 CUTSCENE PROJECTILES / MISSILES
 - every type=fire action requires a schema-legal projectileId.
@@ -185,10 +192,15 @@ Before returning JSON verify:
 9. every fire action has legal projectileId and count;
 10. Effect timing uses Effect-only fields and repeated instances are preserved;
 11. camera fields use exact schema vocabulary;
-12. no unknown properties, raw Catalog IDs, runtime GUIDs, V3/V5 bookkeeping, Timeline bindings or Golden QA fields appear;
+12. no unknown properties, raw Catalog IDs, runtime GUIDs, V3/V5 bookkeeping, Timeline bindings or test-runner QA fields appear;
 13. no array-order sequencing assumption exists;
 14. no visual claim is made from metadata without pixel evidence when appearance matters;
 15. every pathPoints[] item is an object with numeric x/y fields, never [x,y];
 16. every TravelThenReveal SPATIAL_CONFIRMATION visibly contains both traveler and destination together in visible[].
+17. every EyelineMatch, KuleshovAssociation and ParallelCrossCut supplies every camera.subject required by its three stages and keeps those subjects visibly present;
+18. every ConvergingAction ends with both action-line subjects visible together in CONVERGENCE;
+19. every MatchOnAction has one visible moving subject across the cut plus an explicit visible ACTION_RESULT camera.subject;
+20. every RevealThenReaction has an explicit visible REVEAL subject, one unambiguous react subject, and both visible together in SHARED_CONTEXT;
+21. for a requested full cinematic scene, deliberately use suitable CURRENT location/scenery/effect/audio handles when available unless a minimal/silent presentation is intentional.
 
 Unity remains authoritative for final runtime validation and Editable Preview acceptance.
