@@ -1,6 +1,6 @@
 (()=>{
 'use strict';
-const UI_BUILD='20260907-simple-v1-guard';
+const UI_BUILD='20260913-visual-pdf-direct';
 if(!document.querySelector('link[data-ui-polish]')){const l=document.createElement('link');l.rel='stylesheet';l.href=`assets/ui-polish.css?build=${UI_BUILD}`;l.dataset.uiPolish='1';document.head.appendChild(l)}
 if(!document.querySelector('script[data-ui-polish]')){const s=document.createElement('script');s.src=`assets/ui-polish.js?build=${UI_BUILD}`;s.defer=true;s.dataset.uiPolish='1';document.head.appendChild(s)}
 
@@ -16,6 +16,7 @@ let openCurrent=null;
 
 const LOCAL_CURRENT='designer-ai/open-current/OPEN_CURRENT.json';
 const RAW_CURRENT='https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/main/designer-ai/open-current/OPEN_CURRENT.json';
+const CURRENT_VISUAL_PDF='designer-ai/open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf';
 const short=s=>s?String(s).slice(0,12)+'…':'—';
 const mb=n=>Number.isFinite(Number(n))?(Number(n)/1048576).toFixed(1)+' MB':'—';
 const setStatus=(text,kind)=>{if(!status)return;status.textContent=text;status.className='hub-status'+(kind?' '+kind:'')};
@@ -73,7 +74,7 @@ async function load(){
     openCurrent=gitCurrent||pagesCurrent;
     const identity=verifyCurrent(openCurrent);
     const visualLibrary=openCurrent.visualLibrary||{};
-    const atlasPdfUrl=openCurrent.visualAtlas?.pdfUrl||null;
+    const atlasPdfUrl=openCurrent.visualAtlas?.pdfUrl||CURRENT_VISUAL_PDF;
     const pagesSynced=!!pagesCurrent&&pagesCurrent.publishTransactionId===openCurrent.publishTransactionId;
 
     if(gitCurrent&&!pagesSynced){
@@ -85,12 +86,7 @@ async function load(){
     if(meta)meta.innerHTML=`<span>Transaction: <b>${identity.publishTransactionId}</b></span><span>Catalog revision: <b>${identity.catalogRevision}</b></span><span>Rules: <b>${short(identity.authoringRuleRegistryRevision)}</b></span><span>Authoring: <b>Simple V1 CURRENT</b></span><span>Visual library: <b>${visualLibrary.assetCount||0} assets / ${mb(visualLibrary.sizeBytes)}</b></span>`;
 
     activate(visualLibraryButton,visualLibrary.downloadUrl,'DOWNLOAD VISUAL LIBRARY');
-    if(atlasPdfUrl){
-      activate(atlasDownloadButton,atlasPdfUrl,'DOWNLOAD VISUAL PDF ONLY');
-    }else{
-      resetDownload(atlasDownloadButton);
-      if(atlasDownloadButton)atlasDownloadButton.textContent='VISUAL PDF NOT PUBLISHED';
-    }
+    activate(atlasDownloadButton,atlasPdfUrl,'DOWNLOAD VISUAL PDF ONLY');
 
     if(note)note.textContent='Normal NEW authoring uses COPY FOR CHAT and the sealed Simple V1 CURRENT. V3/V5 remain backend-only.';
   }catch(e){
