@@ -1,0 +1,39 @@
+{
+  "schema": "STARWARS_DELTA_AUTHORING_HEALTH",
+  "schemaVersion": 2,
+  "status": "UNKNOWN",
+  "publishTransactionId": "20260915-050107410-1da8bf42",
+  "requiredCurrent": {
+    "catalogRevision": "7623493472161945307",
+    "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
+    "schemaHash": "CC97802C1A6A6EFF291623AE7A46C6E349599461D67EF764E2FF5EACD30EF947",
+    "snapshotContentHash": "A1E5080FB318E1C5675055C603731477D1D8CE01A70F0C2D9F60E42ADCFA3EEA",
+    "authoringRuleRegistryRevision": "8CBCE85AF0FC24743F97AA4F104C31857926A98DAB52749CA75A2B7F6BF27F12"
+  },
+  "scope": "authoring handles and Actor Cards",
+  "denominator": 874,
+  "checksRun": [
+    "handle-count",
+    "route-count",
+    "current-identity",
+    "actor-card-generation"
+  ],
+  "checksNotRun": [
+    "pixel-http-retrieval",
+    "runtime-resolution",
+    "visual-continuity"
+  ],
+  "pixelEvidence": {
+    "available": 0,
+    "missing": 874,
+    "state": "PIXELS_UNAVAILABLE"
+  },
+  "actorCards": {
+    "denominator": 51,
+    "generated": 51,
+    "withBaseImage": 9,
+    "withCompleteIntentEvidence": 0,
+    "withPartialIntentEvidence": 0,
+    "continuity": "NOT_CHECKED"
+  }
+}
