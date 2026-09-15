@@ -86,5 +86,12 @@ jobs:
           assert 'downloadAuthoringPackage' not in index, 'LEGACY_AUTHORING_PACKAGE_CONTROL_REAPPEARED'
           assert 'authoringPackageButton' not in hub, 'LEGACY_AUTHORING_PACKAGE_JS_REAPPEARED'
 
+          # The public hub must derive its cache-busting build id from the canonical CURRENT manifest.
+          # A manually maintained site-build.json is allowed to exist for compatibility, but it must not
+          # be the authority used by index.html because that can pin visitors to a stale publication.
+          assert "designer-ai/open-current/OPEN_CURRENT.json" in index, 'HUB_CURRENT_MANIFEST_SOURCE_MISSING'
+          assert "publishTransactionId" in index, 'HUB_CURRENT_TRANSACTION_BUILD_ID_MISSING'
+          assert "fetch('site-build.json" not in index, 'HUB_STILL_USES_MANUAL_SITE_BUILD_AUTHORITY'
+
           print('SIMPLE_V1_PUBLICATION_GUARD_PASS')
           PY
