@@ -45,8 +45,8 @@
         "additionalProperties": false,
         "required": ["id", "beatIds"],
         "properties": {
-          "id": { "enum": ["EyelineMatch", "TravelThenReveal", "ConvergingAction", "KuleshovAssociation", "ParallelCrossCut", "MatchOnAction", "RevealThenReaction"] },
-          "beatIds": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" } }
+          "id": { "enum": ["EyelineMatch", "TravelThenReveal", "ConvergingAction", "KuleshovAssociation", "ParallelCrossCut", "MatchOnAction", "RevealThenReaction", "ParallelEscalation"] },
+          "beatIds": { "type": "array", "minItems": 3, "maxItems": 12, "items": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" } }
         }
       }
     },

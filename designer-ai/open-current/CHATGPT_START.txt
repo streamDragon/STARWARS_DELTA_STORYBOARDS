@@ -86,6 +86,7 @@ VISIBLE EFFECTS / PARTICLES
 ACTOR ANIMATION AND MOTION
 - Animation and movement are separate and may run simultaneously.
 - compatible real animation is requested through semantic animationIntent/performanceIntent.
+- when multiple legal Actors fit the same visual role, prefer one with useful compatible animation over an otherwise comparable static Actor; inspect its animationEvidence pixels/atlas references before making an important visual choice.
 - actor motion uses only schema-legal motionIntent/path fields.
 - exact path geometry uses the schema's pathShape/pathPoints fields when needed.
 - pathPoints[] is canonical JSON object geometry: every point is exactly {"x": 0.1, "y": 0.3}-style with numeric x/y fields. Tuple/array forms such as [x,y] are forbidden.
