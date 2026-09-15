@@ -169,6 +169,8 @@ jobs:
               'ACTOR_ORBIT_FIXED_CENTER_ONLY',
               'NO_UNTIMED_MULTI_PHASE_LOCOMOTION',
               'SEMANTIC_SPEED_ONLY',
+              'PATH_POINTS_CANONICAL',
+              'SPATIAL_CONFIRMATION_VISIBLE_PAIR',
               'WARNING_FIRST',
               'SCHEMA_ONLY',
               'V1_V4_BACKEND_BOUNDARY',
@@ -213,7 +215,7 @@ jobs:
           assert 'Do not use an old V5 package as a template for NEW authoring.' in source_start, 'SOURCE_LEGACY_V5_BAN_MISSING'
           assert 'Action timing' in arch or 'Actor motion and timing' in arch, 'ARCHITECTURE_ACTION_TIMING_GUIDANCE_MISSING'
           assert 'Do **not** require a meaningless `reveal`' in failsoft, 'FAIL_SOFT_REVEAL_POLICY_MISSING'
-          assert 'Accepted fixtures and Golden QA' in guide, 'GOLDEN_FIXTURE_GUIDANCE_MISSING'
+          assert 'Accepted fixtures and runtime QA' in guide, 'RUNTIME_FIXTURE_GUIDANCE_MISSING'
 
           assert 'COPY FOR CHAT' in index, 'DEVORA_COPY_FOR_CHAT_CONTROL_MISSING'
           assert 'AUTHORING PACKAGE AWAITING CLEAN REPUBLISH' not in index, 'LEGACY_AUTHORING_PACKAGE_BLOCK_STATE_REAPPEARED'
