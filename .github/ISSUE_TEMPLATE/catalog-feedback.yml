@@ -1,0 +1,62 @@
+name: Catalog feedback
+description: דיווח על פער בקטלוג לצורך בדיקה ותיקון.
+title: "[Catalog feedback] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        הדיווח הוא הצעה לבדיקה. הוא אינו מעניק capability ואינו מאשר שימוש באנימציה.
+        לפני הגשה, חפשו Issue פתוח לאותו נכס ולאותה בעיה.
+  - type: dropdown
+    id: gap_type
+    attributes:
+      label: סוג הפער
+      options:
+        - זיהוי שגוי
+        - אנימציה שנמצאה
+        - יכולת חסרה
+        - תמונה חסרה
+    validations:
+      required: true
+  - type: textarea
+    id: exact_asset
+    attributes:
+      label: הנכס המדויק
+      description: handle קיים, או הפניה מדויקת למקור שנמצא. אין להמציא זהות.
+    validations:
+      required: true
+  - type: input
+    id: current_transaction
+    attributes:
+      label: עסקת CURRENT שנבדקה
+      description: העתיקו publishTransactionId מתוך OPEN_CURRENT.json. אם לא ניתן לאמת, כתבו UNKNOWN ואת הסיבה.
+    validations:
+      required: true
+  - type: textarea
+    id: user_request
+    attributes:
+      label: מה המשתמש ביקש
+      description: הבקשה הרלוונטית, לרבות בחירה מפורשת בדמות או בתנועה.
+    validations:
+      required: true
+  - type: textarea
+    id: observed_gap
+    attributes:
+      label: מה המערכת החזירה ומה נראה שגוי
+      description: הפרידו בין מה שנצפה בפועל לבין פרשנות.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: ראיה קצרה
+      description: קישור, צילום, רשומה או אבחנה מדויקת. אם הראיה אינה זמינה, ציינו זאת.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_correction
+    attributes:
+      label: הצעת תיקון
+      description: סמנו כהשערה כל הצעה שטרם אומתה. אפשר להשאיר ריק אם אין הצעה.
+    validations:
+      required: false
