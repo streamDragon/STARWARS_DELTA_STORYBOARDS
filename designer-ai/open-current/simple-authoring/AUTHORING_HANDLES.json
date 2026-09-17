@@ -2,18 +2,18 @@
   "schema": "STARWARS_DELTA_AUTHORING_HANDLES",
   "schemaVersion": 5,
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20260917-000951784-9b00c114",
+  "publishTransactionId": "20260917-035555075-14c10f0f",
   "purpose": "Direct semantic authoring handles for CUTSCENE_SCRIPT_V1 only. Backend compatibility identities such as raw Animation clips remain excluded.",
   "requiredCurrent": {
-    "catalogRevision": "7623493472161945307",
+    "catalogRevision": "7623606232925185090",
     "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
     "schemaHash": "CC97802C1A6A6EFF291623AE7A46C6E349599461D67EF764E2FF5EACD30EF947",
-    "snapshotContentHash": "F60ED955E6D4DC8218C8018DEBF18F918B83F85347F2AD425EE48F4DBE6EBF87",
+    "snapshotContentHash": "EA0238F42FC2F2F49148A94C98C15CE1E9BAA50401FF3EDE739C0F4E6A6DF01A",
     "authoringRuleRegistryRevision": "8CBCE85AF0FC24743F97AA4F104C31857926A98DAB52749CA75A2B7F6BF27F12"
   },
-  "count": 10476,
+  "count": 10481,
   "countsByRoute": {
-    "Actor": 116,
+    "Actor": 121,
     "Audio": 173,
     "Effect": 1329,
     "Layer": 6016,
@@ -2887,7 +2887,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-015.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -2907,7 +2907,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -2984,7 +2984,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-014.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3004,7 +3004,7 @@
           "visualSheetsSlot": 2,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -3081,7 +3081,7 @@
           "visualSheetsSlot": 10,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-012.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3101,7 +3101,7 @@
           "visualSheetsSlot": 2,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-010.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -3178,7 +3178,7 @@
           "visualSheetsSlot": 2,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-022.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3198,7 +3198,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-011.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -3261,6 +3261,451 @@
       "compatibleAnimationCount": 0,
       "supportedAnimationIntents": [],
       "animationEvidence": []
+    },
+    {
+      "handle": "cutscene_blade_boss__5183532d",
+      "runtimeHash": "5183532d",
+      "displayName": "CUTSCENE BLADE BOSS",
+      "route": "Actor",
+      "runtimeId": "ba72f3fe1e8d1fb4c94ebeb94206e886:7015858312311404647",
+      "authorableInSimpleV1": true,
+      "authoringRuntimeForm": null,
+      "supports": [
+        "Activate",
+        "Curve",
+        "Deactivate",
+        "Enter",
+        "Exit",
+        "Face",
+        "FollowPath",
+        "Formation",
+        "FreezePose",
+        "Hold",
+        "LocalSlowMotion",
+        "Move",
+        "MoveToMark",
+        "Orbit",
+        "PlayAnimationWithCompatibleAnimationAssetOnly",
+        "SetScale",
+        "SetSorting",
+        "Turn",
+        "VisualDamageReaction",
+        "VisualWeaponAction"
+      ],
+      "capabilities": [
+        "Cutscene.Actor",
+        "Cutscene.Prop",
+        "General.VisualPrefab",
+        "Level.Decoration"
+      ],
+      "allowedUses": [
+        "Actor"
+      ],
+      "safeForPreview": true,
+      "safeForPublish": false,
+      "sourceSafeForPublish": false,
+      "publishSafetySource": "DIRECTOR_CURRENT_CONTRACT",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED",
+      "proportionClass": null,
+      "targetScreenFraction": null,
+      "scaleBasis": null,
+      "systemManagedProportions": null,
+      "visualReferenceId": "visual_6d83403e64278b80869c",
+      "atlasPage": 2,
+      "atlasSlot": 6,
+      "pageImageUrl": "full-visual-sheets/actor/page-002.jpg",
+      "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
+      "hasCompatibleAnimation": true,
+      "compatibleAnimationCount": 1,
+      "supportedAnimationIntents": [],
+      "animationEvidence": [
+        {
+          "animationHandle": "animation__ae13a0d7",
+          "displayName": "Blade Boss",
+          "animationAssetId": "9f5bddce9c9a5924687b8e89fd851980:7400000",
+          "animationFamilyId": "playniax-boss-blade",
+          "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Textures/Enemies (Bosses)/Blade/Blade Boss.anim",
+          "intents": [],
+          "visualReferenceId": "visual_a1759e3d31b402608e64",
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-014.jpg",
+          "atlasPdfUrl": null,
+          "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
+          "visualSheetsPage": 14,
+          "visualSheetsSlot": 9,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-014.jpg",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
+        }
+      ],
+      "atlasPartPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_ACTOR_CURRENT.pdf",
+      "atlasMappingStatus": "MAPPED_CURRENT_TRANSACTION"
+    },
+    {
+      "handle": "cutscene_blob__5aa98318",
+      "runtimeHash": "5aa98318",
+      "displayName": "CUTSCENE BLOB",
+      "route": "Actor",
+      "runtimeId": "79dcf7d40257f85478f2d10ecaa6f6cd:1198293584936594942",
+      "authorableInSimpleV1": true,
+      "authoringRuntimeForm": null,
+      "supports": [
+        "Activate",
+        "Curve",
+        "Deactivate",
+        "Enter",
+        "Exit",
+        "Face",
+        "FollowPath",
+        "Formation",
+        "FreezePose",
+        "Hold",
+        "LocalSlowMotion",
+        "Move",
+        "MoveToMark",
+        "Orbit",
+        "PlayAnimationWithCompatibleAnimationAssetOnly",
+        "SetScale",
+        "SetSorting",
+        "Turn",
+        "VisualDamageReaction",
+        "VisualWeaponAction"
+      ],
+      "capabilities": [
+        "Cutscene.Actor",
+        "Cutscene.Prop",
+        "General.VisualPrefab",
+        "Level.Decoration"
+      ],
+      "allowedUses": [
+        "Actor"
+      ],
+      "safeForPreview": true,
+      "safeForPublish": false,
+      "sourceSafeForPublish": false,
+      "publishSafetySource": "DIRECTOR_CURRENT_CONTRACT",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED",
+      "proportionClass": null,
+      "targetScreenFraction": null,
+      "scaleBasis": null,
+      "systemManagedProportions": null,
+      "visualReferenceId": "visual_2ab5cdc2760089d5135c",
+      "atlasPage": 1,
+      "atlasSlot": 11,
+      "pageImageUrl": "full-visual-sheets/actor/page-001.jpg",
+      "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
+      "hasCompatibleAnimation": true,
+      "compatibleAnimationCount": 1,
+      "supportedAnimationIntents": [],
+      "animationEvidence": [
+        {
+          "animationHandle": "animation__e7fec6b0",
+          "displayName": "blob",
+          "animationAssetId": "925fc1c457770944f92c2bdab6348606:7400000",
+          "animationFamilyId": "playniax-enemies",
+          "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Textures/Enemies/blob.anim",
+          "intents": [],
+          "visualReferenceId": "visual_48b037b3f8160e4c77fa",
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-013.jpg",
+          "atlasPdfUrl": null,
+          "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
+          "visualSheetsPage": 13,
+          "visualSheetsSlot": 7,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-013.jpg",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
+        }
+      ],
+      "atlasPartPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_ACTOR_CURRENT.pdf",
+      "atlasMappingStatus": "MAPPED_CURRENT_TRANSACTION"
+    },
+    {
+      "handle": "cutscene_gunner__7a240a1f",
+      "runtimeHash": "7a240a1f",
+      "displayName": "CUTSCENE GUNNER",
+      "route": "Actor",
+      "runtimeId": "d16a77ddcb90a354ca43e0646b3d62da:676403473587474208",
+      "authorableInSimpleV1": true,
+      "authoringRuntimeForm": null,
+      "supports": [
+        "Activate",
+        "Curve",
+        "Deactivate",
+        "Enter",
+        "Exit",
+        "Face",
+        "FollowPath",
+        "Formation",
+        "FreezePose",
+        "Hold",
+        "LocalSlowMotion",
+        "Move",
+        "MoveToMark",
+        "Orbit",
+        "PlayAnimationWithCompatibleAnimationAssetOnly",
+        "SetScale",
+        "SetSorting",
+        "Turn",
+        "VisualDamageReaction",
+        "VisualWeaponAction"
+      ],
+      "capabilities": [
+        "Cutscene.Actor",
+        "Cutscene.Prop",
+        "General.VisualPrefab",
+        "Level.Decoration"
+      ],
+      "allowedUses": [
+        "Actor"
+      ],
+      "safeForPreview": true,
+      "safeForPublish": false,
+      "sourceSafeForPublish": false,
+      "publishSafetySource": "DIRECTOR_CURRENT_CONTRACT",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED",
+      "proportionClass": null,
+      "targetScreenFraction": null,
+      "scaleBasis": null,
+      "systemManagedProportions": null,
+      "visualReferenceId": "visual_2a99435e733a5258af0d",
+      "atlasPage": 2,
+      "atlasSlot": 7,
+      "pageImageUrl": "full-visual-sheets/actor/page-002.jpg",
+      "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
+      "hasCompatibleAnimation": true,
+      "compatibleAnimationCount": 1,
+      "supportedAnimationIntents": [],
+      "animationEvidence": [
+        {
+          "animationHandle": "animation__9427418e",
+          "displayName": "gunner",
+          "animationAssetId": "49e098dbc9e4ad446ad714e621202ad4:7400000",
+          "animationFamilyId": "playniax-enemies",
+          "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Textures/Enemies/gunner.anim",
+          "intents": [],
+          "visualReferenceId": "visual_d41cfdb5d8c5c731c88a",
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-007.jpg",
+          "atlasPdfUrl": null,
+          "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
+          "visualSheetsPage": 7,
+          "visualSheetsSlot": 7,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-007.jpg",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
+        }
+      ],
+      "atlasPartPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_ACTOR_CURRENT.pdf",
+      "atlasMappingStatus": "MAPPED_CURRENT_TRANSACTION"
+    },
+    {
+      "handle": "cutscene_serpent_boss__ba65ad22",
+      "runtimeHash": "ba65ad22",
+      "displayName": "CUTSCENE SERPENT BOSS",
+      "route": "Actor",
+      "runtimeId": "3b13729e663afef429ce01cf64b48741:3766388733044444676",
+      "authorableInSimpleV1": true,
+      "authoringRuntimeForm": null,
+      "supports": [
+        "Activate",
+        "Curve",
+        "Deactivate",
+        "Enter",
+        "Exit",
+        "Face",
+        "FollowPath",
+        "Formation",
+        "FreezePose",
+        "Hold",
+        "LocalSlowMotion",
+        "Move",
+        "MoveToMark",
+        "Orbit",
+        "PlayAnimationWithCompatibleAnimationAssetOnly",
+        "SetScale",
+        "SetSorting",
+        "Turn",
+        "VisualDamageReaction",
+        "VisualWeaponAction"
+      ],
+      "capabilities": [
+        "Cutscene.Actor",
+        "Cutscene.Prop",
+        "General.VisualPrefab",
+        "Level.Decoration"
+      ],
+      "allowedUses": [
+        "Actor"
+      ],
+      "safeForPreview": true,
+      "safeForPublish": false,
+      "sourceSafeForPublish": false,
+      "publishSafetySource": "DIRECTOR_CURRENT_CONTRACT",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED",
+      "proportionClass": null,
+      "targetScreenFraction": null,
+      "scaleBasis": null,
+      "systemManagedProportions": null,
+      "visualReferenceId": "visual_ef581408e0673c1a11b5",
+      "atlasPage": 1,
+      "atlasSlot": 4,
+      "pageImageUrl": "full-visual-sheets/actor/page-001.jpg",
+      "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
+      "hasCompatibleAnimation": true,
+      "compatibleAnimationCount": 3,
+      "supportedAnimationIntents": [],
+      "animationEvidence": [
+        {
+          "animationHandle": "animation__7f9ccc0e",
+          "displayName": "serpent rear",
+          "animationAssetId": "86f6171d9b8ae4649b53d384f07595dd:7400000",
+          "animationFamilyId": "playniax-serpent",
+          "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Textures/Enemies (Bosses)/Serpent/serpent rear.anim",
+          "intents": [],
+          "visualReferenceId": "visual_7859812cb5fd7dfe89ee",
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-012.jpg",
+          "atlasPdfUrl": null,
+          "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
+          "visualSheetsPage": 12,
+          "visualSheetsSlot": 6,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-012.jpg",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
+        },
+        {
+          "animationHandle": "animation__9e74eba0",
+          "displayName": "serpent body",
+          "animationAssetId": "7179b8ef0cf214d1696fa051941fe1c9:7400000",
+          "animationFamilyId": "playniax-serpent",
+          "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Textures/Enemies (Bosses)/Serpent/serpent body.anim",
+          "intents": [],
+          "visualReferenceId": "visual_0ec6984a0654bec951bc",
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-010.jpg",
+          "atlasPdfUrl": null,
+          "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
+          "visualSheetsPage": 10,
+          "visualSheetsSlot": 10,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-010.jpg",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
+        },
+        {
+          "animationHandle": "animation__c9173c6c",
+          "displayName": "serpent head",
+          "animationAssetId": "cc607ab8bada04e9880ae584bc143138:7400000",
+          "animationFamilyId": "playniax-serpent",
+          "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Textures/Enemies (Bosses)/Serpent/serpent head.anim",
+          "intents": [],
+          "visualReferenceId": "visual_1f19eb4b7aa4da42cd47",
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-019.jpg",
+          "atlasPdfUrl": null,
+          "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
+          "visualSheetsPage": 19,
+          "visualSheetsSlot": 12,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-019.jpg",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
+        }
+      ],
+      "atlasPartPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_ACTOR_CURRENT.pdf",
+      "atlasMappingStatus": "MAPPED_CURRENT_TRANSACTION"
+    },
+    {
+      "handle": "cutscene_starknife__73151877",
+      "runtimeHash": "73151877",
+      "displayName": "CUTSCENE STARKNIFE",
+      "route": "Actor",
+      "runtimeId": "33917c331c803db4c9dfb3dc15eb127b:6624434858680710262",
+      "authorableInSimpleV1": true,
+      "authoringRuntimeForm": null,
+      "supports": [
+        "Activate",
+        "Curve",
+        "Deactivate",
+        "Enter",
+        "Exit",
+        "Face",
+        "FollowPath",
+        "Formation",
+        "FreezePose",
+        "Hold",
+        "LocalSlowMotion",
+        "Move",
+        "MoveToMark",
+        "Orbit",
+        "PlayAnimationWithCompatibleAnimationAssetOnly",
+        "SetScale",
+        "SetSorting",
+        "Turn",
+        "VisualDamageReaction",
+        "VisualWeaponAction"
+      ],
+      "capabilities": [
+        "Cutscene.Actor",
+        "Cutscene.Prop",
+        "General.VisualPrefab",
+        "Level.Decoration"
+      ],
+      "allowedUses": [
+        "Actor"
+      ],
+      "safeForPreview": true,
+      "safeForPublish": false,
+      "sourceSafeForPublish": false,
+      "publishSafetySource": "DIRECTOR_CURRENT_CONTRACT",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED",
+      "proportionClass": null,
+      "targetScreenFraction": null,
+      "scaleBasis": null,
+      "systemManagedProportions": null,
+      "visualReferenceId": "visual_04f73a0c716a5bcfc2f9",
+      "atlasPage": 1,
+      "atlasSlot": 3,
+      "pageImageUrl": "full-visual-sheets/actor/page-001.jpg",
+      "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
+      "hasCompatibleAnimation": true,
+      "compatibleAnimationCount": 1,
+      "supportedAnimationIntents": [],
+      "animationEvidence": [
+        {
+          "animationHandle": "animation__d98cd38d",
+          "displayName": "starknife",
+          "animationAssetId": "453ce14f9e2344d4f907722b60d4f401:7400000",
+          "animationFamilyId": "playniax-enemies",
+          "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Textures/Enemies/starknife.anim",
+          "intents": [],
+          "visualReferenceId": "visual_c61716b666b2c6b0c870",
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-006.jpg",
+          "atlasPdfUrl": null,
+          "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
+          "visualSheetsPage": 6,
+          "visualSheetsSlot": 11,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-006.jpg",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
+        }
+      ],
+      "atlasPartPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_ACTOR_CURRENT.pdf",
+      "atlasMappingStatus": "MAPPED_CURRENT_TRANSACTION"
     },
     {
       "handle": "delta7_starfighter__498d3ab6",
@@ -3460,7 +3905,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-021.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3480,7 +3925,7 @@
           "visualSheetsSlot": 10,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-016.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3502,7 +3947,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-014.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3524,7 +3969,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-022.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3544,7 +3989,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-010.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3566,7 +4011,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-003.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3588,7 +4033,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-004.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -3673,7 +4118,7 @@
           "visualSheetsSlot": 2,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-004.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3693,7 +4138,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-003.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3715,7 +4160,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-010.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3737,7 +4182,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-009.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3759,7 +4204,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-006.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3781,7 +4226,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-001.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3801,7 +4246,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-022.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -3888,7 +4333,7 @@
           "visualSheetsSlot": 2,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-002.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3908,7 +4353,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-024.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3930,7 +4375,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-021.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3952,7 +4397,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3974,7 +4419,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-014.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3994,7 +4439,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-016.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4014,7 +4459,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-002.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -4510,7 +4955,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-003.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -4593,7 +5038,7 @@
           "visualSheetsSlot": 10,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -4676,7 +5121,7 @@
           "visualSheetsSlot": 8,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-008.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -4759,7 +5204,7 @@
           "visualSheetsSlot": 8,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-011.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -4817,7 +5262,7 @@
       "systemManagedProportions": null,
       "visualReferenceId": "visual_754c4e95fd6fac99be49",
       "atlasPage": 2,
-      "atlasSlot": 3,
+      "atlasSlot": 8,
       "pageImageUrl": "full-visual-sheets/actor/page-002.jpg",
       "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
       "hasCompatibleAnimation": true,
@@ -4841,7 +5286,7 @@
           "visualSheetsSlot": 8,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-020.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -4926,7 +5371,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-016.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -5009,7 +5454,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-019.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -5067,7 +5512,7 @@
       "systemManagedProportions": null,
       "visualReferenceId": "visual_2e968711c0cb23b70c35",
       "atlasPage": 2,
-      "atlasSlot": 4,
+      "atlasSlot": 9,
       "pageImageUrl": "full-visual-sheets/actor/page-002.jpg",
       "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
       "hasCompatibleAnimation": true,
@@ -5091,7 +5536,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-021.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -5179,7 +5624,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-008.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -5261,7 +5706,7 @@
           "visualSheetsSlot": 2,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-003.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -5319,7 +5764,7 @@
       "systemManagedProportions": null,
       "visualReferenceId": "visual_6c427845970127d0da99",
       "atlasPage": 2,
-      "atlasSlot": 1,
+      "atlasSlot": 4,
       "pageImageUrl": "full-visual-sheets/actor/page-002.jpg",
       "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
       "hasCompatibleAnimation": true,
@@ -5343,7 +5788,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-014.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -5431,7 +5876,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-017.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -5489,7 +5934,7 @@
       "systemManagedProportions": null,
       "visualReferenceId": "visual_eb41ac2e197c7fefdde0",
       "atlasPage": 2,
-      "atlasSlot": 5,
+      "atlasSlot": 10,
       "pageImageUrl": "full-visual-sheets/actor/page-002.jpg",
       "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
       "hasCompatibleAnimation": true,
@@ -5513,7 +5958,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-021.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -5601,7 +6046,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-007.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -5683,7 +6128,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-021.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -5765,7 +6210,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-004.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -5853,7 +6298,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-017.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -5935,7 +6380,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-011.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -6017,7 +6462,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-003.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -6105,7 +6550,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-021.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -6187,7 +6632,7 @@
           "visualSheetsSlot": 8,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -6245,7 +6690,7 @@
       "systemManagedProportions": null,
       "visualReferenceId": "visual_c6e94862070ea7ddf5fb",
       "atlasPage": 1,
-      "atlasSlot": 5,
+      "atlasSlot": 7,
       "pageImageUrl": "full-visual-sheets/actor/page-001.jpg",
       "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
       "hasCompatibleAnimation": true,
@@ -6269,7 +6714,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-008.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -6357,7 +6802,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-024.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -6439,7 +6884,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-018.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -6496,9 +6941,9 @@
       "scaleBasis": null,
       "systemManagedProportions": null,
       "visualReferenceId": "visual_083304dfd3119ac06b95",
-      "atlasPage": 1,
-      "atlasSlot": 11,
-      "pageImageUrl": "full-visual-sheets/actor/page-001.jpg",
+      "atlasPage": 2,
+      "atlasSlot": 2,
+      "pageImageUrl": "full-visual-sheets/actor/page-002.jpg",
       "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
       "hasCompatibleAnimation": true,
       "compatibleAnimationCount": 1,
@@ -6521,7 +6966,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-013.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -6581,7 +7026,7 @@
       "systemManagedProportions": null,
       "visualReferenceId": "visual_b5fb31fa9961a3416682",
       "atlasPage": 1,
-      "atlasSlot": 3,
+      "atlasSlot": 5,
       "pageImageUrl": "full-visual-sheets/actor/page-001.jpg",
       "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
       "hasCompatibleAnimation": true,
@@ -6605,7 +7050,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-006.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -6693,7 +7138,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -6775,7 +7220,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-004.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -7216,7 +7661,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-001.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7239,7 +7684,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-018.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7261,7 +7706,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-015.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7283,7 +7728,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-006.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7305,7 +7750,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-019.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7327,7 +7772,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-015.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7349,7 +7794,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-016.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7371,7 +7816,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7393,7 +7838,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-008.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7415,7 +7860,7 @@
           "visualSheetsSlot": 8,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-014.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7438,7 +7883,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-008.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7460,7 +7905,7 @@
           "visualSheetsSlot": 10,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-003.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -7550,7 +7995,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-010.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7573,7 +8018,7 @@
           "visualSheetsSlot": 10,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-009.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7595,7 +8040,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-004.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7617,7 +8062,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-023.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7639,7 +8084,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-018.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7661,7 +8106,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-001.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7683,7 +8128,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-022.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7705,7 +8150,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-013.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7727,7 +8172,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-010.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7749,7 +8194,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-007.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7771,7 +8216,7 @@
           "visualSheetsSlot": 2,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-008.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -7860,7 +8305,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-003.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7882,7 +8327,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-016.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7904,7 +8349,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7926,7 +8371,7 @@
           "visualSheetsSlot": 8,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-004.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7948,7 +8393,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-001.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7970,7 +8415,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-011.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -7992,7 +8437,7 @@
           "visualSheetsSlot": 8,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-017.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8014,7 +8459,7 @@
           "visualSheetsSlot": 10,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-022.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8036,7 +8481,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-014.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8058,7 +8503,7 @@
           "visualSheetsSlot": 8,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-009.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8080,7 +8525,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-010.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -8169,7 +8614,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-003.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8191,7 +8636,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-007.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8213,7 +8658,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-012.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8235,7 +8680,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-013.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8257,7 +8702,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-004.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8279,7 +8724,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8301,7 +8746,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-009.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8323,7 +8768,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-008.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8345,7 +8790,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-002.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8367,7 +8812,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-021.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8389,7 +8834,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-017.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -8478,7 +8923,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-001.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8500,7 +8945,7 @@
           "visualSheetsSlot": 2,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-016.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8522,7 +8967,7 @@
           "visualSheetsSlot": 10,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-008.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8544,7 +8989,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-013.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8566,7 +9011,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-007.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8589,7 +9034,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-018.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8611,7 +9056,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-014.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8633,7 +9078,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-013.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8655,7 +9100,7 @@
           "visualSheetsSlot": 10,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-002.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8677,7 +9122,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-017.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8699,7 +9144,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-017.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8721,7 +9166,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-002.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8743,7 +9188,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-008.jpg",
-          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]

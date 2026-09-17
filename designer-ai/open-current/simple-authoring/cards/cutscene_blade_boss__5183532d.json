@@ -2,31 +2,52 @@
   "schema": "STARWARS_ACTOR_CARD",
   "schemaVersion": 1,
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20260915-050107410-1da8bf42",
+  "publishTransactionId": "20260917-035555075-14c10f0f",
   "identity": {
     "handle": "cutscene_blade_boss__5183532d",
     "displayName": "CUTSCENE BLADE BOSS",
     "route": "Actor"
   },
   "look": {
-    "baseImageStatus": "UNAVAILABLE",
-    "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
-    "visualReferenceId": null,
-    "atlasPage": null,
-    "atlasSlot": null,
-    "pageImageUrl": null,
-    "atlasPdfUrl": null,
-    "source": "COMPATIBLE_ANIMATION_EVIDENCE_OR_NONE"
+    "baseImageStatus": "AVAILABLE",
+    "atlasMappingStatus": "MAPPED_CURRENT_TRANSACTION",
+    "visualReferenceId": "visual_6d83403e64278b80869c",
+    "atlasPage": 2,
+    "atlasSlot": 6,
+    "pageImageUrl": "full-visual-sheets/actor/page-002.jpg",
+    "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
+    "source": "ACTOR_VISUAL_EVIDENCE"
   },
+  "animations": [
+    {
+      "animationHandle": "animation__ae13a0d7",
+      "displayName": "Blade Boss",
+      "animationAssetId": "9f5bddce9c9a5924687b8e89fd851980:7400000",
+      "animationFamilyId": "playniax-boss-blade",
+      "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Textures/Enemies (Bosses)/Blade/Blade Boss.anim",
+      "intents": [],
+      "visualReferenceId": "visual_a1759e3d31b402608e64",
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": "full-visual-sheets/animation/page-014.jpg",
+      "atlasPdfUrl": null,
+      "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
+      "visualSheetsPage": 14,
+      "visualSheetsSlot": 9,
+      "visualSheetsFile": "animation.pdf",
+      "pageImageFile": "animation/page-014.jpg",
+      "visualSheetsTransactionId": "20260917-035555075-14c10f0f",
+      "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
+    }
+  ],
   "does": [],
   "quality": {
-    "imageLink": "PIXELS_UNAVAILABLE",
-    "performanceEvidence": "UNAVAILABLE",
+    "imageLink": "PRESENT_NOT_HTTP_VERIFIED",
+    "performanceEvidence": "PRESENT",
     "visualContinuity": "NOT_CHECKED",
     "runtimeProof": "NOT_CHECKED"
   },
   "missingEvidence": [
-    "ATLAS_MAPPING_UNAVAILABLE",
     "SEMANTIC_MAPPING_MISSING"
   ]
 }
