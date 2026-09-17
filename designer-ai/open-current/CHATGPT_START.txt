@@ -59,7 +59,7 @@ IDENTITY
 - cast[].identityHandle is the exact CURRENT canonical/preferred route=Actor authoring identity.
 - visible[].handle selects the visible representation.
 - actions[].subject references cast[].id.
-- animationIntent/performanceIntent are semantic requests. Never author raw AnimationClip IDs.
+- animationIntent and animationHandle are alternative animation selectors. Use exactly one when explicitly requesting animation: animationIntent chooses by published semantic intent; animationHandle chooses one exact CURRENT clip exposed on that Actor card. performanceIntent remains descriptive directing intent. Never author raw AnimationClip IDs.
 - Sprite frames, portraits, textures, animation frames and raw Catalog IDs do not become Actor identity because they look related.
 - If CURRENT does not expose a legal Actor handle, the Actor is unavailable for direct authoring. Do not infer one.
 
@@ -70,6 +70,14 @@ CATALOG / VISUAL EVIDENCE
 - Use route=Actor for world identity, Layer for scenery, Effect for VFX, Ui for UI/dialogue presentation and Audio for sound.
 - Real pixel evidence decides appearance. Metadata is search evidence only.
 - Do not directly author source sheets, assembly parts, unsafe/pending-review assets or technical helper content when CURRENT excludes them.
+
+CATALOG FEEDBACK — GITHUB ISSUES
+- Use the existing repository https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS and its "Catalog feedback" Issue template for incorrect identification, discovered animation, missing capability or missing image.
+- Before creating a report, search open Issues for the exact handle/source and the same problem; read likely matches and reuse the existing Issue instead of creating a duplicate. Do not treat a failed search as proof that no Issue exists.
+- Include the exact existing handle or observed source reference, the checked OPEN_CURRENT publishTransactionId (or UNKNOWN with a reason), the user's request, the actual response, the suspected gap, short evidence and a proposed correction labeled HYPOTHESIS unless verified. Never invent an identity. Record an explicit human choice without treating it as technical proof.
+- Create the Issue through the GitHub connection when submission is authorized and available. Otherwise prepare the report text and state clearly that it was not submitted. Return the Issue link only after confirmed creation.
+- A report grants no capability and makes no animation legal. Continue with a suitable CURRENT-approved alternative when possible and disclose the substitution; if none fits, say so. A user's exact required identity must not be silently replaced.
+- Apply approved corrections later through the existing Catalog mechanism. Close the Issue only after the correction is verified; for a published-data gap, verify the corrected CURRENT and record the evidence. Feedback does not trigger Scan or Publish and is not a prerequisite for closing the current eligibility repair.
 
 STORY AND EVIDENCE
 Every production beat needs a clear audience-observable purpose. Dialogue or a title saying an event happened does not implement the visible event.
@@ -85,7 +93,7 @@ VISIBLE EFFECTS / PARTICLES
 
 ACTOR ANIMATION AND MOTION
 - Animation and movement are separate and may run simultaneously.
-- compatible real animation is requested through semantic animationIntent/performanceIntent.
+- compatible real animation is requested either by semantic animationIntent or by exact published animationHandle. Use exactly one selector. performanceIntent does not itself select a clip.
 - when multiple legal Actors fit the same visual role, prefer one with useful compatible animation over an otherwise comparable static Actor; inspect its animationEvidence pixels/atlas references before making an important visual choice.
 - actor motion uses only schema-legal motionIntent/path fields.
 - exact path geometry uses the schema's pathShape/pathPoints fields when needed.
@@ -188,7 +196,7 @@ Before returning JSON verify:
 4. every handle is exact CURRENT and route-legal;
 5. world Actor identity is a legal CURRENT Actor handle;
 6. dialogue identity/expression is exact CURRENT closed-world vocabulary;
-7. animation/performance intent is semantic, never raw Animation ID;
+7. animation selection uses at most one of animationIntent or animationHandle; animationHandle must be exact CURRENT for that Actor, and raw Animation IDs are never authored;
 8. every action uses schema-legal type/subject/motion/timing fields;
 9. every fire action has legal projectileId and count;
 10. Effect timing uses Effect-only fields and repeated instances are preserved;

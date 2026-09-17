@@ -2,7 +2,7 @@
   "schema": "STARWARS_ACTOR_CARD",
   "schemaVersion": 1,
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20260915-050107410-1da8bf42",
+  "publishTransactionId": "20260917-000951784-9b00c114",
   "identity": {
     "handle": "doctor_03__a38d325b",
     "displayName": "Doctor 03",
@@ -18,91 +18,285 @@
     "atlasPdfUrl": null,
     "source": "COMPATIBLE_ANIMATION_EVIDENCE_OR_NONE"
   },
+  "animations": [
+    {
+      "animationHandle": "animation__0a79e30f",
+      "displayName": "Hit",
+      "animationAssetId": "0bf9e03eb92073845a88e037a6e0b272:7400000",
+      "animationFamilyId": "vision-doctor-03",
+      "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Hit.anim",
+      "intents": [
+        "damage"
+      ],
+      "visualReferenceId": "visual_78393c8c8e2bc2eada5a",
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": "full-visual-sheets/animation/page-002.jpg",
+      "atlasPdfUrl": null,
+      "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
+      "visualSheetsPage": 2,
+      "visualSheetsSlot": 2,
+      "visualSheetsFile": "animation.pdf",
+      "pageImageFile": "animation/page-002.jpg",
+      "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+      "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
+    },
+    {
+      "animationHandle": "animation__680a6033",
+      "displayName": "Death",
+      "animationAssetId": "f9767c050b9412b4d9e23a5dd7a5014b:7400000",
+      "animationFamilyId": "vision-doctor-03",
+      "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Death.anim",
+      "intents": [],
+      "visualReferenceId": "visual_c02a63d86e3205553ce3",
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": "full-visual-sheets/animation/page-024.jpg",
+      "atlasPdfUrl": null,
+      "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
+      "visualSheetsPage": 24,
+      "visualSheetsSlot": 7,
+      "visualSheetsFile": "animation.pdf",
+      "pageImageFile": "animation/page-024.jpg",
+      "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+      "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
+    },
+    {
+      "animationHandle": "animation__7fa7fadd",
+      "displayName": "Run",
+      "animationAssetId": "d669d8de6dcf4b1439f7c7ac8f1e1ffe:7400000",
+      "animationFamilyId": "vision-doctor-03",
+      "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Run.anim",
+      "intents": [
+        "run"
+      ],
+      "visualReferenceId": "visual_7968bd31ae8e7f67ba81",
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": "full-visual-sheets/animation/page-021.jpg",
+      "atlasPdfUrl": null,
+      "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
+      "visualSheetsPage": 21,
+      "visualSheetsSlot": 3,
+      "visualSheetsFile": "animation.pdf",
+      "pageImageFile": "animation/page-021.jpg",
+      "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+      "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
+    },
+    {
+      "animationHandle": "animation__8bfd209e",
+      "displayName": "Idle",
+      "animationAssetId": "2ecce89aa7b6d6c42b1bae4f10e66aa6:7400000",
+      "animationFamilyId": "vision-doctor-03",
+      "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Idle.anim",
+      "intents": [
+        "idle"
+      ],
+      "visualReferenceId": "visual_79ba85dda3edc94ace43",
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": "full-visual-sheets/animation/page-005.jpg",
+      "atlasPdfUrl": null,
+      "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
+      "visualSheetsPage": 5,
+      "visualSheetsSlot": 9,
+      "visualSheetsFile": "animation.pdf",
+      "pageImageFile": "animation/page-005.jpg",
+      "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+      "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
+    },
+    {
+      "animationHandle": "animation__b7dd072b",
+      "displayName": "Walk",
+      "animationAssetId": "a0337d34febd1064abd69c182acfd08c:7400000",
+      "animationFamilyId": "vision-doctor-03",
+      "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Walk.anim",
+      "intents": [
+        "walk"
+      ],
+      "visualReferenceId": "visual_70b8465bd87b872ec3b5",
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": "full-visual-sheets/animation/page-014.jpg",
+      "atlasPdfUrl": null,
+      "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
+      "visualSheetsPage": 14,
+      "visualSheetsSlot": 11,
+      "visualSheetsFile": "animation.pdf",
+      "pageImageFile": "animation/page-014.jpg",
+      "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+      "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
+    },
+    {
+      "animationHandle": "animation__f1992fe9",
+      "displayName": "Jump",
+      "animationAssetId": "aea7936c507971f45af2d1485d60f613:7400000",
+      "animationFamilyId": "vision-doctor-03",
+      "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Jump.anim",
+      "intents": [],
+      "visualReferenceId": "visual_a154a6abc5ff7ed5d369",
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": "full-visual-sheets/animation/page-016.jpg",
+      "atlasPdfUrl": null,
+      "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
+      "visualSheetsPage": 16,
+      "visualSheetsSlot": 6,
+      "visualSheetsFile": "animation.pdf",
+      "pageImageFile": "animation/page-016.jpg",
+      "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+      "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
+    },
+    {
+      "animationHandle": "animation__f4f2df0e",
+      "displayName": "Interacting",
+      "animationAssetId": "0d0b78255b1f44e4b9bf10ead016e7f4:7400000",
+      "animationFamilyId": "vision-doctor-03",
+      "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Interacting.anim",
+      "intents": [],
+      "visualReferenceId": "visual_401365b212ffc5552af8",
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": "full-visual-sheets/animation/page-002.jpg",
+      "atlasPdfUrl": null,
+      "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
+      "visualSheetsPage": 2,
+      "visualSheetsSlot": 3,
+      "visualSheetsFile": "animation.pdf",
+      "pageImageFile": "animation/page-002.jpg",
+      "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+      "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
+    }
+  ],
   "does": [
     {
       "intent": "damage",
       "evidence": [
         {
+          "animationHandle": "animation__0a79e30f",
+          "displayName": "Hit",
+          "intent": "damage",
+          "intents": [
+            "damage"
+          ],
           "animationAssetId": "0bf9e03eb92073845a88e037a6e0b272:7400000",
           "animationFamilyId": "vision-doctor-03",
           "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Hit.anim",
-          "visualReferenceId": null,
+          "visualReferenceId": "visual_78393c8c8e2bc2eada5a",
           "atlasPage": null,
           "atlasSlot": null,
-          "pageImageUrl": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-002.jpg",
           "atlasPdfUrl": null,
-          "evidenceType": "ANIMATION_SOURCE_EVIDENCE",
-          "pixelStatus": "PIXELS_UNAVAILABLE"
+          "visualSheetsPage": 2,
+          "visualSheetsSlot": 2,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-002.jpg",
+          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION",
+          "evidenceType": "VISUAL_SHEET_REFERENCE",
+          "pixelStatus": "NOT_HTTP_VERIFIED"
         }
       ],
-      "evidenceStatus": "UNAVAILABLE"
+      "evidenceStatus": "AVAILABLE"
     },
     {
       "intent": "idle",
       "evidence": [
         {
+          "animationHandle": "animation__8bfd209e",
+          "displayName": "Idle",
+          "intent": "idle",
+          "intents": [
+            "idle"
+          ],
           "animationAssetId": "2ecce89aa7b6d6c42b1bae4f10e66aa6:7400000",
           "animationFamilyId": "vision-doctor-03",
           "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Idle.anim",
-          "visualReferenceId": null,
+          "visualReferenceId": "visual_79ba85dda3edc94ace43",
           "atlasPage": null,
           "atlasSlot": null,
-          "pageImageUrl": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-005.jpg",
           "atlasPdfUrl": null,
-          "evidenceType": "ANIMATION_SOURCE_EVIDENCE",
-          "pixelStatus": "PIXELS_UNAVAILABLE"
+          "visualSheetsPage": 5,
+          "visualSheetsSlot": 9,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-005.jpg",
+          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION",
+          "evidenceType": "VISUAL_SHEET_REFERENCE",
+          "pixelStatus": "NOT_HTTP_VERIFIED"
         }
       ],
-      "evidenceStatus": "UNAVAILABLE"
+      "evidenceStatus": "AVAILABLE"
     },
     {
       "intent": "run",
       "evidence": [
         {
+          "animationHandle": "animation__7fa7fadd",
+          "displayName": "Run",
+          "intent": "run",
+          "intents": [
+            "run"
+          ],
           "animationAssetId": "d669d8de6dcf4b1439f7c7ac8f1e1ffe:7400000",
           "animationFamilyId": "vision-doctor-03",
           "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Run.anim",
-          "visualReferenceId": null,
+          "visualReferenceId": "visual_7968bd31ae8e7f67ba81",
           "atlasPage": null,
           "atlasSlot": null,
-          "pageImageUrl": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-021.jpg",
           "atlasPdfUrl": null,
-          "evidenceType": "ANIMATION_SOURCE_EVIDENCE",
-          "pixelStatus": "PIXELS_UNAVAILABLE"
+          "visualSheetsPage": 21,
+          "visualSheetsSlot": 3,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-021.jpg",
+          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION",
+          "evidenceType": "VISUAL_SHEET_REFERENCE",
+          "pixelStatus": "NOT_HTTP_VERIFIED"
         }
       ],
-      "evidenceStatus": "UNAVAILABLE"
+      "evidenceStatus": "AVAILABLE"
     },
     {
       "intent": "walk",
       "evidence": [
         {
+          "animationHandle": "animation__b7dd072b",
+          "displayName": "Walk",
+          "intent": "walk",
+          "intents": [
+            "walk"
+          ],
           "animationAssetId": "a0337d34febd1064abd69c182acfd08c:7400000",
           "animationFamilyId": "vision-doctor-03",
           "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Walk.anim",
-          "visualReferenceId": null,
+          "visualReferenceId": "visual_70b8465bd87b872ec3b5",
           "atlasPage": null,
           "atlasSlot": null,
-          "pageImageUrl": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-014.jpg",
           "atlasPdfUrl": null,
-          "evidenceType": "ANIMATION_SOURCE_EVIDENCE",
-          "pixelStatus": "PIXELS_UNAVAILABLE"
+          "visualSheetsPage": 14,
+          "visualSheetsSlot": 11,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-014.jpg",
+          "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION",
+          "evidenceType": "VISUAL_SHEET_REFERENCE",
+          "pixelStatus": "NOT_HTTP_VERIFIED"
         }
       ],
-      "evidenceStatus": "UNAVAILABLE"
+      "evidenceStatus": "AVAILABLE"
     }
   ],
   "quality": {
     "imageLink": "PIXELS_UNAVAILABLE",
-    "performanceEvidence": "UNAVAILABLE",
+    "performanceEvidence": "PRESENT",
     "visualContinuity": "NOT_CHECKED",
     "runtimeProof": "NOT_CHECKED"
   },
   "missingEvidence": [
-    "ATLAS_MAPPING_UNAVAILABLE",
-    "ANIMATION_IMAGE_EVIDENCE_UNAVAILABLE:damage",
-    "ANIMATION_IMAGE_EVIDENCE_UNAVAILABLE:idle",
-    "ANIMATION_IMAGE_EVIDENCE_UNAVAILABLE:run",
-    "ANIMATION_IMAGE_EVIDENCE_UNAVAILABLE:walk"
+    "ATLAS_MAPPING_UNAVAILABLE"
   ]
 }

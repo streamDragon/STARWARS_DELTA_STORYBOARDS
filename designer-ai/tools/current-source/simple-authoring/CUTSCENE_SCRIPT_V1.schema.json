@@ -549,7 +549,12 @@
           "type": "string"
         },
         "animationIntent": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
+        },
+        "animationHandle": {
+          "type": "string",
+          "minLength": 1
         },
         "result": {
           "type": "string"

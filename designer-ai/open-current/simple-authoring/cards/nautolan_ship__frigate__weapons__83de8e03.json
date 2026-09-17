@@ -2,7 +2,7 @@
   "schema": "STARWARS_ACTOR_CARD",
   "schemaVersion": 1,
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20260915-050107410-1da8bf42",
+  "publishTransactionId": "20260917-000951784-9b00c114",
   "identity": {
     "handle": "nautolan_ship__frigate__weapons__83de8e03",
     "displayName": "Nautolan Ship   Frigate   Weapons",
@@ -18,34 +18,37 @@
     "atlasPdfUrl": null,
     "source": "COMPATIBLE_ANIMATION_EVIDENCE_OR_NONE"
   },
-  "does": [
+  "animations": [
     {
-      "intent": "shoot",
-      "evidence": [
-        {
-          "animationAssetId": "2dc0c9277773e35479970ebabcd17f62:6385852548208323621",
-          "animationFamilyId": "nautolan-frigate",
-          "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Frigate - Weapons.aseprite",
-          "visualReferenceId": null,
-          "atlasPage": null,
-          "atlasSlot": null,
-          "pageImageUrl": null,
-          "atlasPdfUrl": null,
-          "evidenceType": "ANIMATION_SOURCE_EVIDENCE",
-          "pixelStatus": "PIXELS_UNAVAILABLE"
-        }
-      ],
-      "evidenceStatus": "UNAVAILABLE"
+      "animationHandle": "animation__92ecbe9a",
+      "displayName": "Nautolan Ship   Frigate   Weapons Clip",
+      "animationAssetId": "2dc0c9277773e35479970ebabcd17f62:6385852548208323621",
+      "animationFamilyId": "nautolan-frigate",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Frigate - Weapons.aseprite",
+      "intents": [],
+      "visualReferenceId": "visual_eed87329a6620c8a6119",
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": "full-visual-sheets/animation/page-005.jpg",
+      "atlasPdfUrl": null,
+      "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
+      "visualSheetsPage": 5,
+      "visualSheetsSlot": 8,
+      "visualSheetsFile": "animation.pdf",
+      "pageImageFile": "animation/page-005.jpg",
+      "visualSheetsTransactionId": "20260917-000951784-9b00c114",
+      "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
     }
   ],
+  "does": [],
   "quality": {
     "imageLink": "PIXELS_UNAVAILABLE",
-    "performanceEvidence": "UNAVAILABLE",
+    "performanceEvidence": "PRESENT",
     "visualContinuity": "NOT_CHECKED",
     "runtimeProof": "NOT_CHECKED"
   },
   "missingEvidence": [
     "ATLAS_MAPPING_UNAVAILABLE",
-    "ANIMATION_IMAGE_EVIDENCE_UNAVAILABLE:shoot"
+    "SEMANTIC_MAPPING_MISSING"
   ]
 }
