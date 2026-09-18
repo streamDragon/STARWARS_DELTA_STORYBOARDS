@@ -27,8 +27,8 @@ async function refreshLinks(){
     const atlasPdfUrl=current?.visualAtlas?.pdfUrl||CURRENT_VISUAL_PDF;
 
     if(atlasDownloadButton&&atlasPdfUrl)atlasDownloadButton.href=atlasPdfUrl;
-    if(visualLibraryButton&&visualLibrary.downloadUrl)visualLibraryButton.href=visualLibrary.downloadUrl;
-    if(visualProofButton&&visualProof.downloadUrl)visualProofButton.href=visualProof.downloadUrl;
+    if(visualLibraryButton&&visualLibrary.downloadUrl){visualLibraryButton.href=visualLibrary.downloadUrl;visualLibraryButton.removeAttribute('aria-disabled');}
+    if(visualProofButton&&visualProof.downloadUrl){visualProofButton.href=visualProof.downloadUrl;visualProofButton.removeAttribute('aria-disabled');}
 
     if(status)status.textContent='READY';
     if(meta){
@@ -39,8 +39,8 @@ async function refreshLinks(){
     }
     if(note)note.textContent='Direct downloads are ready. CURRENT links refresh quietly in the background.';
   }catch(_){
-    if(status)status.textContent='READY';
-    if(note)note.textContent='Direct downloads are ready.';
+    if(status)status.textContent='CURRENT UNAVAILABLE';
+    if(note)note.textContent='CURRENT download links are unavailable; no stale fallback is used.';
   }
 }
 
