@@ -6,7 +6,8 @@ This is the filmmaking layer for Devora / Designer AI authoring. It complements 
 
 Use only the matching CURRENT:
 
-- `OPEN_CURRENT.json`
+- Public CURRENT entrypoint: `/designer-ai/open-current/OPEN_CURRENT.json`
+- Inside a downloaded CURRENT bundle, the same manifest is named `OPEN_CURRENT.json`
 - `simple-authoring/CUTSCENE_SCRIPT_V1.schema.json`
 - `simple-authoring/AUTHORING_HANDLES.json`
 - `simple-authoring/AUTHORING_RULES_CURRENT.json`
@@ -109,6 +110,27 @@ animationIntent / performanceIntent
 A Sprite frame, portrait, Texture or animation frame does not become Actor identity merely because it depicts the character.
 
 Distinct named people require distinct identities unless intentionally the same identity/clone.
+
+When several cast entries intentionally represent repeated instances/clones of the same canonical Actor Identity, declare one root cast member and connect every additional instance with `sameIdentityAs` to that root (or to a valid chain ending at that root). Never repeat one `identityHandle` across independent cast IDs without this ownership chain. If the characters are actually distinct, choose distinct CURRENT `identityHandle` values.
+
+Example:
+
+```json
+{
+  "id": "blob_1",
+  "identityHandle": "<CURRENT_BLOB_IDENTITY_HANDLE>"
+},
+{
+  "id": "blob_2",
+  "identityHandle": "<CURRENT_BLOB_IDENTITY_HANDLE>",
+  "sameIdentityAs": "blob_1"
+},
+{
+  "id": "blob_3",
+  "identityHandle": "<CURRENT_BLOB_IDENTITY_HANDLE>",
+  "sameIdentityAs": "blob_1"
+}
+```
 
 ## Animation and movement
 

@@ -11,7 +11,10 @@ SOURCE-OF-TRUTH BOUNDARY
 
 AUTHORING SOURCES
 Use only the matching CURRENT artifacts:
-- OPEN_CURRENT.json
+- Public CURRENT entrypoint: /designer-ai/open-current/OPEN_CURRENT.json
+- Compact navigation first: /designer-ai/open-current/CHATGPT_AUTHORING_INDEX.json
+- CHATGPT_AUTHORING_INDEX.json is a derived navigation projection only; matching CURRENT AUTHORING_HANDLES.json remains authoritative for exact legal handles.
+- Inside a downloaded CURRENT bundle, the same manifest is named OPEN_CURRENT.json
 - simple-authoring/CUTSCENE_SCRIPT_V1.schema.json
 - simple-authoring/AUTHORING_HANDLES.json
 - simple-authoring/AUTHORING_RULES_CURRENT.json
@@ -57,6 +60,7 @@ Do not serialize catalogRevision, contractRevision, schemaHash, snapshotContentH
 IDENTITY
 - cast[].id is narrative identity used by actions/dialogue/continuity.
 - cast[].identityHandle is the exact CURRENT canonical/preferred route=Actor authoring identity.
+- Never duplicate the same identityHandle under multiple cast ids as if they were distinct Actors. If multiple cast entries intentionally represent clones/repeated instances of one canonical Actor Identity, declare one root cast member and set every additional instance's sameIdentityAs to that root (or to a valid chain ending at that root). Truly distinct characters require distinct identityHandle values from CURRENT.
 - visible[].handle selects the visible representation.
 - actions[].subject references cast[].id.
 - animationIntent and animationHandle are alternative animation selectors. Use exactly one when explicitly requesting animation: animationIntent chooses by published semantic intent; animationHandle chooses one exact CURRENT clip exposed on that Actor card. performanceIntent remains descriptive directing intent. Never author raw AnimationClip IDs.
@@ -94,6 +98,7 @@ VISIBLE EFFECTS / PARTICLES
 ACTOR ANIMATION AND MOTION
 - Animation and movement are separate and may run simultaneously.
 - compatible real animation is requested either by semantic animationIntent or by exact published animationHandle. Use exactly one selector. performanceIntent does not itself select a clip.
+- CRITICAL FIELD SEPARATION: walking is not motionIntent=walk. For ordinary walking use type=move + motionIntent=move and animationIntent=walk (or one exact published walk animationHandle). The same rule applies conceptually to other animation words: never copy walk/idle/run/look/shoot from supportedAnimationIntents into motionIntent unless that exact literal independently exists in the schema motionIntent enum.
 - when multiple legal Actors fit the same visual role, prefer one with useful compatible animation over an otherwise comparable static Actor; inspect its animationEvidence pixels/atlas references before making an important visual choice.
 - actor motion uses only schema-legal motionIntent/path fields.
 - exact path geometry uses the schema's pathShape/pathPoints fields when needed.
@@ -127,6 +132,7 @@ CINEMATIC EDITING MOVES
 CAMERA
 Camera authoring is semantic directing intent.
 - framing/movement/subject/direction/intensity/parallax use only matching schema values.
+- camera.intensity is a closed enum with exactly subtle, medium, strong. Do not use low/high here; those words belong to other fields in the schema and are not interchangeable.
 - camera.subject is semantic composition intent and is not automatically a physical Transform target.
 - Hold may preserve semantic composition without a physical target.
 - Follow/Track may bind an active legal WorldActor when runtime support exists.
@@ -197,10 +203,10 @@ Before returning JSON verify:
 5. world Actor identity is a legal CURRENT Actor handle;
 6. dialogue identity/expression is exact CURRENT closed-world vocabulary;
 7. animation selection uses at most one of animationIntent or animationHandle; animationHandle must be exact CURRENT for that Actor, and raw Animation IDs are never authored;
-8. every action uses schema-legal type/subject/motion/timing fields;
+8. every action uses schema-legal type/subject/motion/timing fields; never put an animation intent such as walk into motionIntent;
 9. every fire action has legal projectileId and count;
 10. Effect timing uses Effect-only fields and repeated instances are preserved;
-11. camera fields use exact schema vocabulary;
+11. camera fields use exact schema vocabulary; camera.intensity is only subtle/medium/strong, never low/high;
 12. no unknown properties, raw Catalog IDs, runtime GUIDs, V3/V5 bookkeeping, Timeline bindings or test-runner QA fields appear;
 13. no array-order sequencing assumption exists;
 14. no visual claim is made from metadata without pixel evidence when appearance matters;
