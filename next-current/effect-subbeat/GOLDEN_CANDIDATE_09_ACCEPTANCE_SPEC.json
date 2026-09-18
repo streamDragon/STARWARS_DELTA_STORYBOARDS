@@ -1,0 +1,108 @@
+{
+  "specId": "effect-subbeat-golden-candidate-09",
+  "status": "candidate-only",
+  "promotionPolicy": "Do not publish as GOLDEN until LOAD, NORMALIZE, VALIDATE, BUILD EDITABLE PREVIEW, binding-aware interval verification and human visual review all pass.",
+  "scope": "CUTSCENE_SCRIPT_V1 visible obligations resolving to route Effect",
+  "currentImplementationFinding": "CURRENT already implements Effect sub-beat timing. The audited defect was negative startOffsetSeconds being clamped to zero instead of rejected.",
+  "intervalSemantics": {
+    "defaultStartOffsetSeconds": 0,
+    "omittedDuration": "until-containing-beat-end",
+    "explicitDurationEnd": "min(beatEnd, absoluteStart + durationSeconds)",
+    "negativeStartOffset": "block",
+    "outsideBeatStart": "block",
+    "spillAcrossBeat": false
+  },
+  "cases": [
+    {
+      "id": "G01",
+      "name": "Full-beat backward compatibility",
+      "authoring": {"startOffsetSeconds": null, "durationSeconds": null},
+      "expect": ["start=beatStart", "end=beatEnd", "no migration required"]
+    },
+    {
+      "id": "G02",
+      "name": "Immediate explicit short burst",
+      "authoring": {"startOffsetSeconds": null, "durationSeconds": 0.6},
+      "expect": ["omitted startOffsetSeconds defaults to zero", "starts at beat start", "ends after 0.6 seconds unless beat ends first"]
+    },
+    {
+      "id": "G03",
+      "name": "Delayed to beat end",
+      "authoring": {"startOffsetSeconds": 2.0, "durationSeconds": null},
+      "expect": ["no visibility before offset", "end=beatEnd"]
+    },
+    {
+      "id": "G04",
+      "name": "Late clamped burst",
+      "beatDurationSeconds": 8.0,
+      "authoring": {"startOffsetSeconds": 7.75, "durationSeconds": 1.0},
+      "expect": ["start=beatStart+7.75", "end=beatEnd", "no bleed into next beat"]
+    },
+    {
+      "id": "G05",
+      "name": "Sequential chain",
+      "intervals": [[0.5,1.2],[1.4,2.1],[2.3,3.0],[3.2,4.0]],
+      "expect": ["four distinct obligations", "no forced full-beat lifetime", "no beat splitting required", "explicit offset+duration may be represented directly"]
+    },
+    {
+      "id": "G06",
+      "name": "Overlap",
+      "intervals": [[0.0,6.0],[1.0,2.0],[1.3,2.4],[1.5,4.5]],
+      "expect": ["all intersections coexist", "bindings remain independent"]
+    },
+    {
+      "id": "G07",
+      "name": "Same handle triple",
+      "sameExactHandle": true,
+      "instanceCount": 3,
+      "distinct": ["visible.id", "screen position", "size", "lifetime"],
+      "expect": ["generated instance count=3", "no handle-based singleton or dedupe"]
+    },
+    {
+      "id": "G08",
+      "name": "Owner split",
+      "runtimeForms": ["Sprite/static visual Effect", "ParticleSystem/prefab Effect"],
+      "sameApproximateScreenPosition": true,
+      "overlap": true,
+      "expect": ["Sprite keeps existing Activation/native visual owner", "Particle/prefab keeps existing Control/lifecycle owner", "one shared interval semantics", "no track-owner trampling"]
+    },
+    {
+      "id": "G09",
+      "name": "Depth scale camera stress",
+      "depthBands": ["foreground", "mid", "background", "far"],
+      "sizeFields": ["screenWidthFraction", "screenHeightFraction"],
+      "cameraMoves": ["Hold", "Push", "Drift", "Pull"],
+      "expect": ["timing remains correct", "screen-relative placement remains correct", "size/depth remain independent per obligation"]
+    }
+  ],
+  "negativeRegressionCases": [
+    "negative startOffsetSeconds blocks instead of clamping to zero",
+    "non-finite startOffsetSeconds blocks",
+    "zero/negative/non-finite durationSeconds blocks",
+    "resolved start at or after beat end blocks",
+    "non-Effect timing fields block when CURRENT has no explicit support"
+  ],
+  "integrationCandidate": {
+    "durationSeconds": 32,
+    "beats": 4,
+    "visibleObligations": 40,
+    "timedEffects": 35,
+    "requiredCoverage": [
+      "real ParticleSystem prefabs",
+      "Sprite Effects",
+      "ControlTrack vs ActivationTrack",
+      "sequential Effects",
+      "overlapping Effects",
+      "three simultaneous instances of one exact Effect handle",
+      "different positions and sizes",
+      "screenWidthFraction and screenHeightFraction",
+      "foreground/mid/background/far",
+      "offset zero with omitted startOffsetSeconds",
+      "startOffsetSeconds with omitted durationSeconds extends to beat end",
+      "explicit startOffsetSeconds plus explicit durationSeconds",
+      "near-end Effect",
+      "Particle and Sprite at same place with distinct owners",
+      "camera Hold/Push/Drift/Pull"
+    ]
+  }
+}
