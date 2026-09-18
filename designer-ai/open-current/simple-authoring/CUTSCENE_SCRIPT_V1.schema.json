@@ -439,7 +439,8 @@
             "look_up",
             "help",
             "enter_shelter"
-          ]
+          ],
+          "description": "Actor translation/choreography intent only. Ordinary walking uses motionIntent=move together with animationIntent=walk or an exact walk animationHandle; walk itself is not a legal motionIntent."
         },
         "pathShape": {
           "enum": [
@@ -869,7 +870,8 @@
             "subtle",
             "medium",
             "strong"
-          ]
+          ],
+          "description": "Camera intensity only. Use exactly subtle, medium, or strong; low/high are not camera intensity values."
         },
         "parallax": {
           "enum": [

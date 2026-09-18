@@ -31,6 +31,16 @@
       "instruction": "Within one beat, an explicit actions[].animationIntent or actions[].animationHandle owns animation for that Actor and suppresses inferred/default animation from other actions for the same Actor. Movement, fire and camera motion may still run concurrently; Unity owns collision-free backend action IDs."
     },
     {
+      "id": "MOTION_ANIMATION_FIELD_SEPARATION",
+      "blocks": true,
+      "instruction": "Movement semantics and animation semantics are separate fields. For an ordinary walking character use type=move with motionIntent=move and request the gait with animationIntent=walk (or an exact published walk animationHandle). Never copy an animation intent such as walk, idle, run, look or shoot into motionIntent. motionIntent must come only from the schema motionIntent enum; animationIntent must come only from that Actor's published supportedAnimationIntents."
+    },
+    {
+      "id": "CLOSED_ENUM_LITERAL_CHECK",
+      "blocks": true,
+      "instruction": "Before returning JSON, compare every closed-enum value literally against CUTSCENE_SCRIPT_V1.schema.json. In particular camera.intensity is exactly subtle, medium or strong; do not use low/high there even though other fields may use those words. Do not transfer vocabulary between different enum fields merely because the words sound semantically related."
+    },
+    {
       "id": "DIALOGUE_CLOSED_WORLD",
       "blocks": true,
       "instruction": "Every dialogue speaker/listener must be an authoringReady actorId from EMOTIONAL_DIALOGUE_CURRENT.json and match cast[].id exactly."
@@ -54,6 +64,11 @@
       "id": "ONE_PRESENTATION_SOURCE",
       "blocks": true,
       "instruction": "A cast participant has one narrative identity and at most one optional presentationHandle. presentationHandle never creates or changes identity."
+    },
+    {
+      "id": "CAST_IDENTITY_OWNERSHIP",
+      "blocks": true,
+      "instruction": "Never duplicate the same identityHandle under multiple cast ids as if they were distinct Actors. If multiple cast entries intentionally represent clones or repeated instances of one canonical Actor Identity, declare one root cast member and set every additional instance's sameIdentityAs to that root (or to a valid chain ending at that root). If the characters are actually distinct, choose a distinct identityHandle for each one from CURRENT."
     },
     {
       "id": "VISUAL_EVIDENCE",
