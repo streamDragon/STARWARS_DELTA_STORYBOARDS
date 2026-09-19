@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>STARWARS DELTA - Designer AI Catalog</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#0b1020;color:#eef3ff}
+main{max-width:980px;margin:0 auto;padding:32px 20px}
+h1{font-size:clamp(28px,5vw,48px);margin:0 0 8px}
+p{color:#b9c6e4}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:24px}
+a.card{display:block;padding:18px;border:1px solid #31436d;border-radius:14px;background:#121a30;color:#eef3ff;text-decoration:none}
+a.card:hover{background:#182443}
+small{color:#8fa3cc}
+#status{margin-top:18px;padding:12px 14px;border-radius:10px;background:#10182b}
+code{color:#c8dbff}
+</style>
+</head>
+<body>
+<main>
+<h1>STARWARS DELTA</h1>
+<p>Designer AI current catalog and visual atlas.</p>
+<div id="status">Loading CURRENT status...</div>
+<div class="grid">
+<a class="card" href="designer-ai/open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf"><strong>Visual Atlas</strong><br><small>Actors, animations, effects, layers and UI</small></a>
+<a class="card" href="designer-ai/open-current/CHATGPT_AUTHORING_INDEX.json"><strong>Authoring Index</strong><br><small>Actors, cinematic recipes, effects and animation intents</small></a>
+<a class="card" href="designer-ai/open-current/ANIMATION_COVERAGE_CURRENT.json"><strong>Animation Coverage</strong><br><small>Visualization and ownership coverage</small></a>
+<a class="card" href="designer-ai/open-current/OPEN_CURRENT.json"><strong>OPEN_CURRENT</strong><br><small>Verified CURRENT contract</small></a>
+</div>
+</main>
+<script>
+fetch('designer-ai/open-current/OPEN_CURRENT.json').then(r=>r.json()).then(d=>{
+ document.getElementById('status').innerHTML='<strong>'+d.status+'</strong> &nbsp; Publisher '+d.publisherVersion+'<br><small>Published '+d.publishedUtc+'</small>';
+}).catch(()=>{document.getElementById('status').textContent='CURRENT data could not be loaded.'});
+</script>
+</body>
+</html>
