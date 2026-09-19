@@ -1,6 +1,6 @@
 (()=>{
 'use strict';
-const UI_BUILD='20260915-devora-simple-downloads-v2';
+const UI_BUILD='20260920-tools-hub-restored-v1';
 if(!document.querySelector('link[data-ui-polish]')){const l=document.createElement('link');l.rel='stylesheet';l.href=`assets/ui-polish.css?build=${UI_BUILD}`;l.dataset.uiPolish='1';document.head.appendChild(l)}
 if(!document.querySelector('script[data-ui-polish]')){const s=document.createElement('script');s.src=`assets/ui-polish.js?build=${UI_BUILD}`;s.defer=true;s.dataset.uiPolish='1';document.head.appendChild(s)}
 
@@ -26,9 +26,9 @@ async function refreshLinks(){
     const visualProof=current?.visualProof||{};
     const atlasPdfUrl=current?.visualAtlas?.pdfUrl||CURRENT_VISUAL_PDF;
 
-    if(atlasDownloadButton&&atlasPdfUrl)atlasDownloadButton.href=atlasPdfUrl;
-    if(visualLibraryButton&&visualLibrary.downloadUrl){visualLibraryButton.href=visualLibrary.downloadUrl;visualLibraryButton.removeAttribute('aria-disabled');}
-    if(visualProofButton&&visualProof.downloadUrl){visualProofButton.href=visualProof.downloadUrl;visualProofButton.removeAttribute('aria-disabled');}
+    if(atlasDownloadButton&&atlasPdfUrl){atlasDownloadButton.href=atlasPdfUrl;atlasDownloadButton.removeAttribute('aria-disabled');}
+    if(visualLibraryButton){if(visualLibrary.downloadUrl){visualLibraryButton.href=visualLibrary.downloadUrl;visualLibraryButton.removeAttribute('aria-disabled');}else{visualLibraryButton.href=CURRENT_VISUAL_PDF;visualLibraryButton.removeAttribute('aria-disabled');}}
+    if(visualProofButton){if(visualProof.downloadUrl){visualProofButton.href=visualProof.downloadUrl;visualProofButton.removeAttribute('aria-disabled');}else{visualProofButton.href='designer-ai/open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf';visualProofButton.removeAttribute('aria-disabled');}}
 
     if(status)status.textContent='READY';
     if(meta){
