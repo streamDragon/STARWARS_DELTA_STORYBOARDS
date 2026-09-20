@@ -29,16 +29,26 @@ let visualState=null;
 
 function previewUrl(v){
   if(!v)return '';
-  if(v.primaryPreview)return ROOT+String(v.primaryPreview).replace(/^\/+/, '');
-  if(v.previewUrl)return v.previewUrl;
   if(v.pageImageUrl)return /^https?:/.test(v.pageImageUrl)?v.pageImageUrl:ROOT+v.pageImageUrl.replace(/^\/+/, '');
+  if(v.previewUrl)return v.previewUrl;
   return '';
 }
+function visualThumb(v,name){
+  const url=previewUrl(v);
+  if(!url)return '<div class="visual-card-missing">NO PUBLISHED PREVIEW</div>';
+  const slot=Number(v?.atlasSlot||v?.visualSheetsSlot||0);
+  if(slot>=1&&slot<=12&&v?.pageImageUrl){
+    const col=(slot-1)%3,row=Math.floor((slot-1)/3);
+    const x=col===0?0:col===1?50:100;
+    const y=row===0?0:row===1?33.333:row===2?66.667:100;
+    return `<a class="visual-crop-link" href="${esc(url)}" target="_blank" rel="noopener"><div class="visual-crop" role="img" aria-label="${esc(name)}" style="background-image:url('${esc(url)}');background-position:${x}% ${y}%"></div></a>`;
+  }
+  return `<a href="${esc(url)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(url)}" alt="${esc(name)}"></a>`;
+}
 function card(item){
-  const img=previewUrl(item.visual);
   const badge=item.kind==='animation'?'ANIMATION':item.animated?'ANIMATED ACTOR':item.kind.toUpperCase();
   const sub=item.subtitle||'';
-  return `<article class="visual-card">${img?`<a href="${esc(img)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(img)}" alt="${esc(item.name)}"></a>`:'<div class="visual-card-missing">NO DIRECT PREVIEW</div>'}<div class="visual-card-body"><div class="visual-card-badge">${badge}</div><h3>${esc(item.name)}</h3>${sub?`<p>${esc(sub)}</p>`:''}${item.animationCount?`<button class="visual-animations-toggle" data-actor="${esc(item.handle)}">SHOW ${item.animationCount} ANIMATIONS</button>`:''}<div class="visual-animation-detail" data-detail="${esc(item.handle||'')}"></div></div></article>`;
+  return `<article class="visual-card">${visualThumb(item.visual,item.name)}<div class="visual-card-body"><div class="visual-card-badge">${badge}</div><h3>${esc(item.name)}</h3>${sub?`<p>${esc(sub)}</p>`:''}${item.animationCount?`<button class="visual-animations-toggle" data-actor="${esc(item.handle)}">SHOW ${item.animationCount} ANIMATIONS</button>`:''}<div class="visual-animation-detail" data-detail="${esc(item.handle||'')}"></div></div></article>`;
 }
 function flattenGroups(groups,kind,visualByRef){
   const out=[];
@@ -62,7 +72,7 @@ function bindAnimationToggles(){
     if(!box)return;
     if(box.classList.contains('open')){box.classList.remove('open');box.innerHTML='';btn.textContent=btn.dataset.closedText||btn.textContent.replace('HIDE','SHOW');return}
     const rows=actorAnimations(btn.dataset.actor);
-    box.innerHTML=rows.length?rows.map(x=>{const u=previewUrl(x.visual);return `<a class="mini-animation" href="${esc(u||'#')}" ${u?'target="_blank" rel="noopener"':''}>${u?`<img loading="lazy" src="${esc(u)}" alt="${esc(x.name)}">`:''}<span><b>${esc(x.name)}</b><small>${esc(x.subtitle)}</small></span></a>`}).join(''):'<div class="hub-note">No visual animation evidence is published for this Actor.</div>';
+    box.innerHTML=rows.length?rows.map(x=>{const u=previewUrl(x.visual);return `<div class="mini-animation">${visualThumb(x.visual,x.name)}<span><b>${esc(x.name)}</b><small>${esc(x.subtitle)}</small></span></div>`}).join(''):'<div class="hub-note">No visual animation evidence is published for this Actor.</div>';
     box.classList.add('open');btn.dataset.closedText=btn.textContent;btn.textContent='HIDE ANIMATIONS';
   });
 }
