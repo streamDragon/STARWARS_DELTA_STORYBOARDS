@@ -2,7 +2,7 @@
   "schema": "STARWARS_ACTOR_CARD",
   "schemaVersion": 1,
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20260919-190845766-b11f783d",
+  "publishTransactionId": "20260920-042328939-44466eb0",
   "identity": {
     "handle": "civ_orthodox_elder_01_stop_look_up_f11__df8f8459",
     "displayName": "CIV ORTHODOX ELDER 01 STOP LOOK UP F11",
@@ -25,7 +25,9 @@
       "animationAssetId": "8c2f0334a04579a49bef9c18837e62b0:7400000",
       "animationFamilyId": "structural-actor:civ_orthodox_elder_01",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_ORTHODOX_ELDER_01/WALK_RIGHT/Generated/CIV_ORTHODOX_ELDER_01_WALK_RIGHT.anim",
-      "intents": [],
+      "intents": [
+        "walk"
+      ],
       "animationTechnicalType": null,
       "animationVisualStatus": null,
       "animationOwnershipStatus": null,
@@ -42,7 +44,7 @@
       "visualSheetsSlot": 4,
       "visualSheetsFile": "animation.pdf",
       "pageImageFile": "animation/page-015.jpg",
-      "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+      "visualSheetsTransactionId": "20260920-042328939-44466eb0",
       "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
     },
     {
@@ -51,7 +53,9 @@
       "animationAssetId": "676680a423f83834e89b0b4335262c2f:7400000",
       "animationFamilyId": "structural-actor:civ_orthodox_elder_01",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_ORTHODOX_ELDER_01/STOP_LOOK_UP/Generated/CIV_ORTHODOX_ELDER_01_STOP_LOOK_UP.anim",
-      "intents": [],
+      "intents": [
+        "look"
+      ],
       "animationTechnicalType": null,
       "animationVisualStatus": null,
       "animationOwnershipStatus": null,
@@ -68,11 +72,72 @@
       "visualSheetsSlot": 9,
       "visualSheetsFile": "animation.pdf",
       "pageImageFile": "animation/page-011.jpg",
-      "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+      "visualSheetsTransactionId": "20260920-042328939-44466eb0",
       "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
     }
   ],
-  "does": [],
+  "does": [
+    {
+      "intent": "look",
+      "evidence": [
+        {
+          "animationHandle": "animation__76456eee",
+          "displayName": "CIV ORTHODOX ELDER 01 STOP LOOK UP",
+          "intent": "look",
+          "intents": [
+            "look"
+          ],
+          "animationAssetId": "676680a423f83834e89b0b4335262c2f:7400000",
+          "animationFamilyId": "structural-actor:civ_orthodox_elder_01",
+          "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_ORTHODOX_ELDER_01/STOP_LOOK_UP/Generated/CIV_ORTHODOX_ELDER_01_STOP_LOOK_UP.anim",
+          "visualReferenceId": "visual_efb455a6b3755e877eee",
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-011.jpg",
+          "atlasPdfUrl": null,
+          "visualSheetsPage": 11,
+          "visualSheetsSlot": 9,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-011.jpg",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION",
+          "evidenceType": "VISUAL_SHEET_REFERENCE",
+          "pixelStatus": "NOT_HTTP_VERIFIED"
+        }
+      ],
+      "evidenceStatus": "AVAILABLE"
+    },
+    {
+      "intent": "walk",
+      "evidence": [
+        {
+          "animationHandle": "animation__2a3eab91",
+          "displayName": "CIV ORTHODOX ELDER 01 WALK RIGHT",
+          "intent": "walk",
+          "intents": [
+            "walk"
+          ],
+          "animationAssetId": "8c2f0334a04579a49bef9c18837e62b0:7400000",
+          "animationFamilyId": "structural-actor:civ_orthodox_elder_01",
+          "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_ORTHODOX_ELDER_01/WALK_RIGHT/Generated/CIV_ORTHODOX_ELDER_01_WALK_RIGHT.anim",
+          "visualReferenceId": "visual_d3a07dda6e87ead5e571",
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-015.jpg",
+          "atlasPdfUrl": null,
+          "visualSheetsPage": 15,
+          "visualSheetsSlot": 4,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-015.jpg",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION",
+          "evidenceType": "VISUAL_SHEET_REFERENCE",
+          "pixelStatus": "NOT_HTTP_VERIFIED"
+        }
+      ],
+      "evidenceStatus": "AVAILABLE"
+    }
+  ],
   "quality": {
     "imageLink": "PIXELS_UNAVAILABLE",
     "performanceEvidence": "PRESENT",
@@ -80,7 +145,6 @@
     "runtimeProof": "NOT_CHECKED"
   },
   "missingEvidence": [
-    "ATLAS_MAPPING_UNAVAILABLE",
-    "SEMANTIC_MAPPING_MISSING"
+    "ATLAS_MAPPING_UNAVAILABLE"
   ]
 }

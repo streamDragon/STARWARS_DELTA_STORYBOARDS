@@ -2,7 +2,7 @@
   "schema": "STARWARS_ACTOR_CARD",
   "schemaVersion": 1,
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20260919-190845766-b11f783d",
+  "publishTransactionId": "20260920-042328939-44466eb0",
   "identity": {
     "handle": "civ_man_casual_01_walk_right_f01__528dc45c",
     "displayName": "CIV MAN CASUAL 01 WALK RIGHT F01",
@@ -25,7 +25,9 @@
       "animationAssetId": "9b77545bb5082c9468266d46bd1ce03e:7400000",
       "animationFamilyId": "structural-actor:civ_man_casual_01",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_MAN_CASUAL_01/STOP_LOOK_UP/Generated/CIV_MAN_CASUAL_01_STOP_LOOK_UP.anim",
-      "intents": [],
+      "intents": [
+        "look"
+      ],
       "animationTechnicalType": null,
       "animationVisualStatus": null,
       "animationOwnershipStatus": null,
@@ -42,7 +44,7 @@
       "visualSheetsSlot": 10,
       "visualSheetsFile": "animation.pdf",
       "pageImageFile": "animation/page-016.jpg",
-      "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+      "visualSheetsTransactionId": "20260920-042328939-44466eb0",
       "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
     },
     {
@@ -51,7 +53,9 @@
       "animationAssetId": "2b66b0b1d4b3c94429043a52b6f451b8:7400000",
       "animationFamilyId": "structural-actor:civ_man_casual_01",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_MAN_CASUAL_01/WALK_RIGHT/Generated/CIV_MAN_CASUAL_01_WALK_RIGHT.anim",
-      "intents": [],
+      "intents": [
+        "walk"
+      ],
       "animationTechnicalType": null,
       "animationVisualStatus": null,
       "animationOwnershipStatus": null,
@@ -68,11 +72,72 @@
       "visualSheetsSlot": 12,
       "visualSheetsFile": "animation.pdf",
       "pageImageFile": "animation/page-005.jpg",
-      "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+      "visualSheetsTransactionId": "20260920-042328939-44466eb0",
       "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
     }
   ],
-  "does": [],
+  "does": [
+    {
+      "intent": "look",
+      "evidence": [
+        {
+          "animationHandle": "animation__9359d427",
+          "displayName": "CIV MAN CASUAL 01 STOP LOOK UP",
+          "intent": "look",
+          "intents": [
+            "look"
+          ],
+          "animationAssetId": "9b77545bb5082c9468266d46bd1ce03e:7400000",
+          "animationFamilyId": "structural-actor:civ_man_casual_01",
+          "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_MAN_CASUAL_01/STOP_LOOK_UP/Generated/CIV_MAN_CASUAL_01_STOP_LOOK_UP.anim",
+          "visualReferenceId": "visual_e5ccff0a5f11efc68e65",
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-016.jpg",
+          "atlasPdfUrl": null,
+          "visualSheetsPage": 16,
+          "visualSheetsSlot": 10,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-016.jpg",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION",
+          "evidenceType": "VISUAL_SHEET_REFERENCE",
+          "pixelStatus": "NOT_HTTP_VERIFIED"
+        }
+      ],
+      "evidenceStatus": "AVAILABLE"
+    },
+    {
+      "intent": "walk",
+      "evidence": [
+        {
+          "animationHandle": "animation__f178e7e1",
+          "displayName": "CIV MAN CASUAL 01 WALK RIGHT",
+          "intent": "walk",
+          "intents": [
+            "walk"
+          ],
+          "animationAssetId": "2b66b0b1d4b3c94429043a52b6f451b8:7400000",
+          "animationFamilyId": "structural-actor:civ_man_casual_01",
+          "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_MAN_CASUAL_01/WALK_RIGHT/Generated/CIV_MAN_CASUAL_01_WALK_RIGHT.anim",
+          "visualReferenceId": "visual_b29710af663eead59c06",
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-005.jpg",
+          "atlasPdfUrl": null,
+          "visualSheetsPage": 5,
+          "visualSheetsSlot": 12,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-005.jpg",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION",
+          "evidenceType": "VISUAL_SHEET_REFERENCE",
+          "pixelStatus": "NOT_HTTP_VERIFIED"
+        }
+      ],
+      "evidenceStatus": "AVAILABLE"
+    }
+  ],
   "quality": {
     "imageLink": "PIXELS_UNAVAILABLE",
     "performanceEvidence": "PRESENT",
@@ -80,7 +145,6 @@
     "runtimeProof": "NOT_CHECKED"
   },
   "missingEvidence": [
-    "ATLAS_MAPPING_UNAVAILABLE",
-    "SEMANTIC_MAPPING_MISSING"
+    "ATLAS_MAPPING_UNAVAILABLE"
   ]
 }

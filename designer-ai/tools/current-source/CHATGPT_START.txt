@@ -21,12 +21,13 @@ Use only the matching CURRENT artifacts:
 - simple-authoring/CINEMATIC_INTENT_QA_RULES.json
 - EMOTIONAL_DIALOGUE_CURRENT.json when dialogue is used
 - CUTSCENE_VALIDATION_CURRENT.json when present
-- exact Atlas page/slot evidence carried by direct visual handles
+- exact direct previewUrl evidence carried by CHATGPT_AUTHORING_INDEX/AUTHORING_HANDLES when available
+- Atlas page/slot evidence is secondary browsing evidence, not the only way to inspect appearance
 
 NORMAL AUTHORING
 1. Read CURRENT identity and the exact schema.
 2. Select exact legal CURRENT handles.
-3. Inspect real pixels for important visual choices.
+3. Inspect real pixels for important visual choices. Prefer the direct previewUrl on the selected CURRENT entry. If previewUrl is absent, treat appearance as unverified instead of guessing from the name.
 4. Author one complete CUTSCENE_SCRIPT_V1 object.
 5. Run literal schema/current self-check.
 6. Treat Web Preview as preflight only.
@@ -73,6 +74,8 @@ CATALOG / VISUAL EVIDENCE
 - Destination route/capability beats filename, folder, display name and visual resemblance.
 - Use route=Actor for world identity, Layer for scenery, Effect for VFX, Ui for UI/dialogue presentation and Audio for sound.
 - Real pixel evidence decides appearance. Metadata is search evidence only.
+- Prefer previewUrl for direct visual inspection. atlasPdfUrl + atlasPage + atlasSlot are secondary browsing evidence.
+- A missing previewUrl is not permission to infer appearance from a filename, displayName or folder.
 - Do not directly author source sheets, assembly parts, unsafe/pending-review assets or technical helper content when CURRENT excludes them.
 
 CATALOG FEEDBACK — GITHUB ISSUES
