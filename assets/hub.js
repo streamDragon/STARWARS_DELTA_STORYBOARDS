@@ -87,7 +87,7 @@ async function loadVisualBrowser(){
   if(!indexRes.ok||!animRes.ok||!visualRes.ok)throw new Error(`CURRENT visual sources unavailable (${indexRes.status}/${animRes.status}/${visualRes.status})`);
   const [index,animationIndex,fullVisual]=await Promise.all([indexRes.json(),animRes.json(),visualRes.json()]);
   const visualByRef=new Map((fullVisual.assets||[]).map(v=>[v.visualReferenceId,v]));
-  const actors=(index.actors||[]).map(a=>({kind:'actor',name:a.displayName||a.handle,handle:a.handle,animated:!!a.animated,animationCount:Number(a.compatibleAnimationCount||0),subtitle:(a.animationIntents||[]).join(', '),searchTerms:(a.searchTerms||[]).join(' '),visual:visualByRef.get(a.visualReferenceId)||{previewUrl:a.previewUrl,pageImageUrl:a.previewUrl}}));
+  const actors=(index.actors||[]).map(a=>{const v=visualByRef.get(a.visualReferenceId)||{previewUrl:a.previewUrl,pageImageUrl:a.previewUrl};const artpack=String(v?.sourcePath||'').toLowerCase().includes('/artpack/');return {kind:'actor',name:a.displayName||a.handle,handle:a.handle,animated:!!a.animated,animationCount:Number(a.compatibleAnimationCount||0),subtitle:(artpack?'ARTPACK · ':'')+(a.animationIntents||[]).join(', '),searchTerms:[...(a.searchTerms||[]),v?.sourcePath||'',artpack?'artpack':''].join(' '),visual:v};});
   const animations=(fullVisual.assets||[]).filter(v=>String(v.category).toLowerCase()==='animation').map(v=>({kind:'animation',name:v.displayName||v.assetId,handle:v.assetId,subtitle:(v.sourcePath||'').split('/').slice(-3,-1).join(' / '),visual:v}));
   const effects=flattenGroups(index.effectGroups,'effect',visualByRef);
   const scenery=flattenGroups(index.sceneryGroups,'scenery',visualByRef);
