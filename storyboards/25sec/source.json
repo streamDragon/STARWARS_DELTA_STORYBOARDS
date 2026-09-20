@@ -1,0 +1,646 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
+  "schemaVersion": 5,
+  "contextVersion": 3,
+  "contractRevision": "A447F13ADFB599DC4CA477B89AF6D0234A412018A1417EC1D276356F1784F075",
+  "schemaHash": "13443D039E61D4C4D87EB4F579C2003F1339718B0D7E67F1B26C3E85C9370A2F",
+  "contextId": "STARWARS_DELTA_STORYBOARD_TEST_25SEC",
+  "catalogRevision": "7626100077151396083",
+  "projectId": "",
+  "planId": "storyboard-test-25sec-v5",
+  "baseRevision": 0,
+  "displayName": "STARWARS DELTA - 25 Second Storyboard Test V5",
+  "duration": 25.0,
+  "creativeIntent": {
+    "summary": "A compact 25-second storyboard test: Earth orbit patrol, tactical contact, reaction dialogue, and enemy fighter reveal.",
+    "style": "Bright original 2D retro-anime space opera with clear visual hierarchy, readable ship scale, purposeful camera changes and editable Unity composition.",
+    "mood": "Calm patrol -> concern -> confirmed threat."
+  },
+  "selectedKits": [],
+  "cast": [
+    {
+      "entityId": "hero_ship",
+      "displayName": "Delta Blue Fighter",
+      "role": "Hero",
+      "entityKind": "Spaceship",
+      "entitySubKind": "Fighter",
+      "visualAssetId": "7c3a95131e5721c45bc14f783a376b9e:21300000",
+      "animationAssetIds": [],
+      "spawnWorldActor": true,
+      "useGameplayObject": false,
+      "temporaryCinematicClone": true
+    },
+    {
+      "entityId": "enemy_fighter",
+      "displayName": "Nautolan Fighter",
+      "role": "Antagonist",
+      "entityKind": "Spaceship",
+      "entitySubKind": "Fighter",
+      "visualAssetId": "5f402936213e8094c914e3b808570b87:-7938511619464384328",
+      "animationAssetIds": [
+        "94c365bfde4452b4db0683aa63f8cbea:8144243333074327370",
+        "b79aa9c1bd197b2439affa793ab62681:3325289048018035101",
+        "7c84241963b98b94bad55664c49f0a94:284976500027296151"
+      ],
+      "spawnWorldActor": true,
+      "useGameplayObject": false,
+      "temporaryCinematicClone": true
+    },
+    {
+      "entityId": "kodai",
+      "displayName": "Kodai",
+      "role": "Hero",
+      "entityKind": "Person",
+      "entitySubKind": "Pilot",
+      "visualAssetId": "c64b1a2f6e1d51e4db28cd1337fefc09:2949561940459812151",
+      "animationAssetIds": [],
+      "spawnWorldActor": false,
+      "useGameplayObject": false,
+      "temporaryCinematicClone": false
+    },
+    {
+      "entityId": "yuki",
+      "displayName": "Yuki",
+      "role": "SupportingCharacter",
+      "entityKind": "Person",
+      "entitySubKind": "Pilot",
+      "visualAssetId": "493f51b603398004690a06bd93b66f7d:-1491081663131566348",
+      "animationAssetIds": [],
+      "spawnWorldActor": false,
+      "useGameplayObject": false,
+      "temporaryCinematicClone": false
+    }
+  ],
+  "sequences": [
+    {
+      "sequenceId": "seq01_orbit_signal",
+      "startTime": 0,
+      "duration": 25.0,
+      "intention": "Compact storyboard QA: establish, track, information insert, and enemy reveal.",
+      "layers": [
+        {
+          "actionId": "s01_earth_activate",
+          "type": "Activate",
+          "layerId": "s01_earth",
+          "role": "Background",
+          "assetId": "d551a7c14efe689468105bc072fcddef:803424353",
+          "startOffset": 0,
+          "duration": 24,
+          "fromX": 0,
+          "fromY": 0,
+          "toX": 0,
+          "toY": 0,
+          "fromAlpha": 1,
+          "toAlpha": 1,
+          "parallaxFactor": 1.0,
+          "sortingOrder": -30,
+          "tintR": 1.0,
+          "tintG": 1.0,
+          "tintB": 1.0,
+          "brightness": 1.0,
+          "loop": false,
+          "easing": "EaseInOut"
+        },
+        {
+          "actionId": "s01_stars_activate",
+          "type": "Activate",
+          "layerId": "s01_stars",
+          "role": "Background",
+          "assetId": "21c8050a7f4ad6d4a82d35de3af56419:21300000",
+          "startOffset": 0,
+          "duration": 24,
+          "fromX": 0,
+          "fromY": 0,
+          "toX": 0,
+          "toY": 0,
+          "fromAlpha": 1,
+          "toAlpha": 1,
+          "parallaxFactor": 1.0,
+          "sortingOrder": -20,
+          "tintR": 1.0,
+          "tintG": 1.0,
+          "tintB": 1.0,
+          "brightness": 1.0,
+          "loop": false,
+          "easing": "EaseInOut"
+        }
+      ],
+      "actorActions": [],
+      "dialogue": [],
+      "effects": [],
+      "audio": [
+        {
+          "audioId": "s01_space_ambience",
+          "type": "Play",
+          "bus": "Ambience",
+          "assetId": "92f247e4044c0f644abb5de25a6b83a1:8300000",
+          "startOffset": 0,
+          "duration": 24,
+          "volume": 0.4,
+          "targetVolume": 0.65,
+          "loop": true
+        }
+      ],
+      "events": [],
+      "shots": [
+        {
+          "shotId": "s01_01_shot",
+          "startOffset": 0,
+          "duration": 6,
+          "shotType": "Establishing",
+          "framing": "ExtremeWide",
+          "intention": "Open on Earth orbit with the hero readable and the environment dominant but not cluttered.",
+          "continuity": {
+            "preserveScreenDirection": true,
+            "matchedEntityIds": [
+              "hero_ship"
+            ]
+          },
+          "transitionIn": {
+            "transitionId": "s01_01_transition_in",
+            "type": "FadeIn",
+            "duration": 0.6,
+            "easing": "EaseInOut"
+          },
+          "transitionOut": {
+            "transitionId": "s01_01_transition_out",
+            "type": "CutOnAction",
+            "duration": 0.0,
+            "easing": "Linear"
+          },
+          "cameraActions": [
+            {
+              "actionId": "s01_01_cam",
+              "type": "Push",
+              "startOffset": 0.0,
+              "duration": 6,
+              "fromX": 0,
+              "fromY": 0,
+              "toX": 0,
+              "toY": 0,
+              "fromRotation": 0.0,
+              "toRotation": 0.0,
+              "fromOrthographicSize": 9.0,
+              "toOrthographicSize": 7.5,
+              "amplitude": 0.0,
+              "frequency": 0.0,
+              "easing": "EaseInOut"
+            }
+          ],
+          "layerActions": [],
+          "actorActions": [
+            {
+              "actionId": "s01_01_hero_enter",
+              "type": "Enter",
+              "actorId": "hero_ship",
+              "startOffset": 0.4,
+              "duration": 1.6,
+              "x": -3.5,
+              "y": -0.3,
+              "rotation": 0.0,
+              "scaleX": 1.6,
+              "scaleY": 1.6,
+              "speed": 1.0,
+              "sortingOrder": 5,
+              "flipX": false,
+              "flipY": false,
+              "loop": false,
+              "visualOnly": true,
+              "easing": "EaseInOut",
+              "keyframes": []
+            },
+            {
+              "actionId": "s01_01_hero_hold",
+              "type": "Hold",
+              "actorId": "hero_ship",
+              "startOffset": 2.0,
+              "duration": 4.0,
+              "x": -1.7,
+              "y": -0.3,
+              "rotation": 0.0,
+              "scaleX": 1.6,
+              "scaleY": 1.6,
+              "speed": 1.0,
+              "sortingOrder": 5,
+              "flipX": false,
+              "flipY": false,
+              "loop": false,
+              "visualOnly": true,
+              "easing": "EaseInOut",
+              "keyframes": []
+            }
+          ],
+          "dialogue": [],
+          "effects": [],
+          "audio": [],
+          "events": [],
+          "compositionTargetId": "hero_ship",
+          "emotion": "Calm"
+        },
+        {
+          "shotId": "s01_02_shot",
+          "startOffset": 6,
+          "duration": 5,
+          "shotType": "Tracking",
+          "framing": "Wide",
+          "intention": "Track the patrol across Earth while stars drift more slowly to establish depth.",
+          "continuity": {
+            "preserveScreenDirection": true,
+            "matchedEntityIds": [
+              "hero_ship"
+            ],
+            "previousShotId": "s01_01_shot"
+          },
+          "transitionIn": {
+            "transitionId": "s01_02_transition_in",
+            "type": "CutOnAction",
+            "duration": 0.0,
+            "easing": "Linear"
+          },
+          "transitionOut": {
+            "transitionId": "s01_02_transition_out",
+            "type": "SoundLed",
+            "duration": 0.0,
+            "easing": "Linear"
+          },
+          "cameraActions": [
+            {
+              "actionId": "s01_02_cam",
+              "type": "Track",
+              "startOffset": 0.0,
+              "duration": 5,
+              "fromX": 0,
+              "fromY": 0,
+              "toX": 0,
+              "toY": 0,
+              "fromRotation": 0.0,
+              "toRotation": 0.0,
+              "fromOrthographicSize": 7.2,
+              "toOrthographicSize": 6.5,
+              "amplitude": 0.0,
+              "frequency": 0.0,
+              "easing": "EaseInOut",
+              "targetEntityId": "hero_ship"
+            }
+          ],
+          "layerActions": [
+            {
+              "actionId": "s01_02_stars_parallax",
+              "type": "Parallax",
+              "layerId": "s01_stars",
+              "role": "Background",
+              "assetId": "21c8050a7f4ad6d4a82d35de3af56419:21300000",
+              "startOffset": 0,
+              "duration": 5,
+              "fromX": 0,
+              "fromY": 0,
+              "toX": -0.7,
+              "toY": 0,
+              "fromAlpha": 1,
+              "toAlpha": 1,
+              "parallaxFactor": 0.2,
+              "sortingOrder": -20,
+              "tintR": 1.0,
+              "tintG": 1.0,
+              "tintB": 1.0,
+              "brightness": 1.0,
+              "loop": false,
+              "easing": "EaseInOut"
+            }
+          ],
+          "actorActions": [
+            {
+              "actionId": "s01_02_hero_move",
+              "type": "Move",
+              "actorId": "hero_ship",
+              "startOffset": 0,
+              "duration": 5,
+              "x": 2.2,
+              "y": 0.2,
+              "rotation": 0.0,
+              "scaleX": 1.7,
+              "scaleY": 1.7,
+              "speed": 1.1,
+              "sortingOrder": 5,
+              "flipX": false,
+              "flipY": false,
+              "loop": false,
+              "visualOnly": true,
+              "easing": "EaseInOut",
+              "keyframes": []
+            }
+          ],
+          "dialogue": [],
+          "effects": [],
+          "audio": [],
+          "events": [],
+          "compositionTargetId": "hero_ship"
+        },
+        {
+          "shotId": "s01_03_shot",
+          "startOffset": 11,
+          "duration": 6,
+          "shotType": "Insert",
+          "framing": "FullFrame",
+          "intention": "Treat the incoming tactical contact as an information beat before showing the enemy.",
+          "continuity": {
+            "preserveScreenDirection": true,
+            "matchedEntityIds": []
+          },
+          "transitionIn": {
+            "transitionId": "s01_03_transition_in",
+            "type": "SoundLed",
+            "duration": 0.0,
+            "easing": "Linear"
+          },
+          "transitionOut": {
+            "transitionId": "s01_03_transition_out",
+            "type": "HardCut",
+            "duration": 0.0,
+            "easing": "Linear"
+          },
+          "cameraActions": [
+            {
+              "actionId": "s01_03_cam",
+              "type": "Focus",
+              "startOffset": 0.0,
+              "duration": 6,
+              "fromX": 0,
+              "fromY": 0,
+              "toX": 0,
+              "toY": 0,
+              "fromRotation": 0.0,
+              "toRotation": 0.0,
+              "fromOrthographicSize": 6.4,
+              "toOrthographicSize": 5.5,
+              "amplitude": 0.0,
+              "frequency": 0.0,
+              "easing": "EaseInOut"
+            }
+          ],
+          "layerActions": [],
+          "actorActions": [],
+          "dialogue": [
+            {
+              "lineId": "s01_03_subtitle_line",
+              "speakerActorId": "yuki",
+              "listenerActorId": "kodai",
+              "speakerName": "YUKI",
+              "text": "Contact confirmed: seven hostile signatures.",
+              "purpose": "Turn the tactical insert into explicit readable information without adding portrait staging.",
+              "presentationPreset": "SUBTITLE_ONLY",
+              "startOffset": 0.5,
+              "duration": 4.5,
+              "textRevealSpeed": 30.0,
+              "skippable": true,
+              "delivery": {
+                "emotion": "Serious",
+                "intensity": 0.65,
+                "pace": "Normal",
+                "pauseBefore": 0.0,
+                "pauseAfter": 0.0
+              },
+              "performance": {
+                "speakerPose": "Speaking",
+                "listenerPose": "IdleListening",
+                "speakerLookDirection": "TowardListener",
+                "listenerLookDirection": "TowardSpeaker",
+                "mouthMode": "None",
+                "blinkPreset": "Normal"
+              },
+              "cameraCue": {
+                "shotPreset": "OBJECTIVE_REVEAL",
+                "transition": "HardCut",
+                "blendDuration": 0.0
+              },
+              "reaction": {
+                "actorId": "kodai",
+                "expression": "Concerned",
+                "startOffset": 0.0,
+                "holdAfterLine": 0.0,
+                "shotPreset": "REACTION_CLOSE_UP"
+              },
+              "speakerExpression": "Concerned",
+              "listenerExpression": "Concerned"
+            }
+          ],
+          "effects": [],
+          "audio": [],
+          "events": [
+            {
+              "eventId": "s01_03_contact_event",
+              "type": "DramaticBeat",
+              "startOffset": 1.0,
+              "stringValue": "UNKNOWN_CONTACT_DETECTED",
+              "floatValue": 0.0,
+              "intValue": 0,
+              "boolValue": false
+            }
+          ],
+          "emotion": "Concern"
+        },
+        {
+          "shotId": "s01_04_shot",
+          "startOffset": 17,
+          "duration": 8.0,
+          "shotType": "Reveal",
+          "framing": "Wide",
+          "intention": "Reveal a shielded enemy fighter opposite the hero, then let both accelerate into the same screen direction.",
+          "continuity": {
+            "preserveScreenDirection": true,
+            "matchedEntityIds": [
+              "hero_ship",
+              "enemy_fighter"
+            ],
+            "previousShotId": "s01_03_shot"
+          },
+          "transitionIn": {
+            "transitionId": "s01_04_transition_in",
+            "type": "HardCut",
+            "duration": 0.0,
+            "easing": "Linear"
+          },
+          "transitionOut": {
+            "transitionId": "s01_04_transition_out",
+            "type": "SoundLed",
+            "duration": 0.0,
+            "easing": "Linear"
+          },
+          "cameraActions": [
+            {
+              "actionId": "s01_04_cam",
+              "type": "Pull",
+              "startOffset": 0.0,
+              "duration": 7,
+              "fromX": 0,
+              "fromY": 0,
+              "toX": 0,
+              "toY": 0,
+              "fromRotation": 0.0,
+              "toRotation": 0.0,
+              "fromOrthographicSize": 6.2,
+              "toOrthographicSize": 7.8,
+              "amplitude": 0.0,
+              "frequency": 0.0,
+              "easing": "EaseInOut"
+            }
+          ],
+          "layerActions": [],
+          "actorActions": [
+            {
+              "actionId": "s01_04_enemy_enter",
+              "type": "Enter",
+              "actorId": "enemy_fighter",
+              "startOffset": 0.2,
+              "duration": 1.2,
+              "x": 3.0,
+              "y": 0.5,
+              "rotation": 0.0,
+              "scaleX": 1.6,
+              "scaleY": 1.6,
+              "speed": 1.0,
+              "sortingOrder": 5,
+              "flipX": true,
+              "flipY": false,
+              "loop": false,
+              "visualOnly": true,
+              "easing": "EaseInOut",
+              "keyframes": []
+            },
+            {
+              "actionId": "s01_04_enemy_anim",
+              "type": "PlayAnimation",
+              "actorId": "enemy_fighter",
+              "startOffset": 0.3,
+              "duration": 5.6,
+              "x": 3.0,
+              "y": 0.5,
+              "rotation": 0.0,
+              "scaleX": 1.6,
+              "scaleY": 1.6,
+              "speed": 1.0,
+              "sortingOrder": 5,
+              "flipX": false,
+              "flipY": false,
+              "loop": true,
+              "visualOnly": true,
+              "easing": "EaseInOut",
+              "keyframes": [],
+              "animationAssetId": "b79aa9c1bd197b2439affa793ab62681:3325289048018035101"
+            },
+            {
+              "actionId": "s01_04_hero_move",
+              "type": "Move",
+              "actorId": "hero_ship",
+              "startOffset": 0.0,
+              "duration": 6.2,
+              "x": 2.4,
+              "y": -0.1,
+              "rotation": 0.0,
+              "scaleX": 1.7,
+              "scaleY": 1.7,
+              "speed": 1.25,
+              "sortingOrder": 5,
+              "flipX": false,
+              "flipY": false,
+              "loop": false,
+              "visualOnly": true,
+              "easing": "EaseInOut",
+              "keyframes": []
+            },
+            {
+              "actionId": "s01_04_enemy_exit",
+              "type": "Exit",
+              "actorId": "enemy_fighter",
+              "startOffset": 5.9,
+              "duration": 1.1,
+              "x": 4.7,
+              "y": 0.7,
+              "rotation": 0.0,
+              "scaleX": 1.35,
+              "scaleY": 1.35,
+              "speed": 1.0,
+              "sortingOrder": 5,
+              "flipX": true,
+              "flipY": false,
+              "loop": false,
+              "visualOnly": true,
+              "easing": "EaseInOut",
+              "keyframes": []
+            }
+          ],
+          "dialogue": [],
+          "effects": [
+            {
+              "effectId": "s01_04_enemy_shield",
+              "type": "Shield",
+              "assetId": "ccda7c145b9e4f63ace42e4ff2fd237f:21300000",
+              "startOffset": 0.8,
+              "duration": 3.2,
+              "x": 0,
+              "y": 0,
+              "rotation": 0.0,
+              "scaleX": 1.2,
+              "scaleY": 1.2,
+              "intensity": 0.7,
+              "loop": false,
+              "visualOnly": true,
+              "parentEntityId": "enemy_fighter"
+            }
+          ],
+          "audio": [
+            {
+              "audioId": "s01_04_engine_audio",
+              "type": "Play",
+              "bus": "Sfx",
+              "assetId": "07bb16e6c1d63aa4e9d56016848f350f:8300000",
+              "startOffset": 0.5,
+              "duration": 6.0,
+              "volume": 0.5,
+              "targetVolume": 0.75,
+              "loop": false
+            }
+          ],
+          "events": [
+            {
+              "eventId": "s01_04_pursuit_event",
+              "type": "DramaticBeat",
+              "startOffset": 5.8,
+              "stringValue": "PURSUIT_BEGINS",
+              "floatValue": 0.0,
+              "intValue": 0,
+              "boolValue": false
+            }
+          ],
+          "compositionTargetId": "enemy_fighter",
+          "emotion": "Threat"
+        }
+      ],
+      "continuityNotes": "Preserve left-to-right hero travel and make the enemy reveal readable rather than tiny."
+    }
+  ],
+  "missingAssets": [],
+  "handoff": {
+    "enabled": true,
+    "time": 25.0,
+    "disableCutsceneRoot": true,
+    "events": [
+      {
+        "eventId": "handoff_storyboard_test_25sec",
+        "type": "CutsceneSignal",
+        "startOffset": 0.0,
+        "stringValue": "STORYBOARD_TEST_25SEC_COMPLETE",
+        "floatValue": 0.0,
+        "intValue": 0,
+        "boolValue": false
+      }
+    ]
+  },
+  "extensions": [
+    {
+      "extensionId": "source_snapshot_manifest",
+      "owner": "ChatGPT",
+      "valueJson": "{\"requestedSourceCatalog\":\"STARWARS_DELTA_CHATGPT_CATALOG_SNAPSHOT_CURRENT(20260810-141126).zip\",\"actualSourceCatalogUsed\":\"STARWARS_DELTA_CHATGPT_CATALOG_SNAPSHOT_CURRENT(20260810-105633).zip\",\"catalogRevision\":\"7626100077151396083\",\"contractRevision\":\"A447F13ADFB599DC4CA477B89AF6D0234A412018A1417EC1D276356F1784F075\",\"schemaHash\":\"13443D039E61D4C4D87EB4F579C2003F1339718B0D7E67F1B26C3E85C9370A2F\",\"snapshotContentHash\":\"C3932C6D8D434D5E9065240567B9C260AA972E4F5222407647FD952C82D14FE3\",\"purpose\":\"Four-minute complex Editable Preview / cinematic integration fixture\",\"sourceAccessNote\":\"The specifically requested 20260810-141126 ZIP was not exposed to this runtime; this file was built and validated against the newest package actually accessible, 20260810-105633.\"}"
+    }
+  ]
+}
