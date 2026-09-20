@@ -46,13 +46,14 @@ async function refreshLinks(){
     const indexTx=index?.publishTransactionId||'';
     const atlasTx=atlas?.publishTransactionId||'';
     const sameCurrent=!!tx&&tx===indexTx&&tx===atlasTx;
+    const visualDirectReady=sameCurrent&&previewCount>0&&!!(atlas?.masterPdfUrl||current?.visualAtlas?.pdfUrl);
     const visualLibrary=current?.visualLibrary||{};
     const visualProof=current?.visualProof||{};
     const atlasPdfUrl=current?.visualAtlas?.pdfUrl||atlas?.masterPdfUrl||CURRENT_VISUAL_PDF;
     const previewCount=countPreviewUrls(index);
 
     if(atlasDownloadButton){
-      if(sameCurrent&&atlasPdfUrl){
+      if(visualDirectReady&&atlasPdfUrl){
         atlasDownloadButton.href=atlasPdfUrl;
         atlasDownloadButton.removeAttribute('aria-disabled');
         atlasDownloadButton.classList.remove('disabled');
@@ -82,8 +83,8 @@ async function refreshLinks(){
     }
 
     if(status){
-      status.textContent=sameCurrent?'READY · CURRENT SYNCED':'CURRENT MISMATCH';
-      status.classList.toggle('warn',!sameCurrent);
+      status.textContent=!sameCurrent?'CURRENT MISMATCH':(visualDirectReady?'READY · CURRENT + VISUALS SYNCED':'CURRENT SYNCED · VISUAL LINKS PENDING');
+      status.classList.toggle('warn',!visualDirectReady);
     }
     if(meta){
       const count=visualLibrary.assetCount||0;
@@ -96,9 +97,11 @@ async function refreshLinks(){
         `<span>Visual library: <b>${count} assets / ${size}</b></span>`;
     }
     if(note){
-      note.textContent=sameCurrent
-        ? 'CURRENT, authoring index and visual atlas are on the same transaction. Direct preview links are the preferred visual evidence.'
-        : 'Do not author from mixed data. CURRENT, authoring index and visual atlas are not on the same transaction yet.';
+      note.textContent=!sameCurrent
+        ? 'Do not author from mixed data. CURRENT, authoring index and visual atlas are not on the same transaction yet.'
+        : (visualDirectReady
+          ? 'CURRENT, authoring index and visual atlas are synchronized. Direct preview links are ready and are the preferred visual evidence.'
+          : 'CURRENT is synchronized, but direct visual preview links are not published yet. Do not infer appearance from names.');
     }
   }catch(err){
     if(status){status.textContent='CURRENT UNAVAILABLE';status.classList.add('warn');}
