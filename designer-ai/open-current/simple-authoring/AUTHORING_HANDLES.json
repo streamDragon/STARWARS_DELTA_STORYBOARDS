@@ -2,21 +2,21 @@
   "schema": "STARWARS_DELTA_AUTHORING_HANDLES",
   "schemaVersion": 5,
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20260919-190845766-b11f783d",
+  "publishTransactionId": "20260920-042328939-44466eb0",
   "purpose": "Direct semantic authoring handles for CUTSCENE_SCRIPT_V1 only. Backend compatibility identities such as raw Animation clips remain excluded.",
   "requiredCurrent": {
-    "catalogRevision": "7623584253101724923",
+    "catalogRevision": "7623205386359851800",
     "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
     "schemaHash": "CC97802C1A6A6EFF291623AE7A46C6E349599461D67EF764E2FF5EACD30EF947",
-    "snapshotContentHash": "1FF4328A31B4B4D93997F9BF2910E8EAC5B2D023EC2CA9BDBC980A8097C1DF63",
+    "snapshotContentHash": "77AE585CAD97E0410098D2FE1C40EFEE0368001D98DB6A574274F73818CF9555",
     "authoringRuleRegistryRevision": "8CBCE85AF0FC24743F97AA4F104C31857926A98DAB52749CA75A2B7F6BF27F12"
   },
-  "count": 10491,
+  "count": 10495,
   "countsByRoute": {
     "Actor": 121,
     "Audio": 173,
     "Effect": 1329,
-    "Layer": 6026,
+    "Layer": 6030,
     "Ui": 2842
   },
   "warnings": [],
@@ -2868,7 +2868,10 @@
       "atlasPdfUrl": null,
       "hasCompatibleAnimation": true,
       "compatibleAnimationCount": 2,
-      "supportedAnimationIntents": [],
+      "supportedAnimationIntents": [
+        "look",
+        "walk"
+      ],
       "animationEvidence": [
         {
           "animationHandle": "animation__4debdf06",
@@ -2876,7 +2879,9 @@
           "animationAssetId": "a4c026ad6016d5348bc694d49933c454:7400000",
           "animationFamilyId": "structural-actor:civ_boy_school_01",
           "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_BOY_SCHOOL_01/WALK_RIGHT/Generated/CIV_BOY_SCHOOL_01_WALK_RIGHT.anim",
-          "intents": [],
+          "intents": [
+            "walk"
+          ],
           "animationTechnicalType": null,
           "animationVisualStatus": null,
           "animationOwnershipStatus": null,
@@ -2893,7 +2898,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-018.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -2902,7 +2907,9 @@
           "animationAssetId": "2b5a1a2ac9c8c824ebdea6e7c476456d:7400000",
           "animationFamilyId": "structural-actor:civ_boy_school_01",
           "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_BOY_SCHOOL_01/STOP_LOOK_UP/Generated/CIV_BOY_SCHOOL_01_STOP_LOOK_UP.anim",
-          "intents": [],
+          "intents": [
+            "look"
+          ],
           "animationTechnicalType": null,
           "animationVisualStatus": null,
           "animationOwnershipStatus": null,
@@ -2919,7 +2926,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -2977,7 +2984,10 @@
       "atlasPdfUrl": null,
       "hasCompatibleAnimation": true,
       "compatibleAnimationCount": 2,
-      "supportedAnimationIntents": [],
+      "supportedAnimationIntents": [
+        "look",
+        "walk"
+      ],
       "animationEvidence": [
         {
           "animationHandle": "animation__9359d427",
@@ -2985,7 +2995,9 @@
           "animationAssetId": "9b77545bb5082c9468266d46bd1ce03e:7400000",
           "animationFamilyId": "structural-actor:civ_man_casual_01",
           "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_MAN_CASUAL_01/STOP_LOOK_UP/Generated/CIV_MAN_CASUAL_01_STOP_LOOK_UP.anim",
-          "intents": [],
+          "intents": [
+            "look"
+          ],
           "animationTechnicalType": null,
           "animationVisualStatus": null,
           "animationOwnershipStatus": null,
@@ -3002,7 +3014,7 @@
           "visualSheetsSlot": 10,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-016.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3011,7 +3023,9 @@
           "animationAssetId": "2b66b0b1d4b3c94429043a52b6f451b8:7400000",
           "animationFamilyId": "structural-actor:civ_man_casual_01",
           "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_MAN_CASUAL_01/WALK_RIGHT/Generated/CIV_MAN_CASUAL_01_WALK_RIGHT.anim",
-          "intents": [],
+          "intents": [
+            "walk"
+          ],
           "animationTechnicalType": null,
           "animationVisualStatus": null,
           "animationOwnershipStatus": null,
@@ -3028,7 +3042,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -3086,7 +3100,10 @@
       "atlasPdfUrl": null,
       "hasCompatibleAnimation": true,
       "compatibleAnimationCount": 2,
-      "supportedAnimationIntents": [],
+      "supportedAnimationIntents": [
+        "look",
+        "walk"
+      ],
       "animationEvidence": [
         {
           "animationHandle": "animation__2a3eab91",
@@ -3094,7 +3111,9 @@
           "animationAssetId": "8c2f0334a04579a49bef9c18837e62b0:7400000",
           "animationFamilyId": "structural-actor:civ_orthodox_elder_01",
           "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_ORTHODOX_ELDER_01/WALK_RIGHT/Generated/CIV_ORTHODOX_ELDER_01_WALK_RIGHT.anim",
-          "intents": [],
+          "intents": [
+            "walk"
+          ],
           "animationTechnicalType": null,
           "animationVisualStatus": null,
           "animationOwnershipStatus": null,
@@ -3111,7 +3130,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-015.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3120,7 +3139,9 @@
           "animationAssetId": "676680a423f83834e89b0b4335262c2f:7400000",
           "animationFamilyId": "structural-actor:civ_orthodox_elder_01",
           "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_ORTHODOX_ELDER_01/STOP_LOOK_UP/Generated/CIV_ORTHODOX_ELDER_01_STOP_LOOK_UP.anim",
-          "intents": [],
+          "intents": [
+            "look"
+          ],
           "animationTechnicalType": null,
           "animationVisualStatus": null,
           "animationOwnershipStatus": null,
@@ -3137,7 +3158,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-011.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -3195,7 +3216,10 @@
       "atlasPdfUrl": null,
       "hasCompatibleAnimation": true,
       "compatibleAnimationCount": 2,
-      "supportedAnimationIntents": [],
+      "supportedAnimationIntents": [
+        "look",
+        "walk"
+      ],
       "animationEvidence": [
         {
           "animationHandle": "animation__14911fb3",
@@ -3203,7 +3227,9 @@
           "animationAssetId": "dafafe1718d643c4cbc9cb86580e1e9b:7400000",
           "animationFamilyId": "structural-actor:civ_woman_shopping_01",
           "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_WOMAN_SHOPPING_01/STOP_LOOK_UP/Generated/CIV_WOMAN_SHOPPING_01_STOP_LOOK_UP.anim",
-          "intents": [],
+          "intents": [
+            "look"
+          ],
           "animationTechnicalType": null,
           "animationVisualStatus": null,
           "animationOwnershipStatus": null,
@@ -3217,10 +3243,10 @@
           "atlasPdfUrl": null,
           "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
           "visualSheetsPage": 25,
-          "visualSheetsSlot": 7,
+          "visualSheetsSlot": 8,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-025.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3229,7 +3255,9 @@
           "animationAssetId": "78e055e4d20cbe64283a83c925c8c8af:7400000",
           "animationFamilyId": "structural-actor:civ_woman_shopping_01",
           "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_WOMAN_SHOPPING_01/WALK_RIGHT/Generated/CIV_WOMAN_SHOPPING_01_WALK_RIGHT.anim",
-          "intents": [],
+          "intents": [
+            "walk"
+          ],
           "animationTechnicalType": null,
           "animationVisualStatus": null,
           "animationOwnershipStatus": null,
@@ -3246,7 +3274,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-013.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -3390,7 +3418,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-017.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -3477,7 +3505,7 @@
           "visualSheetsSlot": 2,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-016.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -3564,7 +3592,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-008.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -3651,7 +3679,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-014.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3677,7 +3705,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-012.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -3703,7 +3731,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-023.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -3790,7 +3818,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-008.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -3998,10 +4026,10 @@
           "atlasPdfUrl": null,
           "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
           "visualSheetsPage": 25,
-          "visualSheetsSlot": 4,
+          "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-025.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4027,7 +4055,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-019.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4055,7 +4083,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-016.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4080,10 +4108,10 @@
           "atlasPdfUrl": null,
           "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
           "visualSheetsPage": 25,
-          "visualSheetsSlot": 8,
+          "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-025.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4109,7 +4137,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-011.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4137,7 +4165,7 @@
           "visualSheetsSlot": 8,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-003.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4165,7 +4193,7 @@
           "visualSheetsSlot": 2,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -4256,7 +4284,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-004.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4282,7 +4310,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-004.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4310,7 +4338,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-012.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4338,7 +4366,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-011.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4366,7 +4394,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-006.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4394,7 +4422,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-001.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4417,10 +4445,10 @@
           "atlasPdfUrl": null,
           "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
           "visualSheetsPage": 26,
-          "visualSheetsSlot": 3,
+          "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-026.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -4513,7 +4541,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-002.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4536,10 +4564,10 @@
           "atlasPdfUrl": null,
           "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
           "visualSheetsPage": 28,
-          "visualSheetsSlot": 9,
+          "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-028.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4567,7 +4595,7 @@
           "visualSheetsSlot": 8,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-024.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4595,7 +4623,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-006.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4623,7 +4651,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-017.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4649,7 +4677,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-019.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -4675,7 +4703,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-002.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -5177,7 +5205,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-003.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -5266,7 +5294,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-006.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -5355,7 +5383,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-010.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -5444,7 +5472,7 @@
           "visualSheetsSlot": 10,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-013.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -5532,7 +5560,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-024.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -5623,7 +5651,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-018.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -5712,7 +5740,7 @@
           "visualSheetsSlot": 8,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-022.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -5797,10 +5825,10 @@
           "atlasPdfUrl": null,
           "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
           "visualSheetsPage": 24,
-          "visualSheetsSlot": 11,
+          "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-024.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -5894,7 +5922,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-009.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -5982,7 +6010,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-003.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -6070,7 +6098,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-017.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -6164,7 +6192,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-020.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -6249,10 +6277,10 @@
           "atlasPdfUrl": null,
           "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
           "visualSheetsPage": 25,
-          "visualSheetsSlot": 5,
+          "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-025.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -6346,7 +6374,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-008.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -6431,10 +6459,10 @@
           "atlasPdfUrl": null,
           "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
           "visualSheetsPage": 24,
-          "visualSheetsSlot": 10,
+          "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-024.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -6522,7 +6550,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -6616,7 +6644,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-020.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -6704,7 +6732,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-013.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -6792,7 +6820,7 @@
           "visualSheetsSlot": 10,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-003.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -6883,10 +6911,10 @@
           "atlasPdfUrl": null,
           "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
           "visualSheetsPage": 24,
-          "visualSheetsSlot": 9,
+          "visualSheetsSlot": 10,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-024.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -6974,7 +7002,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-006.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -7062,7 +7090,7 @@
           "visualSheetsSlot": 8,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-009.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -7153,10 +7181,10 @@
           "atlasPdfUrl": null,
           "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
           "visualSheetsPage": 28,
-          "visualSheetsSlot": 3,
+          "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-028.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -7244,7 +7272,7 @@
           "visualSheetsSlot": 2,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-021.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -7332,7 +7360,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-015.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -7422,7 +7450,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-008.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ],
@@ -7516,7 +7544,7 @@
           "visualSheetsSlot": 10,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-006.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -7604,7 +7632,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -8051,7 +8079,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-001.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8080,7 +8108,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-020.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8108,7 +8136,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-018.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8136,7 +8164,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-008.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8164,7 +8192,7 @@
           "visualSheetsSlot": 10,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-022.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8192,7 +8220,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-017.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8220,7 +8248,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-019.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8248,7 +8276,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-006.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8276,7 +8304,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-009.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8304,7 +8332,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-017.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8333,7 +8361,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-009.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8361,7 +8389,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-004.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -8457,7 +8485,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-012.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8486,7 +8514,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-011.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8514,7 +8542,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8539,10 +8567,10 @@
           "atlasPdfUrl": null,
           "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
           "visualSheetsPage": 27,
-          "visualSheetsSlot": 1,
+          "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-027.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8570,7 +8598,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-021.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8598,7 +8626,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-001.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8623,10 +8651,10 @@
           "atlasPdfUrl": null,
           "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
           "visualSheetsPage": 26,
-          "visualSheetsSlot": 6,
+          "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-026.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8654,7 +8682,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-016.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8682,7 +8710,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-012.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8710,7 +8738,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-009.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8738,7 +8766,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-009.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -8833,7 +8861,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-003.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8861,7 +8889,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-019.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8889,7 +8917,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-006.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8917,7 +8945,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8945,7 +8973,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-001.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -8973,7 +9001,7 @@
           "visualSheetsSlot": 8,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-013.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9001,7 +9029,7 @@
           "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-020.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9026,10 +9054,10 @@
           "atlasPdfUrl": null,
           "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
           "visualSheetsPage": 26,
-          "visualSheetsSlot": 5,
+          "visualSheetsSlot": 6,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-026.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9057,7 +9085,7 @@
           "visualSheetsSlot": 1,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-017.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9085,7 +9113,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-011.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9113,7 +9141,7 @@
           "visualSheetsSlot": 8,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-011.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -9208,7 +9236,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-003.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9236,7 +9264,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-009.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9264,7 +9292,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-014.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9292,7 +9320,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-015.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9320,7 +9348,7 @@
           "visualSheetsSlot": 9,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-004.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9348,7 +9376,7 @@
           "visualSheetsSlot": 2,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-006.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9376,7 +9404,7 @@
           "visualSheetsSlot": 8,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-010.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9404,7 +9432,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-010.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9432,7 +9460,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-003.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9457,10 +9485,10 @@
           "atlasPdfUrl": null,
           "atlasMappingStatus": "ATLAS_MAPPING_UNAVAILABLE",
           "visualSheetsPage": 25,
-          "visualSheetsSlot": 2,
+          "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-025.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9488,7 +9516,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-019.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -9583,7 +9611,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-001.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9611,7 +9639,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-018.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9639,7 +9667,7 @@
           "visualSheetsSlot": 3,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-010.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9667,7 +9695,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-015.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9695,7 +9723,7 @@
           "visualSheetsSlot": 2,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-009.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9724,7 +9752,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-021.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9752,7 +9780,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-016.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9780,7 +9808,7 @@
           "visualSheetsSlot": 4,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-016.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9808,7 +9836,7 @@
           "visualSheetsSlot": 11,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-002.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9836,7 +9864,7 @@
           "visualSheetsSlot": 10,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-019.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9864,7 +9892,7 @@
           "visualSheetsSlot": 7,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-020.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9892,7 +9920,7 @@
           "visualSheetsSlot": 5,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-002.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         },
         {
@@ -9920,7 +9948,7 @@
           "visualSheetsSlot": 12,
           "visualSheetsFile": "animation.pdf",
           "pageImageFile": "animation/page-009.jpg",
-          "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
           "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
         }
       ]
@@ -136587,6 +136615,147 @@
       "animationEvidence": null
     },
     {
+      "handle": "cutscene_t15_0__b897f171",
+      "runtimeHash": "b897f171",
+      "displayName": "cutscene t15 0",
+      "route": "Layer",
+      "runtimeId": "19875419ad1d966448317bc0233cff91:-8738531556498122800",
+      "authorableInSimpleV1": true,
+      "authoringRuntimeForm": null,
+      "supports": [
+        "Activate",
+        "Brightness",
+        "Crossfade",
+        "Deactivate",
+        "Fade",
+        "Move",
+        "Parallax",
+        "Scroll",
+        "Set",
+        "Swap",
+        "Tint"
+      ],
+      "capabilities": [
+        "Cutscene.Prop",
+        "Level.Decoration"
+      ],
+      "allowedUses": [
+        "Layer"
+      ],
+      "safeForPreview": true,
+      "safeForPublish": false,
+      "sourceSafeForPublish": false,
+      "publishSafetySource": "DIRECTOR_CURRENT_CONTRACT",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED",
+      "proportionClass": null,
+      "targetScreenFraction": null,
+      "scaleBasis": null,
+      "systemManagedProportions": null,
+      "visualReferenceId": null,
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": null,
+      "atlasPdfUrl": null,
+      "hasCompatibleAnimation": false,
+      "compatibleAnimationCount": 0,
+      "supportedAnimationIntents": null,
+      "animationEvidence": null
+    },
+    {
+      "handle": "cutscene_t20_0__de991fe2",
+      "runtimeHash": "de991fe2",
+      "displayName": "cutscene t20 0",
+      "route": "Layer",
+      "runtimeId": "667022212f570484bb8f3e2dd56e10b1:-6282435938720568193",
+      "authorableInSimpleV1": true,
+      "authoringRuntimeForm": null,
+      "supports": [
+        "Activate",
+        "Brightness",
+        "Crossfade",
+        "Deactivate",
+        "Fade",
+        "Move",
+        "Parallax",
+        "Scroll",
+        "Set",
+        "Swap",
+        "Tint"
+      ],
+      "capabilities": [
+        "Cutscene.Prop",
+        "Level.Decoration"
+      ],
+      "allowedUses": [
+        "Layer"
+      ],
+      "safeForPreview": true,
+      "safeForPublish": false,
+      "sourceSafeForPublish": false,
+      "publishSafetySource": "DIRECTOR_CURRENT_CONTRACT",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED",
+      "proportionClass": null,
+      "targetScreenFraction": null,
+      "scaleBasis": null,
+      "systemManagedProportions": null,
+      "visualReferenceId": null,
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": null,
+      "atlasPdfUrl": null,
+      "hasCompatibleAnimation": false,
+      "compatibleAnimationCount": 0,
+      "supportedAnimationIntents": null,
+      "animationEvidence": null
+    },
+    {
+      "handle": "cutscene_t2475_0__ef1477ab",
+      "runtimeHash": "ef1477ab",
+      "displayName": "cutscene t2475 0",
+      "route": "Layer",
+      "runtimeId": "931419f7c9951ff49ba4003353621aca:6106836618535862121",
+      "authorableInSimpleV1": true,
+      "authoringRuntimeForm": null,
+      "supports": [
+        "Activate",
+        "Brightness",
+        "Crossfade",
+        "Deactivate",
+        "Fade",
+        "Move",
+        "Parallax",
+        "Scroll",
+        "Set",
+        "Swap",
+        "Tint"
+      ],
+      "capabilities": [
+        "Cutscene.Prop",
+        "Level.Decoration"
+      ],
+      "allowedUses": [
+        "Layer"
+      ],
+      "safeForPreview": true,
+      "safeForPublish": false,
+      "sourceSafeForPublish": false,
+      "publishSafetySource": "DIRECTOR_CURRENT_CONTRACT",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED",
+      "proportionClass": null,
+      "targetScreenFraction": null,
+      "scaleBasis": null,
+      "systemManagedProportions": null,
+      "visualReferenceId": null,
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": null,
+      "atlasPdfUrl": null,
+      "hasCompatibleAnimation": false,
+      "compatibleAnimationCount": 0,
+      "supportedAnimationIntents": null,
+      "animationEvidence": null
+    },
+    {
       "handle": "cvxc_0__a1cbdcfb",
       "runtimeHash": "a1cbdcfb",
       "displayName": "CVXC 0",
@@ -155548,6 +155717,53 @@
       "animationEvidence": null,
       "atlasPartPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_LAYER_CURRENT.pdf",
       "atlasMappingStatus": "MAPPED_CURRENT_TRANSACTION"
+    },
+    {
+      "handle": "game_capture_0__04536b39",
+      "runtimeHash": "04536b39",
+      "displayName": "game capture 0",
+      "route": "Layer",
+      "runtimeId": "31bc97fabb9a9f340bf80622c13e82e5:-8973889510406703803",
+      "authorableInSimpleV1": true,
+      "authoringRuntimeForm": null,
+      "supports": [
+        "Activate",
+        "Brightness",
+        "Crossfade",
+        "Deactivate",
+        "Fade",
+        "Move",
+        "Parallax",
+        "Scroll",
+        "Set",
+        "Swap",
+        "Tint"
+      ],
+      "capabilities": [
+        "Cutscene.Prop",
+        "Level.Decoration"
+      ],
+      "allowedUses": [
+        "Layer"
+      ],
+      "safeForPreview": true,
+      "safeForPublish": false,
+      "sourceSafeForPublish": false,
+      "publishSafetySource": "DIRECTOR_CURRENT_CONTRACT",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED",
+      "proportionClass": null,
+      "targetScreenFraction": null,
+      "scaleBasis": null,
+      "systemManagedProportions": null,
+      "visualReferenceId": null,
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": null,
+      "atlasPdfUrl": null,
+      "hasCompatibleAnimation": false,
+      "compatibleAnimationCount": 0,
+      "supportedAnimationIntents": null,
+      "animationEvidence": null
     },
     {
       "handle": "game_over_0__2e819e71",

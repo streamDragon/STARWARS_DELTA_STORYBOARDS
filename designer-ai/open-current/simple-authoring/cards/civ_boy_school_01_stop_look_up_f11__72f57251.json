@@ -2,7 +2,7 @@
   "schema": "STARWARS_ACTOR_CARD",
   "schemaVersion": 1,
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20260919-190845766-b11f783d",
+  "publishTransactionId": "20260920-042328939-44466eb0",
   "identity": {
     "handle": "civ_boy_school_01_stop_look_up_f11__72f57251",
     "displayName": "CIV BOY SCHOOL 01 STOP LOOK UP F11",
@@ -25,7 +25,9 @@
       "animationAssetId": "a4c026ad6016d5348bc694d49933c454:7400000",
       "animationFamilyId": "structural-actor:civ_boy_school_01",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_BOY_SCHOOL_01/WALK_RIGHT/Generated/CIV_BOY_SCHOOL_01_WALK_RIGHT.anim",
-      "intents": [],
+      "intents": [
+        "walk"
+      ],
       "animationTechnicalType": null,
       "animationVisualStatus": null,
       "animationOwnershipStatus": null,
@@ -42,7 +44,7 @@
       "visualSheetsSlot": 4,
       "visualSheetsFile": "animation.pdf",
       "pageImageFile": "animation/page-018.jpg",
-      "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+      "visualSheetsTransactionId": "20260920-042328939-44466eb0",
       "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
     },
     {
@@ -51,7 +53,9 @@
       "animationAssetId": "2b5a1a2ac9c8c824ebdea6e7c476456d:7400000",
       "animationFamilyId": "structural-actor:civ_boy_school_01",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_BOY_SCHOOL_01/STOP_LOOK_UP/Generated/CIV_BOY_SCHOOL_01_STOP_LOOK_UP.anim",
-      "intents": [],
+      "intents": [
+        "look"
+      ],
       "animationTechnicalType": null,
       "animationVisualStatus": null,
       "animationOwnershipStatus": null,
@@ -68,11 +72,72 @@
       "visualSheetsSlot": 11,
       "visualSheetsFile": "animation.pdf",
       "pageImageFile": "animation/page-005.jpg",
-      "visualSheetsTransactionId": "20260919-190845766-b11f783d",
+      "visualSheetsTransactionId": "20260920-042328939-44466eb0",
       "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
     }
   ],
-  "does": [],
+  "does": [
+    {
+      "intent": "look",
+      "evidence": [
+        {
+          "animationHandle": "animation__a71217b3",
+          "displayName": "CIV BOY SCHOOL 01 STOP LOOK UP",
+          "intent": "look",
+          "intents": [
+            "look"
+          ],
+          "animationAssetId": "2b5a1a2ac9c8c824ebdea6e7c476456d:7400000",
+          "animationFamilyId": "structural-actor:civ_boy_school_01",
+          "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_BOY_SCHOOL_01/STOP_LOOK_UP/Generated/CIV_BOY_SCHOOL_01_STOP_LOOK_UP.anim",
+          "visualReferenceId": "visual_658b194c927f7b73de88",
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-005.jpg",
+          "atlasPdfUrl": null,
+          "visualSheetsPage": 5,
+          "visualSheetsSlot": 11,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-005.jpg",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION",
+          "evidenceType": "VISUAL_SHEET_REFERENCE",
+          "pixelStatus": "NOT_HTTP_VERIFIED"
+        }
+      ],
+      "evidenceStatus": "AVAILABLE"
+    },
+    {
+      "intent": "walk",
+      "evidence": [
+        {
+          "animationHandle": "animation__4debdf06",
+          "displayName": "CIV BOY SCHOOL 01 WALK RIGHT",
+          "intent": "walk",
+          "intents": [
+            "walk"
+          ],
+          "animationAssetId": "a4c026ad6016d5348bc694d49933c454:7400000",
+          "animationFamilyId": "structural-actor:civ_boy_school_01",
+          "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_BOY_SCHOOL_01/WALK_RIGHT/Generated/CIV_BOY_SCHOOL_01_WALK_RIGHT.anim",
+          "visualReferenceId": "visual_58ff372e76da875125dc",
+          "atlasPage": null,
+          "atlasSlot": null,
+          "pageImageUrl": "full-visual-sheets/animation/page-018.jpg",
+          "atlasPdfUrl": null,
+          "visualSheetsPage": 18,
+          "visualSheetsSlot": 4,
+          "visualSheetsFile": "animation.pdf",
+          "pageImageFile": "animation/page-018.jpg",
+          "visualSheetsTransactionId": "20260920-042328939-44466eb0",
+          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION",
+          "evidenceType": "VISUAL_SHEET_REFERENCE",
+          "pixelStatus": "NOT_HTTP_VERIFIED"
+        }
+      ],
+      "evidenceStatus": "AVAILABLE"
+    }
+  ],
   "quality": {
     "imageLink": "PIXELS_UNAVAILABLE",
     "performanceEvidence": "PRESENT",
@@ -80,7 +145,6 @@
     "runtimeProof": "NOT_CHECKED"
   },
   "missingEvidence": [
-    "ATLAS_MAPPING_UNAVAILABLE",
-    "SEMANTIC_MAPPING_MISSING"
+    "ATLAS_MAPPING_UNAVAILABLE"
   ]
 }
