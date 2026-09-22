@@ -58,6 +58,11 @@ Use the schema literally. Unknown fields and remembered aliases are forbidden.
 CURRENT FINGERPRINTS ARE NOT MOVIE FIELDS
 Do not serialize catalogRevision, contractRevision, schemaHash, snapshotContentHash, authoringRuleRegistryRevision, publishTransactionId, requiredCurrent or runtime GUIDs into normal CUTSCENE_SCRIPT_V1 unless a future matching schema explicitly defines them.
 
+SPATIAL CONTINUITY
+- For the same cast.id across adjacent beats, preserve the prior authored screen position unless an intentional cut/re-stage is desired.
+- For pathShape=waypoints, the first pathPoints point should normally match that Actor's visible screenX/screenY in the beat.
+- The next beat should normally continue from the prior path endpoint. Treat mismatches as YELLOW authoring-quality warnings, not automatic RED blockers.
+
 IDENTITY
 - cast[].id is a local script reference used by actions/dialogue/continuity inside this movie only. It does not redefine canonical character identity.
 - cast[].identityHandle is the exact CURRENT canonical/preferred route=Actor authoring identity and is the persistent identity used for continuity/persona checks.
