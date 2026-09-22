@@ -1,17 +1,17 @@
 {
   "schema": "STARWARS_DELTA_CHATGPT_AUTHORING_INDEX",
   "schemaVersion": 1,
-  "projectionRevision": "CHATGPT_AUTHORING_INDEX_V3_20260918_COMPACT_RETRIEVAL",
+  "projectionRevision": "CHATGPT_AUTHORING_INDEX_V4_20260922_DIRECT_ANIMATION",
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20260920-132854702-633e13f0",
+  "publishTransactionId": "20260922-125842566-1ff3bd62",
   "requiredCurrent": {
     "catalogRevision": "7623205386359851800",
     "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
     "schemaHash": "CC97802C1A6A6EFF291623AE7A46C6E349599461D67EF764E2FF5EACD30EF947",
-    "snapshotContentHash": "7E214D93A6CB818800AA9CD09E4F70F0CC8849F765B02E836D45B33DEDA7B252",
+    "snapshotContentHash": "E8A4BFC5FCD4AF00089F803BB741B91F39B89E16DF956B76593B647B1A053CE0",
     "authoringRuleRegistryRevision": "8CBCE85AF0FC24743F97AA4F104C31857926A98DAB52749CA75A2B7F6BF27F12"
   },
-  "purpose": "Compact navigation projection for ChatGPT. Exact legal handles remain authoritative in matching CURRENT AUTHORING_HANDLES.json.",
+  "purpose": "Compact navigation projection for ChatGPT. Exact legal handles remain authoritative in matching CURRENT AUTHORING_HANDLES.json. Technically eligible simple Sprite Animation clips may be selected directly by animationHandle without Actor-prefab ownership.",
   "generatedFrom": [
     "AUTHORING_HANDLES.json",
     "CURRENT_V3_SEMANTIC_AUTHORING_PROFILE.json",
@@ -21,6 +21,7 @@
   "startHere": [
     "Search this compact index by intent first.",
     "Use the exact handle returned here; open AUTHORING_HANDLES.json only for the full card.",
+    "For exact animation selection, use directAnimationMaterials[].animationHandle when the clip is published there. Actor ownership is relationship metadata, not an availability gate for those technically eligible clips.",
     "For every important visual choice, open previewUrl when present. If previewUrl is missing, treat appearance as unverified instead of guessing from the name.",
     "Use atlasPage/atlasSlot only as secondary browsing evidence; previewUrl is the direct visual route.",
     "Use cinematic recipes as directing guidance only; never serialize recipe IDs unless the active schema exposes such a field.",
@@ -29,6 +30,7 @@
   "counts": {
     "actors": 121,
     "animatedActors": 45,
+    "directAnimationMaterials": 291,
     "effectGroups": 11,
     "sceneryGroups": 8,
     "cinematicRecipes": 53,
@@ -3280,6 +3282,1948 @@
       "atlasPdfUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
       "atlasPage": 9,
       "atlasSlot": 7
+    }
+  ],
+  "directAnimationMaterials": [
+    {
+      "displayName": "3 way",
+      "animationHandle": "animation__d3f86828",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-016.jpg"
+    },
+    {
+      "displayName": "3 way shielded",
+      "animationHandle": "animation__4c708124",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-017.jpg"
+    },
+    {
+      "displayName": "Algae1",
+      "animationHandle": "animation__551be70c",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-021.jpg"
+    },
+    {
+      "displayName": "atom",
+      "animationHandle": "animation__dc4045f9",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-016.jpg"
+    },
+    {
+      "displayName": "Big Boss",
+      "animationHandle": "animation__b016aa73",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-016.jpg"
+    },
+    {
+      "displayName": "Big Saucer",
+      "animationHandle": "animation__43693c8f",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-022.jpg"
+    },
+    {
+      "displayName": "Blade Boss",
+      "animationHandle": "animation__ae13a0d7",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-017.jpg"
+    },
+    {
+      "displayName": "blob",
+      "animationHandle": "animation__e7fec6b0",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-016.jpg"
+    },
+    {
+      "displayName": "blob anim",
+      "animationHandle": "animation__ea636565",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-021.jpg"
+    },
+    {
+      "displayName": "blue delta ship",
+      "animationHandle": "animation__6acc5657",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-028.jpg"
+    },
+    {
+      "displayName": "blue delta ship",
+      "animationHandle": "animation__a52ca10f",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-025.jpg"
+    },
+    {
+      "displayName": "bomb2 anim",
+      "animationHandle": "animation__7d56b53f",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-023.jpg"
+    },
+    {
+      "displayName": "Bottom Gun",
+      "animationHandle": "animation__80e6878a",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-028.jpg"
+    },
+    {
+      "displayName": "Brain boss attack",
+      "animationHandle": "animation__5ab39516",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-022.jpg"
+    },
+    {
+      "displayName": "Brain boss idle",
+      "animationHandle": "animation__a2625489",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-020.jpg"
+    },
+    {
+      "displayName": "Bubble Bubble 16 Loop",
+      "animationHandle": "animation__10334c22",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-001.jpg"
+    },
+    {
+      "displayName": "Bullets",
+      "animationHandle": "animation__058ba989",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-009.jpg"
+    },
+    {
+      "displayName": "Bullets shielded",
+      "animationHandle": "animation__8e76a020",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-014.jpg"
+    },
+    {
+      "displayName": "buzz saw boss idle",
+      "animationHandle": "animation__5d6a851b",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-014.jpg"
+    },
+    {
+      "displayName": "Cannon",
+      "animationHandle": "animation__7531fa1d",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-023.jpg"
+    },
+    {
+      "displayName": "Cannon shielded",
+      "animationHandle": "animation__89389e86",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-019.jpg"
+    },
+    {
+      "displayName": "cargo ship",
+      "animationHandle": "animation__de555851",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-013.jpg"
+    },
+    {
+      "displayName": "Caustic1",
+      "animationHandle": "animation__74f32a2a",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-013.jpg"
+    },
+    {
+      "displayName": "Caustic2",
+      "animationHandle": "animation__ee0c7cf0",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-022.jpg"
+    },
+    {
+      "displayName": "CIV BOY SCHOOL 01 STOP LOOK UP",
+      "animationHandle": "animation__a71217b3",
+      "animationIntents": [
+        "look"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-005.jpg"
+    },
+    {
+      "displayName": "CIV BOY SCHOOL 01 WALK RIGHT",
+      "animationHandle": "animation__4debdf06",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-018.jpg"
+    },
+    {
+      "displayName": "CIV MAN CASUAL 01 STOP LOOK UP",
+      "animationHandle": "animation__9359d427",
+      "animationIntents": [
+        "look"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-016.jpg"
+    },
+    {
+      "displayName": "CIV MAN CASUAL 01 WALK RIGHT",
+      "animationHandle": "animation__f178e7e1",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-005.jpg"
+    },
+    {
+      "displayName": "CIV ORTHODOX ELDER 01 STOP LOOK UP",
+      "animationHandle": "animation__76456eee",
+      "animationIntents": [
+        "look"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-011.jpg"
+    },
+    {
+      "displayName": "CIV ORTHODOX ELDER 01 WALK RIGHT",
+      "animationHandle": "animation__2a3eab91",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-015.jpg"
+    },
+    {
+      "displayName": "CIV WOMAN SHOPPING 01 STOP LOOK UP",
+      "animationHandle": "animation__14911fb3",
+      "animationIntents": [
+        "look"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-025.jpg"
+    },
+    {
+      "displayName": "CIV WOMAN SHOPPING 01 WALK RIGHT",
+      "animationHandle": "animation__dcfa26f3",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-013.jpg"
+    },
+    {
+      "displayName": "clouds anim",
+      "animationHandle": "animation__133aa7ef",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-010.jpg"
+    },
+    {
+      "displayName": "coin",
+      "animationHandle": "animation__5d7d4897",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-015.jpg"
+    },
+    {
+      "displayName": "color Axe Loop",
+      "animationHandle": "animation__937e3a2b",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-023.jpg"
+    },
+    {
+      "displayName": "color Boomerang Loop",
+      "animationHandle": "animation__efb46a21",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-013.jpg"
+    },
+    {
+      "displayName": "color Cross Loop",
+      "animationHandle": "animation__a56bc953",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-002.jpg"
+    },
+    {
+      "displayName": "color Homing Loop",
+      "animationHandle": "animation__c8503cce",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-004.jpg"
+    },
+    {
+      "displayName": "color Missile Loop",
+      "animationHandle": "animation__633c0694",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-002.jpg"
+    },
+    {
+      "displayName": "color Rail Loop",
+      "animationHandle": "animation__4dfce448",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-014.jpg"
+    },
+    {
+      "displayName": "color Sphere Loop",
+      "animationHandle": "animation__18d679d0",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-001.jpg"
+    },
+    {
+      "displayName": "cone",
+      "animationHandle": "animation__b711de8e",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-017.jpg"
+    },
+    {
+      "displayName": "Crusher",
+      "animationHandle": "animation__0d17fd33",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-014.jpg"
+    },
+    {
+      "displayName": "Crusher",
+      "animationHandle": "animation__34fc7fb0",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-001.jpg"
+    },
+    {
+      "displayName": "Crusher shielded",
+      "animationHandle": "animation__212d0c14",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-008.jpg"
+    },
+    {
+      "displayName": "Cube",
+      "animationHandle": "animation__86abb658",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-028.jpg"
+    },
+    {
+      "displayName": "Damage Blue Robot",
+      "animationHandle": "animation__7d768877",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-026.jpg"
+    },
+    {
+      "displayName": "dangersighn",
+      "animationHandle": "animation__7b417331",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-007.jpg"
+    },
+    {
+      "displayName": "DanteFighter Climb",
+      "animationHandle": "animation__66f2bc4e",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-020.jpg"
+    },
+    {
+      "displayName": "DanteFighter Climb",
+      "animationHandle": "animation__cde288d1",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-019.jpg"
+    },
+    {
+      "displayName": "DanteFighter Dive",
+      "animationHandle": "animation__38df8a85",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-026.jpg"
+    },
+    {
+      "displayName": "DanteFighter Dive",
+      "animationHandle": "animation__dae38383",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-023.jpg"
+    },
+    {
+      "displayName": "DanteFighter IdleHover",
+      "animationHandle": "animation__154968e2",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-017.jpg"
+    },
+    {
+      "displayName": "DanteFighter IdleHover",
+      "animationHandle": "animation__3c1d5f38",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-011.jpg"
+    },
+    {
+      "displayName": "DanteFighter SpecialActions",
+      "animationHandle": "animation__26168891",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-001.jpg"
+    },
+    {
+      "displayName": "DanteFighter SpecialActions",
+      "animationHandle": "animation__3e41272f",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-026.jpg"
+    },
+    {
+      "displayName": "Death",
+      "animationHandle": "animation__0a632fd2",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-004.jpg"
+    },
+    {
+      "displayName": "Death",
+      "animationHandle": "animation__680a6033",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-028.jpg"
+    },
+    {
+      "displayName": "Die",
+      "animationHandle": "animation__0f3d2978",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-025.jpg"
+    },
+    {
+      "displayName": "endbossbottomdish",
+      "animationHandle": "animation__f32ecd4f",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-016.jpg"
+    },
+    {
+      "displayName": "endbosstopdish",
+      "animationHandle": "animation__f6055e6c",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-010.jpg"
+    },
+    {
+      "displayName": "enemy animation",
+      "animationHandle": "animation__2cc6e89f",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-014.jpg"
+    },
+    {
+      "displayName": "enemy animation",
+      "animationHandle": "animation__7508698c",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-029.jpg"
+    },
+    {
+      "displayName": "enemy animation 1",
+      "animationHandle": "animation__e9e586bf",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-023.jpg"
+    },
+    {
+      "displayName": "explosion animation",
+      "animationHandle": "animation__534a7ad3",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-003.jpg"
+    },
+    {
+      "displayName": "explosion animation",
+      "animationHandle": "animation__caef644b",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-016.jpg"
+    },
+    {
+      "displayName": "explsbullet anim",
+      "animationHandle": "animation__84f9c995",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-002.jpg"
+    },
+    {
+      "displayName": "Extra Life",
+      "animationHandle": "animation__82d1832e",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-029.jpg"
+    },
+    {
+      "displayName": "fireball",
+      "animationHandle": "animation__8199d824",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-010.jpg"
+    },
+    {
+      "displayName": "FireBall FireBall 32 Loop",
+      "animationHandle": "animation__4e01381b",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-001.jpg"
+    },
+    {
+      "displayName": "First Aid Kit",
+      "animationHandle": "animation__6ef767fe",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-026.jpg"
+    },
+    {
+      "displayName": "flame anim",
+      "animationHandle": "animation__b87d4477",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-011.jpg"
+    },
+    {
+      "displayName": "flameBG anim",
+      "animationHandle": "animation__90f36cfd",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-008.jpg"
+    },
+    {
+      "displayName": "Gem",
+      "animationHandle": "animation__d6ebd7d9",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-015.jpg"
+    },
+    {
+      "displayName": "gold fish  Animation",
+      "animationHandle": "animation__b8431d2b",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-013.jpg"
+    },
+    {
+      "displayName": "Green beam",
+      "animationHandle": "animation__367aee11",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-025.jpg"
+    },
+    {
+      "displayName": "GREEN SHIELD Animation",
+      "animationHandle": "animation__33450901",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-008.jpg"
+    },
+    {
+      "displayName": "gunner",
+      "animationHandle": "animation__9427418e",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-008.jpg"
+    },
+    {
+      "displayName": "Health",
+      "animationHandle": "animation__413e2c50",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-022.jpg"
+    },
+    {
+      "displayName": "Health shielded",
+      "animationHandle": "animation__7b4559c5",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-004.jpg"
+    },
+    {
+      "displayName": "Hit",
+      "animationHandle": "animation__0a79e30f",
+      "animationIntents": [
+        "damage"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-002.jpg"
+    },
+    {
+      "displayName": "Hit",
+      "animationHandle": "animation__73394f8b",
+      "animationIntents": [
+        "damage"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-011.jpg"
+    },
+    {
+      "displayName": "Hit",
+      "animationHandle": "animation__ce1f75af",
+      "animationIntents": [
+        "damage"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-005.jpg"
+    },
+    {
+      "displayName": "Hit Animation",
+      "animationHandle": "animation__86f1b1d0",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-010.jpg"
+    },
+    {
+      "displayName": "Hit Animation",
+      "animationHandle": "animation__e6eb887b",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-017.jpg"
+    },
+    {
+      "displayName": "Hunter",
+      "animationHandle": "animation__1d00248e",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-018.jpg"
+    },
+    {
+      "displayName": "Idle",
+      "animationHandle": "animation__57e3dd44",
+      "animationIntents": [
+        "idle"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-025.jpg"
+    },
+    {
+      "displayName": "Idle",
+      "animationHandle": "animation__8bfd209e",
+      "animationIntents": [
+        "idle"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-006.jpg"
+    },
+    {
+      "displayName": "Idle",
+      "animationHandle": "animation__a3a3bce4",
+      "animationIntents": [
+        "idle"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-001.jpg"
+    },
+    {
+      "displayName": "IdleRight",
+      "animationHandle": "animation__6d5dcc15",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-006.jpg"
+    },
+    {
+      "displayName": "Interacting",
+      "animationHandle": "animation__02616b9e",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-004.jpg"
+    },
+    {
+      "displayName": "Interacting",
+      "animationHandle": "animation__27311156",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-019.jpg"
+    },
+    {
+      "displayName": "Interacting",
+      "animationHandle": "animation__f4f2df0e",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-002.jpg"
+    },
+    {
+      "displayName": "Jellyfish",
+      "animationHandle": "animation__07793a5c",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-019.jpg"
+    },
+    {
+      "displayName": "Jump",
+      "animationHandle": "animation__59d22051",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-011.jpg"
+    },
+    {
+      "displayName": "Jump",
+      "animationHandle": "animation__c657c5ea",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-026.jpg"
+    },
+    {
+      "displayName": "Jump",
+      "animationHandle": "animation__f1992fe9",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-019.jpg"
+    },
+    {
+      "displayName": "Laser",
+      "animationHandle": "animation__6dedb065",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-021.jpg"
+    },
+    {
+      "displayName": "Laser",
+      "animationHandle": "animation__e7f4223e",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-006.jpg"
+    },
+    {
+      "displayName": "Laser shielded",
+      "animationHandle": "animation__6a0eddb7",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-029.jpg"
+    },
+    {
+      "displayName": "Mine",
+      "animationHandle": "animation__0a2da4d4",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-006.jpg"
+    },
+    {
+      "displayName": "Mine",
+      "animationHandle": "animation__3062afef",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-008.jpg"
+    },
+    {
+      "displayName": "Mine",
+      "animationHandle": "animation__edca0397",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-011.jpg"
+    },
+    {
+      "displayName": "Mine",
+      "animationHandle": "animation__f226c81f",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-029.jpg"
+    },
+    {
+      "displayName": "Mini Boss",
+      "animationHandle": "animation__d3ec6536",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-018.jpg"
+    },
+    {
+      "displayName": "Mini Boss 2",
+      "animationHandle": "animation__7f6fa640",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-028.jpg"
+    },
+    {
+      "displayName": "mohican",
+      "animationHandle": "animation__6e8754ee",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-013.jpg"
+    },
+    {
+      "displayName": "Moss1",
+      "animationHandle": "animation__90f235e9",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-024.jpg"
+    },
+    {
+      "displayName": "Moss2",
+      "animationHandle": "animation__2127882f",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-024.jpg"
+    },
+    {
+      "displayName": "Moss3",
+      "animationHandle": "animation__824136b5",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-007.jpg"
+    },
+    {
+      "displayName": "Mushroom",
+      "animationHandle": "animation__d28ecbd0",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-002.jpg"
+    },
+    {
+      "displayName": "MY FireworksBrain Attack 100PPU",
+      "animationHandle": "animation__815e4f87",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-011.jpg"
+    },
+    {
+      "displayName": "MY FireworksBrain Idle 100PPU",
+      "animationHandle": "animation__0bc927f8",
+      "animationIntents": [
+        "idle"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-002.jpg"
+    },
+    {
+      "displayName": "MY SpaceRobot01 Shoot Start",
+      "animationHandle": "animation__49de8526",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-025.jpg"
+    },
+    {
+      "displayName": "MY SpaceRobot02 Shoot Start",
+      "animationHandle": "animation__1467c178",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-013.jpg"
+    },
+    {
+      "displayName": "MY SpaceRobot03 Shoot Start",
+      "animationHandle": "animation__ab99b84f",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-027.jpg"
+    },
+    {
+      "displayName": "MY SpaceRobot04 Shoot Start",
+      "animationHandle": "animation__ee2f3ab4",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-012.jpg"
+    },
+    {
+      "displayName": "Nautolan   Bomb Clip",
+      "animationHandle": "animation__72d595c8",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-003.jpg"
+    },
+    {
+      "displayName": "Nautolan   Bullet Clip",
+      "animationHandle": "animation__538f2e2c",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-006.jpg"
+    },
+    {
+      "displayName": "Nautolan   Ray Clip",
+      "animationHandle": "animation__ac848e4d",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-010.jpg"
+    },
+    {
+      "displayName": "Nautolan   Rocket Clip",
+      "animationHandle": "animation__307a8fef",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-013.jpg"
+    },
+    {
+      "displayName": "Nautolan   Ships Preview Clip",
+      "animationHandle": "animation__776a01dc",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-024.jpg"
+    },
+    {
+      "displayName": "Nautolan   Spinning Bullet Clip",
+      "animationHandle": "animation__c0095a64",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-018.jpg"
+    },
+    {
+      "displayName": "Nautolan   Wave Clip",
+      "animationHandle": "animation__b46a8ed0",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-022.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Battlecruiser   Engine Effect Clip",
+      "animationHandle": "animation__a9a5b238",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-015.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Battlecruiser   Shield Clip",
+      "animationHandle": "animation__b817917e",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-009.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Battlecruiser   Weapons Clip",
+      "animationHandle": "animation__50f77fef",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-003.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Bomber   Engine Effect Clip",
+      "animationHandle": "animation__0a2f09d9",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-011.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Bomber   Shield Clip",
+      "animationHandle": "animation__841b4260",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-020.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Bomber Clip",
+      "animationHandle": "animation__4ab29fc4",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-017.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Dreadnought   Engine Effect Clip",
+      "animationHandle": "animation__b3098442",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-025.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Dreadnought   Shield Clip",
+      "animationHandle": "animation__ce6f6fd1",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-008.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Dreadnought   Weapons Clip",
+      "animationHandle": "animation__2566b390",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-024.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Dreadnought Clip",
+      "animationHandle": "animation__8aa07d3a",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-025.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Fighter   Engine Effect Clip",
+      "animationHandle": "animation__df6298de",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-016.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Fighter   Shield Clip",
+      "animationHandle": "animation__2a7c6295",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-020.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Fighter   Weapons Clip",
+      "animationHandle": "animation__e069a9a7",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-013.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Frigate   Engine Effect Clip",
+      "animationHandle": "animation__ea8dce77",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-018.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Frigate   Shield Clip",
+      "animationHandle": "animation__245dfd40",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-024.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Frigate   Weapons Clip",
+      "animationHandle": "animation__92ecbe9a",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-006.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Frigate Clip",
+      "animationHandle": "animation__9ed34d2d",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-003.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Scout   Engine Effect Clip",
+      "animationHandle": "animation__4a939a0a",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-001.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Scout   Shield Clip",
+      "animationHandle": "animation__1c12e2f1",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-028.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Scout   Weapons Clip",
+      "animationHandle": "animation__7001d54c",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-021.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Scout Clip",
+      "animationHandle": "animation__0d3e56c6",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-009.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Support   Engine Effect Clip",
+      "animationHandle": "animation__fdd40fb1",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-027.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Support Clip",
+      "animationHandle": "animation__a9078c45",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-015.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Torpedo Ship   Engine Effect Clip",
+      "animationHandle": "animation__df852e34",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-007.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Torpedo Ship   Shield Clip",
+      "animationHandle": "animation__306ad916",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-006.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Torpedo Ship   Weapons Clip",
+      "animationHandle": "animation__7da8e1da",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-005.jpg"
+    },
+    {
+      "displayName": "Nautolan Ship   Torpedo Ship Clip",
+      "animationHandle": "animation__bbcd042f",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-008.jpg"
+    },
+    {
+      "displayName": "New Animation",
+      "animationHandle": "animation__0ab98374",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-005.jpg"
+    },
+    {
+      "displayName": "Nuke",
+      "animationHandle": "animation__a5f11167",
+      "animationIntents": [
+        "damage"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-013.jpg"
+    },
+    {
+      "displayName": "Photon",
+      "animationHandle": "animation__9ab210c8",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-011.jpg"
+    },
+    {
+      "displayName": "photon shielded",
+      "animationHandle": "animation__e5497bba",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-010.jpg"
+    },
+    {
+      "displayName": "Pilot Pickup",
+      "animationHandle": "animation__f26e64c6",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-017.jpg"
+    },
+    {
+      "displayName": "Pilot Walking",
+      "animationHandle": "animation__6c9cf9a3",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-019.jpg"
+    },
+    {
+      "displayName": "pinchhead",
+      "animationHandle": "animation__494e801c",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-017.jpg"
+    },
+    {
+      "displayName": "Player Animation",
+      "animationHandle": "animation__16014346",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-005.jpg"
+    },
+    {
+      "displayName": "Player Animation",
+      "animationHandle": "animation__c2f11880",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-008.jpg"
+    },
+    {
+      "displayName": "Player Flying down",
+      "animationHandle": "animation__5c2bf6cc",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-013.jpg"
+    },
+    {
+      "displayName": "Player Flying down",
+      "animationHandle": "animation__8fdb8c14",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-027.jpg"
+    },
+    {
+      "displayName": "Player Flying up",
+      "animationHandle": "animation__b17a5cf9",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-022.jpg"
+    },
+    {
+      "displayName": "player ship",
+      "animationHandle": "animation__4eb0fc26",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-025.jpg"
+    },
+    {
+      "displayName": "player ship topview",
+      "animationHandle": "animation__8dc99863",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-028.jpg"
+    },
+    {
+      "displayName": "player white spin topview",
+      "animationHandle": "animation__14dfa4d5",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-025.jpg"
+    },
+    {
+      "displayName": "PlayerIdle",
+      "animationHandle": "animation__533ee565",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-015.jpg"
+    },
+    {
+      "displayName": "Pod",
+      "animationHandle": "animation__133310b4",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-022.jpg"
+    },
+    {
+      "displayName": "Pod Collector",
+      "animationHandle": "animation__3fa6228f",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-019.jpg"
+    },
+    {
+      "displayName": "Pooper",
+      "animationHandle": "animation__4eb8191b",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-004.jpg"
+    },
+    {
+      "displayName": "powerball",
+      "animationHandle": "animation__cc5fbeff",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-029.jpg"
+    },
+    {
+      "displayName": "powered rock",
+      "animationHandle": "animation__026f0c6d",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-012.jpg"
+    },
+    {
+      "displayName": "PUSH MECHA DEATH",
+      "animationHandle": "animation__abdc8d7a",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-007.jpg"
+    },
+    {
+      "displayName": "PUSH MECHA IDLE",
+      "animationHandle": "animation__1bab3b9f",
+      "animationIntents": [
+        "idle"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-015.jpg"
+    },
+    {
+      "displayName": "PUSH MECHA SHOOT",
+      "animationHandle": "animation__85e66cb5",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-002.jpg"
+    },
+    {
+      "displayName": "PUSH MECHA WALK",
+      "animationHandle": "animation__850a6c17",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-014.jpg"
+    },
+    {
+      "displayName": "Pyramid",
+      "animationHandle": "animation__62938ae3",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-023.jpg"
+    },
+    {
+      "displayName": "Radar",
+      "animationHandle": "animation__44c09880",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-020.jpg"
+    },
+    {
+      "displayName": "red delta ship",
+      "animationHandle": "animation__00c30fab",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-020.jpg"
+    },
+    {
+      "displayName": "red delta ship",
+      "animationHandle": "animation__b958758a",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-004.jpg"
+    },
+    {
+      "displayName": "ring",
+      "animationHandle": "animation__8b7c9320",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-026.jpg"
+    },
+    {
+      "displayName": "robot anim1",
+      "animationHandle": "animation__35f74420",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-018.jpg"
+    },
+    {
+      "displayName": "robot spin anim",
+      "animationHandle": "animation__6d95d7f3",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-023.jpg"
+    },
+    {
+      "displayName": "ROBOT2 BOUNCE",
+      "animationHandle": "animation__eec0015e",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-020.jpg"
+    },
+    {
+      "displayName": "Rocket",
+      "animationHandle": "animation__3c482cc3",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-021.jpg"
+    },
+    {
+      "displayName": "round turret",
+      "animationHandle": "animation__22ae7943",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-028.jpg"
+    },
+    {
+      "displayName": "Run",
+      "animationHandle": "animation__1768cbfb",
+      "animationIntents": [
+        "run"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-012.jpg"
+    },
+    {
+      "displayName": "Run",
+      "animationHandle": "animation__3eaa6602",
+      "animationIntents": [
+        "run"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-016.jpg"
+    },
+    {
+      "displayName": "Run",
+      "animationHandle": "animation__7fa7fadd",
+      "animationIntents": [
+        "run"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-024.jpg"
+    },
+    {
+      "displayName": "satelite",
+      "animationHandle": "animation__1a4b0e39",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-007.jpg"
+    },
+    {
+      "displayName": "satelite anim",
+      "animationHandle": "animation__9bad126c",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-009.jpg"
+    },
+    {
+      "displayName": "Saucer",
+      "animationHandle": "animation__5c9cd767",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-024.jpg"
+    },
+    {
+      "displayName": "SAUCER 2",
+      "animationHandle": "animation__de9cf2f4",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-021.jpg"
+    },
+    {
+      "displayName": "SAUCER3",
+      "animationHandle": "animation__42c8a18e",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-024.jpg"
+    },
+    {
+      "displayName": "sawcer",
+      "animationHandle": "animation__68f37772",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-022.jpg"
+    },
+    {
+      "displayName": "serpent body",
+      "animationHandle": "animation__9e74eba0",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-012.jpg"
+    },
+    {
+      "displayName": "serpent head",
+      "animationHandle": "animation__c9173c6c",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-023.jpg"
+    },
+    {
+      "displayName": "serpent rear",
+      "animationHandle": "animation__7f9ccc0e",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-014.jpg"
+    },
+    {
+      "displayName": "Shield",
+      "animationHandle": "animation__c15fc8fa",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-027.jpg"
+    },
+    {
+      "displayName": "Shot Animation",
+      "animationHandle": "animation__39a0cc95",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-015.jpg"
+    },
+    {
+      "displayName": "Shot Animation",
+      "animationHandle": "animation__d0a1bb2d",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-027.jpg"
+    },
+    {
+      "displayName": "slicer",
+      "animationHandle": "animation__6c635d96",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-018.jpg"
+    },
+    {
+      "displayName": "small spaceship anim",
+      "animationHandle": "animation__69e354ec",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-025.jpg"
+    },
+    {
+      "displayName": "SpaceRobot01 Damage",
+      "animationHandle": "animation__6ad252e6",
+      "animationIntents": [
+        "damage"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-022.jpg"
+    },
+    {
+      "displayName": "SpaceRobot01 Deactivation",
+      "animationHandle": "animation__561bcff8",
+      "animationIntents": [
+        "deactivate"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-028.jpg"
+    },
+    {
+      "displayName": "SpaceRobot01 Launch",
+      "animationHandle": "animation__a588b5ba",
+      "animationIntents": [
+        "launch"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-017.jpg"
+    },
+    {
+      "displayName": "SpaceRobot01 Shield Stance",
+      "animationHandle": "animation__7dc34def",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-017.jpg"
+    },
+    {
+      "displayName": "SpaceRobot01 Shield Stance End",
+      "animationHandle": "animation__d54240f5",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-004.jpg"
+    },
+    {
+      "displayName": "SpaceRobot01 Shield Stance Shoot",
+      "animationHandle": "animation__c869af63",
+      "animationIntents": [
+        "shield",
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-009.jpg"
+    },
+    {
+      "displayName": "SpaceRobot01 Shoot Hands End",
+      "animationHandle": "animation__9b39778d",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-009.jpg"
+    },
+    {
+      "displayName": "SpaceRobot01 Shoot Hands Loop",
+      "animationHandle": "animation__5da4b620",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-008.jpg"
+    },
+    {
+      "displayName": "SpaceRobot01 Shoot Hands Start",
+      "animationHandle": "animation__35c33cfc",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-018.jpg"
+    },
+    {
+      "displayName": "SpaceRobot01 Shoot Rockets",
+      "animationHandle": "animation__8ae7cd3c",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-006.jpg"
+    },
+    {
+      "displayName": "SpaceRobot01 Walk End",
+      "animationHandle": "animation__7e72e070",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-019.jpg"
+    },
+    {
+      "displayName": "SpaceRobot01 Walk Loop",
+      "animationHandle": "animation__1d8326d8",
+      "animationIntents": [
+        "idle",
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-020.jpg"
+    },
+    {
+      "displayName": "SpaceRobot01 Walk Start",
+      "animationHandle": "animation__149c50f1",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-001.jpg"
+    },
+    {
+      "displayName": "SpaceRobot02 Damage",
+      "animationHandle": "animation__4aa6ed26",
+      "animationIntents": [
+        "damage"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-021.jpg"
+    },
+    {
+      "displayName": "SpaceRobot02 Deactivation",
+      "animationHandle": "animation__f47b2384",
+      "animationIntents": [
+        "deactivate"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-009.jpg"
+    },
+    {
+      "displayName": "SpaceRobot02 Launch",
+      "animationHandle": "animation__95d139a7",
+      "animationIntents": [
+        "launch"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-026.jpg"
+    },
+    {
+      "displayName": "SpaceRobot02 Shield Stance",
+      "animationHandle": "animation__e9f1403d",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-009.jpg"
+    },
+    {
+      "displayName": "SpaceRobot02 Shield Stance End",
+      "animationHandle": "animation__40bfbae7",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-027.jpg"
+    },
+    {
+      "displayName": "SpaceRobot02 Shoot Hands End",
+      "animationHandle": "animation__a239b6e2",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-016.jpg"
+    },
+    {
+      "displayName": "SpaceRobot02 Shoot Hands Loop",
+      "animationHandle": "animation__1509543e",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-005.jpg"
+    },
+    {
+      "displayName": "SpaceRobot02 Shoot Hands Start",
+      "animationHandle": "animation__61e9b464",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-001.jpg"
+    },
+    {
+      "displayName": "SpaceRobot02 Walk End",
+      "animationHandle": "animation__09521c17",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-012.jpg"
+    },
+    {
+      "displayName": "SpaceRobot02 Walk Loop",
+      "animationHandle": "animation__d37c8892",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-012.jpg"
+    },
+    {
+      "displayName": "SpaceRobot02 Walk Start",
+      "animationHandle": "animation__13ad95d1",
+      "animationIntents": [
+        "idle",
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-011.jpg"
+    },
+    {
+      "displayName": "SpaceRobot03 Damage",
+      "animationHandle": "animation__89e0a7ac",
+      "animationIntents": [
+        "damage"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-013.jpg"
+    },
+    {
+      "displayName": "SpaceRobot03 Deactivation",
+      "animationHandle": "animation__894023ca",
+      "animationIntents": [
+        "deactivate"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-001.jpg"
+    },
+    {
+      "displayName": "SpaceRobot03 Launch",
+      "animationHandle": "animation__2acfbf7a",
+      "animationIntents": [
+        "launch"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-003.jpg"
+    },
+    {
+      "displayName": "SpaceRobot03 Shield Stance",
+      "animationHandle": "animation__43fcdcb9",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-019.jpg"
+    },
+    {
+      "displayName": "SpaceRobot03 Shield Stance End",
+      "animationHandle": "animation__954c89b8",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-020.jpg"
+    },
+    {
+      "displayName": "SpaceRobot03 Shoot Hands End",
+      "animationHandle": "animation__9e1e94c5",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-017.jpg"
+    },
+    {
+      "displayName": "SpaceRobot03 Shoot Hands Loop",
+      "animationHandle": "animation__73827308",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-005.jpg"
+    },
+    {
+      "displayName": "SpaceRobot03 Shoot Hands Start",
+      "animationHandle": "animation__9abab8f6",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-026.jpg"
+    },
+    {
+      "displayName": "SpaceRobot03 Walk End",
+      "animationHandle": "animation__5136b061",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-006.jpg"
+    },
+    {
+      "displayName": "SpaceRobot03 Walk Loop",
+      "animationHandle": "animation__ec5ba9ba",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-011.jpg"
+    },
+    {
+      "displayName": "SpaceRobot03 Walk Start",
+      "animationHandle": "animation__e9173b04",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-011.jpg"
+    },
+    {
+      "displayName": "SpaceRobot04 Damage",
+      "animationHandle": "animation__94f8bae3",
+      "animationIntents": [
+        "damage"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-004.jpg"
+    },
+    {
+      "displayName": "SpaceRobot04 Deactivation",
+      "animationHandle": "animation__c8100d2f",
+      "animationIntents": [
+        "deactivate"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-010.jpg"
+    },
+    {
+      "displayName": "SpaceRobot04 Launch",
+      "animationHandle": "animation__eecc9c2d",
+      "animationIntents": [
+        "launch"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-019.jpg"
+    },
+    {
+      "displayName": "SpaceRobot04 Shield Stance",
+      "animationHandle": "animation__eaaa5ef9",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-025.jpg"
+    },
+    {
+      "displayName": "SpaceRobot04 Shield Stance End",
+      "animationHandle": "animation__9c841870",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-006.jpg"
+    },
+    {
+      "displayName": "SpaceRobot04 Shoot Hands End",
+      "animationHandle": "animation__cec4bf01",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-003.jpg"
+    },
+    {
+      "displayName": "SpaceRobot04 Shoot Hands Loop",
+      "animationHandle": "animation__5ca819ac",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-015.jpg"
+    },
+    {
+      "displayName": "SpaceRobot04 Shoot Hands Start",
+      "animationHandle": "animation__473115bd",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-014.jpg"
+    },
+    {
+      "displayName": "SpaceRobot04 Walk End",
+      "animationHandle": "animation__c490ace8",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-010.jpg"
+    },
+    {
+      "displayName": "SpaceRobot04 Walk Loop",
+      "animationHandle": "animation__1a4ca664",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-003.jpg"
+    },
+    {
+      "displayName": "SpaceRobot04 Walk Start",
+      "animationHandle": "animation__28d49b37",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-009.jpg"
+    },
+    {
+      "displayName": "SpaceRobot05 Damage",
+      "animationHandle": "animation__98cc42fe",
+      "animationIntents": [
+        "damage"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-016.jpg"
+    },
+    {
+      "displayName": "SpaceRobot05 Deactivation",
+      "animationHandle": "animation__0b5b3d9a",
+      "animationIntents": [
+        "deactivate"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-010.jpg"
+    },
+    {
+      "displayName": "SpaceRobot05 Launch",
+      "animationHandle": "animation__e3757a85",
+      "animationIntents": [
+        "launch"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-002.jpg"
+    },
+    {
+      "displayName": "SpaceRobot05 Shield Stance",
+      "animationHandle": "animation__a287c97d",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-016.jpg"
+    },
+    {
+      "displayName": "SpaceRobot05 Shield Stance End",
+      "animationHandle": "animation__3ff84e02",
+      "animationIntents": [
+        "shield"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-015.jpg"
+    },
+    {
+      "displayName": "SpaceRobot05 Shield Stance Shoot",
+      "animationHandle": "animation__92a0dcae",
+      "animationIntents": [
+        "shield",
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-021.jpg"
+    },
+    {
+      "displayName": "SpaceRobot05 Shoot Hands End",
+      "animationHandle": "animation__03137dc3",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-001.jpg"
+    },
+    {
+      "displayName": "SpaceRobot05 Shoot Hands Loop",
+      "animationHandle": "animation__a6a6595d",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-002.jpg"
+    },
+    {
+      "displayName": "SpaceRobot05 Shoot Hands Start",
+      "animationHandle": "animation__ae29cae5",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-019.jpg"
+    },
+    {
+      "displayName": "SpaceRobot05 Shoot Rockets",
+      "animationHandle": "animation__d69eb0d6",
+      "animationIntents": [
+        "shoot"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-020.jpg"
+    },
+    {
+      "displayName": "SpaceRobot05 Walk End",
+      "animationHandle": "animation__65732881",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-009.jpg"
+    },
+    {
+      "displayName": "SpaceRobot05 Walk Loop",
+      "animationHandle": "animation__06e089c0",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-018.jpg"
+    },
+    {
+      "displayName": "SpaceRobot05 Walk Start",
+      "animationHandle": "animation__f0632858",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-009.jpg"
+    },
+    {
+      "displayName": "Speedup",
+      "animationHandle": "animation__a78b695a",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-004.jpg"
+    },
+    {
+      "displayName": "Speedup shielded",
+      "animationHandle": "animation__53e97001",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-008.jpg"
+    },
+    {
+      "displayName": "sphere",
+      "animationHandle": "animation__3acafe98",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-027.jpg"
+    },
+    {
+      "displayName": "Sphere",
+      "animationHandle": "animation__c61baa9b",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-024.jpg"
+    },
+    {
+      "displayName": "Sphere Ring",
+      "animationHandle": "animation__e8e8c321",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-012.jpg"
+    },
+    {
+      "displayName": "star",
+      "animationHandle": "animation__2dccf63a",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-010.jpg"
+    },
+    {
+      "displayName": "Star",
+      "animationHandle": "animation__fa91d1de",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-029.jpg"
+    },
+    {
+      "displayName": "starknife",
+      "animationHandle": "animation__d98cd38d",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-008.jpg"
+    },
+    {
+      "displayName": "StarSparrow18 DanteRuntimeLoop",
+      "animationHandle": "animation__284db679",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-027.jpg"
+    },
+    {
+      "displayName": "StarSparrow7 DanteRuntimeLoop",
+      "animationHandle": "animation__3070b334",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-014.jpg"
+    },
+    {
+      "displayName": "Start Walking Blue Robot",
+      "animationHandle": "animation__55ac4c5b",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-020.jpg"
+    },
+    {
+      "displayName": "Surface1",
+      "animationHandle": "animation__07ec1875",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-022.jpg"
+    },
+    {
+      "displayName": "Tank gradious 1",
+      "animationHandle": "animation__3b635870",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-005.jpg"
+    },
+    {
+      "displayName": "Top Gun",
+      "animationHandle": "animation__9ef3cdf3",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-027.jpg"
+    },
+    {
+      "displayName": "Torch TorchFlame 32 Loop",
+      "animationHandle": "animation__77c50206",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-005.jpg"
+    },
+    {
+      "displayName": "tracker",
+      "animationHandle": "animation__4a74cb13",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-019.jpg"
+    },
+    {
+      "displayName": "Transporter",
+      "animationHandle": "animation__47980c60",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-015.jpg"
+    },
+    {
+      "displayName": "TURRET 1",
+      "animationHandle": "animation__861d08f7",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-028.jpg"
+    },
+    {
+      "displayName": "TURRET 2",
+      "animationHandle": "animation__82f0b1dc",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-014.jpg"
+    },
+    {
+      "displayName": "turret 3ANIM",
+      "animationHandle": "animation__3d4b9cc6",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-007.jpg"
+    },
+    {
+      "displayName": "TURRET CHATGPT BUILDING LOOP",
+      "animationHandle": "animation__e140e603",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-001.jpg"
+    },
+    {
+      "displayName": "vehicle 1 Clip",
+      "animationHandle": "animation__e2d47a02",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-024.jpg"
+    },
+    {
+      "displayName": "vehicle 3",
+      "animationHandle": "animation__178dcf1b",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-007.jpg"
+    },
+    {
+      "displayName": "VHICLE2",
+      "animationHandle": "animation__b2595d48",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-002.jpg"
+    },
+    {
+      "displayName": "Walk",
+      "animationHandle": "animation__67e6fb8f",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-003.jpg"
+    },
+    {
+      "displayName": "Walk",
+      "animationHandle": "animation__7f94fc8b",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-006.jpg"
+    },
+    {
+      "displayName": "Walk",
+      "animationHandle": "animation__b7dd072b",
+      "animationIntents": [
+        "walk"
+      ],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-017.jpg"
+    },
+    {
+      "displayName": "Walking Blue Robot",
+      "animationHandle": "animation__5eb83046",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-023.jpg"
+    },
+    {
+      "displayName": "Wobbler",
+      "animationHandle": "animation__9aa38a4e",
+      "animationIntents": [],
+      "previewUrl": "https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/full-visual-sheets/animation/page-022.jpg"
     }
   ],
   "effectGroups": {

@@ -20,9 +20,9 @@ Use only the matching CURRENT artifacts:
 - simple-authoring/AUTHORING_RULES_CURRENT.json
 - simple-authoring/CINEMATIC_INTENT_QA_RULES.json
 - EMOTIONAL_DIALOGUE_CURRENT.json when dialogue is used
-- CUTSCENE_VALIDATION_CURRENT.json when present
 - exact direct previewUrl evidence carried by CHATGPT_AUTHORING_INDEX/AUTHORING_HANDLES when available
 - Atlas page/slot evidence is secondary browsing evidence, not the only way to inspect appearance
+- CUTSCENE_VALIDATION_CURRENT.json is not a NORMAL NEW-authoring source; consult it only during REPAIR after Unity rejects a specific candidate and supplies diagnostics
 
 NORMAL AUTHORING
 1. Read CURRENT identity and the exact schema.
@@ -64,7 +64,7 @@ IDENTITY
 - Never duplicate the same identityHandle under multiple cast ids as if they were distinct Actors. If multiple cast entries intentionally represent clones/repeated instances of one canonical Actor Identity, declare one root cast member and set every additional instance's sameIdentityAs to that root (or to a valid chain ending at that root). Truly distinct characters require distinct identityHandle values from CURRENT.
 - visible[].handle selects the visible representation.
 - actions[].subject references cast[].id.
-- animationIntent and animationHandle are alternative animation selectors. Use exactly one when explicitly requesting animation: animationIntent chooses by published semantic intent; animationHandle chooses one exact CURRENT clip exposed on that Actor card. performanceIntent remains descriptive directing intent. Never author raw AnimationClip IDs.
+- animationIntent and animationHandle are alternative animation selectors. Use exactly one when explicitly requesting animation: animationIntent chooses by published semantic intent for the Actor relationship; animationHandle chooses one exact technically-authorable CURRENT animation material, whether or not Actor ownership is resolved. performanceIntent remains descriptive directing intent. Never author raw AnimationClip IDs.
 - Sprite frames, portraits, textures, animation frames and raw Catalog IDs do not become Actor identity because they look related.
 - If CURRENT does not expose a legal Actor handle, the Actor is unavailable for direct authoring. Do not infer one.
 
@@ -205,7 +205,7 @@ Before returning JSON verify:
 4. every handle is exact CURRENT and route-legal;
 5. world Actor identity is a legal CURRENT Actor handle;
 6. dialogue identity/expression is exact CURRENT closed-world vocabulary;
-7. animation selection uses at most one of animationIntent or animationHandle; animationHandle must be exact CURRENT for that Actor, and raw Animation IDs are never authored;
+7. animation selection uses at most one of animationIntent or animationHandle; animationHandle must be an exact technically-authorable CURRENT animation material or exact Actor animation detail from the same CURRENT, and raw Animation IDs are never authored;
 8. every action uses schema-legal type/subject/motion/timing fields; never put an animation intent such as walk into motionIntent;
 9. every fire action has legal projectileId and count;
 10. Effect timing uses Effect-only fields and repeated instances are preserved;
