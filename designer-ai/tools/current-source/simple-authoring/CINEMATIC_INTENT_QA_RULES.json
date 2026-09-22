@@ -83,7 +83,8 @@
     "dialogue": "Dialogue-only curated participants remain Dialogue Stage anchors and do not become WorldActors merely to satisfy camera or legacy character-role validation. Exact CharacterPack portrait legality is authoritative over generic closeUpSuitable metadata.",
     "quantity": "visible[].count expands actual actor instances. Do not multiply a precomposed fleet/group image as if each visual represented one actor; inspect pixels before choosing grouped versus reusable-single-actor evidence.",
     "acceptedFixtureStability": "Once a legal fixture passes authoring integrity, downstream BACKEND/ENGINE failures are repaired against that same source. Runtime regression status, Timeline binding state and Preview diagnostics are engineering evidence only and never become authored Simple V1 fields.",
-    "dialogueIdentity": "dialogue.speaker/listener are local cast references. Resolve exact cast.id first, then validate the resolved cast.identityHandle against CURRENT Emotional Dialogue. Do not require cast.id to equal the canonical actorId/identityHandle, and never fuzzy-match a missing alias."
+    "dialogueIdentity": "dialogue.speaker/listener are local cast references. Resolve exact cast.id first, then validate the resolved cast.identityHandle against CURRENT Emotional Dialogue. Do not require cast.id to equal the canonical actorId/identityHandle, and never fuzzy-match a missing alias.",
+    "spatialContinuity": "Across adjacent beats, preserve an Actor's authored screen position unless the next beat intentionally re-stages it. For waypoint motion, visible.screenX/screenY should agree with the path start, and the next beat should normally continue from the prior path end. These are authoring-quality warnings, not blockers, because intentional cuts/re-staging are legal."
   },
   "rules": [
     {
@@ -205,6 +206,24 @@
       "severity": "Error",
       "scope": "actor/quantity",
       "description": "A precomposed fleet/group visual is being count-expanded as if each visual represented one actor. Use a true single-actor handle for instance expansion or one verified grouped asset without multiplication."
+    },
+    {
+      "code": "ACTOR_POSITION_DISCONTINUITY",
+      "severity": "Warning",
+      "scope": "actor/continuity",
+      "description": "The same cast.id appears in adjacent beats at materially different screen positions without authored motion bridging the change. Verify that the jump is an intentional cut/re-staging."
+    },
+    {
+      "code": "PATH_START_VISIBLE_MISMATCH",
+      "severity": "Warning",
+      "scope": "actor/motion/continuity",
+      "description": "A waypoint path starts materially away from the Actor's visible.screenX/screenY position in the same beat. Align them unless an intentional instantaneous re-stage is desired."
+    },
+    {
+      "code": "PATH_START_PREVIOUS_END_MISMATCH",
+      "severity": "Warning",
+      "scope": "actor/motion/continuity",
+      "description": "A waypoint path begins materially away from the same cast.id's previous beat end position. Verify intentional re-staging or continue the path from the prior endpoint."
     }
   ],
   "hardAuthoringInvariants": [
@@ -227,6 +246,7 @@
     "Semantic speed strings must never be passed directly to numeric conversion APIs.",
     "Count expansion applies to each generated instance and must not multiply a precomposed group visual as if it were a single actor.",
     "Runtime regression PASS/FAIL, Timeline binding state, Preview scope and probe data are engineering evidence only and must never be serialized into CUTSCENE_SCRIPT_V1 or used as a reason to rewrite otherwise legal accepted fixture semantics.",
-    "ORANGE never silently changes identity."
+    "ORANGE never silently changes identity.",
+    "Spatial continuity diagnostics are YELLOW authoring-quality checks only. Intentional cuts/re-staging remain legal and must not be converted into blocking RED errors merely because adjacent screen positions differ."
   ]
 }
