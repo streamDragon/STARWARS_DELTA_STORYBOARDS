@@ -58,14 +58,9 @@ Use the schema literally. Unknown fields and remembered aliases are forbidden.
 CURRENT FINGERPRINTS ARE NOT MOVIE FIELDS
 Do not serialize catalogRevision, contractRevision, schemaHash, snapshotContentHash, authoringRuleRegistryRevision, publishTransactionId, requiredCurrent or runtime GUIDs into normal CUTSCENE_SCRIPT_V1 unless a future matching schema explicitly defines them.
 
-SPATIAL CONTINUITY
-- For the same cast.id across adjacent beats, preserve the prior authored screen position unless an intentional cut/re-stage is desired.
-- For pathShape=waypoints, the first pathPoints point should normally match that Actor's visible screenX/screenY in the beat.
-- The next beat should normally continue from the prior path endpoint. Treat mismatches as YELLOW authoring-quality warnings, not automatic RED blockers.
-
 IDENTITY
-- cast[].id is a local script reference used by actions/dialogue/continuity inside this movie only. It does not redefine canonical character identity.
-- cast[].identityHandle is the exact CURRENT canonical/preferred route=Actor authoring identity and is the persistent identity used for continuity/persona checks.
+- cast[].id is narrative identity used by actions/dialogue/continuity.
+- cast[].identityHandle is the exact CURRENT canonical/preferred route=Actor authoring identity.
 - Never duplicate the same identityHandle under multiple cast ids as if they were distinct Actors. If multiple cast entries intentionally represent clones/repeated instances of one canonical Actor Identity, declare one root cast member and set every additional instance's sameIdentityAs to that root (or to a valid chain ending at that root). Truly distinct characters require distinct identityHandle values from CURRENT.
 - visible[].handle selects the visible representation.
 - actions[].subject references cast[].id.
@@ -153,9 +148,8 @@ Camera authoring is semantic directing intent.
 
 DIALOGUE
 Dialogue is closed-world.
-- speaker/listener must reference an existing cast[].id exactly. Resolve that local cast id first, then validate the referenced cast[].identityHandle against EMOTIONAL_DIALOGUE_CURRENT.
-- dialogue cast identityHandle must equal a published authoringReady dialogue character identityHandle. Do not require cast[].id itself to equal the published actorId/identityHandle.
-- unknown speaker/listener values are errors; never guess, fuzzy-match or silently treat a misspelled cast id as a direct identity.
+- speaker/listener must be exact authoringReady actorId values from EMOTIONAL_DIALOGUE_CURRENT and match cast[].id.
+- dialogue cast identityHandle must equal the published identityHandle for that actorId.
 - expressionIntent is exact and case-sensitive; omit it to request the published default.
 - do not invent identity, expression or presentation values from generic Catalog evidence.
 
@@ -210,7 +204,7 @@ Before returning JSON verify:
 3. every required beat field/evidence exists;
 4. every handle is exact CURRENT and route-legal;
 5. world Actor identity is a legal CURRENT Actor handle;
-6. every dialogue speaker/listener resolves through an existing cast[].id, and the resolved cast[].identityHandle plus expression use exact CURRENT closed-world dialogue vocabulary;
+6. dialogue identity/expression is exact CURRENT closed-world vocabulary;
 7. animation selection uses at most one of animationIntent or animationHandle; animationHandle must be an exact technically-authorable CURRENT animation material or exact Actor animation detail from the same CURRENT, and raw Animation IDs are never authored;
 8. every action uses schema-legal type/subject/motion/timing fields; never put an animation intent such as walk into motionIntent;
 9. every fire action has legal projectileId and count;
