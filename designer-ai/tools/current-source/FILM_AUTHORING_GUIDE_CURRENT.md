@@ -134,6 +134,18 @@ Example:
 }
 ```
 
+## Spatial continuity across beats
+
+The same `cast.id` should normally continue from its prior authored screen position.
+
+For waypoint movement:
+
+- `visible[].screenX/screenY` should normally match the first `pathPoints[]` point for that Actor in the beat;
+- the next beat should normally begin from the previous path endpoint for the same `cast.id`;
+- intentional cuts/re-staging are legal, but should be deliberate rather than accidental teleportation.
+
+Continuity mismatches are authoring-quality warnings, not automatic blockers.
+
 ## Animation and movement
 
 Animation and movement are independent and may run simultaneously.
