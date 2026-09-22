@@ -43,10 +43,32 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "beatIds"],
+        "required": [
+          "id",
+          "beatIds"
+        ],
         "properties": {
-          "id": { "enum": ["EyelineMatch", "TravelThenReveal", "ConvergingAction", "KuleshovAssociation", "ParallelCrossCut", "MatchOnAction", "RevealThenReaction", "ParallelEscalation"] },
-          "beatIds": { "type": "array", "minItems": 3, "maxItems": 12, "items": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" } }
+          "id": {
+            "enum": [
+              "EyelineMatch",
+              "TravelThenReveal",
+              "ConvergingAction",
+              "KuleshovAssociation",
+              "ParallelCrossCut",
+              "MatchOnAction",
+              "RevealThenReaction",
+              "ParallelEscalation"
+            ]
+          },
+          "beatIds": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 12,
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          }
         }
       }
     },
@@ -62,11 +84,13 @@
         "properties": {
           "id": {
             "type": "string",
-            "pattern": "^[A-Za-z0-9_-]+$"
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "description": "Local script reference for this movie. Actions, dialogue, continuity and camera may reference this id. It does not redefine canonical character identity."
           },
           "identityHandle": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "Canonical persistent CURRENT Actor identity. Identity-sensitive continuity, dialogue persona and repertoire validation follow this handle, not the local cast id."
           },
           "presentationHandle": {
             "type": "string",
@@ -574,19 +598,42 @@
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["x", "y"],
+            "required": [
+              "x",
+              "y"
+            ],
             "properties": {
-              "x": { "type": "number", "minimum": -0.25, "maximum": 1.25 },
-              "y": { "type": "number", "minimum": -0.25, "maximum": 1.25 }
+              "x": {
+                "type": "number",
+                "minimum": -0.25,
+                "maximum": 1.25
+              },
+              "y": {
+                "type": "number",
+                "minimum": -0.25,
+                "maximum": 1.25
+              }
             }
           }
         },
         "pathEasing": {
-          "enum": ["linear", "ease_in", "ease_out", "ease_in_out", "smooth_step"],
+          "enum": [
+            "linear",
+            "ease_in",
+            "ease_out",
+            "ease_in_out",
+            "smooth_step"
+          ],
           "default": "linear"
         },
-        "startOffset": { "type": "number", "minimum": 0 },
-        "duration": { "type": "number", "exclusiveMinimum": 0 },
+        "startOffset": {
+          "type": "number",
+          "minimum": 0
+        },
+        "duration": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
         "scaleMultiplier": {
           "type": "number",
           "exclusiveMinimum": 0,
@@ -652,14 +699,46 @@
               }
             }
           }
-        }
-        ,{
-          "if": { "properties": { "pathShape": { "const": "waypoints" } }, "required": ["pathShape"] },
-          "then": { "required": ["pathPoints"] }
         },
         {
-          "if": { "properties": { "pathShape": { "const": "bezier" } }, "required": ["pathShape"] },
-          "then": { "required": ["pathPoints"], "properties": { "pathPoints": { "minItems": 3, "maxItems": 4 } } }
+          "if": {
+            "properties": {
+              "pathShape": {
+                "const": "waypoints"
+              }
+            },
+            "required": [
+              "pathShape"
+            ]
+          },
+          "then": {
+            "required": [
+              "pathPoints"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "pathShape": {
+                "const": "bezier"
+              }
+            },
+            "required": [
+              "pathShape"
+            ]
+          },
+          "then": {
+            "required": [
+              "pathPoints"
+            ],
+            "properties": {
+              "pathPoints": {
+                "minItems": 3,
+                "maxItems": 4
+              }
+            }
+          }
         }
       ]
     },
@@ -673,11 +752,13 @@
       "properties": {
         "speaker": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9_-]+$"
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "description": "Exact local cast[].id of the speaking character. Resolve this cast id first, then validate that cast member's identityHandle against EMOTIONAL_DIALOGUE_CURRENT. Unknown aliases are errors; do not fuzzy-match or silently reinterpret them as direct identities."
         },
         "listener": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9_-]+$"
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "description": "Optional exact local cast[].id of the listening character. Resolve this cast id first, then validate that cast member's identityHandle against EMOTIONAL_DIALOGUE_CURRENT. Unknown aliases are errors."
         },
         "text": {
           "type": "string",
