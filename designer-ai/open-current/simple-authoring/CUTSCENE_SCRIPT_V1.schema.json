@@ -62,11 +62,13 @@
         "properties": {
           "id": {
             "type": "string",
-            "pattern": "^[A-Za-z0-9_-]+$"
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "description": "Local script reference used inside this movie. Actions, dialogue, continuity and camera may reference this id. It does not redefine canonical character identity."
           },
           "identityHandle": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "description": "Canonical persistent CURRENT Actor identity. Identity-sensitive continuity and dialogue repertoire validation follow this handle, not the local cast id."
           },
           "presentationHandle": {
             "type": "string",
@@ -673,11 +675,13 @@
       "properties": {
         "speaker": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9_-]+$"
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "description": "Exact local cast[].id of the speaking character. Resolve this cast id first, then validate that cast member's identityHandle against EMOTIONAL_DIALOGUE_CURRENT. Unknown aliases are errors."
         },
         "listener": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9_-]+$"
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "description": "Optional exact local cast[].id of the listening character. Resolve this cast id first, then validate that cast member's identityHandle against EMOTIONAL_DIALOGUE_CURRENT. Unknown aliases are errors."
         },
         "text": {
           "type": "string",
