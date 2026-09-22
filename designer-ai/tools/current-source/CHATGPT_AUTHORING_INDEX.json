@@ -22,6 +22,7 @@
     "Search this compact index by intent first.",
     "Use the exact handle returned here; open AUTHORING_HANDLES.json only for the full card.",
     "For exact animation selection, use directAnimationMaterials[].animationHandle when the clip is published there. Actor ownership is relationship metadata, not an availability gate for those technically eligible clips.",
+    "For dialogue, speaker/listener reference exact local cast[].id values. Resolve that cast entry first and validate its canonical identityHandle against EMOTIONAL_DIALOGUE_CURRENT; never guess missing aliases.",
     "For every important visual choice, open previewUrl when present. If previewUrl is missing, treat appearance as unverified instead of guessing from the name.",
     "Use atlasPage/atlasSlot only as secondary browsing evidence; previewUrl is the direct visual route.",
     "Use cinematic recipes as directing guidance only; never serialize recipe IDs unless the active schema exposes such a field.",
