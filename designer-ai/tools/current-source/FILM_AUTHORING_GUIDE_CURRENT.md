@@ -94,10 +94,10 @@ Keep these separate:
 
 ```text
 cast[].id
-= local script reference used inside this movie
+= logical story identity
 
 cast[].identityHandle
-= canonical persistent CURRENT Actor identity
+= canonical CURRENT Actor identity
 
 visible[].handle
 = visible representation
@@ -133,18 +133,6 @@ Example:
   "sameIdentityAs": "blob_1"
 }
 ```
-
-## Spatial continuity across beats
-
-The same `cast.id` should normally continue from its prior authored screen position.
-
-For waypoint movement:
-
-- `visible[].screenX/screenY` should normally match the first `pathPoints[]` point for that Actor in the beat;
-- the next beat should normally begin from the previous path endpoint for the same `cast.id`;
-- intentional cuts/re-staging are legal, but should be deliberate rather than accidental teleportation.
-
-Continuity mismatches are authoring-quality warnings, not automatic blockers.
 
 ## Animation and movement
 
@@ -256,11 +244,8 @@ FullFrame fitting is Unity-owned and should be renderer-specific and idempotent.
 
 Dialogue is closed-world through `EMOTIONAL_DIALOGUE_CURRENT.json`.
 
-- `speaker` / `listener` reference an existing local `cast[].id` exactly;
-- resolve that cast entry first, then validate its canonical `identityHandle` against `EMOTIONAL_DIALOGUE_CURRENT.json`;
-- `cast[].id` does not need to equal the published dialogue `actorId` or `identityHandle`;
-- unknown or misspelled speaker/listener aliases are errors; never fuzzy-match or silently reinterpret them as direct identities;
-- `identityHandle` matches the published dialogue identity;
+- speaker/listener are exact published actorIds matching cast[].id;
+- identityHandle matches the published dialogue identity;
 - expressionIntent is exact and case-sensitive;
 - optional presentation may degrade only through legal deterministic system behavior;
 - do not invent dialogue identity/expression from generic Catalog evidence.

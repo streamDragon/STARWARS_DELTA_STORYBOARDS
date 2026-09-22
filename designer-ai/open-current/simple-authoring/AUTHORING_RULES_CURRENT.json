@@ -5,7 +5,7 @@
     "catalogRevision": "7623205386359851800",
     "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
     "schemaHash": "CC97802C1A6A6EFF291623AE7A46C6E349599461D67EF764E2FF5EACD30EF947",
-    "snapshotContentHash": "E8A4BFC5FCD4AF00089F803BB741B91F39B89E16DF956B76593B647B1A053CE0",
+    "snapshotContentHash": "7E078361A4CDCDD204DB0917945D458541B9F225B493F84E2D6D09B7116BF952",
     "authoringRuleRegistryRevision": "8CBCE85AF0FC24743F97AA4F104C31857926A98DAB52749CA75A2B7F6BF27F12"
   },
   "purpose": "Author-facing rules for CUTSCENE_SCRIPT_V1 only. Backend/internal rules are intentionally omitted.",
@@ -43,12 +43,12 @@
     {
       "id": "DIALOGUE_CLOSED_WORLD",
       "blocks": true,
-      "instruction": "Every dialogue speaker/listener must be an authoringReady actorId from EMOTIONAL_DIALOGUE_CURRENT.json and match cast[].id exactly."
+      "instruction": "Every dialogue speaker/listener must reference an existing cast[].id exactly. Resolve that local cast id first, then validate its cast[].identityHandle against the authoringReady Emotional Dialogue repertoire. Unknown aliases and typos are errors; never fuzzy-match or reinterpret them as direct identity handles."
     },
     {
       "id": "DIALOGUE_IDENTITY",
       "blocks": true,
-      "instruction": "For dialogue cast, cast[].identityHandle must exactly equal that character's published identityHandle. Do not substitute Actor, UI, Atlas or portrait handles."
+      "instruction": "After resolving dialogue through cast[].id, the resolved cast[].identityHandle must exactly equal a supported published Emotional Dialogue identityHandle. cast[].id is only a local script reference and need not equal actorId or identityHandle; presentation and animation handles never redefine identity."
     },
     {
       "id": "DIALOGUE_EXPRESSION",
