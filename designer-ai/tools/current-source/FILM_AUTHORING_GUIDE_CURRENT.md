@@ -7,13 +7,14 @@ This is the filmmaking layer for Devora / Designer AI authoring. It complements 
 Use only the matching CURRENT:
 
 - Public CURRENT entrypoint: `/designer-ai/open-current/OPEN_CURRENT.json`
+- Compact navigation first: `/designer-ai/open-current/CHATGPT_AUTHORING_INDEX.json`
 - Inside a downloaded CURRENT bundle, the same manifest is named `OPEN_CURRENT.json`
 - `simple-authoring/CUTSCENE_SCRIPT_V1.schema.json`
-- `simple-authoring/AUTHORING_HANDLES.json`
+- `simple-authoring/AUTHORING_HANDLES.json` for exact legal handles
 - `simple-authoring/AUTHORING_RULES_CURRENT.json`
 - `simple-authoring/CINEMATIC_INTENT_QA_RULES.json`
 - `EMOTIONAL_DIALOGUE_CURRENT.json` when dialogue is used
-- exact Atlas page/slot evidence on direct visual handles
+- direct `previewUrl` evidence on the matching CURRENT entry when present; Atlas page/slot is secondary browsing evidence
 
 Unity/Plastic is canonical for runtime implementation and runtime proof. Git CURRENT is canonical for authoring/publishing guidance.
 
@@ -52,7 +53,8 @@ For important visual choices preserve:
 
 ```text
 OBSERVED PIXELS
--> exact Atlas page/slot or visualReferenceId
+-> direct previewUrl from the matching CURRENT entry when present
+-> otherwise Atlas page/slot as secondary evidence; if no pixel evidence exists, appearance remains unverified
 -> exact direct CURRENT handle
 -> legal route/capability
 ```
