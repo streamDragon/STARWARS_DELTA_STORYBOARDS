@@ -59,8 +59,8 @@ CURRENT FINGERPRINTS ARE NOT MOVIE FIELDS
 Do not serialize catalogRevision, contractRevision, schemaHash, snapshotContentHash, authoringRuleRegistryRevision, publishTransactionId, requiredCurrent or runtime GUIDs into normal CUTSCENE_SCRIPT_V1 unless a future matching schema explicitly defines them.
 
 IDENTITY
-- cast[].id is narrative identity used by actions/dialogue/continuity.
-- cast[].identityHandle is the exact CURRENT canonical/preferred route=Actor authoring identity.
+- cast[].id is a local script reference used by actions/dialogue/continuity inside this movie only; it does not redefine canonical character identity.
+- cast[].identityHandle is the exact CURRENT canonical/preferred route=Actor authoring identity and is the persistent identity used for identity-sensitive checks.
 - Never duplicate the same identityHandle under multiple cast ids as if they were distinct Actors. If multiple cast entries intentionally represent clones/repeated instances of one canonical Actor Identity, declare one root cast member and set every additional instance's sameIdentityAs to that root (or to a valid chain ending at that root). Truly distinct characters require distinct identityHandle values from CURRENT.
 - visible[].handle selects the visible representation.
 - actions[].subject references cast[].id.
@@ -148,8 +148,11 @@ Camera authoring is semantic directing intent.
 
 DIALOGUE
 Dialogue is closed-world.
-- speaker/listener must be exact authoringReady actorId values from EMOTIONAL_DIALOGUE_CURRENT and match cast[].id.
-- dialogue cast identityHandle must equal the published identityHandle for that actorId.
+- speaker/listener must reference an existing cast[].id exactly.
+- Resolve that local cast id first, then validate the referenced cast[].identityHandle against EMOTIONAL_DIALOGUE_CURRENT.
+- cast[].id does not need to equal the published actorId or identityHandle; it is only a local movie reference.
+- Unknown or misspelled speaker/listener aliases are errors. Never fuzzy-match or silently reinterpret them as direct identities.
+- dialogue cast identityHandle must equal a published authoringReady dialogue character identityHandle.
 - expressionIntent is exact and case-sensitive; omit it to request the published default.
 - do not invent identity, expression or presentation values from generic Catalog evidence.
 
