@@ -105,8 +105,11 @@ visible[].handle
 actions[].subject
 = cast[].id
 
-animationIntent / performanceIntent
-= semantic performance request
+performanceIntent
+= descriptive directing/performance request only; it never selects or guarantees an Animation clip
+
+animationIntent
+= exact semantic Animation request; legal only when the selected CURRENT Actor publishes that literal intent in animationIntents/supportedAnimationIntents. Never infer idle/walk/run/look/shoot from prose or from a stationary beat. If the Actor does not publish the requested intent, omit animationIntent or use an exact technically-authorable CURRENT animationHandle.
 ```
 
 A Sprite frame, portrait, Texture or animation frame does not become Actor identity merely because it depicts the character.
@@ -249,7 +252,7 @@ Dialogue is closed-world through `EMOTIONAL_DIALOGUE_CURRENT.json`.
 - `cast[].id` does not need to equal the published dialogue `actorId` or `identityHandle`;
 - unknown or misspelled speaker/listener aliases are errors; never fuzzy-match or silently reinterpret them as direct identities;
 - identityHandle matches the published dialogue identity;
-- expressionIntent is exact and case-sensitive;
+- `expressionIntent` is opt-in, not a per-line default. Omit it for ordinary dialogue so the CharacterPack `defaultExpression` is used. Add it only for a deliberate visible acting beat, after resolving the local speaker to its exact authoringReady dialogue identity and confirming that the token appears literally in that character `supportedExpressions`; never auto-derive an expression from dialogue wording/mood/delivery, and if the desired expression is unavailable omit `expressionIntent` instead of substituting `Neutral`;
 - optional presentation may degrade only through legal deterministic system behavior;
 - do not invent dialogue identity/expression from generic Catalog evidence.
 

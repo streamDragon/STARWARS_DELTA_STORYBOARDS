@@ -100,7 +100,7 @@ VISIBLE EFFECTS / PARTICLES
 
 ACTOR ANIMATION AND MOTION
 - Animation and movement are separate and may run simultaneously.
-- compatible real animation is requested either by semantic animationIntent or by exact published animationHandle. Use exactly one selector. performanceIntent does not itself select a clip.
+- compatible real animation is requested either by semantic animationIntent or by exact published animationHandle. Use exactly one selector. Before writing animationIntent, resolve actions[].subject -> cast[].identityHandle -> the exact CURRENT Actor and require that intent to appear literally in that Actor animationIntents/supportedAnimationIntents list. If it is absent, do not infer it from prose or stillness; omit animationIntent or use an exact technically-authorable animationHandle. performanceIntent does not itself select a clip.
 - CRITICAL FIELD SEPARATION: walking is not motionIntent=walk. For ordinary walking use type=move + motionIntent=move and animationIntent=walk (or one exact published walk animationHandle). The same rule applies conceptually to other animation words: never copy walk/idle/run/look/shoot from supportedAnimationIntents into motionIntent unless that exact literal independently exists in the schema motionIntent enum.
 - when multiple legal Actors fit the same visual role, prefer one with useful compatible animation over an otherwise comparable static Actor; inspect its animationEvidence pixels/atlas references before making an important visual choice.
 - actor motion uses only schema-legal motionIntent/path fields.
@@ -153,7 +153,7 @@ Dialogue is closed-world.
 - cast[].id does not need to equal the published actorId or identityHandle; it is only a local movie reference.
 - Unknown or misspelled speaker/listener aliases are errors. Never fuzzy-match or silently reinterpret them as direct identities.
 - dialogue cast identityHandle must equal a published authoringReady dialogue character identityHandle.
-- expressionIntent is exact and case-sensitive; omit it to request the published default.
+- expressionIntent is opt-in, not a per-line default. Omit it for ordinary dialogue and let the exact CharacterPack published defaultExpression apply. Add expressionIntent only for a deliberate visible acting beat; then resolve speaker -> cast[].identityHandle -> the exact authoringReady dialogue character and require the token to appear literally in that character supportedExpressions. Never auto-generate Determined/Concerned/Urgent/Relieved/Shocked/Neutral from dialogue wording, mood or delivery. If the desired expression is absent, omit expressionIntent.
 - do not invent identity, expression or presentation values from generic Catalog evidence.
 
 AUDIO
@@ -208,7 +208,7 @@ Before returning JSON verify:
 4. every handle is exact CURRENT and route-legal;
 5. world Actor identity is a legal CURRENT Actor handle;
 6. dialogue identity/expression is exact CURRENT closed-world vocabulary;
-7. animation selection uses at most one of animationIntent or animationHandle; animationHandle must be an exact technically-authorable CURRENT animation material or exact Actor animation detail from the same CURRENT, and raw Animation IDs are never authored;
+7. animation selection uses at most one of animationIntent or animationHandle; every animationIntent must be a literal member of the selected Actor CURRENT animationIntents/supportedAnimationIntents list, while animationHandle must be an exact technically-authorable CURRENT animation material or exact Actor animation detail from the same CURRENT; never invent default idle/walk/run/look/shoot from narrative context, and raw Animation IDs are never authored;
 8. every action uses schema-legal type/subject/motion/timing fields; never put an animation intent such as walk into motionIntent;
 9. every fire action has legal projectileId and count;
 10. Effect timing uses Effect-only fields and repeated instances are preserved;
