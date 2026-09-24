@@ -691,7 +691,8 @@
           "type": "string"
         },
         "expressionIntent": {
-          "type": "string"
+          "type": "string",
+          "description": "Optional deliberate acting override. Omit for ordinary dialogue to use the selected speaker CharacterPack defaultExpression. When present, the value must exactly match that speaker authoring-ready CharacterPack supportedExpressions; never infer or substitute unsupported expressions."
         },
         "performanceIntent": {
           "type": "string"
