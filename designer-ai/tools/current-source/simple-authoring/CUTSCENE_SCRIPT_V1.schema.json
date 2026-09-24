@@ -56,8 +56,11 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "id",
-          "identityHandle"
+          "id"
+        ],
+        "oneOf": [
+          { "required": ["identityHandle"], "not": { "required": ["materialHandle"] } },
+          { "required": ["materialHandle"], "not": { "required": ["identityHandle"] } }
         ],
         "properties": {
           "id": {
@@ -68,7 +71,12 @@
           "identityHandle": {
             "type": "string",
             "minLength": 1,
-            "description": "Canonical persistent CURRENT Actor identity. Identity-sensitive continuity and dialogue repertoire validation follow this handle, not the local cast id."
+            "description": "Canonical persistent CURRENT Actor identity. Use only when persistent identity or dialogue repertoire matters."
+          },
+          "materialHandle": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Direct cinematic material for a movie-local performer. May resolve to a Sprite or direct simple SpriteSequence AnimationClip; it does not create or require an Actor identity."
           },
           "presentationHandle": {
             "type": "string",
@@ -547,6 +555,14 @@
             "fast",
             "burst"
           ]
+        },
+        "x": {
+          "type": "number",
+          "description": "Optional authored destination X in stage units for ordinary motion. Edge-to-edge travel may override the horizontal endpoint while preserving the authored lane height."
+        },
+        "y": {
+          "type": "number",
+          "description": "Optional authored destination Y in stage units. For left_to_right/right_to_left travel this is the horizontal lane height, allowing parallel movement above or below Y=0."
         },
         "performanceIntent": {
           "type": "string"
