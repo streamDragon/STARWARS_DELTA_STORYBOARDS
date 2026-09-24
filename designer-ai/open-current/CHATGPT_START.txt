@@ -64,7 +64,7 @@ IDENTITY
 - Never duplicate the same identityHandle under multiple cast ids as if they were distinct Actors. If multiple cast entries intentionally represent clones/repeated instances of one canonical Actor Identity, declare one root cast member and set every additional instance's sameIdentityAs to that root (or to a valid chain ending at that root). Truly distinct characters require distinct identityHandle values from CURRENT.
 - visible[].handle selects the visible representation.
 - actions[].subject references cast[].id.
-- animationIntent and animationHandle are alternative animation selectors. Use exactly one when explicitly requesting animation: animationIntent chooses by published semantic intent for the Actor relationship; animationHandle chooses one exact technically-authorable CURRENT animation material, whether or not Actor ownership is resolved. performanceIntent remains descriptive directing intent. Never author raw AnimationClip IDs.
+- animationHandle is the primary animation selector: it chooses one exact technically-authorable CURRENT direct Animation material, independently of Actor ownership. animationIntent is legacy/secondary and is omitted unless CURRENT explicitly exposes a supported relationship. performanceIntent remains descriptive directing intent. Never author raw AnimationClip IDs.
 - Sprite frames, portraits, textures, animation frames and raw Catalog IDs do not become Actor identity because they look related.
 - If CURRENT does not expose a legal Actor handle, the Actor is unavailable for direct authoring. Do not infer one.
 
@@ -72,7 +72,7 @@ CATALOG / VISUAL EVIDENCE
 - AUTHORING_HANDLES.json is the normal direct selection surface.
 - Raw Catalog IDs are engineering/runtime evidence, not normal authoring vocabulary.
 - Destination route/capability beats filename, folder, display name and visual resemblance.
-- Use route=Actor for world identity, Layer for scenery, Effect for VFX, Ui for UI/dialogue presentation and Audio for sound.
+- Use route=Actor for world identity, Animation for direct Sprite animation material, Layer for scenery, Effect for VFX, Ui for UI/dialogue presentation and Audio for sound.
 - Real pixel evidence decides appearance. Metadata is search evidence only.
 - Prefer previewUrl for direct visual inspection. atlasPdfUrl + atlasPage + atlasSlot are secondary browsing evidence.
 - A missing previewUrl is not permission to infer appearance from a filename, displayName or folder.
@@ -98,11 +98,14 @@ VISIBLE EFFECTS / PARTICLES
 - projectiles/impacts do not implicitly satisfy unrelated visible Effects.
 - Particle/prefab lifecycle is Unity-owned; authoring expresses the visible obligation, not the low-level particle component wiring.
 
-ACTOR ANIMATION AND MOTION
+ACTOR IDENTITY, DIRECT ANIMATION AND MOTION
+- Actor identity and Animation material are separate. Actor handles answer WHO/WHERE; Animation handles answer WHAT VISIBLE SPRITE ANIMATION PLAYS.
 - Animation and movement are separate and may run simultaneously.
-- compatible real animation is requested either by semantic animationIntent or by exact published animationHandle. Use exactly one selector. Before writing animationIntent, resolve actions[].subject -> cast[].identityHandle -> the exact CURRENT Actor and require that intent to appear literally in that Actor animationIntents/supportedAnimationIntents list. If it is absent, do not infer it from prose or stillness; omit animationIntent or use an exact technically-authorable animationHandle. performanceIntent does not itself select a clip.
-- CRITICAL FIELD SEPARATION: walking is not motionIntent=walk. For ordinary walking use type=move + motionIntent=move and animationIntent=walk (or one exact published walk animationHandle). The same rule applies conceptually to other animation words: never copy walk/idle/run/look/shoot from supportedAnimationIntents into motionIntent unless that exact literal independently exists in the schema motionIntent enum.
-- when multiple legal Actors fit the same visual role, prefer one with useful compatible animation over an otherwise comparable static Actor; inspect its animationEvidence pixels/atlas references before making an important visual choice.
+- For visible Sprite animation, prefer one exact CURRENT animationHandle from directAnimationMaterials / ANIMATION_RETRIEVAL_INDEX. Choose it using previewUrl and semanticFacets. Direct simple-Sprite animation material does not require Actor ownership.
+- animationIntent is legacy/secondary authoring. Do not use it unless the matching CURRENT explicitly publishes a supported relationship for that exact use.
+- performanceIntent is descriptive directing intent only; it never selects or guarantees an Animation clip.
+- CRITICAL FIELD SEPARATION: walking is not motionIntent=walk. Spatial walking is type=move + motionIntent=move; the visible gait, when needed, is selected by an exact published walk animationHandle. Never copy animation meaning into motionIntent unless that literal independently exists in the schema motionIntent enum.
+- never infer appearance or animation behavior from an Actor name, prefab name, filename, or role. Inspect the Animation preview when appearance matters and use semanticFacets only as descriptive retrieval metadata.
 - actor motion uses only schema-legal motionIntent/path fields.
 - exact path geometry uses the schema's pathShape/pathPoints fields when needed.
 - pathPoints[] is canonical JSON object geometry: every point is exactly {"x": 0.1, "y": 0.3}-style with numeric x/y fields. Tuple/array forms such as [x,y] are forbidden.
@@ -208,7 +211,7 @@ Before returning JSON verify:
 4. every handle is exact CURRENT and route-legal;
 5. world Actor identity is a legal CURRENT Actor handle;
 6. dialogue identity/expression is exact CURRENT closed-world vocabulary;
-7. animation selection uses at most one of animationIntent or animationHandle; every animationIntent must be a literal member of the selected Actor CURRENT animationIntents/supportedAnimationIntents list, while animationHandle must be an exact technically-authorable CURRENT animation material or exact Actor animation detail from the same CURRENT; never invent default idle/walk/run/look/shoot from narrative context, and raw Animation IDs are never authored;
+7. visible Sprite animation normally uses one exact CURRENT animationHandle from directAnimationMaterials / ANIMATION_RETRIEVAL_INDEX; choose by previewUrl + semanticFacets, never by Actor ownership or filename guess. animationIntent is legacy/secondary and is omitted unless CURRENT explicitly exposes a supported relationship. Raw Animation asset IDs are never authored;
 8. every action uses schema-legal type/subject/motion/timing fields; never put an animation intent such as walk into motionIntent;
 9. every fire action has legal projectileId and count;
 10. Effect timing uses Effect-only fields and repeated instances are preserved;
