@@ -1,8 +1,9 @@
 {
   "schema": "STARWARS_ACTOR_CARD",
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20260924-052204540-b0c1b38c",
+  "publishTransactionId": "20260924-151456622-f3b3dabb",
+  "purpose": "Identity and visual reference only. Animation is authored independently through direct Animation handles.",
   "identity": {
     "handle": "civ_man_casual_01_walk_right_f01__528dc45c",
     "displayName": "CIV MAN CASUAL 01 WALK RIGHT F01",
@@ -18,131 +19,8 @@
     "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
     "source": "ACTOR_VISUAL_EVIDENCE"
   },
-  "animations": [
-    {
-      "animationHandle": "animation__9359d427",
-      "displayName": "CIV MAN CASUAL 01 STOP LOOK UP",
-      "animationAssetId": "9b77545bb5082c9468266d46bd1ce03e:7400000",
-      "animationFamilyId": "structural-actor:civ_man_casual_01",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_MAN_CASUAL_01/STOP_LOOK_UP/Generated/CIV_MAN_CASUAL_01_STOP_LOOK_UP.anim",
-      "intents": [
-        "look"
-      ],
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Visualized",
-      "animationOwnershipStatus": "ActorOwnerProven",
-      "animationSemanticStatus": "SemanticProven",
-      "semanticFacets": [],
-      "relationshipEvidence": [],
-      "visualReferenceId": "visual_e5ccff0a5f11efc68e65",
-      "atlasPage": 62,
-      "atlasSlot": 9,
-      "pageImageUrl": "full-visual-sheets/animation/page-016.jpg",
-      "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
-      "atlasPartPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_ANIMATION_CURRENT.pdf",
-      "atlasMappingStatus": "MAPPED_CURRENT_TRANSACTION",
-      "visualSheetsPage": 16,
-      "visualSheetsSlot": 9,
-      "visualSheetsFile": "animation.pdf",
-      "pageImageFile": "animation/page-016.jpg",
-      "visualSheetsTransactionId": "20260924-052204540-b0c1b38c",
-      "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
-    },
-    {
-      "animationHandle": "animation__f178e7e1",
-      "displayName": "CIV MAN CASUAL 01 WALK RIGHT",
-      "animationAssetId": "2b66b0b1d4b3c94429043a52b6f451b8:7400000",
-      "animationFamilyId": "structural-actor:civ_man_casual_01",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_MAN_CASUAL_01/WALK_RIGHT/Generated/CIV_MAN_CASUAL_01_WALK_RIGHT.anim",
-      "intents": [
-        "walk"
-      ],
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Visualized",
-      "animationOwnershipStatus": "ActorOwnerProven",
-      "animationSemanticStatus": "SemanticProven",
-      "semanticFacets": [],
-      "relationshipEvidence": [],
-      "visualReferenceId": "visual_b29710af663eead59c06",
-      "atlasPage": 51,
-      "atlasSlot": 11,
-      "pageImageUrl": "full-visual-sheets/animation/page-005.jpg",
-      "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
-      "atlasPartPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_ANIMATION_CURRENT.pdf",
-      "atlasMappingStatus": "MAPPED_CURRENT_TRANSACTION",
-      "visualSheetsPage": 5,
-      "visualSheetsSlot": 11,
-      "visualSheetsFile": "animation.pdf",
-      "pageImageFile": "animation/page-005.jpg",
-      "visualSheetsTransactionId": "20260924-052204540-b0c1b38c",
-      "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
-    }
-  ],
-  "does": [
-    {
-      "intent": "look",
-      "evidence": [
-        {
-          "animationHandle": "animation__9359d427",
-          "displayName": "CIV MAN CASUAL 01 STOP LOOK UP",
-          "intent": "look",
-          "intents": [
-            "look"
-          ],
-          "animationAssetId": "9b77545bb5082c9468266d46bd1ce03e:7400000",
-          "animationFamilyId": "structural-actor:civ_man_casual_01",
-          "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_MAN_CASUAL_01/STOP_LOOK_UP/Generated/CIV_MAN_CASUAL_01_STOP_LOOK_UP.anim",
-          "visualReferenceId": "visual_e5ccff0a5f11efc68e65",
-          "atlasPage": 62,
-          "atlasSlot": 9,
-          "pageImageUrl": "full-visual-sheets/animation/page-016.jpg",
-          "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
-          "visualSheetsPage": 16,
-          "visualSheetsSlot": 9,
-          "visualSheetsFile": "animation.pdf",
-          "pageImageFile": "animation/page-016.jpg",
-          "visualSheetsTransactionId": "20260924-052204540-b0c1b38c",
-          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION",
-          "evidenceType": "ATLAS_REFERENCE",
-          "pixelStatus": "NOT_HTTP_VERIFIED"
-        }
-      ],
-      "evidenceStatus": "AVAILABLE"
-    },
-    {
-      "intent": "walk",
-      "evidence": [
-        {
-          "animationHandle": "animation__f178e7e1",
-          "displayName": "CIV MAN CASUAL 01 WALK RIGHT",
-          "intent": "walk",
-          "intents": [
-            "walk"
-          ],
-          "animationAssetId": "2b66b0b1d4b3c94429043a52b6f451b8:7400000",
-          "animationFamilyId": "structural-actor:civ_man_casual_01",
-          "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_MAN_CASUAL_01/WALK_RIGHT/Generated/CIV_MAN_CASUAL_01_WALK_RIGHT.anim",
-          "visualReferenceId": "visual_b29710af663eead59c06",
-          "atlasPage": 51,
-          "atlasSlot": 11,
-          "pageImageUrl": "full-visual-sheets/animation/page-005.jpg",
-          "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
-          "visualSheetsPage": 5,
-          "visualSheetsSlot": 11,
-          "visualSheetsFile": "animation.pdf",
-          "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260924-052204540-b0c1b38c",
-          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION",
-          "evidenceType": "ATLAS_REFERENCE",
-          "pixelStatus": "NOT_HTTP_VERIFIED"
-        }
-      ],
-      "evidenceStatus": "AVAILABLE"
-    }
-  ],
   "quality": {
     "imageLink": "PRESENT_NOT_HTTP_VERIFIED",
-    "performanceEvidence": "PRESENT",
     "visualContinuity": "NOT_CHECKED",
     "runtimeProof": "NOT_CHECKED"
   },

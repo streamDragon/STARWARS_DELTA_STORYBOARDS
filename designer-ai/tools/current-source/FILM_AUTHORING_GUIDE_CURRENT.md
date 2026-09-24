@@ -108,8 +108,11 @@ actions[].subject
 performanceIntent
 = descriptive directing/performance request only; it never selects or guarantees an Animation clip
 
+animationHandle
+= exact CURRENT direct Animation material. This is the primary visible Sprite-animation selector. Choose it from directAnimationMaterials / ANIMATION_RETRIEVAL_INDEX using previewUrl and semanticFacets. Direct simple-Sprite materials do not require Actor ownership.
+
 animationIntent
-= exact semantic Animation request; legal only when the selected CURRENT Actor publishes that literal intent in animationIntents/supportedAnimationIntents. Never infer idle/walk/run/look/shoot from prose or from a stationary beat. If the Actor does not publish the requested intent, omit animationIntent or use an exact technically-authorable CURRENT animationHandle.
+= legacy/secondary semantic selector. Omit it unless the matching CURRENT explicitly publishes a supported relationship for the exact use.
 ```
 
 A Sprite frame, portrait, Texture or animation frame does not become Actor identity merely because it depicts the character.

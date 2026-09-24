@@ -1,8 +1,9 @@
 {
   "schema": "STARWARS_ACTOR_CARD",
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20260924-052204540-b0c1b38c",
+  "publishTransactionId": "20260924-151456622-f3b3dabb",
+  "purpose": "Identity and visual reference only. Animation is authored independently through direct Animation handles.",
   "identity": {
     "handle": "civ_orthodox_elder_01_stop_look_up_f11__df8f8459",
     "displayName": "CIV ORTHODOX ELDER 01 STOP LOOK UP F11",
@@ -18,131 +19,8 @@
     "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
     "source": "ACTOR_VISUAL_EVIDENCE"
   },
-  "animations": [
-    {
-      "animationHandle": "animation__2a3eab91",
-      "displayName": "CIV ORTHODOX ELDER 01 WALK RIGHT",
-      "animationAssetId": "8c2f0334a04579a49bef9c18837e62b0:7400000",
-      "animationFamilyId": "structural-actor:civ_orthodox_elder_01",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_ORTHODOX_ELDER_01/WALK_RIGHT/Generated/CIV_ORTHODOX_ELDER_01_WALK_RIGHT.anim",
-      "intents": [
-        "walk"
-      ],
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Visualized",
-      "animationOwnershipStatus": "ActorOwnerProven",
-      "animationSemanticStatus": "SemanticProven",
-      "semanticFacets": [],
-      "relationshipEvidence": [],
-      "visualReferenceId": "visual_d3a07dda6e87ead5e571",
-      "atlasPage": 61,
-      "atlasSlot": 3,
-      "pageImageUrl": "full-visual-sheets/animation/page-015.jpg",
-      "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
-      "atlasPartPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_ANIMATION_CURRENT.pdf",
-      "atlasMappingStatus": "MAPPED_CURRENT_TRANSACTION",
-      "visualSheetsPage": 15,
-      "visualSheetsSlot": 3,
-      "visualSheetsFile": "animation.pdf",
-      "pageImageFile": "animation/page-015.jpg",
-      "visualSheetsTransactionId": "20260924-052204540-b0c1b38c",
-      "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
-    },
-    {
-      "animationHandle": "animation__76456eee",
-      "displayName": "CIV ORTHODOX ELDER 01 STOP LOOK UP",
-      "animationAssetId": "676680a423f83834e89b0b4335262c2f:7400000",
-      "animationFamilyId": "structural-actor:civ_orthodox_elder_01",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_ORTHODOX_ELDER_01/STOP_LOOK_UP/Generated/CIV_ORTHODOX_ELDER_01_STOP_LOOK_UP.anim",
-      "intents": [
-        "look"
-      ],
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Visualized",
-      "animationOwnershipStatus": "ActorOwnerProven",
-      "animationSemanticStatus": "SemanticProven",
-      "semanticFacets": [],
-      "relationshipEvidence": [],
-      "visualReferenceId": "visual_efb455a6b3755e877eee",
-      "atlasPage": 57,
-      "atlasSlot": 8,
-      "pageImageUrl": "full-visual-sheets/animation/page-011.jpg",
-      "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
-      "atlasPartPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_ANIMATION_CURRENT.pdf",
-      "atlasMappingStatus": "MAPPED_CURRENT_TRANSACTION",
-      "visualSheetsPage": 11,
-      "visualSheetsSlot": 8,
-      "visualSheetsFile": "animation.pdf",
-      "pageImageFile": "animation/page-011.jpg",
-      "visualSheetsTransactionId": "20260924-052204540-b0c1b38c",
-      "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
-    }
-  ],
-  "does": [
-    {
-      "intent": "look",
-      "evidence": [
-        {
-          "animationHandle": "animation__76456eee",
-          "displayName": "CIV ORTHODOX ELDER 01 STOP LOOK UP",
-          "intent": "look",
-          "intents": [
-            "look"
-          ],
-          "animationAssetId": "676680a423f83834e89b0b4335262c2f:7400000",
-          "animationFamilyId": "structural-actor:civ_orthodox_elder_01",
-          "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_ORTHODOX_ELDER_01/STOP_LOOK_UP/Generated/CIV_ORTHODOX_ELDER_01_STOP_LOOK_UP.anim",
-          "visualReferenceId": "visual_efb455a6b3755e877eee",
-          "atlasPage": 57,
-          "atlasSlot": 8,
-          "pageImageUrl": "full-visual-sheets/animation/page-011.jpg",
-          "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
-          "visualSheetsPage": 11,
-          "visualSheetsSlot": 8,
-          "visualSheetsFile": "animation.pdf",
-          "pageImageFile": "animation/page-011.jpg",
-          "visualSheetsTransactionId": "20260924-052204540-b0c1b38c",
-          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION",
-          "evidenceType": "ATLAS_REFERENCE",
-          "pixelStatus": "NOT_HTTP_VERIFIED"
-        }
-      ],
-      "evidenceStatus": "AVAILABLE"
-    },
-    {
-      "intent": "walk",
-      "evidence": [
-        {
-          "animationHandle": "animation__2a3eab91",
-          "displayName": "CIV ORTHODOX ELDER 01 WALK RIGHT",
-          "intent": "walk",
-          "intents": [
-            "walk"
-          ],
-          "animationAssetId": "8c2f0334a04579a49bef9c18837e62b0:7400000",
-          "animationFamilyId": "structural-actor:civ_orthodox_elder_01",
-          "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_ORTHODOX_ELDER_01/WALK_RIGHT/Generated/CIV_ORTHODOX_ELDER_01_WALK_RIGHT.anim",
-          "visualReferenceId": "visual_d3a07dda6e87ead5e571",
-          "atlasPage": 61,
-          "atlasSlot": 3,
-          "pageImageUrl": "full-visual-sheets/animation/page-015.jpg",
-          "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
-          "visualSheetsPage": 15,
-          "visualSheetsSlot": 3,
-          "visualSheetsFile": "animation.pdf",
-          "pageImageFile": "animation/page-015.jpg",
-          "visualSheetsTransactionId": "20260924-052204540-b0c1b38c",
-          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION",
-          "evidenceType": "ATLAS_REFERENCE",
-          "pixelStatus": "NOT_HTTP_VERIFIED"
-        }
-      ],
-      "evidenceStatus": "AVAILABLE"
-    }
-  ],
   "quality": {
     "imageLink": "PRESENT_NOT_HTTP_VERIFIED",
-    "performanceEvidence": "PRESENT",
     "visualContinuity": "NOT_CHECKED",
     "runtimeProof": "NOT_CHECKED"
   },

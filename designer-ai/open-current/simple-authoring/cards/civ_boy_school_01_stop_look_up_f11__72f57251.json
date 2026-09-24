@@ -1,8 +1,9 @@
 {
   "schema": "STARWARS_ACTOR_CARD",
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20260924-052204540-b0c1b38c",
+  "publishTransactionId": "20260924-151456622-f3b3dabb",
+  "purpose": "Identity and visual reference only. Animation is authored independently through direct Animation handles.",
   "identity": {
     "handle": "civ_boy_school_01_stop_look_up_f11__72f57251",
     "displayName": "CIV BOY SCHOOL 01 STOP LOOK UP F11",
@@ -18,131 +19,8 @@
     "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
     "source": "ACTOR_VISUAL_EVIDENCE"
   },
-  "animations": [
-    {
-      "animationHandle": "animation__4debdf06",
-      "displayName": "CIV BOY SCHOOL 01 WALK RIGHT",
-      "animationAssetId": "a4c026ad6016d5348bc694d49933c454:7400000",
-      "animationFamilyId": "structural-actor:civ_boy_school_01",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_BOY_SCHOOL_01/WALK_RIGHT/Generated/CIV_BOY_SCHOOL_01_WALK_RIGHT.anim",
-      "intents": [
-        "walk"
-      ],
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Visualized",
-      "animationOwnershipStatus": "ActorOwnerProven",
-      "animationSemanticStatus": "SemanticProven",
-      "semanticFacets": [],
-      "relationshipEvidence": [],
-      "visualReferenceId": "visual_58ff372e76da875125dc",
-      "atlasPage": 64,
-      "atlasSlot": 3,
-      "pageImageUrl": "full-visual-sheets/animation/page-018.jpg",
-      "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
-      "atlasPartPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_ANIMATION_CURRENT.pdf",
-      "atlasMappingStatus": "MAPPED_CURRENT_TRANSACTION",
-      "visualSheetsPage": 18,
-      "visualSheetsSlot": 3,
-      "visualSheetsFile": "animation.pdf",
-      "pageImageFile": "animation/page-018.jpg",
-      "visualSheetsTransactionId": "20260924-052204540-b0c1b38c",
-      "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
-    },
-    {
-      "animationHandle": "animation__a71217b3",
-      "displayName": "CIV BOY SCHOOL 01 STOP LOOK UP",
-      "animationAssetId": "2b5a1a2ac9c8c824ebdea6e7c476456d:7400000",
-      "animationFamilyId": "structural-actor:civ_boy_school_01",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_BOY_SCHOOL_01/STOP_LOOK_UP/Generated/CIV_BOY_SCHOOL_01_STOP_LOOK_UP.anim",
-      "intents": [
-        "look"
-      ],
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Visualized",
-      "animationOwnershipStatus": "ActorOwnerProven",
-      "animationSemanticStatus": "SemanticProven",
-      "semanticFacets": [],
-      "relationshipEvidence": [],
-      "visualReferenceId": "visual_658b194c927f7b73de88",
-      "atlasPage": 51,
-      "atlasSlot": 10,
-      "pageImageUrl": "full-visual-sheets/animation/page-005.jpg",
-      "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
-      "atlasPartPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_ANIMATION_CURRENT.pdf",
-      "atlasMappingStatus": "MAPPED_CURRENT_TRANSACTION",
-      "visualSheetsPage": 5,
-      "visualSheetsSlot": 10,
-      "visualSheetsFile": "animation.pdf",
-      "pageImageFile": "animation/page-005.jpg",
-      "visualSheetsTransactionId": "20260924-052204540-b0c1b38c",
-      "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION"
-    }
-  ],
-  "does": [
-    {
-      "intent": "look",
-      "evidence": [
-        {
-          "animationHandle": "animation__a71217b3",
-          "displayName": "CIV BOY SCHOOL 01 STOP LOOK UP",
-          "intent": "look",
-          "intents": [
-            "look"
-          ],
-          "animationAssetId": "2b5a1a2ac9c8c824ebdea6e7c476456d:7400000",
-          "animationFamilyId": "structural-actor:civ_boy_school_01",
-          "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_BOY_SCHOOL_01/STOP_LOOK_UP/Generated/CIV_BOY_SCHOOL_01_STOP_LOOK_UP.anim",
-          "visualReferenceId": "visual_658b194c927f7b73de88",
-          "atlasPage": 51,
-          "atlasSlot": 10,
-          "pageImageUrl": "full-visual-sheets/animation/page-005.jpg",
-          "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
-          "visualSheetsPage": 5,
-          "visualSheetsSlot": 10,
-          "visualSheetsFile": "animation.pdf",
-          "pageImageFile": "animation/page-005.jpg",
-          "visualSheetsTransactionId": "20260924-052204540-b0c1b38c",
-          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION",
-          "evidenceType": "ATLAS_REFERENCE",
-          "pixelStatus": "NOT_HTTP_VERIFIED"
-        }
-      ],
-      "evidenceStatus": "AVAILABLE"
-    },
-    {
-      "intent": "walk",
-      "evidence": [
-        {
-          "animationHandle": "animation__4debdf06",
-          "displayName": "CIV BOY SCHOOL 01 WALK RIGHT",
-          "intent": "walk",
-          "intents": [
-            "walk"
-          ],
-          "animationAssetId": "a4c026ad6016d5348bc694d49933c454:7400000",
-          "animationFamilyId": "structural-actor:civ_boy_school_01",
-          "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_BOY_SCHOOL_01/WALK_RIGHT/Generated/CIV_BOY_SCHOOL_01_WALK_RIGHT.anim",
-          "visualReferenceId": "visual_58ff372e76da875125dc",
-          "atlasPage": 64,
-          "atlasSlot": 3,
-          "pageImageUrl": "full-visual-sheets/animation/page-018.jpg",
-          "atlasPdfUrl": "full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf",
-          "visualSheetsPage": 18,
-          "visualSheetsSlot": 3,
-          "visualSheetsFile": "animation.pdf",
-          "pageImageFile": "animation/page-018.jpg",
-          "visualSheetsTransactionId": "20260924-052204540-b0c1b38c",
-          "visualSheetsStatus": "MAPPED_CURRENT_TRANSACTION",
-          "evidenceType": "ATLAS_REFERENCE",
-          "pixelStatus": "NOT_HTTP_VERIFIED"
-        }
-      ],
-      "evidenceStatus": "AVAILABLE"
-    }
-  ],
   "quality": {
     "imageLink": "PRESENT_NOT_HTTP_VERIFIED",
-    "performanceEvidence": "PRESENT",
     "visualContinuity": "NOT_CHECKED",
     "runtimeProof": "NOT_CHECKED"
   },
