@@ -1,14 +1,14 @@
 {
   "schema": "STARWARS_DELTA_ANIMATION_RETRIEVAL_INDEX",
   "schemaVersion": 1,
-  "projectionRevision": "ANIMATION_RETRIEVAL_V5_20260924_DIRECT_MATERIALS_ONLY",
+  "projectionRevision": "ANIMATION_RETRIEVAL_V6_20260925_DIRECT_HANDLES_ONLY",
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20260924-173420770-fc4373b9",
+  "publishTransactionId": "20260925-025724580-5927c120",
   "requiredCurrent": {
     "catalogRevision": "7623374633739473569",
     "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
     "schemaHash": "F814CC6BF54F4B7F2EB635E1F7A73CB5A806133CE500564FAE1800B40E6082E8",
-    "snapshotContentHash": "32456460C21099886ABC9B95EA691109B5E38546B5D981203003F65F937D3B66",
+    "snapshotContentHash": "5242AE94241F3605A5A39E07D5B16D9B5C980FB9431425EEFC0283E9533AE245",
     "authoringRuleRegistryRevision": "8CBCE85AF0FC24743F97AA4F104C31857926A98DAB52749CA75A2B7F6BF27F12"
   },
   "purpose": "On-demand direct animation materials. Animation is authored from published Animation handles themselves; Actor ownership and Actor animation repertoires are not part of this authoring surface.",
@@ -18,7 +18,6 @@
       "displayName": "red delta ship",
       "sourcePath": "Assets/Playniax/Pyro/Extensions/Radar System/Animation Clips/Spaceships/red delta ship.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -41,7 +40,6 @@
       "displayName": "Interacting",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_02/Interacting.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -64,7 +62,6 @@
       "displayName": "powered rock",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies/powered_rock.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -87,9 +84,6 @@
       "displayName": "SpaceRobot05 Shoot Hands End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shoot_Hands_End.anim",
       "phase": "end",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -112,7 +106,6 @@
       "displayName": "Bullets",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/Bullets.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -135,9 +128,6 @@
       "displayName": "SpaceRobot05 Walk Loop",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Walk_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -160,7 +150,6 @@
       "displayName": "Jellyfish",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Jellyfish/Jellyfish.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -183,7 +172,6 @@
       "displayName": "Surface1",
       "sourcePath": "Assets/_PKG/PKG_Free_2D_Handcrafted_Art/Animation/Surface1.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -206,9 +194,6 @@
       "displayName": "SpaceRobot02 Walk End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Walk_End.anim",
       "phase": "end",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -231,7 +216,6 @@
       "displayName": "Mine",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Mine (Blue)/Mine (blue).anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -254,7 +238,6 @@
       "displayName": "Nautolan Ship   Bomber   Engine Effect Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Bomber - Engine Effect.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -277,9 +260,6 @@
       "displayName": "Death",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_02/Death.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "deactivate"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -302,9 +282,6 @@
       "displayName": "Hit",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Hit.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "damage"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -327,7 +304,6 @@
       "displayName": "New Animation",
       "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/Shot_SPRITES/Images/Shot/Sphere/color/New Animation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -350,9 +326,6 @@
       "displayName": "SpaceRobot05 Deactivation",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Deactivation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "deactivate"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -375,9 +348,6 @@
       "displayName": "MY FireworksBrain Idle 100PPU",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/FireworksBrain100PPU/MY_FireworksBrain_Idle_100PPU.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "idle"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -400,7 +370,6 @@
       "displayName": "Crusher",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/Crusher.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -423,7 +392,6 @@
       "displayName": "Nautolan Ship   Scout Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/Aseprite/Nautolan Ship - Scout.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -446,9 +414,6 @@
       "displayName": "Die",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_01/Die.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "deactivate"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -471,7 +436,6 @@
       "displayName": "Bubble Bubble 16 Loop",
       "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Bubble_Bubble_16_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -494,7 +458,6 @@
       "displayName": "Pod",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Pod/Pod.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -517,7 +480,6 @@
       "displayName": "clouds anim",
       "sourcePath": "Assets/PhysicsExamples2D-2022/Assets/Sprites/Environments/clouds anim.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -540,10 +502,6 @@
       "displayName": "SpaceRobot02 Walk Start",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Walk_Start.anim",
       "phase": "start",
-      "supportedAnimationIntents": [
-        "idle",
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -566,9 +524,6 @@
       "displayName": "MY SpaceRobot02 Shoot Start",
       "sourcePath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/_Animation/SpaceRobot/MY_SpaceRobot02_Shoot_Start.anim",
       "phase": "start",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -591,9 +546,6 @@
       "displayName": "CIV WOMAN SHOPPING 01 STOP LOOK UP",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_WOMAN_SHOPPING_01/STOP_LOOK_UP/Generated/CIV_WOMAN_SHOPPING_01_STOP_LOOK_UP.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "look"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -616,9 +568,6 @@
       "displayName": "SpaceRobot01 Walk Start",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Walk_Start.anim",
       "phase": "start",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -641,7 +590,6 @@
       "displayName": "player white spin topview",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Player/sp 1 player ship topview.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -664,9 +612,6 @@
       "displayName": "SpaceRobot02 Shoot Hands Loop",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Shoot_Hands_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -689,9 +634,6 @@
       "displayName": "DanteFighter IdleHover",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D/Animations/DanteFighter_IdleHover.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "idle"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -714,7 +656,6 @@
       "displayName": "Player Animation",
       "sourcePath": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/player/Player-Animation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -737,9 +678,6 @@
       "displayName": "Run",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_02/Run.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "run"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -762,7 +700,6 @@
       "displayName": "vehicle 3",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/sprites/vehicle 3/vehicle-3.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -785,7 +722,6 @@
       "displayName": "color Sphere Loop",
       "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Sphere_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -808,7 +744,6 @@
       "displayName": "satelite",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies/satelite.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -831,9 +766,6 @@
       "displayName": "SpaceRobot04 Walk Loop",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Walk_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -856,9 +788,6 @@
       "displayName": "PUSH MECHA IDLE",
       "sourcePath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/_Animation/PushMecha/PUSH_MECHA_IDLE.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "idle"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -881,9 +810,6 @@
       "displayName": "Nautolan Ship   Scout   Shield Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Scout - Shield.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -906,7 +832,6 @@
       "displayName": "Hunter",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Hunter/Hunter.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -929,10 +854,6 @@
       "displayName": "SpaceRobot01 Walk Loop",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Walk_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [
-        "idle",
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -955,7 +876,6 @@
       "displayName": "Moss2",
       "sourcePath": "Assets/_PKG/PKG_Free_2D_Handcrafted_Art/Animation/Moss2.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -978,7 +898,6 @@
       "displayName": "Crusher shielded",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/Crusher shielded.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1001,7 +920,6 @@
       "displayName": "round turret",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/round_turret.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1024,9 +942,6 @@
       "displayName": "Nautolan Ship   Frigate   Shield Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Frigate - Shield.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1049,7 +964,6 @@
       "displayName": "Nautolan Ship   Dreadnought   Weapons Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Dreadnought - Weapons.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1072,7 +986,6 @@
       "displayName": "DanteFighter SpecialActions",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D_dst/Animations/DanteFighter_SpecialActions.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1095,7 +1008,6 @@
       "displayName": "Interacting",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_01/Interacting.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1118,7 +1030,6 @@
       "displayName": "StarSparrow18 DanteRuntimeLoop",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Ships/StarSparrow_Baked2D/Animations/StarSparrow18_DanteRuntimeLoop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1141,9 +1052,6 @@
       "displayName": "SpaceRobot04 Walk Start",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Walk_Start.anim",
       "phase": "start",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1166,9 +1074,6 @@
       "displayName": "CIV ORTHODOX ELDER 01 WALK RIGHT",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_ORTHODOX_ELDER_01/WALK_RIGHT/Generated/CIV_ORTHODOX_ELDER_01_WALK_RIGHT.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1191,9 +1096,6 @@
       "displayName": "Nautolan Ship   Fighter   Shield Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Fighter - Shield.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1216,9 +1118,6 @@
       "displayName": "SpaceRobot03 Launch",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Launch.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "launch"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1241,7 +1140,6 @@
       "displayName": "enemy animation",
       "sourcePath": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/enemy/enemy-animation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1264,7 +1162,6 @@
       "displayName": "star",
       "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Spaceships/star.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1287,7 +1184,6 @@
       "displayName": "Mine",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Mine Timer (Blue)/Mine.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1310,9 +1206,6 @@
       "displayName": "Nautolan Ship   Torpedo Ship   Shield Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Torpedo Ship - Shield.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1335,7 +1228,6 @@
       "displayName": "StarSparrow7 DanteRuntimeLoop",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Ships/StarSparrow_Baked2D/Animations/StarSparrow7_DanteRuntimeLoop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1358,7 +1250,6 @@
       "displayName": "Nautolan   Rocket Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Rocket.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1381,7 +1272,6 @@
       "displayName": "GREEN SHIELD Animation",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/GREEN SHIELD Animation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1404,7 +1294,6 @@
       "displayName": "Crusher",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Crusher/Crusher.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1427,9 +1316,6 @@
       "displayName": "SpaceRobot01 Shoot Hands Start",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Shoot_Hands_Start.anim",
       "phase": "start",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1452,7 +1338,6 @@
       "displayName": "robot anim1",
       "sourcePath": "Assets/_PKG/PKG_Robot_Shooting_Game/Robot/robot_anim1.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1475,7 +1360,6 @@
       "displayName": "Green beam",
       "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Energy Beam/Green beam.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1498,7 +1382,6 @@
       "displayName": "DanteFighter Dive",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D_dst/Animations/DanteFighter_Dive.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1521,7 +1404,6 @@
       "displayName": "Shot Animation",
       "sourcePath": "Assets/1MyAnimations/Shot-Animation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1544,7 +1426,6 @@
       "displayName": "sphere",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies/sphere.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1567,7 +1448,6 @@
       "displayName": "Tank gradious 1",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Gradious/Tank_gradious_1.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1590,9 +1470,6 @@
       "displayName": "DanteFighter IdleHover",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D_dst/Animations/DanteFighter_IdleHover.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "idle"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1615,7 +1492,6 @@
       "displayName": "Rocket",
       "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Rocket/Rocket.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1638,7 +1514,6 @@
       "displayName": "turret 3ANIM",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/turret_3ANIM.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1661,7 +1536,6 @@
       "displayName": "DanteFighter SpecialActions",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D/Animations/DanteFighter_SpecialActions.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1684,9 +1558,6 @@
       "displayName": "Run",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_01/Run.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "run"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1709,7 +1580,6 @@
       "displayName": "Pod Collector",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Pod Collector/Pod Collector.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1732,9 +1602,6 @@
       "displayName": "SpaceRobot05 Shield Stance End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shield_Stance_End.anim",
       "phase": "end",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1757,9 +1624,6 @@
       "displayName": "SpaceRobot02 Shield Stance End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Shield_Stance_End.anim",
       "phase": "end",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1782,7 +1646,6 @@
       "displayName": "Health",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/Health.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1805,7 +1668,6 @@
       "displayName": "SAUCER3",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/ANIM_DGR/SAUCER3.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1828,7 +1690,6 @@
       "displayName": "Big Saucer",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Big Saucer/Big Saucer.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1851,9 +1712,6 @@
       "displayName": "SpaceRobot03 Shield Stance",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Shield_Stance.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1876,7 +1734,6 @@
       "displayName": "Radar",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Launcher/Radar/Radar.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1899,9 +1756,6 @@
       "displayName": "SpaceRobot04 Shoot Hands Start",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Shoot_Hands_Start.anim",
       "phase": "start",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1924,7 +1778,6 @@
       "displayName": "Transporter",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Transporter/Transporter.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1947,7 +1800,6 @@
       "displayName": "pinchhead",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies/pinchhead.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1970,9 +1822,6 @@
       "displayName": "MY SpaceRobot01 Shoot Start",
       "sourcePath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/_Animation/SpaceRobot/MY_SpaceRobot01_Shoot_Start.anim",
       "phase": "start",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -1995,7 +1844,6 @@
       "displayName": "tracker",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Pickups/Tracker/tracker.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2018,7 +1866,6 @@
       "displayName": "Nautolan Ship   Scout   Engine Effect Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Scout - Engine Effect.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2041,9 +1888,6 @@
       "displayName": "SpaceRobot02 Damage",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Damage.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "damage"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2066,7 +1910,6 @@
       "displayName": "Nautolan Ship   Bomber Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/Aseprite/Nautolan Ship - Bomber.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2089,7 +1932,6 @@
       "displayName": "3 way shielded",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/3 way shielded.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2112,9 +1954,6 @@
       "displayName": "CIV BOY SCHOOL 01 WALK RIGHT",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_BOY_SCHOOL_01/WALK_RIGHT/Generated/CIV_BOY_SCHOOL_01_WALK_RIGHT.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2137,7 +1976,6 @@
       "displayName": "color Rail Loop",
       "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Rail_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2160,7 +1998,6 @@
       "displayName": "FireBall FireBall 32 Loop",
       "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/FireBall_FireBall_32_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2183,7 +2020,6 @@
       "displayName": "player ship",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Player/sp 1 player ship.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2206,7 +2042,6 @@
       "displayName": "Pooper",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Pooper/Pooper.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2229,7 +2064,6 @@
       "displayName": "Nautolan Ship   Battlecruiser   Weapons Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Battlecruiser - Weapons.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2252,9 +2086,6 @@
       "displayName": "SpaceRobot03 Walk End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Walk_End.anim",
       "phase": "end",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2277,9 +2108,6 @@
       "displayName": "PlayerIdle",
       "sourcePath": "Assets/PhysicsExamples2D-2022/Assets/Animations/PlayerIdle.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "idle"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2302,7 +2130,6 @@
       "displayName": "explosion animation",
       "sourcePath": "Assets/1MyAnimations/explosion-animation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2325,7 +2152,6 @@
       "displayName": "Nautolan   Bullet Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Bullet.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2348,7 +2174,6 @@
       "displayName": "Speedup shielded",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/Speedup shielded.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2371,7 +2196,6 @@
       "displayName": "Algae1",
       "sourcePath": "Assets/_PKG/PKG_Free_2D_Handcrafted_Art/Animation/Algae1.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2394,7 +2218,6 @@
       "displayName": "Start Walking Blue Robot",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Gradious/Start_Walking_Blue_Robot.anim",
       "phase": "start",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2417,9 +2240,6 @@
       "displayName": "SpaceRobot01 Deactivation",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Deactivation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "deactivate"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2442,9 +2262,6 @@
       "displayName": "Idle",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_01/Idle.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "idle"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2467,7 +2284,6 @@
       "displayName": "Jump",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_01/Jump.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2490,9 +2306,6 @@
       "displayName": "Brain boss attack",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies (Bosses)/Brain/Attack/Brain_boss_attack.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "attack"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2515,9 +2328,6 @@
       "displayName": "Player Flying down",
       "sourcePath": "Assets/_Game/MY_Core/MY_Animations/Player/Player_Flying_down.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "fly"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2540,7 +2350,6 @@
       "displayName": "Saucer",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Saucer/Saucer.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2563,9 +2372,6 @@
       "displayName": "SpaceRobot04 Shoot Hands Loop",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Shoot_Hands_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2588,9 +2394,6 @@
       "displayName": "buzz saw boss idle",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies (Bosses)/Buzz Saw/Idle/buzz_saw_boss_idle.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "idle"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2613,7 +2416,6 @@
       "displayName": "coin",
       "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Pickups/Coin/coin.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2636,9 +2438,6 @@
       "displayName": "SpaceRobot01 Shoot Hands Loop",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Shoot_Hands_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2661,7 +2460,6 @@
       "displayName": "Walking Blue Robot",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Gradious/Walking_Blue_Robot.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2684,9 +2482,6 @@
       "displayName": "SpaceRobot02 Shoot Hands Start",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Shoot_Hands_Start.anim",
       "phase": "start",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2709,7 +2504,6 @@
       "displayName": "Pyramid",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Pyramid/Pyramid.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2732,7 +2526,6 @@
       "displayName": "color Missile Loop",
       "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Missile_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2755,9 +2548,6 @@
       "displayName": "SpaceRobot05 Walk End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Walk_End.anim",
       "phase": "end",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2780,7 +2570,6 @@
       "displayName": "DanteFighter Climb",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D_dst/Animations/DanteFighter_Climb.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2803,9 +2592,6 @@
       "displayName": "Walk",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_01/Walk.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2828,9 +2614,6 @@
       "displayName": "Death",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Death.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "deactivate"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2853,7 +2636,6 @@
       "displayName": "sawcer",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sawcer/sawcer.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2876,7 +2658,6 @@
       "displayName": "small spaceship anim",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/small spaceship anim.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2899,7 +2680,6 @@
       "displayName": "Laser shielded",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/Laser shielded.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2922,7 +2702,6 @@
       "displayName": "blue delta ship",
       "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Spaceships/blue delta ship.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2945,9 +2724,6 @@
       "displayName": "SpaceRobot01 Damage",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Damage.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "damage"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2970,7 +2746,6 @@
       "displayName": "slicer",
       "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Spaceships/slicer.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -2993,9 +2768,6 @@
       "displayName": "Pilot Walking",
       "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Pickups/Pilot/Walking/Pilot Walking.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3018,9 +2790,6 @@
       "displayName": "IdleRight",
       "sourcePath": "Assets/1MyAnimations/PlayerAnimations/Player/IdleRight.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "idle"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3043,7 +2812,6 @@
       "displayName": "robot spin anim",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Gradious/robot_spin_anim.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3066,7 +2834,6 @@
       "displayName": "Laser",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/Laser.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3089,7 +2856,6 @@
       "displayName": "mohican",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies/mohican.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3112,7 +2878,6 @@
       "displayName": "First Aid Kit",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Pickups/First Aid Kit/First Aid Kit.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3135,7 +2900,6 @@
       "displayName": "Nautolan Ship   Scout   Weapons Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Scout - Weapons.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3158,7 +2922,6 @@
       "displayName": "Nautolan   Bomb Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Bomb.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3181,9 +2944,6 @@
       "displayName": "Hit",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_02/Hit.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "damage"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3206,9 +2966,6 @@
       "displayName": "SpaceRobot03 Shoot Hands Loop",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Shoot_Hands_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3231,7 +2988,6 @@
       "displayName": "Caustic1",
       "sourcePath": "Assets/_PKG/PKG_Free_2D_Handcrafted_Art/Animation/Caustic1.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3254,7 +3010,6 @@
       "displayName": "enemy animation",
       "sourcePath": "Assets/1MyAnimations/enemy-animation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3277,7 +3032,6 @@
       "displayName": "Cannon",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/Cannon.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3300,9 +3054,6 @@
       "displayName": "CIV ORTHODOX ELDER 01 STOP LOOK UP",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_ORTHODOX_ELDER_01/STOP_LOOK_UP/Generated/CIV_ORTHODOX_ELDER_01_STOP_LOOK_UP.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "look"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3325,7 +3076,6 @@
       "displayName": "Nautolan   Ships Preview Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/_Previews/Nautolan/Nautolan - Ships Preview.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3348,7 +3098,6 @@
       "displayName": "Torch TorchFlame 32 Loop",
       "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Torch_TorchFlame_32_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3371,7 +3120,6 @@
       "displayName": "dangersighn",
       "sourcePath": "Assets/dangersighn.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3394,7 +3142,6 @@
       "displayName": "Health shielded",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/Health shielded.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3417,7 +3164,6 @@
       "displayName": "bomb2 anim",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/D_EXPLOSIONS/bomb2 anim.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3440,7 +3186,6 @@
       "displayName": "Damage Blue Robot",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Gradious/Damage_Blue_Robot.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3463,7 +3208,6 @@
       "displayName": "Nautolan Ship   Torpedo Ship   Weapons Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Torpedo Ship - Weapons.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3486,9 +3230,6 @@
       "displayName": "SpaceRobot01 Shield Stance",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Shield_Stance.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3511,9 +3252,6 @@
       "displayName": "SpaceRobot01 Walk End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Walk_End.anim",
       "phase": "end",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3536,7 +3274,6 @@
       "displayName": "Mini Boss 2",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies (Bosses)/Mini Boss 2/Mini Boss 2.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3559,9 +3296,6 @@
       "displayName": "Walk",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_02/Walk.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3584,7 +3318,6 @@
       "displayName": "serpent rear",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies (Bosses)/Serpent/serpent rear.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3607,9 +3340,6 @@
       "displayName": "Run",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Run.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "run"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3632,7 +3362,6 @@
       "displayName": "Bottom Gun",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies (Bosses)/Mini Boss 2/Bottom Gun/Bottom Gun.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3655,7 +3384,6 @@
       "displayName": "MY FireworksBrain Attack 100PPU",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/FireworksBrain100PPU/MY_FireworksBrain_Attack_100PPU.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3678,7 +3406,6 @@
       "displayName": "fireball",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies (Bosses)/Big Dish/Weapons/Fireball/fireball.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3701,7 +3428,6 @@
       "displayName": "Moss3",
       "sourcePath": "Assets/_PKG/PKG_Free_2D_Handcrafted_Art/Animation/Moss3.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3724,7 +3450,6 @@
       "displayName": "Extra Life",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Pickups/Extra Life/Extra Life.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3747,7 +3472,6 @@
       "displayName": "TURRET 2",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/3D_TURRET_CHATGPT/TURRET_2.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3770,9 +3494,6 @@
       "displayName": "Nautolan Ship   Bomber   Shield Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Bomber - Shield.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3795,7 +3516,6 @@
       "displayName": "explsbullet anim",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/explsbullet anim.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3818,9 +3538,6 @@
       "displayName": "PUSH MECHA WALK",
       "sourcePath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/_Animation/PushMecha/PUSH_MECHA_WALK.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3843,9 +3560,6 @@
       "displayName": "PUSH MECHA SHOOT",
       "sourcePath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/_Animation/PushMecha/PUSH_MECHA_SHOOT.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3868,7 +3582,6 @@
       "displayName": "TURRET 1",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/3D_TURRET_CHATGPT/TURRET_1.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3891,7 +3604,6 @@
       "displayName": "Cube",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Cube/Cube.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3914,7 +3626,6 @@
       "displayName": "Hit Animation",
       "sourcePath": "Assets/1MyAnimations/Hit-Animation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3937,7 +3648,6 @@
       "displayName": "Cannon shielded",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/Cannon shielded.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3960,9 +3670,6 @@
       "displayName": "SpaceRobot03 Deactivation",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Deactivation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "deactivate"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -3985,9 +3692,6 @@
       "displayName": "SpaceRobot03 Damage",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Damage.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "damage"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4010,7 +3714,6 @@
       "displayName": "Nautolan Ship   Dreadnought Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/Aseprite/Nautolan Ship - Dreadnought.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4033,9 +3736,6 @@
       "displayName": "SpaceRobot01 Shoot Rockets",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Shoot_Rockets.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4058,7 +3758,6 @@
       "displayName": "ring",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies/ring.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4081,9 +3780,6 @@
       "displayName": "Idle",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Idle.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "idle"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4106,7 +3802,6 @@
       "displayName": "player ship topview",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Player/player ship topview.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4129,7 +3824,6 @@
       "displayName": "Bullets shielded",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/Bullets shielded.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4152,7 +3846,6 @@
       "displayName": "Player Flying down",
       "sourcePath": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/player/Player_Flying_down.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4175,7 +3868,6 @@
       "displayName": "Moss1",
       "sourcePath": "Assets/_PKG/PKG_Free_2D_Handcrafted_Art/Animation/Moss1.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4198,7 +3890,6 @@
       "displayName": "flameBG anim",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/flameBG_anim.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4221,10 +3912,6 @@
       "displayName": "SpaceRobot05 Shield Stance Shoot",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shield_Stance_Shoot.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shield",
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4247,7 +3934,6 @@
       "displayName": "Nautolan Ship   Frigate   Weapons Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Frigate - Weapons.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4270,9 +3956,6 @@
       "displayName": "CIV MAN CASUAL 01 STOP LOOK UP",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_MAN_CASUAL_01/STOP_LOOK_UP/Generated/CIV_MAN_CASUAL_01_STOP_LOOK_UP.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "look"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4295,7 +3978,6 @@
       "displayName": "color Axe Loop",
       "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Axe_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4318,7 +4000,6 @@
       "displayName": "gunner",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies/gunner.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4341,9 +4022,6 @@
       "displayName": "SpaceRobot04 Damage",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Damage.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "damage"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4366,9 +4044,6 @@
       "displayName": "SpaceRobot03 Shield Stance End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Shield_Stance_End.anim",
       "phase": "end",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4391,9 +4066,6 @@
       "displayName": "SpaceRobot02 Launch",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Launch.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "launch"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4416,9 +4088,6 @@
       "displayName": "SpaceRobot05 Damage",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Damage.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "damage"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4441,7 +4110,6 @@
       "displayName": "Wobbler",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Wobbler/Wobbler.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4464,7 +4132,6 @@
       "displayName": "Photon",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/Photon.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4487,9 +4154,6 @@
       "displayName": "SpaceRobot03 Shoot Hands Start",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Shoot_Hands_Start.anim",
       "phase": "start",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4512,9 +4176,6 @@
       "displayName": "SpaceRobot01 Shoot Hands End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Shoot_Hands_End.anim",
       "phase": "end",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4537,7 +4198,6 @@
       "displayName": "satelite anim",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/satelite_anim.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4560,9 +4220,6 @@
       "displayName": "SpaceRobot04 Shield Stance End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Shield_Stance_End.anim",
       "phase": "end",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4585,9 +4242,6 @@
       "displayName": "SpaceRobot03 Shoot Hands End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Shoot_Hands_End.anim",
       "phase": "end",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4610,7 +4264,6 @@
       "displayName": "serpent body",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies (Bosses)/Serpent/serpent body.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4633,7 +4286,6 @@
       "displayName": "Nautolan Ship   Frigate Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/Aseprite/Nautolan Ship - Frigate.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4656,7 +4308,6 @@
       "displayName": "Top Gun",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies (Bosses)/Mini Boss 2/Top Gun/Top Gun.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4679,9 +4330,6 @@
       "displayName": "SpaceRobot02 Shoot Hands End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Shoot_Hands_End.anim",
       "phase": "end",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4704,9 +4352,6 @@
       "displayName": "Brain boss idle",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies (Bosses)/Brain/Idle/Brain_boss_idle.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "idle"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4729,9 +4374,6 @@
       "displayName": "SpaceRobot05 Shield Stance",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shield_Stance.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4754,7 +4396,6 @@
       "displayName": "blue delta ship",
       "sourcePath": "Assets/Playniax/Pyro/Extensions/Radar System/Animation Clips/Spaceships/blue delta ship.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4777,7 +4418,6 @@
       "displayName": "color Cross Loop",
       "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Cross_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4800,9 +4440,6 @@
       "displayName": "SpaceRobot01 Launch",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Launch.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "launch"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4825,9 +4462,6 @@
       "displayName": "Nuke",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Pickups/Nuke/Nuke.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "damage"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4850,9 +4484,6 @@
       "displayName": "SpaceRobot05 Shoot Hands Loop",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shoot_Hands_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4875,9 +4506,6 @@
       "displayName": "CIV BOY SCHOOL 01 STOP LOOK UP",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_BOY_SCHOOL_01/STOP_LOOK_UP/Generated/CIV_BOY_SCHOOL_01_STOP_LOOK_UP.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "look"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4900,7 +4528,6 @@
       "displayName": "Speedup",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/Speedup.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4923,7 +4550,6 @@
       "displayName": "Nautolan Ship   Support Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/Aseprite/Nautolan Ship - Support.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4946,7 +4572,6 @@
       "displayName": "Nautolan Ship   Battlecruiser   Engine Effect Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Battlecruiser - Engine Effect.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4969,9 +4594,6 @@
       "displayName": "MY SpaceRobot03 Shoot Start",
       "sourcePath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/_Animation/SpaceRobot/MY_SpaceRobot03_Shoot_Start.anim",
       "phase": "start",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -4994,9 +4616,6 @@
       "displayName": "PUSH MECHA DEATH",
       "sourcePath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/_Animation/PushMecha/PUSH_MECHA_DEATH.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "deactivate"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5019,7 +4638,6 @@
       "displayName": "Nautolan   Ray Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Ray.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5042,7 +4660,6 @@
       "displayName": "Blade Boss",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies (Bosses)/Blade/Blade Boss.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5065,9 +4682,6 @@
       "displayName": "SpaceRobot05 Shoot Hands Start",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shoot_Hands_Start.anim",
       "phase": "start",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5090,7 +4704,6 @@
       "displayName": "Big Boss",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies (Bosses)/Big Boss/Big Boss.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5113,9 +4726,6 @@
       "displayName": "Player Flying up",
       "sourcePath": "Assets/_Game/MY_Core/MY_Animations/Player/Player_Flying_up.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "fly"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5138,7 +4748,6 @@
       "displayName": "VHICLE2",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/sprites/vehicle 2/frames/VHICLE2.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5161,7 +4770,6 @@
       "displayName": "Nautolan Ship   Dreadnought   Engine Effect Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Dreadnought - Engine Effect.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5184,7 +4792,6 @@
       "displayName": "Nautolan   Wave Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Wave.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5207,7 +4814,6 @@
       "displayName": "cone",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies/cone.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5230,9 +4836,6 @@
       "displayName": "Walk",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Walk.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5255,9 +4858,6 @@
       "displayName": "Nautolan Ship   Battlecruiser   Shield Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Battlecruiser - Shield.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5280,7 +4880,6 @@
       "displayName": "gold fish  Animation",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/gold fish  Animation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5303,7 +4902,6 @@
       "displayName": "flame anim",
       "sourcePath": "Assets/PhysicsExamples2D-2022/Assets/Sprites/Environments/flame anim.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5326,7 +4924,6 @@
       "displayName": "red delta ship",
       "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Spaceships/red delta ship.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5349,7 +4946,6 @@
       "displayName": "Nautolan Ship   Torpedo Ship Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/Aseprite/Nautolan Ship - Torpedo Ship.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5372,7 +4968,6 @@
       "displayName": "Nautolan   Spinning Bullet Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Spinning Bullet.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5395,9 +4990,6 @@
       "displayName": "Shield",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Pickups/Shield/Shield.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5420,7 +5012,6 @@
       "displayName": "Player Animation",
       "sourcePath": "Assets/1MyAnimations/Player-Animation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5443,9 +5034,6 @@
       "displayName": "SpaceRobot04 Walk End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Walk_End.anim",
       "phase": "end",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5468,7 +5056,6 @@
       "displayName": "Sphere",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Body/Sphere.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5491,7 +5078,6 @@
       "displayName": "Jump",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_02/Jump.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5514,9 +5100,6 @@
       "displayName": "SpaceRobot04 Deactivation",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Deactivation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "deactivate"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5539,7 +5122,6 @@
       "displayName": "color Homing Loop",
       "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Homing_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5562,10 +5144,6 @@
       "displayName": "SpaceRobot01 Shield Stance Shoot",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Shield_Stance_Shoot.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shield",
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5588,7 +5166,6 @@
       "displayName": "serpent head",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies (Bosses)/Serpent/serpent head.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5611,7 +5188,6 @@
       "displayName": "explosion animation",
       "sourcePath": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/explosion/explosion-animation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5634,7 +5210,6 @@
       "displayName": "powerball",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies (Bosses)/Big Dish/Weapons/Powerball/powerball.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5657,7 +5232,6 @@
       "displayName": "DanteFighter Climb",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D/Animations/DanteFighter_Climb.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5680,9 +5254,6 @@
       "displayName": "Hit",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_01/Hit.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "damage"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5705,9 +5276,6 @@
       "displayName": "Nautolan Ship   Dreadnought   Shield Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Dreadnought - Shield.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5730,9 +5298,6 @@
       "displayName": "SpaceRobot04 Shoot Hands End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Shoot_Hands_End.anim",
       "phase": "end",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5755,7 +5320,6 @@
       "displayName": "Shot Animation",
       "sourcePath": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/shoot/Shot-Animation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5778,7 +5342,6 @@
       "displayName": "Mushroom",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Mushroom/Mushroom.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5801,9 +5364,6 @@
       "displayName": "SpaceRobot02 Walk Loop",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Walk_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5826,7 +5386,6 @@
       "displayName": "Mini Boss",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies (Bosses)/Mini Boss/Mini Boss.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5849,7 +5408,6 @@
       "displayName": "3 way",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/3 way.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5872,9 +5430,6 @@
       "displayName": "SpaceRobot01 Shield Stance End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Shield_Stance_End.anim",
       "phase": "end",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5897,9 +5452,6 @@
       "displayName": "SpaceRobot05 Shoot Rockets",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shoot_Rockets.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5922,7 +5474,6 @@
       "displayName": "Gem",
       "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Gem/Gem.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5945,7 +5496,6 @@
       "displayName": "starknife",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies/starknife.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5968,7 +5518,6 @@
       "displayName": "DanteFighter Dive",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D/Animations/DanteFighter_Dive.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -5991,7 +5540,6 @@
       "displayName": "atom",
       "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Spaceships/atom.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6014,9 +5562,6 @@
       "displayName": "CIV WOMAN SHOPPING 01 WALK RIGHT",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_WOMAN_SHOPPING_01/WALK_RIGHT/Generated/CIV_WOMAN_SHOPPING_01_WALK_RIGHT.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6039,7 +5584,6 @@
       "displayName": "cargo ship",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Cargo Ship/cargo ship.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6062,7 +5606,6 @@
       "displayName": "SAUCER 2",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/ANIM_DGR/SAUCER_2.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6085,7 +5628,6 @@
       "displayName": "Nautolan Ship   Fighter   Engine Effect Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Fighter - Engine Effect.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6108,7 +5650,6 @@
       "displayName": "Nautolan Ship   Torpedo Ship   Engine Effect Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Torpedo Ship - Engine Effect.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6131,7 +5672,6 @@
       "displayName": "Nautolan Ship   Fighter   Weapons Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Fighter - Weapons.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6154,7 +5694,6 @@
       "displayName": "TURRET CHATGPT BUILDING LOOP",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/3D_TURRET_CHATGPT/TURRET_CHATGPT_BUILDING_LOOP.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6177,7 +5716,6 @@
       "displayName": "vehicle 1 Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/sprites/vehicle 1/vehicle-1.ase",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6200,9 +5738,6 @@
       "displayName": "SpaceRobot05 Launch",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Launch.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "launch"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6225,7 +5760,6 @@
       "displayName": "photon shielded",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/photon_shielded.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6248,7 +5782,6 @@
       "displayName": "Hit Animation",
       "sourcePath": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/Hit/Hit-Animation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6271,7 +5804,6 @@
       "displayName": "Laser",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Pickups/Laser/Laser.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6294,7 +5826,6 @@
       "displayName": "blob",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies/blob.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6317,7 +5848,6 @@
       "displayName": "Sphere Ring",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/Sphere Ring.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6340,9 +5870,6 @@
       "displayName": "SpaceRobot03 Walk Start",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Walk_Start.anim",
       "phase": "start",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6365,7 +5892,6 @@
       "displayName": "enemy animation 1",
       "sourcePath": "Assets/1MyAnimations/enemy-animation 1.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6388,9 +5914,6 @@
       "displayName": "SpaceRobot02 Shield Stance",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Shield_Stance.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6413,7 +5936,6 @@
       "displayName": "blob anim",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/blob_anim.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6436,7 +5958,6 @@
       "displayName": "Nautolan Ship   Frigate   Engine Effect Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Frigate - Engine Effect.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6459,9 +5980,6 @@
       "displayName": "SpaceRobot04 Shield Stance",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Shield_Stance.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "shield"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6484,9 +6002,6 @@
       "displayName": "SpaceRobot03 Walk Loop",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Walk_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6509,7 +6024,6 @@
       "displayName": "Mine",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Mine (Red)/Mine (red).anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6532,7 +6046,6 @@
       "displayName": "Caustic2",
       "sourcePath": "Assets/_PKG/PKG_Free_2D_Handcrafted_Art/Animation/Caustic2.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6555,9 +6068,6 @@
       "displayName": "MY SpaceRobot04 Shoot Start",
       "sourcePath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/_Animation/SpaceRobot/MY_SpaceRobot04_Shoot_Start.anim",
       "phase": "start",
-      "supportedAnimationIntents": [
-        "shoot"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6580,7 +6090,6 @@
       "displayName": "ROBOT2 BOUNCE",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/ANIM_DGR/ROBOT2_BOUNCE.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6603,9 +6112,6 @@
       "displayName": "SpaceRobot04 Launch",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Launch.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "launch"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6628,7 +6134,6 @@
       "displayName": "color Boomerang Loop",
       "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Boomerang_Loop.anim",
       "phase": "loop",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6651,9 +6156,6 @@
       "displayName": "SpaceRobot05 Walk Start",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Walk_Start.anim",
       "phase": "start",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6676,9 +6178,6 @@
       "displayName": "CIV MAN CASUAL 01 WALK RIGHT",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_MAN_CASUAL_01/WALK_RIGHT/Generated/CIV_MAN_CASUAL_01_WALK_RIGHT.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "walk"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6701,7 +6200,6 @@
       "displayName": "Jump",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Jump.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6724,7 +6222,6 @@
       "displayName": "Mine",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Mine Timer (Red)/Mine.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6747,7 +6244,6 @@
       "displayName": "Pilot Pickup",
       "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Pickups/Pilot/Floating/Pilot Pickup.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6770,7 +6266,6 @@
       "displayName": "endbossbottomdish",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies (Bosses)/Final/Disc (Bottom)/endbossbottomdish.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6793,9 +6288,6 @@
       "displayName": "SpaceRobot02 Deactivation",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Deactivation.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [
-        "deactivate"
-      ],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6818,7 +6310,6 @@
       "displayName": "Interacting",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_03/Interacting.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6841,7 +6332,6 @@
       "displayName": "endbosstopdish",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies (Bosses)/Final/Disc (Top)/endbosstopdish.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6864,7 +6354,6 @@
       "displayName": "Star",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Star/Star.anim",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
@@ -6887,7 +6376,6 @@
       "displayName": "Nautolan Ship   Support   Engine Effect Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Support - Engine Effect.aseprite",
       "phase": "one_shot",
-      "supportedAnimationIntents": [],
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",

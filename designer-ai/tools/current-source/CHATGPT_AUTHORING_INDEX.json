@@ -3,12 +3,12 @@
   "schemaVersion": 1,
   "projectionRevision": "CHATGPT_AUTHORING_INDEX_V8_20260924_DIRECT_ANIMATION_MATERIALS",
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20260924-173420770-fc4373b9",
+  "publishTransactionId": "20260925-025724580-5927c120",
   "requiredCurrent": {
     "catalogRevision": "7623374633739473569",
     "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
     "schemaHash": "F814CC6BF54F4B7F2EB635E1F7A73CB5A806133CE500564FAE1800B40E6082E8",
-    "snapshotContentHash": "32456460C21099886ABC9B95EA691109B5E38546B5D981203003F65F937D3B66",
+    "snapshotContentHash": "5242AE94241F3605A5A39E07D5B16D9B5C980FB9431425EEFC0283E9533AE245",
     "authoringRuleRegistryRevision": "8CBCE85AF0FC24743F97AA4F104C31857926A98DAB52749CA75A2B7F6BF27F12"
   },
   "purpose": "Compact navigation projection for ChatGPT. Exact legal handles remain authoritative in matching CURRENT AUTHORING_HANDLES.json. Technically eligible simple Sprite Animation clips may be selected directly by animationHandle without Actor-prefab ownership.",
@@ -3008,18 +3008,23 @@
       "ordinal": 1,
       "id": "CROSSING_FLYBY",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "FLYBY",
       "phases": [
         "enter",
         "pass_camera",
         "exit"
       ],
-      "expectedObservable": "enter -> pass_camera -> exit"
+      "fixtureSegment": "R01",
+      "expectedObservable": "enter -> pass_camera -> exit",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 2,
       "id": "HERO_SWEEP",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "FLYBY + DEPART_BANK_AWAY",
       "phases": [
         "flyby",
@@ -3027,12 +3032,16 @@
         "bank_away",
         "exit"
       ],
-      "expectedObservable": "flyby -> foreground_arc -> bank_away -> exit"
+      "fixtureSegment": "R02",
+      "expectedObservable": "flyby -> foreground_arc -> bank_away -> exit",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 3,
       "id": "ATTACK_RUN",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "ATTACK_RUN",
       "phases": [
         "approach",
@@ -3040,12 +3049,16 @@
         "pass_camera",
         "bank_away"
       ],
-      "expectedObservable": "approach -> fire_during_pass -> pass_camera -> bank_away"
+      "fixtureSegment": "R03",
+      "expectedObservable": "approach -> fire_during_pass -> pass_camera -> bank_away",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 4,
       "id": "BOOM_AND_BREAK",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "ATTACK_RUN + FORMATION_BREAK",
       "phases": [
         "attack",
@@ -3053,84 +3066,112 @@
         "formation_break",
         "clear_blast"
       ],
-      "expectedObservable": "attack -> impact -> formation_break -> clear_blast"
+      "fixtureSegment": "R04",
+      "expectedObservable": "attack -> impact -> formation_break -> clear_blast",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 5,
       "id": "DOUBLE_INTERCEPT",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "INTERCEPT x2",
       "phases": [
         "separate_defenders",
         "converge",
         "hold_intercept_lane"
       ],
-      "expectedObservable": "separate_defenders -> converge -> hold_intercept_lane"
+      "fixtureSegment": "R05",
+      "expectedObservable": "separate_defenders -> converge -> hold_intercept_lane",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 6,
       "id": "FLANK_LEFT",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "FORMATION_BREAK + INTERCEPT",
       "phases": [
         "peel_left",
         "arc_intercept",
         "hold_target_readability"
       ],
-      "expectedObservable": "peel_left -> arc_intercept -> hold_target_readability"
+      "fixtureSegment": "R06",
+      "expectedObservable": "peel_left -> arc_intercept -> hold_target_readability",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 7,
       "id": "FLANK_RIGHT",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "FORMATION_BREAK + INTERCEPT",
       "phases": [
         "peel_right",
         "arc_intercept",
         "hold_target_readability"
       ],
-      "expectedObservable": "peel_right -> arc_intercept -> hold_target_readability"
+      "fixtureSegment": "R07",
+      "expectedObservable": "peel_right -> arc_intercept -> hold_target_readability",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 8,
       "id": "PURSUIT_LANES",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "PURSUIT",
       "phases": [
         "establish_depth_lanes",
         "parallel_pursuit",
         "closing_gap"
       ],
-      "expectedObservable": "establish_depth_lanes -> parallel_pursuit -> closing_gap"
+      "fixtureSegment": "R08",
+      "expectedObservable": "establish_depth_lanes -> parallel_pursuit -> closing_gap",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 9,
       "id": "CHASE_THROUGH_FRAME",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "PURSUIT + FLYBY",
       "phases": [
         "target_crosses",
         "chasers_enter",
         "same_direction_exit"
       ],
-      "expectedObservable": "target_crosses -> chasers_enter -> same_direction_exit"
+      "fixtureSegment": "R09",
+      "expectedObservable": "target_crosses -> chasers_enter -> same_direction_exit",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 10,
       "id": "ESCORT_COLUMN",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "ESCORT_SCREEN + CONVOY",
       "phases": [
         "principal_leads",
         "escorts_hold_spacing",
         "shared_travel"
       ],
-      "expectedObservable": "principal_leads -> escorts_hold_spacing -> shared_travel"
+      "fixtureSegment": "R10",
+      "expectedObservable": "principal_leads -> escorts_hold_spacing -> shared_travel",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 11,
       "id": "ESCORT_PEEL_OFF",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "ESCORT_SCREEN + FORMATION_BREAK + DEPART_BANK_AWAY",
       "phases": [
         "escort",
@@ -3138,60 +3179,80 @@
         "bank_away",
         "exit"
       ],
-      "expectedObservable": "escort -> peel_off -> bank_away -> exit"
+      "fixtureSegment": "R11",
+      "expectedObservable": "escort -> peel_off -> bank_away -> exit",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 12,
       "id": "FORMATION_SPREAD",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "FORMATION_BREAK",
       "phases": [
         "stable_formation",
         "open_spacing",
         "hold"
       ],
-      "expectedObservable": "stable_formation -> open_spacing -> hold"
+      "fixtureSegment": "R12",
+      "expectedObservable": "stable_formation -> open_spacing -> hold",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 13,
       "id": "FORMATION_CONVERGE",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "FORMATION_JOIN",
       "phases": [
         "separate_entries",
         "converge_to_slots",
         "hold"
       ],
-      "expectedObservable": "separate_entries -> converge_to_slots -> hold"
+      "fixtureSegment": "R13",
+      "expectedObservable": "separate_entries -> converge_to_slots -> hold",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 14,
       "id": "BANK_AND_EXIT",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "DEPART_BANK_AWAY",
       "phases": [
         "bank_away",
         "accelerate",
         "exit"
       ],
-      "expectedObservable": "bank_away -> accelerate -> exit"
+      "fixtureSegment": "R14",
+      "expectedObservable": "bank_away -> accelerate -> exit",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 15,
       "id": "FORMATION_RETREAT",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "FORMATION_BREAK + ESCAPE",
       "phases": [
         "formation_break",
         "retreat_lanes",
         "exit"
       ],
-      "expectedObservable": "formation_break -> retreat_lanes -> exit"
+      "fixtureSegment": "R15",
+      "expectedObservable": "formation_break -> retreat_lanes -> exit",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 16,
       "id": "DAMAGED_WITHDRAWAL",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "CRIPPLED_DRIFT + ESCAPE",
       "phases": [
         "impact_or_react",
@@ -3199,59 +3260,79 @@
         "crippled_drift",
         "escape"
       ],
-      "expectedObservable": "impact_or_react -> brief_hold -> crippled_drift -> escape"
+      "fixtureSegment": "R16",
+      "expectedObservable": "impact_or_react -> brief_hold -> crippled_drift -> escape",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 17,
       "id": "TAKEOFF_ESCORT",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "LAUNCH_WAVE + ESCORT_SCREEN",
       "phases": [
         "takeoff",
         "escort_join",
         "shared_travel"
       ],
-      "expectedObservable": "takeoff -> escort_join -> shared_travel"
+      "fixtureSegment": "R17",
+      "expectedObservable": "takeoff -> escort_join -> shared_travel",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 18,
       "id": "LAUNCH_WAVE",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "LAUNCH_WAVE",
       "phases": [
         "staggered_takeoffs",
         "clear_launch_area"
       ],
-      "expectedObservable": "staggered_takeoffs -> clear_launch_area"
+      "fixtureSegment": "R18",
+      "expectedObservable": "staggered_takeoffs -> clear_launch_area",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 19,
       "id": "LANDING_APPROACH",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "APPROACH + LANDING",
       "phases": [
         "approach",
         "landing",
         "settle_hold"
       ],
-      "expectedObservable": "approach -> landing -> settle_hold"
+      "fixtureSegment": "R19",
+      "expectedObservable": "approach -> landing -> settle_hold",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 20,
       "id": "LAND_THEN_GUARD_ORBIT",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "LANDING + ORBIT_TARGET",
       "phases": [
         "landing",
         "center_stops",
         "guards_orbit"
       ],
-      "expectedObservable": "landing -> center_stops -> guards_orbit"
+      "fixtureSegment": "R20",
+      "expectedObservable": "landing -> center_stops -> guards_orbit",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 21,
       "id": "STATIC_CENTER_ORBIT_REVEAL",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "ORBIT_TARGET + PULL",
       "phases": [
         "static_center",
@@ -3259,131 +3340,175 @@
         "pull_reveal",
         "hold"
       ],
-      "expectedObservable": "static_center -> guard_orbit -> pull_reveal -> hold"
+      "fixtureSegment": "R21",
+      "expectedObservable": "static_center -> guard_orbit -> pull_reveal -> hold",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 22,
       "id": "ORBIT_THEN_BREAK",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "ORBIT_TARGET + FORMATION_BREAK + DEPART_BANK_AWAY",
       "phases": [
         "orbit",
         "break",
         "bank_away"
       ],
-      "expectedObservable": "orbit -> break -> bank_away"
+      "fixtureSegment": "R22",
+      "expectedObservable": "orbit -> break -> bank_away",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 23,
       "id": "RESCUE_PASS",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "RESCUE_APPROACH + ESCORT_SCREEN + ESCAPE",
       "phases": [
         "rescue_approach",
         "visible_meet",
         "escort_escape"
       ],
-      "expectedObservable": "rescue_approach -> visible_meet -> escort_escape"
+      "fixtureSegment": "R23",
+      "expectedObservable": "rescue_approach -> visible_meet -> escort_escape",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 24,
       "id": "CONVOY_ESCAPE",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "CONVOY + ESCORT_SCREEN + ESCAPE",
       "phases": [
         "convoy_travel",
         "threat_pressure",
         "escape_same_direction"
       ],
-      "expectedObservable": "convoy_travel -> threat_pressure -> escape_same_direction"
+      "fixtureSegment": "R24",
+      "expectedObservable": "convoy_travel -> threat_pressure -> escape_same_direction",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 25,
       "id": "THREAT_REVEAL_PASS",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "FLYBY + BLOCKADE_REVEAL + PULL",
       "phases": [
         "foreground_pass",
         "threat_revealed",
         "pull_scale_context"
       ],
-      "expectedObservable": "foreground_pass -> threat_revealed -> pull_scale_context"
+      "fixtureSegment": "R25",
+      "expectedObservable": "foreground_pass -> threat_revealed -> pull_scale_context",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 26,
       "id": "VICTORY_FLYBY",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "FLYBY + FORMATION_BREAK",
       "phases": [
         "formation_flyby",
         "celebratory_break",
         "exit"
       ],
-      "expectedObservable": "formation_flyby -> celebratory_break -> exit"
+      "fixtureSegment": "R26",
+      "expectedObservable": "formation_flyby -> celebratory_break -> exit",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 27,
       "id": "QUIET_DRIFT_OUT",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "CRIPPLED_DRIFT or DRIFT + ESCAPE",
       "phases": [
         "slow_drift",
         "quiet_exit"
       ],
-      "expectedObservable": "slow_drift -> quiet_exit"
+      "fixtureSegment": "R27",
+      "expectedObservable": "slow_drift -> quiet_exit",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 28,
       "id": "SCREEN_CROSS_REVEAL",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "FLYBY + foreground occlusion/reveal staging",
       "phases": [
         "foreground_occlusion",
         "cross_frame",
         "target_revealed"
       ],
-      "expectedObservable": "foreground_occlusion -> cross_frame -> target_revealed"
+      "fixtureSegment": "R28",
+      "expectedObservable": "foreground_occlusion -> cross_frame -> target_revealed",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 29,
       "id": "CROSS_TRAFFIC",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "SWARM_CROSS",
       "phases": [
         "lane_a_cross",
         "lane_b_cross_other_depth",
         "clear_readable_flow"
       ],
-      "expectedObservable": "lane_a_cross -> lane_b_cross_other_depth -> clear_readable_flow"
+      "fixtureSegment": "R29",
+      "expectedObservable": "lane_a_cross -> lane_b_cross_other_depth -> clear_readable_flow",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 30,
       "id": "HOLD_THEN_BURST",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "HOLD + FLYBY/ESCAPE",
       "phases": [
         "hold",
         "burst_acceleration",
         "travel_payoff"
       ],
-      "expectedObservable": "hold -> burst_acceleration -> travel_payoff"
+      "fixtureSegment": "R30",
+      "expectedObservable": "hold -> burst_acceleration -> travel_payoff",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 31,
       "id": "ARRIVE_SETTLE_HOLD",
       "readiness": "EDITOR_RUNTIME_VERIFIED",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "APPROACH + HOLD",
       "phases": [
         "arrive",
         "decelerate_settle",
         "hold"
       ],
-      "expectedObservable": "arrive -> decelerate_settle -> hold"
+      "fixtureSegment": "R31",
+      "expectedObservable": "arrive -> decelerate_settle -> hold",
+      "runtimeProof": "VERIFIED_GOLDEN31_EDITOR_QA_93_STAGES",
+      "visualProof": "PARTIAL_92_OF_93_STAGE_SAMPLES_R02A_EMPTY"
     },
     {
       "ordinal": 32,
       "id": "TARGET_LOCK",
       "readiness": "IMPLEMENTATION_READY_FOR_MANUAL_QA",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "TRACK + PUSH + ATTACK_RUN",
       "phases": [
         "attacker_establish",
@@ -3391,24 +3516,32 @@
         "attacker_push_in",
         "fire"
       ],
-      "expectedObservable": "attacker_establish -> target_cut -> attacker_push_in -> fire"
+      "fixtureSegment": "P32",
+      "expectedObservable": "attacker_establish -> target_cut -> attacker_push_in -> fire",
+      "runtimeProof": "PENDING_CURRENT_41_EDITOR_QA",
+      "visualProof": "PENDING_CURRENT_41_VISUAL_QA"
     },
     {
       "ordinal": 33,
       "id": "LOOK_REVEAL_REACTION",
       "readiness": "IMPLEMENTATION_READY_FOR_MANUAL_QA",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "HOLD + subject cut + PUSH",
       "phases": [
         "looking_face",
         "seen_subject",
         "reaction_push_in"
       ],
-      "expectedObservable": "looking_face -> seen_subject -> reaction_push_in"
+      "fixtureSegment": "P33",
+      "expectedObservable": "looking_face -> seen_subject -> reaction_push_in",
+      "runtimeProof": "PENDING_CURRENT_41_EDITOR_QA",
+      "visualProof": "PENDING_CURRENT_41_VISUAL_QA"
     },
     {
       "ordinal": 34,
       "id": "THREAT_APPROACH",
       "readiness": "IMPLEMENTATION_READY_FOR_MANUAL_QA",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "APPROACH + alternating subject/threat cuts",
       "phases": [
         "subject",
@@ -3417,12 +3550,16 @@
         "closer_threat",
         "reaction_closeup"
       ],
-      "expectedObservable": "subject -> distant_threat -> subject_return -> closer_threat -> reaction_closeup"
+      "fixtureSegment": "P34",
+      "expectedObservable": "subject -> distant_threat -> subject_return -> closer_threat -> reaction_closeup",
+      "runtimeProof": "PENDING_CURRENT_41_EDITOR_QA",
+      "visualProof": "PENDING_CURRENT_41_VISUAL_QA"
     },
     {
       "ordinal": 35,
       "id": "FALSE_DIRECTION_ATTACK",
       "readiness": "IMPLEMENTATION_READY_FOR_MANUAL_QA",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "FLYBY + ATTACK_RUN + IMPACT",
       "phases": [
         "attacker_exits",
@@ -3430,12 +3567,16 @@
         "offscreen_attack_from_implied_direction",
         "impact"
       ],
-      "expectedObservable": "attacker_exits -> target_hold -> offscreen_attack_from_implied_direction -> impact"
+      "fixtureSegment": "P35",
+      "expectedObservable": "attacker_exits -> target_hold -> offscreen_attack_from_implied_direction -> impact",
+      "runtimeProof": "PENDING_CURRENT_41_EDITOR_QA",
+      "visualProof": "PENDING_CURRENT_41_VISUAL_QA"
     },
     {
       "ordinal": 36,
       "id": "PASS_BY_REVEAL",
       "readiness": "IMPLEMENTATION_READY_FOR_MANUAL_QA",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "FLYBY + BLOCKADE_REVEAL",
       "phases": [
         "foreground_pass",
@@ -3443,24 +3584,32 @@
         "new_subject_reveal",
         "hold_reveal"
       ],
-      "expectedObservable": "foreground_pass -> brief_occlusion -> new_subject_reveal -> hold_reveal"
+      "fixtureSegment": "P36",
+      "expectedObservable": "foreground_pass -> brief_occlusion -> new_subject_reveal -> hold_reveal",
+      "runtimeProof": "PENDING_CURRENT_41_EDITOR_QA",
+      "visualProof": "PENDING_CURRENT_41_VISUAL_QA"
     },
     {
       "ordinal": 37,
       "id": "REACTION_BEFORE_CAUSE",
       "readiness": "IMPLEMENTATION_READY_FOR_MANUAL_QA",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "HOLD + reveal cut",
       "phases": [
         "reaction_first",
         "turn_or_look",
         "cause_reveal"
       ],
-      "expectedObservable": "reaction_first -> turn_or_look -> cause_reveal"
+      "fixtureSegment": "P37",
+      "expectedObservable": "reaction_first -> turn_or_look -> cause_reveal",
+      "runtimeProof": "PENDING_CURRENT_41_EDITOR_QA",
+      "visualProof": "PENDING_CURRENT_41_VISUAL_QA"
     },
     {
       "ordinal": 38,
       "id": "FORMATION_BREAK",
       "readiness": "IMPLEMENTATION_READY_FOR_MANUAL_QA",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "FORMATION_BREAK",
       "phases": [
         "formation_wide",
@@ -3468,12 +3617,16 @@
         "break_accelerate",
         "wide_split"
       ],
-      "expectedObservable": "formation_wide -> single_ship_emphasis -> break_accelerate -> wide_split"
+      "fixtureSegment": "P38",
+      "expectedObservable": "formation_wide -> single_ship_emphasis -> break_accelerate -> wide_split",
+      "runtimeProof": "PENDING_CURRENT_41_EDITOR_QA",
+      "visualProof": "PENDING_CURRENT_41_VISUAL_QA"
     },
     {
       "ordinal": 39,
       "id": "CHAIN_REACTION",
       "readiness": "IMPLEMENTATION_READY_FOR_MANUAL_QA",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "ATTACK_RUN + IMPACT + HIT_SPINOUT",
       "phases": [
         "projectile_or_shot",
@@ -3482,12 +3635,16 @@
         "secondary_reaction",
         "second_explosion"
       ],
-      "expectedObservable": "projectile_or_shot -> first_impact -> first_explosion -> secondary_reaction -> second_explosion"
+      "fixtureSegment": "P39",
+      "expectedObservable": "projectile_or_shot -> first_impact -> first_explosion -> secondary_reaction -> second_explosion",
+      "runtimeProof": "PENDING_CURRENT_41_EDITOR_QA",
+      "visualProof": "PENDING_CURRENT_41_VISUAL_QA"
     },
     {
       "ordinal": 40,
       "id": "HIDDEN_PURSUER",
       "readiness": "IMPLEMENTATION_READY_FOR_MANUAL_QA",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "PURSUIT + delayed reveal",
       "phases": [
         "traveler_exits",
@@ -3495,12 +3652,16 @@
         "pursuer_enters",
         "unaware_hero"
       ],
-      "expectedObservable": "traveler_exits -> camera_lingers -> pursuer_enters -> unaware_hero"
+      "fixtureSegment": "P40",
+      "expectedObservable": "traveler_exits -> camera_lingers -> pursuer_enters -> unaware_hero",
+      "runtimeProof": "PENDING_CURRENT_41_EDITOR_QA",
+      "visualProof": "PENDING_CURRENT_41_VISUAL_QA"
     },
     {
       "ordinal": 41,
       "id": "SCALE_REVEAL",
       "readiness": "IMPLEMENTATION_READY_FOR_MANUAL_QA",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "CAPITAL_SHIP_LOOM + PULL",
       "phases": [
         "close_ship",
@@ -3508,151 +3669,202 @@
         "giant_subject_reveal",
         "hold_scale_contrast"
       ],
-      "expectedObservable": "close_ship -> pull_out -> giant_subject_reveal -> hold_scale_contrast"
+      "fixtureSegment": "P41",
+      "expectedObservable": "close_ship -> pull_out -> giant_subject_reveal -> hold_scale_contrast",
+      "runtimeProof": "PENDING_CURRENT_41_EDITOR_QA",
+      "visualProof": "PENDING_CURRENT_41_VISUAL_QA"
     },
     {
       "ordinal": 42,
       "id": "LOOK_TARGET_LOOK",
       "readiness": "SEQUENCE_RECIPE_NOW",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "EyelineMatch",
       "phases": [
         "looker",
         "looked_at_target",
         "looker_return"
       ],
-      "expectedObservable": "looker -> looked_at_target -> looker_return"
+      "fixtureSegment": "EI01",
+      "expectedObservable": "looker -> looked_at_target -> looker_return",
+      "runtimeProof": "PENDING_EDITORIAL_INFERENCE_EDITOR_QA",
+      "visualProof": "PENDING_EDITORIAL_INFERENCE_VISUAL_QA"
     },
     {
       "ordinal": 43,
       "id": "AIM_TARGET_CONFIRM",
       "readiness": "SEQUENCE_RECIPE_NOW",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "EyelineMatch + KuleshovAssociation",
       "phases": [
         "armed_subject",
         "target",
         "armed_subject_confirm"
       ],
-      "expectedObservable": "armed_subject -> target -> armed_subject_confirm"
+      "fixtureSegment": "EI02",
+      "expectedObservable": "armed_subject -> target -> armed_subject_confirm",
+      "runtimeProof": "PENDING_EDITORIAL_INFERENCE_EDITOR_QA",
+      "visualProof": "PENDING_EDITORIAL_INFERENCE_VISUAL_QA"
     },
     {
       "ordinal": 44,
       "id": "SHIP_TARGET_ATTACK_INTENT",
       "readiness": "SEQUENCE_RECIPE_NOW",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "KuleshovAssociation + PUSH",
       "phases": [
         "ship",
         "target",
         "ship_push_in"
       ],
-      "expectedObservable": "ship -> target -> ship_push_in"
+      "fixtureSegment": "EI03",
+      "expectedObservable": "ship -> target -> ship_push_in",
+      "runtimeProof": "PENDING_EDITORIAL_INFERENCE_EDITOR_QA",
+      "visualProof": "PENDING_EDITORIAL_INFERENCE_VISUAL_QA"
     },
     {
       "ordinal": 45,
       "id": "THREAT_REACTION_THREAT",
       "readiness": "SEQUENCE_RECIPE_NOW",
-      "buildWith": "RevealThenReaction + KuleshovAssociation",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
+      "buildWith": "KuleshovAssociation",
       "phases": [
         "threat",
         "reaction",
         "closer_threat"
       ],
-      "expectedObservable": "threat -> reaction -> closer_threat"
+      "fixtureSegment": "EI04",
+      "expectedObservable": "threat -> reaction -> closer_threat",
+      "runtimeProof": "PENDING_EDITORIAL_INFERENCE_EDITOR_QA",
+      "visualProof": "PENDING_EDITORIAL_INFERENCE_VISUAL_QA"
     },
     {
       "ordinal": 46,
       "id": "DISCOVERY_REVEAL_REACTION",
       "readiness": "SEQUENCE_RECIPE_NOW",
-      "buildWith": "RevealThenReaction",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
+      "buildWith": "editorial discovery/reaction cut; do not serialize as strict editingMoves",
       "phases": [
         "searching_subject",
         "discovery_reveal",
         "reaction"
       ],
-      "expectedObservable": "searching_subject -> discovery_reveal -> reaction"
+      "fixtureSegment": "EI05",
+      "expectedObservable": "searching_subject -> discovery_reveal -> reaction",
+      "runtimeProof": "PENDING_EDITORIAL_INFERENCE_EDITOR_QA",
+      "visualProof": "PENDING_EDITORIAL_INFERENCE_VISUAL_QA"
     },
     {
       "ordinal": 47,
       "id": "CAUSE_EFFECT_REACTION",
       "readiness": "SEQUENCE_RECIPE_NOW",
-      "buildWith": "MatchOnAction + RevealThenReaction",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
+      "buildWith": "editorial cause/effect/reaction cut; do not serialize as strict editingMoves",
       "phases": [
         "cause_action",
         "effect",
         "actor_reaction"
       ],
-      "expectedObservable": "cause_action -> effect -> actor_reaction"
+      "fixtureSegment": "EI06",
+      "expectedObservable": "cause_action -> effect -> actor_reaction",
+      "runtimeProof": "PENDING_EDITORIAL_INFERENCE_EDITOR_QA",
+      "visualProof": "PENDING_EDITORIAL_INFERENCE_VISUAL_QA"
     },
     {
       "ordinal": 48,
       "id": "WATCHER_SUBJECT_WATCHER",
       "readiness": "SEQUENCE_RECIPE_NOW",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "KuleshovAssociation",
       "phases": [
         "watcher",
         "observed_subject",
         "watcher_return"
       ],
-      "expectedObservable": "watcher -> observed_subject -> watcher_return"
+      "fixtureSegment": "EI07",
+      "expectedObservable": "watcher -> observed_subject -> watcher_return",
+      "runtimeProof": "PENDING_EDITORIAL_INFERENCE_EDITOR_QA",
+      "visualProof": "PENDING_EDITORIAL_INFERENCE_VISUAL_QA"
     },
     {
       "ordinal": 49,
       "id": "WEAPON_TARGET_FIRE",
       "readiness": "SEQUENCE_RECIPE_NOW",
-      "buildWith": "EyelineMatch + MatchOnAction",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
+      "buildWith": "EyelineMatch",
       "phases": [
         "weapon",
         "target",
-        "fire"
+        "weapon_fire"
       ],
-      "expectedObservable": "weapon -> target -> fire"
+      "fixtureSegment": "EI08",
+      "expectedObservable": "weapon -> target -> weapon_fire",
+      "runtimeProof": "PENDING_EDITORIAL_INFERENCE_EDITOR_QA",
+      "visualProof": "PENDING_EDITORIAL_INFERENCE_VISUAL_QA"
     },
     {
       "ordinal": 50,
       "id": "MISSILE_TARGET_IMPACT",
       "readiness": "SEQUENCE_RECIPE_NOW",
-      "buildWith": "MatchOnAction + RevealThenReaction",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
+      "buildWith": "editorial missile/target/impact cut + IMPACT; do not serialize as strict editingMoves",
       "phases": [
         "missile",
         "target",
         "impact"
       ],
-      "expectedObservable": "missile -> target -> impact"
+      "fixtureSegment": "EI09",
+      "expectedObservable": "missile -> target -> impact",
+      "runtimeProof": "PENDING_EDITORIAL_INFERENCE_EDITOR_QA",
+      "visualProof": "PENDING_EDITORIAL_INFERENCE_VISUAL_QA"
     },
     {
       "ordinal": 51,
       "id": "ENEMY_HERO_STANDOFF",
       "readiness": "SEQUENCE_RECIPE_NOW",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "ParallelCrossCut + PUSH",
       "phases": [
         "enemy",
         "hero",
         "enemy_tighter"
       ],
-      "expectedObservable": "enemy -> hero -> enemy_tighter"
+      "fixtureSegment": "EI10",
+      "expectedObservable": "enemy -> hero -> enemy_tighter",
+      "runtimeProof": "PENDING_EDITORIAL_INFERENCE_EDITOR_QA",
+      "visualProof": "PENDING_EDITORIAL_INFERENCE_VISUAL_QA"
     },
     {
       "ordinal": 52,
       "id": "OBJECT_MEMORY_FACE",
       "readiness": "SEQUENCE_RECIPE_NOW",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "KuleshovAssociation",
       "phases": [
         "meaningful_object",
         "face",
         "object_return"
       ],
-      "expectedObservable": "meaningful_object -> face -> object_return"
+      "fixtureSegment": "EI11",
+      "expectedObservable": "meaningful_object -> face -> object_return",
+      "runtimeProof": "PENDING_EDITORIAL_INFERENCE_EDITOR_QA",
+      "visualProof": "PENDING_EDITORIAL_INFERENCE_VISUAL_QA"
     },
     {
       "ordinal": 53,
       "id": "LOOK_OFFSCREEN_REVEAL",
       "readiness": "SEQUENCE_RECIPE_NOW",
+      "implementationStatus": "CODE_BACKED_COMPOSITION",
       "buildWith": "EyelineMatch",
       "phases": [
         "offscreen_look",
         "seen_reveal",
         "relation_confirm"
       ],
-      "expectedObservable": "offscreen_look -> seen_reveal -> relation_confirm"
+      "fixtureSegment": "EI12",
+      "expectedObservable": "offscreen_look -> seen_reveal -> relation_confirm",
+      "runtimeProof": "PENDING_EDITORIAL_INFERENCE_EDITOR_QA",
+      "visualProof": "PENDING_EDITORIAL_INFERENCE_VISUAL_QA"
     }
   ],
   "recipeGroups": {
