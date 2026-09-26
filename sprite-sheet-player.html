@@ -1,0 +1,813 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sprite Sheet Preview Player Pro</title>
+<style>
+  :root {
+    --bg: #0c0d10;
+    --panel: #15171c;
+    --panel2: #101217;
+    --border: #2b2f38;
+    --text: #f1f3f8;
+    --muted: #b0b7c7;
+    --accent: #77a7ff;
+    --accent2: #4fe0b0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  .wrap {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 18px;
+  }
+  h1 {
+    margin: 0 0 8px 0;
+    font-size: 34px;
+  }
+  .lead {
+    color: var(--muted);
+    margin-bottom: 16px;
+    line-height: 1.45;
+  }
+  .panel {
+    background: linear-gradient(180deg, var(--panel), var(--panel2));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+  }
+  .dropzone {
+    border: 2px dashed #485066;
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 16px;
+    transition: 0.2s ease;
+  }
+  .dropzone.active {
+    border-color: var(--accent);
+    color: #e7efff;
+    background: rgba(119,167,255,0.08);
+  }
+  .controls {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(120px, 1fr));
+    gap: 12px;
+  }
+  @media (max-width: 1200px) {
+    .controls { grid-template-columns: repeat(3, minmax(120px, 1fr)); }
+  }
+  @media (max-width: 760px) {
+    .controls { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+  }
+  label {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  input[type="number"], input[type="range"], input[type="file"], select {
+    width: 100%;
+  }
+  input[type="number"], select {
+    background: #0f1116;
+    color: var(--text);
+    border: 1px solid #3a4050;
+    border-radius: 10px;
+    padding: 9px 10px;
+    font-size: 14px;
+  }
+  input[type="file"] {
+    color: var(--text);
+  }
+  .btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-top: 14px;
+  }
+  button {
+    border: 1px solid #4a5164;
+    background: #202532;
+    color: white;
+    padding: 9px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  button:hover { background: #283043; }
+  button.accent {
+    background: #294b87;
+    border-color: #5c86d9;
+  }
+  button.good {
+    background: #1d5f50;
+    border-color: #3ea88c;
+  }
+  .toggle-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .grid2 {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 1100px) {
+    .grid2 { grid-template-columns: 1fr; }
+  }
+  .stage {
+    background: #0a0c10;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px;
+    min-height: 420px;
+  }
+  .stage h2 {
+    margin: 0 0 10px 0;
+    font-size: 19px;
+  }
+  .mini {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+  .checker {
+    background:
+      linear-gradient(45deg, #1a1d23 25%, transparent 25%),
+      linear-gradient(-45deg, #1a1d23 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #1a1d23 75%),
+      linear-gradient(-45deg, transparent 75%, #1a1d23 75%);
+    background-size: 28px 28px;
+    background-position: 0 0, 0 14px, 14px -14px, -14px 0px;
+  }
+  .viewer {
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    border-radius: 10px;
+    border: 1px solid #242933;
+  }
+  .viewer canvas, .viewer img {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    max-width: 100%;
+    height: auto;
+  }
+  .sheet-preview {
+    width: 100%;
+    display: block;
+  }
+  .status {
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .big-viewer {
+    min-height: 500px;
+  }
+  .kbd {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 8px;
+    border: 1px solid #414959;
+    background: #0a0d13;
+    color: #fff;
+    margin: 0 2px;
+  }
+  .pill {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: #1b2332;
+    border: 1px solid #394764;
+    color: #d9e5ff;
+    font-size: 12px;
+    margin-left: 6px;
+  }
+  .range-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .range-wrap output {
+    min-width: 44px;
+    text-align: center;
+    color: #fff;
+    background: #0f1116;
+    border: 1px solid #3a4050;
+    border-radius: 8px;
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+<a href="./" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 12px;border:1px solid #4a5164;border-radius:10px;background:#202532;color:#fff;text-decoration:none;font:14px Arial,sans-serif;">← STARWARS_DELTA TOOLS</a>
+<div class="wrap">
+  <h1>נגן מהיר ל־Sprite Sheet</h1>
+  <div class="lead">
+    עכשיו עם שלושה שיפורים שביקשת:
+    <span class="pill">זום אין / אאוט</span>
+    <span class="pill">זיהוי אוטומטי של שורות / עמודות</span>
+    <span class="pill">תצוגת תנועה אמיתית על במה</span>
+  </div>
+
+  <div class="panel">
+    <div id="dropzone" class="dropzone">גרור לכאן PNG / WebP / JPG, או בחר קובץ. לזיהוי אוטומטי הכי טוב לעבוד עם רקע שקוף ורווחים בין הפריימים.</div>
+
+    <div class="controls">
+      <div>
+        <label>קובץ Sprite Sheet</label>
+        <input id="fileInput" type="file" accept="image/*">
+      </div>
+      <div>
+        <label>עמודות</label>
+        <input id="cols" type="number" min="1" value="4">
+      </div>
+      <div>
+        <label>שורות</label>
+        <input id="rows" type="number" min="1" value="5">
+      </div>
+      <div>
+        <label>מספר פריימים כולל</label>
+        <input id="frames" type="number" min="1" value="20">
+      </div>
+      <div>
+        <label>FPS</label>
+        <input id="fps" type="number" min="1" max="60" value="8">
+      </div>
+      <div>
+        <label>מהירות תזוזה על הבמה</label>
+        <input id="travelSpeed" type="number" min="10" max="600" value="140">
+      </div>
+    </div>
+
+    <div class="controls" style="margin-top: 12px;">
+      <div>
+        <label>זום לתצוגת פריים</label>
+        <div class="range-wrap">
+          <input id="scale" type="range" min="1" max="12" step="0.5" value="4">
+          <output id="scaleOut">4×</output>
+        </div>
+      </div>
+      <div>
+        <label>זום לתצוגת הבמה</label>
+        <div class="range-wrap">
+          <input id="stageScale" type="range" min="1" max="10" step="0.25" value="3">
+          <output id="stageScaleOut">3×</output>
+        </div>
+      </div>
+      <div>
+        <label>רוחב במה</label>
+        <input id="stageWidth" type="number" min="300" max="1800" value="760">
+      </div>
+      <div>
+        <label>גובה במה</label>
+        <input id="stageHeight" type="number" min="180" max="900" value="420">
+      </div>
+      <div>
+        <label>סף אלפא לזיהוי אוטומטי</label>
+        <input id="alphaThreshold" type="number" min="1" max="255" value="8">
+      </div>
+      <div>
+        <label>רקע</label>
+        <select id="bgMode">
+          <option value="checker">שקוף משובץ</option>
+          <option value="dark">כהה חלק</option>
+          <option value="light">בהיר חלק</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button id="playPauseBtn">Pause</button>
+      <button id="prevBtn">Frame ◀</button>
+      <button id="nextBtn">▶ Frame</button>
+      <button id="restartBtn">Restart</button>
+      <button id="zoomInBtn">+ זום</button>
+      <button id="zoomOutBtn">- זום</button>
+      <button id="autoDetectBtn" class="accent">זיהוי אוטומטי</button>
+      <button id="fitBtn" class="good">התאם זום אוטומטית</button>
+    </div>
+
+    <div class="toggle-line">
+      <label><input id="loopChk" type="checkbox" checked> Loop</label>
+      <label><input id="showGroundChk" type="checkbox" checked> הצג קרקע בבמה</label>
+      <label><input id="bounceChk" type="checkbox"> הליכה הלוך־חזור על הבמה</label>
+      <label><input id="showGridChk" type="checkbox"> הדגש Grid על הדף</label>
+      <span>קיצורים: <span class="kbd">Space</span> Play/Pause <span class="kbd">←</span>/<span class="kbd">→</span> פריים</span>
+    </div>
+
+    <div class="status" id="status"></div>
+  </div>
+
+  <div class="grid2">
+    <div class="stage">
+      <h2>תצוגת אנימציה — פריים מוגדל</h2>
+      <div id="frameViewer" class="viewer checker big-viewer">
+        <canvas id="frameCanvas"></canvas>
+      </div>
+      <div class="status" id="frameInfo"></div>
+      <div class="mini">אפשר גם לעשות zoom עם הגלגלת של העכבר מעל תצוגת הפריים.</div>
+    </div>
+
+    <div class="stage">
+      <h2>ה־Sprite Sheet כולו</h2>
+      <div id="sheetViewer" class="viewer checker">
+        <canvas id="sheetCanvas" class="sheet-preview"></canvas>
+      </div>
+      <div class="status" id="sheetInfo"></div>
+      <div class="mini">אם הזיהוי האוטומטי הצליח, השדות של שורות / עמודות יתמלאו לבד.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0;">תצוגת תנועה אמיתית על במה</h2>
+    <div id="stageViewer" class="viewer checker big-viewer">
+      <canvas id="stageCanvas"></canvas>
+    </div>
+    <div class="status" id="stageInfo"></div>
+    <div class="mini">הדמות לא רק מחליפה פריימים — כאן רואים גם איך היא נראית כשהיא זזה לאורך הבמה. זה עוזר מיד לראות אם ההליכה מרגישה עקומה, אם יש קפיצות בגובה, foot sliding, או תנוחות מוזרות.</div>
+  </div>
+</div>
+
+<script>
+const defaultDataUrl = "";
+const img = new Image();
+
+const fileInput = document.getElementById("fileInput");
+const colsEl = document.getElementById("cols");
+const rowsEl = document.getElementById("rows");
+const framesEl = document.getElementById("frames");
+const fpsEl = document.getElementById("fps");
+const travelSpeedEl = document.getElementById("travelSpeed");
+const scaleEl = document.getElementById("scale");
+const scaleOut = document.getElementById("scaleOut");
+const stageScaleEl = document.getElementById("stageScale");
+const stageScaleOut = document.getElementById("stageScaleOut");
+const stageWidthEl = document.getElementById("stageWidth");
+const stageHeightEl = document.getElementById("stageHeight");
+const alphaThresholdEl = document.getElementById("alphaThreshold");
+const bgModeEl = document.getElementById("bgMode");
+const loopChk = document.getElementById("loopChk");
+const showGroundChk = document.getElementById("showGroundChk");
+const bounceChk = document.getElementById("bounceChk");
+const showGridChk = document.getElementById("showGridChk");
+
+const playPauseBtn = document.getElementById("playPauseBtn");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const restartBtn = document.getElementById("restartBtn");
+const zoomInBtn = document.getElementById("zoomInBtn");
+const zoomOutBtn = document.getElementById("zoomOutBtn");
+const autoDetectBtn = document.getElementById("autoDetectBtn");
+const fitBtn = document.getElementById("fitBtn");
+
+const statusEl = document.getElementById("status");
+const frameInfoEl = document.getElementById("frameInfo");
+const sheetInfoEl = document.getElementById("sheetInfo");
+const stageInfoEl = document.getElementById("stageInfo");
+
+const frameCanvas = document.getElementById("frameCanvas");
+const frameCtx = frameCanvas.getContext("2d");
+const sheetCanvas = document.getElementById("sheetCanvas");
+const sheetCtx = sheetCanvas.getContext("2d");
+const stageCanvas = document.getElementById("stageCanvas");
+const stageCtx = stageCanvas.getContext("2d");
+
+const frameViewer = document.getElementById("frameViewer");
+const sheetViewer = document.getElementById("sheetViewer");
+const stageViewer = document.getElementById("stageViewer");
+const dropzone = document.getElementById("dropzone");
+
+let currentFrame = 0;
+let playing = true;
+let lastFrameTs = 0;
+let motionTs = 0;
+let spriteX = 0;
+let direction = 1;
+
+function settings() {
+  return {
+    cols: Math.max(1, parseInt(colsEl.value || "1")),
+    rows: Math.max(1, parseInt(rowsEl.value || "1")),
+    totalFrames: Math.max(1, parseInt(framesEl.value || "1")),
+    fps: Math.max(1, parseFloat(fpsEl.value || "8")),
+    travelSpeed: Math.max(1, parseFloat(travelSpeedEl.value || "140")),
+    scale: Math.max(0.5, parseFloat(scaleEl.value || "4")),
+    stageScale: Math.max(0.5, parseFloat(stageScaleEl.value || "3")),
+    stageWidth: Math.max(100, parseInt(stageWidthEl.value || "760")),
+    stageHeight: Math.max(100, parseInt(stageHeightEl.value || "420")),
+    alphaThreshold: Math.max(1, parseInt(alphaThresholdEl.value || "8"))
+  };
+}
+
+function updateScaleLabels() {
+  scaleOut.value = settings().scale + "×";
+  stageScaleOut.value = settings().stageScale + "×";
+}
+
+function getFrameRect(index) {
+  const s = settings();
+  const fw = Math.floor(img.width / s.cols);
+  const fh = Math.floor(img.height / s.rows);
+  const safeIndex = Math.max(0, Math.min(index, s.totalFrames - 1));
+  const col = safeIndex % s.cols;
+  const row = Math.floor(safeIndex / s.cols);
+  return { fw, fh, sx: col * fw, sy: row * fh, index: safeIndex };
+}
+
+function applyBackground(el) {
+  const mode = bgModeEl.value;
+  if (mode === "checker") {
+    el.classList.add("checker");
+    el.style.backgroundColor = "";
+  } else {
+    el.classList.remove("checker");
+    el.style.background = mode === "light" ? "#f2f4f8" : "#121317";
+  }
+}
+
+function redrawAll() {
+  updateScaleLabels();
+  applyBackground(frameViewer);
+  applyBackground(sheetViewer);
+  applyBackground(stageViewer);
+  drawFramePreview(currentFrame);
+  drawSheetPreview();
+  drawStage(true);
+}
+
+function drawFramePreview(index) {
+  if (!img.width) return;
+  const s = settings();
+  const fr = getFrameRect(index);
+  currentFrame = fr.index;
+
+  frameCanvas.width = Math.max(1, Math.round(fr.fw * s.scale));
+  frameCanvas.height = Math.max(1, Math.round(fr.fh * s.scale));
+
+  frameCtx.clearRect(0, 0, frameCanvas.width, frameCanvas.height);
+  frameCtx.imageSmoothingEnabled = false;
+  frameCtx.drawImage(
+    img,
+    fr.sx, fr.sy, fr.fw, fr.fh,
+    0, 0, frameCanvas.width, frameCanvas.height
+  );
+
+  frameInfoEl.textContent = `Frame ${currentFrame + 1} / ${s.totalFrames} | frame size: ${fr.fw}×${fr.fh} | zoom: ×${s.scale}`;
+}
+
+function drawSheetPreview() {
+  if (!img.width) return;
+  sheetCanvas.width = img.width;
+  sheetCanvas.height = img.height;
+  sheetCtx.clearRect(0, 0, img.width, img.height);
+  sheetCtx.imageSmoothingEnabled = false;
+  sheetCtx.drawImage(img, 0, 0);
+
+  const s = settings();
+  const fw = Math.floor(img.width / s.cols);
+  const fh = Math.floor(img.height / s.rows);
+
+  if (showGridChk.checked) {
+    sheetCtx.strokeStyle = "rgba(119,167,255,0.75)";
+    sheetCtx.lineWidth = 1;
+    for (let c = 0; c <= s.cols; c++) {
+      const x = Math.round(c * fw) + 0.5;
+      sheetCtx.beginPath();
+      sheetCtx.moveTo(x, 0);
+      sheetCtx.lineTo(x, img.height);
+      sheetCtx.stroke();
+    }
+    for (let r = 0; r <= s.rows; r++) {
+      const y = Math.round(r * fh) + 0.5;
+      sheetCtx.beginPath();
+      sheetCtx.moveTo(0, y);
+      sheetCtx.lineTo(img.width, y);
+      sheetCtx.stroke();
+    }
+  }
+
+  const cur = getFrameRect(currentFrame);
+  sheetCtx.strokeStyle = "#4fe0b0";
+  sheetCtx.lineWidth = 2;
+  sheetCtx.strokeRect(cur.sx + 1, cur.sy + 1, cur.fw - 2, cur.fh - 2);
+
+  sheetInfoEl.textContent = `Sheet size: ${img.width}×${img.height} | grid: ${s.cols}×${s.rows} | total frames: ${s.totalFrames}`;
+}
+
+function drawGround(ctx, w, h) {
+  const y = h - 52;
+  ctx.strokeStyle = "rgba(255,255,255,0.35)";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(0, y + 0.5);
+  ctx.lineTo(w, y + 0.5);
+  ctx.stroke();
+
+  ctx.fillStyle = "rgba(255,255,255,0.08)";
+  ctx.fillRect(0, y + 2, w, h - y - 2);
+  return y;
+}
+
+function drawStage(resetPosition=false) {
+  if (!img.width) return;
+  const s = settings();
+  const fr = getFrameRect(currentFrame);
+  stageCanvas.width = s.stageWidth;
+  stageCanvas.height = s.stageHeight;
+
+  stageCtx.clearRect(0, 0, s.stageWidth, s.stageHeight);
+  stageCtx.imageSmoothingEnabled = false;
+
+  let groundY = s.stageHeight - 52;
+  if (showGroundChk.checked) groundY = drawGround(stageCtx, s.stageWidth, s.stageHeight);
+
+  const drawW = Math.round(fr.fw * s.stageScale);
+  const drawH = Math.round(fr.fh * s.stageScale);
+
+  if (resetPosition || !Number.isFinite(spriteX)) {
+    spriteX = 24;
+    direction = 1;
+  }
+
+  const y = groundY - drawH;
+  stageCtx.drawImage(
+    img,
+    fr.sx, fr.sy, fr.fw, fr.fh,
+    Math.round(spriteX), Math.round(y), drawW, drawH
+  );
+
+  stageInfoEl.textContent = `במה: ${s.stageWidth}×${s.stageHeight} | sprite zoom on stage: ×${s.stageScale} | move speed: ${s.travelSpeed} px/sec`;
+}
+
+function animate(ts) {
+  requestAnimationFrame(animate);
+  if (!img.width) return;
+
+  const s = settings();
+  if (!lastFrameTs) lastFrameTs = ts;
+  if (!motionTs) motionTs = ts;
+
+  if (playing) {
+    const frameInterval = 1000 / s.fps;
+    if (ts - lastFrameTs >= frameInterval) {
+      lastFrameTs = ts;
+      currentFrame += 1;
+      if (currentFrame >= s.totalFrames) {
+        if (loopChk.checked) currentFrame = 0;
+        else {
+          currentFrame = s.totalFrames - 1;
+          playing = false;
+          playPauseBtn.textContent = "Play";
+        }
+      }
+      drawFramePreview(currentFrame);
+      drawSheetPreview();
+    }
+
+    const dt = (ts - motionTs) / 1000;
+    motionTs = ts;
+
+    const fr = getFrameRect(currentFrame);
+    const drawW = fr.fw * s.stageScale;
+    const minX = 10;
+    const maxX = s.stageWidth - drawW - 10;
+
+    if (bounceChk.checked) {
+      spriteX += direction * s.travelSpeed * dt;
+      if (spriteX > maxX) {
+        spriteX = maxX;
+        direction = -1;
+      }
+      if (spriteX < minX) {
+        spriteX = minX;
+        direction = 1;
+      }
+    } else {
+      spriteX += s.travelSpeed * dt;
+      if (spriteX > s.stageWidth + 20) spriteX = -drawW;
+    }
+  } else {
+    motionTs = ts;
+  }
+
+  drawStage(false);
+}
+
+function fitZoom() {
+  if (!img.width) return;
+  const s = settings();
+  const fr = getFrameRect(0);
+  const target = Math.max(1, Math.floor(Math.min(420 / fr.fw, 420 / fr.fh) * 10) / 10);
+  scaleEl.value = Math.min(12, Math.max(1, target));
+  const targetStage = Math.max(1, Math.floor(Math.min((s.stageWidth * 0.25) / fr.fw, (s.stageHeight * 0.65) / fr.fh) * 10) / 10);
+  stageScaleEl.value = Math.min(10, Math.max(1, targetStage));
+  redrawAll();
+  statusEl.textContent = "בוצע התאמה אוטומטית של zoom לפי גודל הפריים.";
+}
+
+function loadFromUrl(url) {
+  img.onload = () => {
+    statusEl.textContent = "נטען בהצלחה. מנסה לזהות שורות / עמודות אוטומטית...";
+    autoDetectGrid(true);
+    fitZoom();
+    currentFrame = 0;
+    spriteX = 24;
+    lastFrameTs = 0;
+    motionTs = 0;
+    redrawAll();
+  };
+  img.src = url;
+}
+
+function handleFile(file) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => loadFromUrl(e.target.result);
+  reader.readAsDataURL(file);
+}
+
+function findSegments(arr) {
+  const segs = [];
+  let inside = false;
+  let start = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0 && !inside) {
+      start = i;
+      inside = true;
+    }
+    if ((arr[i] === 0 || i === arr.length - 1) && inside) {
+      const end = (arr[i] === 0) ? i - 1 : i;
+      segs.push({ start, end, size: end - start + 1 });
+      inside = false;
+    }
+  }
+  return segs;
+}
+
+function autoDetectGrid(silent=false) {
+  if (!img.width) return;
+
+  const threshold = settings().alphaThreshold;
+  const off = document.createElement("canvas");
+  off.width = img.width;
+  off.height = img.height;
+  const octx = off.getContext("2d", { willReadFrequently: true });
+  octx.drawImage(img, 0, 0);
+  const data = octx.getImageData(0, 0, off.width, off.height).data;
+
+  const colsSum = new Array(off.width).fill(0);
+  const rowsSum = new Array(off.height).fill(0);
+
+  for (let y = 0; y < off.height; y++) {
+    for (let x = 0; x < off.width; x++) {
+      const a = data[(y * off.width + x) * 4 + 3];
+      if (a >= threshold) {
+        colsSum[x]++;
+        rowsSum[y]++;
+      }
+    }
+  }
+
+  let xSegs = findSegments(colsSum);
+  let ySegs = findSegments(rowsSum);
+
+  // Clean tiny noise segments
+  xSegs = xSegs.filter(s => s.size >= 2);
+  ySegs = ySegs.filter(s => s.size >= 2);
+
+  if (xSegs.length >= 1 && ySegs.length >= 1) {
+    colsEl.value = xSegs.length;
+    rowsEl.value = ySegs.length;
+    const detectedFrames = xSegs.length * ySegs.length;
+    framesEl.value = detectedFrames;
+    if (!silent) {
+      statusEl.textContent = `זוהה אוטומטית grid של ${xSegs.length} עמודות ו־${ySegs.length} שורות.`;
+    }
+  } else {
+    if (!silent) {
+      statusEl.textContent = "לא הצלחתי לזהות grid אוטומטית. אפשר להגדיר ידנית.";
+    }
+  }
+
+  redrawAll();
+}
+
+fileInput.addEventListener("change", e => handleFile(e.target.files[0]));
+[colsEl, rowsEl, framesEl, fpsEl, travelSpeedEl, scaleEl, stageScaleEl, stageWidthEl, stageHeightEl, alphaThresholdEl].forEach(el => {
+  el.addEventListener("input", redrawAll);
+});
+[bgModeEl, showGroundChk, bounceChk, showGridChk].forEach(el => {
+  el.addEventListener("change", redrawAll);
+});
+
+playPauseBtn.addEventListener("click", () => {
+  playing = !playing;
+  playPauseBtn.textContent = playing ? "Pause" : "Play";
+  lastFrameTs = 0;
+  motionTs = 0;
+});
+
+prevBtn.addEventListener("click", () => {
+  currentFrame = Math.max(0, currentFrame - 1);
+  redrawAll();
+});
+
+nextBtn.addEventListener("click", () => {
+  currentFrame = Math.min(settings().totalFrames - 1, currentFrame + 1);
+  redrawAll();
+});
+
+restartBtn.addEventListener("click", () => {
+  currentFrame = 0;
+  spriteX = 24;
+  lastFrameTs = 0;
+  motionTs = 0;
+  redrawAll();
+});
+
+zoomInBtn.addEventListener("click", () => {
+  scaleEl.value = Math.min(12, parseFloat(scaleEl.value) + 0.5);
+  redrawAll();
+});
+zoomOutBtn.addEventListener("click", () => {
+  scaleEl.value = Math.max(1, parseFloat(scaleEl.value) - 0.5);
+  redrawAll();
+});
+
+autoDetectBtn.addEventListener("click", () => autoDetectGrid(false));
+fitBtn.addEventListener("click", fitZoom);
+
+document.addEventListener("keydown", e => {
+  if (e.code === "Space") {
+    e.preventDefault();
+    playPauseBtn.click();
+  } else if (e.code === "ArrowRight") {
+    nextBtn.click();
+  } else if (e.code === "ArrowLeft") {
+    prevBtn.click();
+  }
+});
+
+frameViewer.addEventListener("wheel", e => {
+  e.preventDefault();
+  const cur = parseFloat(scaleEl.value);
+  scaleEl.value = Math.max(1, Math.min(12, cur + (e.deltaY < 0 ? 0.5 : -0.5)));
+  redrawAll();
+}, { passive: false });
+
+stageViewer.addEventListener("wheel", e => {
+  e.preventDefault();
+  const cur = parseFloat(stageScaleEl.value);
+  stageScaleEl.value = Math.max(1, Math.min(10, cur + (e.deltaY < 0 ? 0.25 : -0.25)));
+  redrawAll();
+}, { passive: false });
+
+// Drag and drop
+["dragenter", "dragover"].forEach(evt => {
+  dropzone.addEventListener(evt, e => {
+    e.preventDefault();
+    e.stopPropagation();
+    dropzone.classList.add("active");
+  });
+});
+["dragleave", "drop"].forEach(evt => {
+  dropzone.addEventListener(evt, e => {
+    e.preventDefault();
+    e.stopPropagation();
+    dropzone.classList.remove("active");
+  });
+});
+dropzone.addEventListener("drop", e => {
+  const file = e.dataTransfer.files && e.dataTransfer.files[0];
+  handleFile(file);
+});
+
+statusEl.textContent = "טען Sprite Sheet כדי להתחיל.";
+requestAnimationFrame(animate);
+</script>
+</body>
+</html>
+
+[executed on device: DESKTOP-5J7HT7C (cb4890df-61d0-40b8-8570-f8b80f3dec3a)]
