@@ -53,3 +53,91 @@ body{min-height:100vh}
 .floating-home{position:fixed;right:18px;bottom:18px;z-index:90;display:inline-flex;align-items:center;gap:8px;background:#133348;border:1px solid #3e829f;color:#fff;text-decoration:none;border-radius:999px;padding:11px 14px;font-size:12px;font-weight:900;box-shadow:0 14px 40px #0008}
 @media(max-width:900px){.home-hero{grid-template-columns:1fr}.home-grid{grid-template-columns:1fr 1fr}.home-card.featured{grid-column:span 2}.resource-grid{grid-template-columns:1fr 1fr}.board-row-head{flex-direction:column}.board-row-actions{justify-content:flex-start}}
 @media(max-width:640px){.tool-nav{align-items:flex-start;flex-direction:column;padding:10px 14px}.tool-nav-links{width:100%;justify-content:flex-start}.home-shell,.page-shell{width:min(94vw,100%);padding-top:22px}.home-grid{grid-template-columns:1fr}.home-card.featured{grid-column:span 1}.home-hero-copy{padding:24px}.home-current{padding:20px}.resource-grid{grid-template-columns:1fr}.page-hero{align-items:flex-start;flex-direction:column}.library-tools{grid-template-columns:1fr!important}.legacy-preview{grid-template-columns:1fr}.devora-panel{padding:22px}.devora-panel h1{font-size:34px}}
+
+
+/* HEBREW GAME CREATIVE THEME 20260926 */
+html[dir="rtl"] body{direction:rtl}
+html[dir="rtl"] .tool-nav,
+html[dir="rtl"] .page-hero,
+html[dir="rtl"] .home-hero,
+html[dir="rtl"] .home-section-head,
+html[dir="rtl"] .board-row-head,
+html[dir="rtl"] .shot-expand-head{direction:rtl}
+html[dir="rtl"] .tool-brand{direction:ltr}
+html[dir="rtl"] .tool-nav-links{direction:rtl}
+html[dir="rtl"] .library-tools,
+html[dir="rtl"] .visual-browser-tools{direction:rtl}
+html[dir="rtl"] input,html[dir="rtl"] select,html[dir="rtl"] textarea{text-align:right}
+
+:root{
+  --game-cyan:#54dcff;
+  --game-blue:#4a8cff;
+  --game-green:#56e39f;
+  --game-violet:#9b7cff;
+  --game-pink:#ff6fbd;
+  --game-gold:#ffc857;
+}
+body{
+  background:
+    radial-gradient(circle at 14% 8%,rgba(74,140,255,.14),transparent 24%),
+    radial-gradient(circle at 82% 18%,rgba(155,124,255,.11),transparent 27%),
+    radial-gradient(circle at 72% 78%,rgba(86,227,159,.08),transparent 25%),
+    linear-gradient(180deg,#07111b 0%,#091725 52%,#07121d 100%);
+}
+.tool-nav{
+  background:linear-gradient(90deg,rgba(5,15,27,.97),rgba(10,21,36,.95));
+  box-shadow:0 12px 34px rgba(0,0,0,.22);
+}
+.tool-brand-mark{
+  background:linear-gradient(145deg,#28c2e8,#4a7cff 62%,#885cf4);
+  border-color:#68dfff;
+  box-shadow:0 0 28px rgba(84,220,255,.26);
+}
+.tool-nav-links a.active{
+  background:linear-gradient(135deg,rgba(52,121,161,.54),rgba(99,80,175,.38));
+  border-color:#4b8eac;
+}
+.home-hero-copy{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 8% 0%,rgba(84,220,255,.17),transparent 28%),
+    radial-gradient(circle at 92% 100%,rgba(155,124,255,.14),transparent 32%),
+    linear-gradient(145deg,rgba(13,36,53,.96),rgba(8,20,33,.98));
+}
+.home-hero-copy:after{content:"";position:absolute;left:-80px;bottom:-100px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(255,111,189,.08),transparent 70%)}
+.home-current{
+  background:linear-gradient(145deg,rgba(15,43,38,.96),rgba(8,25,30,.98));
+  border-color:rgba(86,227,159,.34);
+}
+.home-card{border-width:1px}
+.home-card[data-tone="cyan"]{background:linear-gradient(155deg,#0d3142,#0a1d2a);border-color:#2d7d97}
+.home-card[data-tone="cyan"] .home-card-icon{background:#0c3547;border-color:#3295b5;color:#8beeff}
+.home-card[data-tone="green"]{background:linear-gradient(155deg,#0e3029,#0a1f20);border-color:#2e7457}
+.home-card[data-tone="green"] .home-card-icon{background:#0d3b2b;border-color:#329063;color:#9bf2c0}
+.home-card[data-tone="violet"]{background:linear-gradient(155deg,#251d42,#111b2b);border-color:#6652a5}
+.home-card[data-tone="violet"] .home-card-icon{background:#302253;border-color:#8067c3;color:#d0c2ff}
+.home-card[data-tone="gold"]{background:linear-gradient(155deg,#342812,#171d24);border-color:#7c642b}
+.home-card[data-tone="gold"] .home-card-icon{background:#412f0d;border-color:#977833;color:#ffe38e}
+.home-card[data-tone="pink"]{background:linear-gradient(155deg,#3a1b35,#121d2b);border-color:#925079}
+.home-card[data-tone="pink"] .home-card-icon{background:#4a1e3e;border-color:#b45e94;color:#ffb4dc}
+.home-card:hover{box-shadow:0 24px 72px rgba(0,0,0,.34),0 0 0 1px rgba(255,255,255,.03) inset}
+.home-card-go{font-size:13px}
+.resource-card{transition:transform .16s ease,border-color .16s ease,background .16s ease}.resource-card:hover{transform:translateY(-3px)}
+.resource-card.tone-cyan{background:linear-gradient(145deg,#0c2b3a,#0a1925);border-color:#2b718c}
+.resource-card.tone-violet{background:linear-gradient(145deg,#251b3e,#0e1925);border-color:#66519e}
+.resource-card.tone-green{background:linear-gradient(145deg,#0d2f25,#0b1c21);border-color:#2f7757}
+.resource-card.tone-gold{background:linear-gradient(145deg,#312611,#111b24);border-color:#786128}
+.devora-panel{
+  background:
+    radial-gradient(circle at 80% 0%,rgba(255,200,87,.16),transparent 30%),
+    radial-gradient(circle at 12% 100%,rgba(155,124,255,.12),transparent 34%),
+    linear-gradient(145deg,#123127,#0b1e25);
+  border-color:#4f9b6d;
+}
+.devora-crown{filter:drop-shadow(0 0 12px rgba(255,200,87,.45))}
+.button{background:linear-gradient(135deg,#12627c,#174f86);border-color:#3f8fb0}
+.button:hover{filter:brightness(1.12)}
+.button.secondary{background:#142435;border-color:#405d70}
+.floating-home{background:linear-gradient(135deg,#15516a,#3c3a78);border-color:#5b88ad}
+.storyboard-browser-row{background:linear-gradient(145deg,#0c1f2d,#091723)}
+.stat{background:linear-gradient(145deg,#0e2231,#0b1824)}
