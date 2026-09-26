@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate">
+<title>STARWARS_DELTA Catalog</title>
+<link rel="stylesheet" href="assets/site.css?build=portal-20260926">
+<link rel="stylesheet" href="assets/hub.css?build=portal-20260926">
+</head>
+<body>
+<nav class="tool-nav">
+  <a class="tool-brand" href="./"><span class="tool-brand-mark">Δ</span><span>STARWARS_DELTA</span></a>
+  <div class="tool-nav-links">
+    <a href="./">HOME</a><a href="storyboards.html">STORYBOARDS</a><a href="sprite-sheet-player.html">ANIMATION</a><a href="cutscene-preview.html">CUTSCENE</a><a href="devora.html">DEVORA</a><a class="active" href="catalog.html">CATALOG</a>
+  </div>
+</nav>
+<main class="page-shell">
+  <section class="page-hero">
+    <div><div class="eyebrow">DESIGNER AI / CURRENT</div><h1>Catalog & Downloads</h1><p>Browse CURRENT visuals and reach the canonical authoring resources. No archaeology through old build folders required.</p></div>
+    <div id="visualBrowserStats" class="library-stats"></div>
+  </section>
+
+  <section class="resource-grid">
+    <a class="resource-card" href="designer-ai/open-current/CHATGPT_AUTHORING_INDEX.json" target="_blank" rel="noopener"><b>Authoring Index</b><span>Canonical CURRENT navigation for actors, visuals and authoring choices.</span></a>
+    <a class="resource-card" href="designer-ai/open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf" target="_blank" rel="noopener"><b>Visual Atlas</b><span>Open the CURRENT visual atlas PDF.</span></a>
+    <a class="resource-card" href="designer-ai/open-current/ANIMATION_COVERAGE_CURRENT.json" target="_blank" rel="noopener"><b>Animation Coverage</b><span>Coverage and resolution status for published animations.</span></a>
+    <a class="resource-card" href="designer-ai/open-current/OPEN_CURRENT.json" target="_blank" rel="noopener"><b>CURRENT Status</b><span>Manifest, transaction and canonical download locations.</span></a>
+  </section>
+
+  <section>
+    <div class="home-section-head"><div><h2>Visual Browser</h2><p>Actors, animations, effects and scenery from sealed CURRENT.</p></div></div>
+    <section class="visual-browser-tools">
+      <input id="visualSearch" type="search" placeholder="Search actors, ArtPack, animations, effects, scenery...">
+      <select id="visualType"><option value="animated">Animated Actors</option><option value="actors">All Actors</option><option value="animations">Animations</option><option value="effects">Effects</option><option value="scenery">Scenery</option></select>
+    </section>
+    <div id="visualBrowserMessage" class="hub-note">Loading sealed CURRENT visual index...</div>
+    <section id="visualBrowserGrid" class="visual-browser-grid"></section>
+  </section>
+
+  <div class="hidden">
+    <div id="designerStatus"></div><div id="designerMeta"></div><div id="designerNote"></div>
+    <button id="copyChatStart"></button><a id="downloadAtlasOnly"></a><a id="downloadVisualLibrary"></a><a id="downloadVisualProof"></a>
+  </div>
+</main>
+<a class="floating-home" href="./">⌂ HOME</a>
+<footer>STARWARS_DELTA — CURRENT Catalog</footer>
+<script src="assets/hub.js?build=portal-20260926"></script>
+</body></html>
