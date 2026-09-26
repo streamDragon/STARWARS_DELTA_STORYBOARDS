@@ -50,7 +50,38 @@ async function boot(){try{
  state.ready=true;status.className='status ok';status.textContent=`CURRENT ${tx(open)} · הסכמה מוכנה · ${state.handles.size} handles · ${state.dialogue.size} דמויות דיאלוג · חזות מוכנה`;
 }catch(e){status.className='status bad';status.textContent='CURRENT לא תקין · '+e.message}}
 function schemaErrors(o){const ok=state.validate(o);if(ok)return[];return(state.validate.errors||[]).map(e=>`${e.instancePath||'/'} ${e.message||e.keyword}`)}
-function authoringErrors(o){const out=[],talkers=new Set();for(const b of o.beats||[])for(const d of b.dialogue||[]){if(d.speaker)talkers.add(E(d.speaker));if(d.listener)talkers.add(E(d.listener))}for(const c of o.cast||[])if(!talkers.has(E(c.id))&&!handle(c.identityHandle,'Actor'))out.push(`cast.${c.id} Actor handle unresolved: ${c.identityHandle}`);for(const b of o.beats||[]){if(b.locationHandle&&!handle(b.locationHandle,'Layer'))out.push(`beat.${b.id} Layer handle unresolved: ${b.locationHandle}`);for(const v of b.visible||[])if(!handle(v.handle))out.push(`beat.${b.id}.${v.id} handle unresolved: ${v.handle}`);for(const a of b.audio||[])if(!handle(a.handle,'Audio'))out.push(`beat.${b.id} Audio handle unresolved: ${a.handle}`);for(const d of b.dialogue||[]){for(const role of ['speaker','listener']){const id=E(d[role]);if(!id)continue;const cast=(o.cast||[]).find(c=>E(c.id)===id),ch=state.dialogue.get(id);if(!cast||!ch||E(cast.identityHandle)!==E(ch.identityHandle))out.push(`beat.${b.id} dialogue ${role} outside CURRENT repertoire: ${id}`)}const ch=state.dialogue.get(E(d.speaker));if(ch){const ex=E(d.expressionIntent||ch.defaultExpression);if(!(ch.supportedExpressions||[]).includes(ex))out.push(`beat.${b.id} unsupported expression ${d.speaker}: ${ex}`)}}}return out}
+function authoringErrors(o){
+ const out=[],talkers=new Set();
+ for(const b of o.beats||[])for(const d of b.dialogue||[]){if(d.speaker)talkers.add(E(d.speaker));if(d.listener)talkers.add(E(d.listener))}
+ for(const c of o.cast||[]){
+  const id=E(c.id),identity=E(c.identityHandle),material=E(c.materialHandle);
+  if(identity&&material){out.push(`cast.${id} has both identityHandle and materialHandle`);continue}
+  if(!identity&&!material){out.push(`cast.${id} requires identityHandle or materialHandle`);continue}
+  if(material){
+   const mh=handle(material);
+   if(!mh)out.push(`cast.${id} materialHandle unresolved: ${material}`);
+   if(talkers.has(id))out.push(`cast.${id} dialogue participant requires identityHandle, not materialHandle`);
+   continue;
+  }
+  if(!handle(identity,'Actor'))out.push(`cast.${id} Actor identity unresolved: ${identity}`);
+ }
+ for(const b of o.beats||[]){
+  if(b.locationHandle&&!handle(b.locationHandle,'Layer'))out.push(`beat.${b.id} Layer handle unresolved: ${b.locationHandle}`);
+  for(const v of b.visible||[])if(!handle(v.handle))out.push(`beat.${b.id}.${v.id} handle unresolved: ${v.handle}`);
+  for(const a of b.actions||[])if(a.animationHandle&&!handle(a.animationHandle,'Animation'))out.push(`beat.${b.id} animationHandle unresolved: ${a.animationHandle}`);
+  for(const a of b.audio||[])if(!handle(a.handle,'Audio'))out.push(`beat.${b.id} Audio handle unresolved: ${a.handle}`);
+  for(const d of b.dialogue||[]){
+   for(const role of ['speaker','listener']){
+    const id=E(d[role]);if(!id)continue;
+    const cast=(o.cast||[]).find(c=>E(c.id)===id),ch=state.dialogue.get(id);
+    if(!cast||!ch||E(cast.identityHandle)!==E(ch.identityHandle))out.push(`beat.${b.id} dialogue ${role} outside CURRENT repertoire: ${id}`);
+   }
+   const ch=state.dialogue.get(E(d.speaker));
+   if(ch){const ex=E(d.expressionIntent||ch.defaultExpression);if(!(ch.supportedExpressions||[]).includes(ex))out.push(`beat.${b.id} unsupported expression ${d.speaker}: ${ex}`)}
+  }
+ }
+ return out
+}
 function addPortrait(actorId,side,intent){const ch=state.dialogue.get(E(actorId));if(!ch)return;const p=expressionPresentation(ch,intent);if(p?.image){const im=document.createElement('img');im.className='portrait '+side;im.src=p.image;im.alt=`${actorId} ${p.expression}`;stage.appendChild(im);return}const ph=document.createElement('div');ph.className='portrait-placeholder '+side;ph.textContent=`${actorId}\n${p?.expression||''}\nאין כרגע תצוגת פורטרט זמינה`;stage.appendChild(ph)}
 function addVisible(v){const h=handle(v.handle),u=imageFor(h);if(!u)return;const n=Math.max(1,Math.min(64,Number(v.count)||1)),baseX=Number(v.screenX??.5),baseY=Number(v.screenY??.5);for(let i=0;i<n;i++){const [dx,dy]=cloneOffset(i,n),im=document.createElement('img');im.className='visual';im.src=u;im.alt=E(v.id);im.style.left=((baseX+dx)*100)+'%';im.style.top=((baseY+dy)*100)+'%';if(v.screenHeightFraction!=null)im.style.height=(Number(v.screenHeightFraction)*100)+'%';else im.style.width=(Number(v.screenWidthFraction??.18)*100)+'%';im.style.zIndex=String(depthZ(v.depth));stage.appendChild(im)}}
 function stopPlayback(){if(state.timer){clearTimeout(state.timer);state.timer=null}state.playing=false;play.textContent='נגן'}
