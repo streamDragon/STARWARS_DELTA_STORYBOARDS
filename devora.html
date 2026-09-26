@@ -1,37 +1,37 @@
 <!doctype html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate">
-<title>DEVORA THE QUEEN — STARWARS_DELTA</title>
-<link rel="stylesheet" href="assets/site.css?build=portal-20260926">
+<title>דבורה המלכה — STARWARS_DELTA</title>
+<link rel="stylesheet" href="assets/site.css?build=he-game-20260926">
 </head>
 <body>
 <nav class="tool-nav">
   <a class="tool-brand" href="./"><span class="tool-brand-mark">Δ</span><span>STARWARS_DELTA</span></a>
   <div class="tool-nav-links">
-    <a href="./">HOME</a><a href="storyboards.html">STORYBOARDS</a><a href="sprite-sheet-player.html">ANIMATION</a><a href="cutscene-preview.html">CUTSCENE</a><a class="active" href="devora.html">DEVORA</a><a href="catalog.html">CATALOG</a>
+    <a href="./">בית</a><a href="storyboards.html">סטוריבורדים</a><a href="sprite-sheet-player.html">אנימציה</a><a href="cutscene-preview.html">סרטים</a><a class="active" href="devora.html">דבורה</a><a href="catalog.html">קטלוג</a>
   </div>
 </nav>
 <main class="page-shell">
   <section class="devora-panel">
     <div class="devora-crown">♛</div>
     <div class="eyebrow">DESIGNER AI / CURRENT</div>
-    <h1>DEVORA THE QUEEN</h1>
-    <p>Start a movie-authoring request using the sealed CURRENT contract. The normal path is deliberately short: copy the ChatGPT instruction, paste it into ChatGPT, then describe the movie in plain language.</p>
+    <h1>דבורה המלכה</h1>
+    <p>מכאן מתחילים יצירת סרט חדש עם ChatGPT באמצעות ה־CURRENT הסגור. התהליך בכוונה קצר: מעתיקים את הוראת הפתיחה, מדביקים בצ'אט, ואז מתארים את הסרט בשפה רגילה.</p>
     <div class="page-actions">
-      <button id="copyDevora" class="button">COPY FOR CHATGPT</button>
-      <a class="button secondary" href="catalog.html">OPEN CATALOG</a>
-      <a class="button secondary" href="designer-ai/open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf" target="_blank" rel="noopener">VISUAL ATLAS</a>
+      <button id="copyDevora" class="button">העתקה ל־ChatGPT</button>
+      <a class="button secondary" href="catalog.html">פתיחת הקטלוג</a>
+      <a class="button secondary" href="designer-ai/open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf" target="_blank" rel="noopener">אטלס חזותי</a>
     </div>
-    <div id="devoraStatus" class="hub-note">Checking CURRENT…</div>
+    <div id="devoraStatus" class="hub-note">בודק CURRENT…</div>
   </section>
 </main>
-<a class="floating-home" href="./">⌂ HOME</a>
-<footer>STARWARS_DELTA — DEVORA</footer>
+<a class="floating-home" href="./">⌂ בית</a>
+<footer>STARWARS_DELTA — דבורה המלכה</footer>
 <script>
 const copyText='Use only the sealed STARWARS_DELTA CURRENT at https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/CHATGPT_START.txt and verify https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/OPEN_CURRENT.json. For visual choices, use the matching CURRENT CHATGPT_AUTHORING_INDEX previewUrl when present and do not guess appearance from names. For a NEW movie, author exactly one CUTSCENE_SCRIPT_V1 from my natural-language request. Do NOT ask me for a Request Report/COPY REQUEST, do NOT hand-author V3/V5, raw Actor IDs or raw Animation IDs. V3/V5 are backend only. Use REPAIR only after Unity rejects a specific candidate and supplies diagnostics. Return the movie as a real downloadable .json file.';
-document.getElementById('copyDevora').onclick=async()=>{const b=document.getElementById('copyDevora');try{await navigator.clipboard.writeText(copyText);b.textContent='COPIED';setTimeout(()=>b.textContent='COPY FOR CHATGPT',1500)}catch(_){window.prompt('Copy this message for ChatGPT:',copyText)}};
-(async()=>{try{const r=await fetch('designer-ai/open-current/OPEN_CURRENT.json?ts='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);const m=await r.json();document.getElementById('devoraStatus').textContent=(m.status||'CURRENT')+' · '+(m.publishTransactionId||'');}catch(e){document.getElementById('devoraStatus').textContent='CURRENT manifest unavailable';}})();
+document.getElementById('copyDevora').onclick=async()=>{const b=document.getElementById('copyDevora');try{await navigator.clipboard.writeText(copyText);b.textContent='הועתק';setTimeout(()=>b.textContent='העתקה ל־ChatGPT',1500)}catch(_){window.prompt('העתק את הטקסט ל־ChatGPT:',copyText)}};
+(async()=>{try{const r=await fetch('designer-ai/open-current/OPEN_CURRENT.json?ts='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);const m=await r.json();document.getElementById('devoraStatus').textContent='CURRENT: '+(m.status||'CURRENT')+' · '+(m.publishTransactionId||'');}catch(e){document.getElementById('devoraStatus').textContent='לא ניתן לקרוא כרגע את CURRENT';}})();
 </script>
 </body></html>
