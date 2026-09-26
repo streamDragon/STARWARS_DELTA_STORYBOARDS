@@ -31,7 +31,7 @@ function previewUrl(v){
 }
 function visualThumb(v,name){
   const url=previewUrl(v);
-  if(!url)return '<div class="visual-card-missing">NO PUBLISHED PREVIEW</div>';
+  if(!url)return '<div class="visual-card-missing">אין תצוגה שפורסמה</div>';
   const slot=Number(v?.atlasSlot||v?.visualSheetsSlot||0);
   if(slot>=1&&slot<=12&&v?.pageImageUrl){
     const col=(slot-1)%3,row=Math.floor((slot-1)/3);
@@ -76,11 +76,11 @@ function renderVisuals(){
   if(!visualState||!visualGrid)return;
   const q=(visualSearch?.value||'').trim().toLowerCase();
   const type=visualType?.value||'animated';
-  let rows=type==='animated'?visualState.animatedActors:type==='actors'?visualState.actors:type==='animations'?visualState.animations:type==='effects'?visualState.effects:visualState.scenery;
+  let rows=type==='animated'?visualState.animatedדמויות:type==='actors'?visualState.actors:type==='animations'?visualState.animations:type==='effects'?visualState.effects:visualState.scenery;
   if(q)rows=rows.filter(x=>(x.name+' '+x.subtitle+' '+(x.searchTerms||'')).toLowerCase().includes(q));
   rows=rows.slice(0,120);
-  visualGrid.innerHTML=rows.length?rows.map(card).join(''):'<div class="hub-note">No CURRENT visuals match this filter.</div>';
-  if(visualMessage)visualMessage.textContent=`Showing ${rows.length} CURRENT items. Click an image for the published visual evidence.`;
+  visualGrid.innerHTML=rows.length?rows.map(card).join(''):'<div class="hub-note">אין פריטים ב־CURRENT שמתאימים לחיפוש הזה.</div>';
+  if(visualMessage)visualMessage.textContent=`מציג ${rows.length} פריטי CURRENT. לחץ על תמונה כדי לפתוח את החזות שפורסמה.`;
   bindAnimationToggles();
 }
 async function loadVisualBrowser(){
@@ -97,8 +97,8 @@ async function loadVisualBrowser(){
   const animations=(fullVisual.assets||[]).filter(v=>String(v.category).toLowerCase()==='animation').map(v=>({kind:'animation',name:v.displayName||v.assetId,handle:v.assetId,subtitle:(v.sourcePath||'').split('/').slice(-3,-1).join(' / '),visual:v}));
   const effects=flattenGroups(index.effectGroups,'effect',visualByRef);
   const scenery=flattenGroups(index.sceneryGroups,'scenery',visualByRef);
-  visualState={index,animationIndex,visualByRef,actors,animatedActors:actors.filter(a=>a.animated),animations,effects,scenery};
-  if(visualStats)visualStats.innerHTML=`<div class="stat"><b>${actors.length}</b><span>Actors</span></div><div class="stat"><b>${actors.filter(a=>a.animated).length}</b><span>Animated Actors</span></div><div class="stat"><b>${animations.length}</b><span>Animation visuals</span></div>`;
+  visualState={index,animationIndex,visualByRef,actors,animatedדמויות:actors.filter(a=>a.animated),animations,effects,scenery};
+  if(visualStats)visualStats.innerHTML=`<div class="stat"><b>${actors.length}</b><span>דמויות</span></div><div class="stat"><b>${actors.filter(a=>a.animated).length}</b><span>Animated דמויות</span></div><div class="stat"><b>${animations.length}</b><span>חזות אנימציות</span></div>`;
   renderVisuals();
 }
 async function refreshLinks(){
@@ -123,6 +123,6 @@ copy?.addEventListener('click',async()=>{
 });
 [visualSearch,visualType].filter(Boolean).forEach(x=>x.addEventListener(x===visualSearch?'input':'change',renderVisuals));
 refreshLinks();
-loadVisualBrowser().catch(e=>{if(visualMessage)visualMessage.textContent='Could not load CURRENT Visual Browser: '+e.message;});
+loadVisualBrowser().catch(e=>{if(visualMessage)visualMessage.textContent='לא ניתן לטעון את הדפדפן החזותי של CURRENT: '+e.message;});
 setInterval(refreshLinks,60000);
 })();
