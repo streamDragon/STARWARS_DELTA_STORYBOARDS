@@ -6,7 +6,7 @@ SOURCE-OF-TRUTH BOUNDARY
 - Unity/Plastic is canonical for runtime implementation and runtime proof.
 - This Git CURRENT is canonical for authoring/publishing guidance and exact authoring choices.
 - Author CUTSCENE_SCRIPT_V1 only.
-- V3/V5, Timeline bindings, Cinemachine wiring, runtime GUIDs, generated aliases, projectile receivers, regression-runner state and Preview persistence are backend/runtime implementation.
+- Compiler internals, Timeline bindings, Cinemachine wiring, runtime GUIDs, generated aliases, projectile receivers, regression-runner state and Preview persistence are backend/runtime implementation.
 - Never hand-author or request backend bookkeeping merely to silence a validator.
 
 AUTHORING SOURCES
@@ -36,14 +36,14 @@ NORMAL AUTHORING
 NORMAL FLOW LOCK
 - The designer gives a natural-language movie request. Devora/ChatGPT returns one complete CUTSCENE_SCRIPT_V1 JSON.
 - Do not ask for, generate, or depend on a COPY REQUEST / REQUEST REPORT step for normal NEW authoring.
-- Do not use an old V5 package as a template for NEW authoring. V5 is backend output after Simple V1 lowering.
-- Do not expose raw Actor/Animation runtime IDs merely because legacy V5 accepted them.
-- A stale legacy fixture is evidence about compatibility, not the canonical way to author a new movie.
+- V1 is the only authoring format. V2 compilation and V3 Unity materialization are backend implementation and are never authored.
+- Do not expose raw Actor/Animation/runtime IDs.
+- Stale legacy fixtures are not authoring templates.
 
 REPAIR FLOW
-- REPAIR is exceptional and begins only after Unity has rejected a specific candidate and produced a diagnostic/repair payload.
+- REPAIR is exceptional and begins only after Unity has rejected a specific V1 candidate and produced diagnostics.
 - Keep the original creative intent. Repair only the concrete rejected authoring/runtime issue.
-- If the rejected input is legacy V3/V5, do not teach its backend fields back into normal NEW authoring.
+- Never teach backend compiler/materialization fields back into V1.
 - If a legal CURRENT CUTSCENE_SCRIPT_V1 fixture reaches a backend/engine failure, repair the backend against the same fixture instead of rewriting valid source intent.
 
 FORMAT LOCK
@@ -60,13 +60,15 @@ Do not serialize catalogRevision, contractRevision, schemaHash, snapshotContentH
 
 IDENTITY
 - cast[].id is a local script reference used by actions/dialogue/continuity inside this movie only; it does not redefine canonical character identity.
-- cast[].identityHandle is the exact CURRENT canonical/preferred route=Actor authoring identity and is the persistent identity used for identity-sensitive checks.
+- cast[].identityHandle is the exact CURRENT canonical/preferred route=Actor authoring identity and is the persistent identity used for identity-sensitive checks and dialogue.
+- cast[].materialHandle is the exact CURRENT movie-local visual material route for a technically legal Sprite or direct simple SpriteSequence/Animation performer. It does not create persistent Actor identity and it is not valid for dialogue participants.
+- A non-dialogue movie-local performer may use materialHandle without being one of the published persistent Actor identities; do not impose an Actor-count limit on such performers.
 - Never duplicate the same identityHandle under multiple cast ids as if they were distinct Actors. If multiple cast entries intentionally represent clones/repeated instances of one canonical Actor Identity, declare one root cast member and set every additional instance's sameIdentityAs to that root (or to a valid chain ending at that root). Truly distinct characters require distinct identityHandle values from CURRENT.
 - visible[].handle selects the visible representation.
 - actions[].subject references cast[].id.
-- animationHandle is the primary animation selector: it chooses one exact technically-authorable CURRENT direct Animation material, independently of Actor ownership. animationIntent is legacy/secondary and is omitted unless CURRENT explicitly exposes a supported relationship. performanceIntent remains descriptive directing intent. Never author raw AnimationClip IDs.
+- animationHandle is the primary animation selector: it chooses one exact technically-authorable CURRENT direct Animation material, independently of Actor ownership. Once selected for a cast subject, that exact handle remains the active visible animation across later consecutive beats while the same subject remains visible, until another explicit animationHandle replaces it. Repeating the same handle on each visible QA beat is allowed for clarity. animationIntent is legacy/secondary and is omitted unless CURRENT explicitly exposes a supported relationship. performanceIntent remains descriptive directing intent. Never author raw AnimationClip IDs.
 - Sprite frames, portraits, textures, animation frames and raw Catalog IDs do not become Actor identity because they look related.
-- If CURRENT does not expose a legal Actor handle, the Actor is unavailable for direct authoring. Do not infer one.
+- If a persistent/dialogue Actor is requested and CURRENT does not expose a legal Actor handle, that Actor identity is unavailable for direct authoring. This does not prevent a non-dialogue movie-local performer from using a legal CURRENT materialHandle.
 
 CATALOG / VISUAL EVIDENCE
 - AUTHORING_HANDLES.json is the normal direct selection surface.
@@ -121,19 +123,14 @@ ACTION TIMING
 - use explicit intervals for staggering/concurrency.
 - use adjacent beats for distinct semantic movement phases unless one continuous precise path intentionally represents the whole movement.
 
-CINEMATIC EDITING MOVES
-- editingMoves are schema-exposed multi-shot directing grammar, not V3/V5 bookkeeping.
-- ChatGPT may select an editing move automatically from the designer's natural-language intent or author an exact move explicitly when the schema exposes it.
-- editingMoves reference authored beatIds and do not silently rewrite their IDs, order or durations.
-- current inference repertoire is exactly the IDs exposed by CUTSCENE_SCRIPT_V1.schema.json; never remember or invent a move that the matching schema does not expose.
-- within-shot V4 recipe names that are not schema fields remain guidance and must be expanded into legal beat camera/action fields.
-- TravelThenReveal is strict: its SPATIAL_CONFIRMATION beat must visibly contain both the same traveler and the revealed destination together in visible[].
-- EyelineMatch requires explicit visible camera.subject in the first and third beats; LOOKED_AT_OBJECT camera.subject identifies a visible object; first/third subjects resolve to the same narrative identity.
-- ConvergingAction requires two distinct visible unambiguous moving subjects on the two action lines and both together in CONVERGENCE.
-- KuleshovAssociation requires one explicit visible camera.subject in each stage; first/third subjects resolve to the same narrative identity.
-- ParallelCrossCut requires one explicit visible camera.subject in each stage; first/RETURN_A resolve to the same narrative identity and LINE_B resolves to a distinct identity.
-- MatchOnAction requires one visible unambiguous moving subject before and after the cut, one explicit visible camera.subject in ACTION_RESULT, and one narrative identity across all three stages.
-- RevealThenReaction requires one explicit visible camera.subject in REVEAL, one visible unambiguous react subject in REACTION, and both together in SHARED_CONTEXT.
+53 FIRST-CLASS CINEMATIC MOVES
+- moves[] is the only cinematic move vocabulary in CUTSCENE_SCRIPT_V1.
+- The matching CURRENT exposes exactly 53 legal move IDs. Never remember, alias or invent another move ID.
+- Every move references consecutive authored beatIds in film order.
+- The number of beatIds must equal the phase count published for that exact move in CHATGPT_AUTHORING_INDEX / AUTHORING_RULES.
+- A move name is not decorative metadata: author the referenced beats so their visible camera/action/composition actually realizes the published phases.
+- V2 validates and lowers V1. V3 owns Unity Timeline/materialization primitives. Backend primitive names are never additional authoring moves.
+- beat.lighting is a normal beat capability usable inside any move; lighting does not create MOVE 54/55.
 
 CAMERA
 Camera authoring is semantic directing intent.
@@ -216,15 +213,16 @@ Before returning JSON verify:
 9. every fire action has legal projectileId and count;
 10. Effect timing uses Effect-only fields and repeated instances are preserved;
 11. camera fields use exact schema vocabulary; camera.intensity is only subtle/medium/strong, never low/high;
-12. no unknown properties, raw Catalog IDs, runtime GUIDs, V3/V5 bookkeeping, Timeline bindings or test-runner QA fields appear;
+12. no unknown properties, raw Catalog IDs, runtime GUIDs, backend compiler/materialization fields, Timeline bindings or test-runner QA fields appear;
 13. no array-order sequencing assumption exists;
 14. no visual claim is made from metadata without pixel evidence when appearance matters;
 15. every pathPoints[] item is an object with numeric x/y fields, never [x,y];
-16. every TravelThenReveal SPATIAL_CONFIRMATION visibly contains both traveler and destination together in visible[].
-17. every EyelineMatch, KuleshovAssociation and ParallelCrossCut supplies every camera.subject required by its three stages and keeps those subjects visibly present;
-18. every ConvergingAction ends with both action-line subjects visible together in CONVERGENCE;
-19. every MatchOnAction has one visible moving subject across the cut plus an explicit visible ACTION_RESULT camera.subject;
-20. every RevealThenReaction has an explicit visible REVEAL subject, one unambiguous react subject, and both visible together in SHARED_CONTEXT;
-21. for a requested full cinematic scene, deliberately use suitable CURRENT location/scenery/effect/audio handles when available unless a minimal/silent presentation is intentional.
+16. every moves[].id is one of the exact 53 IDs published by the matching CURRENT;
+17. every move references consecutive beatIds in film order;
+18. every move references exactly the number of beats required by its published phase list;
+19. the referenced beats visibly realize the move's published phases rather than merely carrying its name;
+20. lighting, dialogue, animation, effects and camera remain beat capabilities and never create a parallel move vocabulary;
+21. for a requested full cinematic scene, deliberately use suitable CURRENT location/scenery/effect/audio handles when available unless a minimal/silent presentation is intentional;
+22. for every move, read its published requiredRoles and represent each role with a stable visible actor id and exact visible.role; satisfy repeated roles with distinct actors or an intentional count, and never reuse a generic placeholder to claim unrelated participants.
 
 Unity remains authoritative for final runtime validation and Editable Preview acceptance.
