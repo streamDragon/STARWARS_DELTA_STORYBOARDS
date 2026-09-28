@@ -1,24 +1,24 @@
 {
   "schema": "STARWARS_DELTA_ANIMATION_COVERAGE",
   "schemaVersion": 1,
-  "publishTransactionId": "20260925-025724580-5927c120",
-  "sourceCount": 517,
-  "accountedCount": 517,
-  "directAuthorableAnimationCount": 290,
+  "publishTransactionId": "20260928-000614238-3ff4a4f0",
+  "sourceCount": 532,
+  "accountedCount": 532,
+  "directAuthorableAnimationCount": 291,
   "directTechnicalStatusCounts": {
-    "SIMPLE_ROOT_SPRITE_SEQUENCE": 290,
-    "COMPLEX_OR_UNSUPPORTED": 227
+    "SIMPLE_ROOT_SPRITE_SEQUENCE": 292,
+    "COMPLEX_OR_UNSUPPORTED": 240
   },
-  "directAuthoringPolicy": "Direct simple-Sprite Animation materials are authorable independently of Actor ownership. Preview and semantic facets describe selection quality, not ownership permission.",
+  "directAuthoringPolicy": "Direct simple-Sprite Animation materials are authorable independently of Actor ownership when the catalog routes them to Animation. Unsafe/sample-only records remain excluded. Preview and semantic facets describe selection quality, not ownership permission.",
   "visualStatusCounts": {
-    "NON_VISUAL_BY_DESIGN": 88,
-    "VISUALIZATION_FAILED": 108,
-    "VISUALIZED": 321
+    "NON_VISUAL_BY_DESIGN": 96,
+    "VISUALIZATION_FAILED": 110,
+    "VISUALIZED": 326
   },
   "semanticStatusCounts": {
     "FACETS_ONLY": 121,
-    "SEMANTIC_PROVEN": 170,
-    "SEMANTIC_UNRESOLVED": 226
+    "SEMANTIC_PROVEN": 174,
+    "SEMANTIC_UNRESOLVED": 237
   },
   "gaps": [
     {
@@ -2156,7 +2156,7 @@
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
     },
     {
@@ -2208,16 +2208,6 @@
       ],
       "visualDiagnostic": "Animation is visually meaningful but no usable preview was produced.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
-    },
-    {
-      "assetId": "d68f8b03809c5cd42b450c56ab4f8cfd:1487847287306520569",
-      "displayName": "Recorded (1)",
-      "path": "Assets/Timelines/Player_crush.playable",
-      "codes": [
-        "SEMANTIC_UNRESOLVED"
-      ],
-      "visualDiagnostic": "Transform-only animation is meaningful motion without an independent frame preview.",
-      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
       "assetId": "6dc139f0f5f1243899db0eb5558d57cb:250403633526169737",
@@ -2443,16 +2433,6 @@
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "d68f8b03809c5cd42b450c56ab4f8cfd:6009563199396802797",
-      "displayName": "Recorded",
-      "path": "Assets/Timelines/Player_crush.playable",
-      "codes": [
-        "SEMANTIC_UNRESOLVED"
-      ],
-      "visualDiagnostic": "Transform-only animation is meaningful motion without an independent frame preview.",
-      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
-    },
-    {
       "assetId": "0c6f7469db3db6d4ba890e20f1f0d353:2104999889037103153",
       "displayName": "JumpDown",
       "path": "Assets/Samples/Cinemachine/3.0.0-pre.9/Shared Assets/Cameron/Animations/Cameron@Jump.fbx",
@@ -2613,14 +2593,146 @@
       ],
       "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "7237359e596ae4b3493528d1dc54c6bc:7400000",
+      "displayName": "Hero Animation",
+      "path": "Assets/Samples/2D Pixel Perfect/6.0.0/Sample Scenes and Extras/Scenes/Animation/Clips/Hero Animation.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Transform-only animation is meaningful motion without an independent frame preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "bcd1b955207624e779f5753cda5a9db5:7400000",
+      "displayName": "Parent Hero Animation",
+      "path": "Assets/Samples/2D Pixel Perfect/6.0.0/Sample Scenes and Extras/Scenes/Animation/Clips/Parent Hero Animation.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Transform-only animation is meaningful motion without an independent frame preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "a2ba10ed52029104a8fe89a6d5c01caa:7400000",
+      "displayName": "player dash ready",
+      "path": "Assets/Samples/2D Pixel Perfect/6.0.0/Sample Scenes and Extras/Scenes/RoboHero/Animations/player_dash_ready.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED",
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation is visually meaningful but no usable preview was produced.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "601df0c32a7617a43a5f591fd295241e:7400000",
+      "displayName": "player dash reloading",
+      "path": "Assets/Samples/2D Pixel Perfect/6.0.0/Sample Scenes and Extras/Scenes/RoboHero/Animations/player_dash_reloading.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED",
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation is visually meaningful but no usable preview was produced.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "0f76890bf837fae4aa565ffb26091b36:8206746607842920214",
+      "displayName": "ocean Clip",
+      "path": "Assets/Samples/2D Pixel Perfect/6.0.0/Sample Scenes and Extras/Scenes/Rule Tiles/Animated Ocean Tile/Sprites/ocean.ase",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "5d4ebc80d9ede4f22816e0d8fdd18ffc:7400000",
+      "displayName": "3DSkyboxAnimation",
+      "path": "Assets/Samples/Universal Render Pipeline/17.6.0/URP Package Samples/CameraStacking/3D Skybox/Animation/3DSkyboxAnimation.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Transform-only animation is meaningful motion without an independent frame preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "ecfc880814a8145eaa0d67e4320ba3ca:7400000",
+      "displayName": "BlobShadowAnimation",
+      "path": "Assets/Samples/Universal Render Pipeline/17.6.0/URP Package Samples/Decals/BlobShadow/Animation/BlobShadowAnimation.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Transform-only animation is meaningful motion without an independent frame preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "e9bdf31c1e1f64a50b0f93b95de13811:7400000",
+      "displayName": "SunFlareAnimation",
+      "path": "Assets/Samples/Universal Render Pipeline/17.6.0/URP Package Samples/LensFlares/Animation/SunFlareAnimation.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Transform-only animation is meaningful motion without an independent frame preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "65a88991125f6c448b4978d2955ab146:7400000",
+      "displayName": "Sphere Movement",
+      "path": "Assets/Samples/Universal Render Pipeline/17.6.0/URP Package Samples/Lighting/Reflection Probes/Animation/Sphere Movement.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Transform-only animation is meaningful motion without an independent frame preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "ad4a11b7144c340c7ae596cb27250360:7400000",
+      "displayName": "SSAO",
+      "path": "Assets/Samples/Universal Render Pipeline/17.6.0/URP Package Samples/RendererFeatures/AmbientOcclusion/Animation/SSAO.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Transform-only animation is meaningful motion without an independent frame preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "6c33db0c595b1483480c6ddf7b5f6322:7400000",
+      "displayName": "MovingCubeAnimation",
+      "path": "Assets/Samples/Universal Render Pipeline/17.6.0/URP Package Samples/RendererFeatures/OcclusionEffect/Animation/MovingCubeAnimation.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Transform-only animation is meaningful motion without an independent frame preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "c1278227dfd4142caa1871f93a6638b5:7400000",
+      "displayName": "KeepFrame",
+      "path": "Assets/Samples/Universal Render Pipeline/17.6.0/URP Package Samples/RendererFeatures/TrailEffect/Animation/KeepFrame.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Transform-only animation is meaningful motion without an independent frame preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "c7d4e241dd721864ea081b0e6d281363:7400000",
+      "displayName": "LITTLE KID LOOKUP",
+      "path": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_LITTILE_KID/LITTLE_KID_LOOKUP.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     }
   ],
   "status": "CURRENT_VERIFIED",
   "requiredCurrent": {
-    "catalogRevision": "7623374633739473569",
-    "contractRevision": "76CDC6B2E9CA23A2159C6B70596BA048F9C3153FCA0766680D644799C21242DF",
-    "schemaHash": "F814CC6BF54F4B7F2EB635E1F7A73CB5A806133CE500564FAE1800B40E6082E8",
-    "snapshotContentHash": "5242AE94241F3605A5A39E07D5B16D9B5C980FB9431425EEFC0283E9533AE245",
-    "authoringRuleRegistryRevision": "8CBCE85AF0FC24743F97AA4F104C31857926A98DAB52749CA75A2B7F6BF27F12"
+    "catalogRevision": "7623006819079417430",
+    "contractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
+    "schemaHash": "E50D3D9F6CE515B02D81E03153DAE488625E64E6C2C96C90EFBD454E7B30BBA1",
+    "snapshotContentHash": "74EA553E78FED371CB18C52712AFC9AB6A63A12F280B8AE8CD266D949D7B7B8B",
+    "authoringRuleRegistryRevision": "56643CDED8B14D671B04A0903CA3E45819397117CD8A03E32B32EC6A6D908EBC"
   }
 }
