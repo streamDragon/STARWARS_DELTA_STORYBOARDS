@@ -1,7 +1,7 @@
 {
   "schema": "STARWARS_DELTA_ANIMATION_COVERAGE",
   "schemaVersion": 1,
-  "publishTransactionId": "20260928-022535172-0b2ea7ea",
+  "publishTransactionId": "20260928-094304378-ff90e9e1",
   "sourceCount": 532,
   "accountedCount": 532,
   "directAuthorableAnimationCount": 291,
@@ -12,8 +12,8 @@
   "directAuthoringPolicy": "Direct simple-Sprite Animation materials are authorable independently of Actor ownership when the catalog routes them to Animation. Unsafe/sample-only records remain excluded. Preview and semantic facets describe selection quality, not ownership permission.",
   "visualStatusCounts": {
     "NON_VISUAL_BY_DESIGN": 96,
-    "VISUALIZATION_FAILED": 111,
-    "VISUALIZED": 325
+    "VISUALIZATION_FAILED": 110,
+    "VISUALIZED": 326
   },
   "semanticStatusCounts": {
     "FACETS_ONLY": 121,
@@ -506,10 +506,9 @@
       "displayName": "FX Weapon Effect",
       "path": "Assets/Eric VFX Studio/Resource/Animator/FX_Weapon Effect.anim",
       "codes": [
-        "PREVIEW_RENDER_FAILED",
         "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Animation is visually meaningful but no usable preview was produced.",
+      "visualDiagnostic": "Animation has a usable deterministic owner/source preview.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
