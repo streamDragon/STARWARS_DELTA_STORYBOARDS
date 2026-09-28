@@ -97,7 +97,10 @@ cast[].id
 = logical story identity
 
 cast[].identityHandle
-= canonical CURRENT Actor identity
+= canonical CURRENT persistent Actor identity. Required for identity-sensitive checks and dialogue.
+
+cast[].materialHandle
+= exact CURRENT movie-local visual material for a technically legal Sprite or direct simple SpriteSequence/Animation performer. It does not create persistent Actor identity and is not valid for dialogue participants.
 
 visible[].handle
 = visible representation
@@ -109,7 +112,7 @@ performanceIntent
 = descriptive directing/performance request only; it never selects or guarantees an Animation clip
 
 animationHandle
-= exact CURRENT direct Animation material. This is the primary visible Sprite-animation selector. Choose it from directAnimationMaterials / ANIMATION_RETRIEVAL_INDEX using previewUrl and semanticFacets. Direct simple-Sprite materials do not require Actor ownership.
+= exact CURRENT direct Animation material. This is the primary visible Sprite-animation selector. Choose it from directAnimationMaterials / ANIMATION_RETRIEVAL_INDEX using previewUrl and semanticFacets. Direct simple-Sprite materials do not require Actor ownership. Once explicitly selected for a cast subject, it remains that subject's active visible animation across later consecutive beats while the same subject remains visible, until another explicit animationHandle replaces it. For QA fixtures it is acceptable to repeat the same animationHandle on every visible beat to make the intended state obvious.
 
 animationIntent
 = legacy/secondary semantic selector. Omit it unless the matching CURRENT explicitly publishes a supported relationship for the exact use.
@@ -117,7 +120,7 @@ animationIntent
 
 A Sprite frame, portrait, Texture or animation frame does not become Actor identity merely because it depicts the character.
 
-Distinct named people require distinct identities unless intentionally the same identity/clone.
+Distinct named persistent/dialogue people require distinct identities unless intentionally the same identity/clone. Non-dialogue movie-local performers may instead use legal materialHandle values and are not limited to the published persistent Actor identities.
 
 When several cast entries intentionally represent repeated instances/clones of the same canonical Actor Identity, declare one root cast member and connect every additional instance with `sameIdentityAs` to that root (or to a valid chain ending at that root). Never repeat one `identityHandle` across independent cast IDs without this ownership chain. If the characters are actually distinct, choose distinct CURRENT `identityHandle` values.
 
@@ -168,13 +171,15 @@ Use them for legal staggering and concurrency.
 
 Use adjacent beats for distinct semantic locomotion phases unless one precise continuous path intentionally represents the entire movement.
 
-## Cinematic editing grammar
+## 53 first-class cinematic moves
 
-`editingMoves` expresses meaning created **between shots**, rather than another low-level camera primitive. ChatGPT may choose one automatically from natural-language intent or author an exact schema-exposed move explicitly.
+`moves[]` is the single directing vocabulary of CUTSCENE_SCRIPT_V1. It exposes exactly 53 legal move IDs from the matching CURRENT. There is no parallel editingMoves vocabulary and no hidden V4 recipe vocabulary.
 
-Examples include looker -> looked-at object -> reaction, travel -> destination reveal -> spatial confirmation, and two distinct action lines -> shared convergence. For TravelThenReveal specifically, the SPATIAL_CONFIRMATION beat must visibly contain both traveler and destination together in `visible[]`, using the same traveler from TRAVEL and the revealed destination from DESTINATION_REVEAL. The exact legal move IDs always come from the matching Simple V1 schema/authoring rules.
+Each move references consecutive `beatIds` in film order. The number of referenced beats must exactly match the published phase count for that move. Author the beats themselves with legal V1 camera, action, visible, lighting, dialogue, audio and effect fields so the named move is visibly realized.
 
-When a move references existing beats, it preserves their IDs, order and durations. Within-shot V4 recipes that are not schema fields remain guidance and are expanded into legal camera/actions instead of being serialized as imaginary fields.
+The backend move profile publishes `requiredRoles` for every move. In the referenced beats, author each required participant as a `visible[]` entry with the exact matching `role` and a stable actor `id`. Repeat a role across distinct IDs when the move requires multiple participants; use `count` only when one visible entry intentionally represents multiple same-role instances. The importer rejects a tagged move when its required role count is missing. Role labels must describe the depicted participants, not scenery or a placeholder actor.
+
+The 53 move IDs are first-class authoring data. V2 compiles and validates them; V3 owns Unity implementation details. Backend primitive names are not additional authoring moves.
 
 ### Precise paths
 

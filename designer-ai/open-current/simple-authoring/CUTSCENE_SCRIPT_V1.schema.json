@@ -873,7 +873,26 @@
                                                                                             "monitor",
                                                                                             "environment"
                                                                                         ]
-                                                                           }
+                                                                           },
+                                                          "voice":  {
+                                                                         "enum":  [
+                                                                                      "text_only",
+                                                                                      "generated"
+                                                                                  ],
+                                                                         "default":  "text_only",
+                                                                         "description":  "Optional dialogue audio mode. generated creates a local WAV during Unity authoring and routes it through the existing dialogue AudioClip pipeline."
+                                                                     },
+                                                          "voiceName":  {
+                                                                             "type":  "string",
+                                                                             "default":  "af_heart",
+                                                                             "description":  "Kokoro voice id, for example af_heart."
+                                                                         },
+                                                          "voiceSpeed":  {
+                                                                              "type":  "number",
+                                                                              "minimum":  0.5,
+                                                                              "maximum":  2.0,
+                                                                              "default":  1.0
+                                                                          }
                                                       }
                                    },
                   "audioCue":  {
