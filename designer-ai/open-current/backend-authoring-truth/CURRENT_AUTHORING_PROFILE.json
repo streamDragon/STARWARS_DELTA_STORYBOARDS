@@ -1,10 +1,10 @@
 {
   "schema": "STARWARS_DELTA_CURRENT_AUTHORING_PROFILE",
   "profileSchemaVersion": 2,
-  "publishTransactionId": "20260928-094304378-ff90e9e1",
+  "publishTransactionId": "20260928-162603758-db8e9110",
   "contractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
   "authoringContractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
-  "schemaHash": "E50D3D9F6CE515B02D81E03153DAE488625E64E6C2C96C90EFBD454E7B30BBA1",
+  "schemaHash": "3DCF19A80E45C2B8501FDB9F5002B619FE2DA19B373D43C3C474786E9CEFA884",
   "catalogRevision": "7623006819079417430",
   "schemaVersion": 5,
   "packageSchema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
@@ -9989,7 +9989,7 @@
     }
   ],
   "authoringRuleRegistry": {
-    "revision": "56643CDED8B14D671B04A0903CA3E45819397117CD8A03E32B32EC6A6D908EBC",
+    "revision": "9C2BCE23DB4FFFA57BA1DB82D85EB45DC004A58C1DAED592BFB12F77DE59E717",
     "rules": [
       {
         "ruleId": "ACTOR_IDENTITY_COLLISION",
@@ -10586,6 +10586,28 @@
         "regressionTestId": "SYSTEM_SCALE_AND_BACKGROUND_POLICY"
       },
       {
+        "ruleId": "V1_CURRENT_CONTRACT_MISMATCH",
+        "category": "Contract",
+        "severity": "Blocker",
+        "blocksCompilation": true,
+        "statusColor": "Red",
+        "owner": "AUTHORING",
+        "blocksEditablePreview": true,
+        "blocksFinalReadiness": true,
+        "authoringRequirement": "MUST_AUTHOR",
+        "diagnosticCode": "V1_CURRENT_CONTRACT_MISMATCH",
+        "description": "A CUTSCENE_SCRIPT_V1 must identify the exact sealed CURRENT contract used to author it.",
+        "defaultPolicy": "No fingerprint default is permitted because omission cannot prove which contract authored the movie.",
+        "normalizationPolicy": "Validate schemaHash and authoringRuleRegistryRevision before aliases, schema lowering, asset resolution, or materialization.",
+        "autoRepairPolicy": "No automatic repair. Regenerate against the matching sealed CURRENT.",
+        "validationPolicy": "Block missing or stale schemaHash or authoringRuleRegistryRevision with one contract-mismatch diagnostic.",
+        "introducedRevision": 2,
+        "deprecatedRevision": null,
+        "chatInstruction": "Copy schemaHash and authoringRuleRegistryRevision exactly from the same sealed CURRENT used for authoring.",
+        "studioMessage": "V1 CURRENT contract fingerprint is missing or stale.",
+        "regressionTestId": "V1_CURRENT_CONTRACT_MISMATCH"
+      },
+      {
         "ruleId": "V3_LOCKED_DIALOGUE_ACTOR_ACTIONS",
         "category": "Dialogue",
         "severity": "AutoRepair",
@@ -10761,9 +10783,9 @@
     "title": "STARWARS_DELTA Cutscene Runtime Package",
     "description": "Machine-readable shape generated from the current Unity runtime DTO. Semantic rules are in the companion contract files.",
     "x-enumContractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
-    "x-authoringRuleRegistryRevision": "56643CDED8B14D671B04A0903CA3E45819397117CD8A03E32B32EC6A6D908EBC",
+    "x-authoringRuleRegistryRevision": "9C2BCE23DB4FFFA57BA1DB82D85EB45DC004A58C1DAED592BFB12F77DE59E717",
     "x-authoringRuleRegistry": {
-      "revision": "56643CDED8B14D671B04A0903CA3E45819397117CD8A03E32B32EC6A6D908EBC",
+      "revision": "9C2BCE23DB4FFFA57BA1DB82D85EB45DC004A58C1DAED592BFB12F77DE59E717",
       "rules": [
         {
           "ruleId": "ACTOR_IDENTITY_COLLISION",
@@ -11358,6 +11380,28 @@
           "chatInstruction": "Do not compensate for framing with arbitrary scale.",
           "studioMessage": "System-managed scale/proportion/background policy applied.",
           "regressionTestId": "SYSTEM_SCALE_AND_BACKGROUND_POLICY"
+        },
+        {
+          "ruleId": "V1_CURRENT_CONTRACT_MISMATCH",
+          "category": "Contract",
+          "severity": "Blocker",
+          "blocksCompilation": true,
+          "statusColor": "Red",
+          "owner": "AUTHORING",
+          "blocksEditablePreview": true,
+          "blocksFinalReadiness": true,
+          "authoringRequirement": "MUST_AUTHOR",
+          "diagnosticCode": "V1_CURRENT_CONTRACT_MISMATCH",
+          "description": "A CUTSCENE_SCRIPT_V1 must identify the exact sealed CURRENT contract used to author it.",
+          "defaultPolicy": "No fingerprint default is permitted because omission cannot prove which contract authored the movie.",
+          "normalizationPolicy": "Validate schemaHash and authoringRuleRegistryRevision before aliases, schema lowering, asset resolution, or materialization.",
+          "autoRepairPolicy": "No automatic repair. Regenerate against the matching sealed CURRENT.",
+          "validationPolicy": "Block missing or stale schemaHash or authoringRuleRegistryRevision with one contract-mismatch diagnostic.",
+          "introducedRevision": 2,
+          "deprecatedRevision": null,
+          "chatInstruction": "Copy schemaHash and authoringRuleRegistryRevision exactly from the same sealed CURRENT used for authoring.",
+          "studioMessage": "V1 CURRENT contract fingerprint is missing or stale.",
+          "regressionTestId": "V1_CURRENT_CONTRACT_MISMATCH"
         },
         {
           "ruleId": "V3_LOCKED_DIALOGUE_ACTOR_ACTIONS",
@@ -13172,9 +13216,9 @@
   "authoringContract": {
     "schema": "STARWARS_DELTA_CUTSCENE_AUTHORING_CONTRACT",
     "contractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
-    "authoringRuleRegistryRevision": "56643CDED8B14D671B04A0903CA3E45819397117CD8A03E32B32EC6A6D908EBC",
+    "authoringRuleRegistryRevision": "9C2BCE23DB4FFFA57BA1DB82D85EB45DC004A58C1DAED592BFB12F77DE59E717",
     "authoringRuleRegistry": {
-      "revision": "56643CDED8B14D671B04A0903CA3E45819397117CD8A03E32B32EC6A6D908EBC",
+      "revision": "9C2BCE23DB4FFFA57BA1DB82D85EB45DC004A58C1DAED592BFB12F77DE59E717",
       "rules": [
         {
           "ruleId": "ACTOR_IDENTITY_COLLISION",
@@ -13771,6 +13815,28 @@
           "regressionTestId": "SYSTEM_SCALE_AND_BACKGROUND_POLICY"
         },
         {
+          "ruleId": "V1_CURRENT_CONTRACT_MISMATCH",
+          "category": "Contract",
+          "severity": "Blocker",
+          "blocksCompilation": true,
+          "statusColor": "Red",
+          "owner": "AUTHORING",
+          "blocksEditablePreview": true,
+          "blocksFinalReadiness": true,
+          "authoringRequirement": "MUST_AUTHOR",
+          "diagnosticCode": "V1_CURRENT_CONTRACT_MISMATCH",
+          "description": "A CUTSCENE_SCRIPT_V1 must identify the exact sealed CURRENT contract used to author it.",
+          "defaultPolicy": "No fingerprint default is permitted because omission cannot prove which contract authored the movie.",
+          "normalizationPolicy": "Validate schemaHash and authoringRuleRegistryRevision before aliases, schema lowering, asset resolution, or materialization.",
+          "autoRepairPolicy": "No automatic repair. Regenerate against the matching sealed CURRENT.",
+          "validationPolicy": "Block missing or stale schemaHash or authoringRuleRegistryRevision with one contract-mismatch diagnostic.",
+          "introducedRevision": 2,
+          "deprecatedRevision": null,
+          "chatInstruction": "Copy schemaHash and authoringRuleRegistryRevision exactly from the same sealed CURRENT used for authoring.",
+          "studioMessage": "V1 CURRENT contract fingerprint is missing or stale.",
+          "regressionTestId": "V1_CURRENT_CONTRACT_MISMATCH"
+        },
+        {
           "ruleId": "V3_LOCKED_DIALOGUE_ACTOR_ACTIONS",
           "category": "Dialogue",
           "severity": "AutoRepair",
@@ -13838,7 +13904,7 @@
         }
       ]
     },
-    "schemaHash": "E50D3D9F6CE515B02D81E03153DAE488625E64E6C2C96C90EFBD454E7B30BBA1",
+    "schemaHash": "3DCF19A80E45C2B8501FDB9F5002B619FE2DA19B373D43C3C474786E9CEFA884",
     "packageVersion": 5,
     "fieldDefinitions": [
       {
@@ -25250,7 +25316,7 @@
     "schemaVersion": 5,
     "contextVersion": 3,
     "contractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
-    "schemaHash": "E50D3D9F6CE515B02D81E03153DAE488625E64E6C2C96C90EFBD454E7B30BBA1",
+    "schemaHash": "3DCF19A80E45C2B8501FDB9F5002B619FE2DA19B373D43C3C474786E9CEFA884",
     "contextId": "NEW_CUTSCENE_CONTEXT",
     "catalogRevision": "7623006819079417430",
     "projectId": "",

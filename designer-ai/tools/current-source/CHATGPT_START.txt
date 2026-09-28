@@ -47,16 +47,18 @@ REPAIR FLOW
 - If a legal CURRENT CUTSCENE_SCRIPT_V1 fixture reaches a backend/engine failure, repair the backend against the same fixture instead of rewriting valid source intent.
 
 FORMAT LOCK
-The only legal root header is:
+The legal root identity is:
 {
   "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
-  "schemaVersion": 1
+  "schemaVersion": 1,
+  "schemaHash": "<exact matching CURRENT schemaHash>",
+  "authoringRuleRegistryRevision": "<exact matching CURRENT authoringRuleRegistryRevision>"
 }
 
-Use the schema literally. Unknown fields and remembered aliases are forbidden.
+Use the schema literally. Unknown fields and remembered aliases are forbidden. The two CURRENT fingerprints are required, not optional provenance.
 
-CURRENT FINGERPRINTS ARE NOT MOVIE FIELDS
-Do not serialize catalogRevision, contractRevision, schemaHash, snapshotContentHash, authoringRuleRegistryRevision, publishTransactionId, requiredCurrent or runtime GUIDs into normal CUTSCENE_SCRIPT_V1 unless a future matching schema explicitly defines them.
+CURRENT FINGERPRINT LOCK
+Every normal CUTSCENE_SCRIPT_V1 MUST serialize the exact `schemaHash` and `authoringRuleRegistryRevision` from the same sealed CURRENT used to author the movie. Missing or stale values are a hard `V1_CURRENT_CONTRACT_MISMATCH` blocker before schema lowering/materialization. Do not serialize catalogRevision, contractRevision, snapshotContentHash, publishTransactionId, requiredCurrent or runtime GUIDs unless a future matching schema explicitly defines them.
 
 IDENTITY
 - cast[].id is a local script reference used by actions/dialogue/continuity inside this movie only; it does not redefine canonical character identity.

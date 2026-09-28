@@ -1,7 +1,7 @@
 {
   "schema": "STARWARS_DELTA_ANIMATION_COVERAGE",
   "schemaVersion": 1,
-  "publishTransactionId": "20260928-094304378-ff90e9e1",
+  "publishTransactionId": "20260928-162603758-db8e9110",
   "sourceCount": 532,
   "accountedCount": 532,
   "directAuthorableAnimationCount": 291,
@@ -12,8 +12,8 @@
   "directAuthoringPolicy": "Direct simple-Sprite Animation materials are authorable independently of Actor ownership when the catalog routes them to Animation. Unsafe/sample-only records remain excluded. Preview and semantic facets describe selection quality, not ownership permission.",
   "visualStatusCounts": {
     "NON_VISUAL_BY_DESIGN": 96,
-    "VISUALIZATION_FAILED": 110,
-    "VISUALIZED": 326
+    "VISUALIZATION_FAILED": 118,
+    "VISUALIZED": 318
   },
   "semanticStatusCounts": {
     "FACETS_ONLY": 121,
@@ -46,9 +46,10 @@
       "displayName": "FLASH TEXT ANIM",
       "path": "Assets/1MyAnimations/FLASH_TEXT_ANIM.anim",
       "codes": [
+        "PREVIEW_RENDER_FAILED",
         "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Animation has a usable deterministic owner/source preview.",
+      "visualDiagnostic": "Animation is visually meaningful but no usable preview was produced.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
@@ -254,9 +255,10 @@
       "displayName": "PressAnyKeyAnim",
       "path": "Assets/1MyAnimations/UI_ANIMS/PressAnyKeyAnim.anim",
       "codes": [
+        "PREVIEW_RENDER_FAILED",
         "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Animation has a usable deterministic owner/source preview.",
+      "visualDiagnostic": "Animation is visually meaningful but no usable preview was produced.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
@@ -294,9 +296,10 @@
       "displayName": "BulletAnim",
       "path": "Assets/Animations/BulletAnim.anim",
       "codes": [
+        "PREVIEW_RENDER_FAILED",
         "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Animation has a usable deterministic owner/source preview.",
+      "visualDiagnostic": "Animation is visually meaningful but no usable preview was produced.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
@@ -506,9 +509,10 @@
       "displayName": "FX Weapon Effect",
       "path": "Assets/Eric VFX Studio/Resource/Animator/FX_Weapon Effect.anim",
       "codes": [
+        "PREVIEW_RENDER_FAILED",
         "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Animation has a usable deterministic owner/source preview.",
+      "visualDiagnostic": "Animation is visually meaningful but no usable preview was produced.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
@@ -628,9 +632,10 @@
       "displayName": "ChangeColor BULLET CLIP",
       "path": "Assets/_Game/MY_Core/MY_Animations/ChangeColor_BULLET_CLIP.anim",
       "codes": [
+        "PREVIEW_RENDER_FAILED",
         "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Animation has a usable deterministic owner/source preview.",
+      "visualDiagnostic": "Animation is visually meaningful but no usable preview was produced.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
@@ -735,9 +740,10 @@
       "displayName": "WarningAnim 1",
       "path": "Assets/_Game/MY_Core/MY_Animations/New Folder/WarningAnim 1.anim",
       "codes": [
+        "PREVIEW_RENDER_FAILED",
         "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Animation has a usable deterministic owner/source preview.",
+      "visualDiagnostic": "Animation is visually meaningful but no usable preview was produced.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
@@ -2256,9 +2262,10 @@
       "displayName": "Highlighted",
       "path": "Assets/Unity UI Samples/Animation/SF Button.controller",
       "codes": [
+        "PREVIEW_RENDER_FAILED",
         "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Animation has a usable deterministic owner/source preview.",
+      "visualDiagnostic": "Animation is visually meaningful but no usable preview was produced.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
@@ -2276,9 +2283,10 @@
       "displayName": "Pressed",
       "path": "Assets/Unity UI Samples/Animation/SF Button.controller",
       "codes": [
+        "PREVIEW_RENDER_FAILED",
         "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Animation has a usable deterministic owner/source preview.",
+      "visualDiagnostic": "Animation is visually meaningful but no usable preview was produced.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
@@ -2731,8 +2739,8 @@
   "requiredCurrent": {
     "catalogRevision": "7623006819079417430",
     "contractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
-    "schemaHash": "E50D3D9F6CE515B02D81E03153DAE488625E64E6C2C96C90EFBD454E7B30BBA1",
-    "snapshotContentHash": "36A9BEFCDF67039B2FD6D390043725A0E447872AACE69338D3D126CC8AE66C6F",
-    "authoringRuleRegistryRevision": "56643CDED8B14D671B04A0903CA3E45819397117CD8A03E32B32EC6A6D908EBC"
+    "schemaHash": "3DCF19A80E45C2B8501FDB9F5002B619FE2DA19B373D43C3C474786E9CEFA884",
+    "snapshotContentHash": "35C55A1E2E835B1441B529017A3762F1A0679B57B0523873F10533158681364E",
+    "authoringRuleRegistryRevision": "9C2BCE23DB4FFFA57BA1DB82D85EB45DC004A58C1DAED592BFB12F77DE59E717"
   }
 }
