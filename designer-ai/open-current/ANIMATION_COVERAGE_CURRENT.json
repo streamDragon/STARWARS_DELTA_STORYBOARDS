@@ -1,24 +1,24 @@
 {
   "schema": "STARWARS_DELTA_ANIMATION_COVERAGE",
   "schemaVersion": 1,
-  "publishTransactionId": "20260928-162603758-db8e9110",
-  "sourceCount": 532,
-  "accountedCount": 532,
-  "directAuthorableAnimationCount": 291,
+  "publishTransactionId": "20260928-202405369-30f23743",
+  "sourceCount": 534,
+  "accountedCount": 534,
+  "directAuthorableAnimationCount": 293,
   "directTechnicalStatusCounts": {
-    "SIMPLE_ROOT_SPRITE_SEQUENCE": 292,
+    "SIMPLE_ROOT_SPRITE_SEQUENCE": 294,
     "COMPLEX_OR_UNSUPPORTED": 240
   },
   "directAuthoringPolicy": "Direct simple-Sprite Animation materials are authorable independently of Actor ownership when the catalog routes them to Animation. Unsafe/sample-only records remain excluded. Preview and semantic facets describe selection quality, not ownership permission.",
   "visualStatusCounts": {
     "NON_VISUAL_BY_DESIGN": 96,
-    "VISUALIZATION_FAILED": 118,
-    "VISUALIZED": 318
+    "VISUALIZATION_FAILED": 119,
+    "VISUALIZED": 319
   },
   "semanticStatusCounts": {
     "FACETS_ONLY": 121,
-    "SEMANTIC_PROVEN": 174,
-    "SEMANTIC_UNRESOLVED": 237
+    "SEMANTIC_PROVEN": 175,
+    "SEMANTIC_UNRESOLVED": 238
   },
   "gaps": [
     {
@@ -2729,6 +2729,17 @@
       "displayName": "LITTLE KID LOOKUP",
       "path": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_LITTILE_KID/LITTLE_KID_LOOKUP.anim",
       "codes": [
+        "PREVIEW_RENDER_FAILED",
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "7a2a381cf4744da4b9e36d63b1428e11:7400000",
+      "displayName": "VHICLE2 INTERCEPT",
+      "path": "Assets/_Game/MY_Core/MY_Art/sprites/vehicle 2/frames/VHICLE2_INTERCEPT.anim",
+      "codes": [
         "SEMANTIC_UNRESOLVED"
       ],
       "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
@@ -2737,10 +2748,10 @@
   ],
   "status": "CURRENT_VERIFIED",
   "requiredCurrent": {
-    "catalogRevision": "7623006819079417430",
+    "catalogRevision": "7623143008422820079",
     "contractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
     "schemaHash": "3DCF19A80E45C2B8501FDB9F5002B619FE2DA19B373D43C3C474786E9CEFA884",
-    "snapshotContentHash": "35C55A1E2E835B1441B529017A3762F1A0679B57B0523873F10533158681364E",
+    "snapshotContentHash": "AFE0E6560146DF70037852F4BB4895244DE5FB999CDF0B60121D55ECBA077FEC",
     "authoringRuleRegistryRevision": "9C2BCE23DB4FFFA57BA1DB82D85EB45DC004A58C1DAED592BFB12F77DE59E717"
   }
 }
