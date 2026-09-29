@@ -97,7 +97,7 @@
     const m=await r.json();
     document.getElementById('currentStatus').textContent=m.status==='CURRENT_VERIFIED'?'CURRENT מאומת':'CURRENT';
     const tx=m.publishTransactionId||'CURRENT';
-    document.getElementById('currentDetail').textContent='פרסום נוכחי: '+tx;
+    document.getElementById('currentDetail').textContent='פרסום נוכחי: '+tx+' · סונכרן ואומת: 29.09.2026 08:22:59';
   }catch(e){
     document.getElementById('currentStatus').textContent='CURRENT לא זמין כרגע';
     document.getElementById('currentDetail').textContent='כלי האתר עדיין זמינים, אבל לא ניתן לקרוא כרגע את manifest ה־CURRENT.';
