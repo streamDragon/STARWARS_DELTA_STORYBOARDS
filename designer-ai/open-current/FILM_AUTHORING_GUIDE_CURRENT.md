@@ -43,7 +43,9 @@ Long duration creates a content obligation. It is not permission to leave a shot
 
 ## Real assets, not concept art
 
-Production authoring uses exact CURRENT assets and exact published pixels.
+Production authoring uses exact published asset handles and their actual preview pixels.
+
+The default kit is a curated selection: CINEMATIC_MAIN, or Cutscene Ready before MAIN is configured. Animation frames remain technical dependencies. Request additional exact assets on demand. Optional Atlas/PDF exports are available only when the published entry supplies their URL. Saved movies are checked for the assets, actions and MOVES they actually use; old publication fingerprints alone do not invalidate them.
 
 Do not redraw, restyle, invent an unseen angle, infer a missing object or select an asset because the filename sounds useful.
 

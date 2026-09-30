@@ -58,7 +58,7 @@ The legal root identity is:
 Use the schema literally. Unknown fields and remembered aliases are forbidden. The two CURRENT fingerprints are required, not optional provenance.
 
 CURRENT FINGERPRINT LOCK
-Every normal CUTSCENE_SCRIPT_V1 MUST serialize the exact `schemaHash` and `authoringRuleRegistryRevision` from the same sealed CURRENT used to author the movie. Missing or stale values are a hard `V1_CURRENT_CONTRACT_MISMATCH` blocker before schema lowering/materialization. Do not serialize catalogRevision, contractRevision, snapshotContentHash, publishTransactionId, requiredCurrent or runtime GUIDs unless a future matching schema explicitly defines them.
+`schemaHash` and `authoringRuleRegistryRevision` are required CURRENT fingerprints. Copy both exactly from the same sealed CURRENT used for authoring. Missing or stale values are a hard import blocker; never default, infer, repair, or substitute them from memory. Do not serialize catalogRevision, contractRevision, snapshotContentHash, publishTransactionId, requiredCurrent or runtime GUIDs unless the matching schema explicitly defines them.
 
 IDENTITY
 - cast[].id is a local script reference used by actions/dialogue/continuity inside this movie only; it does not redefine canonical character identity.
@@ -78,7 +78,8 @@ CATALOG / VISUAL EVIDENCE
 - Destination route/capability beats filename, folder, display name and visual resemblance.
 - Use route=Actor for world identity, Animation for direct Sprite animation material, Layer for scenery, Effect for VFX, Ui for UI/dialogue presentation and Audio for sound.
 - Real pixel evidence decides appearance. Metadata is search evidence only.
-- Prefer previewUrl for direct visual inspection. atlasPdfUrl + atlasPage + atlasSlot are secondary browsing evidence.
+- Prefer previewUrl for direct visual inspection. Atlas/PDF exports are optional and exist only when the published entry supplies a real URL.
+- The default kit contains CINEMATIC_MAIN assets (or the existing Cutscene Ready collection before MAIN is configured). Technical frames are dependencies. Ask for exact assets outside this set on demand; absence from the small kit does not mean absence from the Catalog.
 - A missing previewUrl is not permission to infer appearance from a filename, displayName or folder.
 - Do not directly author source sheets, assembly parts, unsafe/pending-review assets or technical helper content when CURRENT excludes them.
 
