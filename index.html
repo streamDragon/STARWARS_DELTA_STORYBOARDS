@@ -97,7 +97,15 @@
     const m=await r.json();
     document.getElementById('currentStatus').textContent=m.status==='CURRENT_VERIFIED'?'CURRENT מאומת':'CURRENT';
     const tx=m.publishTransactionId||'CURRENT';
-    document.getElementById('currentDetail').textContent='פרסום נוכחי: '+tx+' · סונכרן ואומת: 29.09.2026 08:22:59';
+    const published=m.publishedUtc||m.provenance?.publishedUtc||'';
+    let verified='זמן אימות לא זמין';
+    if(published){
+      const dt=new Date(published);
+      if(!Number.isNaN(dt.getTime())){
+        verified=dt.toLocaleString('he-IL',{timeZone:'Asia/Jerusalem'});
+      }
+    }
+    document.getElementById('currentDetail').textContent='פרסום נוכחי: '+tx+' · סונכרן ואומת: '+verified;
   }catch(e){
     document.getElementById('currentStatus').textContent='CURRENT לא זמין כרגע';
     document.getElementById('currentDetail').textContent='כלי האתר עדיין זמינים, אבל לא ניתן לקרוא כרגע את manifest ה־CURRENT.';
