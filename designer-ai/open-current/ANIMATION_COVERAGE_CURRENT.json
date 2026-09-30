@@ -1,24 +1,25 @@
 {
   "schema": "STARWARS_DELTA_ANIMATION_COVERAGE",
   "schemaVersion": 1,
-  "publishTransactionId": "20260929-040348573-7388e7c4",
-  "sourceCount": 534,
-  "accountedCount": 534,
-  "directAuthorableAnimationCount": 293,
+  "publishTransactionId": "20260930-053841545-8c8af263",
+  "selectionScope": "COMPACT_AUTHORING",
+  "sourceCount": 538,
+  "accountedCount": 538,
+  "directAuthorableAnimationCount": 296,
   "directTechnicalStatusCounts": {
-    "SIMPLE_ROOT_SPRITE_SEQUENCE": 294,
-    "COMPLEX_OR_UNSUPPORTED": 240
+    "SIMPLE_ROOT_SPRITE_SEQUENCE": 297,
+    "COMPLEX_OR_UNSUPPORTED": 241
   },
   "directAuthoringPolicy": "Direct simple-Sprite Animation materials are authorable independently of Actor ownership when the catalog routes them to Animation. Unsafe/sample-only records remain excluded. Preview and semantic facets describe selection quality, not ownership permission.",
   "visualStatusCounts": {
     "NON_VISUAL_BY_DESIGN": 96,
     "VISUALIZATION_FAILED": 119,
-    "VISUALIZED": 319
+    "VISUALIZED": 323
   },
   "semanticStatusCounts": {
     "FACETS_ONLY": 121,
-    "SEMANTIC_PROVEN": 175,
-    "SEMANTIC_UNRESOLVED": 238
+    "SEMANTIC_PROVEN": 178,
+    "SEMANTIC_UNRESOLVED": 239
   },
   "gaps": [
     {
@@ -2744,14 +2745,24 @@
       ],
       "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "7693a5712c5b5354682e2e6f3b295628:7400000",
+      "displayName": "SOLAR TOWER LOOP",
+      "path": "Assets/MY_ART/GradSunEnemies/Animations/SOLAR_TOWER_LOOP.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     }
   ],
   "status": "CURRENT_VERIFIED",
   "requiredCurrent": {
-    "catalogRevision": "7623129243660934170",
+    "catalogRevision": "7622644224880684385",
     "contractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
     "schemaHash": "3DCF19A80E45C2B8501FDB9F5002B619FE2DA19B373D43C3C474786E9CEFA884",
-    "snapshotContentHash": "AC66779DED20703055FBDA066E9C9BADD00CCEA77569E1421612E10F7174F4A4",
+    "snapshotContentHash": "C914E83E2217CED0BEE51B81C2120EC3F6D67F4D1E6F9089E3C4CCC81F1C26D8",
     "authoringRuleRegistryRevision": "9C2BCE23DB4FFFA57BA1DB82D85EB45DC004A58C1DAED592BFB12F77DE59E717"
   }
 }
