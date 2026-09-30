@@ -1,25 +1,25 @@
 {
   "schema": "STARWARS_DELTA_ANIMATION_COVERAGE",
   "schemaVersion": 1,
-  "publishTransactionId": "20260930-110627999-c9277581",
+  "publishTransactionId": "20260930-173309852-6de0b705",
   "selectionScope": "COMPACT_AUTHORING",
   "sourceCount": 538,
   "accountedCount": 538,
-  "directAuthorableAnimationCount": 296,
+  "directAuthorableAnimationCount": 298,
   "directTechnicalStatusCounts": {
-    "SIMPLE_ROOT_SPRITE_SEQUENCE": 297,
-    "COMPLEX_OR_UNSUPPORTED": 241
+    "SIMPLE_ROOT_SPRITE_SEQUENCE": 299,
+    "COMPLEX_OR_UNSUPPORTED": 239
   },
   "directAuthoringPolicy": "Direct simple-Sprite Animation materials are authorable independently of Actor ownership when the catalog routes them to Animation. Unsafe/sample-only records remain excluded. Preview and semantic facets describe selection quality, not ownership permission.",
   "visualStatusCounts": {
     "NON_VISUAL_BY_DESIGN": 96,
-    "VISUALIZATION_FAILED": 119,
-    "VISUALIZED": 323
+    "VISUALIZATION_FAILED": 118,
+    "VISUALIZED": 324
   },
   "semanticStatusCounts": {
-    "FACETS_ONLY": 121,
-    "SEMANTIC_PROVEN": 178,
-    "SEMANTIC_UNRESOLVED": 239
+    "FACETS_ONLY": 125,
+    "SEMANTIC_PROVEN": 170,
+    "SEMANTIC_UNRESOLVED": 243
   },
   "gaps": [
     {
@@ -81,7 +81,7 @@
         "PREVIEW_RENDER_FAILED"
       ],
       "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
       "assetId": "3255531c9255a204bb0c78705b3b68fe:7400000",
@@ -91,7 +91,7 @@
         "PREVIEW_RENDER_FAILED"
       ],
       "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
       "assetId": "8f7928594d9dbe74ab7849fd2737317a:7400000",
@@ -101,47 +101,51 @@
         "PREVIEW_RENDER_FAILED"
       ],
       "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
       "assetId": "403bf5bb078ae454db625465bf4f1025:7400000",
       "displayName": "WalkingDown",
       "path": "Assets/1MyAnimations/PlayerAnimations/Player/WalkingDown.anim",
       "codes": [
-        "PREVIEW_RENDER_FAILED"
+        "PREVIEW_RENDER_FAILED",
+        "SEMANTIC_UNRESOLVED"
       ],
       "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
       "assetId": "af6ae03ccbe2c0d4d9ec642e80659975:7400000",
       "displayName": "WalkingLeft",
       "path": "Assets/1MyAnimations/PlayerAnimations/Player/WalkingLeft.anim",
       "codes": [
-        "PREVIEW_RENDER_FAILED"
+        "PREVIEW_RENDER_FAILED",
+        "SEMANTIC_UNRESOLVED"
       ],
       "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
       "assetId": "2e63b5d4df4562046a56191c7c0b342b:7400000",
       "displayName": "WalkingRight",
       "path": "Assets/1MyAnimations/PlayerAnimations/Player/WalkingRight.anim",
       "codes": [
-        "PREVIEW_RENDER_FAILED"
+        "PREVIEW_RENDER_FAILED",
+        "SEMANTIC_UNRESOLVED"
       ],
       "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
       "assetId": "73a978eababf7eb43bbdc0d7be660f7d:7400000",
       "displayName": "WalkingUp",
       "path": "Assets/1MyAnimations/PlayerAnimations/Player/WalkingUp.anim",
       "codes": [
-        "PREVIEW_RENDER_FAILED"
+        "PREVIEW_RENDER_FAILED",
+        "SEMANTIC_UNRESOLVED"
       ],
       "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
       "assetId": "26b0a5d5fcb7aa94d97c40259f136fb8:7400000",
@@ -2728,12 +2732,11 @@
     {
       "assetId": "c7d4e241dd721864ea081b0e6d281363:7400000",
       "displayName": "LITTLE KID LOOKUP",
-      "path": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_LITTILE_KID/LITTLE_KID_LOOKUP.anim",
+      "path": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_LITTLE_KID/LITTLE_KID_LOOKUP.anim",
       "codes": [
-        "PREVIEW_RENDER_FAILED",
         "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
@@ -2759,10 +2762,10 @@
   ],
   "status": "CURRENT_VERIFIED",
   "requiredCurrent": {
-    "catalogRevision": "7622634050612326492",
+    "catalogRevision": "7622690648676579197",
     "contractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
     "schemaHash": "3DCF19A80E45C2B8501FDB9F5002B619FE2DA19B373D43C3C474786E9CEFA884",
-    "snapshotContentHash": "3DBE2E09546CC39D1B968825C9A705BC99358550E90AE2BCFE795AE33FFCF34D",
+    "snapshotContentHash": "F9F8094CC2944D575B655A33DE08D90EFBEE9661E5B4432AF609E4FD541E6A8B",
     "authoringRuleRegistryRevision": "9C2BCE23DB4FFFA57BA1DB82D85EB45DC004A58C1DAED592BFB12F77DE59E717"
   }
 }
