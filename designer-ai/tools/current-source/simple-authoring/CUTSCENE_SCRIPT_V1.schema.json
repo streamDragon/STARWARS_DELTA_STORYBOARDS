@@ -373,22 +373,26 @@
                                                             "screenWidthFraction":  {
                                                                                         "type":  "number",
                                                                                         "exclusiveMinimum":  0,
-                                                                                        "maximum":  1.5
+                                                                                        "maximum":  1.5,
+                                                                                        "description":  "Visible width as a fraction of screen width. 1.0 means full screen width; 0.5 means half screen width. This is size, not position."
                                                                                     },
                                                             "screenHeightFraction":  {
                                                                                          "type":  "number",
                                                                                          "exclusiveMinimum":  0,
-                                                                                         "maximum":  1.5
+                                                                                         "maximum":  1.5,
+                                                                                         "description":  "Visible height as a fraction of screen height. 1.0 means full screen height; 0.5 means half screen height. This is size, not position."
                                                                                      },
                                                             "screenX":  {
                                                                             "type":  "number",
                                                                             "minimum":  0,
-                                                                            "maximum":  1
+                                                                            "maximum":  1,
+                                                                            "description":  "Normalized horizontal screen position in the inclusive range 0..1. 0=LEFT edge, 0.5=CENTER, 1=RIGHT edge. NEVER use centered -1..1 coordinates; negative values are invalid. Example left-center: screenX=0.15. Example right-center: screenX=0.85."
                                                                         },
                                                             "screenY":  {
                                                                             "type":  "number",
                                                                             "minimum":  0,
-                                                                            "maximum":  1
+                                                                            "maximum":  1,
+                                                                            "description":  "Normalized vertical screen position in the inclusive range 0..1. 0=BOTTOM edge, 0.5=CENTER, 1=TOP edge. NEVER use centered -1..1 coordinates; negative values are invalid. Example lower-center: screenY=0.2. Example upper-center: screenY=0.8."
                                                                         },
                                                             "startOffsetSeconds":  {
                                                                                        "type":  "number",
