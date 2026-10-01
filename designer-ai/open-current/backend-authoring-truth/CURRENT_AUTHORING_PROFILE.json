@@ -1,11 +1,11 @@
 {
   "schema": "STARWARS_DELTA_CURRENT_AUTHORING_PROFILE",
   "profileSchemaVersion": 2,
-  "publishTransactionId": "20261001-161303784-dbcfbf26",
+  "publishTransactionId": "20261001-181708095-cd59146b",
   "contractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
   "authoringContractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
-  "schemaHash": "3DCF19A80E45C2B8501FDB9F5002B619FE2DA19B373D43C3C474786E9CEFA884",
-  "catalogRevision": "7622707365111127754",
+  "schemaHash": "BDF41EF95C57F5866F4A070DAF99F9F84C612D8FDC0E69FB2F65EC5F0B522BD4",
+  "catalogRevision": "7622706507351374846",
   "schemaVersion": 5,
   "packageSchema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
   "serializer": {
@@ -9989,7 +9989,7 @@
     }
   ],
   "authoringRuleRegistry": {
-    "revision": "9C2BCE23DB4FFFA57BA1DB82D85EB45DC004A58C1DAED592BFB12F77DE59E717",
+    "revision": "AC8864EC4E59A661DA0C9A085F1B2A315B42D29BDF1E7514D4CDD1CD2B9A80B9",
     "rules": [
       {
         "ruleId": "ACTOR_IDENTITY_COLLISION",
@@ -10046,15 +10046,15 @@
         "blocksFinalReadiness": true,
         "authoringRequirement": "MUST_AUTHOR",
         "diagnosticCode": "ANIMATION_COMPATIBILITY",
-        "description": "Explicit animation selection must resolve to a reviewed action in the current animation character/entity cluster.",
-        "defaultPolicy": "An underspecified semantic request may omit animation; an explicit animation selection never degrades to static presentation.",
-        "normalizationPolicy": "Resolve the requested action through CURRENT animationCharacters/actions; raw Animation IDs remain backend-only.",
-        "autoRepairPolicy": "Never replace an explicit unsupported animation action with a guessed capability.",
-        "validationPolicy": "Block explicit animation actions that cannot resolve through the reviewed cluster.",
-        "introducedRevision": 1,
+        "description": "Simple V1 direct Sprite animation selection resolves from an exact published actions[].animationHandle and does not require Actor ownership or membership in an animation character/entity cluster.",
+        "defaultPolicy": "An underspecified semantic request may omit animation; an explicit animationHandle never degrades to a guessed or static replacement.",
+        "normalizationPolicy": "For Simple V1, resolve exact direct animation material from CURRENT directAnimationMaterials/ANIMATION_RETRIEVAL_INDEX. Reviewed character/entity-cluster compatibility remains a backend/native AnimationClip concern only.",
+        "autoRepairPolicy": "Never replace an explicit unsupported animationHandle with a guessed capability or inferred Actor-owned clip.",
+        "validationPolicy": "Block only when the exact authored direct animationHandle is unavailable or illegal for the Simple V1 direct-material route; backend/native clip paths retain their own compatibility validation.",
+        "introducedRevision": 2,
         "deprecatedRevision": null,
-        "chatInstruction": "Use a published animation action for the intended character/entity cluster; never author raw Animation IDs.",
-        "studioMessage": "Animation action is not available in the reviewed character/entity cluster.",
+        "chatInstruction": "Use one exact published direct animationHandle for Simple V1 Sprite animation; never author raw Animation asset IDs.",
+        "studioMessage": "Direct animation material is unavailable or invalid for Simple V1.",
         "regressionTestId": "ANIMATION_COMPATIBILITY"
       },
       {
@@ -10251,7 +10251,7 @@
         "validationPolicy": "Block when the exact curated CharacterPack identity or requested expression cannot resolve.",
         "introducedRevision": 2,
         "deprecatedRevision": null,
-        "chatInstruction": "Author the exact Emotional Dialogue actorId and omit expressionIntent only when the CharacterPack default is intended.",
+        "chatInstruction": "Author the dialogue participant by exact local cast[].id; its cast[].identityHandle must resolve to the exact Emotional Dialogue CharacterPack identity. Omit expressionIntent only when that CharacterPack default is intended.",
         "studioMessage": "Dialogue presentation was resolved from the exact curated CharacterPack.",
         "regressionTestId": "DIALOGUE_SAME_IDENTITY_PORTRAIT_DEFAULT"
       },
@@ -10273,7 +10273,7 @@
         "validationPolicy": "Block when no exact curated CharacterPack presentation route exists.",
         "introducedRevision": 2,
         "deprecatedRevision": null,
-        "chatInstruction": "Author exact repertoire actorIds and supported expressions; omit only mechanical stage values owned by Unity.",
+        "chatInstruction": "Author speaker/listener as exact local cast[].id aliases. Unity resolves each alias through cast[].identityHandle, which must match an authoring-ready CharacterPack identity; keep expressionIntent exact when explicitly used and omit only mechanical stage values owned by Unity.",
         "studioMessage": "Dialogue Stage mechanics defaulted after closed-world identity validation.",
         "regressionTestId": "DIALOGUE_SYSTEM_STAGE_DEFAULTS"
       },
@@ -10559,7 +10559,7 @@
         "validationPolicy": "Block only when an explicitly requested identity cannot resolve exactly; otherwise use the deterministic same-source relation.",
         "introducedRevision": 1,
         "deprecatedRevision": null,
-        "chatInstruction": "For dialogue, use only the published CharacterPack actorId, identityHandle and supported expression; a standardized sheet is not a dialogue identity source.",
+        "chatInstruction": "For dialogue, author speaker/listener only as exact local cast[].id aliases. Their cast[].identityHandle must resolve to the published CharacterPack identity and supported expression set; do not serialize CharacterPack actorId as the dialogue alias, and a standardized sheet is not a dialogue identity source.",
         "studioMessage": "Standardized character sheet identity was projected deterministically.",
         "regressionTestId": "STANDARD_CHARACTER_SHEET_IDENTITY"
       },
@@ -10783,9 +10783,9 @@
     "title": "STARWARS_DELTA Cutscene Runtime Package",
     "description": "Machine-readable shape generated from the current Unity runtime DTO. Semantic rules are in the companion contract files.",
     "x-enumContractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
-    "x-authoringRuleRegistryRevision": "9C2BCE23DB4FFFA57BA1DB82D85EB45DC004A58C1DAED592BFB12F77DE59E717",
+    "x-authoringRuleRegistryRevision": "AC8864EC4E59A661DA0C9A085F1B2A315B42D29BDF1E7514D4CDD1CD2B9A80B9",
     "x-authoringRuleRegistry": {
-      "revision": "9C2BCE23DB4FFFA57BA1DB82D85EB45DC004A58C1DAED592BFB12F77DE59E717",
+      "revision": "AC8864EC4E59A661DA0C9A085F1B2A315B42D29BDF1E7514D4CDD1CD2B9A80B9",
       "rules": [
         {
           "ruleId": "ACTOR_IDENTITY_COLLISION",
@@ -10842,15 +10842,15 @@
           "blocksFinalReadiness": true,
           "authoringRequirement": "MUST_AUTHOR",
           "diagnosticCode": "ANIMATION_COMPATIBILITY",
-          "description": "Explicit animation selection must resolve to a reviewed action in the current animation character/entity cluster.",
-          "defaultPolicy": "An underspecified semantic request may omit animation; an explicit animation selection never degrades to static presentation.",
-          "normalizationPolicy": "Resolve the requested action through CURRENT animationCharacters/actions; raw Animation IDs remain backend-only.",
-          "autoRepairPolicy": "Never replace an explicit unsupported animation action with a guessed capability.",
-          "validationPolicy": "Block explicit animation actions that cannot resolve through the reviewed cluster.",
-          "introducedRevision": 1,
+          "description": "Simple V1 direct Sprite animation selection resolves from an exact published actions[].animationHandle and does not require Actor ownership or membership in an animation character/entity cluster.",
+          "defaultPolicy": "An underspecified semantic request may omit animation; an explicit animationHandle never degrades to a guessed or static replacement.",
+          "normalizationPolicy": "For Simple V1, resolve exact direct animation material from CURRENT directAnimationMaterials/ANIMATION_RETRIEVAL_INDEX. Reviewed character/entity-cluster compatibility remains a backend/native AnimationClip concern only.",
+          "autoRepairPolicy": "Never replace an explicit unsupported animationHandle with a guessed capability or inferred Actor-owned clip.",
+          "validationPolicy": "Block only when the exact authored direct animationHandle is unavailable or illegal for the Simple V1 direct-material route; backend/native clip paths retain their own compatibility validation.",
+          "introducedRevision": 2,
           "deprecatedRevision": null,
-          "chatInstruction": "Use a published animation action for the intended character/entity cluster; never author raw Animation IDs.",
-          "studioMessage": "Animation action is not available in the reviewed character/entity cluster.",
+          "chatInstruction": "Use one exact published direct animationHandle for Simple V1 Sprite animation; never author raw Animation asset IDs.",
+          "studioMessage": "Direct animation material is unavailable or invalid for Simple V1.",
           "regressionTestId": "ANIMATION_COMPATIBILITY"
         },
         {
@@ -11047,7 +11047,7 @@
           "validationPolicy": "Block when the exact curated CharacterPack identity or requested expression cannot resolve.",
           "introducedRevision": 2,
           "deprecatedRevision": null,
-          "chatInstruction": "Author the exact Emotional Dialogue actorId and omit expressionIntent only when the CharacterPack default is intended.",
+          "chatInstruction": "Author the dialogue participant by exact local cast[].id; its cast[].identityHandle must resolve to the exact Emotional Dialogue CharacterPack identity. Omit expressionIntent only when that CharacterPack default is intended.",
           "studioMessage": "Dialogue presentation was resolved from the exact curated CharacterPack.",
           "regressionTestId": "DIALOGUE_SAME_IDENTITY_PORTRAIT_DEFAULT"
         },
@@ -11069,7 +11069,7 @@
           "validationPolicy": "Block when no exact curated CharacterPack presentation route exists.",
           "introducedRevision": 2,
           "deprecatedRevision": null,
-          "chatInstruction": "Author exact repertoire actorIds and supported expressions; omit only mechanical stage values owned by Unity.",
+          "chatInstruction": "Author speaker/listener as exact local cast[].id aliases. Unity resolves each alias through cast[].identityHandle, which must match an authoring-ready CharacterPack identity; keep expressionIntent exact when explicitly used and omit only mechanical stage values owned by Unity.",
           "studioMessage": "Dialogue Stage mechanics defaulted after closed-world identity validation.",
           "regressionTestId": "DIALOGUE_SYSTEM_STAGE_DEFAULTS"
         },
@@ -11355,7 +11355,7 @@
           "validationPolicy": "Block only when an explicitly requested identity cannot resolve exactly; otherwise use the deterministic same-source relation.",
           "introducedRevision": 1,
           "deprecatedRevision": null,
-          "chatInstruction": "For dialogue, use only the published CharacterPack actorId, identityHandle and supported expression; a standardized sheet is not a dialogue identity source.",
+          "chatInstruction": "For dialogue, author speaker/listener only as exact local cast[].id aliases. Their cast[].identityHandle must resolve to the published CharacterPack identity and supported expression set; do not serialize CharacterPack actorId as the dialogue alias, and a standardized sheet is not a dialogue identity source.",
           "studioMessage": "Standardized character sheet identity was projected deterministically.",
           "regressionTestId": "STANDARD_CHARACTER_SHEET_IDENTITY"
         },
@@ -13216,9 +13216,9 @@
   "authoringContract": {
     "schema": "STARWARS_DELTA_CUTSCENE_AUTHORING_CONTRACT",
     "contractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
-    "authoringRuleRegistryRevision": "9C2BCE23DB4FFFA57BA1DB82D85EB45DC004A58C1DAED592BFB12F77DE59E717",
+    "authoringRuleRegistryRevision": "AC8864EC4E59A661DA0C9A085F1B2A315B42D29BDF1E7514D4CDD1CD2B9A80B9",
     "authoringRuleRegistry": {
-      "revision": "9C2BCE23DB4FFFA57BA1DB82D85EB45DC004A58C1DAED592BFB12F77DE59E717",
+      "revision": "AC8864EC4E59A661DA0C9A085F1B2A315B42D29BDF1E7514D4CDD1CD2B9A80B9",
       "rules": [
         {
           "ruleId": "ACTOR_IDENTITY_COLLISION",
@@ -13275,15 +13275,15 @@
           "blocksFinalReadiness": true,
           "authoringRequirement": "MUST_AUTHOR",
           "diagnosticCode": "ANIMATION_COMPATIBILITY",
-          "description": "Explicit animation selection must resolve to a reviewed action in the current animation character/entity cluster.",
-          "defaultPolicy": "An underspecified semantic request may omit animation; an explicit animation selection never degrades to static presentation.",
-          "normalizationPolicy": "Resolve the requested action through CURRENT animationCharacters/actions; raw Animation IDs remain backend-only.",
-          "autoRepairPolicy": "Never replace an explicit unsupported animation action with a guessed capability.",
-          "validationPolicy": "Block explicit animation actions that cannot resolve through the reviewed cluster.",
-          "introducedRevision": 1,
+          "description": "Simple V1 direct Sprite animation selection resolves from an exact published actions[].animationHandle and does not require Actor ownership or membership in an animation character/entity cluster.",
+          "defaultPolicy": "An underspecified semantic request may omit animation; an explicit animationHandle never degrades to a guessed or static replacement.",
+          "normalizationPolicy": "For Simple V1, resolve exact direct animation material from CURRENT directAnimationMaterials/ANIMATION_RETRIEVAL_INDEX. Reviewed character/entity-cluster compatibility remains a backend/native AnimationClip concern only.",
+          "autoRepairPolicy": "Never replace an explicit unsupported animationHandle with a guessed capability or inferred Actor-owned clip.",
+          "validationPolicy": "Block only when the exact authored direct animationHandle is unavailable or illegal for the Simple V1 direct-material route; backend/native clip paths retain their own compatibility validation.",
+          "introducedRevision": 2,
           "deprecatedRevision": null,
-          "chatInstruction": "Use a published animation action for the intended character/entity cluster; never author raw Animation IDs.",
-          "studioMessage": "Animation action is not available in the reviewed character/entity cluster.",
+          "chatInstruction": "Use one exact published direct animationHandle for Simple V1 Sprite animation; never author raw Animation asset IDs.",
+          "studioMessage": "Direct animation material is unavailable or invalid for Simple V1.",
           "regressionTestId": "ANIMATION_COMPATIBILITY"
         },
         {
@@ -13480,7 +13480,7 @@
           "validationPolicy": "Block when the exact curated CharacterPack identity or requested expression cannot resolve.",
           "introducedRevision": 2,
           "deprecatedRevision": null,
-          "chatInstruction": "Author the exact Emotional Dialogue actorId and omit expressionIntent only when the CharacterPack default is intended.",
+          "chatInstruction": "Author the dialogue participant by exact local cast[].id; its cast[].identityHandle must resolve to the exact Emotional Dialogue CharacterPack identity. Omit expressionIntent only when that CharacterPack default is intended.",
           "studioMessage": "Dialogue presentation was resolved from the exact curated CharacterPack.",
           "regressionTestId": "DIALOGUE_SAME_IDENTITY_PORTRAIT_DEFAULT"
         },
@@ -13502,7 +13502,7 @@
           "validationPolicy": "Block when no exact curated CharacterPack presentation route exists.",
           "introducedRevision": 2,
           "deprecatedRevision": null,
-          "chatInstruction": "Author exact repertoire actorIds and supported expressions; omit only mechanical stage values owned by Unity.",
+          "chatInstruction": "Author speaker/listener as exact local cast[].id aliases. Unity resolves each alias through cast[].identityHandle, which must match an authoring-ready CharacterPack identity; keep expressionIntent exact when explicitly used and omit only mechanical stage values owned by Unity.",
           "studioMessage": "Dialogue Stage mechanics defaulted after closed-world identity validation.",
           "regressionTestId": "DIALOGUE_SYSTEM_STAGE_DEFAULTS"
         },
@@ -13788,7 +13788,7 @@
           "validationPolicy": "Block only when an explicitly requested identity cannot resolve exactly; otherwise use the deterministic same-source relation.",
           "introducedRevision": 1,
           "deprecatedRevision": null,
-          "chatInstruction": "For dialogue, use only the published CharacterPack actorId, identityHandle and supported expression; a standardized sheet is not a dialogue identity source.",
+          "chatInstruction": "For dialogue, author speaker/listener only as exact local cast[].id aliases. Their cast[].identityHandle must resolve to the published CharacterPack identity and supported expression set; do not serialize CharacterPack actorId as the dialogue alias, and a standardized sheet is not a dialogue identity source.",
           "studioMessage": "Standardized character sheet identity was projected deterministically.",
           "regressionTestId": "STANDARD_CHARACTER_SHEET_IDENTITY"
         },
@@ -13904,7 +13904,7 @@
         }
       ]
     },
-    "schemaHash": "3DCF19A80E45C2B8501FDB9F5002B619FE2DA19B373D43C3C474786E9CEFA884",
+    "schemaHash": "BDF41EF95C57F5866F4A070DAF99F9F84C612D8FDC0E69FB2F65EC5F0B522BD4",
     "packageVersion": 5,
     "fieldDefinitions": [
       {
@@ -25316,9 +25316,9 @@
     "schemaVersion": 5,
     "contextVersion": 3,
     "contractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
-    "schemaHash": "3DCF19A80E45C2B8501FDB9F5002B619FE2DA19B373D43C3C474786E9CEFA884",
+    "schemaHash": "BDF41EF95C57F5866F4A070DAF99F9F84C612D8FDC0E69FB2F65EC5F0B522BD4",
     "contextId": "NEW_CUTSCENE_CONTEXT",
-    "catalogRevision": "7622707365111127754",
+    "catalogRevision": "7622706507351374846",
     "projectId": "",
     "planId": "plan_example_minimal",
     "baseRevision": 0,
