@@ -3,12 +3,12 @@
   "schemaVersion": 1,
   "projectionRevision": "CHATGPT_AUTHORING_INDEX_V12_20260929_REGISTERED_MOVES_COLLECTION_GROUPS",
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20260930-204714146-6778c09b",
+  "publishTransactionId": "20261001-000346651-c5b2d89e",
   "requiredCurrent": {
-    "catalogRevision": "7622690648676579197",
+    "catalogRevision": "7622674064641034781",
     "contractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
     "schemaHash": "3DCF19A80E45C2B8501FDB9F5002B619FE2DA19B373D43C3C474786E9CEFA884",
-    "snapshotContentHash": "2C81A187AB3C4A642692431B75EA906227E3C5B0025BD194325CD171D4957597",
+    "snapshotContentHash": "D06AE8966ABE7DD27B58670F8D50008011A9CAAC156E89BE3AA9CC3D4A716BF3",
     "authoringRuleRegistryRevision": "9C2BCE23DB4FFFA57BA1DB82D85EB45DC004A58C1DAED592BFB12F77DE59E717"
   },
   "purpose": "Compact navigation projection for ChatGPT. Exact legal handles remain authoritative in matching CURRENT AUTHORING_HANDLES.json. Technically eligible simple Sprite Animation clips may be selected directly by animationHandle without Actor-prefab ownership.",
@@ -22,12 +22,12 @@
   "agent6Selection": {
     "schema": "STARWARS_DELTA_AGENT6_SELECTION_INTEGRATION",
     "schemaVersion": 1,
-    "source": "Assets/_Game/MY_Core/MY_Data/DesignerAI/AGENT6_ASSET_SELECTION.json",
+    "source": "Docs/Agent6/AGENT6_ASSET_SELECTION_FINAL.json",
     "selected": 4000,
     "indexed": 2583,
-    "handles": 2359,
+    "handles": 2094,
     "previewLinked": 2094,
-    "blocked": 1641,
+    "blocked": 1906,
     "batches": [
       {
         "batchId": "AGENT6_BATCH_001",
@@ -41,9 +41,9 @@
         "batchId": "AGENT6_WHOLE_PROJECT_PASS_20260930",
         "selected": 3901,
         "indexed": 2484,
-        "handles": 2266,
+        "handles": 2001,
         "previewLinked": 2001,
-        "blocked": 1635
+        "blocked": 1900
       }
     ],
     "blockedEntries": [
@@ -1544,6 +1544,1861 @@
         "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
         "sourcePath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/_Animation/SpaceRobot/MY_SpaceRobot03_Shoot_Loop.anim",
         "reason": "DIRECT_ANIMATION_NOT_AUTHORABLE:EVENT_BINDINGS_NOT_SUPPORTED count=1"
+      },
+      {
+        "displayName": "AudioClip Background Ambient",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/Ambient/AudioClip_Background-Ambient.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Delta7 Engine",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/Delta7_Engine.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Dragon Bite",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/gameplay/AudioClip_Dragon_Bite.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Dragon BreathScream",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/gameplay/AudioClip_Dragon_BreathScream.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Dragon Hit C",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/gameplay/AudioClip_Dragon_Hit_C.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip generic attack",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/gameplay/AudioClip_generic-attack.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip generic gethit",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/gameplay/AudioClip_generic-gethit.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "BossAlarm",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/gameplay/BossAlarm.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Fanfares Defeat",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/Music/AudioClip_Fanfares_Defeat.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Fanfares Victory",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/Music/AudioClip_Fanfares_Victory.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Music Darkling",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/Music/AudioClip_Music_Darkling.mp3",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Music Darkling",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/Music/AudioClip_Music_Darkling.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Music MorganaRides",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/Music/AudioClip_Music_MorganaRides.mp3",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Music MorganaRides",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/Music/AudioClip_Music_MorganaRides.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "GalacticKittensGameplayTheme",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/Music/GalacticKittensGameplayTheme.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "GalacticKittensIntroScreen",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/Music/GalacticKittensIntroScreen.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Click Medium",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/AudioClip_Click-Medium.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Click Noisy",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/AudioClip_Click-Noisy.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Click Soft",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/AudioClip_Click-Soft.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Click Springy",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/AudioClip_Click-Springy.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Click Switch",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/AudioClip_Click-Switch.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Click Tap",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/AudioClip_Click-Tap.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Error",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/AudioClip_Error.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip PotionDrop",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/AudioClip_PotionDrop.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "AudioClip Purchase Cha Ching",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/AudioClip_Purchase-Cha-Ching.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "BossAlarm",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/BossAlarm.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "BossApproach",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/BossApproach.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "BossAttack1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/BossAttack1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "BossAttack2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/BossAttack2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "BossAttack3",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/BossAttack3.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "CancelUI",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/CancelUI.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "CatSpecialAttack1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/CatSpecialAttack1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "CatSpecialAttack2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/CatSpecialAttack2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "CatSpecialAttack3",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/CatSpecialAttack3.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "CatSpecialAttack4",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/CatSpecialAttack4.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "ConfirmUI",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/ConfirmUI.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "CursorUI",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/CursorUI.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Enemy1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/Enemy1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Enemy2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/Enemy2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Explosion",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/Explosion.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Lose",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/Lose.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Shield",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/Shield.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "ShipHit",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/ShipHit.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "ShipHit2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/ShipHit2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "ShipHover",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/ShipHover.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Shot1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/Shot1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Shot2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/Shot2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "SpaceGhostConstant",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/SpaceGhostConstant.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Win",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Audio/SFX/Win.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "1. 4225 Spacecraft",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Space Ambient Album - 101218/1. 4225 Spacecraft.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "10. Inside A Blackhole",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Space Ambient Album - 101218/10. Inside A Blackhole.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "2. Inside Death Star",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Space Ambient Album - 101218/2. Inside Death Star.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "3. Abandoned Ship",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Space Ambient Album - 101218/3. Abandoned Ship.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "4. Moon's Basement",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Space Ambient Album - 101218/4. Moon's Basement.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "5. Deep Place",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Space Ambient Album - 101218/5. Deep Place.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "6. Strange Planet",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Space Ambient Album - 101218/6. Strange Planet.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "7. Red Planet",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Space Ambient Album - 101218/7. Red Planet.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "8. Mothership",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Space Ambient Album - 101218/8. Mothership.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "9. G223 Creatures",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Space Ambient Album - 101218/9. G223 Creatures.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "agneton fire in the sky EL9dDhpB",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/agneton-fire-in-the-sky_EL9dDhpB.mp3",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Shimantara   Trip On a Desert Island",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/SPACESTATION/Shimantara - Trip On a Desert Island.mp3",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Ding",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_VARIA/Art/VFX/Audio/Explosion/Ding.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Donk",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_VARIA/Art/VFX/Audio/Explosion/Donk.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Explode8Bit",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_VARIA/Art/VFX/Audio/Explosion/Explode8Bit.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "RealExplodeHard",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_VARIA/Art/VFX/Audio/Explosion/RealExplodeHard.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Ripple",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_VARIA/Art/VFX/Audio/Shot/Ripple.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "1. Track 1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_8Bit_Music_062022/1. Track 1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "10. Track 10",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_8Bit_Music_062022/10. Track 10.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "2. Track 2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_8Bit_Music_062022/2. Track 2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "3. Track 3",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_8Bit_Music_062022/3. Track 3.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "4. Track 4",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_8Bit_Music_062022/4. Track 4.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "5. Track 5",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_8Bit_Music_062022/5. Track 5.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "6. Track 6",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_8Bit_Music_062022/6. Track 6.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "7. Track 7",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_8Bit_Music_062022/7. Track 7.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "8. Track 8",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_8Bit_Music_062022/8. Track 8.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "9. Track 9",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_8Bit_Music_062022/9. Track 9.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Tropical moments   loop version",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_2D_Handcrafted_Art/Music/Tropical moments - loop version.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Tropical Moments",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_2D_Handcrafted_Art/Music/Tropical Moments.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Autocannon   Shot 1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Autocannon - Shot 1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Bloody punch",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Bloody punch.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Bullet Impact 14",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Bullet Impact 14.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Bullet Impact 21",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Bullet Impact 21.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Bullet Impacts   Multiple 1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Bullet Impacts - Multiple 1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Cannon impact 9",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Cannon impact 9.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Carriage on Stone Road   Loop",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Carriage on Stone Road - Loop.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Cavern Atmosphere   Loop",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Cavern Atmosphere - Loop.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Chemistry reaction 3   Big",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Chemistry reaction 3 - Big.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Computer explosion 6   Alarm",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Computer explosion 6 - Alarm.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Dragon Spit Fire 1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Dragon Spit Fire 1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Easy Going Medieval Tavern   Loop",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Easy Going Medieval Tavern - Loop.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Explosion 1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Explosion 1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Explosion 2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Explosion 2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Explosion 8",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Explosion 8.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Flare gun 5 2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Flare gun 5-2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Forest 6   Ice Forest",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Forest 6 - Ice Forest.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Ghost Manifestation 1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Ghost Manifestation 1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Ghost Manifestation 2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Ghost Manifestation 2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Hand Gun 1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Hand Gun 1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Hand Gun 2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Hand Gun 2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Hand Gun 3",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Hand Gun 3.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Hand Gun 6",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Hand Gun_6.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Heavy Object Impact 10",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Heavy Object Impact 10.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Heavy Object Impact 4",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Heavy Object Impact 4.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Ice Cavern Loop",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Ice Cavern-Loop.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Indiana Jones Punch",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Indiana Jones Punch.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Laser Gun Salve",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Laser Gun Salve.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Laser Impact Light 6",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Laser Impact Light_6.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Laser Multiple shots 1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Laser Multiple shots 1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Machine Gun 1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Machine Gun 1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Magic Spell   Sleeping spell 1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Magic Spell - Sleeping spell 1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Magic Spell   Turn to stone",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Magic Spell - Turn to stone.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Magic Spell Coins 2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Magic Spell_Coins_2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Magic Spell Electricity Spell 1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Magic Spell_Electricity Spell_1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Magic Spell Short Reverse 1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Magic Spell_Short Reverse_1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Magic Spell Simple Swoosh 6",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Magic Spell_Simple Swoosh_6.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Medieval City",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Medieval City.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Metal impact 5",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Metal impact 5.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Metal Impact 7",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Metal Impact 7.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Missile   Shot 4",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Missile - Shot 4.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Monster Bite on Armor",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Monster Bite on Armor.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Monster Bite",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Monster Bite.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Railgun   Shot 6",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Railgun - Shot 6.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Row Boat   Loop",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Row Boat - Loop.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Secret door",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Secret door.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Spaceship passing by",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Spaceship passing by.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Thunder strikes 30 second  Loop",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Thunder strikes 30 second- Loop.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Tsunami hitting a Large City",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Tsunami hitting a Large City.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Walking in ChainMail   Loop",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Walking in ChainMail - Loop.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Button Down",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_LB_Game/LB_Audio/Button Down.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Button Up",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_LB_Game/LB_Audio/Button Up.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "1up",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/1up.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "bounce",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/bounce.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "burnout",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/burnout.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "charge1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/charge1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "coin",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/coin.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "cutelaser",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/cutelaser.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "explosion1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/explosion1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "explosion2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/explosion2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "glaspoof",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/glaspoof.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "impact flesh",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/impact flesh.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "impact",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/impact.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "laserblast",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/laserblast.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "laservr",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/laservr.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "merge",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/merge.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "money collect",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/money_collect.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "peeeooop x",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/peeeooop_x.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "pof",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/pof.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "pooghrr",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/pooghrr.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "prrt",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/prrt.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "pwrup",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/pwrup.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "shoot",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/shoot.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "spark",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/spark.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "swoof",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/swoof.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "timert",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/timert.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "warning1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/warning1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "warning2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/warning2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "whiplaser",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/whiplaser.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "whoosh",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/whoosh.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "space asteroids",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/music/space-asteroids.ogg",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "space asteroids",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/music/space-asteroids.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "explosion",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/Sound FX/explosion.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "hit",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/Sound FX/hit.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "shot 1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/Sound FX/shot 1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "shot 2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/Sound FX/shot 2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Earthquake 3   Big",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_PKG/PKG_Free_Pack/Earthquake 3 - Big.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Test Game",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/EasyGameUI Test Game/Audio/Music/Test Game.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Noooo",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/EasyGameUI Test Game/Audio/Sound Effects/Noooo.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "warning",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Ignition Examples/SFX/warning.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Space Shooter Art Pack 01 Music",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Music/Space Shooter Art Pack 01 Music.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "Space Shooter Art Pack 02 Music",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Music/Space Shooter Art Pack 02 Music.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "fire",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/SFX/fire.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "ANIM QA 196 line 1 a8a8556e4267",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/ANIM_QA_196_line_1_a8a8556e4267.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "ANIM QA 196 shot line 1 ddedd1441f25",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/ANIM_QA_196_shot_line_1_ddedd1441f25.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "ANIM QA 241 line 1 1ef5928ab727",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/ANIM_QA_241_line_1_1ef5928ab727.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "ANIM QA 241 shot line 1 abdfe88b6b7f",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/ANIM_QA_241_shot_line_1_abdfe88b6b7f.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "ANIM QA 286 line 1 7d0929fcc97f",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/ANIM_QA_286_line_1_7d0929fcc97f.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "ANIM QA 286 shot line 1 4430ce7abecd",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/ANIM_QA_286_shot_line_1_4430ce7abecd.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "DIALOGUE CHECKPOINT 01 shot line 1 56db24f50430",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/DIALOGUE_CHECKPOINT_01_shot_line_1_56db24f50430.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "DIALOGUE CHECKPOINT 02 shot line 1 66c7dfad92eb",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/DIALOGUE_CHECKPOINT_02_shot_line_1_66c7dfad92eb.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "DIALOGUE CHECKPOINT 03 shot line 1 afcabe3f1ea3",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/DIALOGUE_CHECKPOINT_03_shot_line_1_afcabe3f1ea3.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "INTRO 01 line 1 3e7387b63f86",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/INTRO_01_line_1_3e7387b63f86.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "INTRO 01 shot line 1 a7c47ea63f96",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/INTRO_01_shot_line_1_a7c47ea63f96.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "INTRO 01 shot line 1 d7aedfd86ad3",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/INTRO_01_shot_line_1_d7aedfd86ad3.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "INTRO 02 line 1 1655292e6626",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/INTRO_02_line_1_1655292e6626.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "INTRO 02 shot line 1 7b05415352e4",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/INTRO_02_shot_line_1_7b05415352e4.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "INTRO 03 line 1 3d69d355fb47",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/INTRO_03_line_1_3d69d355fb47.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "INTRO 03 shot line 1 24e62867a2b9",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/INTRO_03_shot_line_1_24e62867a2b9.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "INTRO 04 line 1 9483b9ed86a1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/INTRO_04_line_1_9483b9ed86a1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "INTRO 04 shot line 1 0c86faadbc96",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/INTRO_04_shot_line_1_0c86faadbc96.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "INTRO 05 line 1 642c9ceac121",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/INTRO_05_line_1_642c9ceac121.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "INTRO 05 shot line 1 9bd8eff37c42",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/INTRO_05_shot_line_1_9bd8eff37c42.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M01 ENTER line 1 a72eb1e5f8e3",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M01_ENTER_line_1_a72eb1e5f8e3.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M02 FLYBY line 1 f38e504a3a90",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M02_FLYBY_line_1_f38e504a3a90.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M03 APPROACH line 1 6aa78f0a946c",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M03_APPROACH_line_1_6aa78f0a946c.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M04 ATTACK line 1 e6aec33739a9",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M04_ATTACK_line_1_e6aec33739a9.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M05 SEPARATE DEFENDERS line 1 3c8321652e81",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M05_SEPARATE_DEFENDERS_line_1_3c8321652e81.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M06 PEEL LEFT line 1 71cec8246357",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M06_PEEL_LEFT_line_1_71cec8246357.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M07 PEEL RIGHT line 1 fe348adb951f",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M07_PEEL_RIGHT_line_1_fe348adb951f.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M08 ESTABLISH DEPTH LANES line 1 18939224ee12",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M08_ESTABLISH_DEPTH_LANES_line_1_18939224ee12.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M09 TARGET CROSSES line 1 890c653c1730",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M09_TARGET_CROSSES_line_1_890c653c1730.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M10 PRINCIPAL LEADS line 1 180a99e5f0b6",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M10_PRINCIPAL_LEADS_line_1_180a99e5f0b6.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M11 ESCORT line 1 d2a0c286ea9f",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M11_ESCORT_line_1_d2a0c286ea9f.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M12 STABLE FORMATION line 1 dd2ca1ee7ebc",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M12_STABLE_FORMATION_line_1_dd2ca1ee7ebc.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M13 SEPARATE ENTRIES line 1 caf28a1ea650",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M13_SEPARATE_ENTRIES_line_1_caf28a1ea650.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M14 BANK AWAY line 1 639e9a4ab862",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M14_BANK_AWAY_line_1_639e9a4ab862.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M14 EXIT line 1 7d74a8504444",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M14_EXIT_line_1_7d74a8504444.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M14 EXIT shot line 1 2da1e8dda70f",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M14_EXIT_shot_line_1_2da1e8dda70f.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M15 FORMATION BREAK line 1 21a13570da4e",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M15_FORMATION_BREAK_line_1_21a13570da4e.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M16 BRIEF HOLD shot line 1 4ba07f7256f2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M16_BRIEF_HOLD_shot_line_1_4ba07f7256f2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M16 IMPACT OR REACT line 1 729e91a09dd0",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M16_IMPACT_OR_REACT_line_1_729e91a09dd0.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M17 TAKEOFF line 1 4d533b2c22c9",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M17_TAKEOFF_line_1_4d533b2c22c9.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M18 STAGGERED TAKEOFFS line 1 3adb7adf60b7",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M18_STAGGERED_TAKEOFFS_line_1_3adb7adf60b7.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M19 APPROACH line 1 7a250bd008d0",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M19_APPROACH_line_1_7a250bd008d0.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M20 LANDING line 1 37ac0aa8807d",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M20_LANDING_line_1_37ac0aa8807d.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M21 STATIC CENTER line 1 adc1b2832cc1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M21_STATIC_CENTER_line_1_adc1b2832cc1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M22 ORBIT line 1 b9fd050cce65",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M22_ORBIT_line_1_b9fd050cce65.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M23 RESCUE APPROACH line 1 6886cc96dc78",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M23_RESCUE_APPROACH_line_1_6886cc96dc78.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M24 CONVOY TRAVEL line 1 57895c69c83b",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M24_CONVOY_TRAVEL_line_1_57895c69c83b.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M25 FOREGROUND PASS line 1 87862d65d82f",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M25_FOREGROUND_PASS_line_1_87862d65d82f.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M26 FORMATION FLYBY line 1 a05d3279a109",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M26_FORMATION_FLYBY_line_1_a05d3279a109.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M27 SLOW DRIFT line 1 2824eae4d334",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M27_SLOW_DRIFT_line_1_2824eae4d334.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M28 FOREGROUND OCCLUSION line 1 56dd11fe1755",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M28_FOREGROUND_OCCLUSION_line_1_56dd11fe1755.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M29 LANE A CROSS line 1 5fa5cd7c2dcf",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M29_LANE_A_CROSS_line_1_5fa5cd7c2dcf.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M30 HOLD line 1 4c8a98fd9656",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M30_HOLD_line_1_4c8a98fd9656.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M31 ARRIVE line 1 c2c27533973a",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M31_ARRIVE_line_1_c2c27533973a.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M31 DECELERATE SETTLE line 1 fed8f7c8ac98",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M31_DECELERATE_SETTLE_line_1_fed8f7c8ac98.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M31 DECELERATE SETTLE shot line 1 b03b1e3a8e4a",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M31_DECELERATE_SETTLE_shot_line_1_b03b1e3a8e4a.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M31 HOLD shot line 1 4b15acc7770c",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M31_HOLD_shot_line_1_4b15acc7770c.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M32 ATTACKER ESTABLISH line 1 b78bc92e425c",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M32_ATTACKER_ESTABLISH_line_1_b78bc92e425c.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M33 LOOKING FACE line 1 161c859e3e8e",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M33_LOOKING_FACE_line_1_161c859e3e8e.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M34 SUBJECT line 1 1be89cf274e3",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M34_SUBJECT_line_1_1be89cf274e3.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M35 ATTACKER EXITS line 1 b8f4d6ac06e8",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M35_ATTACKER_EXITS_line_1_b8f4d6ac06e8.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M36 FOREGROUND PASS line 1 788364523db8",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M36_FOREGROUND_PASS_line_1_788364523db8.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M37 REACTION FIRST line 1 9418e62dcf94",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M37_REACTION_FIRST_line_1_9418e62dcf94.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M38 FORMATION WIDE line 1 34281280a5a8",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M38_FORMATION_WIDE_line_1_34281280a5a8.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M39 PROJECTILE OR SHOT line 1 4c74467a11ba",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M39_PROJECTILE_OR_SHOT_line_1_4c74467a11ba.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M40 TRAVELER EXITS line 1 f81336d423e1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M40_TRAVELER_EXITS_line_1_f81336d423e1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M41 CLOSE SHIP line 1 e2633d46ed03",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M41_CLOSE_SHIP_line_1_e2633d46ed03.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M42 LOOKER line 1 840831be39c2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M42_LOOKER_line_1_840831be39c2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M43 ARMED SUBJECT line 1 b366f322d205",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M43_ARMED_SUBJECT_line_1_b366f322d205.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M44 SHIP line 1 b9291f4c88e3",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M44_SHIP_line_1_b9291f4c88e3.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M44 SHIP PUSH IN line 1 a7bd1110ad30",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M44_SHIP_PUSH_IN_line_1_a7bd1110ad30.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M44 SHIP PUSH IN shot line 1 6c4b8700d67c",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M44_SHIP_PUSH_IN_shot_line_1_6c4b8700d67c.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M45 REACTION shot line 1 b9d797e8883a",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M45_REACTION_shot_line_1_b9d797e8883a.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M45 THREAT line 1 c50351b11bb3",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M45_THREAT_line_1_c50351b11bb3.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M46 SEARCHING SUBJECT line 1 b0cc09ec0ee9",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M46_SEARCHING_SUBJECT_line_1_b0cc09ec0ee9.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M47 CAUSE ACTION line 1 0404453bb4ac",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M47_CAUSE_ACTION_line_1_0404453bb4ac.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M48 WATCHER line 1 27977a5ca9b6",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M48_WATCHER_line_1_27977a5ca9b6.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M49 WEAPON line 1 4759a1703cdd",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M49_WEAPON_line_1_4759a1703cdd.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M50 MISSILE line 1 1a2ea6dcbdb6",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M50_MISSILE_line_1_1a2ea6dcbdb6.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M51 ENEMY line 1 527fb71856d2",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M51_ENEMY_line_1_527fb71856d2.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M52 MEANINGFUL OBJECT line 1 c08a6fc2b9d4",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M52_MEANINGFUL_OBJECT_line_1_c08a6fc2b9d4.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "M53 OFFSCREEN LOOK line 1 99b8269f9ddf",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/M53_OFFSCREEN_LOOK_line_1_99b8269f9ddf.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "VOICE 01 shot line 1 52a86bf27572",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/VOICE_01_shot_line_1_52a86bf27572.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "VOICE 02 shot line 1 d3621c1e48a6",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/VOICE_02_shot_line_1_d3621c1e48a6.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "VOICE 03 shot line 1 7f0684f71d06",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/VOICE_03_shot_line_1_7f0684f71d06.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "VOICE 04 shot line 1 2eb07bba97b6",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/VOICE_04_shot_line_1_2eb07bba97b6.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "VOICE 05 shot line 1 aa8e95fcfef7",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/VOICE_05_shot_line_1_aa8e95fcfef7.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "VOICE 06 shot line 1 4953dac57b31",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/VOICE_06_shot_line_1_4953dac57b31.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "VOICE 07 shot line 1 19fa0c6eb2f4",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/VOICE_07_shot_line_1_19fa0c6eb2f4.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "VOICE 08 shot line 1 0eb3b63b0b74",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/VOICE_08_shot_line_1_0eb3b63b0b74.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "VOICE 09 shot line 1 d485698072c1",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/VOICE_09_shot_line_1_d485698072c1.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "VOICE 10 shot line 1 c9a57dc65e14",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/VOICE_10_shot_line_1_c9a57dc65e14.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "VOICE DEMO 01 shot line 1 18e1277bccb9",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/VOICE_DEMO_01_shot_line_1_18e1277bccb9.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
+      },
+      {
+        "displayName": "VOICE DEMO 01 shot line 1 b716804f5fb5",
+        "category": "Audio",
+        "selectionBatch": "AGENT6_WHOLE_PROJECT_PASS_20260930",
+        "sourcePath": "Assets/_Game/MY_Core/MY_Audio/CutsceneVoices/Generated/VOICE_DEMO_01_shot_line_1_b716804f5fb5.wav",
+        "reason": "BLOCKED_CURRENT_AUDIO_HANDLE_ROUTE"
       },
       {
         "displayName": "Civilian Boy School 01",
