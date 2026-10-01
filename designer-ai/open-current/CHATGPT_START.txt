@@ -10,7 +10,17 @@ SOURCE-OF-TRUTH BOUNDARY
 - Never hand-author or request backend bookkeeping merely to silence a validator.
 
 AUTHORING SOURCES
-Use only the matching CURRENT artifacts:
+Use only the matching CURRENT artifacts.
+
+CURRENT ACCESS RESILIENCE
+- There is one authoring truth, not multiple copies: repository `streamDragon/STARWARS_DELTA_STORYBOARDS`, branch `main`, under `designer-ai/open-current/`.
+- GitHub Pages is the preferred public transport: `https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/`.
+- If GitHub Pages cannot be opened by the current browser/tool (including ERR_BLOCKED_BY_CLIENT, sandbox policy, extension blocking, CORS/client blocking or similar client-side failure), do NOT ask the designer to upload CURRENT files and do NOT fall back to memory.
+- Immediately read the same files from the GitHub repository through an available GitHub connector/API/file tool. Repository paths are authoritative and must remain on branch `main`.
+- Raw GitHub is an equivalent transport fallback for these exact repository bytes: `https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/main/designer-ai/open-current/`.
+- Whichever transport is used, verify `OPEN_CURRENT.json` first and require `status=CURRENT_VERIFIED`. All files used in one authoring request must match that same `publishTransactionId`/CURRENT identity. Never mix artifacts from different transactions.
+- A transport failure is not evidence that CURRENT is unavailable. Only report CURRENT unavailable after the Pages path and the repository/raw fallback paths all fail.
+
 - Public CURRENT entrypoint: /designer-ai/open-current/OPEN_CURRENT.json
 - Compact navigation first: /designer-ai/open-current/CHATGPT_AUTHORING_INDEX.json
 - CHATGPT_AUTHORING_INDEX.json is a derived navigation projection only; matching CURRENT AUTHORING_HANDLES.json remains authoritative for exact legal handles.
