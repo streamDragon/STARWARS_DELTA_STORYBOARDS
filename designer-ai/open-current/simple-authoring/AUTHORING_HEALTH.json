@@ -1,20 +1,21 @@
 {
   "schema": "STARWARS_DELTA_AUTHORING_HEALTH",
-  "schemaVersion": 3,
-  "status": "UNKNOWN",
-  "publishTransactionId": "20261001-181708095-cd59146b",
+  "schemaVersion": 4,
+  "status": "PASS",
+  "publishTransactionId": "20261002-042335673-6663f61c",
   "requiredCurrent": {
-    "catalogRevision": "7622706507351374846",
+    "catalogRevision": "7622710386005339965",
     "contractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
     "schemaHash": "BDF41EF95C57F5866F4A070DAF99F9F84C612D8FDC0E69FB2F65EC5F0B522BD4",
-    "snapshotContentHash": "B6255C629C3F3C9E5EB148E082E370E28493399672B2085BB8BF5305F054705F",
+    "snapshotContentHash": "C542436CD7287C8197F3EA2EE1E1306E9F0F3B44FC4C4E9B678D7A0B34D3614D",
     "authoringRuleRegistryRevision": "AC8864EC4E59A661DA0C9A085F1B2A315B42D29BDF1E7514D4CDD1CD2B9A80B9"
   },
-  "scope": "authoring handles and identity-only Actor Cards",
-  "denominator": 4094,
+  "scope": "authoring handles, route coverage and identity-only Actor Cards",
+  "denominator": 397,
   "checksRun": [
     "handle-count",
     "route-count",
+    "authorable-route-coverage",
     "current-identity",
     "actor-card-generation"
   ],
@@ -24,15 +25,19 @@
     "visual-continuity"
   ],
   "pixelEvidence": {
-    "denominator": 4094,
-    "available": 4091,
-    "missing": 3,
-    "state": "PIXELS_UNAVAILABLE"
+    "denominator": 373,
+    "available": 373,
+    "missing": 0,
+    "state": "AVAILABLE"
+  },
+  "routeCoverage": {
+    "missingAuthorableRoutes": [],
+    "state": "AVAILABLE"
   },
   "actorCards": {
-    "denominator": 526,
-    "generated": 526,
-    "withBaseImage": 526,
+    "denominator": 24,
+    "generated": 24,
+    "withBaseImage": 24,
     "continuity": "NOT_CHECKED"
   }
 }
