@@ -22,8 +22,12 @@ CURRENT ACCESS RESILIENCE
 - A transport failure is not evidence that CURRENT is unavailable. Only report CURRENT unavailable after the Pages path and the repository/raw fallback paths all fail.
 
 - Public CURRENT entrypoint: /designer-ai/open-current/OPEN_CURRENT.json
-- Compact navigation first: /designer-ai/open-current/CHATGPT_AUTHORING_INDEX.json
-- CHATGPT_AUTHORING_INDEX.json is a derived navigation projection only; matching CURRENT AUTHORING_HANDLES.json remains authoritative for exact legal handles.
+- Compact starter navigation first: /designer-ai/open-current/CHATGPT_AUTHORING_INDEX.json
+- CHATGPT_AUTHORING_INDEX.json is intentionally a small starter view, not the complete legal inventory. Matching CURRENT AUTHORING_HANDLES.json remains authoritative for exact legal handles.
+- For additional legal choices, follow CHATGPT_AUTHORING_INDEX.categoryChunks into simple-authoring/category-chunks/. Each chunk is route-specific and intentionally bounded.
+- AUTHORING_SEARCH_INDEX.json is only a <=20 candidate shortlist, never a claim that no other legal choices exist.
+- Keep direct Animation authoring complete through simple-authoring/ANIMATION_RETRIEVAL_INDEX.json; directMaterials is an object keyed by animationHandle. The starter exposes only featured animations.
+- Ordinary NEW authoring must not require the full Director lookup or backend V3/V5 documents.
 - Inside a downloaded CURRENT bundle, the same manifest is named OPEN_CURRENT.json
 - simple-authoring/CUTSCENE_SCRIPT_V1.schema.json
 - simple-authoring/AUTHORING_HANDLES.json
