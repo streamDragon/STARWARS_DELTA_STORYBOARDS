@@ -161,7 +161,7 @@ Camera authoring is semantic directing intent.
 - Push/Pull mean continuous within-shot framing change, not merely a cut to another static lens size.
 - Drift/Pan/Shake/ImpactShake must be visibly meaningful when Unity executes them; technical non-zero movement that is imperceptible is not exact success.
 - Camera Orbit is not a legal Simple V1 camera movement in this CURRENT. Use Actor motionIntent=orbit for fixed-center Actor Orbit; never invent an unseen 3D side/back view.
-- locked portrait dialogue defaults to stable legal coverage; do not mix unsupported world-camera motion into a locked dialogue beat.
+- LOCKED DIALOGUE CAMERA IS A BLOCKING AUTHORING RULE: any dialogue beat that resolves to locked portrait, monitor, or radio coverage may use only camera.movement=hold or camera.movement=cut (cut-based Snap). push/pull/follow/track/pan/drift/shake/impact_shake are forbidden in that beat. Put cinematic camera movement in an adjacent non-dialogue beat. Validate this before V3 lowering; do not rely on Unity to discover it later.
 
 DIALOGUE
 Dialogue is closed-world.
@@ -229,7 +229,7 @@ Before returning JSON verify:
 8. every action uses schema-legal type/subject/motion/timing fields; never put an animation intent such as walk into motionIntent;
 9. every fire action has legal projectileId and count;
 10. Effect timing uses Effect-only fields and repeated instances are preserved;
-11. camera fields use exact schema vocabulary; camera.intensity is only subtle/medium/strong, never low/high;
+11. camera fields use exact schema vocabulary; camera.intensity is only subtle/medium/strong, never low/high; any locked portrait/monitor/radio dialogue beat uses camera.movement=hold or cut only, otherwise the V1 candidate is invalid;
 12. no unknown properties, raw Catalog IDs, runtime GUIDs, backend compiler/materialization fields, Timeline bindings or test-runner QA fields appear;
 13. no array-order sequencing assumption exists;
 14. no visual claim is made from metadata without pixel evidence when appearance matters;

@@ -1,11 +1,11 @@
 {
   "schema": "STARWARS_DELTA_CURRENT_AUTHORING_PROFILE",
   "profileSchemaVersion": 2,
-  "publishTransactionId": "20261002-193648070-477dd592",
-  "contractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
-  "authoringContractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
-  "schemaHash": "BDF41EF95C57F5866F4A070DAF99F9F84C612D8FDC0E69FB2F65EC5F0B522BD4",
-  "catalogRevision": "7622814287343685921",
+  "publishTransactionId": "20261003-040344998-9fbf89bf",
+  "contractRevision": "301CE9B5F4549B5893E275EED2D9F2AD0F4CDBD1BC6D668C31A258CBDB145C3A",
+  "authoringContractRevision": "301CE9B5F4549B5893E275EED2D9F2AD0F4CDBD1BC6D668C31A258CBDB145C3A",
+  "schemaHash": "12F509598DA898E07626F0977C91BE9D7E54A811C54F822522934F7D4EAE3C23",
+  "catalogRevision": "7622767627447800663",
   "schemaVersion": 5,
   "packageSchema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
   "serializer": {
@@ -9989,7 +9989,7 @@
     }
   ],
   "authoringRuleRegistry": {
-    "revision": "AC8864EC4E59A661DA0C9A085F1B2A315B42D29BDF1E7514D4CDD1CD2B9A80B9",
+    "revision": "5972653EFED6428CCBD28007BE847C5C41F060D22E38FEE66E092CB060ECFE8A",
     "rules": [
       {
         "ruleId": "ACTOR_IDENTITY_COLLISION",
@@ -10500,23 +10500,23 @@
       {
         "ruleId": "SIMPLE_LOCKED_DIALOGUE_CAMERA_HOLD",
         "category": "Dialogue",
-        "severity": "Acknowledge",
-        "blocksCompilation": false,
-        "statusColor": "Green",
+        "severity": "Blocker",
+        "blocksCompilation": true,
+        "statusColor": "Red",
         "owner": "AUTHORING",
-        "blocksEditablePreview": false,
-        "blocksFinalReadiness": false,
-        "authoringRequirement": "OPTIONAL",
-        "diagnosticCode": "SIMPLE_LOCKED_DIALOGUE_CAMERA_HOLD",
-        "description": "Locked portrait, monitor, and radio dialogue should author a held camera.",
-        "defaultPolicy": "camera.movement is hold or omitted for locked portrait/monitor/radio dialogue.",
-        "normalizationPolicy": "Apply at the Simple authoring boundary without rewriting explicit authored movement.",
-        "autoRepairPolicy": "Do not auto-repair explicit movement; preserve the existing non-blocking diagnostic.",
-        "validationPolicy": "Warn when push, pull, follow, or track is authored on locked portrait/monitor/radio dialogue.",
-        "introducedRevision": 1,
+        "blocksEditablePreview": true,
+        "blocksFinalReadiness": true,
+        "authoringRequirement": "MUST_AUTHOR",
+        "diagnosticCode": "V3_SEMANTIC_LOCKED_DIALOGUE_CAMERA_FORBIDDEN",
+        "description": "Locked portrait, monitor, and radio dialogue must use Hold or cut-based Snap camera coverage.",
+        "defaultPolicy": "camera.movement is hold or cut for locked portrait/monitor/radio dialogue.",
+        "normalizationPolicy": "Validate at the Simple V1 authoring boundary before semantic lowering and again in V3 semantic validation.",
+        "autoRepairPolicy": "Do not auto-repair explicit camera movement because that changes authored cinematic intent.",
+        "validationPolicy": "Block any camera movement other than hold or cut in a locked dialogue beat.",
+        "introducedRevision": 2,
         "deprecatedRevision": null,
-        "chatInstruction": "For locked portrait / monitor / radio dialogue, set camera.movement to hold or omit it. Put cinematic camera movement in an adjacent non-dialogue beat.",
-        "studioMessage": "Locked dialogue camera movement should be authored as Hold or omitted.",
+        "chatInstruction": "For locked portrait / monitor / radio dialogue, set camera.movement to hold or cut. Put cinematic camera movement in an adjacent non-dialogue beat.",
+        "studioMessage": "Locked dialogue permits only Hold or cut-based Snap camera coverage.",
         "regressionTestId": "SIMPLE_LOCKED_DIALOGUE_CAMERA_HOLD"
       },
       {
@@ -10782,10 +10782,10 @@
     "$id": "STARWARS_DELTA_CUTSCENE_RUNTIME_PACKAGE",
     "title": "STARWARS_DELTA Cutscene Runtime Package",
     "description": "Machine-readable shape generated from the current Unity runtime DTO. Semantic rules are in the companion contract files.",
-    "x-enumContractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
-    "x-authoringRuleRegistryRevision": "AC8864EC4E59A661DA0C9A085F1B2A315B42D29BDF1E7514D4CDD1CD2B9A80B9",
+    "x-enumContractRevision": "301CE9B5F4549B5893E275EED2D9F2AD0F4CDBD1BC6D668C31A258CBDB145C3A",
+    "x-authoringRuleRegistryRevision": "5972653EFED6428CCBD28007BE847C5C41F060D22E38FEE66E092CB060ECFE8A",
     "x-authoringRuleRegistry": {
-      "revision": "AC8864EC4E59A661DA0C9A085F1B2A315B42D29BDF1E7514D4CDD1CD2B9A80B9",
+      "revision": "5972653EFED6428CCBD28007BE847C5C41F060D22E38FEE66E092CB060ECFE8A",
       "rules": [
         {
           "ruleId": "ACTOR_IDENTITY_COLLISION",
@@ -11296,23 +11296,23 @@
         {
           "ruleId": "SIMPLE_LOCKED_DIALOGUE_CAMERA_HOLD",
           "category": "Dialogue",
-          "severity": "Acknowledge",
-          "blocksCompilation": false,
-          "statusColor": "Green",
+          "severity": "Blocker",
+          "blocksCompilation": true,
+          "statusColor": "Red",
           "owner": "AUTHORING",
-          "blocksEditablePreview": false,
-          "blocksFinalReadiness": false,
-          "authoringRequirement": "OPTIONAL",
-          "diagnosticCode": "SIMPLE_LOCKED_DIALOGUE_CAMERA_HOLD",
-          "description": "Locked portrait, monitor, and radio dialogue should author a held camera.",
-          "defaultPolicy": "camera.movement is hold or omitted for locked portrait/monitor/radio dialogue.",
-          "normalizationPolicy": "Apply at the Simple authoring boundary without rewriting explicit authored movement.",
-          "autoRepairPolicy": "Do not auto-repair explicit movement; preserve the existing non-blocking diagnostic.",
-          "validationPolicy": "Warn when push, pull, follow, or track is authored on locked portrait/monitor/radio dialogue.",
-          "introducedRevision": 1,
+          "blocksEditablePreview": true,
+          "blocksFinalReadiness": true,
+          "authoringRequirement": "MUST_AUTHOR",
+          "diagnosticCode": "V3_SEMANTIC_LOCKED_DIALOGUE_CAMERA_FORBIDDEN",
+          "description": "Locked portrait, monitor, and radio dialogue must use Hold or cut-based Snap camera coverage.",
+          "defaultPolicy": "camera.movement is hold or cut for locked portrait/monitor/radio dialogue.",
+          "normalizationPolicy": "Validate at the Simple V1 authoring boundary before semantic lowering and again in V3 semantic validation.",
+          "autoRepairPolicy": "Do not auto-repair explicit camera movement because that changes authored cinematic intent.",
+          "validationPolicy": "Block any camera movement other than hold or cut in a locked dialogue beat.",
+          "introducedRevision": 2,
           "deprecatedRevision": null,
-          "chatInstruction": "For locked portrait / monitor / radio dialogue, set camera.movement to hold or omit it. Put cinematic camera movement in an adjacent non-dialogue beat.",
-          "studioMessage": "Locked dialogue camera movement should be authored as Hold or omitted.",
+          "chatInstruction": "For locked portrait / monitor / radio dialogue, set camera.movement to hold or cut. Put cinematic camera movement in an adjacent non-dialogue beat.",
+          "studioMessage": "Locked dialogue permits only Hold or cut-based Snap camera coverage.",
           "regressionTestId": "SIMPLE_LOCKED_DIALOGUE_CAMERA_HOLD"
         },
         {
@@ -13215,10 +13215,10 @@
   },
   "authoringContract": {
     "schema": "STARWARS_DELTA_CUTSCENE_AUTHORING_CONTRACT",
-    "contractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
-    "authoringRuleRegistryRevision": "AC8864EC4E59A661DA0C9A085F1B2A315B42D29BDF1E7514D4CDD1CD2B9A80B9",
+    "contractRevision": "301CE9B5F4549B5893E275EED2D9F2AD0F4CDBD1BC6D668C31A258CBDB145C3A",
+    "authoringRuleRegistryRevision": "5972653EFED6428CCBD28007BE847C5C41F060D22E38FEE66E092CB060ECFE8A",
     "authoringRuleRegistry": {
-      "revision": "AC8864EC4E59A661DA0C9A085F1B2A315B42D29BDF1E7514D4CDD1CD2B9A80B9",
+      "revision": "5972653EFED6428CCBD28007BE847C5C41F060D22E38FEE66E092CB060ECFE8A",
       "rules": [
         {
           "ruleId": "ACTOR_IDENTITY_COLLISION",
@@ -13729,23 +13729,23 @@
         {
           "ruleId": "SIMPLE_LOCKED_DIALOGUE_CAMERA_HOLD",
           "category": "Dialogue",
-          "severity": "Acknowledge",
-          "blocksCompilation": false,
-          "statusColor": "Green",
+          "severity": "Blocker",
+          "blocksCompilation": true,
+          "statusColor": "Red",
           "owner": "AUTHORING",
-          "blocksEditablePreview": false,
-          "blocksFinalReadiness": false,
-          "authoringRequirement": "OPTIONAL",
-          "diagnosticCode": "SIMPLE_LOCKED_DIALOGUE_CAMERA_HOLD",
-          "description": "Locked portrait, monitor, and radio dialogue should author a held camera.",
-          "defaultPolicy": "camera.movement is hold or omitted for locked portrait/monitor/radio dialogue.",
-          "normalizationPolicy": "Apply at the Simple authoring boundary without rewriting explicit authored movement.",
-          "autoRepairPolicy": "Do not auto-repair explicit movement; preserve the existing non-blocking diagnostic.",
-          "validationPolicy": "Warn when push, pull, follow, or track is authored on locked portrait/monitor/radio dialogue.",
-          "introducedRevision": 1,
+          "blocksEditablePreview": true,
+          "blocksFinalReadiness": true,
+          "authoringRequirement": "MUST_AUTHOR",
+          "diagnosticCode": "V3_SEMANTIC_LOCKED_DIALOGUE_CAMERA_FORBIDDEN",
+          "description": "Locked portrait, monitor, and radio dialogue must use Hold or cut-based Snap camera coverage.",
+          "defaultPolicy": "camera.movement is hold or cut for locked portrait/monitor/radio dialogue.",
+          "normalizationPolicy": "Validate at the Simple V1 authoring boundary before semantic lowering and again in V3 semantic validation.",
+          "autoRepairPolicy": "Do not auto-repair explicit camera movement because that changes authored cinematic intent.",
+          "validationPolicy": "Block any camera movement other than hold or cut in a locked dialogue beat.",
+          "introducedRevision": 2,
           "deprecatedRevision": null,
-          "chatInstruction": "For locked portrait / monitor / radio dialogue, set camera.movement to hold or omit it. Put cinematic camera movement in an adjacent non-dialogue beat.",
-          "studioMessage": "Locked dialogue camera movement should be authored as Hold or omitted.",
+          "chatInstruction": "For locked portrait / monitor / radio dialogue, set camera.movement to hold or cut. Put cinematic camera movement in an adjacent non-dialogue beat.",
+          "studioMessage": "Locked dialogue permits only Hold or cut-based Snap camera coverage.",
           "regressionTestId": "SIMPLE_LOCKED_DIALOGUE_CAMERA_HOLD"
         },
         {
@@ -13904,7 +13904,7 @@
         }
       ]
     },
-    "schemaHash": "BDF41EF95C57F5866F4A070DAF99F9F84C612D8FDC0E69FB2F65EC5F0B522BD4",
+    "schemaHash": "12F509598DA898E07626F0977C91BE9D7E54A811C54F822522934F7D4EAE3C23",
     "packageVersion": 5,
     "fieldDefinitions": [
       {
@@ -24359,7 +24359,7 @@
           "Curve",
           "Orbit"
         ],
-        "authoringRule": "When any dialogue line in a shot has stage.lockStaging=true, the owning shot.actorActions MUST be empty. Do not use Hold, FreezePose, Enter, Exit, Move, PlayAnimation, or any other world-actor action to keep a dialogue actor static. Dialogue visuals are controlled by the dialogue presentation fields only; place world-actor activity in a separate action shot before or after the locked dialogue shot."
+        "authoringRule": "When any dialogue line in a shot has stage.lockStaging=true, the owning shot.actorActions MUST be empty and camera coverage MUST be Hold or cut-based Snap only. Do not use Hold, FreezePose, Enter, Exit, Move, PlayAnimation, or any other world-actor action to keep a dialogue actor static. Do not normalize authored Push, Pull, Pan, Track, Follow, Focus, Drift, Shake, ImpactShake or Recoil into Hold; place cinematic camera motion in a separate non-dialogue shot before or after the locked dialogue shot. Dialogue visuals are controlled by the dialogue presentation fields only; place world-actor activity in a separate action shot before or after the locked dialogue shot."
       },
       "distancePresets": [
         {
@@ -25224,6 +25224,7 @@
       "lockedDialogue": "A lockStaging dialogue line uses one explicit stage.backgroundAssetId plus its portrait/body/UI fields and optional stage.atmosphereVfxAssetIds.",
       "richComposition": "Use multi-plane layers for establishing or action beats; keep locked dialogue visually simple and line/stage-driven.",
       "movement": "When lockStaging is true, actorActions are empty and authored parallax/layer movement does not run under that locked dialogue beat.",
+      "camera": "When lockStaging is true, the owning shot permits only Hold or cut-based Snap camera coverage. Push, Pull, Pan, Track, Follow, Focus, Drift, Shake, ImpactShake and Recoil are not normalized into Hold; author cinematic camera movement in an adjacent non-dialogue shot.",
       "atmospherePlacement": "A Layer-role Atmosphere belongs in a Layer field; stage.atmosphereVfxAssetIds are always Effect-primary assets."
     },
     "uiEventSemantics": {
@@ -25315,10 +25316,10 @@
     "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
     "schemaVersion": 5,
     "contextVersion": 3,
-    "contractRevision": "ADD1CA8D8F71586E937F77C4CD271D35DCD0AF2C8927A05259078FDAD7793457",
-    "schemaHash": "BDF41EF95C57F5866F4A070DAF99F9F84C612D8FDC0E69FB2F65EC5F0B522BD4",
+    "contractRevision": "301CE9B5F4549B5893E275EED2D9F2AD0F4CDBD1BC6D668C31A258CBDB145C3A",
+    "schemaHash": "12F509598DA898E07626F0977C91BE9D7E54A811C54F822522934F7D4EAE3C23",
     "contextId": "NEW_CUTSCENE_CONTEXT",
-    "catalogRevision": "7622814287343685921",
+    "catalogRevision": "7622767627447800663",
     "projectId": "",
     "planId": "plan_example_minimal",
     "baseRevision": 0,
