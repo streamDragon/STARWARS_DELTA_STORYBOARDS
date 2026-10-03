@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>STARWARS_DELTA Wave AI Context</title>
+<style>
+body{font-family:system-ui,sans-serif;background:#0b1020;color:#eef3ff;margin:0;padding:32px}
+main{max-width:900px;margin:auto}.card{background:#151d33;border:1px solid #2b385d;border-radius:12px;padding:18px;margin:14px 0}
+a{color:#7db9ff}.muted{color:#9eabc5}
+</style>
+</head>
+<body><main>
+<h1>Temporary Wave AI Context</h1>
+<p>Generated COPY AI packages are published as temporary GitHub releases and are not stored inside the Unity project.</p>
+<p class="muted">Only releases tagged <code>wave-context-*</code> are shown. They are automatically removed after 24 hours.</p>
+<div id="status" class="card">Loading...</div>
+<div id="items"></div>
+<script>
+const repo='streamDragon/STARWARS_DELTA_STORYBOARDS';
+fetch('https://api.github.com/repos/'+repo+'/releases?per_page=50').then(r=>r.json()).then(items=>{
+ const live=items.filter(x=>x.tag_name&&x.tag_name.startsWith('wave-context-'));
+ document.getElementById('status').textContent=live.length?live.length+' temporary package(s) available.':'No temporary COPY AI packages are currently published.';
+ document.getElementById('items').innerHTML=live.map(x=>'<div class="card"><strong>'+x.name+'</strong><br><span class="muted">'+x.created_at+'</span><br><a href="'+x.html_url+'">Open package</a></div>').join('');
+}).catch(e=>document.getElementById('status').textContent='Could not load releases: '+e);
+</script>
+</main></body></html>
