@@ -1,0 +1,2747 @@
+{
+    "snapshotId": "BouncingLevel-4f3775f9b2d9",
+    "fingerprint": "4f3775f9b2d9a42f5e311a625148ce342c22278c6fdb4b9475bbd6d0159c9baa",
+    "sceneName": "BouncingLevel",
+    "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/BouncingLevel.unity",
+    "sceneDirty": false,
+    "createdUtc": "2026-10-03T18:31:57.9250950Z",
+    "coordinateBasis": "Unity world XY; Layer 0 hierarchy root is the spatial scope.",
+    "layer0Path": "GameSceneLayers/Layer0",
+    "hierarchy": [
+        {
+            "id": "OBJ-B675EA5D4611",
+            "name": "Layer0",
+            "hierarchyPath": "GameSceneLayers/Layer0",
+            "parentPath": "",
+            "depth": 0,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "DepthLayerQaProbe",
+                "ParallaxLayer",
+                "SortingGroup",
+                "Transform"
+            ],
+            "hasRendererBounds": false,
+            "rendererType": "",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-A53104A98AF6",
+            "name": "Active_Enemies_turrets (1)",
+            "hierarchyPath": "GameSceneLayers/Layer0/Active_Enemies_turrets (1)",
+            "parentPath": "GameSceneLayers/Layer0",
+            "depth": 1,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "Transform"
+            ],
+            "hasRendererBounds": false,
+            "rendererType": "",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-F06A3D2D9B46",
+            "name": "DESTRUCTIBLE_GRID",
+            "hierarchyPath": "GameSceneLayers/Layer0/DESTRUCTIBLE_GRID",
+            "parentPath": "GameSceneLayers/Layer0",
+            "depth": 1,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 0.47999998927116394,
+                "y": 0.15000000596046448,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 0.47999998927116394,
+                "y": 0.15000000596046448,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "PolygonCollider2D",
+                "SpriteRenderer",
+                "Transform"
+            ],
+            "hasRendererBounds": true,
+            "rendererType": "SpriteRenderer",
+            "rendererBoundsMin": {
+                "x": -0.7008000016212463,
+                "y": -0.30000001192092896,
+                "z": -0.10000000149011612
+            },
+            "rendererBoundsMax": {
+                "x": 0.7008000016212463,
+                "y": 0.30000001192092896,
+                "z": 0.10000000149011612
+            },
+            "hasCollider2DBounds": true,
+            "collider2DType": "PolygonCollider2D",
+            "collider2DBoundsMin": {
+                "x": -0.7007999420166016,
+                "y": -0.30000001192092896,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.7007999420166016,
+                "y": 0.30000001192092896,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-5B475B66292C",
+            "name": "ROCKS",
+            "hierarchyPath": "GameSceneLayers/Layer0/DESTRUCTIBLE_GRID/ROCKS",
+            "parentPath": "GameSceneLayers/Layer0/DESTRUCTIBLE_GRID",
+            "depth": 2,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 0.47999998927116394,
+                "y": 0.15000000596046448,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "SpriteRenderer",
+                "Transform"
+            ],
+            "hasRendererBounds": true,
+            "rendererType": "SpriteRenderer",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-5E220E123B31",
+            "name": "First_6_Level Uniform Unlit Lighting",
+            "hierarchyPath": "GameSceneLayers/Layer0/First_6_Level Uniform Unlit Lighting",
+            "parentPath": "GameSceneLayers/Layer0",
+            "depth": 1,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "Transform"
+            ],
+            "hasRendererBounds": false,
+            "rendererType": "",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-59E2CEFB9B18",
+            "name": "LevelLighting",
+            "hierarchyPath": "GameSceneLayers/Layer0/First_6_Level Uniform Unlit Lighting/LevelLighting",
+            "parentPath": "GameSceneLayers/Layer0/First_6_Level Uniform Unlit Lighting",
+            "depth": 2,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "Transform"
+            ],
+            "hasRendererBounds": false,
+            "rendererType": "",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-A091D3459D4D",
+            "name": "Obstacles_for_mesh_ai (6)",
+            "hierarchyPath": "GameSceneLayers/Layer0/Obstacles_for_mesh_ai (6)",
+            "parentPath": "GameSceneLayers/Layer0",
+            "depth": 1,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "Transform"
+            ],
+            "hasRendererBounds": false,
+            "rendererType": "",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-5329F5C56C2D",
+            "name": "Particle SystemMANAGER",
+            "hierarchyPath": "GameSceneLayers/Layer0/Particle SystemMANAGER",
+            "parentPath": "GameSceneLayers/Layer0",
+            "depth": 1,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "Transform"
+            ],
+            "hasRendererBounds": false,
+            "rendererType": "",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-0E97B7D63EBE",
+            "name": "Particle_Handler_Base",
+            "hierarchyPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base",
+            "parentPath": "GameSceneLayers/Layer0/Particle SystemMANAGER",
+            "depth": 2,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "NetworkObject",
+                "ParticleColliderController",
+                "SpriteRenderer",
+                "Transform"
+            ],
+            "hasRendererBounds": true,
+            "rendererType": "SpriteRenderer",
+            "rendererBoundsMin": {
+                "x": -0.3700000047683716,
+                "y": -0.24500000476837158,
+                "z": -0.10000000149011612
+            },
+            "rendererBoundsMax": {
+                "x": 0.3700000047683716,
+                "y": 0.24500000476837158,
+                "z": 0.10000000149011612
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-84E94F3E1DE7",
+            "name": "Particle_Handler_Base (1)",
+            "hierarchyPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base (1)",
+            "parentPath": "GameSceneLayers/Layer0/Particle SystemMANAGER",
+            "depth": 2,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "NetworkObject",
+                "ParticleColliderController",
+                "SpriteRenderer",
+                "Transform"
+            ],
+            "hasRendererBounds": true,
+            "rendererType": "SpriteRenderer",
+            "rendererBoundsMin": {
+                "x": -0.3700000047683716,
+                "y": -0.24500000476837158,
+                "z": -0.10000000149011612
+            },
+            "rendererBoundsMax": {
+                "x": 0.3700000047683716,
+                "y": 0.24500000476837158,
+                "z": 0.10000000149011612
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-B9D804EB20E6",
+            "name": "DamageZone",
+            "hierarchyPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base (1)/DamageZone",
+            "parentPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base (1)",
+            "depth": 3,
+            "activeSelf": false,
+            "activeInHierarchy": false,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "BoxCollider2D",
+                "MY_DamagerBody",
+                "Transform"
+            ],
+            "hasRendererBounds": false,
+            "rendererType": "",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": true,
+            "collider2DType": "BoxCollider2D",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-CAC511FCA118",
+            "name": "DamageZone",
+            "hierarchyPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/DamageZone",
+            "parentPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base",
+            "depth": 3,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "BoxCollider2D",
+                "MY_DamagerBody",
+                "Transform"
+            ],
+            "hasRendererBounds": false,
+            "rendererType": "",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": true,
+            "collider2DType": "BoxCollider2D",
+            "collider2DBoundsMin": {
+                "x": -1.25,
+                "y": 2.929999828338623,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 1.25,
+                "y": 5.429999828338623,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-2AE67F9ABABB",
+            "name": "Explosion7",
+            "hierarchyPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/Explosion7",
+            "parentPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base",
+            "depth": 3,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 0.949999988079071,
+                "y": 0.949999988079071,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 0.949999988079071,
+                "y": 0.949999988079071,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "MY_VFXSizeController",
+                "Transform"
+            ],
+            "hasRendererBounds": false,
+            "rendererType": "",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-1497E677D3A8",
+            "name": "MY_SmokeTrail_Layer",
+            "hierarchyPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/Explosion7/MY_SmokeTrail_Layer",
+            "parentPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/Explosion7",
+            "depth": 4,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 0.949999988079071,
+                "y": 0.949999988079071,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "ParticleSystem",
+                "ParticleSystemRenderer",
+                "Transform"
+            ],
+            "hasRendererBounds": true,
+            "rendererType": "ParticleSystemRenderer",
+            "rendererBoundsMin": {
+                "x": -1.5701282024383545,
+                "y": 2.9056310653686523,
+                "z": -1.125280737876892
+            },
+            "rendererBoundsMax": {
+                "x": 1.3875372409820557,
+                "y": 5.986147880554199,
+                "z": 0.9549597501754761
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-3375193F5F14",
+            "name": "Visual",
+            "hierarchyPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/Explosion7/Visual",
+            "parentPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/Explosion7",
+            "depth": 4,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 0.8500000238418579,
+                "y": 0.8500000238418579,
+                "z": 0.8500000238418579
+            },
+            "lossyScale": {
+                "x": 0.8075000047683716,
+                "y": 0.8075000047683716,
+                "z": 0.8500000238418579
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "Animator",
+                "ParticleSystem",
+                "ParticleSystemRenderer",
+                "Transform"
+            ],
+            "hasRendererBounds": true,
+            "rendererType": "ParticleSystemRenderer",
+            "rendererBoundsMin": {
+                "x": -3.2605063915252686,
+                "y": 2.503925085067749,
+                "z": -2.24603009223938
+            },
+            "rendererBoundsMax": {
+                "x": 1.5939900875091553,
+                "y": 6.567296981811523,
+                "z": 1.5308444499969482
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-2B75A78A1159",
+            "name": "Impulse Source",
+            "hierarchyPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/Explosion7/Visual/Impulse Source",
+            "parentPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/Explosion7/Visual",
+            "depth": 5,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 0.8075000047683716,
+                "y": 0.8075000047683716,
+                "z": 0.8500000238418579
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "CinemachineImpulseSource",
+                "CustomImpulse",
+                "Transform"
+            ],
+            "hasRendererBounds": false,
+            "rendererType": "",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-D87B817F0286",
+            "name": "Particle Light",
+            "hierarchyPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/Explosion7/Visual/Particle Light",
+            "parentPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/Explosion7/Visual",
+            "depth": 5,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 0.8075000047683716,
+                "y": 0.8075000047683716,
+                "z": 0.8500000238418579
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "ParticleSystem",
+                "ParticleSystemRenderer",
+                "Transform"
+            ],
+            "hasRendererBounds": true,
+            "rendererType": "ParticleSystemRenderer",
+            "rendererBoundsMin": {
+                "x": -5.082149982452393,
+                "y": -0.24286890029907227,
+                "z": -3.9771499633789063
+            },
+            "rendererBoundsMax": {
+                "x": 5.082149982452393,
+                "y": 11.005180358886719,
+                "z": 3.9771499633789063
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-7D466F71FE53",
+            "name": "Particle System Force Fields",
+            "hierarchyPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/Explosion7/Visual/Particle System Force Fields",
+            "parentPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/Explosion7/Visual",
+            "depth": 5,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 0.8075000047683716,
+                "y": 0.8075000047683716,
+                "z": 0.8500000238418579
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "Transform"
+            ],
+            "hasRendererBounds": false,
+            "rendererType": "",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-FEF3D925329B",
+            "name": "Particle System Force Field 1",
+            "hierarchyPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/Explosion7/Visual/Particle System Force Fields/Particle System Force Field 1",
+            "parentPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/Explosion7/Visual/Particle System Force Fields",
+            "depth": 6,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 0.8075000047683716,
+                "y": 0.8075000047683716,
+                "z": 0.8500000238418579
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "ParticleSystemForceField",
+                "Transform"
+            ],
+            "hasRendererBounds": false,
+            "rendererType": "",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-E6D029A4AD8D",
+            "name": "Particle System Force Field 2",
+            "hierarchyPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/Explosion7/Visual/Particle System Force Fields/Particle System Force Field 2",
+            "parentPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/Explosion7/Visual/Particle System Force Fields",
+            "depth": 6,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 0.8075000047683716,
+                "y": 0.8075000047683716,
+                "z": 0.8500000238418579
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "ParticleSystemForceField",
+                "Transform"
+            ],
+            "hasRendererBounds": false,
+            "rendererType": "",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-AAB22563F93F",
+            "name": "[Detection Zone] Particle_Handler_Base",
+            "hierarchyPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base/[Detection Zone] Particle_Handler_Base",
+            "parentPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base",
+            "depth": 3,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 4.179999828338623,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "BoxCollider2D",
+                "Transform"
+            ],
+            "hasRendererBounds": false,
+            "rendererType": "",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": true,
+            "collider2DType": "BoxCollider2D",
+            "collider2DBoundsMin": {
+                "x": -2.0,
+                "y": 2.179999828338623,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 2.0,
+                "y": 6.179999828338623,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-4B01CE06848C",
+            "name": "robot_walkable_sufrace",
+            "hierarchyPath": "GameSceneLayers/Layer0/robot_walkable_sufrace",
+            "parentPath": "GameSceneLayers/Layer0",
+            "depth": 1,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "Transform"
+            ],
+            "hasRendererBounds": false,
+            "rendererType": "",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-C7E3004C5C04",
+            "name": "GroundPillar",
+            "hierarchyPath": "GameSceneLayers/Layer0/robot_walkable_sufrace/GroundPillar",
+            "parentPath": "GameSceneLayers/Layer0/robot_walkable_sufrace",
+            "depth": 2,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": -4.46999979019165,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": -4.46999979019165,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "Transform"
+            ],
+            "hasRendererBounds": false,
+            "rendererType": "",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-7C3546862E4A",
+            "name": "Square",
+            "hierarchyPath": "GameSceneLayers/Layer0/robot_walkable_sufrace/GroundPillar/Square",
+            "parentPath": "GameSceneLayers/Layer0/robot_walkable_sufrace/GroundPillar",
+            "depth": 3,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": -4.46999979019165,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.5299999713897705,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 1.5299999713897705,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "SpriteRenderer",
+                "Transform"
+            ],
+            "hasRendererBounds": true,
+            "rendererType": "SpriteRenderer",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": -4.46999979019165,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": -4.46999979019165,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-1BBAE1957B52",
+            "name": "Square (1)",
+            "hierarchyPath": "GameSceneLayers/Layer0/robot_walkable_sufrace/GroundPillar/Square (1)",
+            "parentPath": "GameSceneLayers/Layer0/robot_walkable_sufrace/GroundPillar",
+            "depth": 3,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": -5.779999732971191,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": -1.309999942779541,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 5.210000038146973,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 5.210000038146973,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "BoxCollider2D",
+                "SpriteRenderer",
+                "Transform"
+            ],
+            "hasRendererBounds": true,
+            "rendererType": "SpriteRenderer",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": -5.779999732971191,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": -5.779999732971191,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": true,
+            "collider2DType": "BoxCollider2D",
+            "collider2DBoundsMin": {
+                "x": -1.667199969291687,
+                "y": -6.099999904632568,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 1.667199969291687,
+                "y": -5.4599995613098145,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-C98C724B1CAE",
+            "name": "STRUCTURE_PILLARS",
+            "hierarchyPath": "GameSceneLayers/Layer0/STRUCTURE_PILLARS",
+            "parentPath": "GameSceneLayers/Layer0",
+            "depth": 1,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 0.47999998927116394,
+                "y": 0.15000000596046448,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 0.47999998927116394,
+                "y": 0.15000000596046448,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "PolygonCollider2D",
+                "SpriteRenderer",
+                "Transform"
+            ],
+            "hasRendererBounds": true,
+            "rendererType": "SpriteRenderer",
+            "rendererBoundsMin": {
+                "x": -0.7008000016212463,
+                "y": -0.30000001192092896,
+                "z": -0.10000000149011612
+            },
+            "rendererBoundsMax": {
+                "x": 0.7008000016212463,
+                "y": 0.30000001192092896,
+                "z": 0.10000000149011612
+            },
+            "hasCollider2DBounds": true,
+            "collider2DType": "PolygonCollider2D",
+            "collider2DBoundsMin": {
+                "x": -0.7007999420166016,
+                "y": -0.30000001192092896,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.7007999420166016,
+                "y": 0.30000001192092896,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        },
+        {
+            "id": "OBJ-8D5722A6C37E",
+            "name": "ROCKS",
+            "hierarchyPath": "GameSceneLayers/Layer0/STRUCTURE_PILLARS/ROCKS",
+            "parentPath": "GameSceneLayers/Layer0/STRUCTURE_PILLARS",
+            "depth": 2,
+            "activeSelf": true,
+            "activeInHierarchy": true,
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "worldRotationZ": 0.0,
+            "localRotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "lossyScale": {
+                "x": 0.47999998927116394,
+                "y": 0.15000000596046448,
+                "z": 1.0
+            },
+            "prefabAssetPath": "Assets/_Game/MY_Prefabs/BackGROUND_Parallax/GameSceneLayers.prefab",
+            "componentTypes": [
+                "SpriteRenderer",
+                "Transform"
+            ],
+            "hasRendererBounds": true,
+            "rendererType": "SpriteRenderer",
+            "rendererBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rendererBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "hasCollider2DBounds": false,
+            "collider2DType": "",
+            "collider2DBoundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "collider2DBoundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "generatedElementId": "",
+            "generatedSegmentId": "",
+            "generatedElementKind": "",
+            "generatedProfiles": "",
+            "generatedBuildMode": "",
+            "roadId": "",
+            "robotRoad": false
+        }
+    ],
+    "sprites": [
+        {
+            "id": "SPR-408F7EB4458F",
+            "hierarchyPath": "GameSceneLayers/Layer0/DESTRUCTIBLE_GRID",
+            "ownerPath": "GameSceneLayers/Layer0",
+            "spriteAsset": "Assets/_Game/MY_Core/MY_Art/DGraphics/amphora2.png",
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "boundsMin": {
+                "x": -0.7008000016212463,
+                "y": -0.30000001192092896,
+                "z": -0.10000000149011612
+            },
+            "boundsMax": {
+                "x": 0.7008000016212463,
+                "y": 0.30000001192092896,
+                "z": 0.10000000149011612
+            },
+            "rotationZ": 0.0,
+            "localScale": {
+                "x": 0.47999998927116394,
+                "y": 0.15000000596046448,
+                "z": 1.0
+            },
+            "active": true,
+            "enabled": true,
+            "sortingLayer": "ND_EnemyBullet",
+            "sortingOrder": 0,
+            "geometryKind": "polygon",
+            "geometrySource": "Sprite.physicsShape transformed to Unity world space; planning geometry only, not obstacle semantics",
+            "geometryApproximate": true,
+            "worldPolygons": [
+                {
+                    "source": "Sprite.physicsShape[0]",
+                    "approximate": true,
+                    "worldPoints": [
+                        {
+                            "x": 0.3887999951839447,
+                            "y": -0.21449999511241913,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.4511999785900116,
+                            "y": -0.18149998784065247,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.5087999701499939,
+                            "y": -0.148499995470047,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.6047999858856201,
+                            "y": -0.08550000190734863,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.6480000019073486,
+                            "y": -0.05400000140070915,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.6624000072479248,
+                            "y": -0.032999999821186066,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.6863999366760254,
+                            "y": -0.001500000013038516,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.7007999420166016,
+                            "y": 0.022499999031424522,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.7007999420166016,
+                            "y": 0.08250000327825546,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.671999990940094,
+                            "y": 0.11699999868869781,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.6287999749183655,
+                            "y": 0.14100000262260437,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.6095999479293823,
+                            "y": 0.15150000154972076,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.48479998111724854,
+                            "y": 0.18900001049041748,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.3791999816894531,
+                            "y": 0.21449999511241913,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.35999998450279236,
+                            "y": 0.24450001120567322,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.5231999754905701,
+                            "y": 0.2460000067949295,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.5471999645233154,
+                            "y": 0.25049999356269836,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.5567999482154846,
+                            "y": 0.2745000123977661,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.5424000024795532,
+                            "y": 0.2835000157356262,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.5183999538421631,
+                            "y": 0.29249998927116394,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.46559998393058777,
+                            "y": 0.296999990940094,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.23519998788833618,
+                            "y": 0.30000001192092896,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.3455999791622162,
+                            "y": 0.30000001192092896,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.4607999920845032,
+                            "y": 0.296999990940094,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.5087999701499939,
+                            "y": 0.2939999997615814,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.5424000024795532,
+                            "y": 0.2880000174045563,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.5567999482154846,
+                            "y": 0.25950002670288086,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.527999997138977,
+                            "y": 0.24899999797344208,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.48959997296333313,
+                            "y": 0.24450001120567322,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.35519999265670776,
+                            "y": 0.24450001120567322,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.44159996509552,
+                            "y": 0.1979999989271164,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.48959997296333313,
+                            "y": 0.1875,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.5999999642372131,
+                            "y": 0.15450000762939453,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.6287999749183655,
+                            "y": 0.14249999821186066,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.6767999529838562,
+                            "y": 0.11550000309944153,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.7007999420166016,
+                            "y": 0.08550000190734863,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.7007999420166016,
+                            "y": 0.019500000402331352,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.6911999583244324,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.6431999206542969,
+                            "y": -0.04800000041723251,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.6191999912261963,
+                            "y": -0.0689999982714653,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.5856000185012817,
+                            "y": -0.09450000524520874,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.5567999482154846,
+                            "y": -0.11550000309944153,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.4943999648094177,
+                            "y": -0.1589999943971634,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.3983999788761139,
+                            "y": -0.21899999678134918,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.30719998478889465,
+                            "y": -0.2670000195503235,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.2783999741077423,
+                            "y": -0.2775000035762787,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.24479998648166656,
+                            "y": -0.2849999964237213,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.19199998676776886,
+                            "y": -0.29249998927116394,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.11999999731779099,
+                            "y": -0.30000001192092896,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.1151999980211258,
+                            "y": -0.30000001192092896,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.22079998254776,
+                            "y": -0.2865000069141388,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.2879999876022339,
+                            "y": -0.2670000195503235,
+                            "z": 0.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "SPR-F659414BA1E7",
+            "hierarchyPath": "GameSceneLayers/Layer0/DESTRUCTIBLE_GRID/ROCKS",
+            "ownerPath": "GameSceneLayers/Layer0/DESTRUCTIBLE_GRID",
+            "spriteAsset": "",
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "boundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "boundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "active": true,
+            "enabled": true,
+            "sortingLayer": "Default",
+            "sortingOrder": 0,
+            "geometryKind": "boundsFallback",
+            "geometrySource": "SpriteRenderer.worldBounds",
+            "geometryApproximate": true,
+            "worldPolygons": []
+        },
+        {
+            "id": "SPR-E7CAB5A766C2",
+            "hierarchyPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base",
+            "ownerPath": "GameSceneLayers/Layer0/Particle SystemMANAGER",
+            "spriteAsset": "Assets/_Game/MY_Core/MY_Art/DGraphics/2-removebg-preview 1.png",
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "boundsMin": {
+                "x": -0.3700000047683716,
+                "y": -0.24500000476837158,
+                "z": -0.10000000149011612
+            },
+            "boundsMax": {
+                "x": 0.3700000047683716,
+                "y": 0.24500000476837158,
+                "z": 0.10000000149011612
+            },
+            "rotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "active": true,
+            "enabled": false,
+            "sortingLayer": "Default",
+            "sortingOrder": 0,
+            "geometryKind": "orientedRectangle",
+            "geometrySource": "Sprite.localBounds transformed to Unity world space",
+            "geometryApproximate": true,
+            "worldPolygons": [
+                {
+                    "source": "Sprite.bounds oriented rectangle",
+                    "approximate": true,
+                    "worldPoints": [
+                        {
+                            "x": -0.3700000047683716,
+                            "y": -0.24500000476837158,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.3700000047683716,
+                            "y": -0.24500000476837158,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.3700000047683716,
+                            "y": 0.24500000476837158,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.3700000047683716,
+                            "y": 0.24500000476837158,
+                            "z": 0.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "SPR-594A7D2ADA3E",
+            "hierarchyPath": "GameSceneLayers/Layer0/Particle SystemMANAGER/Particle_Handler_Base (1)",
+            "ownerPath": "GameSceneLayers/Layer0/Particle SystemMANAGER",
+            "spriteAsset": "Assets/_Game/MY_Core/MY_Art/DGraphics/2-removebg-preview 1.png",
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "boundsMin": {
+                "x": -0.3700000047683716,
+                "y": -0.24500000476837158,
+                "z": -0.10000000149011612
+            },
+            "boundsMax": {
+                "x": 0.3700000047683716,
+                "y": 0.24500000476837158,
+                "z": 0.10000000149011612
+            },
+            "rotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "active": true,
+            "enabled": false,
+            "sortingLayer": "Default",
+            "sortingOrder": 0,
+            "geometryKind": "orientedRectangle",
+            "geometrySource": "Sprite.localBounds transformed to Unity world space",
+            "geometryApproximate": true,
+            "worldPolygons": [
+                {
+                    "source": "Sprite.bounds oriented rectangle",
+                    "approximate": true,
+                    "worldPoints": [
+                        {
+                            "x": -0.3700000047683716,
+                            "y": -0.24500000476837158,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.3700000047683716,
+                            "y": -0.24500000476837158,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.3700000047683716,
+                            "y": 0.24500000476837158,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.3700000047683716,
+                            "y": 0.24500000476837158,
+                            "z": 0.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "SPR-20DF9C596DA6",
+            "hierarchyPath": "GameSceneLayers/Layer0/robot_walkable_sufrace/GroundPillar/Square",
+            "ownerPath": "GameSceneLayers/Layer0/robot_walkable_sufrace/GroundPillar",
+            "spriteAsset": "",
+            "worldPosition": {
+                "x": 0.0,
+                "y": -4.46999979019165,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "boundsMin": {
+                "x": 0.0,
+                "y": -4.46999979019165,
+                "z": 0.0
+            },
+            "boundsMax": {
+                "x": 0.0,
+                "y": -4.46999979019165,
+                "z": 0.0
+            },
+            "rotationZ": 0.0,
+            "localScale": {
+                "x": 1.5299999713897705,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "active": true,
+            "enabled": true,
+            "sortingLayer": "Default",
+            "sortingOrder": 0,
+            "geometryKind": "boundsFallback",
+            "geometrySource": "SpriteRenderer.worldBounds",
+            "geometryApproximate": true,
+            "worldPolygons": []
+        },
+        {
+            "id": "SPR-5BD723EE41E5",
+            "hierarchyPath": "GameSceneLayers/Layer0/robot_walkable_sufrace/GroundPillar/Square (1)",
+            "ownerPath": "GameSceneLayers/Layer0/robot_walkable_sufrace/GroundPillar",
+            "spriteAsset": "",
+            "worldPosition": {
+                "x": 0.0,
+                "y": -5.779999732971191,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": -1.309999942779541,
+                "z": 0.0
+            },
+            "boundsMin": {
+                "x": 0.0,
+                "y": -5.779999732971191,
+                "z": 0.0
+            },
+            "boundsMax": {
+                "x": 0.0,
+                "y": -5.779999732971191,
+                "z": 0.0
+            },
+            "rotationZ": 0.0,
+            "localScale": {
+                "x": 5.210000038146973,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "active": true,
+            "enabled": true,
+            "sortingLayer": "Default",
+            "sortingOrder": 0,
+            "geometryKind": "boundsFallback",
+            "geometrySource": "SpriteRenderer.worldBounds",
+            "geometryApproximate": true,
+            "worldPolygons": []
+        },
+        {
+            "id": "SPR-05959467BFBE",
+            "hierarchyPath": "GameSceneLayers/Layer0/STRUCTURE_PILLARS",
+            "ownerPath": "GameSceneLayers/Layer0",
+            "spriteAsset": "Assets/_Game/MY_Core/MY_Art/DGraphics/amphora2.png",
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "boundsMin": {
+                "x": -0.7008000016212463,
+                "y": -0.30000001192092896,
+                "z": -0.10000000149011612
+            },
+            "boundsMax": {
+                "x": 0.7008000016212463,
+                "y": 0.30000001192092896,
+                "z": 0.10000000149011612
+            },
+            "rotationZ": 0.0,
+            "localScale": {
+                "x": 0.47999998927116394,
+                "y": 0.15000000596046448,
+                "z": 1.0
+            },
+            "active": true,
+            "enabled": true,
+            "sortingLayer": "ND_EnemyBullet",
+            "sortingOrder": 0,
+            "geometryKind": "polygon",
+            "geometrySource": "Sprite.physicsShape transformed to Unity world space; planning geometry only, not obstacle semantics",
+            "geometryApproximate": true,
+            "worldPolygons": [
+                {
+                    "source": "Sprite.physicsShape[0]",
+                    "approximate": true,
+                    "worldPoints": [
+                        {
+                            "x": 0.3887999951839447,
+                            "y": -0.21449999511241913,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.4511999785900116,
+                            "y": -0.18149998784065247,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.5087999701499939,
+                            "y": -0.148499995470047,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.6047999858856201,
+                            "y": -0.08550000190734863,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.6480000019073486,
+                            "y": -0.05400000140070915,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.6624000072479248,
+                            "y": -0.032999999821186066,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.6863999366760254,
+                            "y": -0.001500000013038516,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.7007999420166016,
+                            "y": 0.022499999031424522,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.7007999420166016,
+                            "y": 0.08250000327825546,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.671999990940094,
+                            "y": 0.11699999868869781,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.6287999749183655,
+                            "y": 0.14100000262260437,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.6095999479293823,
+                            "y": 0.15150000154972076,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.48479998111724854,
+                            "y": 0.18900001049041748,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.3791999816894531,
+                            "y": 0.21449999511241913,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.35999998450279236,
+                            "y": 0.24450001120567322,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.5231999754905701,
+                            "y": 0.2460000067949295,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.5471999645233154,
+                            "y": 0.25049999356269836,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.5567999482154846,
+                            "y": 0.2745000123977661,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.5424000024795532,
+                            "y": 0.2835000157356262,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.5183999538421631,
+                            "y": 0.29249998927116394,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.46559998393058777,
+                            "y": 0.296999990940094,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.23519998788833618,
+                            "y": 0.30000001192092896,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.3455999791622162,
+                            "y": 0.30000001192092896,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.4607999920845032,
+                            "y": 0.296999990940094,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.5087999701499939,
+                            "y": 0.2939999997615814,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.5424000024795532,
+                            "y": 0.2880000174045563,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.5567999482154846,
+                            "y": 0.25950002670288086,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.527999997138977,
+                            "y": 0.24899999797344208,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.48959997296333313,
+                            "y": 0.24450001120567322,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.35519999265670776,
+                            "y": 0.24450001120567322,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.44159996509552,
+                            "y": 0.1979999989271164,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.48959997296333313,
+                            "y": 0.1875,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.5999999642372131,
+                            "y": 0.15450000762939453,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.6287999749183655,
+                            "y": 0.14249999821186066,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.6767999529838562,
+                            "y": 0.11550000309944153,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.7007999420166016,
+                            "y": 0.08550000190734863,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.7007999420166016,
+                            "y": 0.019500000402331352,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.6911999583244324,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.6431999206542969,
+                            "y": -0.04800000041723251,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.6191999912261963,
+                            "y": -0.0689999982714653,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.5856000185012817,
+                            "y": -0.09450000524520874,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.5567999482154846,
+                            "y": -0.11550000309944153,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.4943999648094177,
+                            "y": -0.1589999943971634,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.3983999788761139,
+                            "y": -0.21899999678134918,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.30719998478889465,
+                            "y": -0.2670000195503235,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.2783999741077423,
+                            "y": -0.2775000035762787,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.24479998648166656,
+                            "y": -0.2849999964237213,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.19199998676776886,
+                            "y": -0.29249998927116394,
+                            "z": 0.0
+                        },
+                        {
+                            "x": -0.11999999731779099,
+                            "y": -0.30000001192092896,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.1151999980211258,
+                            "y": -0.30000001192092896,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.22079998254776,
+                            "y": -0.2865000069141388,
+                            "z": 0.0
+                        },
+                        {
+                            "x": 0.2879999876022339,
+                            "y": -0.2670000195503235,
+                            "z": 0.0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "SPR-ADAB91C4A614",
+            "hierarchyPath": "GameSceneLayers/Layer0/STRUCTURE_PILLARS/ROCKS",
+            "ownerPath": "GameSceneLayers/Layer0/STRUCTURE_PILLARS",
+            "spriteAsset": "",
+            "worldPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "boundsMin": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "boundsMax": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotationZ": 0.0,
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "active": true,
+            "enabled": true,
+            "sortingLayer": "Default",
+            "sortingOrder": 0,
+            "geometryKind": "boundsFallback",
+            "geometrySource": "SpriteRenderer.worldBounds",
+            "geometryApproximate": true,
+            "worldPolygons": []
+        }
+    ],
+    "roads": [],
+    "markers": [],
+    "relativeAnchors": [],
+    "relativeAnchorSourceFingerprint": "",
+    "relativeAnchorsStale": true,
+    "warnings": [
+        "Relative anchors are missing; run explicit Refresh Relative Anchors."
+    ]
+}
