@@ -3,16 +3,16 @@
   "schemaVersion": 1,
   "projectionRevision": "ANIMATION_RETRIEVAL_V8_20261001_SEARCHABLE_SEMANTICS",
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20261003-103216014-8319f335",
+  "publishTransactionId": "20261003-162532239-be24bba6",
   "requiredCurrent": {
-    "catalogRevision": "7622782607383542294",
+    "catalogRevision": "7622799005655898162",
     "contractRevision": "301CE9B5F4549B5893E275EED2D9F2AD0F4CDBD1BC6D668C31A258CBDB145C3A",
     "schemaHash": "12F509598DA898E07626F0977C91BE9D7E54A811C54F822522934F7D4EAE3C23",
-    "snapshotContentHash": "E67F229CF797AADC64C41F4511DCC80B4953BED70F682CA7C69FBFB781A2533C",
+    "snapshotContentHash": "7FCADA27F8B73E7BA11D0969C323D806A40152E4DA0FC60A7465077F4FF96963",
     "authoringRuleRegistryRevision": "5972653EFED6428CCBD28007BE847C5C41F060D22E38FEE66E092CB060ECFE8A"
   },
   "purpose": "On-demand direct animation materials. Animation is authored from published Animation handles themselves; Actor ownership and Actor animation repertoires are not part of this authoring surface.",
-  "directMaterialCount": 298,
+  "directMaterialCount": 350,
   "directMaterials": {
     "animation__00c30fab": {
       "displayName": "red delta ship",
@@ -30,20 +30,22 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Other",
         "red delta ship",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -77,17 +79,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Interacting",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "character_animation",
         "loop"
       ],
       "searchTerms": [
+        "character_animation",
         "Interacting",
         "Loop",
         "SpriteFrame"
@@ -165,6 +169,59 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__02fb7d7f": {
+      "displayName": "Pod Pod1 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pod_Pod1_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 5,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "Pod Pod1 Loop",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "91764fbc3b61c6944b3a84886c889a84190a28b4e5fb836be795e227ccf3c314",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.208333343,
+          "sampleTime": 0.25,
+          "spriteAssetId": "2fec0efebe8e96643a8eee1c1b2e081b:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_622961e3582d5b4abd38/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__03137dc3": {
       "displayName": "SpaceRobot05 Shoot Hands End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shoot_Hands_End.anim",
@@ -213,6 +270,165 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_c3eb59a010a3e012b22d/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__03b75f64": {
+      "displayName": "color Octo Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Octo_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Octo Loop",
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "ff42f2d953457c48a2fac4a7e2d364fa7cfc65a2e3c119e7b1f852083eabdb52",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "1494b6ea14aea1c4c8eb1fcb666baee4:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_512a25db5ce6ab0852e5/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__03ccc791": {
+      "displayName": "grey Star Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Star_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Star Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "2a365d18f9e54f87fc39c5c795b18e23b8f884554d0a587b4a3ff3737c72b2ac",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "b2b5d5a649ffbfa4ba95ec7b75b40073:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_45ab97c3cb035b341342/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__052508f5": {
+      "displayName": "Mutating Mutate1 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Mutating_Mutate1_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 3,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Mutating Mutate1 Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "076bc83b8b16f1abd9e52a38efbf73000b122bbe2d12d4954a1a0454fd7c4b6f",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.125,
+          "sampleTime": 0.0833333358,
+          "spriteAssetId": "117d5cf3e437a8a40ae5adb3b1b41b18:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_ba7c0f633f506d2b7b09/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -478,6 +694,59 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__09971f89": {
+      "displayName": "Pod Pod6 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pod_Pod6_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 5,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "Pod Pod6 Loop",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "3ec7f09dc8b233b92a475450b464406db6ff48e62937a1eb240248ee78defef8",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.208333343,
+          "sampleTime": 0.25,
+          "spriteAssetId": "61feb90a5a816b7479e831908febb1e9:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_5ffeda41ded25daeb95b/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__0a2da4d4": {
       "displayName": "Mine",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Mine (Blue)/Mine (blue).anim",
@@ -561,14 +830,18 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "loop",
-        "thrust"
+        "ship",
+        "thrust",
+        "vfx"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Bomber   Engine Effect Clip",
         "Nautolan Ship - Bomber - Engine Effect_Clip",
+        "ship",
         "SpriteFrame",
-        "thrust"
+        "thrust",
+        "vfx"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -611,10 +884,12 @@
       "animationState": "Death",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "death",
         "loop"
       ],
       "searchTerms": [
+        "character_animation",
         "deactivate",
         "Death",
         "Loop",
@@ -661,10 +936,12 @@
       "animationState": "Hit",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "hit",
         "loop"
       ],
       "searchTerms": [
+        "character_animation",
         "damage",
         "Hit",
         "Loop",
@@ -701,21 +978,25 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "projectile",
+        "weapon_visual"
       ],
       "searchTerms": [
         "Loop",
         "New Animation",
         "Other",
-        "SpriteFrame"
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -833,6 +1114,59 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__0d002b67": {
+      "displayName": "color StarBurst Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_StarBurst_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color StarBurst Loop",
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "47e8e30a59ce643fa48e084034ea8bfc3c5d267c66ae8036be5f2f34f45d73cc",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "adfbaf83a503f7548a67990d98b6c2df:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_5679d23e449b9e621d30/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__0d17fd33": {
       "displayName": "Crusher",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/Crusher.anim",
@@ -903,20 +1237,22 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "ActorOwnerProven",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Nautolan Ship - Scout_Clip",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Scout Clip",
         "Nautolan Ship - Scout_Clip",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -931,6 +1267,112 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_b62bdb989b8cdd230328/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__0e53d9e7": {
+      "displayName": "SphereFlash Sphere Flash 128 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/SphereFlash_Sphere_Flash_128_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 4,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "SphereFlash Sphere Flash 128 Loop",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "56b95a1a68602d5255bf50637082913e8f14ca0450ed9cc1b9867e4447f7f546",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.166666672,
+          "sampleTime": 0.166666672,
+          "spriteAssetId": "707ab031def127f4caa8c338c84451bb:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_11731517594af50223e5/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__0ef4e092": {
+      "displayName": "color Diamond Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Diamond_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Diamond Loop",
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "6d2008583f3e1e12fb56f9dc81fb3899647c990eeb11f9bce013669d7ec2e835",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "c1aa44528c5718f4f9e4f4d8faf206b5:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_8b12ba98aef9bd040a5f/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -960,10 +1402,12 @@
       "animationState": "Die",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "die",
         "loop"
       ],
       "searchTerms": [
+        "character_animation",
         "deactivate",
         "Die",
         "Loop",
@@ -1000,20 +1444,26 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Loop",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
       ],
       "searchTerms": [
         "Bubble Bubble 16 Loop",
+        "generated_shot_visual",
         "Loop",
-        "SpriteFrame"
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -1101,18 +1551,20 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "environment_animation",
         "loop"
       ],
       "searchTerms": [
         "clouds anim",
+        "environment_animation",
         "Loop",
         "Other",
         "SpriteFrame"
@@ -1211,10 +1663,12 @@
       "animationState": "Shoot_Start",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "enemy",
         "one_shot",
         "shoot"
       ],
       "searchTerms": [
+        "enemy",
         "MY SpaceRobot02 Shoot Start",
         "OneShot",
         "one_shot",
@@ -1263,10 +1717,12 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "look",
         "one_shot"
       ],
       "searchTerms": [
+        "character_animation",
         "CIV WOMAN SHOPPING 01 STOP LOOK UP",
         "look",
         "OneShot",
@@ -1453,6 +1909,59 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__15365df6": {
+      "displayName": "Pyramid Pyramid3 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pyramid_Pyramid3_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 5,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "Pyramid Pyramid3 Loop",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "d1c4b81a21b6e623f38a426d99f4083abce0300cba33823a7a568eb6db5c4683",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.208333343,
+          "sampleTime": 0.25,
+          "spriteAssetId": "9029d915fa3b2804eb826fe9b136ecc4:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_6ef1b51ffcf88b34ab09/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__154968e2": {
       "displayName": "DanteFighter IdleHover",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D/Animations/DanteFighter_IdleHover.anim",
@@ -1522,20 +2031,22 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Other",
         "Player Animation",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -1550,6 +2061,112 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_77db34ee36459affae80/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__16e00ff6": {
+      "displayName": "Mutating Mutate2 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Mutating_Mutate2_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 3,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Mutating Mutate2 Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "736c86010d2789d8fc19fc3f636149eb76b9bd8614ce654eb8e218bca4d03274",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.125,
+          "sampleTime": 0.0833333358,
+          "spriteAssetId": "8238757b15482be4e801ec2bb7aed9fb:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_48b53e438ec40ef58850/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__17058663": {
+      "displayName": "Mutating MutateBloom Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Mutating_MutateBloom_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 4,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Mutating MutateBloom Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "7529cfbe7281b559d33cee5f1c5fb215ea8c4c25bbee2fd910be054bc657925a",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.166666672,
+          "sampleTime": 0.166666672,
+          "spriteAssetId": "666a8420ae70f334ab6ceeffe41c5e2b:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_d63dd47ce1b1f925378f/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -1579,10 +2196,12 @@
       "animationState": "Run",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "loop",
         "run"
       ],
       "searchTerms": [
+        "character_animation",
         "Loop",
         "Run",
         "SpriteFrame"
@@ -1665,20 +2284,26 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Loop",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
       ],
       "searchTerms": [
         "color Sphere Loop",
+        "generated_shot_visual",
         "Loop",
-        "SpriteFrame"
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -1692,6 +2317,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_ecfb70b2d7ff08e38da2/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__1a0143c2": {
+      "displayName": "grey Homing Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Homing_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Homing Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "98bb04096d384eff0ba2ce9e930c570c0e433b6cf4013a7813c83fab366704d7",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "1f926f8b6c3826c418bf20eac7c54d10:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_9509144bbb36cc885e29/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -1804,6 +2482,59 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__1b3a1def": {
+      "displayName": "Pyramid Pyramid5 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pyramid_Pyramid5_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 5,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "Pyramid Pyramid5 Loop",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "236bc158b83465ce4ec3d2fa3674d61a91eb84e8e8e51451bc9fe7cc5d3bd4d4",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.208333343,
+          "sampleTime": 0.25,
+          "spriteAssetId": "25dacb2971577404485107c2173daa43:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_69a8bd71b9898e9c7c2f/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__1bab3b9f": {
       "displayName": "PUSH MECHA IDLE",
       "sourcePath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/_Animation/PushMecha/PUSH_MECHA_IDLE.anim",
@@ -1830,10 +2561,12 @@
       "animationState": "Idle",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "enemy",
         "idle",
         "loop"
       ],
       "searchTerms": [
+        "enemy",
         "idle",
         "Loop",
         "PUSH MECHA IDLE",
@@ -1881,13 +2614,15 @@
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
         "loop",
-        "shield"
+        "shield",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Scout   Shield Clip",
         "Nautolan Ship - Scout - Shield_Clip",
         "shield",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -2030,17 +2765,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "environment_animation",
         "loop"
       ],
       "searchTerms": [
+        "environment_animation",
         "Loop",
         "Moss2",
         "Other",
@@ -2192,13 +2929,15 @@
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
         "loop",
-        "shield"
+        "shield",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Frigate   Shield Clip",
         "Nautolan Ship - Frigate - Shield_Clip",
         "shield",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -2213,6 +2952,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_6ab2a19822aa70634364/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__2527b3b2": {
+      "displayName": "grey Axe Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Axe_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Axe Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "7ea102b15dd966c43d84d6cd659b4a8f0781c90c1302e006d7b6d6a4c60b54d8",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "9d42c67e3b976294d939affd17ef1235:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_0397d71a6b8b98cc532e/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -2242,6 +3034,7 @@
       "semanticFacets": [
         "fire",
         "loop",
+        "ship",
         "weapon_fire"
       ],
       "searchTerms": [
@@ -2249,6 +3042,7 @@
         "Loop",
         "Nautolan Ship   Dreadnought   Weapons Clip",
         "Nautolan Ship - Dreadnought - Weapons_Clip",
+        "ship",
         "SpriteFrame",
         "weapon_fire"
       ],
@@ -2340,12 +3134,16 @@
       "animationState": "FIRE_SCORPION_LOOP",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "creature_enemy",
         "fire",
+        "fire_scorpion",
         "loop"
       ],
       "searchTerms": [
+        "creature_enemy",
         "fire",
         "FIRE SCORPION LOOP",
+        "fire_scorpion",
         "FIRE_SCORPION_LOOP",
         "Loop",
         "shoot",
@@ -2382,17 +3180,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Interacting",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "character_animation",
         "loop"
       ],
       "searchTerms": [
+        "character_animation",
         "Interacting",
         "Loop",
         "SpriteFrame"
@@ -2536,10 +3336,12 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "loop",
         "walk"
       ],
       "searchTerms": [
+        "character_animation",
         "CIV ORTHODOX ELDER 01 WALK RIGHT",
         "Loop",
         "Other",
@@ -2588,13 +3390,15 @@
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
         "loop",
-        "shield"
+        "shield",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Fighter   Shield Clip",
         "Nautolan Ship - Fighter - Shield_Clip",
         "shield",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -2679,17 +3483,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "enemy-animation",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "enemy",
         "loop"
       ],
       "searchTerms": [
+        "enemy",
         "enemy animation",
         "enemy-animation",
         "Loop",
@@ -2726,18 +3532,20 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "star",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
+        "ship",
         "SpriteFrame",
         "star"
       ],
@@ -2843,13 +3651,15 @@
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
         "loop",
-        "shield"
+        "shield",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Torpedo Ship   Shield Clip",
         "Nautolan Ship - Torpedo Ship - Shield_Clip",
         "shield",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -2939,14 +3749,16 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "loop",
-        "projectile"
+        "projectile",
+        "vfx"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan   Rocket Clip",
         "Nautolan - Rocket_Clip",
         "projectile",
-        "SpriteFrame"
+        "SpriteFrame",
+        "vfx"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -3245,10 +4057,12 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "loop",
         "run"
       ],
       "searchTerms": [
+        "character_animation",
         "LITTLE KID RUN",
         "Loop",
         "Other",
@@ -3568,6 +4382,112 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__3c528096": {
+      "displayName": "color Star Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Star_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Star Loop",
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "a71753cbe1f85e0ada47f8f8b5b7c6b9a6142c27040e2d327445225dea877522",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "16c06a18b44013c4590779809479f73e:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_74c005ac8291c5fa7a58/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__3cb4615d": {
+      "displayName": "grey Octo Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Octo_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Octo Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "62a08b2efc37abe970464d4a89a8857da0c4be84ea703d7be5616ae71e8445ca",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "2e7cfeab9bc95044e8da25417a98ea54:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_475a122a900cf19f2a16/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__3d4b9cc6": {
       "displayName": "turret 3ANIM",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/turret_3ANIM.anim",
@@ -3688,10 +4608,12 @@
       "animationState": "Run",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "loop",
         "run"
       ],
       "searchTerms": [
+        "character_animation",
         "Loop",
         "Run",
         "SpriteFrame"
@@ -3708,6 +4630,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_09e8c79e82b2df348167/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__3ebb395b": {
+      "displayName": "Pod Pod5 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pod_Pod5_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 5,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "Pod Pod5 Loop",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "95a91b3af539fa47f2ec17a9b9dd973f45230237b4ab59ba2922deb587dc8055",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.208333343,
+          "sampleTime": 0.25,
+          "spriteAssetId": "9a404b7c319d0504c9d394b0404059f1:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_d59008ba3cb481696167/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -3923,6 +4898,59 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__42432373": {
+      "displayName": "Pyramid Pyramid1 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pyramid_Pyramid1_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 5,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "Pyramid Pyramid1 Loop",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "52106575cc5551d67e36494af661ef659042e6b793de0dcf708df3623eb9d7ef",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.208333343,
+          "sampleTime": 0.25,
+          "spriteAssetId": "fe04ecc503e440446acdb605d45d4a2f:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_9d3690bb20373b498c91/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__42c8a18e": {
       "displayName": "SAUCER3",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/ANIM_DGR/SAUCER3.anim",
@@ -4025,6 +5053,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_7ab88d9f156d319776c6/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__43e66f19": {
+      "displayName": "grey Comet Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Comet_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Comet Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "4a5292b51db1ebadf0227b60a29ccd4fa6c01c24d3662c686d997e78ddb4bb1b",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "cb793a35b94db0d45899bf7552abeda7:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_2859ce6445b6854652aa/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -4187,6 +5268,59 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__475e82eb": {
+      "displayName": "color Flame Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Flame_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Flame Loop",
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "77102455896317d4682f6939db5e22a905c048110a6edefc3d5b737e9d984b1b",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "ed5afbb6fed6d524bbca6e52fca41804:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_46e4aaab1339049e0636/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__47980c60": {
       "displayName": "Transporter",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Transporter/Transporter.anim",
@@ -4298,6 +5432,59 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__497e6451": {
+      "displayName": "color Comet Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Comet_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Comet Loop",
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "36231ffb7ee0b9178ebf326ab5b7acbbf16223be54786cf6a3cce6e4892ae084",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "114607c78c4863046b45f97eadd6548d:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_cdd77d2c75de7df220ae/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__49de8526": {
       "displayName": "MY SpaceRobot01 Shoot Start",
       "sourcePath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/_Animation/SpaceRobot/MY_SpaceRobot01_Shoot_Start.anim",
@@ -4324,10 +5511,12 @@
       "animationState": "Shoot_Start",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "enemy",
         "one_shot",
         "shoot"
       ],
       "searchTerms": [
+        "enemy",
         "MY SpaceRobot01 Shoot Start",
         "OneShot",
         "one_shot",
@@ -4431,14 +5620,18 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "loop",
-        "thrust"
+        "ship",
+        "thrust",
+        "vfx"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Scout   Engine Effect Clip",
         "Nautolan Ship - Scout - Engine Effect_Clip",
+        "ship",
         "SpriteFrame",
-        "thrust"
+        "thrust",
+        "vfx"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -4522,20 +5715,22 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "ActorOwnerProven",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Nautolan Ship - Bomber_Clip",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Bomber Clip",
         "Nautolan Ship - Bomber_Clip",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -4637,10 +5832,12 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "loop",
         "walk"
       ],
       "searchTerms": [
+        "character_animation",
         "CIV BOY SCHOOL 01 WALK RIGHT",
         "Loop",
         "Other",
@@ -4678,20 +5875,26 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Loop",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
       ],
       "searchTerms": [
         "color Rail Loop",
+        "generated_shot_visual",
         "Loop",
-        "SpriteFrame"
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -4733,13 +5936,19 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "fire",
-        "loop"
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
       ],
       "searchTerms": [
         "fire",
         "FireBall FireBall 32 Loop",
+        "generated_shot_visual",
         "Loop",
-        "SpriteFrame"
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -4897,6 +6106,7 @@
       "semanticFacets": [
         "fire",
         "loop",
+        "ship",
         "weapon_fire"
       ],
       "searchTerms": [
@@ -4904,6 +6114,7 @@
         "Loop",
         "Nautolan Ship   Battlecruiser   Weapons Clip",
         "Nautolan Ship - Battlecruiser - Weapons_Clip",
+        "ship",
         "SpriteFrame",
         "weapon_fire"
       ],
@@ -4919,6 +6130,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_13e503fe08a5c17a304f/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__510bfd61": {
+      "displayName": "Pod Pod2 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pod_Pod2_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 5,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "Pod Pod2 Loop",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "395b0742942729b4f3ef5aefab2f2d3662e72400e4b1277187e3265a04b970c7",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.208333343,
+          "sampleTime": 0.25,
+          "spriteAssetId": "29c9da887c806ac4bb2df13514d200d1:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_4c3617414f2ebd8e6dd2/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -5048,14 +6312,16 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "explosion",
-        "loop"
+        "loop",
+        "vfx"
       ],
       "searchTerms": [
         "explosion",
         "explosion animation",
         "Loop",
         "Other",
-        "SpriteFrame"
+        "SpriteFrame",
+        "vfx"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -5097,14 +6363,16 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "loop",
-        "projectile"
+        "projectile",
+        "vfx"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan   Bullet Clip",
         "Nautolan - Bullet_Clip",
         "projectile",
-        "SpriteFrame"
+        "SpriteFrame",
+        "vfx"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -5193,18 +6461,20 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "environment_animation",
         "loop"
       ],
       "searchTerms": [
         "Algae1",
+        "environment_animation",
         "Loop",
         "Other",
         "SpriteFrame"
@@ -5268,6 +6538,112 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_4a29cd9e3ff887248b1c/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__55b53b7e": {
+      "displayName": "color Flower Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Flower_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Flower Loop",
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "4a6754bab92ab661a267d9f638ec93eb874fa939d88f3dba536c8f4426233021",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "94150e34a4c90f54ca44b249d61d5f44:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_2480724d26754d13d3d7/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__55da435e": {
+      "displayName": "grey Missile Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Missile_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Missile Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "de93353122134e0b34c26db0c24910177b1e5fabef374001ac05f3c22fe245c2",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "da262988a62692b4eb5ceea08db2fd19:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_bf7056a8c8e388aa64b5/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -5349,10 +6725,12 @@
       "animationState": "Idle",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "idle",
         "loop"
       ],
       "searchTerms": [
+        "character_animation",
         "Idle",
         "Loop",
         "SpriteFrame"
@@ -5388,17 +6766,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Jump",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "character_animation",
         "loop"
       ],
       "searchTerms": [
+        "character_animation",
         "Jump",
         "Loop",
         "SpriteFrame"
@@ -5415,6 +6795,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_cb94f1809dc322fdc526/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__5a35b8ea": {
+      "displayName": "grey Donut Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Donut_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Donut Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "7bef5216e1c57156427964b355b173e0295c1d97d4461532e3669c0e93da280f",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "f2236b2459a872444b2754bf931720cc:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_a09da16ec0d07f601428/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -5446,6 +6879,7 @@
       "semanticFacets": [
         "attack",
         "attack_animation",
+        "boss",
         "brain_boss",
         "enemy_boss",
         "loop",
@@ -5456,6 +6890,7 @@
       "searchTerms": [
         "attack",
         "attack_animation",
+        "boss",
         "Brain boss attack",
         "brain_boss",
         "enemy_boss",
@@ -5507,13 +6942,15 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "fly",
         "Loop",
         "Other",
         "Player Flying down",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -5666,6 +7103,7 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "boss",
         "enemy_boss",
         "idle",
         "idle_animation",
@@ -5676,6 +7114,7 @@
         "spinning_blade"
       ],
       "searchTerms": [
+        "boss",
         "buzz saw boss idle",
         "enemy_boss",
         "idle",
@@ -5719,19 +7158,21 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "coin",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "pickup"
       ],
       "searchTerms": [
         "coin",
         "Loop",
+        "pickup",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -5844,6 +7285,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_e05203beb8093aae631e/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__5fd8389a": {
+      "displayName": "grey Cluster Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Cluster_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Cluster Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "12cc1ec2180e7589123e61ba1dfd8277f26cc23f872e138de26bb6e180d8915a",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "6a24ecc0909e7a645ae312285b3eccd3:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_ad5b14aa0458e243c6d2/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -5972,21 +7466,25 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "SOLAR_TOWER_LOOP",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "solar_tower",
+        "tower_enemy"
       ],
       "searchTerms": [
         "Loop",
         "SOLAR TOWER LOOP",
+        "solar_tower",
         "SOLAR_TOWER_LOOP",
-        "SpriteFrame"
+        "SpriteFrame",
+        "tower_enemy"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -6019,20 +7517,26 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Loop",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
       ],
       "searchTerms": [
         "color Missile Loop",
+        "generated_shot_visual",
         "Loop",
-        "SpriteFrame"
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -6173,10 +7677,12 @@
       "animationState": "Walk",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "loop",
         "walk"
       ],
       "searchTerms": [
+        "character_animation",
         "Loop",
         "SpriteFrame",
         "Walk"
@@ -6222,10 +7728,12 @@
       "animationState": "Death",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "death",
         "loop"
       ],
       "searchTerms": [
+        "character_animation",
         "deactivate",
         "Death",
         "Loop",
@@ -6423,20 +7931,22 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "blue delta ship",
         "Loop",
         "Other",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -6520,18 +8030,20 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "slicer",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
+        "ship",
         "slicer",
         "SpriteFrame"
       ],
@@ -6576,10 +8088,12 @@
       "animationState": "Pilot Walking",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "pickup"
       ],
       "searchTerms": [
         "Loop",
+        "pickup",
         "Pilot Walking",
         "SpriteFrame",
         "walk"
@@ -6624,7 +8138,8 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "idle",
-        "one_shot"
+        "one_shot",
+        "ship"
       ],
       "searchTerms": [
         "idle",
@@ -6632,6 +8147,7 @@
         "OneShot",
         "one_shot",
         "Other",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -6892,6 +8408,7 @@
       "semanticFacets": [
         "fire",
         "loop",
+        "ship",
         "weapon_fire"
       ],
       "searchTerms": [
@@ -6899,6 +8416,7 @@
         "Loop",
         "Nautolan Ship   Scout   Weapons Clip",
         "Nautolan Ship - Scout - Weapons_Clip",
+        "ship",
         "SpriteFrame",
         "weapon_fire"
       ],
@@ -6914,6 +8432,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_14ce4228c8929f349624/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__71b1ff05": {
+      "displayName": "grey Flame Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Flame_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Flame Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "8a59082f847e7bdaf926f0cec76627c669994c0ec34329def38c2154fdf1eed9",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "a3164f9820a53e24fb3b44cb4d2b19ab:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_d15400f0dca9d9751362/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -6942,14 +8513,16 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "loop",
-        "projectile"
+        "projectile",
+        "vfx"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan   Bomb Clip",
         "Nautolan - Bomb_Clip",
         "projectile",
-        "SpriteFrame"
+        "SpriteFrame",
+        "vfx"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -6992,10 +8565,12 @@
       "animationState": "Hit",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "hit",
         "loop"
       ],
       "searchTerms": [
+        "character_animation",
         "damage",
         "Hit",
         "Loop",
@@ -7067,6 +8642,59 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__73c0c0a8": {
+      "displayName": "Pod Pod3 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pod_Pod3_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 5,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "Pod Pod3 Loop",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "3cb77ffeedf05ca593e11188ab88155c6d298bdc3d00e369bdae508f608438e9",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.208333343,
+          "sampleTime": 0.25,
+          "spriteAssetId": "a59d5a94fda2e48409ebdba04ed7d61a:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_41c5897dc930a5fd3de8/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__74f32a2a": {
       "displayName": "Caustic1",
       "sourcePath": "Assets/_PKG/PKG_Free_2D_Handcrafted_Art/Animation/Caustic1.anim",
@@ -7083,18 +8711,20 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "environment_animation",
         "loop"
       ],
       "searchTerms": [
         "Caustic1",
+        "environment_animation",
         "Loop",
         "Other",
         "SpriteFrame"
@@ -7130,17 +8760,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "enemy",
         "loop"
       ],
       "searchTerms": [
+        "enemy",
         "enemy animation",
         "Loop",
         "Other",
@@ -7241,10 +8873,12 @@
       "animationState": "Idle",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "enemy",
         "idle",
         "loop"
       ],
       "searchTerms": [
+        "enemy",
         "EnemyShip03 Idle",
         "idle",
         "Loop",
@@ -7291,10 +8925,12 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "look",
         "one_shot"
       ],
       "searchTerms": [
+        "character_animation",
         "CIV ORTHODOX ELDER 01 STOP LOOK UP",
         "look",
         "OneShot",
@@ -7333,20 +8969,22 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "ActorOwnerProven",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Nautolan - Ships Preview_Clip",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan   Ships Preview Clip",
         "Nautolan - Ships Preview_Clip",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -7380,20 +9018,26 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Loop",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
       ],
       "searchTerms": [
+        "generated_shot_visual",
         "Loop",
+        "projectile",
         "SpriteFrame",
-        "Torch TorchFlame 32 Loop"
+        "Torch TorchFlame 32 Loop",
+        "weapon_visual"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -7510,6 +9154,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_cc6fcc8fe49fb4f9792b/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__7c538b68": {
+      "displayName": "Pod Pod4 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pod_Pod4_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 5,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "Pod Pod4 Loop",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "17ca811d1c194ec3677c28779d4cfb7b493d417c678f2ee9ee5b0aeac0bd7831",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.208333343,
+          "sampleTime": 0.25,
+          "spriteAssetId": "ef8eca6bf10c0944bb13b8eb9e06b884:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_613ba58e12e3717a179b/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -7635,6 +9332,7 @@
       "semanticFacets": [
         "fire",
         "loop",
+        "ship",
         "weapon_fire"
       ],
       "searchTerms": [
@@ -7642,6 +9340,7 @@
         "Loop",
         "Nautolan Ship   Torpedo Ship   Weapons Clip",
         "Nautolan Ship - Torpedo Ship - Weapons_Clip",
+        "ship",
         "SpriteFrame",
         "weapon_fire"
       ],
@@ -7834,6 +9533,7 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "animated_idle",
+        "boss",
         "boss_ship",
         "enemy_boss",
         "loop",
@@ -7842,6 +9542,7 @@
       ],
       "searchTerms": [
         "animated_idle",
+        "boss",
         "boss_ship",
         "enemy_boss",
         "Loop",
@@ -7891,10 +9592,12 @@
       "animationState": "Walk",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "loop",
         "walk"
       ],
       "searchTerms": [
+        "character_animation",
         "Loop",
         "SpriteFrame",
         "Walk"
@@ -7939,6 +9642,7 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "animated_segment",
+        "boss",
         "boss_component",
         "enemy_boss",
         "loop",
@@ -7949,6 +9653,7 @@
       ],
       "searchTerms": [
         "animated_segment",
+        "boss",
         "boss_component",
         "enemy_boss",
         "Loop",
@@ -8001,10 +9706,12 @@
       "animationState": "Run",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "loop",
         "run"
       ],
       "searchTerms": [
+        "character_animation",
         "Loop",
         "Run",
         "SpriteFrame"
@@ -8048,6 +9755,7 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "boss",
         "boss_weapon",
         "enemy_boss",
         "loop",
@@ -8057,6 +9765,7 @@
         "turret_component"
       ],
       "searchTerms": [
+        "boss",
         "boss_weapon",
         "Bottom Gun",
         "enemy_boss",
@@ -8157,6 +9866,7 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "animated_flame",
+        "boss",
         "energy_projectile",
         "fireball",
         "loop",
@@ -8166,6 +9876,7 @@
       ],
       "searchTerms": [
         "animated_flame",
+        "boss",
         "energy_projectile",
         "fireball",
         "Loop",
@@ -8205,17 +9916,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "environment_animation",
         "loop"
       ],
       "searchTerms": [
+        "environment_animation",
         "Loop",
         "Moss3",
         "Other",
@@ -8368,13 +10081,15 @@
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
         "loop",
-        "shield"
+        "shield",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Bomber   Shield Clip",
         "Nautolan Ship - Bomber - Shield_Clip",
         "shield",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -8465,10 +10180,12 @@
       "animationState": "Walk",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "enemy",
         "loop",
         "walk"
       ],
       "searchTerms": [
+        "enemy",
         "Loop",
         "PUSH MECHA WALK",
         "SpriteFrame",
@@ -8486,6 +10203,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_79ecdf8b60a5139343ed/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__85d5acfc": {
+      "displayName": "grey Diamond Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Diamond_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Diamond Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "c39b5f5c69cca0e88052b8566e21ddcb29ea33d9079720f66a42da4a8a68d9db",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "f8f94a3beee95694cad8daf206d0fb8e:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_b341b6c47b42a7d3d15b/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -8515,10 +10285,12 @@
       "animationState": "Shoot",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "enemy",
         "one_shot",
         "shoot"
       ],
       "searchTerms": [
+        "enemy",
         "OneShot",
         "one_shot",
         "PUSH MECHA SHOOT",
@@ -8642,6 +10414,57 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_83d38482fe4e052bc202/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__86e2ddf2": {
+      "displayName": "WrapLaserTip",
+      "sourcePath": "Assets/_Game/MY_VARIA/Art/Sprites/Shot/LaserWarp/WrapLaserTip.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 3,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual",
+        "WrapLaserTip"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "d49c8e6446e95ccd5f10e428fe7b121640f4588ed58e6792d551a8f9edf8da16",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.125,
+          "sampleTime": 0.0833333358,
+          "spriteAssetId": "3f44c86ea3164063bc79f23ae19b79a1:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_d350234972cf63edcdd0/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -8800,6 +10623,59 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__8957193f": {
+      "displayName": "grey Boomerang Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Boomerang_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Boomerang Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "6f8c483de94f8a4139162fb4de8f51ed9c82002fc5c8aa54264b4dd82fb2fd3a",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "3eef7a18998591046a6173468ebf2b52:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_62302167f2cf357fb013/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__89e0a7ac": {
       "displayName": "SpaceRobot03 Damage",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Damage.anim",
@@ -8867,20 +10743,22 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "ActorOwnerProven",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Nautolan Ship - Dreadnought_Clip",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Dreadnought Clip",
         "Nautolan Ship - Dreadnought_Clip",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -9033,10 +10911,12 @@
       "animationState": "Idle",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "idle",
         "loop"
       ],
       "searchTerms": [
+        "character_animation",
         "Idle",
         "Loop",
         "SpriteFrame"
@@ -9053,6 +10933,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_8689a45045d36b7f6f3e/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__8c26ea50": {
+      "displayName": "Torch TorchFlame 64 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Torch_TorchFlame_64_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 7,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "Torch TorchFlame 64 Loop",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "4f6bb3a0f125a1eaaa0a4d39220174fca82db605b0f74d4ad57cb728facb0713",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.291666657,
+          "sampleTime": 0.25,
+          "spriteAssetId": "477453c84a9814e4e9bdda054d10579d:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_b114ee6ec8a34a9f13d1/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -9109,6 +11042,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_224cf276a07c44702921/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__8e29f08d": {
+      "displayName": "color Sickle Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Sickle_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Sickle Loop",
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "c57401ffcbce7cc2953f64071bf0676fc814477154c6c68b2fa0e00cf142fd03",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "f7ff8425369e73b4da7bc25f6b249426:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_2b1a88cfd6b68ddb5f64/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -9184,20 +11170,22 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Other",
         "Player Flying down",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -9231,17 +11219,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "environment_animation",
         "loop"
       ],
       "searchTerms": [
+        "environment_animation",
         "Loop",
         "Moss1",
         "Other",
@@ -9336,13 +11326,17 @@
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
         "fire",
-        "loop"
+        "fire_jelly",
+        "loop",
+        "organic_enemy"
       ],
       "searchTerms": [
         "fire",
         "FIRE JELLY LOOP",
+        "fire_jelly",
         "FIRE_JELLY_LOOP",
         "Loop",
+        "organic_enemy",
         "shoot",
         "SpriteFrame"
       ],
@@ -9358,6 +11352,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_4f1c45358d085331a99d/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__9286da6e": {
+      "displayName": "Pyramid Pyramid4 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pyramid_Pyramid4_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 5,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "Pyramid Pyramid4 Loop",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "97d27655e51f12b9d0ecf3b44b4c7befa6d643ac76d166e2e179d9f0ca80b6e5",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.208333343,
+          "sampleTime": 0.25,
+          "spriteAssetId": "c110bbcf1829b6442a5a335196400965:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_78187688b85931b8a7ed/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -9441,6 +11488,7 @@
       "semanticFacets": [
         "fire",
         "loop",
+        "ship",
         "weapon_fire"
       ],
       "searchTerms": [
@@ -9448,6 +11496,7 @@
         "Loop",
         "Nautolan Ship   Frigate   Weapons Clip",
         "Nautolan Ship - Frigate - Weapons_Clip",
+        "ship",
         "SpriteFrame",
         "weapon_fire"
       ],
@@ -9492,10 +11541,12 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "look",
         "one_shot"
       ],
       "searchTerms": [
+        "character_animation",
         "CIV MAN CASUAL 01 STOP LOOK UP",
         "look",
         "OneShot",
@@ -9534,20 +11585,26 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Loop",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
       ],
       "searchTerms": [
         "color Axe Loop",
+        "generated_shot_visual",
         "Loop",
-        "SpriteFrame"
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -9723,6 +11780,57 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__95bdfe04": {
+      "displayName": "WrapLaserMain",
+      "sourcePath": "Assets/_Game/MY_VARIA/Art/Sprites/Shot/LaserWarp/WrapLaserMain.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 10,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual",
+        "WrapLaserMain"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "3ca59d320c48b781acb500f7f09603d36f89190ed36aa8e1545be0b15f8b4a6c",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.416666657,
+          "sampleTime": 0.416666657,
+          "spriteAssetId": "4c2bc60371ee4bc6bcb13980d16a7342:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_c979c30acdbf9c66c644/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__95d139a7": {
       "displayName": "SpaceRobot02 Launch",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Launch.anim",
@@ -9881,6 +11989,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_8fe19a87011a3e998ed7/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__9aa46880": {
+      "displayName": "grey Rail Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Rail_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Rail Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "4e22ec0ced0f83294504bb3b95a8997ef4ef7a45217f30391077c4e90b77a25c",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "fa6764d347f2a1444a708870eb18e546:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_8853d7823d17f319b36d/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -10214,6 +12375,7 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "animated_segment",
+        "boss",
         "boss_component",
         "enemy_boss",
         "loop",
@@ -10224,6 +12386,7 @@
       ],
       "searchTerms": [
         "animated_segment",
+        "boss",
         "boss_component",
         "enemy_boss",
         "Loop",
@@ -10266,20 +12429,22 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "ActorOwnerProven",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Nautolan Ship - Frigate_Clip",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Frigate Clip",
         "Nautolan Ship - Frigate_Clip",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -10321,6 +12486,7 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "boss",
         "boss_weapon",
         "enemy_boss",
         "loop",
@@ -10330,6 +12496,7 @@
         "turret_component"
       ],
       "searchTerms": [
+        "boss",
         "boss_weapon",
         "enemy_boss",
         "Loop",
@@ -10433,6 +12600,7 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "boss",
         "brain_boss",
         "enemy_boss",
         "idle",
@@ -10443,6 +12611,7 @@
         "space_shooter_art_pack_01"
       ],
       "searchTerms": [
+        "boss",
         "Brain boss idle",
         "brain_boss",
         "enemy_boss",
@@ -10521,6 +12690,57 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__a3a3bce4": {
+      "displayName": "Idle",
+      "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_02/Idle.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 16,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "idle",
+      "animationSemanticActions": [
+        "idle"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Idle",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "character_animation",
+        "idle",
+        "loop"
+      ],
+      "searchTerms": [
+        "character_animation",
+        "Idle",
+        "Loop",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "6542deba91ec3406b38535e2ecfa16c6b1559afa08cdf2903ef9098c3c5f0ea9",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.363636374,
+          "sampleTime": 0.363636374,
+          "spriteAssetId": "493f51b603398004690a06bd93b66f7d:-914802898633168555"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_c1ab71c05d2f60cadf6c/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__a52ca10f": {
       "displayName": "blue delta ship",
       "sourcePath": "Assets/Playniax/Pyro/Extensions/Radar System/Animation Clips/Spaceships/blue delta ship.anim",
@@ -10537,20 +12757,22 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "blue delta ship",
         "Loop",
         "Other",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -10584,20 +12806,26 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Loop",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
       ],
       "searchTerms": [
         "color Cross Loop",
+        "generated_shot_visual",
         "Loop",
-        "SpriteFrame"
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -10725,6 +12953,59 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__a606b347": {
+      "displayName": "grey Sickle Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Sickle_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Sickle Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "ca9ef73992cc54538fea2888fba77aab272b9c425d71c7416838b05220e51d30",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "9d23ba857e4c3234c9e6a4de90212500:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_80e110766efd21ac5005/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__a6a6595d": {
       "displayName": "SpaceRobot05 Shoot Hands Loop",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shoot_Hands_Loop.anim",
@@ -10802,10 +13083,12 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "look",
         "one_shot"
       ],
       "searchTerms": [
+        "character_animation",
         "CIV BOY SCHOOL 01 STOP LOOK UP",
         "look",
         "OneShot",
@@ -10899,20 +13182,22 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "ActorOwnerProven",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Nautolan Ship - Support_Clip",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Support Clip",
         "Nautolan Ship - Support_Clip",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -10955,14 +13240,18 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "loop",
-        "thrust"
+        "ship",
+        "thrust",
+        "vfx"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Battlecruiser   Engine Effect Clip",
         "Nautolan Ship - Battlecruiser - Engine Effect_Clip",
+        "ship",
         "SpriteFrame",
-        "thrust"
+        "thrust",
+        "vfx"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -11005,10 +13294,12 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "enemy",
         "one_shot",
         "shoot"
       ],
       "searchTerms": [
+        "enemy",
         "MY SpaceRobot03 Shoot Start",
         "OneShot",
         "one_shot",
@@ -11058,11 +13349,13 @@
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
         "death",
+        "enemy",
         "one_shot"
       ],
       "searchTerms": [
         "deactivate",
         "Death",
+        "enemy",
         "OneShot",
         "one_shot",
         "PUSH MECHA DEATH",
@@ -11108,14 +13401,16 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "loop",
-        "projectile"
+        "projectile",
+        "vfx"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan   Ray Clip",
         "Nautolan - Ray_Clip",
         "projectile",
-        "SpriteFrame"
+        "SpriteFrame",
+        "vfx"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -11158,6 +13453,7 @@
       "semanticFacets": [
         "animated_idle",
         "blade_boss",
+        "boss",
         "boss_ship",
         "enemy_boss",
         "loop",
@@ -11168,6 +13464,7 @@
         "animated_idle",
         "Blade Boss",
         "blade_boss",
+        "boss",
         "boss_ship",
         "enemy_boss",
         "Loop",
@@ -11267,6 +13564,7 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "animated_idle",
+        "boss",
         "boss_ship",
         "enemy_boss",
         "loop",
@@ -11276,6 +13574,7 @@
       "searchTerms": [
         "animated_idle",
         "Big Boss",
+        "boss",
         "boss_ship",
         "enemy_boss",
         "Loop",
@@ -11324,13 +13623,15 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "fly",
         "Loop",
         "Other",
         "Player Flying up",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -11419,14 +13720,18 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "loop",
-        "thrust"
+        "ship",
+        "thrust",
+        "vfx"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Dreadnought   Engine Effect Clip",
         "Nautolan Ship - Dreadnought - Engine Effect_Clip",
+        "ship",
         "SpriteFrame",
-        "thrust"
+        "thrust",
+        "vfx"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -11468,14 +13773,16 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "loop",
-        "projectile"
+        "projectile",
+        "vfx"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan   Wave Clip",
         "Nautolan - Wave_Clip",
         "projectile",
-        "SpriteFrame"
+        "SpriteFrame",
+        "vfx"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -11489,6 +13796,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_7e98d53e276648a2badf/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__b6054c37": {
+      "displayName": "SphereFlash Sphere Flash 64 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/SphereFlash_Sphere_Flash_64_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 4,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "SphereFlash Sphere Flash 64 Loop",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "07ba29653319be0d9c9b04a518cf7fc6a73ccd06e95cfee58024615a841027d1",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.166666672,
+          "sampleTime": 0.166666672,
+          "spriteAssetId": "ea963f3a230e4df459607a32abe398cf:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_911eac41ad1335b0673e/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -11574,10 +13934,12 @@
       "animationState": "Walk",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "loop",
         "walk"
       ],
       "searchTerms": [
+        "character_animation",
         "Loop",
         "SpriteFrame",
         "Walk"
@@ -11624,13 +13986,15 @@
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
         "loop",
-        "shield"
+        "shield",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Battlecruiser   Shield Clip",
         "Nautolan Ship - Battlecruiser - Shield_Clip",
         "shield",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -11711,17 +14075,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "environment_animation",
         "loop"
       ],
       "searchTerms": [
+        "environment_animation",
         "flame anim",
         "Loop",
         "Other",
@@ -11758,20 +14124,22 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "player",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "player",
         "red delta ship",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -11805,20 +14173,22 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "ActorOwnerProven",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Nautolan Ship - Torpedo Ship_Clip",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Torpedo Ship Clip",
         "Nautolan Ship - Torpedo Ship_Clip",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -11833,6 +14203,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_b3d129e25dfedd8ae7a6/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__beb2f2f5": {
+      "displayName": "Mutating Mutate3 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Mutating_Mutate3_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 3,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Mutating Mutate3 Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "6f68afb2f21ef884ae0af2c1a4a02d23133849f0ef27d1b334bdabe4fd751ae6",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.125,
+          "sampleTime": 0.0833333358,
+          "spriteAssetId": "7b49ec8015950cc4da46161c92dc1752:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_89d8cdf2e298436d9ffa/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -11861,14 +14284,16 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "loop",
-        "projectile"
+        "projectile",
+        "vfx"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan   Spinning Bullet Clip",
         "Nautolan - Spinning Bullet_Clip",
         "projectile",
-        "SpriteFrame"
+        "SpriteFrame",
+        "vfx"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -11942,6 +14367,110 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_c2e4040373305243a757/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__c21b3aea": {
+      "displayName": "WrapLaserBlast",
+      "sourcePath": "Assets/_Game/MY_VARIA/Art/Sprites/Shot/LaserWarp/WrapLaserBlast.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 4,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual",
+        "WrapLaserBlast"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "3a45a78a4d375b19612150c4e5dcb761323623a9de899f9ea16b7e4fe1047ea0",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.166666672,
+          "sampleTime": 0.166666672,
+          "spriteAssetId": "ff9da68a5b3949288d8a86df251c5d0e:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_06b40dc9c67fa81be652/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__c26710a7": {
+      "displayName": "grey Arrow Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Arrow_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Arrow Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "f9d3f0fe9a2caf350bdfb9fef212dde8b787d3a78b43825a886a4c5d52a17b67",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "ddc2e04c653411c46b2bc2d14adb74f6:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_6c9aa99333423f52df67/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -12116,17 +14645,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Jump",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "character_animation",
         "loop"
       ],
       "searchTerms": [
+        "character_animation",
         "Jump",
         "Loop",
         "SpriteFrame"
@@ -12212,20 +14743,26 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Loop",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
       ],
       "searchTerms": [
         "color Homing Loop",
+        "generated_shot_visual",
         "Loop",
-        "SpriteFrame"
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -12321,6 +14858,7 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "animated_segment",
+        "boss",
         "boss_component",
         "enemy_boss",
         "loop",
@@ -12331,6 +14869,7 @@
       ],
       "searchTerms": [
         "animated_segment",
+        "boss",
         "boss_component",
         "enemy_boss",
         "Loop",
@@ -12354,6 +14893,218 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_a0977523220af3fef297/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__c93845bd": {
+      "displayName": "color Arrow Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Arrow_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Arrow Loop",
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "d96ef2056ec4b6f15167e52c7d876d05d4d204914628f10c5b1aeab669d7b7f9",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "77ae584cc60d90f45ba1c6dc88a237a1:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_7ff07eac0412e5067c65/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__c986abb4": {
+      "displayName": "grey Cross Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Cross_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Cross Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "2ffa295348bf395ea33ba8739f3d31daa42fa03ca83af6c27d0e31ab0c378289",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "9280befaa6cd16c4c8dc11c089627cee:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_abcda6c8c111e24b1e67/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__c9c964bd": {
+      "displayName": "grey Sphere Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Sphere_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Sphere Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "60dcb2a62959c0fff20c34d5c211c9fa12ad201ee3ba4528612832232b84a4ed",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "451298d9cfbf5074f8e65e4fad6cab94:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_1a229d9f145da7f0dae7/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__cacd452d": {
+      "displayName": "color Donut Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Donut_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Donut Loop",
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "4f02eebe5c24910afb01504e07fb2f4b94740b6ecf741b13890701bddedd0ef1",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "f55583f8967ebfb4387ad0b4ed57f1af:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_a4ea31b15a15fa5c9506/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -12382,14 +15133,16 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "explosion",
-        "loop"
+        "loop",
+        "vfx"
       ],
       "searchTerms": [
         "explosion",
         "explosion animation",
         "Loop",
         "Other",
-        "SpriteFrame"
+        "SpriteFrame",
+        "vfx"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -12430,6 +15183,7 @@
       "animationState": "powerball",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "boss",
         "energy_projectile",
         "loop",
         "playniax",
@@ -12439,6 +15193,7 @@
         "space_shooter_art_pack_02"
       ],
       "searchTerms": [
+        "boss",
         "energy_projectile",
         "Loop",
         "playniax",
@@ -12536,10 +15291,12 @@
       "animationState": "Hit",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "hit",
         "loop"
       ],
       "searchTerms": [
+        "character_animation",
         "damage",
         "Hit",
         "Loop",
@@ -12587,13 +15344,15 @@
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
         "loop",
-        "shield"
+        "shield",
+        "ship"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Dreadnought   Shield Clip",
         "Nautolan Ship - Dreadnought - Shield_Clip",
         "shield",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -12659,6 +15418,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_2e0f071ed4589310a944/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__cf889d49": {
+      "displayName": "color Cluster Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Cluster_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Cluster Loop",
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "7232b4bec005b0568d083550f860c23e500fe9eb5f5b08c3fa237994d51a37d9",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "d2b8fd9a05c913f4e8bd85bef07bca21:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_32b20650fd95d05ffb08/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -12842,6 +15654,7 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "animated_idle",
+        "boss",
         "boss_ship",
         "enemy_boss",
         "loop",
@@ -12850,6 +15663,7 @@
       ],
       "searchTerms": [
         "animated_idle",
+        "boss",
         "boss_ship",
         "enemy_boss",
         "Loop",
@@ -12977,6 +15791,112 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_383826bf1d76e8e8e5da/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__d68110f7": {
+      "displayName": "grey Flower Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Flower_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey Flower Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "11cd99dbe52eb256a96f5b325b81d962e020c9b1d264d8c950f8b259dd590c13",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "6ccc9d3ed2421624aaa11f3ec37dfa6a:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_0b5e4f12173d453e302e/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__d69c284e": {
+      "displayName": "Pyramid Pyramid6 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pyramid_Pyramid6_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 5,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "Pyramid Pyramid6 Loop",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "4be5a11db9d9d4eb004c8447518986d2099f5bed448f87046b68d299df87cf95",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.208333343,
+          "sampleTime": 0.25,
+          "spriteAssetId": "f6426e6daf0a19c4ba761400788de6e3:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_a79fb8dec941f4958a95/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -13198,19 +16118,21 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "atom",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
         "atom",
         "Loop",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -13254,10 +16176,12 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "loop",
         "walk"
       ],
       "searchTerms": [
+        "character_animation",
         "CIV WOMAN SHOPPING 01 WALK RIGHT",
         "Loop",
         "Other",
@@ -13308,6 +16232,7 @@
         "flight_idle",
         "loop",
         "playniax",
+        "ship",
         "space_shooter_art_pack_02"
       ],
       "searchTerms": [
@@ -13318,6 +16243,7 @@
         "Loop",
         "Other",
         "playniax",
+        "ship",
         "space_shooter_art_pack_02",
         "SpriteFrame"
       ],
@@ -13408,14 +16334,18 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "loop",
-        "thrust"
+        "ship",
+        "thrust",
+        "vfx"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Fighter   Engine Effect Clip",
         "Nautolan Ship - Fighter - Engine Effect_Clip",
+        "ship",
         "SpriteFrame",
-        "thrust"
+        "thrust",
+        "vfx"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -13457,14 +16387,18 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "loop",
-        "thrust"
+        "ship",
+        "thrust",
+        "vfx"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Torpedo Ship   Engine Effect Clip",
         "Nautolan Ship - Torpedo Ship - Engine Effect_Clip",
+        "ship",
         "SpriteFrame",
-        "thrust"
+        "thrust",
+        "vfx"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -13507,6 +16441,7 @@
       "semanticFacets": [
         "fire",
         "loop",
+        "ship",
         "weapon_fire"
       ],
       "searchTerms": [
@@ -13514,6 +16449,7 @@
         "Loop",
         "Nautolan Ship   Fighter   Weapons Clip",
         "Nautolan Ship - Fighter - Weapons_Clip",
+        "ship",
         "SpriteFrame",
         "weapon_fire"
       ],
@@ -13595,17 +16531,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "character_animation",
         "loop"
       ],
       "searchTerms": [
+        "character_animation",
         "LITTLE KID LOOKUP",
         "Loop",
         "Other",
@@ -14071,17 +17009,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "enemy",
         "loop"
       ],
       "searchTerms": [
+        "enemy",
         "enemy animation 1",
         "Loop",
         "Other",
@@ -14225,14 +17165,18 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "loop",
-        "thrust"
+        "ship",
+        "thrust",
+        "vfx"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Frigate   Engine Effect Clip",
         "Nautolan Ship - Frigate - Engine Effect_Clip",
+        "ship",
         "SpriteFrame",
-        "thrust"
+        "thrust",
+        "vfx"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -14425,18 +17369,20 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "environment_animation",
         "loop"
       ],
       "searchTerms": [
         "Caustic2",
+        "environment_animation",
         "Loop",
         "Other",
         "SpriteFrame"
@@ -14482,10 +17428,12 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "enemy",
         "one_shot",
         "shoot"
       ],
       "searchTerms": [
+        "enemy",
         "MY SpaceRobot04 Shoot Start",
         "OneShot",
         "one_shot",
@@ -14622,20 +17570,26 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Loop",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
       ],
       "searchTerms": [
         "color Boomerang Loop",
+        "generated_shot_visual",
         "Loop",
-        "SpriteFrame"
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -14730,12 +17684,16 @@
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
         "fire",
+        "fire_bird",
+        "flying_creature",
         "loop"
       ],
       "searchTerms": [
         "fire",
         "FIRE BIRD LOOP",
+        "fire_bird",
         "FIRE_BIRD_LOOP",
+        "flying_creature",
         "Loop",
         "shoot",
         "SpriteFrame"
@@ -14752,6 +17710,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_ecda86fb0bb0444dd9b6/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__f0cdb4a0": {
+      "displayName": "grey StarBurst Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_StarBurst_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "grey StarBurst Loop",
+        "Loop",
+        "Other",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "347d35e7ed4b76f28daaceb8933624d359dd55e72e522fe2cebf2c98d4eb8c38",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "e781d9f992ba68f4696a823f8c11f52e:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_07902dfbf156416cab19/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -14781,10 +17792,12 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "character_animation",
         "loop",
         "walk"
       ],
       "searchTerms": [
+        "character_animation",
         "CIV MAN CASUAL 01 WALK RIGHT",
         "Loop",
         "Other",
@@ -14822,17 +17835,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Jump",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "character_animation",
         "loop"
       ],
       "searchTerms": [
+        "character_animation",
         "Jump",
         "Loop",
         "SpriteFrame"
@@ -14928,18 +17943,20 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Shell_Ship",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "pickup"
       ],
       "searchTerms": [
         "Loop",
+        "pickup",
         "Pilot Pickup",
         "Shell_Ship",
         "SpriteFrame"
@@ -14983,6 +18000,7 @@
       "animationState": "endbossbottomdish",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "boss",
         "boss_component",
         "disc",
         "enemy_boss",
@@ -14992,6 +18010,7 @@
         "space_shooter_art_pack_02"
       ],
       "searchTerms": [
+        "boss",
         "boss_component",
         "disc",
         "endbossbottomdish",
@@ -15083,17 +18102,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Interacting",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "character_animation",
         "loop"
       ],
       "searchTerms": [
+        "character_animation",
         "Interacting",
         "Loop",
         "SpriteFrame"
@@ -15110,6 +18131,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_957157f357431a79fd2e/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__f5694d08": {
+      "displayName": "Pyramid Pyramid2 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pyramid_Pyramid2_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 5,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "Other",
+        "projectile",
+        "Pyramid Pyramid2 Loop",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "060e7cabb6258c92d67cdb93df75950e91991fe48700e884e4bc72132ea72f7b",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.208333343,
+          "sampleTime": 0.25,
+          "spriteAssetId": "90b96bd4b4658e04bb9005fe110947c2:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_9168bafa5b2e7bd2fdb2/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -15137,6 +18211,7 @@
       "animationState": "endbosstopdish",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "boss",
         "boss_component",
         "disc",
         "enemy_boss",
@@ -15146,6 +18221,7 @@
         "space_shooter_art_pack_02"
       ],
       "searchTerms": [
+        "boss",
         "boss_component",
         "disc",
         "endbosstopdish",
@@ -15253,14 +18329,18 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "loop",
-        "thrust"
+        "ship",
+        "thrust",
+        "vfx"
       ],
       "searchTerms": [
         "Loop",
         "Nautolan Ship   Support   Engine Effect Clip",
         "Nautolan Ship - Support - Engine Effect_Clip",
+        "ship",
         "SpriteFrame",
-        "thrust"
+        "thrust",
+        "vfx"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
