@@ -20,6 +20,17 @@ Unity/Plastic is canonical for runtime implementation and runtime proof. Git CUR
 
 `CUTSCENE_SCRIPT_V1` is the only normal public authoring format. V3/V5, Timeline, Cinemachine wiring, generated IDs, bindings and test-runner details are backend implementation.
 
+## Closed-enum lock
+
+CHATGPT_AUTHORING_INDEX.schemaClosedEnums is generated directly from the exact matching CUTSCENE_SCRIPT_V1.schema.json.
+
+For every field published there:
+- copy one exact literal;
+- never invent a synonym or "close enough" semantic label;
+- never reuse a token from a different field merely because the English meaning feels similar;
+- if a desired idea has no legal token, express it through storyClaim, actions, camera, visible composition, or another legal field rather than corrupting the enum.
+
+This projection is publication data, not a second schema. The schema remains canonical; the projection exists so ChatGPT cannot conveniently forget what it just read.
 ## Core principle
 
 A technically valid cutscene is not automatically a good film.
