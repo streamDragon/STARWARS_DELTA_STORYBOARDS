@@ -44,6 +44,8 @@ NORMAL AUTHORING
 3. Inspect real pixels for important visual choices. Prefer the direct previewUrl on the selected CURRENT entry. If previewUrl is absent, treat appearance as unverified instead of guessing from the name.
 4. Author one complete CUTSCENE_SCRIPT_V1 object.
 5. Run literal schema/current self-check.
+   - Before authoring any closed-world field, read CHATGPT_AUTHORING_INDEX.schemaClosedEnums generated from the exact matching CUTSCENE_SCRIPT_V1.schema.json.
+   - Closed enums are literal tokens, not prose. Never invent synonyms such as question/departure/cause/effect or substitute a beat type for a dramaticFunction.
 6. Treat Web Preview as preflight only.
 7. Unity remains final runtime/Editable Preview authority.
 
