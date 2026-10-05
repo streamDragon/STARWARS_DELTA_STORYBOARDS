@@ -1,0 +1,128 @@
+{
+  "schema": "STARWARS_DELTA_CINEMATIC_DIRECTOR_PROTOCOLS",
+  "schemaVersion": 1,
+  "purpose": "Reusable directing patterns above the 53 first-class MOVES. These are editorial/choreographic recipes, not new runtime primitives.",
+  "principles": [
+    "Every shot must have one job: establish, reveal, threaten, react, decide, impact, release or handoff.",
+    "Change shot scale when emotional distance changes, not randomly.",
+    "Action without reaction reads as gameplay footage; pair causes with human/observer consequences.",
+    "For 2D depth, combine foreground occluders, midground actors and background plates with parallax where legal.",
+    "Camera motion must reveal information or alter emotional distance; movement for decoration alone is discouraged.",
+    "Audio punctuation should align to cuts, reveals, impacts, holds or silence beats.",
+    "Exterior action becomes cinematic when intercut with a watcher, cockpit/portrait, hand/detail or target insert."
+  ],
+  "protocols": [
+    {
+      "id": "CHASE_WITH_HUMAN_INTERCUT",
+      "intent": "Turn a technically correct chase into a story experience.",
+      "pattern": [
+        "wide exterior pursuit",
+        "medium/close watcher reaction",
+        "threat or target insert",
+        "evasive exterior move",
+        "near-miss or impact",
+        "reaction hold",
+        "release/escape"
+      ],
+      "preferredMoves": ["PURSUIT_LANES", "CHASE_THROUGH_FRAME", "THREAT_REACTION_THREAT", "CAUSE_EFFECT_REACTION", "BANK_AND_EXIT"]
+    },
+    {
+      "id": "EXTERIOR_INTERIOR_PRESSURE",
+      "intent": "Create emotional connection during vehicle action.",
+      "pattern": [
+        "exterior vehicle motion",
+        "cut to pilot/passenger portrait or cockpit framing",
+        "audio warning or dialogue",
+        "detail insert: hand/eyes/control",
+        "return exterior with changed stakes"
+      ],
+      "preferredMoves": ["LOOK_TARGET_LOOK", "OBJECT_MEMORY_FACE", "WATCHER_SUBJECT_WATCHER", "ATTACK_RUN"]
+    },
+    {
+      "id": "THREAT_REVEAL",
+      "intent": "Make a new enemy or object feel important.",
+      "pattern": [
+        "subject notices offscreen cue",
+        "hold reaction",
+        "pan/pull/reveal threat",
+        "scale comparison",
+        "return to subject reaction"
+      ],
+      "preferredMoves": ["LOOK_OFFSCREEN_REVEAL", "SCALE_REVEAL", "DISCOVERY_REVEAL_REACTION", "LOOK_REVEAL_REACTION"]
+    },
+    {
+      "id": "HERO_REVEAL",
+      "intent": "Give a character or ship an entrance with weight.",
+      "pattern": [
+        "environment establish",
+        "partial foreground obstruction",
+        "slow reveal or pass",
+        "medium hero read",
+        "brief close/detail",
+        "release into motion"
+      ],
+      "preferredMoves": ["PASS_BY_REVEAL", "HERO_SWEEP", "SCREEN_CROSS_REVEAL", "ARRIVE_SETTLE_HOLD"]
+    },
+    {
+      "id": "IMPACT_WITH_CONSEQUENCE",
+      "intent": "Make explosions and hits feel causal rather than decorative.",
+      "pattern": [
+        "setup target relationship",
+        "anticipation hold or audio cue",
+        "weapon/fire",
+        "impact",
+        "camera/actor reaction",
+        "damage or changed composition",
+        "short aftermath hold"
+      ],
+      "preferredMoves": ["WEAPON_TARGET_FIRE", "MISSILE_TARGET_IMPACT", "CAUSE_EFFECT_REACTION", "DAMAGED_WITHDRAWAL"]
+    },
+    {
+      "id": "DIALOGUE_UNDER_THREAT",
+      "intent": "Keep dialogue cinematic during danger.",
+      "pattern": [
+        "wide context",
+        "speaker medium/close",
+        "listener reaction before line ends",
+        "external threat insert",
+        "return close with changed expression",
+        "action interruption"
+      ],
+      "preferredMoves": ["WATCHER_SUBJECT_WATCHER", "REACTION_BEFORE_CAUSE", "THREAT_REACTION_THREAT"]
+    },
+    {
+      "id": "DISCOVERY_AND_DECISION",
+      "intent": "Turn exposition into visible thought.",
+      "pattern": [
+        "object/environment clue",
+        "observer close-up",
+        "detail insert",
+        "reaction hold",
+        "decision gesture/look",
+        "movement begins"
+      ],
+      "preferredMoves": ["OBJECT_MEMORY_FACE", "LOOK_TARGET_LOOK", "DISCOVERY_REVEAL_REACTION", "HOLD_THEN_BURST"]
+    },
+    {
+      "id": "RESCUE_BEAT",
+      "intent": "Give rescue action emotional structure.",
+      "pattern": [
+        "victim in danger",
+        "rescuer reveal",
+        "intercept/rescue pass",
+        "victim reaction",
+        "shared escape direction",
+        "release"
+      ],
+      "preferredMoves": ["RESCUE_PASS", "DOUBLE_INTERCEPT", "ESCORT_COLUMN", "CONVOY_ESCAPE"]
+    }
+  ],
+  "qualityGate": {
+    "warnIfLongFilmHasNoCloseUp": true,
+    "warnIfActionHasNoReaction": true,
+    "warnIfThreeOrMoreSameFramingsInARow": true,
+    "warnIfMostCamerasAreLocked": true,
+    "warnIfLong2DSceneHasNoForegroundOrParallax": true,
+    "warnIfPursuitNeverIntercutsToObserver": true
+  }
+}

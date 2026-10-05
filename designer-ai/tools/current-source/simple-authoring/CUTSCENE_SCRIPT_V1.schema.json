@@ -891,13 +891,14 @@
                                                           "voiceName":  {
                                                                              "type":  "string",
                                                                              "default":  "af_heart",
-                                                                             "description":  "Kokoro voice id, for example af_heart."
+                                                                             "description":  "Compatibility-only field. Normal CharacterPack dialogue authoring must omit voiceName; generated dialogue uses the selected character voiceProfileId/backend voice profile."
                                                                          },
                                                           "voiceSpeed":  {
                                                                               "type":  "number",
                                                                               "minimum":  0.5,
                                                                               "maximum":  2.0,
-                                                                              "default":  1.0
+                                                                              "default":  1.0,
+                                                                              "description":  "Compatibility-only authoring field. Omit in normal CharacterPack dialogue; backend timing owns the effective speed and may raise it deterministically up to 2.0x to fit the authored dialogue window."
                                                                           }
                                                       }
                                    },

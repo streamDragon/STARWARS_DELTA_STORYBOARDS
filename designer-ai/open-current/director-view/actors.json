@@ -2,9 +2,9 @@
   "schema": "STARWARS_DELTA_DIRECTOR_CATEGORY",
   "schemaVersion": 2,
   "status": "CURRENT_FULL_CATALOG_PROJECTION",
-  "publishTransactionId": "20261004-184351617-d036ce8a",
-  "catalogRevision": "7622860510863576788",
-  "snapshotContentHash": "9447156028185AD028DAB594580D274AAF0665456F3368DC3B024CE8D9DD3762",
+  "publishTransactionId": "20261005-104044778-0dc1810b",
+  "catalogRevision": "7622399765205821651",
+  "snapshotContentHash": "35FCD863EF84AAB9874DE6AB8EDDF1392BFCEDC13EB8178AC757FAA0FED4D24A",
   "category": "actors",
   "count": 144,
   "assets": [
@@ -13816,7 +13816,7 @@
       "directorEligible": true,
       "directorCategory": "Actor",
       "directorRuntimeForm": "SpriteActor",
-      "directorPreviewRequired": false,
+      "directorPreviewRequired": true,
       "directorExclusionReason": "",
       "directorEvidenceStatus": "ResolverVerified",
       "durationSeconds": 0.0,
@@ -13888,13 +13888,24 @@
       "reviewSeverity": "None",
       "visualRuntimeForm": "Sprite",
       "visualReferenceId": "visual_77c8a27fbe801d6bf99d",
-      "previewContentHash": "",
-      "primaryPreview": "",
-      "previewMode": "EMPTY_TRANSPARENT_SPRITE_SOURCE",
-      "warnings": [],
-      "warningDetails": [],
+      "previewContentHash": "7309309d941f844919a3dc25834c6be5447cf0332ff5a056381a79c9b21f2eb0",
+      "primaryPreview": "assets/asset_0c35b0aaaf4b361701a6/preview.png",
+      "previewMode": "SOURCE_TEXTURE_CONTEXT_FOR_EMPTY_SPRITE_SLICE",
+      "warnings": [
+        "EMPTY_SPRITE_SLICE_SOURCE_CONTEXT"
+      ],
+      "warningDetails": [
+        {
+          "assetId": "85a76f3664ce2d4488432fadce6b8d58:7753104748158290363",
+          "displayName": "roll 02 3",
+          "code": "EMPTY_SPRITE_SLICE_SOURCE_CONTEXT",
+          "stage": "quality",
+          "message": "Exact Sprite slice has no visible pixels; preview shows the parent source texture for context only."
+        }
+      ],
       "animationSampleFrames": [],
       "representativeFrames": [],
+      "pageImageUrl": "visual-library/assets/asset_0c35b0aaaf4b361701a6/preview.png",
       "particleOnly": false,
       "particleSystemCount": 0,
       "particleRendererCount": 0,
@@ -13904,6 +13915,8 @@
       "particleMaterials": [],
       "visualDescription": "Single-wheel robot rolling animation frame 02, showing the cyan-lit core and side gun while the orange wheel marker rotates around the rim.",
       "visualFamily": "wheel-robot-roll-animation",
+      "previewUrl": "visual-library/assets/asset_0c35b0aaaf4b361701a6/preview.png",
+      "sourceVisualUrl": "visual-library/assets/asset_0c35b0aaaf4b361701a6/preview.png",
       "visualVariants": [
         "Sprite"
       ],
