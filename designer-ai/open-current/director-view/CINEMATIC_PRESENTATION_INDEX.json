@@ -2,18 +2,18 @@
   "schema": "STARWARS_DELTA_V3_CINEMATIC_PRESENTATION_INDEX",
   "schemaVersion": 1,
   "provenance": {
-    "publishTransactionId": "20261004-184351617-d036ce8a",
-    "catalogRevision": "7622860510863576788",
+    "publishTransactionId": "20261005-104044778-0dc1810b",
+    "catalogRevision": "7622399765205821651",
     "contractRevision": "0617595F51A8FC34AFE3A89EB698A1FFFF86C7B2231C6602144391E00D02216B",
     "schemaHash": "0908753087E3038CB34F0651E78844B50AB6F773F9C7A8B357AD199B0E2E7EBE",
-    "snapshotContentHash": "9447156028185AD028DAB594580D274AAF0665456F3368DC3B024CE8D9DD3762",
-    "generatedUtc": "2026-10-04T20:28:19.8815011Z",
-    "sourcePublishUtc": "10/04/2026 18:43:59",
-    "presentationIndexBuiltUtc": "2026-10-04T20:28:19.8815011Z",
+    "snapshotContentHash": "35FCD863EF84AAB9874DE6AB8EDDF1392BFCEDC13EB8178AC757FAA0FED4D24A",
+    "generatedUtc": "2026-10-05T10:44:15.2870064Z",
+    "sourcePublishUtc": "10/05/2026 10:40:59",
+    "presentationIndexBuiltUtc": "2026-10-05T10:44:15.2870064Z",
     "publisherVersion": "2.13.2",
     "freshnessState": "CURRENT",
     "stale": false,
-    "Identity": "7622860510863576788|0617595F51A8FC34AFE3A89EB698A1FFFF86C7B2231C6602144391E00D02216B|0908753087E3038CB34F0651E78844B50AB6F773F9C7A8B357AD199B0E2E7EBE|9447156028185AD028DAB594580D274AAF0665456F3368DC3B024CE8D9DD3762"
+    "Identity": "7622399765205821651|0617595F51A8FC34AFE3A89EB698A1FFFF86C7B2231C6602144391E00D02216B|0908753087E3038CB34F0651E78844B50AB6F773F9C7A8B357AD199B0E2E7EBE|35FCD863EF84AAB9874DE6AB8EDDF1392BFCEDC13EB8178AC757FAA0FED4D24A"
   },
   "records": [
     {
@@ -4951,6 +4951,83 @@
       "preferredPairingIds": [],
       "annotationSource": 10,
       "annotationConfidence": 0.91,
+      "sourceEvidence": [
+        "Catalog assetId and cutscene primary use.",
+        "",
+        "CURRENT Director visual evidence."
+      ],
+      "diagnostics": [],
+      "excludedFromAuthoring": false,
+      "IsGeneratedSource": false
+    },
+    {
+      "assetId": "85a76f3664ce2d4488432fadce6b8d58:7753104748158290363",
+      "canonicalActorAssetId": "85a76f3664ce2d4488432fadce6b8d58:7753104748158290363",
+      "canonicalIdentityKey": "asset:roll 02 3",
+      "assetUse": "Actor",
+      "role": 10,
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/WheelRobot/roll_02.png",
+      "sourceVisualUrl": "visual-library/assets/asset_0c35b0aaaf4b361701a6/preview.png",
+      "previewUrl": "visual-library/assets/asset_0c35b0aaaf4b361701a6/preview.png",
+      "nativePixelWidth": 27,
+      "nativePixelHeight": 20,
+      "visibleBoundsX": 0.0,
+      "visibleBoundsY": 0.0,
+      "visibleBoundsWidth": 1.0,
+      "visibleBoundsHeight": 1.0,
+      "alphaBoundsX": 0.0,
+      "alphaBoundsY": 0.0,
+      "alphaBoundsWidth": 1.0,
+      "alphaBoundsHeight": 1.0,
+      "focusAnchors": [
+        {
+          "type": 90,
+          "x": 0.5,
+          "y": 0.5,
+          "width": 0.08,
+          "height": 0.08,
+          "evidence": "Conservative center anchor; no high-confidence vision inference performed.",
+          "confidence": 0.35,
+          "source": 60
+        }
+      ],
+      "groundLine": 0.5,
+      "viewAngle": 0,
+      "facingDirection": 0,
+      "flipPolicy": 20,
+      "rotationPolicy": 20,
+      "asymmetryWarning": false,
+      "perspectiveClass": 10,
+      "safeCropRects": [
+        {
+          "x": 0.03,
+          "y": 0.03,
+          "width": 0.94,
+          "height": 0.94,
+          "reason": "Conservative deterministic crop derived from source bounds.",
+          "confidence": 0.45
+        }
+      ],
+      "recommendedScreenCoverage": 0.28,
+      "maxRecommendedZoom": 1.0,
+      "closeUpSuitability": false,
+      "foregroundSuitability": false,
+      "silhouetteQuality": 0.6,
+      "parallaxSuitability": 0.35,
+      "depthRoles": [
+        40,
+        30
+      ],
+      "continuityGroupId": null,
+      "presentationVariant": "Unknown:Unknown",
+      "spriteSequenceActor": false,
+      "backingVisualAssetId": null,
+      "compatibleAnimationAssetIds": [],
+      "compatibleSiblingPresentationIds": [],
+      "screenDirectionConstraints": [],
+      "preferredPairingIds": [],
+      "annotationSource": 10,
+      "annotationConfidence": 0.99,
       "sourceEvidence": [
         "Catalog assetId and cutscene primary use.",
         "",
@@ -11060,7 +11137,5 @@
       "IsGeneratedSource": false
     }
   ],
-  "diagnostics": [
-    "85a76f3664ce2d4488432fadce6b8d58:7753104748158290363:V3_PRESENTATION_PREVIEW_UNAVAILABLE_EXCLUDED"
-  ]
+  "diagnostics": []
 }
