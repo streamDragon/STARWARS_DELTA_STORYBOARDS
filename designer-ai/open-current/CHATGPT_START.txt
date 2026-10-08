@@ -46,11 +46,15 @@ NORMAL AUTHORING
 5. Run literal schema/current self-check.
    - Before authoring any closed-world field, read CHATGPT_AUTHORING_INDEX.schemaClosedEnums generated from the exact matching CUTSCENE_SCRIPT_V1.schema.json.
    - Closed enums are literal tokens, not prose. Never invent synonyms such as question/departure/cause/effect or substitute a beat type for a dramaticFunction.
-6. Treat Web Preview as preflight only.
-7. Unity remains final runtime/Editable Preview authority.
+6. BEFORE DELIVERY, run the Unity V1 Candidate Lint against the exact candidate and the active CURRENT.
+   - Candidate Lint reuses the canonical Unity Simple V1 preparation/validation path, including strict schema validation, CURRENT handle resolution, move phase requirements and whole-move cinematic signatures.
+   - Return the downloadable JSON only when Candidate Lint status=PASS with zero blockers.
+   - Do not replace Candidate Lint with a parallel hand-written validator or a prose-only self-check.
+7. Treat Web Preview as preflight only.
+8. Unity remains final runtime/Editable Preview authority.
 
 NORMAL FLOW LOCK
-- The designer gives a natural-language movie request. Devora/ChatGPT returns one complete CUTSCENE_SCRIPT_V1 JSON.
+- The designer gives a natural-language movie request. Devora/ChatGPT authors one complete CUTSCENE_SCRIPT_V1 JSON, runs V1 Candidate Lint, and returns the real downloadable JSON only after lint PASS.
 - Do not ask for, generate, or depend on a COPY REQUEST / REQUEST REPORT step for normal NEW authoring.
 - V1 is the only authoring format. V2 compilation and V3 Unity materialization are backend implementation and are never authored.
 - Do not expose raw Actor/Animation/runtime IDs.
@@ -99,7 +103,7 @@ CATALOG / VISUAL EVIDENCE
 - A missing previewUrl is not permission to infer appearance from a filename, displayName or folder.
 - Do not directly author source sheets, assembly parts, unsafe/pending-review assets or technical helper content when CURRENT excludes them.
 
-CATALOG FEEDBACK — GITHUB ISSUES
+CATALOG FEEDBACK ׳’ג‚¬ג€ GITHUB ISSUES
 - Use the existing repository https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS and its "Catalog feedback" Issue template for incorrect identification, discovered animation, missing capability or missing image.
 - Before creating a report, search open Issues for the exact handle/source and the same problem; read likely matches and reuse the existing Issue instead of creating a duplicate. Do not treat a failed search as proof that no Issue exists.
 - Include the exact existing handle or observed source reference, the checked OPEN_CURRENT publishTransactionId (or UNKNOWN with a reason), the user's request, the actual response, the suspected gap, short evidence and a proposed correction labeled HYPOTHESIS unless verified. Never invent an identity. Record an explicit human choice without treating it as technical proof.
@@ -148,6 +152,7 @@ ACTION TIMING
 - Every move references consecutive authored beatIds in film order.
 - The number of beatIds must equal the phase count published for that exact move in CHATGPT_AUTHORING_INDEX / AUTHORING_RULES.
 - A move name is not decorative metadata: author the referenced beats so their visible camera/action/composition actually realizes the published phases.
+- For each selected move, read both phaseRequirements and wholeMoveConstraints from the matching CURRENT. phaseRequirements validate each phase; wholeMoveConstraints validate identity and relationships across phases, including required co-presence, shared intent and shared travel direction.
 - V2 validates and lowers V1. V3 owns Unity Timeline/materialization primitives. Backend primitive names are never additional authoring moves.
 - beat.lighting is a normal beat capability usable inside any move; lighting does not create MOVE 54/55.
 
@@ -240,6 +245,7 @@ Before returning JSON verify:
 17. every move references consecutive beatIds in film order;
 18. every move references exactly the number of beats required by its published phase list;
 19. the referenced beats visibly realize the move's published phases rather than merely carrying its name;
+19a. every move satisfies its published machine-readable phaseRequirements and wholeMoveConstraints;
 20. lighting, dialogue, animation, effects and camera remain beat capabilities and never create a parallel move vocabulary;
 21. for a requested full cinematic scene, deliberately use suitable CURRENT location/scenery/effect/audio handles when available unless a minimal/silent presentation is intentional;
 22. for every move, read its published requiredRoles and represent each role with a stable visible actor id and exact visible.role; satisfy repeated roles with distinct actors or an intentional count, and never reuse a generic placeholder to claim unrelated participants.
