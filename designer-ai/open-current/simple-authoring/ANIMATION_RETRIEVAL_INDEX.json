@@ -3,16 +3,16 @@
   "schemaVersion": 1,
   "projectionRevision": "ANIMATION_RETRIEVAL_V9_20261003_PREVIEW_SEMANTICS",
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20261006-024117343-e8e5e36a",
+  "publishTransactionId": "20261008-030510083-34327743",
   "requiredCurrent": {
-    "catalogRevision": "7622373034262070724",
-    "contractRevision": "0617595F51A8FC34AFE3A89EB698A1FFFF86C7B2231C6602144391E00D02216B",
+    "catalogRevision": "7622488906030617140",
+    "contractRevision": "740B0D254BD70C11C706E525C117D0383C58BBC8EA0484D7A7FA259D2049B0F7",
     "schemaHash": "2D4D7348389ACA57B223224B050573CFCF797672467335BFB217179038D88B03",
-    "snapshotContentHash": "545A873B673AC7C438E00A2C574973C73A5E8743BB9913E860DCEFD65336E2AB",
+    "snapshotContentHash": "E5A75F609707E046FCFD60D22EB8E3EEE9A41E1ECF8F3E6D2C0E1407BC3E8C7A",
     "authoringRuleRegistryRevision": "5972653EFED6428CCBD28007BE847C5C41F060D22E38FEE66E092CB060ECFE8A"
   },
   "purpose": "On-demand direct animation materials. Animation is authored from published Animation handles themselves; Actor ownership and Actor animation repertoires are not part of this authoring surface.",
-  "directMaterialCount": 350,
+  "directMaterialCount": 352,
   "directMaterials": {
     "animation__00c30fab": {
       "displayName": "red delta ship",
@@ -3117,7 +3117,7 @@
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 8,
+        "keyCount": 12,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
@@ -3151,13 +3151,13 @@
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
-      "previewContentHash": "a64b1916d3a82a5c6e61ac375dbd766f7df81bd19255c47faf6f3ff33219c297",
+      "previewContentHash": "6730d4742c124bcd496afab14ad19785ec6ddaa2bafdc4ae40b784df1b8bfbf1",
       "sampleStrip": [
         {
           "fraction": 0.5,
-          "targetTime": 0.4,
-          "sampleTime": 0.4,
-          "spriteAssetId": "0d32e5ea72d04d9469f6fbd6d3121fb3:-3522665443169305635"
+          "targetTime": 0.6,
+          "sampleTime": 0.6,
+          "spriteAssetId": "0d32e5ea72d04d9469f6fbd6d3121fb3:-3170733727929609288"
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_9b200f706b490da0f93d/preview.png",
@@ -5806,6 +5806,58 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__4d30c111": {
+      "displayName": "BLUE FIRE WOLF LOOP",
+      "sourcePath": "Assets/MY_ART/GradSunEnemies/Animations/BLUE_FIRE_WOLF_LOOP.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 12,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "shoot",
+      "animationSemanticActions": [
+        "shoot"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "fire",
+        "loop"
+      ],
+      "searchTerms": [
+        "BLUE FIRE WOLF LOOP",
+        "fire",
+        "Loop",
+        "Other",
+        "shoot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "16b66caf01118535ff641613431877c98b6c360df7bc7a5897ab22dbb77e61ec",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.6,
+          "sampleTime": 0.6,
+          "spriteAssetId": "2052f530d00548f449d8b577de431a0e:8858514127817601854"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_de6b7d55fd3f39e78f43/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__4debdf06": {
       "displayName": "CIV BOY SCHOOL 01 WALK RIGHT",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_BOY_SCHOOL_01/WALK_RIGHT/Generated/CIV_BOY_SCHOOL_01_WALK_RIGHT.anim",
@@ -7492,8 +7544,8 @@
       "sampleStrip": [
         {
           "fraction": 0.5,
-          "targetTime": 0.4,
-          "sampleTime": 0.4,
+          "targetTime": 0.5,
+          "sampleTime": 0.5,
           "spriteAssetId": "c02cbee8b278ab04aad98076725dd38b:2234009072253413316"
         }
       ],
@@ -9632,7 +9684,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -11154,6 +11206,62 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__8f3b2eb0": {
+      "displayName": "BLUE FIRE JELLY LOOP",
+      "sourcePath": "Assets/MY_ART/GradSunEnemies/Animations/BLUE_FIRE_JELLY_LOOP.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 12,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "shoot",
+      "animationSemanticActions": [
+        "shoot"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "BLUE_FIRE_JELLY_LOOP",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "fire",
+        "fire_jelly",
+        "loop",
+        "organic_enemy"
+      ],
+      "searchTerms": [
+        "BLUE FIRE JELLY LOOP",
+        "BLUE_FIRE_JELLY_LOOP",
+        "fire",
+        "fire_jelly",
+        "Loop",
+        "organic_enemy",
+        "shoot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "8e3aca6134faeaa7895faed51a5dfaaa3d47fedb8ff6e3b3b07ab1b81e5d3e3e",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.6,
+          "sampleTime": 0.6,
+          "spriteAssetId": "2c82b2e0ea4331d4883e0ea172523470:8181599876208384095"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_d3c1db4298d6075b8b42/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__8fdb8c14": {
       "displayName": "Player Flying down",
       "sourcePath": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/player/Player_Flying_down.anim",
@@ -11308,7 +11416,7 @@
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 8,
+        "keyCount": 12,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
@@ -11342,13 +11450,13 @@
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
-      "previewContentHash": "fad5f47b1da7d69799494ee34bb1da5fb7cbc68a9e28bc486f1a7645c576ce78",
+      "previewContentHash": "984bcf027e357f4c0978b6f352343fc83053cbe34164494e5b37f041a8f9ec15",
       "sampleStrip": [
         {
           "fraction": 0.5,
-          "targetTime": 0.4,
-          "sampleTime": 0.4,
-          "spriteAssetId": "87cbe16bf52da944783119a9fa526620:-7586686631125504663"
+          "targetTime": 0.6,
+          "sampleTime": 0.6,
+          "spriteAssetId": "87cbe16bf52da944783119a9fa526620:-8300035753509401989"
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_4f1c45358d085331a99d/preview.png",
@@ -11636,7 +11744,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -12365,7 +12473,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -13442,7 +13550,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -14848,7 +14956,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -16013,7 +16121,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -16840,7 +16948,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -17666,7 +17774,7 @@
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 8,
+        "keyCount": 12,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
@@ -17700,13 +17808,13 @@
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
-      "previewContentHash": "5859f79b5e2a3aedbc7fe3fbd34db2c795d2e667e12c6c1dd3753f055f716298",
+      "previewContentHash": "a43c34f2e77f84779ed505a501566db0cef716b2e2e3994bd36ed1211f607e9b",
       "sampleStrip": [
         {
           "fraction": 0.5,
-          "targetTime": 0.4,
-          "sampleTime": 0.4,
-          "spriteAssetId": "e2a988fd5a06f8d4290821f6bcdfeb0b:-5609904625376391857"
+          "targetTime": 0.6,
+          "sampleTime": 0.6,
+          "spriteAssetId": "e2a988fd5a06f8d4290821f6bcdfeb0b:-9031672485269829915"
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_ecda86fb0bb0444dd9b6/preview.png",
