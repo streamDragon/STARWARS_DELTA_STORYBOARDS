@@ -2,11 +2,11 @@
   "schema": "STARWARS_DELTA_DIRECTOR_CATEGORY",
   "schemaVersion": 2,
   "status": "CURRENT_FULL_CATALOG_PROJECTION",
-  "publishTransactionId": "20261006-024117343-e8e5e36a",
-  "catalogRevision": "7622373034262070724",
-  "snapshotContentHash": "545A873B673AC7C438E00A2C574973C73A5E8743BB9913E860DCEFD65336E2AB",
+  "publishTransactionId": "20261008-030510083-34327743",
+  "catalogRevision": "7622488906030617140",
+  "snapshotContentHash": "E5A75F609707E046FCFD60D22EB8E3EEE9A41E1ECF8F3E6D2C0E1407BC3E8C7A",
   "category": "animations",
-  "count": 512,
+  "count": 514,
   "assets": [
     {
       "assetId": "0019fe7781084a9a99d0c3e870cf72ae:7400000",
@@ -3957,30 +3957,12 @@
       "directMovieMaterial": {
         "authorable": false,
         "profile": "COMPLEX_OR_UNSUPPORTED",
-        "reason": "OBJECT_REFERENCE_BINDING_COUNT=0",
+        "reason": "CLIP_MISSING",
         "bindingPath": null,
         "keyCount": 0,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
-      "visualReferenceId": "visual_5c954e698c17cf61f162",
-      "previewContentHash": "",
-      "primaryPreview": "",
-      "previewMode": "NO_INDEPENDENT_VISUAL_SOURCE",
-      "directorPreviewRequired": false,
-      "warnings": [],
-      "warningDetails": [],
-      "animationSampleFrames": [],
-      "representativeFrames": [],
-      "particleOnly": false,
-      "particleSystemCount": 0,
-      "particleRendererCount": 0,
-      "particleLooping": false,
-      "particlePrewarm": false,
-      "particleDurationSeconds": 0.0,
-      "particleMaterials": [],
-      "visualDescription": "Animation 0.17s, loop False, bindings 6, sprite keys 0.",
-      "visualFamily": "",
       "selectionStatus": "PIXEL_COMPLETION_REQUIRED"
     },
     {
@@ -6221,30 +6203,12 @@
       "directMovieMaterial": {
         "authorable": false,
         "profile": "COMPLEX_OR_UNSUPPORTED",
-        "reason": "OBJECT_REFERENCE_BINDING_COUNT=0",
+        "reason": "CLIP_MISSING",
         "bindingPath": null,
         "keyCount": 0,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
-      "visualReferenceId": "visual_0546f808fa1fc5c1cee0",
-      "previewContentHash": "",
-      "primaryPreview": "",
-      "previewMode": "NO_INDEPENDENT_VISUAL_SOURCE",
-      "directorPreviewRequired": false,
-      "warnings": [],
-      "warningDetails": [],
-      "animationSampleFrames": [],
-      "representativeFrames": [],
-      "particleOnly": false,
-      "particleSystemCount": 0,
-      "particleRendererCount": 0,
-      "particleLooping": false,
-      "particlePrewarm": false,
-      "particleDurationSeconds": 0.0,
-      "particleMaterials": [],
-      "visualDescription": "Animation 2s, loop True, bindings 3, sprite keys 0.",
-      "visualFamily": "",
       "selectionStatus": "PIXEL_COMPLETION_REQUIRED"
     },
     {
@@ -6708,12 +6672,12 @@
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 8,
+        "keyCount": 12,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
       "visualReferenceId": "visual_97dfd3a96165fa647984",
-      "previewContentHash": "5859f79b5e2a3aedbc7fe3fbd34db2c795d2e667e12c6c1dd3753f055f716298",
+      "previewContentHash": "a43c34f2e77f84779ed505a501566db0cef716b2e2e3994bd36ed1211f607e9b",
       "primaryPreview": "assets/asset_ecda86fb0bb0444dd9b6/preview.png",
       "previewMode": "DIRECT_SOURCE",
       "directorPreviewRequired": true,
@@ -6722,18 +6686,18 @@
       "animationSampleFrames": [
         {
           "fraction": 0.5,
-          "targetTime": 0.4,
-          "sampleTime": 0.4,
-          "spriteAssetId": "e2a988fd5a06f8d4290821f6bcdfeb0b:-5609904625376391857"
+          "targetTime": 0.6,
+          "sampleTime": 0.6,
+          "spriteAssetId": "e2a988fd5a06f8d4290821f6bcdfeb0b:-9031672485269829915"
         }
       ],
       "representativeFrames": [
         {
-          "spriteAssetId": "e2a988fd5a06f8d4290821f6bcdfeb0b:-5609904625376391857",
-          "time": 0.4,
+          "spriteAssetId": "e2a988fd5a06f8d4290821f6bcdfeb0b:-9031672485269829915",
+          "time": 0.6,
           "sourcePath": "Assets/MY_ART/GradSunEnemies/FIRE_BIRD.png",
           "sourceGuid": "e2a988fd5a06f8d4290821f6bcdfeb0b",
-          "sourceLocalFileId": -5609904625376391857
+          "sourceLocalFileId": -9031672485269829915
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_ecda86fb0bb0444dd9b6/preview.png",
@@ -6744,7 +6708,7 @@
       "particlePrewarm": false,
       "particleDurationSeconds": 0.0,
       "particleMaterials": [],
-      "visualDescription": "Animation 0.8s, loop True, bindings 1, sprite keys 8.",
+      "visualDescription": "Animation 1.2s, loop True, bindings 1, sprite keys 12.",
       "visualFamily": "",
       "previewUrl": "visual-library/assets/asset_ecda86fb0bb0444dd9b6/preview.png",
       "sourceVisualUrl": "visual-library/assets/asset_ecda86fb0bb0444dd9b6/preview.png",
@@ -13105,9 +13069,7 @@
       "family": "",
       "familyId": "",
       "collections": [],
-      "compatibleActorAssetIds": [
-        "33917c331c803db4c9dfb3dc15eb127b:6624434858680710262"
-      ],
+      "compatibleActorAssetIds": [],
       "visionReviewState": "Unreviewed",
       "animationFamilyId": "playniax-enemies",
       "animationSemanticAction": "",
@@ -13118,8 +13080,8 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationVisualDiagnostic": "",
-      "animationOwnershipStatus": "ActorOwnerProven",
-      "animationOwnershipDiagnostic": "Proven Actor owner: 33917c331c803db4c9dfb3dc15eb127b:6624434858680710262",
+      "animationOwnershipStatus": "NoOwner",
+      "animationOwnershipDiagnostic": "No proven Actor owner.",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "animationRelationshipEvidence": [],
@@ -13347,12 +13309,12 @@
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 8,
+        "keyCount": 12,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
       "visualReferenceId": "visual_3f1e3eafc1c88e71c38d",
-      "previewContentHash": "a64b1916d3a82a5c6e61ac375dbd766f7df81bd19255c47faf6f3ff33219c297",
+      "previewContentHash": "6730d4742c124bcd496afab14ad19785ec6ddaa2bafdc4ae40b784df1b8bfbf1",
       "primaryPreview": "assets/asset_9b200f706b490da0f93d/preview.png",
       "previewMode": "DIRECT_SOURCE",
       "directorPreviewRequired": true,
@@ -13361,18 +13323,18 @@
       "animationSampleFrames": [
         {
           "fraction": 0.5,
-          "targetTime": 0.4,
-          "sampleTime": 0.4,
-          "spriteAssetId": "0d32e5ea72d04d9469f6fbd6d3121fb3:-3522665443169305635"
+          "targetTime": 0.6,
+          "sampleTime": 0.6,
+          "spriteAssetId": "0d32e5ea72d04d9469f6fbd6d3121fb3:-3170733727929609288"
         }
       ],
       "representativeFrames": [
         {
-          "spriteAssetId": "0d32e5ea72d04d9469f6fbd6d3121fb3:-3522665443169305635",
-          "time": 0.4,
+          "spriteAssetId": "0d32e5ea72d04d9469f6fbd6d3121fb3:-3170733727929609288",
+          "time": 0.6,
           "sourcePath": "Assets/MY_ART/GradSunEnemies/FIRE_SCORPION.png",
           "sourceGuid": "0d32e5ea72d04d9469f6fbd6d3121fb3",
-          "sourceLocalFileId": -3522665443169305635
+          "sourceLocalFileId": -3170733727929609288
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_9b200f706b490da0f93d/preview.png",
@@ -13383,7 +13345,7 @@
       "particlePrewarm": false,
       "particleDurationSeconds": 0.0,
       "particleMaterials": [],
-      "visualDescription": "Animation 0.8s, loop True, bindings 1, sprite keys 8.",
+      "visualDescription": "Animation 1.2s, loop True, bindings 1, sprite keys 12.",
       "visualFamily": "",
       "previewUrl": "visual-library/assets/asset_9b200f706b490da0f93d/preview.png",
       "sourceVisualUrl": "visual-library/assets/asset_9b200f706b490da0f93d/preview.png",
@@ -14063,12 +14025,12 @@
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 8,
+        "keyCount": 12,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
       "visualReferenceId": "visual_493ed423bb0b9f41a252",
-      "previewContentHash": "fad5f47b1da7d69799494ee34bb1da5fb7cbc68a9e28bc486f1a7645c576ce78",
+      "previewContentHash": "984bcf027e357f4c0978b6f352343fc83053cbe34164494e5b37f041a8f9ec15",
       "primaryPreview": "assets/asset_4f1c45358d085331a99d/preview.png",
       "previewMode": "DIRECT_SOURCE",
       "directorPreviewRequired": true,
@@ -14077,18 +14039,18 @@
       "animationSampleFrames": [
         {
           "fraction": 0.5,
-          "targetTime": 0.4,
-          "sampleTime": 0.4,
-          "spriteAssetId": "87cbe16bf52da944783119a9fa526620:-7586686631125504663"
+          "targetTime": 0.6,
+          "sampleTime": 0.6,
+          "spriteAssetId": "87cbe16bf52da944783119a9fa526620:-8300035753509401989"
         }
       ],
       "representativeFrames": [
         {
-          "spriteAssetId": "87cbe16bf52da944783119a9fa526620:-7586686631125504663",
-          "time": 0.4,
+          "spriteAssetId": "87cbe16bf52da944783119a9fa526620:-8300035753509401989",
+          "time": 0.6,
           "sourcePath": "Assets/MY_ART/GradSunEnemies/FIRE_JELLY.png",
           "sourceGuid": "87cbe16bf52da944783119a9fa526620",
-          "sourceLocalFileId": -7586686631125504663
+          "sourceLocalFileId": -8300035753509401989
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_4f1c45358d085331a99d/preview.png",
@@ -14099,7 +14061,7 @@
       "particlePrewarm": false,
       "particleDurationSeconds": 0.0,
       "particleMaterials": [],
-      "visualDescription": "Animation 0.8s, loop True, bindings 1, sprite keys 8.",
+      "visualDescription": "Animation 1.2s, loop True, bindings 1, sprite keys 12.",
       "visualFamily": "",
       "previewUrl": "visual-library/assets/asset_4f1c45358d085331a99d/preview.png",
       "sourceVisualUrl": "visual-library/assets/asset_4f1c45358d085331a99d/preview.png",
@@ -14445,9 +14407,7 @@
       "family": "",
       "familyId": "",
       "collections": [],
-      "compatibleActorAssetIds": [
-        "d16a77ddcb90a354ca43e0646b3d62da:676403473587474208"
-      ],
+      "compatibleActorAssetIds": [],
       "visionReviewState": "Unreviewed",
       "animationFamilyId": "playniax-enemies",
       "animationSemanticAction": "",
@@ -14458,8 +14418,8 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationVisualDiagnostic": "",
-      "animationOwnershipStatus": "ActorOwnerProven",
-      "animationOwnershipDiagnostic": "Proven Actor owner: d16a77ddcb90a354ca43e0646b3d62da:676403473587474208",
+      "animationOwnershipStatus": "NoOwner",
+      "animationOwnershipDiagnostic": "No proven Actor owner.",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "animationRelationshipEvidence": [],
@@ -22443,9 +22403,7 @@
       "family": "",
       "familyId": "",
       "collections": [],
-      "compatibleActorAssetIds": [
-        "3b13729e663afef429ce01cf64b48741:3766388733044444676"
-      ],
+      "compatibleActorAssetIds": [],
       "visionReviewState": "Unreviewed",
       "animationFamilyId": "playniax-serpent",
       "animationSemanticAction": "",
@@ -22456,8 +22414,8 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationVisualDiagnostic": "",
-      "animationOwnershipStatus": "ActorOwnerProven",
-      "animationOwnershipDiagnostic": "Proven Actor owner: 3b13729e663afef429ce01cf64b48741:3766388733044444676",
+      "animationOwnershipStatus": "NoOwner",
+      "animationOwnershipDiagnostic": "No proven Actor owner.",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "animationRelationshipEvidence": [],
@@ -23051,15 +23009,15 @@
       "animationSampleFrames": [
         {
           "fraction": 0.5,
-          "targetTime": 0.4,
-          "sampleTime": 0.4,
+          "targetTime": 0.5,
+          "sampleTime": 0.5,
           "spriteAssetId": "c02cbee8b278ab04aad98076725dd38b:2234009072253413316"
         }
       ],
       "representativeFrames": [
         {
           "spriteAssetId": "c02cbee8b278ab04aad98076725dd38b:2234009072253413316",
-          "time": 0.4,
+          "time": 0.5,
           "sourcePath": "Assets/MY_ART/GradSunEnemies/SOLAR_TOWER.png",
           "sourceGuid": "c02cbee8b278ab04aad98076725dd38b",
           "sourceLocalFileId": 2234009072253413316
@@ -23073,7 +23031,7 @@
       "particlePrewarm": false,
       "particleDurationSeconds": 0.0,
       "particleMaterials": [],
-      "visualDescription": "Animation 0.8s, loop True, bindings 1, sprite keys 8.",
+      "visualDescription": "Animation 1s, loop True, bindings 1, sprite keys 8.",
       "visualFamily": "",
       "previewUrl": "visual-library/assets/asset_065a259af8dd28c54ec1/preview.png",
       "sourceVisualUrl": "visual-library/assets/asset_065a259af8dd28c54ec1/preview.png",
@@ -25949,9 +25907,7 @@
       "family": "",
       "familyId": "",
       "collections": [],
-      "compatibleActorAssetIds": [
-        "3b13729e663afef429ce01cf64b48741:3766388733044444676"
-      ],
+      "compatibleActorAssetIds": [],
       "visionReviewState": "Unreviewed",
       "animationFamilyId": "playniax-serpent",
       "animationSemanticAction": "",
@@ -25962,8 +25918,8 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationVisualDiagnostic": "",
-      "animationOwnershipStatus": "ActorOwnerProven",
-      "animationOwnershipDiagnostic": "Proven Actor owner: 3b13729e663afef429ce01cf64b48741:3766388733044444676",
+      "animationOwnershipStatus": "NoOwner",
+      "animationOwnershipDiagnostic": "No proven Actor owner.",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "animationRelationshipEvidence": [],
@@ -27888,9 +27844,7 @@
       "family": "",
       "familyId": "",
       "collections": [],
-      "compatibleActorAssetIds": [
-        "79dcf7d40257f85478f2d10ecaa6f6cd:1198293584936594942"
-      ],
+      "compatibleActorAssetIds": [],
       "visionReviewState": "Unreviewed",
       "animationFamilyId": "playniax-enemies",
       "animationSemanticAction": "",
@@ -27901,8 +27855,8 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationVisualDiagnostic": "",
-      "animationOwnershipStatus": "ActorOwnerProven",
-      "animationOwnershipDiagnostic": "Proven Actor owner: 79dcf7d40257f85478f2d10ecaa6f6cd:1198293584936594942",
+      "animationOwnershipStatus": "NoOwner",
+      "animationOwnershipDiagnostic": "No proven Actor owner.",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "animationRelationshipEvidence": [],
@@ -29854,9 +29808,7 @@
       "family": "",
       "familyId": "",
       "collections": [],
-      "compatibleActorAssetIds": [
-        "ba72f3fe1e8d1fb4c94ebeb94206e886:7015858312311404647"
-      ],
+      "compatibleActorAssetIds": [],
       "visionReviewState": "Unreviewed",
       "animationFamilyId": "playniax-boss-blade",
       "animationSemanticAction": "",
@@ -29867,8 +29819,8 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationVisualDiagnostic": "",
-      "animationOwnershipStatus": "ActorOwnerProven",
-      "animationOwnershipDiagnostic": "Proven Actor owner: ba72f3fe1e8d1fb4c94ebeb94206e886:7015858312311404647",
+      "animationOwnershipStatus": "NoOwner",
+      "animationOwnershipDiagnostic": "No proven Actor owner.",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "animationRelationshipEvidence": [],
@@ -30473,6 +30425,104 @@
       "visualFamily": "playniax-enemies",
       "previewUrl": "visual-library/assets/asset_3321cd2ece5299326355/preview.png",
       "sourceVisualUrl": "visual-library/assets/asset_3321cd2ece5299326355/preview.png",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED"
+    },
+    {
+      "assetId": "a11f4a3d62f04c0fb8d3d693e0726111:7400000",
+      "displayName": "BLUE FIRE WOLF LOOP",
+      "description": "",
+      "path": "Assets/MY_ART/GradSunEnemies/Animations/BLUE_FIRE_WOLF_LOOP.anim",
+      "tags": [
+        "animation",
+        "loop"
+      ],
+      "capabilities": [
+        "Cutscene.Animation",
+        "Cutscene.VFX"
+      ],
+      "family": "",
+      "familyId": "",
+      "collections": [],
+      "compatibleActorAssetIds": [],
+      "visionReviewState": "Unreviewed",
+      "animationFamilyId": "",
+      "animationSemanticAction": "shoot",
+      "animationSemanticActions": [
+        "shoot"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationVisualDiagnostic": "",
+      "animationOwnershipStatus": "NoOwner",
+      "animationOwnershipDiagnostic": "No proven Actor owner.",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "animationRelationshipEvidence": [],
+      "roles": [],
+      "semanticFacets": [
+        "fire",
+        "loop"
+      ],
+      "allowedUses": [
+        "Cutscene.Animation"
+      ],
+      "supportedActions": [
+        "UseOnlyAsAnimationAssetId"
+      ],
+      "contractConfidence": 0.68,
+      "reviewReasons": [
+        "EntityKindUnknown",
+        "PublishCertificationRequired"
+      ],
+      "reviewSeverity": "MetadataUncertain",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 12,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "visualReferenceId": "visual_72a595b3f62c07049c3a",
+      "previewContentHash": "16b66caf01118535ff641613431877c98b6c360df7bc7a5897ab22dbb77e61ec",
+      "primaryPreview": "assets/asset_de6b7d55fd3f39e78f43/preview.png",
+      "previewMode": "DIRECT_SOURCE",
+      "directorPreviewRequired": true,
+      "warnings": [],
+      "warningDetails": [],
+      "animationSampleFrames": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.6,
+          "sampleTime": 0.6,
+          "spriteAssetId": "2052f530d00548f449d8b577de431a0e:8858514127817601854"
+        }
+      ],
+      "representativeFrames": [
+        {
+          "spriteAssetId": "2052f530d00548f449d8b577de431a0e:8858514127817601854",
+          "time": 0.6,
+          "sourcePath": "Assets/MY_ART/GradSunEnemies/BLUE_FIRE_WOLF.png",
+          "sourceGuid": "2052f530d00548f449d8b577de431a0e",
+          "sourceLocalFileId": 8858514127817601854
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_de6b7d55fd3f39e78f43/preview.png",
+      "particleOnly": false,
+      "particleSystemCount": 0,
+      "particleRendererCount": 0,
+      "particleLooping": false,
+      "particlePrewarm": false,
+      "particleDurationSeconds": 0.0,
+      "particleMaterials": [],
+      "visualDescription": "Animation 1.2s, loop True, bindings 1, sprite keys 12.",
+      "visualFamily": "",
+      "previewUrl": "visual-library/assets/asset_de6b7d55fd3f39e78f43/preview.png",
+      "sourceVisualUrl": "visual-library/assets/asset_de6b7d55fd3f39e78f43/preview.png",
       "selectionStatus": "PIXEL_COMPLETION_REQUIRED"
     },
     {
@@ -40120,9 +40170,7 @@
       "family": "",
       "familyId": "",
       "collections": [],
-      "compatibleActorAssetIds": [
-        "3b13729e663afef429ce01cf64b48741:3766388733044444676"
-      ],
+      "compatibleActorAssetIds": [],
       "visionReviewState": "Unreviewed",
       "animationFamilyId": "playniax-serpent",
       "animationSemanticAction": "",
@@ -40133,8 +40181,8 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationVisualDiagnostic": "",
-      "animationOwnershipStatus": "ActorOwnerProven",
-      "animationOwnershipDiagnostic": "Proven Actor owner: 3b13729e663afef429ce01cf64b48741:3766388733044444676",
+      "animationOwnershipStatus": "NoOwner",
+      "animationOwnershipDiagnostic": "No proven Actor owner.",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "animationRelationshipEvidence": [],
@@ -48461,6 +48509,106 @@
       "visualFamily": "playniax-player-spacecraft",
       "previewUrl": "visual-library/assets/asset_224cf276a07c44702921/preview.png",
       "sourceVisualUrl": "visual-library/assets/asset_224cf276a07c44702921/preview.png",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED"
+    },
+    {
+      "assetId": "f611f1cfc9ef32847b8e9518df93003d:7400000",
+      "displayName": "BLUE FIRE JELLY LOOP",
+      "description": "",
+      "path": "Assets/MY_ART/GradSunEnemies/Animations/BLUE_FIRE_JELLY_LOOP.anim",
+      "tags": [
+        "animation",
+        "loop"
+      ],
+      "capabilities": [
+        "Cutscene.Animation",
+        "Cutscene.VFX"
+      ],
+      "family": "",
+      "familyId": "",
+      "collections": [],
+      "compatibleActorAssetIds": [],
+      "visionReviewState": "Unreviewed",
+      "animationFamilyId": "",
+      "animationSemanticAction": "shoot",
+      "animationSemanticActions": [
+        "shoot"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "BLUE_FIRE_JELLY_LOOP",
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationVisualDiagnostic": "",
+      "animationOwnershipStatus": "NoOwner",
+      "animationOwnershipDiagnostic": "No proven Actor owner.",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "animationRelationshipEvidence": [],
+      "roles": [],
+      "semanticFacets": [
+        "fire",
+        "fire_jelly",
+        "loop",
+        "organic_enemy"
+      ],
+      "allowedUses": [
+        "Cutscene.Animation"
+      ],
+      "supportedActions": [
+        "UseOnlyAsAnimationAssetId"
+      ],
+      "contractConfidence": 0.68,
+      "reviewReasons": [
+        "EntityKindUnknown",
+        "PublishCertificationRequired"
+      ],
+      "reviewSeverity": "MetadataUncertain",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 12,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "visualReferenceId": "visual_4536d98cca86ce3ed720",
+      "previewContentHash": "8e3aca6134faeaa7895faed51a5dfaaa3d47fedb8ff6e3b3b07ab1b81e5d3e3e",
+      "primaryPreview": "assets/asset_d3c1db4298d6075b8b42/preview.png",
+      "previewMode": "DIRECT_SOURCE",
+      "directorPreviewRequired": true,
+      "warnings": [],
+      "warningDetails": [],
+      "animationSampleFrames": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.6,
+          "sampleTime": 0.6,
+          "spriteAssetId": "2c82b2e0ea4331d4883e0ea172523470:8181599876208384095"
+        }
+      ],
+      "representativeFrames": [
+        {
+          "spriteAssetId": "2c82b2e0ea4331d4883e0ea172523470:8181599876208384095",
+          "time": 0.6,
+          "sourcePath": "Assets/MY_ART/GradSunEnemies/BLUE_FIRE_JELLY.png",
+          "sourceGuid": "2c82b2e0ea4331d4883e0ea172523470",
+          "sourceLocalFileId": 8181599876208384095
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_d3c1db4298d6075b8b42/preview.png",
+      "particleOnly": false,
+      "particleSystemCount": 0,
+      "particleRendererCount": 0,
+      "particleLooping": false,
+      "particlePrewarm": false,
+      "particleDurationSeconds": 0.0,
+      "particleMaterials": [],
+      "visualDescription": "Animation 1.2s, loop True, bindings 1, sprite keys 12.",
+      "visualFamily": "",
+      "previewUrl": "visual-library/assets/asset_d3c1db4298d6075b8b42/preview.png",
+      "sourceVisualUrl": "visual-library/assets/asset_d3c1db4298d6075b8b42/preview.png",
       "selectionStatus": "PIXEL_COMPLETION_REQUIRED"
     },
     {
