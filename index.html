@@ -35,7 +35,11 @@
         <div class="eyebrow">המערכת שפורסמה</div>
         <strong><span class="current-dot"></span><span id="currentStatus">בודק CURRENT…</span></strong>
       </div>
-      <small id="currentDetail">האתר מחובר ל־CURRENT שפורסם ואינו תלוי במצב ה־Unity Editor.</small>
+      <small id="currentDetail">קורא את תאריך הפרסום המאומת...</small>
+      <div class="publish-times" aria-live="polite">
+        <div><span>פרסום CURRENT האחרון</span><strong id="currentPublishedAt">בודק...</strong></div>
+        <div><span>פרסום האתר האחרון (GitHub Pages)</span><strong id="sitePublishedAt">בודק...</strong></div>
+      </div>
       <div class="quick-links">
         <a href="designer-ai/open-current/OPEN_CURRENT.json" target="_blank" rel="noopener">מצב CURRENT</a>
         <a href="designer-ai/open-current/full-visual-sheets/STARWARS_DELTA_CHATGPT_VISUAL_ATLAS_CURRENT.pdf" target="_blank" rel="noopener">אטלס חזותי</a>
@@ -101,16 +105,40 @@
 <footer>STARWARS_DELTA — סביבת היצירה</footer>
 <script>
 (async()=>{
-  try{
+  const time = value => {
+    const d = new Date(value);
+    return Number.isNaN(d.getTime()) ? 'זמן פרסום לא זמין' :
+      new Intl.DateTimeFormat('he-IL',{timeZone:'Asia/Jerusalem',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}).format(d);
+  };
+  try {
     const r=await fetch('designer-ai/open-current/OPEN_CURRENT.json?ts='+Date.now(),{cache:'no-store'});
     if(!r.ok)throw Error('HTTP '+r.status);
     const m=await r.json();
-    document.getElementById('currentStatus').textContent=m.status==='CURRENT_VERIFIED'?'CURRENT מאומת':'CURRENT';
-    const tx=m.publishTransactionId||'CURRENT';
-    document.getElementById('currentDetail').textContent='פרסום נוכחי: '+tx;
-  }catch(e){
+    const verified=m.status==='CURRENT_VERIFIED';
+    document.getElementById('currentStatus').textContent=verified?'CURRENT מאומת':'CURRENT לא מאומת';
+    document.getElementById('currentDetail').textContent=verified?'גרסה מאומתת: '+(m.publishTransactionId||'CURRENT'):'הפרסום האחרון לא אומת.';
+    document.getElementById('currentPublishedAt').textContent=verified && (m.publishedUtc||m.provenance?.publishedUtc)?time(m.publishedUtc||m.provenance.publishedUtc):'לא אומת';
+  } catch(e) {
     document.getElementById('currentStatus').textContent='CURRENT לא זמין כרגע';
-    document.getElementById('currentDetail').textContent='כלי האתר עדיין זמינים, אבל לא ניתן לקרוא כרגע את manifest ה־CURRENT.';
+    document.getElementById('currentDetail').textContent='לא ניתן לאמת כרגע את נתוני ה־CURRENT.';
+    document.getElementById('currentPublishedAt').textContent='לא זמין';
+  }
+  try {
+    const api='https://api.github.com/repos/streamDragon/STARWARS_DELTA_STORYBOARDS/deployments?environment=github-pages&per_page=5';
+    const r=await fetch(api,{cache:'no-store',headers:{'Accept':'application/vnd.github+json'}});
+    if(!r.ok)throw Error('GitHub HTTP '+r.status);
+    const deployments=await r.json();
+    let latest=null;
+    for (const deployment of deployments) {
+      const sr=await fetch('https://api.github.com/repos/streamDragon/STARWARS_DELTA_STORYBOARDS/deployments/'+deployment.id+'/statuses?per_page=5',{cache:'no-store',headers:{'Accept':'application/vnd.github+json'}});
+      if(!sr.ok)continue;
+      const statuses=await sr.json();
+      const success=statuses.find(s=>s.state==='success');
+      if(success) {latest=success.created_at||success.updated_at||deployment.updated_at;break;}
+    }
+    document.getElementById('sitePublishedAt').textContent=latest?time(latest):'אין פרסום מוצלח מאומת';
+  } catch(e) {
+    document.getElementById('sitePublishedAt').textContent='לא ניתן לבדוק כרגע';
   }
 })();
 </script>
