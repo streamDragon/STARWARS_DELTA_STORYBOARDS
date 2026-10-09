@@ -43,7 +43,7 @@
                        "animeEmotion":  {
                                                "type":  "array",
                                                "maxItems":  32,
-                                               "description":  "Independent silent anime character-face inserts over continuing action. Never dialogue expressions or MOVES.",
+                                               "description":  "Independent silent anime emotional compositions over continuing action. Every insert materializes a rich scene with background, body/half-body when available, portrait/detail, FX and optional cinematic text. Never dialogue expressions or MOVES.",
                                                "items":  {
                                                              "type":  "object",
                                                              "additionalProperties":  false,
@@ -63,10 +63,24 @@
                                                                                                  },
                                                                                 "durationSeconds":  {
                                                                                                         "type":  "number",
-                                                                                                        "exclusiveMinimum":  0,
+                                                                                                        "minimum":  0.1,
                                                                                                         "maximum":  3,
                                                                                                         "default":  0.6
-                                                                                                    }
+                                                                                                    },
+                                                                                "framing":  {
+                                                                                                "enum": ["FACE", "CLOSE", "EXTREME", "EYES", "HAND", "TORSO"],
+                                                                                                "description": "Choose an actual sliced portrait, eyes, hand or standalone torso. No invented character assembly."
+                                                                                            },
+                                                                                "backgroundId":  { "type": "string", "minLength": 1 },
+                                                                                "effectId":  { "type": "string", "minLength": 1 },
+                                                                                "caption":  { "type": "string", "maxLength": 120 },
+                                                                                "captionKind":  { "enum": ["narrator", "title", "impact"], "default": "narrator" },
+                                                                                "zoom":  { "type": "number", "minimum": 0.5, "maximum": 4 },
+                                                                                "zoomEnd":  { "type": "number", "minimum": 0.5, "maximum": 4 },
+                                                                                "angleDegrees":  { "type": "number", "minimum": -35, "maximum": 35 },
+                                                                                "offsetX":  { "type": "number", "minimum": -1, "maximum": 1 },
+                                                                                "offsetY":  { "type": "number", "minimum": -1, "maximum": 1 },
+                                                                                "backgroundZoom":  { "type": "number", "minimum": 1, "maximum": 2 }
                                                                             }
                                                          }
                                            },
@@ -324,7 +338,13 @@
                                                                                 "$ref":  "#/$defs/action"
                                                                             }
                                                               },
-                                                  "dialogue":  {
+                                                  "captions":  {
+                                                                   "type":  "array",
+                                                                   "maxItems":  6,
+                                                                   "items":  {
+                                                                                 "$ref":  "#/$defs/cinematicTextCue"
+                                                                             }
+                                                               },                                                  "dialogue":  {
                                                                    "type":  "array",
                                                                    "items":  {
                                                                                  "$ref":  "#/$defs/dialogueLine"
@@ -859,7 +879,18 @@
                                                }
                                            ]
                              },
-                  "dialogueLine":  {
+                  "cinematicTextCue":  {
+                                         "type":  "object",
+                                         "additionalProperties":  false,
+                                         "required":  ["text"],
+                                         "properties":  {
+                                             "text":  {"type": "string", "minLength": 1, "maxLength": 120},
+                                             "kind":  {"enum": ["narrator", "title", "impact"]},
+                                             "placement":  {"enum": ["top", "center", "bottom"]},
+                                             "startOffset":  {"type": "number", "minimum": 0},
+                                             "durationSeconds":  {"type": "number", "minimum": 0.2}
+                                         }
+                                     },                  "dialogueLine":  {
                                        "type":  "object",
                                        "additionalProperties":  false,
                                        "required":  [
@@ -872,6 +903,7 @@
                                                                           "pattern":  "^[A-Za-z0-9_-]+$",
                                                                           "description":  "Exact local cast[].id of the speaking character. Resolve this cast id first, then validate that cast member\u0027s identityHandle against EMOTIONAL_DIALOGUE_CURRENT. Unknown aliases are errors."
                                                                       },
+                                                          "third": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$", "description": "Optional third on-screen participant. Must reference a different authoring-ready local cast member." },
                                                           "listener":  {
                                                                            "type":  "string",
                                                                            "pattern":  "^[A-Za-z0-9_-]+$",

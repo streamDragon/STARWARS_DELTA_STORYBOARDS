@@ -1,10 +1,10 @@
 {
   "schema": "STARWARS_DELTA_CURRENT_AUTHORING_PROFILE",
   "profileSchemaVersion": 2,
-  "publishTransactionId": "20261009-160948139-c0c7e189",
-  "contractRevision": "E4417B8B510FD8861707BD646BDAF217E1142579BA92109D7B8FDD5C4CACD726",
-  "authoringContractRevision": "E4417B8B510FD8861707BD646BDAF217E1142579BA92109D7B8FDD5C4CACD726",
-  "schemaHash": "9B51EE831A5C39233830C7FC2376C86AE54837AE9AA4F87F805F89E5CFA9554E",
+  "publishTransactionId": "20261009-225736223-1ffddf51",
+  "contractRevision": "95EC8B374D696481937DF48E2C15BBD9EF9545B5E2108BA2CE0AC4C2EBA7E3F0",
+  "authoringContractRevision": "95EC8B374D696481937DF48E2C15BBD9EF9545B5E2108BA2CE0AC4C2EBA7E3F0",
+  "schemaHash": "1609849280B7DDC5A466D4913A9A05859F0CCA7EAE3AC0DA013DE60C069FD493",
   "catalogRevision": "7622488906030617140",
   "schemaVersion": 5,
   "packageSchema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
@@ -2680,6 +2680,62 @@
       "defaultSafeValue": "",
       "normalizationRule": "PRESERVE",
       "validationId": "CUTSCENE_FIELD_THEME_ASSET_ID",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].dialogue[].stage.thirdActorId",
+      "name": "thirdActorId",
+      "type": "String",
+      "required": true,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "",
+      "normalizationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_THIRD_ACTOR_ID",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].dialogue[].stage.thirdDistance",
+      "name": "thirdDistance",
+      "type": "String",
+      "required": true,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "FAR",
+      "normalizationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_THIRD_DISTANCE",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].dialogue[].stage.thirdSlot",
+      "name": "thirdSlot",
+      "type": "closed-string-enum:MY_CutsceneDialogueCharacterSlot",
+      "required": true,
+      "description": "Closed runtime-driving value for Dialogue Character Slot.",
+      "hint": "Choose an exact canonical value; aliases are not accepted.",
+      "introducedIn": 1,
+      "defaultSafeValue": "CenterMonitor",
+      "normalizationRule": "STRICT_CANONICAL_ONLY",
+      "validationId": "CUTSCENE_FIELD_THIRD_SLOT",
+      "closedEnum": "MY_CutsceneDialogueCharacterSlot",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].dialogue[].stage.thirdVoiceOnly",
+      "name": "thirdVoiceOnly",
+      "type": "Boolean",
+      "required": true,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "False",
+      "normalizationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_THIRD_VOICE_ONLY",
       "closedEnum": "",
       "openCreativeText": false
     },
@@ -5606,6 +5662,62 @@
       "defaultSafeValue": "",
       "normalizationRule": "PRESERVE",
       "validationId": "CUTSCENE_FIELD_THEME_ASSET_ID",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].shots[].dialogue[].stage.thirdActorId",
+      "name": "thirdActorId",
+      "type": "String",
+      "required": true,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "",
+      "normalizationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_THIRD_ACTOR_ID",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].shots[].dialogue[].stage.thirdDistance",
+      "name": "thirdDistance",
+      "type": "String",
+      "required": true,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "FAR",
+      "normalizationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_THIRD_DISTANCE",
+      "closedEnum": "",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].shots[].dialogue[].stage.thirdSlot",
+      "name": "thirdSlot",
+      "type": "closed-string-enum:MY_CutsceneDialogueCharacterSlot",
+      "required": true,
+      "description": "Closed runtime-driving value for Dialogue Character Slot.",
+      "hint": "Choose an exact canonical value; aliases are not accepted.",
+      "introducedIn": 1,
+      "defaultSafeValue": "CenterMonitor",
+      "normalizationRule": "STRICT_CANONICAL_ONLY",
+      "validationId": "CUTSCENE_FIELD_THIRD_SLOT",
+      "closedEnum": "MY_CutsceneDialogueCharacterSlot",
+      "openCreativeText": false
+    },
+    {
+      "jsonPath": "$.sequences[].shots[].dialogue[].stage.thirdVoiceOnly",
+      "name": "thirdVoiceOnly",
+      "type": "Boolean",
+      "required": true,
+      "description": "Typed cutscene package field.",
+      "hint": "Use the serialized field type and preserve approved values.",
+      "introducedIn": 1,
+      "defaultSafeValue": "False",
+      "normalizationRule": "PRESERVE",
+      "validationId": "CUTSCENE_FIELD_THIRD_VOICE_ONLY",
       "closedEnum": "",
       "openCreativeText": false
     },
@@ -10810,7 +10922,7 @@
     "$id": "STARWARS_DELTA_CUTSCENE_RUNTIME_PACKAGE",
     "title": "STARWARS_DELTA Cutscene Runtime Package",
     "description": "Machine-readable shape generated from the current Unity runtime DTO. Semantic rules are in the companion contract files.",
-    "x-enumContractRevision": "E4417B8B510FD8861707BD646BDAF217E1142579BA92109D7B8FDD5C4CACD726",
+    "x-enumContractRevision": "95EC8B374D696481937DF48E2C15BBD9EF9545B5E2108BA2CE0AC4C2EBA7E3F0",
     "x-authoringRuleRegistryRevision": "5972653EFED6428CCBD28007BE847C5C41F060D22E38FEE66E092CB060ECFE8A",
     "x-authoringRuleRegistry": {
       "revision": "5972653EFED6428CCBD28007BE847C5C41F060D22E38FEE66E092CB060ECFE8A",
@@ -12075,6 +12187,25 @@
               "FAR"
             ]
           },
+          "thirdActorId": {
+            "type": "string"
+          },
+          "thirdSlot": {
+            "type": "string",
+            "enum": [
+              "NearLeft",
+              "FarLeft",
+              "CenterMonitor",
+              "FarRight",
+              "NearRight"
+            ]
+          },
+          "thirdDistance": {
+            "type": "string"
+          },
+          "thirdVoiceOnly": {
+            "type": "boolean"
+          },
           "uiForm": {
             "type": "string",
             "enum": [
@@ -12191,6 +12322,10 @@
           "layout",
           "speakerSlot",
           "listenerSlot",
+          "thirdActorId",
+          "thirdSlot",
+          "thirdDistance",
+          "thirdVoiceOnly",
           "uiForm",
           "textMode",
           "typewriterSpeed",
@@ -13246,7 +13381,7 @@
   },
   "authoringContract": {
     "schema": "STARWARS_DELTA_CUTSCENE_AUTHORING_CONTRACT",
-    "contractRevision": "E4417B8B510FD8861707BD646BDAF217E1142579BA92109D7B8FDD5C4CACD726",
+    "contractRevision": "95EC8B374D696481937DF48E2C15BBD9EF9545B5E2108BA2CE0AC4C2EBA7E3F0",
     "authoringRuleRegistryRevision": "5972653EFED6428CCBD28007BE847C5C41F060D22E38FEE66E092CB060ECFE8A",
     "authoringRuleRegistry": {
       "revision": "5972653EFED6428CCBD28007BE847C5C41F060D22E38FEE66E092CB060ECFE8A",
@@ -13935,7 +14070,7 @@
         }
       ]
     },
-    "schemaHash": "FB0E5E7D34BCE0C0CDFA30F0BC25A89B032B526366863BA84F91F84FB364EC14",
+    "schemaHash": "2E38F355F3F03E8E9A302F5E1ACE0A2DC8D9FCD1C3B143BD158C96BB06E06DEC",
     "packageVersion": 5,
     "fieldDefinitions": [
       {
@@ -16581,6 +16716,62 @@
         "defaultSafeValue": "",
         "normalizationRule": "PRESERVE",
         "validationId": "CUTSCENE_FIELD_THEME_ASSET_ID",
+        "closedEnum": "",
+        "openCreativeText": false
+      },
+      {
+        "jsonPath": "$.sequences[].dialogue[].stage.thirdActorId",
+        "name": "thirdActorId",
+        "type": "String",
+        "required": true,
+        "description": "Typed cutscene package field.",
+        "hint": "Use the serialized field type and preserve approved values.",
+        "introducedIn": 1,
+        "defaultSafeValue": "",
+        "normalizationRule": "PRESERVE",
+        "validationId": "CUTSCENE_FIELD_THIRD_ACTOR_ID",
+        "closedEnum": "",
+        "openCreativeText": false
+      },
+      {
+        "jsonPath": "$.sequences[].dialogue[].stage.thirdDistance",
+        "name": "thirdDistance",
+        "type": "String",
+        "required": true,
+        "description": "Typed cutscene package field.",
+        "hint": "Use the serialized field type and preserve approved values.",
+        "introducedIn": 1,
+        "defaultSafeValue": "FAR",
+        "normalizationRule": "PRESERVE",
+        "validationId": "CUTSCENE_FIELD_THIRD_DISTANCE",
+        "closedEnum": "",
+        "openCreativeText": false
+      },
+      {
+        "jsonPath": "$.sequences[].dialogue[].stage.thirdSlot",
+        "name": "thirdSlot",
+        "type": "closed-string-enum:MY_CutsceneDialogueCharacterSlot",
+        "required": true,
+        "description": "Closed runtime-driving value for Dialogue Character Slot.",
+        "hint": "Choose an exact canonical value; aliases are not accepted.",
+        "introducedIn": 1,
+        "defaultSafeValue": "CenterMonitor",
+        "normalizationRule": "STRICT_CANONICAL_ONLY",
+        "validationId": "CUTSCENE_FIELD_THIRD_SLOT",
+        "closedEnum": "MY_CutsceneDialogueCharacterSlot",
+        "openCreativeText": false
+      },
+      {
+        "jsonPath": "$.sequences[].dialogue[].stage.thirdVoiceOnly",
+        "name": "thirdVoiceOnly",
+        "type": "Boolean",
+        "required": true,
+        "description": "Typed cutscene package field.",
+        "hint": "Use the serialized field type and preserve approved values.",
+        "introducedIn": 1,
+        "defaultSafeValue": "False",
+        "normalizationRule": "PRESERVE",
+        "validationId": "CUTSCENE_FIELD_THIRD_VOICE_ONLY",
         "closedEnum": "",
         "openCreativeText": false
       },
@@ -19511,6 +19702,62 @@
         "openCreativeText": false
       },
       {
+        "jsonPath": "$.sequences[].shots[].dialogue[].stage.thirdActorId",
+        "name": "thirdActorId",
+        "type": "String",
+        "required": true,
+        "description": "Typed cutscene package field.",
+        "hint": "Use the serialized field type and preserve approved values.",
+        "introducedIn": 1,
+        "defaultSafeValue": "",
+        "normalizationRule": "PRESERVE",
+        "validationId": "CUTSCENE_FIELD_THIRD_ACTOR_ID",
+        "closedEnum": "",
+        "openCreativeText": false
+      },
+      {
+        "jsonPath": "$.sequences[].shots[].dialogue[].stage.thirdDistance",
+        "name": "thirdDistance",
+        "type": "String",
+        "required": true,
+        "description": "Typed cutscene package field.",
+        "hint": "Use the serialized field type and preserve approved values.",
+        "introducedIn": 1,
+        "defaultSafeValue": "FAR",
+        "normalizationRule": "PRESERVE",
+        "validationId": "CUTSCENE_FIELD_THIRD_DISTANCE",
+        "closedEnum": "",
+        "openCreativeText": false
+      },
+      {
+        "jsonPath": "$.sequences[].shots[].dialogue[].stage.thirdSlot",
+        "name": "thirdSlot",
+        "type": "closed-string-enum:MY_CutsceneDialogueCharacterSlot",
+        "required": true,
+        "description": "Closed runtime-driving value for Dialogue Character Slot.",
+        "hint": "Choose an exact canonical value; aliases are not accepted.",
+        "introducedIn": 1,
+        "defaultSafeValue": "CenterMonitor",
+        "normalizationRule": "STRICT_CANONICAL_ONLY",
+        "validationId": "CUTSCENE_FIELD_THIRD_SLOT",
+        "closedEnum": "MY_CutsceneDialogueCharacterSlot",
+        "openCreativeText": false
+      },
+      {
+        "jsonPath": "$.sequences[].shots[].dialogue[].stage.thirdVoiceOnly",
+        "name": "thirdVoiceOnly",
+        "type": "Boolean",
+        "required": true,
+        "description": "Typed cutscene package field.",
+        "hint": "Use the serialized field type and preserve approved values.",
+        "introducedIn": 1,
+        "defaultSafeValue": "False",
+        "normalizationRule": "PRESERVE",
+        "validationId": "CUTSCENE_FIELD_THIRD_VOICE_ONLY",
+        "closedEnum": "",
+        "openCreativeText": false
+      },
+      {
         "jsonPath": "$.sequences[].shots[].dialogue[].stage.typewriterBlipAssetId",
         "name": "typewriterBlipAssetId",
         "type": "String",
@@ -20705,6 +20952,10 @@
       "$.sequences[].dialogue[].stage.speakerSlot",
       "$.sequences[].dialogue[].stage.textDirection",
       "$.sequences[].dialogue[].stage.textMode",
+      "$.sequences[].dialogue[].stage.thirdActorId",
+      "$.sequences[].dialogue[].stage.thirdDistance",
+      "$.sequences[].dialogue[].stage.thirdSlot",
+      "$.sequences[].dialogue[].stage.thirdVoiceOnly",
       "$.sequences[].dialogue[].stage.typewriterSpeed",
       "$.sequences[].dialogue[].stage.uiForm",
       "$.sequences[].dialogue[].startOffset",
@@ -20857,6 +21108,10 @@
       "$.sequences[].shots[].dialogue[].stage.speakerSlot",
       "$.sequences[].shots[].dialogue[].stage.textDirection",
       "$.sequences[].shots[].dialogue[].stage.textMode",
+      "$.sequences[].shots[].dialogue[].stage.thirdActorId",
+      "$.sequences[].shots[].dialogue[].stage.thirdDistance",
+      "$.sequences[].shots[].dialogue[].stage.thirdSlot",
+      "$.sequences[].shots[].dialogue[].stage.thirdVoiceOnly",
       "$.sequences[].shots[].dialogue[].stage.typewriterSpeed",
       "$.sequences[].shots[].dialogue[].stage.uiForm",
       "$.sequences[].shots[].dialogue[].startOffset",
@@ -24439,7 +24694,7 @@
       "presets": [
         {
           "presentationPreset": "RADIO_COMMUNICATION",
-          "purpose": "Radio or cockpit communication between a speaker and listener.",
+          "purpose": "Radio or cockpit communication overlay between a speaker and listener while world action may continue.",
           "participantCount": 2,
           "backgroundRequired": true,
           "portraitSupported": true,
@@ -24448,8 +24703,8 @@
           "requiresListenerVisual": false,
           "generatedWorldActorCompatible": false,
           "gameplayObjectCompatible": false,
-          "defaultLockStaging": true,
-          "movementAllowed": false,
+          "defaultLockStaging": false,
+          "movementAllowed": true,
           "silentSubtitleFallbackAllowed": false,
           "allowsBuiltInParticipantFallback": true,
           "compatibleLayouts": [
@@ -25377,8 +25632,8 @@
     "schema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
     "schemaVersion": 5,
     "contextVersion": 3,
-    "contractRevision": "E4417B8B510FD8861707BD646BDAF217E1142579BA92109D7B8FDD5C4CACD726",
-    "schemaHash": "FB0E5E7D34BCE0C0CDFA30F0BC25A89B032B526366863BA84F91F84FB364EC14",
+    "contractRevision": "95EC8B374D696481937DF48E2C15BBD9EF9545B5E2108BA2CE0AC4C2EBA7E3F0",
+    "schemaHash": "2E38F355F3F03E8E9A302F5E1ACE0A2DC8D9FCD1C3B143BD158C96BB06E06DEC",
     "contextId": "NEW_CUTSCENE_CONTEXT",
     "catalogRevision": "7622488906030617140",
     "projectId": "",
