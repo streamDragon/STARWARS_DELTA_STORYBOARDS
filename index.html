@@ -1,3 +1,5 @@
+[Reading 116 lines from start (total: 116 lines, 0 remaining)]
+
 <!doctype html>
 <html lang="he" dir="rtl">
 <head>
@@ -16,6 +18,7 @@
     <a href="sprite-sheet-player.html">אנימציה</a>
     <a href="cutscene-preview.html">סרטים</a>
     <a href="devora.html">דבורה</a>
+    <a href="film-qa.html">Film QA</a>
     <a href="catalog.html">קטלוג</a>
   </div>
 </nav>
@@ -73,6 +76,13 @@
       <span class="home-card-go">פתיחת דבורה ←</span>
     </a>
 
+    <a class="home-card" data-tone="cyan" href="film-qa.html">
+      <div class="home-card-icon">QA</div>
+      <h3>Film QA</h3>
+      <p>Captures מ־Unity עם PDF, צילומי סרט, זמנים, Timeline evidence ו־ChatGPT brief לכל סצנה.</p>
+      <span class="home-card-go">פתיחת Film QA ←</span>
+    </a>
+
     <a class="home-card featured" data-tone="pink" href="catalog.html">
       <div class="home-card-icon">DL</div>
       <h3>קטלוג והורדות</h3>
@@ -97,15 +107,7 @@
     const m=await r.json();
     document.getElementById('currentStatus').textContent=m.status==='CURRENT_VERIFIED'?'CURRENT מאומת':'CURRENT';
     const tx=m.publishTransactionId||'CURRENT';
-    const published=m.publishedUtc||m.provenance?.publishedUtc||'';
-    let verified='זמן אימות לא זמין';
-    if(published){
-      const dt=new Date(published);
-      if(!Number.isNaN(dt.getTime())){
-        verified=dt.toLocaleString('he-IL',{timeZone:'Asia/Jerusalem'});
-      }
-    }
-    document.getElementById('currentDetail').textContent='פרסום נוכחי: '+tx+' · סונכרן ואומת: '+verified;
+    document.getElementById('currentDetail').textContent='פרסום נוכחי: '+tx;
   }catch(e){
     document.getElementById('currentStatus').textContent='CURRENT לא זמין כרגע';
     document.getElementById('currentDetail').textContent='כלי האתר עדיין זמינים, אבל לא ניתן לקרוא כרגע את manifest ה־CURRENT.';
@@ -114,3 +116,5 @@
 </script>
 </body>
 </html>
+
+[executed on device: DESKTOP-5J7HT7C (cb4890df-61d0-40b8-8570-f8b80f3dec3a)]
