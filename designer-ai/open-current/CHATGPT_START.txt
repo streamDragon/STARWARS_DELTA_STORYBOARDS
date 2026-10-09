@@ -12,6 +12,12 @@ SOURCE-OF-TRUTH BOUNDARY
 AUTHORING SOURCES
 Use only the matching CURRENT artifacts.
 
+THREE INDEPENDENT CINEMATIC SYSTEMS
+- MOVES: world animation, camera, movements and physical shooting/ship hit reactions; the fixed 53-MOVE library remains unchanged.
+- ANIME_EMOTION: silent, short anime-face cutaways interrupt *what the audience sees*, never the ongoing Timeline or actor animation. Its only art folder is `Assets/_Game/MY_Core/MY_Art/ANIME_EMOTION/`. An Editor-only browser selects exact, already sliced Sprite subassets, with stable GUID:localFileId identity; source sheets, sprite slicing and `.meta` files are owned by another agent. A row of different facial expressions on a sheet is not an animation sequence. This system is NOT the EMOTIONANIME ship-recoil effect.
+- DIALOGUE: spoken lines, character portraits and dialogue expressions only. Do not hijack dialogue to implement ANIME_EMOTION.
+- Until matching CURRENT explicitly publishes legal ANIME_EMOTION authoring fields and handles, do NOT invent `emotionalIntent`, `performanceDirection.emotionalIntent`, `animeEmotion` JSON keys or a 54th MOVE. The local EditMode library tool does not mean an automatic V1 importer is published.
+
 CURRENT ACCESS RESILIENCE
 - There is one authoring truth, not multiple copies: repository `streamDragon/STARWARS_DELTA_STORYBOARDS`, branch `main`, under `designer-ai/open-current/`.
 - GitHub Pages is the preferred public transport: `https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/`.
@@ -47,8 +53,11 @@ NORMAL AUTHORING
    - Before authoring any closed-world field, read CHATGPT_AUTHORING_INDEX.schemaClosedEnums generated from the exact matching CUTSCENE_SCRIPT_V1.schema.json.
    - Closed enums are literal tokens, not prose. Never invent synonyms such as question/departure/cause/effect or substitute a beat type for a dramaticFunction.
 6. BEFORE DELIVERY, run the Unity V1 Candidate Lint against the exact candidate and the active CURRENT.
-   - Candidate Lint reuses the canonical Unity Simple V1 preparation/validation path, including strict schema validation, CURRENT handle resolution, move phase requirements and whole-move cinematic signatures.
-   - Return the downloadable JSON only when Candidate Lint status=PASS with zero blockers.
+   - Candidate Lint reuses the canonical Unity Simple V1 preparation/validation path.
+   - Return the downloadable JSON when status=PASS and blockers=0.
+   - qualityStatus=PASS_WITH_WARNINGS is deliverable. Report at most three useful improvements, but do not force a repair loop merely because cinematic quality can improve.
+   - Deterministic recoveries are allowed to keep a runnable candidate moving, for example non-critical metadata defaults, optional presentation/lighting fallback, unsupported legacy animationIntent/expression fallback, audio timing clamp, or locked-dialogue camera Hold. Treat them as corrections/warnings, not automatic repair requests.
+   - Schema, CURRENT identity/handle, unsupported required capability and other non-runnable failures remain blockers.
    - Do not replace Candidate Lint with a parallel hand-written validator or a prose-only self-check.
 7. Treat Web Preview as preflight only.
 8. Unity remains final runtime/Editable Preview authority.
