@@ -1,0 +1,334 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "THE LAST HEART OF THE MOON - ARTPACK FLEET",
+  "projectId": "ac114b9ff2d44d078abd1df2fe58cbd1",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "WARNINGS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "Inspect sampled black frames and authored transitions",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 170,
+    "blackFrames": 1,
+    "edgeClipping": 0,
+    "actorOverlap": 0,
+    "actorOversized": 0,
+    "meanBrightness": 0.000022717624190537368,
+    "originalFlags": 338,
+    "events": 7,
+    "eventCaptured": 7,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "SIMPLE_A3_M11_P2_shot_fighter2_IMPACT_1",
+      "kind": "VisualCue",
+      "timeSeconds": 136.03750610351562,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0136.038s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_A4_M16_P4_shot_brain_IMPACT_1",
+      "kind": "VisualCue",
+      "timeSeconds": 202.4250030517578,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0202.425s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_A4_M17_P2_shot_blade2_IMPACT_1",
+      "kind": "VisualCue",
+      "timeSeconds": 209.26998901367188,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0209.270s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_A4_M17_P3_shot_blade2_IMPACT_1",
+      "kind": "VisualCue",
+      "timeSeconds": 212.66998291015625,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0212.670s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_A4_M17_P5_shot_blade3_IMPACT_2",
+      "kind": "VisualCue",
+      "timeSeconds": 219.469970703125,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0219.470s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_A5_M21_P3_shot_boss_IMPACT_1",
+      "kind": "VisualCue",
+      "timeSeconds": 270.4969482421875,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0270.497s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "handoff_simple_THE_LAST_HEART_OF_THE_MOON_-_ARTPACK_FLEET",
+      "kind": "HandoffRequested",
+      "timeSeconds": 299.99993896484375,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0300.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 2,
+      "imageFile": "frame_0002.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    }
+  ],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 2,
+      "fileName": "frame_0002.000s.png"
+    },
+    {
+      "timeSeconds": 4,
+      "fileName": "frame_0004.000s.png"
+    },
+    {
+      "timeSeconds": 6,
+      "fileName": "frame_0006.000s.png"
+    },
+    {
+      "timeSeconds": 8,
+      "fileName": "frame_0008.000s.png"
+    },
+    {
+      "timeSeconds": 10,
+      "fileName": "frame_0010.000s.png"
+    },
+    {
+      "timeSeconds": 12,
+      "fileName": "frame_0012.000s.png"
+    },
+    {
+      "timeSeconds": 14,
+      "fileName": "frame_0014.000s.png"
+    },
+    {
+      "timeSeconds": 16,
+      "fileName": "frame_0016.000s.png"
+    },
+    {
+      "timeSeconds": 18,
+      "fileName": "frame_0018.000s.png"
+    },
+    {
+      "timeSeconds": 20,
+      "fileName": "frame_0020.000s.png"
+    },
+    {
+      "timeSeconds": 22,
+      "fileName": "frame_0022.000s.png"
+    },
+    {
+      "timeSeconds": 24,
+      "fileName": "frame_0024.000s.png"
+    },
+    {
+      "timeSeconds": 26,
+      "fileName": "frame_0026.000s.png"
+    },
+    {
+      "timeSeconds": 28,
+      "fileName": "frame_0028.000s.png"
+    },
+    {
+      "timeSeconds": 30,
+      "fileName": "frame_0030.000s.png"
+    },
+    {
+      "timeSeconds": 32,
+      "fileName": "frame_0032.000s.png"
+    },
+    {
+      "timeSeconds": 34,
+      "fileName": "frame_0034.000s.png"
+    },
+    {
+      "timeSeconds": 36,
+      "fileName": "frame_0036.000s.png"
+    },
+    {
+      "timeSeconds": 38,
+      "fileName": "frame_0038.000s.png"
+    },
+    {
+      "timeSeconds": 40,
+      "fileName": "frame_0040.000s.png"
+    },
+    {
+      "timeSeconds": 42,
+      "fileName": "frame_0042.000s.png"
+    },
+    {
+      "timeSeconds": 44,
+      "fileName": "frame_0044.000s.png"
+    },
+    {
+      "timeSeconds": 46,
+      "fileName": "frame_0046.000s.png"
+    },
+    {
+      "timeSeconds": 48,
+      "fileName": "frame_0048.000s.png"
+    },
+    {
+      "timeSeconds": 50,
+      "fileName": "frame_0050.000s.png"
+    },
+    {
+      "timeSeconds": 52,
+      "fileName": "frame_0052.000s.png"
+    },
+    {
+      "timeSeconds": 54,
+      "fileName": "frame_0054.000s.png"
+    },
+    {
+      "timeSeconds": 56,
+      "fileName": "frame_0056.000s.png"
+    },
+    {
+      "timeSeconds": 58,
+      "fileName": "frame_0058.000s.png"
+    },
+    {
+      "timeSeconds": 60,
+      "fileName": "frame_0060.000s.png"
+    },
+    {
+      "timeSeconds": 62,
+      "fileName": "frame_0062.000s.png"
+    },
+    {
+      "timeSeconds": 64,
+      "fileName": "frame_0064.000s.png"
+    },
+    {
+      "timeSeconds": 66,
+      "fileName": "frame_0066.000s.png"
+    },
+    {
+      "timeSeconds": 68,
+      "fileName": "frame_0068.000s.png"
+    },
+    {
+      "timeSeconds": 70,
+      "fileName": "frame_0070.000s.png"
+    },
+    {
+      "timeSeconds": 72,
+      "fileName": "frame_0072.000s.png"
+    },
+    {
+      "timeSeconds": 74,
+      "fileName": "frame_0074.000s.png"
+    },
+    {
+      "timeSeconds": 76,
+      "fileName": "frame_0076.000s.png"
+    },
+    {
+      "timeSeconds": 78,
+      "fileName": "frame_0078.000s.png"
+    },
+    {
+      "timeSeconds": 80,
+      "fileName": "frame_0080.000s.png"
+    },
+    {
+      "timeSeconds": 82,
+      "fileName": "frame_0082.000s.png"
+    },
+    {
+      "timeSeconds": 84,
+      "fileName": "frame_0084.000s.png"
+    },
+    {
+      "timeSeconds": 86,
+      "fileName": "frame_0086.000s.png"
+    },
+    {
+      "timeSeconds": 88,
+      "fileName": "frame_0088.000s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
