@@ -1,0 +1,436 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "THE MOON SIGNAL - ANIMATED FLEET DIRECTOR 60S CLEANBG REPAIR01",
+  "projectId": "520e012ae5894da2abb73105c4614603",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "WARNINGS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "Inspect sampled black frames and authored transitions",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 43,
+    "blackFrames": 2,
+    "edgeClipping": 5,
+    "actorOverlap": 10,
+    "actorOversized": 2,
+    "meanBrightness": 0.254855060213527,
+    "originalFlags": 33,
+    "events": 5,
+    "eventCaptured": 5,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "SIMPLE_b09_fire_shot_enemy_WEAPON_0|PROJECTILE - SIMPLE_b09_fire_shot_enemy_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 27.850000381469727,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "enemy",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0027.850s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_b09_fire_shot_enemy_WEAPON_0|PROJECTILE - SIMPLE_b09_fire_shot_enemy_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 28.400000393390656,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "enemy",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0028.400s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_VISIBLE_UI_b10_missile_speed_lines_1",
+      "kind": "ObjectiveCue",
+      "timeSeconds": 30,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0030.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_b12_impact_shot_hero_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 36.849998474121094,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0036.850s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "handoff_simple_THE_MOON_SIGNAL_-_ANIMATED_FLEET_DIRECTOR_60S_CLEANBG_REPAIR01",
+      "kind": "HandoffRequested",
+      "timeSeconds": 60,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0060.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 0,
+      "imageFile": "frame_0000.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 0,
+      "imageFile": "frame_0000.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 0,
+      "imageFile": "frame_0000.000s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 0,
+      "imageFile": "frame_0000.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 2,
+      "imageFile": "frame_0002.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 2,
+      "imageFile": "frame_0002.000s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 2,
+      "imageFile": "frame_0002.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 4,
+      "imageFile": "frame_0004.000s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 6,
+      "imageFile": "frame_0006.000s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 8,
+      "imageFile": "frame_0008.000s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 10,
+      "imageFile": "frame_0010.000s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 40,
+      "imageFile": "frame_0040.000s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 42,
+      "imageFile": "frame_0042.000s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 44,
+      "imageFile": "frame_0044.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 46,
+      "imageFile": "frame_0046.000s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 48,
+      "imageFile": "frame_0048.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 48,
+      "imageFile": "frame_0048.000s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 56,
+      "imageFile": "frame_0056.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 60,
+      "imageFile": "frame_0060.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    }
+  ],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 2,
+      "fileName": "frame_0002.000s.png"
+    },
+    {
+      "timeSeconds": 4,
+      "fileName": "frame_0004.000s.png"
+    },
+    {
+      "timeSeconds": 6,
+      "fileName": "frame_0006.000s.png"
+    },
+    {
+      "timeSeconds": 8,
+      "fileName": "frame_0008.000s.png"
+    },
+    {
+      "timeSeconds": 10,
+      "fileName": "frame_0010.000s.png"
+    },
+    {
+      "timeSeconds": 14,
+      "fileName": "frame_0014.000s.png"
+    },
+    {
+      "timeSeconds": 27.85,
+      "fileName": "frame_0027.850s.png"
+    },
+    {
+      "timeSeconds": 27.97,
+      "fileName": "frame_0027.970s.png"
+    },
+    {
+      "timeSeconds": 28,
+      "fileName": "frame_0028.000s.png"
+    },
+    {
+      "timeSeconds": 28.4,
+      "fileName": "frame_0028.400s.png"
+    },
+    {
+      "timeSeconds": 28.52,
+      "fileName": "frame_0028.520s.png"
+    },
+    {
+      "timeSeconds": 29.88,
+      "fileName": "frame_0029.880s.png"
+    },
+    {
+      "timeSeconds": 38,
+      "fileName": "frame_0038.000s.png"
+    },
+    {
+      "timeSeconds": 40,
+      "fileName": "frame_0040.000s.png"
+    },
+    {
+      "timeSeconds": 42,
+      "fileName": "frame_0042.000s.png"
+    },
+    {
+      "timeSeconds": 44,
+      "fileName": "frame_0044.000s.png"
+    },
+    {
+      "timeSeconds": 46,
+      "fileName": "frame_0046.000s.png"
+    },
+    {
+      "timeSeconds": 48,
+      "fileName": "frame_0048.000s.png"
+    },
+    {
+      "timeSeconds": 50,
+      "fileName": "frame_0050.000s.png"
+    },
+    {
+      "timeSeconds": 56,
+      "fileName": "frame_0056.000s.png"
+    },
+    {
+      "timeSeconds": 58,
+      "fileName": "frame_0058.000s.png"
+    },
+    {
+      "timeSeconds": 59.88,
+      "fileName": "frame_0059.880s.png"
+    },
+    {
+      "timeSeconds": 60,
+      "fileName": "frame_0060.000s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
