@@ -1,5 +1,3 @@
-[Reading 116 lines from start (total: 116 lines, 0 remaining)]
-
 <!doctype html>
 <html lang="he" dir="rtl">
 <head>
@@ -37,8 +35,7 @@
       </div>
       <small id="currentDetail">קורא את תאריך הפרסום המאומת...</small>
       <div class="publish-times" aria-live="polite">
-        <div><span>פרסום CURRENT האחרון</span><strong id="currentPublishedAt">בודק...</strong></div>
-        <div><span>פרסום האתר האחרון (GitHub Pages)</span><strong id="sitePublishedAt">בודק...</strong></div>
+        <div><span>פרסום CURRENT האחרון (Smart Publish)</span><strong id="currentPublishedAt">בודק...</strong></div>
       </div>
       <div class="quick-links">
         <a href="designer-ai/open-current/OPEN_CURRENT.json" target="_blank" rel="noopener">מצב CURRENT</a>
@@ -123,26 +120,7 @@
     document.getElementById('currentDetail').textContent='לא ניתן לאמת כרגע את נתוני ה־CURRENT.';
     document.getElementById('currentPublishedAt').textContent='לא זמין';
   }
-  try {
-    const api='https://api.github.com/repos/streamDragon/STARWARS_DELTA_STORYBOARDS/deployments?environment=github-pages&per_page=5';
-    const r=await fetch(api,{cache:'no-store',headers:{'Accept':'application/vnd.github+json'}});
-    if(!r.ok)throw Error('GitHub HTTP '+r.status);
-    const deployments=await r.json();
-    let latest=null;
-    for (const deployment of deployments) {
-      const sr=await fetch('https://api.github.com/repos/streamDragon/STARWARS_DELTA_STORYBOARDS/deployments/'+deployment.id+'/statuses?per_page=5',{cache:'no-store',headers:{'Accept':'application/vnd.github+json'}});
-      if(!sr.ok)continue;
-      const statuses=await sr.json();
-      const success=statuses.find(s=>s.state==='success');
-      if(success) {latest=success.created_at||success.updated_at||deployment.updated_at;break;}
-    }
-    document.getElementById('sitePublishedAt').textContent=latest?time(latest):'אין פרסום מוצלח מאומת';
-  } catch(e) {
-    document.getElementById('sitePublishedAt').textContent='לא ניתן לבדוק כרגע';
-  }
 })();
 </script>
 </body>
 </html>
-
-[executed on device: DESKTOP-5J7HT7C (cb4890df-61d0-40b8-8570-f8b80f3dec3a)]
