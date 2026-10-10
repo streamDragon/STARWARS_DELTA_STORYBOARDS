@@ -1,0 +1,184 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "THE MOON SIGNAL - CINEMATIC DIRECTOR REPAIR04 60S",
+  "projectId": "90b6b9b94cbf489885f592d41c74a766",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "WARNINGS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "Inspect sampled black frames and authored transitions",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 43,
+    "blackFrames": 2,
+    "edgeClipping": 0,
+    "actorOverlap": 0,
+    "actorOversized": 0,
+    "meanBrightness": 0.2502824561453836,
+    "originalFlags": 11,
+    "events": 5,
+    "eventCaptured": 5,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "SIMPLE_b09_fire_shot_enemy_WEAPON_0|PROJECTILE - SIMPLE_b09_fire_shot_enemy_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 27.399999618530273,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "enemy",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0027.400s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_b09_fire_shot_enemy_WEAPON_0|PROJECTILE - SIMPLE_b09_fire_shot_enemy_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 28.74999964237213,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "enemy",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0028.750s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_b12_impact_shot_hero_REACTION_1",
+      "kind": "VisualCue",
+      "timeSeconds": 36,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0036.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_b12_impact_shot_hero_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 36.849998474121094,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0036.850s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "handoff_simple_THE_MOON_SIGNAL_-_CINEMATIC_DIRECTOR_REPAIR04_60S",
+      "kind": "HandoffRequested",
+      "timeSeconds": 60,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0060.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 0,
+      "imageFile": "frame_0000.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 60,
+      "imageFile": "frame_0060.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    }
+  ],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 10,
+      "fileName": "frame_0010.000s.png"
+    },
+    {
+      "timeSeconds": 27.4,
+      "fileName": "frame_0027.400s.png"
+    },
+    {
+      "timeSeconds": 27.52,
+      "fileName": "frame_0027.520s.png"
+    },
+    {
+      "timeSeconds": 28,
+      "fileName": "frame_0028.000s.png"
+    },
+    {
+      "timeSeconds": 28.63,
+      "fileName": "frame_0028.630s.png"
+    },
+    {
+      "timeSeconds": 28.75,
+      "fileName": "frame_0028.750s.png"
+    },
+    {
+      "timeSeconds": 28.87,
+      "fileName": "frame_0028.870s.png"
+    },
+    {
+      "timeSeconds": 38,
+      "fileName": "frame_0038.000s.png"
+    },
+    {
+      "timeSeconds": 58,
+      "fileName": "frame_0058.000s.png"
+    },
+    {
+      "timeSeconds": 59.88,
+      "fileName": "frame_0059.880s.png"
+    },
+    {
+      "timeSeconds": 60,
+      "fileName": "frame_0060.000s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
