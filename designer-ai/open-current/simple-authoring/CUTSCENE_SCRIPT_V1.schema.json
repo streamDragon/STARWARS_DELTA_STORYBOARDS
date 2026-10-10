@@ -64,13 +64,17 @@
                                                                                 "durationSeconds":  {
                                                                                                         "type":  "number",
                                                                                                         "minimum":  0.1,
-                                                                                                        "maximum":  3,
-                                                                                                        "default":  0.6
+                                                                                                        "maximum":  6,
+                                                                                                        "default":  4.0
                                                                                                     },
                                                                                 "framing":  {
                                                                                                 "enum": ["FACE", "CLOSE", "EXTREME", "EYES", "HAND", "TORSO"],
                                                                                                 "description": "Choose an actual sliced portrait, eyes, hand or standalone torso. No invented character assembly."
                                                                                             },
+                                                                                "layout":  {
+                                                                                              "enum": ["BODY_ONLY", "BODY_PLUS_SMALL_PORTRAIT", "PORTRAIT_ONLY"],
+                                                                                              "description": "Anime composition hierarchy. BODY_ONLY keeps one coherent body hero; BODY_PLUS_SMALL_PORTRAIT uses a true inset; PORTRAIT_ONLY is for dramatic detail shots."
+                                                                                           },
                                                                                 "backgroundId":  { "type": "string", "minLength": 1 },
                                                                                 "effectId":  { "type": "string", "minLength": 1 },
                                                                                 "caption":  { "type": "string", "maxLength": 120 },
@@ -80,7 +84,12 @@
                                                                                 "angleDegrees":  { "type": "number", "minimum": -35, "maximum": 35 },
                                                                                 "offsetX":  { "type": "number", "minimum": -1, "maximum": 1 },
                                                                                 "offsetY":  { "type": "number", "minimum": -1, "maximum": 1 },
-                                                                                "backgroundZoom":  { "type": "number", "minimum": 1, "maximum": 2 }
+                                                                                "backgroundZoom":  { "type": "number", "minimum": 1, "maximum": 2 },
+                                                                                "motionStyle":  {
+                                                                                                     "enum": ["HOLD", "PUSH_IN", "SNAP_ZOOM", "DUTCH_DRIFT", "IMPACT_SHAKE", "SLIDE_IN"],
+                                                                                                     "description": "Anime-only camera/subject motion. Deterministic from Timeline time; never changes gameplay or dialogue."
+                                                                                                 },
+                                                                                "motionAmount":  { "type": "number", "minimum": 0, "maximum": 2, "default": 1 }
                                                                             }
                                                          }
                                            },
