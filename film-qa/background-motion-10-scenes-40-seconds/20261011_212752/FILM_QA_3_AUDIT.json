@@ -1,0 +1,83 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "BACKGROUND MOTION - 10 SCENES / 40 SECONDS",
+  "projectId": "3e4848be20f1402492144d89557807ec",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "PASS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "No sampled black frames outside detected transitions; this is not full technical clearance",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 22,
+    "blackFrames": 0,
+    "edgeClipping": 0,
+    "actorOverlap": 0,
+    "actorOversized": 0,
+    "meanBrightness": 0.19324367154728284,
+    "originalFlags": 6,
+    "events": 1,
+    "eventCaptured": 1,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "handoff_simple_BACKGROUND_MOTION_-_10_SCENES___40_SECONDS",
+      "kind": "HandoffRequested",
+      "timeSeconds": 40,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0040.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 4,
+      "fileName": "frame_0004.000s.png"
+    },
+    {
+      "timeSeconds": 12,
+      "fileName": "frame_0012.000s.png"
+    },
+    {
+      "timeSeconds": 16,
+      "fileName": "frame_0016.000s.png"
+    },
+    {
+      "timeSeconds": 24,
+      "fileName": "frame_0024.000s.png"
+    },
+    {
+      "timeSeconds": 28,
+      "fileName": "frame_0028.000s.png"
+    },
+    {
+      "timeSeconds": 30,
+      "fileName": "frame_0030.000s.png"
+    },
+    {
+      "timeSeconds": 40,
+      "fileName": "frame_0040.000s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
