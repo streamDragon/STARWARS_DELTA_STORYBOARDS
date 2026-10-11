@@ -232,6 +232,11 @@ Stable composition. No leaked motion from a previous shot.
 ### Push / Pull
 Continuous within-shot framing change. A cut between static lens values is not Push/Pull.
 
+### Zoom
+Simple V1 supports `zoom`, `zoom_in`, `zoom_out`, and `zoom_in_out`. A one-way zoom keeps its final framing until the next authored camera action; it must not snap back to the shot baseline when the zoom clip finishes. Use `zoomMultiplier` for exact strength: values below 1 zoom in and values above 1 zoom out.
+
+For an in/out move, use `camera.movement=zoom_in_out`. `zoomHoldSeconds` optionally holds the peak zoom before the return leg. `zoomReturnMultiplier` controls the final framing relative to the shot's authored starting framing; omit it or use 1 to return exactly. Sequential zoom legs must be continuous: the next leg begins at the previous leg's final orthographic size.
+
 ### Follow / Track
 When target-dependent runtime support exists, the camera must react to the authored legal subject through time. Merely activating a different CinemachineCamera is not enough.
 

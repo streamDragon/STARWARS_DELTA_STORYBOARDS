@@ -302,6 +302,9 @@
                                                   "locationHandle":  {
                                                                          "type":  "string"
                                                                      },
+                                                  "backgroundMotion":  {
+                                                                            "$ref":  "#/$defs/backgroundMotion"
+                                                                        },
                                                   "storyClaim":  {
                                                                      "type":  "string"
                                                                  },
@@ -383,6 +386,30 @@
                                                                }
                                               }
                            },
+                  "backgroundMotion":  {
+                                           "type":  "object",
+                                           "additionalProperties":  false,
+                                           "description":  "Optional motion for the beat locationHandle background. Use it for moving starfields, city travel plates, clouds or other environmental motion while actors continue their own action.",
+                                           "required":  ["direction"],
+                                           "properties":  {
+                                                              "direction":  {
+                                                                                 "enum":  ["left", "right", "up", "down", "up_left", "up_right", "down_left", "down_right"],
+                                                                                 "description":  "Direction the background image itself travels on screen. For a character walking right through a city, left usually creates the expected travel illusion."
+                                                                             },
+                                                              "speed":  {
+                                                                             "type":  "number",
+                                                                             "minimum":  0,
+                                                                             "maximum":  5,
+                                                                             "default":  0.6,
+                                                                             "description":  "Background travel speed in cinematic world units per second."
+                                                                         },
+                                                              "loop":  {
+                                                                            "type":  "boolean",
+                                                                            "default":  true,
+                                                                            "description":  "When true, Studio automatically uses a repeat/wrap strategy when the rendered layer supports it so continuous motion does not run out of image."
+                                                                        }
+                                                          }
+                                       },
                   "visibleElement":  {
                                          "type":  "object",
                                          "additionalProperties":  false,
@@ -1100,6 +1127,10 @@
                                                                                   "hold",
                                                                                   "push",
                                                                                   "pull",
+                                                                                  "zoom",
+                                                                                  "zoom_in",
+                                                                                  "zoom_out",
+                                                                                  "zoom_in_out",
                                                                                   "follow",
                                                                                   "track",
                                                                                   "pan",
@@ -1145,8 +1176,19 @@
                                                                            "type":  "number",
                                                                            "exclusiveMinimum":  0,
                                                                            "maximum":  10,
-                                                                           "description":  "Target orthographic-size multiplier for push, pull, or zoom camera movement. Values below 1 zoom in; values above 1 zoom out."
+                                                                           "description":  "Target orthographic-size multiplier for push, pull, zoom, zoom_in, zoom_out, or the first leg of zoom_in_out. Values below 1 zoom in; values above 1 zoom out."
                                                                        },
+                                                    "zoomReturnMultiplier":  {
+                                                                                 "type":  "number",
+                                                                                 "exclusiveMinimum":  0,
+                                                                                 "maximum":  10,
+                                                                                 "description":  "For zoom_in_out only: final orthographic-size multiplier relative to the authored framing. Defaults to 1, which returns to the starting framing without a snap."
+                                                                             },
+                                                    "zoomHoldSeconds":  {
+                                                                            "type":  "number",
+                                                                            "minimum":  0,
+                                                                            "description":  "For zoom_in_out only: seconds to hold at the peak zoom before the return leg begins."
+                                                                        },
                                                     "purpose":  {
                                                                     "type":  "string"
                                                                 }
