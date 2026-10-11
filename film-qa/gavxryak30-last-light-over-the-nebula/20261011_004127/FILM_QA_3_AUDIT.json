@@ -1,0 +1,533 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "GAVXRYAK30 — Last Light Over the Nebula",
+  "projectId": "66950ef4c692480da2ddf45b9873015c",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "WARNINGS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "Inspect sampled black frames and authored transitions",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 37,
+    "blackFrames": 2,
+    "edgeClipping": 4,
+    "actorOverlap": 0,
+    "actorOversized": 0,
+    "meanBrightness": 0.13290685133354083,
+    "originalFlags": 43,
+    "events": 8,
+    "eventCaptured": 8,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "SIMPLE_attack_run_shot_interceptor_WEAPON_1|PROJECTILE - SIMPLE_attack_run_shot_interceptor_WEAPON_1 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 11.199999809265137,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "interceptor",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0011.200s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_attack_run_shot_interceptor_WEAPON_1|PROJECTILE - SIMPLE_attack_run_shot_interceptor_WEAPON_1 - 01 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 11.279999732971191,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "interceptor",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0011.280s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_attack_run_shot_interceptor_WEAPON_1|PROJECTILE - SIMPLE_attack_run_shot_interceptor_WEAPON_1 - 02 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 11.359999656677246,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "interceptor",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0011.360s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_attack_run_shot_interceptor_WEAPON_1|PROJECTILE - SIMPLE_attack_run_shot_interceptor_WEAPON_1 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 12.999999761581421,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "interceptor",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0013.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_attack_run_shot_interceptor_WEAPON_1|PROJECTILE - SIMPLE_attack_run_shot_interceptor_WEAPON_1 - 01 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 13.079999685287476,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "interceptor",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0013.080s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_attack_run_shot_interceptor_WEAPON_1|PROJECTILE - SIMPLE_attack_run_shot_interceptor_WEAPON_1 - 02 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 13.15999960899353,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "interceptor",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0013.160s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_flagship_blast_shot_hostileFlagship_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 16,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0016.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "handoff_simple_GAVXRYAK30___Last_Light_Over_the_Nebula",
+      "kind": "HandoffRequested",
+      "timeSeconds": 30,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0030.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 0,
+      "imageFile": "frame_0000.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 11.16,
+      "imageFile": "frame_0011.160s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 11.2,
+      "imageFile": "frame_0011.200s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 11.24,
+      "imageFile": "frame_0011.240s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 11.28,
+      "imageFile": "frame_0011.280s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 11.32,
+      "imageFile": "frame_0011.320s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 11.36,
+      "imageFile": "frame_0011.360s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 11.4,
+      "imageFile": "frame_0011.400s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 11.48,
+      "imageFile": "frame_0011.480s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 12.96,
+      "imageFile": "frame_0012.960s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 13,
+      "imageFile": "frame_0013.000s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 13.04,
+      "imageFile": "frame_0013.040s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 13.08,
+      "imageFile": "frame_0013.080s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 13.12,
+      "imageFile": "frame_0013.120s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 13.16,
+      "imageFile": "frame_0013.160s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 13.2,
+      "imageFile": "frame_0013.200s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 13.28,
+      "imageFile": "frame_0013.280s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 15.88,
+      "imageFile": "frame_0015.880s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16,
+      "imageFile": "frame_0016.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.12,
+      "imageFile": "frame_0016.120s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 18,
+      "imageFile": "frame_0018.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 30,
+      "imageFile": "frame_0030.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    }
+  ],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 4,
+      "fileName": "frame_0004.000s.png"
+    },
+    {
+      "timeSeconds": 11.08,
+      "fileName": "frame_0011.080s.png"
+    },
+    {
+      "timeSeconds": 11.16,
+      "fileName": "frame_0011.160s.png"
+    },
+    {
+      "timeSeconds": 11.2,
+      "fileName": "frame_0011.200s.png"
+    },
+    {
+      "timeSeconds": 11.24,
+      "fileName": "frame_0011.240s.png"
+    },
+    {
+      "timeSeconds": 11.28,
+      "fileName": "frame_0011.280s.png"
+    },
+    {
+      "timeSeconds": 11.32,
+      "fileName": "frame_0011.320s.png"
+    },
+    {
+      "timeSeconds": 11.36,
+      "fileName": "frame_0011.360s.png"
+    },
+    {
+      "timeSeconds": 11.4,
+      "fileName": "frame_0011.400s.png"
+    },
+    {
+      "timeSeconds": 11.48,
+      "fileName": "frame_0011.480s.png"
+    },
+    {
+      "timeSeconds": 12,
+      "fileName": "frame_0012.000s.png"
+    },
+    {
+      "timeSeconds": 12.88,
+      "fileName": "frame_0012.880s.png"
+    },
+    {
+      "timeSeconds": 12.96,
+      "fileName": "frame_0012.960s.png"
+    },
+    {
+      "timeSeconds": 13,
+      "fileName": "frame_0013.000s.png"
+    },
+    {
+      "timeSeconds": 13.04,
+      "fileName": "frame_0013.040s.png"
+    },
+    {
+      "timeSeconds": 13.08,
+      "fileName": "frame_0013.080s.png"
+    },
+    {
+      "timeSeconds": 13.12,
+      "fileName": "frame_0013.120s.png"
+    },
+    {
+      "timeSeconds": 13.16,
+      "fileName": "frame_0013.160s.png"
+    },
+    {
+      "timeSeconds": 13.2,
+      "fileName": "frame_0013.200s.png"
+    },
+    {
+      "timeSeconds": 13.28,
+      "fileName": "frame_0013.280s.png"
+    },
+    {
+      "timeSeconds": 14,
+      "fileName": "frame_0014.000s.png"
+    },
+    {
+      "timeSeconds": 15.88,
+      "fileName": "frame_0015.880s.png"
+    },
+    {
+      "timeSeconds": 16,
+      "fileName": "frame_0016.000s.png"
+    },
+    {
+      "timeSeconds": 16.12,
+      "fileName": "frame_0016.120s.png"
+    },
+    {
+      "timeSeconds": 18,
+      "fileName": "frame_0018.000s.png"
+    },
+    {
+      "timeSeconds": 20,
+      "fileName": "frame_0020.000s.png"
+    },
+    {
+      "timeSeconds": 30,
+      "fileName": "frame_0030.000s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
