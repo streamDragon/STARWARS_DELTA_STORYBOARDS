@@ -1,0 +1,144 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "THE MOON SIGNAL - CINEMATIC DIRECTOR REPAIR05 60S",
+  "projectId": "fce7fc8d80894022af040acbeb6e9c13",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "PASS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "No sampled black frames outside detected transitions; this is not full technical clearance",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 43,
+    "blackFrames": 0,
+    "edgeClipping": 0,
+    "actorOverlap": 1,
+    "actorOversized": 0,
+    "meanBrightness": 0.26706114593286845,
+    "originalFlags": 1,
+    "events": 5,
+    "eventCaptured": 5,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "SIMPLE_b09_fire_shot_enemy_WEAPON_0|PROJECTILE - SIMPLE_b09_fire_shot_enemy_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 27.399999618530273,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "enemy",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0027.400s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_b09_fire_shot_enemy_WEAPON_0|PROJECTILE - SIMPLE_b09_fire_shot_enemy_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 28.74999964237213,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "enemy",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0028.750s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_b12_impact_shot_hero_REACTION_1",
+      "kind": "VisualCue",
+      "timeSeconds": 36,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0036.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_b12_impact_shot_hero_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 36.849998474121094,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0036.850s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "handoff_simple_THE_MOON_SIGNAL_-_CINEMATIC_DIRECTOR_REPAIR05_60S",
+      "kind": "HandoffRequested",
+      "timeSeconds": 60,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0060.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 46,
+      "imageFile": "frame_0046.000s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    }
+  ],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 27.4,
+      "fileName": "frame_0027.400s.png"
+    },
+    {
+      "timeSeconds": 38,
+      "fileName": "frame_0038.000s.png"
+    },
+    {
+      "timeSeconds": 46,
+      "fileName": "frame_0046.000s.png"
+    },
+    {
+      "timeSeconds": 60,
+      "fileName": "frame_0060.000s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
