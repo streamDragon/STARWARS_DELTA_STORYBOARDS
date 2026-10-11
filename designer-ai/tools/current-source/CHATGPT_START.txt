@@ -12,8 +12,8 @@ SOURCE-OF-TRUTH BOUNDARY
 AUTHORING SOURCES
 Use only the matching CURRENT artifacts.
 
-AUTONOMOUS FIRST-PASS FILM CONTRACT (NO UNITY/LINT REQUIRED TO AUTHOR)
-- Produce ONE complete, downloadable CUTSCENE_SCRIPT_V1 from the fresh verified CURRENT. The default delivery never waits for Unity, Candidate Lint, REPAIR or manual editing. Unity Studio runs its own non-blocking Candidate Lint/recovery review after import when warnings exist; external authoring must not depend on that safety net.
+AUTONOMOUS FIRST-PASS FILM CONTRACT
+- Produce ONE complete CUTSCENE_SCRIPT_V1 candidate from the fresh verified CURRENT without waiting for Unity. Candidate creation is autonomous. When an authorized local Unity lint path is available, final downloadable-file delivery requires the canonical STRICT file Candidate Lint to PASS; Studio Preview recovery is only an editing/review convenience and must not be used to hide schema, CURRENT, camera-subject, action-subject or target errors.
 - ONE WORLD ACTOR, ONE NAME: for a ship/person participating in actions or camera movement, prefer the same stable cast[].id and visible[].id in every beat. actions[].subject and camera.subject use that cast[].id. Do not create a second visible alias such as cast.id=interceptor with visible.id=hero_ship for the same ship; this can materialize duplicates or break camera binding. Only intentionally separate instances get separate ids and staging.
 - FOLLOW/TRACK CAMERA: require one unmistakable active world Actor for camera.subject in that beat. Camera target, moving actor, projectile source and visible performer must be the SAME story entity; never follow an implied, unspawned or ambiguous clone. If there is no physical target, choose a legal non-target-dependent camera movement instead.
 - BUILD ONE COHERENT FRAME: choose one actual CURRENT Layer as the main shot background and treat it as full-frame; only add secondary scenery whose real preview shows a compositable layer/transparent prop. An opaque rectangular landscape/structure is not a foreground sticker over unrelated space art. If a full environmental image is essential, give it its own establishing shot or choose a truly compatible layered asset.
@@ -81,12 +81,12 @@ NORMAL AUTHORING
 5. Run literal schema/current self-check.
    - Before authoring any closed-world field, read CHATGPT_AUTHORING_INDEX.schemaClosedEnums generated from the exact matching CUTSCENE_SCRIPT_V1.schema.json.
    - Closed enums are literal tokens, not prose. Never invent synonyms such as question/departure/cause/effect or substitute a beat type for a dramaticFunction.
-6. Candidate creation does not wait for lint, but FILE DELIVERY uses the strict Candidate Lint whenever an authorized local Unity lint path is available.
-   - Devora/ChatGPT must always complete one exact CUTSCENE_SCRIPT_V1 candidate first.
-   - Unity Studio automatically runs the canonical Candidate Lint when a successful Preview import has authoring warnings/recoveries, then opens a non-blocking review UI. The movie remains buildable while the report is available for the next ChatGPT revision.
-   - When an authorized local Unity lint path exists, Devora/ChatGPT must run the canonical file Candidate Lint before delivering the JSON and require a strict PASS.
+6. Candidate creation does not wait for Candidate Lint; final file delivery uses Strict Candidate Lint when an authorized local Unity path is available.
+   - Devora/ChatGPT must always complete one exact CUTSCENE_SCRIPT_V1 candidate first and perform the literal schema/current checks below.
+   - Unity Studio may run tolerant Preview lint/recovery for editing convenience, but Preview recovery is not a delivery standard.
+   - Before final downloadable-file delivery, when local Unity lint is available, run the canonical STRICT file Candidate Lint and require PASS with zero blockers and no structural recovery that changes authored semantics.
    - Candidate Lint reuses the canonical Unity Simple V1 preparation/validation path.
-   - Studio Preview may stay tolerant for deterministic recovery and review workflows, but Preview tolerance is not a delivery standard.
+   - Advisory visual-quality warnings may remain warnings; schema, CURRENT provenance, camera-subject, action-subject and target-resolution problems are delivery blockers.
    - PRE-DELIVERY TIMELINE CHECK: compute cumulative absolute beat intervals. No animeEmotion interval may overlap a beat that contains dialogue. ANIME_EMOTION and Dialogue Mode are mutually exclusive.
    - PRE-DELIVERY ENUM CHECK: validate every closed enum against the exact field in CHATGPT_AUTHORING_INDEX.schemaClosedEnums. actions[].trajectory and actions[].pathShape are different fields. Never put path-shape tokens such as arc_up, arc_down, diagonal_up, diagonal_down or s_curve into trajectory.
    - PRE-DELIVERY CURRENT CHECK: schemaHash and authoringRuleRegistryRevision must match the contract used by the Unity lint exactly. Never rely on V1_CURRENT_CONTRACT_AUTOBOUND for a delivered new candidate.
@@ -96,7 +96,7 @@ NORMAL AUTHORING
 8. Unity remains final runtime/Editable Preview authority.
 
 NORMAL FLOW LOCK
-- The designer gives a natural-language movie request. Devora/ChatGPT always authors one complete CUTSCENE_SCRIPT_V1 JSON. Candidate creation never waits for lint access. When authorized local Unity lint is available, final file delivery requires the canonical strict file Candidate Lint to PASS; Studio Preview recovery remains a separate editing/review convenience.
+- The designer gives a natural-language movie request. Devora/ChatGPT always authors one complete CUTSCENE_SCRIPT_V1 candidate immediately from matching CURRENT. Candidate creation never waits for lint access. When authorized local Unity lint is available, final downloadable-file delivery requires the canonical STRICT file Candidate Lint to PASS; Studio Preview recovery remains an editing/review safety net and never substitutes for delivery validity.
 - Do not ask for, generate, or depend on a COPY REQUEST / REQUEST REPORT step for normal NEW authoring.
 - V1 is the only authoring format. V2 compilation and V3 Unity materialization are backend implementation and are never authored.
 - Do not expose raw Actor/Animation/runtime IDs.
@@ -212,6 +212,11 @@ Camera authoring is semantic directing intent.
 - Drift/Pan/Shake/ImpactShake must be visibly meaningful when Unity executes them; technical non-zero movement that is imperceptible is not exact success.
 - Camera Orbit is not a legal Simple V1 camera movement in this CURRENT. Use Actor motionIntent=orbit for fixed-center Actor Orbit; never invent an unseen 3D side/back view.
 - LOCKED DIALOGUE CAMERA IS A BLOCKING AUTHORING RULE: any dialogue beat that resolves to locked portrait, monitor, or radio coverage may use only camera.movement=hold or camera.movement=cut (cut-based Snap). push/pull/follow/track/pan/drift/shake/impact_shake are forbidden in that beat. Put cinematic camera movement in an adjacent non-dialogue beat. Validate this before V3 lowering; do not rely on Unity to discover it later.
+
+BACKGROUND MOTION
+- Place optional backgroundMotion on the beat that owns an exact CURRENT locationHandle, outside camera/visible/actions: "backgroundMotion":{"direction":"left","speed":0.6,"loop":true}.
+- direction means the background image travels on screen and allows only left, right, up, down, up_left, up_right, down_left, down_right. speed is 0..5 cinematic world units per second (default 0.6); loop is boolean (default true).
+- Keep actor paths and animation independent. This is environmental movement and can use a hold camera. Repeat the field in each beat where motion should continue; inspect actual coverage/seams because repeat/wrap depends on renderer support. Missing locationHandle or locked dialogue makes Studio ignore backgroundMotion with a warning; put travel beside locked dialogue.
 
 DIALOGUE
 Dialogue is closed-world.
