@@ -1,0 +1,76 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "ZOOM LAB | 30 SEC | SIX CAMERA MODES",
+  "projectId": "4a678c24045a45ca9e27c674a4ff058c",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "WARNINGS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "Inspect sampled black frames and authored transitions",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 17,
+    "blackFrames": 1,
+    "edgeClipping": 0,
+    "actorOverlap": 0,
+    "actorOversized": 0,
+    "meanBrightness": 0.2450917678720811,
+    "originalFlags": 1,
+    "events": 1,
+    "eventCaptured": 1,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "handoff_simple_ZOOM_LAB___30_SEC___SIX_CAMERA_MODES",
+      "kind": "HandoffRequested",
+      "timeSeconds": 30,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0030.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 30,
+      "imageFile": "frame_0030.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    }
+  ],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 29.88,
+      "fileName": "frame_0029.880s.png"
+    },
+    {
+      "timeSeconds": 30,
+      "fileName": "frame_0030.000s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
