@@ -240,6 +240,10 @@ For an in/out move, use `camera.movement=zoom_in_out`. `zoomHoldSeconds` optiona
 ### Follow / Track
 When target-dependent runtime support exists, the camera must react to the authored legal subject through time. Merely activating a different CinemachineCamera is not enough.
 
+For delivery-valid Simple V1, every target-dependent camera movement (`follow`, `track`, `push`, `pull` when subject-driven) must resolve `camera.subject` to one uniquely visible physical Actor in that beat. Do not rely on Preview to recover an omitted/aliased subject or silently fall back to `hold`. If there is no uniquely visible physical subject, author a legal non-target-dependent camera movement instead.
+
+The same delivery rule applies to targeted actions: `fire`, `attack`, `react`, `impact`, and `destroy` may not depend on Preview guessing a source/target, dropping a target, or skipping an unresolved action. Stage the intended physical Actors visibly and reference their stable ids directly.
+
 ### Drift
 Visible 2D frame-relative displacement.
 
