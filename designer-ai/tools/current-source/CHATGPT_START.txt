@@ -169,6 +169,8 @@ VISIBLE EFFECTS / PARTICLES
 ACTOR IDENTITY, DIRECT ANIMATION AND MOTION
 - Actor identity and Animation material are separate. Actor handles answer WHO/WHERE; Animation handles answer WHAT VISIBLE SPRITE ANIMATION PLAYS.
 - Animation and movement are separate and may run simultaneously.
+- Unity output is native and editable: visible Sprite animation and actor Position/Rotation/Scale motion materialize as standard Unity AnimationTrack content. This is a backend guarantee, not an authoring field; never serialize Timeline tracks or bindings into V1.
+- Generated editable Timelines are organized automatically by actor/object plus CAMERA, DIALOGUE, BACKGROUND & LAYERS, AUDIO and VFX & PROJECTILES groups. Group names/order are backend presentation only and never belong in CUTSCENE_SCRIPT_V1.
 - For visible Sprite animation, prefer one exact CURRENT animationHandle from directAnimationMaterials / ANIMATION_RETRIEVAL_INDEX. Choose it using previewUrl and semanticFacets. Direct simple-Sprite animation material does not require Actor ownership.
 - animationIntent is legacy/secondary authoring. Do not use it unless the matching CURRENT explicitly publishes a supported relationship for that exact use.
 - performanceIntent is descriptive directing intent only; it never selects or guarantees an Animation clip.
