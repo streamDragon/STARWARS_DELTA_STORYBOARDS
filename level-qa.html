@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Level QA | STARWARS_DELTA</title>
+<style>body{margin:0;background:#111b29;color:#eaf2ff;font:16px system-ui}header,main{max-width:1120px;margin:auto;padding:20px}a{color:#7ce3ff}h1{font-size:30px}#status{background:#25344c;padding:16px;border-radius:10px}section{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}article{background:#202e42;padding:12px;border-radius:10px}img{width:100%;height:auto;display:block;border-radius:6px}small{color:#bbcbdd}footer{text-align:center;margin:35px}</style></head>
+<body><header><a href="./">← חזרה לאתר</a><h1>Level Visual QA</h1><p>צילומים אמיתיים של סצנות מתוך Unity. תמונות מקוריות בלבד, עם פרטי הריצה והסצנה.</p></header>
+<main><div id="status">טוען צילומים...</div><div id="runs"></div></main><footer>STARWARS_DELTA</footer>
+<script>
+(async()=>{
+const status=document.getElementById('status'),out=document.getElementById('runs');
+try{
+const r=await fetch('./level-qa/index.json?ts='+Date.now(),{cache:'no-store'});
+if(!r.ok)throw Error('HTTP '+r.status);
+const index=await r.json(),runs=Array.isArray(index.runs)?index.runs:[];
+if(!runs.length){status.textContent='עדיין לא פורסם צילום Level מאומת.';return;}
+status.textContent='ריצות צילום: '+runs.length;
+for(const run of runs){
+const el=document.createElement('div'),h=document.createElement('h2'),p=document.createElement('p'),grid=document.createElement('section');
+h.textContent=run.sceneName||run.scenePath||'Level';p.textContent=(run.generatedUtc||'')+' | '+(run.captureStatus||'');
+el.append(h,p);for(const frame of run.frames||[]){
+if(!frame.path)continue;const art=document.createElement('article'),a=document.createElement('a'),im=document.createElement('img'),t=document.createElement('p');
+a.href=frame.path;a.target='_blank';a.rel='noopener';im.src=frame.path;im.loading='lazy';im.alt=frame.frameId||'Unity capture';t.textContent=(frame.frameId||'capture')+' | '+(frame.source||'');a.append(im);art.append(a,t);grid.append(art);
+}el.append(grid);out.append(el);}
+}catch(e){status.textContent='לא ניתן לטעון את אינדקס הצילומים: '+e.message;}
+})();
+</script></body></html>
