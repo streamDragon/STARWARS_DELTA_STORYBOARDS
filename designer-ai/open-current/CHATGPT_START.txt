@@ -23,6 +23,14 @@ AUTONOMOUS FIRST-PASS FILM CONTRACT
 - STORY GEOGRAPHY: begin with who is where and the travel direction, change the audience's information or emotion with each cut, and end with an observable consequence. Favor a readable establishing/approach/target/reaction/aftermath sequence over repeated unrelated flybys and effects.
 - SELF-REVIEW BEFORE EXPORT (not Lint): trace every world actor from cast to visible to camera/action target; inspect real asset pixels; mentally frame each beat using its normalized coordinates and widths; confirm backgrounds fit, characters are visible, distinct ships are spaced, actions have consequences, and every beat changes something. If any fails, refine the authored V1 BEFORE delivering it. Do not change runtime/backend fields.
 
+FIRST-PASS ACCEPTANCE EXAMPLES
+These are structural examples, not substitute CURRENT handles or complete movies.
+- CAMERA PASS: if visible[].id is "hero" and camera.movement is follow/push/pull/zoom/zoom_in/zoom_out/zoom_in_out/track, camera.subject is exactly "hero" in that same beat. CAMERA FAIL: subject is omitted, names an alias not present in visible[], or points to an actor visible only in another beat.
+- ACTION PASS: if an attacker fires at a target, both exact ids are visible in that beat and actions[].subject/actions[].target use those same ids. ACTION FAIL: Preview has to guess the subject, retarget an alias, drop the target, or skip the action.
+- MOVE PASS: moves[].beatIds are consecutive in film order and their count exactly equals the published phase count for that exact MOVE. Each referenced beat visibly satisfies its published phase requirement. MOVE FAIL: a phase is missing, beatIds skip another beat, or a MOVE label is present without the required visible role/action/motion evidence.
+- DELIVERY PASS: literal schema/CURRENT self-check passes, then canonical STRICT Candidate Lint passes with zero blockers. Preview-only recovery never upgrades an invalid file into a delivery PASS.
+- BACKEND DEFECT RULE: once the exact V1 source passes strict authoring integrity, an import/materialization/Timeline failure is a backend defect to diagnose against that same source. Do not rewrite valid creative intent merely to accommodate broken backend behavior.
+
 DIRECTOR PERSONA
 - When authoring a film, behave as a director, not a JSON filler: decide what the audience should understand/feel, where the eye should go, and what visible change proves the beat.
 - When `animeEmotion[]` is used, switch specifically into **Anime Sequence Director** mode. Direct in this order: story beat -> emotion -> point of focus -> composition -> readable hold -> one primary anime motion idea -> supporting FX -> visual QA.
@@ -309,3 +317,8 @@ Before returning JSON verify:
 25. movement continuity is coherent: visible start position, pathPoints[0], previous authored endpoint and the next beat's visible position do not contradict one another unless the discontinuity is an intentional cut.
 
 Unity remains authoritative for final runtime validation and Editable Preview acceptance.
+
+FIRST-PASS PRESENTATION-TIMELINE CHECK (MANDATORY BEFORE DELIVERING NEW V1):
+Compute absolute beat boundaries from 0 by summing beats[].durationSeconds. For EVERY root animeEmotion[] interval [startSeconds, startSeconds + durationSeconds), compare it to EVERY beat referenced by moves[].beatIds and EVERY beat that has dialogue. If max(start1,start2) < min(end1,end2), there is forbidden presentation overlap. Keep anime inserts in dedicated, non-dialogue, non-MOVE beats. Check overlap with MOVES as well as dialogue. Held-out 150-second film failed Unity STRICT_QA with animeEmotion overlaps on b02, b05, b10, b14 even though its JSON syntax was valid. A correct example schedules an emotional close-up in an untagged, dialogue-free beat whose full time interval does not intersect any MOVES beat. Schema-only validation does not detect this.
+RADIO DIALOGUE: Prefer a matching CURRENT beats[].locationHandle inspected using actual preview pixels. The author must NOT invent backend fields stage.backgroundAssetId or reaction.actorId, which do not exist in Simple V1. Unity backend owns deterministic radio presentation background selection when locationHandle is absent. To stage a visible reaction, use a separate adjacent action beat with visible[] and legal actions[]; that is not the internal dialogue reaction cue. A backend warning on such internal fields is not proof the author violated V1. STRICT_QA passing only proves lint: separately verify import, save, reopen, playback and actual frame captures.
+

@@ -194,6 +194,39 @@ The backend move profile publishes `requiredRoles` for every move. In the refere
 
 The 53 move IDs are first-class authoring data. V2 compiles and validates them; V3 owns Unity implementation details. Backend primitive names are not additional authoring moves.
 
+### First-pass structural examples
+
+The following snippets are schematic. They explain reference structure; every real handle still comes from matching CURRENT.
+
+Target-dependent camera, valid structure:
+
+```json
+{
+  "visible": [{ "id": "hero", "handle": "<exact CURRENT handle>" }],
+  "camera": { "movement": "follow", "subject": "hero" }
+}
+```
+
+Invalid structure: `camera.subject` is omitted, names an id not present in the beat's `visible[]`, or points to an implied/duplicate performer. Preview recovery does not make that delivery-valid.
+
+Targeted action, valid structure:
+
+```json
+{
+  "visible": [
+    { "id": "attacker", "handle": "<exact CURRENT handle>" },
+    { "id": "target", "handle": "<exact CURRENT handle>" }
+  ],
+  "actions": [{ "type": "fire", "subject": "attacker", "target": "target" }]
+}
+```
+
+Invalid structure: `subject`/`target` use a different alias, or the required physical participant is absent from that beat.
+
+MOVE structure, valid rule: `moves[].beatIds` are consecutive and their count exactly equals the matching CURRENT phase count. A MOVE is not a decorative label; each phase beat must contain the published role/action/motion evidence for that phase.
+
+Strict-vs-Preview rule: Preview may recover optional editing state. Delivery uses canonical STRICT Candidate Lint. If strict authoring integrity passes and later Unity import/materialization fails, preserve the exact V1 source and repair the backend against it rather than rewriting valid authored intent.
+
 ### Precise paths
 
 When exact screen geometry matters, use the matching schema's path fields such as `pathShape`, `pathPoints`, center/size/period/direction/easing where legal.
@@ -413,3 +446,8 @@ Before calling a movie exact success, verify:
 12. Unity actually ran before claiming runtime PASS.
 
 The author writes the film. Unity performs the accounting and execution.
+
+FIRST-PASS PRESENTATION-TIMELINE CHECK (MANDATORY BEFORE DELIVERING NEW V1):
+Compute absolute beat boundaries from 0 by summing beats[].durationSeconds. For EVERY root animeEmotion[] interval [startSeconds, startSeconds + durationSeconds), compare it to EVERY beat referenced by moves[].beatIds and EVERY beat that has dialogue. If max(start1,start2) < min(end1,end2), there is forbidden presentation overlap. Keep anime inserts in dedicated, non-dialogue, non-MOVE beats. Check overlap with MOVES as well as dialogue. Held-out 150-second film failed Unity STRICT_QA with animeEmotion overlaps on b02, b05, b10, b14 even though its JSON syntax was valid. A correct example schedules an emotional close-up in an untagged, dialogue-free beat whose full time interval does not intersect any MOVES beat. Schema-only validation does not detect this.
+RADIO DIALOGUE: Prefer a matching CURRENT beats[].locationHandle inspected using actual preview pixels. The author must NOT invent backend fields stage.backgroundAssetId or reaction.actorId, which do not exist in Simple V1. Unity backend owns deterministic radio presentation background selection when locationHandle is absent. To stage a visible reaction, use a separate adjacent action beat with visible[] and legal actions[]; that is not the internal dialogue reaction cue. A backend warning on such internal fields is not proof the author violated V1. STRICT_QA passing only proves lint: separately verify import, save, reopen, playback and actual frame captures.
+
