@@ -1,0 +1,128 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "Devora External Cinema Motion: Directed Final Staging",
+  "projectId": "bca2bf45ba42437a86add3e40069573b",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "PASS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "No sampled black frames outside detected transitions; this is not full technical clearance",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 21,
+    "blackFrames": 0,
+    "handoffBoundaryBlanks": 1,
+    "edgeClipping": 0,
+    "actorOverlap": 0,
+    "actorOversized": 0,
+    "meanBrightness": 0.08669574502744667,
+    "originalFlags": 1,
+    "events": 5,
+    "eventCaptured": 5,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "SIMPLE_EXT_PURSUIT_shot_escort_WEAPON_2|PROJECTILE - SIMPLE_EXT_PURSUIT_shot_escort_WEAPON_2 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 6.349999904632568,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0006.350s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_EXT_PURSUIT_shot_escort_WEAPON_2|PROJECTILE - SIMPLE_EXT_PURSUIT_shot_escort_WEAPON_2 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 6.799999892711639,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0006.800s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_EXT_PURSUIT_shot_enemy_IMPACT_3",
+      "kind": "VisualCue",
+      "timeSeconds": 7.099999904632568,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0007.100s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_EXT_AFTER_shot_enemy_REACTION_0",
+      "kind": "VisualCue",
+      "timeSeconds": 8,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0008.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "handoff_simple_Devora_External_Cinema_Motion__Directed_Final_Staging",
+      "kind": "HandoffRequested",
+      "timeSeconds": 15,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0015.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 8.12,
+      "fileName": "frame_0008.120s.png"
+    },
+    {
+      "timeSeconds": 14,
+      "fileName": "frame_0014.000s.png"
+    },
+    {
+      "timeSeconds": 15,
+      "fileName": "frame_0015.000s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
