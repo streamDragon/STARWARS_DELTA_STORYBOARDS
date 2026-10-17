@@ -1,25 +1,25 @@
 {
   "schema": "STARWARS_DELTA_ANIMATION_COVERAGE",
   "schemaVersion": 1,
-  "publishTransactionId": "20261014-062748298-7f61f50f",
+  "publishTransactionId": "20261017-210239212-35a4a084",
   "selectionScope": "COMPACT_AUTHORING",
-  "sourceCount": 540,
-  "accountedCount": 540,
-  "directAuthorableAnimationCount": 350,
+  "sourceCount": 579,
+  "accountedCount": 579,
+  "directAuthorableAnimationCount": 351,
   "directTechnicalStatusCounts": {
-    "SIMPLE_ROOT_SPRITE_SEQUENCE": 351,
-    "COMPLEX_OR_UNSUPPORTED": 189
+    "SIMPLE_ROOT_SPRITE_SEQUENCE": 352,
+    "COMPLEX_OR_UNSUPPORTED": 227
   },
   "directAuthoringPolicy": "Direct simple-Sprite Animation materials are authorable independently of Actor ownership when the catalog routes them to Animation. Unsafe/sample-only records remain excluded. Preview and semantic facets describe selection quality, not ownership permission.",
   "visualStatusCounts": {
-    "NON_VISUAL_BY_DESIGN": 130,
-    "VISUALIZATION_FAILED": 32,
+    "NON_VISUAL_BY_DESIGN": 167,
+    "VISUALIZATION_FAILED": 34,
     "VISUALIZED": 378
   },
   "semanticStatusCounts": {
-    "FACETS_ONLY": 263,
-    "SEMANTIC_PROVEN": 172,
-    "SEMANTIC_UNRESOLVED": 105
+    "FACETS_ONLY": 268,
+    "SEMANTIC_PROVEN": 170,
+    "SEMANTIC_UNRESOLVED": 141
   },
   "gaps": [
     {
@@ -1301,14 +1301,394 @@
       ],
       "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "39c2d19d6dda46778d026d6060413a4f:7400000",
+      "displayName": "atom SPRITE RESTORED",
+      "path": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Spaceships/atom SPRITE RESTORED.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "ce112f5f23e64edc8ebfdf220d1a0a2e:7400000",
+      "displayName": "3 way SPRITE RESTORED",
+      "path": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/3 way SPRITE RESTORED.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "601b37b61b69b40009b69438f7a0c9d1:8616966184499041574",
+      "displayName": "A Staff vs staff OneFight.Part4 5",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Customization Demo/Demo/Animation/Staff_vs_Staff_OneFight_MaleA.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "601b37b61b69b40009b69438f7a0c9d1:-2354637288089615549",
+      "displayName": "A Staff vs staff OneFight.PartB6",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Customization Demo/Demo/Animation/Staff_vs_Staff_OneFight_MaleA.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "bae376f9e4fb641a2bf7599d4afde661:6381364906661979294",
+      "displayName": "B Staff vs staff OneFight.Part4 5",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Customization Demo/Demo/Animation/Staff_vs_Staff_OneFight_MaleB.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "bae376f9e4fb641a2bf7599d4afde661:-7821279207004231835",
+      "displayName": "B Staff vs staff OneFight.Part6",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Customization Demo/Demo/Animation/Staff_vs_Staff_OneFight_MaleB.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "c6b694ff97ce344178e5579e393c3b55:-1285606298539491307",
+      "displayName": "Clip Parameters",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Customization Demo/Demo/Timelines/CustomTracks.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "c6b694ff97ce344178e5579e393c3b55:-4306635558952932706",
+      "displayName": "Recorded (1)",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Customization Demo/Demo/Timelines/CustomTracks.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "c6b694ff97ce344178e5579e393c3b55:7536860696846776884",
+      "displayName": "Recorded (2)",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Customization Demo/Demo/Timelines/CustomTracks.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "ecb2e245b561fca44af05a575dacb985:7400000",
+      "displayName": "Jmp Dwn Gps Sprt St",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Animation/JumpDown-Sprt_St.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "497c76d876ab2df45b41ef49f8eb6f1e:699952086923607092",
+      "displayName": "Accelerations",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Animation/Nav-Accelerations.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "497c76d876ab2df45b41ef49f8eb6f1e:7400002",
+      "displayName": "Jog",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Animation/Nav-Accelerations.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "497c76d876ab2df45b41ef49f8eb6f1e:7400010",
+      "displayName": "Jog Sprnt",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Animation/Nav-Accelerations.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "497c76d876ab2df45b41ef49f8eb6f1e:7400006",
+      "displayName": "Jog Wk",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Animation/Nav-Accelerations.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "497c76d876ab2df45b41ef49f8eb6f1e:7400008",
+      "displayName": "Sprint",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Animation/Nav-Accelerations.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "497c76d876ab2df45b41ef49f8eb6f1e:7400012",
+      "displayName": "Sprnt Jog",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Animation/Nav-Accelerations.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "497c76d876ab2df45b41ef49f8eb6f1e:-290450198285507345",
+      "displayName": "TurnLeft",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Animation/Nav-Accelerations.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "497c76d876ab2df45b41ef49f8eb6f1e:2264652635412129178",
+      "displayName": "TurnRight",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Animation/Nav-Accelerations.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "497c76d876ab2df45b41ef49f8eb6f1e:7400004",
+      "displayName": "Wk Jog",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Animation/Nav-Accelerations.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "7fd3ff96dcd5bc3459d8fc87999c914d:7400000",
+      "displayName": "Turn on Spot",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Animation/Nav-Turn_on_Spot.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "d51eb75217420164fb02df4eef45fb62:7400000",
+      "displayName": "Psh Stmb Rcvr Jog Hv anim1",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Animation/Push-Stmb_Rcvr_Jog_Hv_anim1.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "2d18dc3bca9dddc41a9ff34b19ba7d80:7400000",
+      "displayName": "Psh Stmb Rcvr Wk Lt anim1",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Animation/Push-Stmb_Rcvr_Wk_Lt_anim1.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "0595e99350ddf2949820c55c496b4daa:7400000",
+      "displayName": "Stance",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Animation/Stance.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "698bf5c6518cb63469880e885a4fe4ea:7400000",
+      "displayName": "Strt Stp Wk",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Animation/Turns_StartStop-Wk.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "dd9de6d95994d2a44884e6f488c24bb0:7400000",
+      "displayName": "Vct Dnc anim1",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Animation/Victory-anim1.fbx",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "2fa3c6b407b0a44be8b43a5d9c62d90a:-8744289355584397843",
+      "displayName": "Recorded",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Timelines/CanSubTimeline.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "2fa3c6b407b0a44be8b43a5d9c62d90a:-3891631928261925692",
+      "displayName": "Track Parameters",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Timelines/CanSubTimeline.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "68e2a1f54ce1f4d87a739d117b047b38:5304263103341379975",
+      "displayName": "Recorded",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Timelines/GameplaySequence.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "68e2a1f54ce1f4d87a739d117b047b38:5015529694352562488",
+      "displayName": "Recorded (1)",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Timelines/GameplaySequence.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "68e2a1f54ce1f4d87a739d117b047b38:-4100928469139425269",
+      "displayName": "Recorded (2)",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Timelines/GameplaySequence.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "68e2a1f54ce1f4d87a739d117b047b38:2028478734725699924",
+      "displayName": "Recorded (3)",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Timelines/GameplaySequence.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "68e2a1f54ce1f4d87a739d117b047b38:-3404567929835915655",
+      "displayName": "Recorded (4)",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Timelines/GameplaySequence.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "68e2a1f54ce1f4d87a739d117b047b38:8330755514807181167",
+      "displayName": "Recorded (5)",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Timelines/GameplaySequence.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "68e2a1f54ce1f4d87a739d117b047b38:4843695496207817774",
+      "displayName": "Recorded (6)",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Timelines/GameplaySequence.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "68e2a1f54ce1f4d87a739d117b047b38:-4358312276156979883",
+      "displayName": "Recorded (7)",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Timelines/GameplaySequence.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "68e2a1f54ce1f4d87a739d117b047b38:-8736015889757970717",
+      "displayName": "Track Parameters",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Timelines/GameplaySequence.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "68e2a1f54ce1f4d87a739d117b047b38:-1453091443802482989",
+      "displayName": "Track Parameters (1)",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Timelines/GameplaySequence.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "68e2a1f54ce1f4d87a739d117b047b38:5111944788330891783",
+      "displayName": "Track Parameters (2)",
+      "path": "Assets/Samples/Timeline/6.7.0/Timeline Gameplay Sequence Demo/Timelines/GameplaySequence.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     }
   ],
   "status": "CURRENT_VERIFIED",
   "requiredCurrent": {
-    "catalogRevision": "7622488906030617140",
+    "catalogRevision": "7621803186599537571",
     "contractRevision": "95EC8B374D696481937DF48E2C15BBD9EF9545B5E2108BA2CE0AC4C2EBA7E3F0",
     "schemaHash": "3EBFCEF00DA466DF42E38CA53681C1D35CED62BDE68A65C03F982D2F81906C27",
-    "snapshotContentHash": "68BF1C8DBDBEE22D60F5299C39CF0B2C7B9BBAA0058833F4809E4AD87E8D0036",
+    "snapshotContentHash": "D540A227167C38E90DC3313EF99AB546FBFB4DD46A7CF773C06610F49459CE6B",
     "authoringRuleRegistryRevision": "5972653EFED6428CCBD28007BE847C5C41F060D22E38FEE66E092CB060ECFE8A"
   }
 }
