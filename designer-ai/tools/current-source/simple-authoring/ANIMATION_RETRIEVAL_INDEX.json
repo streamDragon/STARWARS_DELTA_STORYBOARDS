@@ -3,16 +3,16 @@
   "schemaVersion": 1,
   "projectionRevision": "ANIMATION_RETRIEVAL_V9_20261003_PREVIEW_SEMANTICS",
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20261014-062748298-7f61f50f",
+  "publishTransactionId": "20261017-210239212-35a4a084",
   "requiredCurrent": {
-    "catalogRevision": "7622488906030617140",
+    "catalogRevision": "7621803186599537571",
     "contractRevision": "95EC8B374D696481937DF48E2C15BBD9EF9545B5E2108BA2CE0AC4C2EBA7E3F0",
     "schemaHash": "3EBFCEF00DA466DF42E38CA53681C1D35CED62BDE68A65C03F982D2F81906C27",
-    "snapshotContentHash": "68BF1C8DBDBEE22D60F5299C39CF0B2C7B9BBAA0058833F4809E4AD87E8D0036",
+    "snapshotContentHash": "D540A227167C38E90DC3313EF99AB546FBFB4DD46A7CF773C06610F49459CE6B",
     "authoringRuleRegistryRevision": "5972653EFED6428CCBD28007BE847C5C41F060D22E38FEE66E092CB060ECFE8A"
   },
   "purpose": "On-demand direct animation materials. Animation is authored from published Animation handles themselves; Actor ownership and Actor animation repertoires are not part of this authoring surface.",
-  "directMaterialCount": 350,
+  "directMaterialCount": 351,
   "directMaterials": {
     "animation__00c30fab": {
       "displayName": "red delta ship",
@@ -13535,67 +13535,6 @@
       "atlasPage": null,
       "atlasSlot": null
     },
-    "animation__ae13a0d7": {
-      "displayName": "Blade Boss",
-      "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies (Bosses)/Blade/Blade Boss.anim",
-      "phase": "loop",
-      "directMovieMaterial": {
-        "authorable": true,
-        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
-        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
-        "bindingPath": "",
-        "keyCount": 16,
-        "semanticRequired": false,
-        "actorOwnerRequired": false
-      },
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "FacetsOnly",
-      "animationSemanticAction": "",
-      "animationSemanticActions": [],
-      "animationMotionType": "SpriteFrame",
-      "animationPhase": "Loop",
-      "animationState": "New Animation",
-      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
-      "semanticFacets": [
-        "animated_idle",
-        "blade_boss",
-        "boss",
-        "boss_ship",
-        "enemy_boss",
-        "loop",
-        "playniax",
-        "space_shooter_art_pack_01"
-      ],
-      "searchTerms": [
-        "animated_idle",
-        "Blade Boss",
-        "blade_boss",
-        "boss",
-        "boss_ship",
-        "enemy_boss",
-        "Loop",
-        "New Animation",
-        "playniax",
-        "space_shooter_art_pack_01",
-        "SpriteFrame"
-      ],
-      "selectionScope": "UNSPECIFIED",
-      "previewStatus": "AVAILABLE",
-      "previewContentHash": "ccf12c8497d170648dc2980deb7794218778f3f7fc5b37ff46d90eeb57a57bbe",
-      "sampleStrip": [
-        {
-          "fraction": 0.5,
-          "targetTime": 0.6666667,
-          "sampleTime": 0.6666667,
-          "spriteAssetId": "b3331b6401885fe42aee42d70748de13:21300000"
-        }
-      ],
-      "pageImageUrl": "visual-library/assets/asset_e3dade4f6d367ab61790/preview.png",
-      "atlasPage": null,
-      "atlasSlot": null
-    },
     "animation__ae29cae5": {
       "displayName": "SpaceRobot05 Shoot Hands Start",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shoot_Hands_Start.anim",
@@ -15795,6 +15734,62 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__d3f86828": {
+      "displayName": "3 way",
+      "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/3 way.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 32,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "Transform",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "Transform",
+      "animationPhase": "Loop",
+      "animationState": "Three_Way",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "loop",
+        "pickup",
+        "playniax",
+        "space_shooter_art_pack_01",
+        "three_way",
+        "weapon_upgrade"
+      ],
+      "searchTerms": [
+        "3 way",
+        "Loop",
+        "pickup",
+        "playniax",
+        "space_shooter_art_pack_01",
+        "Three_Way",
+        "Transform",
+        "weapon_upgrade"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "83d265af9613a864a70488caa26723c0309c947ee31c72d8478971e54f944e7d",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 2.45833325,
+          "sampleTime": 1.33333337,
+          "spriteAssetId": "a41f2c413b74f40febd218bd9309192c:6079006782680773822"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_867bc81ae69176429b78/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__d54240f5": {
       "displayName": "SpaceRobot01 Shield Stance End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Shield_Stance_End.anim",
@@ -16151,6 +16146,54 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_e0ec5239b77f8a7f550d/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__dc4045f9": {
+      "displayName": "atom",
+      "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Spaceships/atom.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 24,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "Transform",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "Transform",
+      "animationPhase": "Loop",
+      "animationState": "atom",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "loop",
+        "ship"
+      ],
+      "searchTerms": [
+        "atom",
+        "Loop",
+        "ship",
+        "Transform"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "56d1556ffb2b5d4e3ec561db5fbe9be1835b0721751e391906b9f85ea7a072b3",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.75,
+          "sampleTime": 1.0,
+          "spriteAssetId": "fe8e81921ed555e4385890100b08f373:21300024"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_7c6b7494939ae9050bb1/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
