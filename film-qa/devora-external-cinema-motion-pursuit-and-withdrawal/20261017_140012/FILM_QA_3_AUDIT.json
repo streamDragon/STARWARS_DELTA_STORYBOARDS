@@ -1,0 +1,72 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "Devora External Cinema Motion: Pursuit and Withdrawal",
+  "projectId": "71b715a5558747e78de0946320557a98",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "WARNINGS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "Inspect sampled black frames and authored transitions",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 10,
+    "blackFrames": 1,
+    "edgeClipping": 0,
+    "actorOverlap": 0,
+    "actorOversized": 0,
+    "meanBrightness": 0.07776327760657295,
+    "originalFlags": 0,
+    "events": 1,
+    "eventCaptured": 1,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "handoff_simple_Devora_External_Cinema_Motion__Pursuit_and_Withdrawal",
+      "kind": "HandoffRequested",
+      "timeSeconds": 15,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0015.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 15,
+      "imageFile": "frame_0015.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    }
+  ],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 15,
+      "fileName": "frame_0015.000s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
