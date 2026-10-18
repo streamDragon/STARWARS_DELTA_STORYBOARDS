@@ -1,0 +1,391 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "Cutscene Weapon Lab: Six Visible Shot Types",
+  "projectId": "4ab4e6aa35d94656899cb2268f945d7e",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "PASS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "No sampled black frames outside detected transitions; this is not full technical clearance",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 73,
+    "blackFrames": 0,
+    "handoffBoundaryBlanks": 0,
+    "edgeClipping": 0,
+    "actorOverlap": 0,
+    "actorOversized": 0,
+    "meanBrightness": 0.04533293700381501,
+    "originalFlags": 0,
+    "events": 22,
+    "eventCaptured": 22,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "SIMPLE_STRAIGHT_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_STRAIGHT_BLUE_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 1.2000000476837158,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0001.200s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_STRAIGHT_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_STRAIGHT_BLUE_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 2.0000000596046448,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0002.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_ANGLE_UP_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_ANGLE_UP_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 6.199999809265137,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0006.200s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_ANGLE_UP_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_ANGLE_UP_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 6.999999821186066,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0007.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_ANGLE_DOWN_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_ANGLE_DOWN_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 11.199999809265137,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0011.200s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_ANGLE_DOWN_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_ANGLE_DOWN_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 11.999999821186066,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0012.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 16.200000762939453,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0016.200s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 01 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 16.280000686645508,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0016.280s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 02 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 16.360000610351562,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0016.360s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 03 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 16.440000534057617,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0016.440s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 04 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 16.520000457763672,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0016.520s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 17.600000739097595,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0017.600s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 01 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 17.68000066280365,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0017.680s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 02 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 17.760000586509705,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0017.760s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 03 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 17.84000051021576,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0017.840s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 04 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 17.920000433921814,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0017.920s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_TARGET_PURPLE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_TARGET_PURPLE_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 21.200000762939453,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0021.200s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_TARGET_PURPLE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_TARGET_PURPLE_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 22.000000774860382,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0022.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_POWERBALL_IMPACT_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_POWERBALL_IMPACT_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 26.200000762939453,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0026.200s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_POWERBALL_IMPACT_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_POWERBALL_IMPACT_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 27.000000774860382,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0027.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_POWERBALL_IMPACT_shot_enemy_REACTION_2",
+      "kind": "VisualCue",
+      "timeSeconds": 27.700000762939453,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0027.700s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "handoff_simple_Cutscene_Weapon_Lab__Six_Visible_Shot_Types",
+      "kind": "HandoffRequested",
+      "timeSeconds": 30,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0030.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 8,
+      "fileName": "frame_0008.000s.png"
+    },
+    {
+      "timeSeconds": 16.32,
+      "fileName": "frame_0016.320s.png"
+    },
+    {
+      "timeSeconds": 17.8,
+      "fileName": "frame_0017.800s.png"
+    },
+    {
+      "timeSeconds": 26,
+      "fileName": "frame_0026.000s.png"
+    },
+    {
+      "timeSeconds": 30,
+      "fileName": "frame_0030.000s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
