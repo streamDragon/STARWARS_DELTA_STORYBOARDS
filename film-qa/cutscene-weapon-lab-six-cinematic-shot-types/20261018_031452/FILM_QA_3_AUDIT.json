@@ -1,0 +1,2216 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "Cutscene Weapon Lab: Six Cinematic Shot Types",
+  "projectId": "59152970d7e143abb4b9d30dc7aca4a7",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "WARNINGS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "Inspect sampled black frames and authored transitions",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 73,
+    "blackFrames": 66,
+    "handoffBoundaryBlanks": 0,
+    "edgeClipping": 73,
+    "actorOverlap": 0,
+    "actorOversized": 0,
+    "meanBrightness": 0.006503103454023191,
+    "originalFlags": 77,
+    "events": 22,
+    "eventCaptured": 22,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "SIMPLE_STRAIGHT_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_STRAIGHT_BLUE_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 1.2000000476837158,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0001.200s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_STRAIGHT_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_STRAIGHT_BLUE_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 2.0000000596046448,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0002.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_ANGLE_UP_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_ANGLE_UP_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 6.199999809265137,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0006.200s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_ANGLE_UP_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_ANGLE_UP_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 6.999999821186066,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0007.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_ANGLE_DOWN_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_ANGLE_DOWN_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 11.199999809265137,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0011.200s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_ANGLE_DOWN_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_ANGLE_DOWN_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 11.999999821186066,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0012.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 16.200000762939453,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0016.200s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 01 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 16.280000686645508,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0016.280s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 02 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 16.360000610351562,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0016.360s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 03 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 16.440000534057617,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0016.440s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 04 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 16.520000457763672,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0016.520s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 17.600000739097595,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0017.600s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 01 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 17.68000066280365,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0017.680s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 02 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 17.760000586509705,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0017.760s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 03 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 17.84000051021576,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0017.840s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_BURST_BLUE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_BURST_BLUE_shot_escort_WEAPON_0 - 04 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 17.920000433921814,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0017.920s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_TARGET_PURPLE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_TARGET_PURPLE_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 21.200000762939453,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0021.200s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_TARGET_PURPLE_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_TARGET_PURPLE_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 22.000000774860382,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0022.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_POWERBALL_IMPACT_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_POWERBALL_IMPACT_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 26.200000762939453,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0026.200s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_POWERBALL_IMPACT_shot_escort_WEAPON_0|PROJECTILE - SIMPLE_POWERBALL_IMPACT_shot_escort_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 27.000000774860382,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "escort",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0027.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_POWERBALL_IMPACT_shot_enemy_REACTION_2",
+      "kind": "VisualCue",
+      "timeSeconds": 27.700000762939453,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0027.700s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "handoff_simple_Cutscene_Weapon_Lab__Six_Cinematic_Shot_Types",
+      "kind": "HandoffRequested",
+      "timeSeconds": 30,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0030.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 0,
+      "imageFile": "frame_0000.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 0,
+      "imageFile": "frame_0000.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 1.08,
+      "imageFile": "frame_0001.080s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 1.08,
+      "imageFile": "frame_0001.080s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 1.2,
+      "imageFile": "frame_0001.200s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 1.2,
+      "imageFile": "frame_0001.200s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 1.32,
+      "imageFile": "frame_0001.320s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 1.32,
+      "imageFile": "frame_0001.320s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 1.88,
+      "imageFile": "frame_0001.880s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 1.88,
+      "imageFile": "frame_0001.880s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 2,
+      "imageFile": "frame_0002.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 2,
+      "imageFile": "frame_0002.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 2.12,
+      "imageFile": "frame_0002.120s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 2.12,
+      "imageFile": "frame_0002.120s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 4,
+      "imageFile": "frame_0004.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 4,
+      "imageFile": "frame_0004.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 6,
+      "imageFile": "frame_0006.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 6,
+      "imageFile": "frame_0006.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 6.08,
+      "imageFile": "frame_0006.080s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 6.08,
+      "imageFile": "frame_0006.080s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 6.2,
+      "imageFile": "frame_0006.200s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 6.2,
+      "imageFile": "frame_0006.200s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 6.32,
+      "imageFile": "frame_0006.320s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 6.32,
+      "imageFile": "frame_0006.320s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 6.88,
+      "imageFile": "frame_0006.880s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 6.88,
+      "imageFile": "frame_0006.880s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 7,
+      "imageFile": "frame_0007.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 7,
+      "imageFile": "frame_0007.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 7.12,
+      "imageFile": "frame_0007.120s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 7.12,
+      "imageFile": "frame_0007.120s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 8,
+      "imageFile": "frame_0008.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 8,
+      "imageFile": "frame_0008.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 10,
+      "imageFile": "frame_0010.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 10,
+      "imageFile": "frame_0010.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 11.08,
+      "imageFile": "frame_0011.080s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 11.08,
+      "imageFile": "frame_0011.080s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 11.2,
+      "imageFile": "frame_0011.200s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 11.2,
+      "imageFile": "frame_0011.200s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 11.32,
+      "imageFile": "frame_0011.320s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 11.32,
+      "imageFile": "frame_0011.320s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 11.88,
+      "imageFile": "frame_0011.880s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 11.88,
+      "imageFile": "frame_0011.880s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 12,
+      "imageFile": "frame_0012.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 12,
+      "imageFile": "frame_0012.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 12.12,
+      "imageFile": "frame_0012.120s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 12.12,
+      "imageFile": "frame_0012.120s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 14,
+      "imageFile": "frame_0014.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 14,
+      "imageFile": "frame_0014.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16,
+      "imageFile": "frame_0016.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16,
+      "imageFile": "frame_0016.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.08,
+      "imageFile": "frame_0016.080s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.08,
+      "imageFile": "frame_0016.080s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.16,
+      "imageFile": "frame_0016.160s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.16,
+      "imageFile": "frame_0016.160s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.2,
+      "imageFile": "frame_0016.200s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.2,
+      "imageFile": "frame_0016.200s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.24,
+      "imageFile": "frame_0016.240s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.24,
+      "imageFile": "frame_0016.240s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.28,
+      "imageFile": "frame_0016.280s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.28,
+      "imageFile": "frame_0016.280s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.32,
+      "imageFile": "frame_0016.320s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.32,
+      "imageFile": "frame_0016.320s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.36,
+      "imageFile": "frame_0016.360s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.36,
+      "imageFile": "frame_0016.360s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.4,
+      "imageFile": "frame_0016.400s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.4,
+      "imageFile": "frame_0016.400s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.44,
+      "imageFile": "frame_0016.440s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.44,
+      "imageFile": "frame_0016.440s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.48,
+      "imageFile": "frame_0016.480s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.48,
+      "imageFile": "frame_0016.480s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.52,
+      "imageFile": "frame_0016.520s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.52,
+      "imageFile": "frame_0016.520s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.56,
+      "imageFile": "frame_0016.560s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.56,
+      "imageFile": "frame_0016.560s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.64,
+      "imageFile": "frame_0016.640s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 16.64,
+      "imageFile": "frame_0016.640s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.48,
+      "imageFile": "frame_0017.480s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.48,
+      "imageFile": "frame_0017.480s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.56,
+      "imageFile": "frame_0017.560s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.56,
+      "imageFile": "frame_0017.560s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.6,
+      "imageFile": "frame_0017.600s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.6,
+      "imageFile": "frame_0017.600s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.64,
+      "imageFile": "frame_0017.640s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.64,
+      "imageFile": "frame_0017.640s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.68,
+      "imageFile": "frame_0017.680s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.68,
+      "imageFile": "frame_0017.680s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.72,
+      "imageFile": "frame_0017.720s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.72,
+      "imageFile": "frame_0017.720s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.76,
+      "imageFile": "frame_0017.760s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.76,
+      "imageFile": "frame_0017.760s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.8,
+      "imageFile": "frame_0017.800s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.8,
+      "imageFile": "frame_0017.800s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.84,
+      "imageFile": "frame_0017.840s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.84,
+      "imageFile": "frame_0017.840s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.88,
+      "imageFile": "frame_0017.880s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.88,
+      "imageFile": "frame_0017.880s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.92,
+      "imageFile": "frame_0017.920s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.92,
+      "imageFile": "frame_0017.920s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.96,
+      "imageFile": "frame_0017.960s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 17.96,
+      "imageFile": "frame_0017.960s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 18,
+      "imageFile": "frame_0018.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 18,
+      "imageFile": "frame_0018.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 18.04,
+      "imageFile": "frame_0018.040s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 18.04,
+      "imageFile": "frame_0018.040s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 20,
+      "imageFile": "frame_0020.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 20,
+      "imageFile": "frame_0020.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 21.08,
+      "imageFile": "frame_0021.080s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 21.08,
+      "imageFile": "frame_0021.080s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 21.2,
+      "imageFile": "frame_0021.200s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 21.2,
+      "imageFile": "frame_0021.200s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 21.32,
+      "imageFile": "frame_0021.320s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 21.32,
+      "imageFile": "frame_0021.320s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 21.88,
+      "imageFile": "frame_0021.880s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 21.88,
+      "imageFile": "frame_0021.880s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 22,
+      "imageFile": "frame_0022.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 22,
+      "imageFile": "frame_0022.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 22.12,
+      "imageFile": "frame_0022.120s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 22.12,
+      "imageFile": "frame_0022.120s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 24,
+      "imageFile": "frame_0024.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 26,
+      "imageFile": "frame_0026.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 26,
+      "imageFile": "frame_0026.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 26.08,
+      "imageFile": "frame_0026.080s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 26.08,
+      "imageFile": "frame_0026.080s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 26.2,
+      "imageFile": "frame_0026.200s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 26.2,
+      "imageFile": "frame_0026.200s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 26.32,
+      "imageFile": "frame_0026.320s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 26.32,
+      "imageFile": "frame_0026.320s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 26.88,
+      "imageFile": "frame_0026.880s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 26.88,
+      "imageFile": "frame_0026.880s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 27,
+      "imageFile": "frame_0027.000s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 27,
+      "imageFile": "frame_0027.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 27.12,
+      "imageFile": "frame_0027.120s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 27.12,
+      "imageFile": "frame_0027.120s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 27.58,
+      "imageFile": "frame_0027.580s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 27.7,
+      "imageFile": "frame_0027.700s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 27.82,
+      "imageFile": "frame_0027.820s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 28,
+      "imageFile": "frame_0028.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 29.88,
+      "imageFile": "frame_0029.880s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 30,
+      "imageFile": "frame_0030.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    }
+  ],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 1.08,
+      "fileName": "frame_0001.080s.png"
+    },
+    {
+      "timeSeconds": 1.2,
+      "fileName": "frame_0001.200s.png"
+    },
+    {
+      "timeSeconds": 1.32,
+      "fileName": "frame_0001.320s.png"
+    },
+    {
+      "timeSeconds": 1.88,
+      "fileName": "frame_0001.880s.png"
+    },
+    {
+      "timeSeconds": 2,
+      "fileName": "frame_0002.000s.png"
+    },
+    {
+      "timeSeconds": 2.12,
+      "fileName": "frame_0002.120s.png"
+    },
+    {
+      "timeSeconds": 4,
+      "fileName": "frame_0004.000s.png"
+    },
+    {
+      "timeSeconds": 6,
+      "fileName": "frame_0006.000s.png"
+    },
+    {
+      "timeSeconds": 6.08,
+      "fileName": "frame_0006.080s.png"
+    },
+    {
+      "timeSeconds": 6.2,
+      "fileName": "frame_0006.200s.png"
+    },
+    {
+      "timeSeconds": 6.32,
+      "fileName": "frame_0006.320s.png"
+    },
+    {
+      "timeSeconds": 6.88,
+      "fileName": "frame_0006.880s.png"
+    },
+    {
+      "timeSeconds": 7,
+      "fileName": "frame_0007.000s.png"
+    },
+    {
+      "timeSeconds": 7.12,
+      "fileName": "frame_0007.120s.png"
+    },
+    {
+      "timeSeconds": 8,
+      "fileName": "frame_0008.000s.png"
+    },
+    {
+      "timeSeconds": 10,
+      "fileName": "frame_0010.000s.png"
+    },
+    {
+      "timeSeconds": 11.08,
+      "fileName": "frame_0011.080s.png"
+    },
+    {
+      "timeSeconds": 11.2,
+      "fileName": "frame_0011.200s.png"
+    },
+    {
+      "timeSeconds": 11.32,
+      "fileName": "frame_0011.320s.png"
+    },
+    {
+      "timeSeconds": 11.88,
+      "fileName": "frame_0011.880s.png"
+    },
+    {
+      "timeSeconds": 12,
+      "fileName": "frame_0012.000s.png"
+    },
+    {
+      "timeSeconds": 12.12,
+      "fileName": "frame_0012.120s.png"
+    },
+    {
+      "timeSeconds": 14,
+      "fileName": "frame_0014.000s.png"
+    },
+    {
+      "timeSeconds": 16,
+      "fileName": "frame_0016.000s.png"
+    },
+    {
+      "timeSeconds": 16.08,
+      "fileName": "frame_0016.080s.png"
+    },
+    {
+      "timeSeconds": 16.16,
+      "fileName": "frame_0016.160s.png"
+    },
+    {
+      "timeSeconds": 16.2,
+      "fileName": "frame_0016.200s.png"
+    },
+    {
+      "timeSeconds": 16.24,
+      "fileName": "frame_0016.240s.png"
+    },
+    {
+      "timeSeconds": 16.28,
+      "fileName": "frame_0016.280s.png"
+    },
+    {
+      "timeSeconds": 16.32,
+      "fileName": "frame_0016.320s.png"
+    },
+    {
+      "timeSeconds": 16.36,
+      "fileName": "frame_0016.360s.png"
+    },
+    {
+      "timeSeconds": 16.4,
+      "fileName": "frame_0016.400s.png"
+    },
+    {
+      "timeSeconds": 16.44,
+      "fileName": "frame_0016.440s.png"
+    },
+    {
+      "timeSeconds": 16.48,
+      "fileName": "frame_0016.480s.png"
+    },
+    {
+      "timeSeconds": 16.52,
+      "fileName": "frame_0016.520s.png"
+    },
+    {
+      "timeSeconds": 16.56,
+      "fileName": "frame_0016.560s.png"
+    },
+    {
+      "timeSeconds": 16.64,
+      "fileName": "frame_0016.640s.png"
+    },
+    {
+      "timeSeconds": 17.48,
+      "fileName": "frame_0017.480s.png"
+    },
+    {
+      "timeSeconds": 17.56,
+      "fileName": "frame_0017.560s.png"
+    },
+    {
+      "timeSeconds": 17.6,
+      "fileName": "frame_0017.600s.png"
+    },
+    {
+      "timeSeconds": 17.64,
+      "fileName": "frame_0017.640s.png"
+    },
+    {
+      "timeSeconds": 17.68,
+      "fileName": "frame_0017.680s.png"
+    },
+    {
+      "timeSeconds": 17.72,
+      "fileName": "frame_0017.720s.png"
+    },
+    {
+      "timeSeconds": 17.76,
+      "fileName": "frame_0017.760s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
