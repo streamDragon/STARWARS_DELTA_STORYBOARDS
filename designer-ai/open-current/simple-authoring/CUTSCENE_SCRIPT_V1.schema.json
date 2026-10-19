@@ -600,7 +600,8 @@
                                                     "count":  {
                                                                   "type":  "integer",
                                                                   "minimum":  1,
-                                                                  "maximum":  64
+                                                                  "maximum":  64,
+                                                                  "description":  "Projectile count for fire (default 1). Each launch uses the CURRENT Projectile Library interval (0.08 seconds); interval is not an authorable V1 property. effective startOffset + (count - 1) * interval + duration must not exceed the beat duration."
                                                               },
                                                     "motionIntent":  {
                                                                          "enum":  [
@@ -678,14 +679,14 @@
                                                     "periodSeconds":  {
                                                                           "type":  "number",
                                                                           "exclusiveMinimum":  0,
-                                                                          "description":  "Loop period for closed shapes; traversal duration for open shapes."
+                                                                          "description":  "Loop period for closed shapes; traversal duration for open shapes. The resulting varying Transform key intervals must meet the native 0.0001-second minimum; finer sampling is unsupported and receives a precise diagnostic instead of changing period, phase or duration."
                                                                       },
                                                     "phase":  {
                                                                   "type":  "number",
                                                                   "minimum":  0,
                                                                   "maximum":  1,
                                                                   "default":  0,
-                                                                  "description":  "Start phase for closed looping shapes. Open shapes traverse their full path."
+                                                                  "description":  "Base phase for a looping path, including an open shape explicitly authored with loop=true. When one subject resolves to N actors, resolved actor i starts at wrap(phase + i/N), with i starting at 0 in resolved actor order. Non-looping paths ignore phase. Their traversal follows periodSeconds within the authored duration: it ends at partial progress when duration is shorter than the period and holds the endpoint when duration is longer."
                                                               },
                                                     "clockwise":  {
                                                                       "type":  "boolean",
@@ -801,11 +802,13 @@
                                                                    },
                                                     "startOffset":  {
                                                                         "type":  "number",
-                                                                        "minimum":  0
+                                                                        "minimum":  0,
+                                                                        "description":  "Seconds from the containing beat start. An explicit value must be finite, nonnegative and before the beat end, and is preserved without clamping. When omitted, the existing start is 0.36 * beat duration for fire, 0.55 for impact, 0.72 for destroy, and 0 for other actions."
                                                                     },
                                                     "duration":  {
                                                                      "type":  "number",
-                                                                     "exclusiveMinimum":  0
+                                                                     "exclusiveMinimum":  0,
+                                                                     "description":  "Positive finite authored seconds, preserved without padding or shortening. For fire this is each projectile's flight duration: shot i launches at effective startOffset + i * the CURRENT Projectile Library interval (0.08 seconds). The final flight must end inside the beat. Other action intervals must also fit after their effective startOffset. A fixed impact-effect lifetime is separate from projectile flight time. Generated varying native Transform keys must be at least 0.0001 seconds (100 microseconds) apart. Lint, Import and Build check the generated key intervals, not duration alone, and reject unsupported intervals without changing authored values."
                                                                  },
                                                     "scaleMultiplier":  {
                                                                             "type":  "number",
