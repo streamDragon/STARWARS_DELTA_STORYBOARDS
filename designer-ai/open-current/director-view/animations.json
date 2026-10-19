@@ -2,11 +2,11 @@
   "schema": "STARWARS_DELTA_DIRECTOR_CATEGORY",
   "schemaVersion": 2,
   "status": "CURRENT_FULL_CATALOG_PROJECTION",
-  "publishTransactionId": "20261019-072010283-f2084230",
-  "catalogRevision": "7622057418985198640",
-  "snapshotContentHash": "15F6CD80F63302FF25CDA04232351AC4E50B5A3234E9C5B70480F2BE2ED25D22",
+  "publishTransactionId": "20261019-203534528-54e37e9c",
+  "catalogRevision": "7622005875596124303",
+  "snapshotContentHash": "366D4C432E5337729400971C17B2C1620626FCB3BB4061B2E018188186BC8D9D",
   "category": "animations",
-  "count": 119,
+  "count": 120,
   "assets": [
     {
       "assetId": "04d3c115b07218a4d8022abbfc7badf3:7400000",
@@ -3916,14 +3916,13 @@
       ],
       "visionReviewState": "Unreviewed",
       "animationFamilyId": "space-robot-spacerobot02-walk-start",
-      "animationSemanticAction": "",
+      "animationSemanticAction": "walk",
       "animationSemanticActions": [
-        "idle",
         "walk"
       ],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
-      "animationState": "Idle",
+      "animationState": "SpaceRobot02_Walk_Start",
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationVisualDiagnostic": "",
@@ -3934,7 +3933,6 @@
       "animationRelationshipEvidence": [],
       "roles": [],
       "semanticFacets": [
-        "idle",
         "loop",
         "walk"
       ],
@@ -4322,7 +4320,7 @@
       ],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
-      "animationState": "Walk",
+      "animationState": "SpaceRobot02_Walk_Loop",
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationVisualDiagnostic": "",
@@ -5655,7 +5653,7 @@
       ],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
-      "animationState": "Launch",
+      "animationState": "SpaceRobot01_Launch",
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationVisualDiagnostic": "",
@@ -6933,14 +6931,13 @@
       ],
       "visionReviewState": "Unreviewed",
       "animationFamilyId": "",
-      "animationSemanticAction": "",
+      "animationSemanticAction": "walk",
       "animationSemanticActions": [
-        "idle",
         "walk"
       ],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
-      "animationState": "Idle",
+      "animationState": "SpaceRobot01_Walk_Loop",
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationVisualDiagnostic": "",
@@ -6951,7 +6948,6 @@
       "animationRelationshipEvidence": [],
       "roles": [],
       "semanticFacets": [
-        "idle",
         "loop",
         "walk"
       ],
@@ -7316,7 +7312,7 @@
       ],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
-      "animationState": "Damage",
+      "animationState": "SpaceRobot01_Damage",
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationVisualDiagnostic": "",
@@ -8620,6 +8616,66 @@
       "selectionStatus": "PIXEL_COMPLETION_REQUIRED"
     },
     {
+      "assetId": "f561c21163f56544dae9561d0ada9690:7400000",
+      "displayName": "TURRET 1",
+      "description": "",
+      "path": "Assets/_Game/MY_Core/MY_Art/3D_TURRET/TURRET_1.anim",
+      "tags": [
+        "animation",
+        "loop"
+      ],
+      "capabilities": [
+        "Cutscene.Animation"
+      ],
+      "family": "",
+      "familyId": "",
+      "collections": [],
+      "compatibleActorAssetIds": [
+        "5a689c79d7f65c042a8857f9c8740956:8843204449436966739"
+      ],
+      "visionReviewState": "Unreviewed",
+      "animationFamilyId": "sci-fi-turret-sprite-kits",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "TURRET_1",
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationVisualDiagnostic": "",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipDiagnostic": "Proven Actor owner: 5a689c79d7f65c042a8857f9c8740956:8843204449436966739",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationRelationshipEvidence": [],
+      "roles": [],
+      "semanticFacets": [
+        "loop"
+      ],
+      "allowedUses": [
+        "Cutscene.Animation"
+      ],
+      "supportedActions": [
+        "UseOnlyAsAnimationAssetId"
+      ],
+      "contractConfidence": 0.75,
+      "reviewReasons": [
+        "EntityKindUnknown",
+        "PublishCertificationRequired"
+      ],
+      "reviewSeverity": "MetadataUncertain",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 4,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED"
+    },
+    {
       "assetId": "f69d7725d66bf8e498ef38ea03095652:-450284675636174923",
       "displayName": "Nautolan Ship   Scout   Shield Clip",
       "description": "Animated shield effect surrounding the Nautolan scout.",
@@ -8720,7 +8776,7 @@
       ],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
-      "animationState": "Die",
+      "animationState": "SpaceRobot01_Deactivation",
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationVisualDiagnostic": "",
@@ -8731,8 +8787,6 @@
       "animationRelationshipEvidence": [],
       "roles": [],
       "semanticFacets": [
-        "deactivate",
-        "die",
         "loop"
       ],
       "allowedUses": [
