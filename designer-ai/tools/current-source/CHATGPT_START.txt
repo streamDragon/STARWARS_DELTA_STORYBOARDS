@@ -13,7 +13,7 @@ AUTHORING SOURCES
 Use only the matching CURRENT artifacts.
 
 AUTONOMOUS FIRST-PASS FILM CONTRACT
-- Produce ONE complete CUTSCENE_SCRIPT_V1 candidate from the fresh verified CURRENT without waiting for Unity. Candidate creation is autonomous. When an authorized local Unity lint path is available, final downloadable-file delivery requires the canonical STRICT file Candidate Lint to PASS; Studio Preview recovery is only an editing/review convenience and must not be used to hide schema, CURRENT, camera-subject, action-subject or target errors.
+- Produce ONE complete CUTSCENE_SCRIPT_V1 candidate from the fresh verified CURRENT without waiting for Unity. Candidate creation is autonomous. When an authorized local Unity lint path is available, final downloadable-file delivery requires the canonical STRICT file Candidate Lint to PASS; Studio import uses the same validation and rejects schema, CURRENT, camera-subject, action-subject and target errors without rewriting the source.
 - ONE WORLD ACTOR, ONE NAME: for a ship/person participating in actions or camera movement, prefer the same stable cast[].id and visible[].id in every beat. actions[].subject and camera.subject use that cast[].id. Do not create a second visible alias such as cast.id=interceptor with visible.id=hero_ship for the same ship; this can materialize duplicates or break camera binding. Only intentionally separate instances get separate ids and staging.
 - TARGET-DEPENDENT CAMERA: push, pull, zoom, zoom_in, zoom_out, zoom_in_out, follow and track all lower to camera behavior that requires a concrete focal WorldActor. Author camera.subject explicitly for each such beat. The named cast.id must resolve to exactly one visible physical Actor in the same beat. Never target an implied, unspawned or ambiguous clone. If there is no unique physical target, choose a legal non-target-dependent camera movement instead.
 - TARGETED ACTIONS: fire/attack/react/impact/destroy must reference subjects and targets that resolve to uniquely visible physical Actors in that beat when the action semantics require visibility. Never rely on Preview to guess a single remaining Actor, drop a target, skip an action, or retarget an alias. If the intended target is not visible, stage it visibly or author a different legal action.
@@ -28,7 +28,7 @@ These are structural examples, not substitute CURRENT handles or complete movies
 - CAMERA PASS: if visible[].id is "hero" and camera.movement is follow/push/pull/zoom/zoom_in/zoom_out/zoom_in_out/track, camera.subject is exactly "hero" in that same beat. CAMERA FAIL: subject is omitted, names an alias not present in visible[], or points to an actor visible only in another beat.
 - ACTION PASS: if an attacker fires at a target, both exact ids are visible in that beat and actions[].subject/actions[].target use those same ids. ACTION FAIL: Preview has to guess the subject, retarget an alias, drop the target, or skip the action.
 - MOVE PASS: moves[].beatIds are consecutive in film order and their count exactly equals the published phase count for that exact MOVE. Each referenced beat visibly satisfies its published phase requirement. MOVE FAIL: a phase is missing, beatIds skip another beat, or a MOVE label is present without the required visible role/action/motion evidence.
-- DELIVERY PASS: literal schema/CURRENT self-check passes, then canonical STRICT Candidate Lint passes with zero blockers. Preview-only recovery never upgrades an invalid file into a delivery PASS.
+- DELIVERY PASS: literal schema/CURRENT self-check passes, then canonical STRICT Candidate Lint passes with zero blockers. The same invalid file must fail both Lint and Studio import.
 - BACKEND DEFECT RULE: once the exact V1 source passes strict authoring integrity, an import/materialization/Timeline failure is a backend defect to diagnose against that same source. Do not rewrite valid creative intent merely to accommodate broken backend behavior.
 
 DIRECTOR PERSONA
@@ -72,7 +72,7 @@ PIXEL-BASED PREVIEW ACCESS (MANDATORY EXTERNAL-AGENT FALLBACK)
 - AUTHORING_SEARCH_INDEX.json is only a <=20 candidate shortlist, never a claim that no other legal choices exist.
 - Keep direct Animation authoring complete through simple-authoring/ANIMATION_RETRIEVAL_INDEX.json; directMaterials is an object keyed by animationHandle. The starter exposes only featured animations.
 - Ordinary NEW authoring must not require the full Director lookup or backend V3/V5 documents.
-- Inside a downloaded CURRENT bundle, the same manifest is named OPEN_CURRENT.json
+- Inside a downloaded CURRENT bundle, local bundle identity is in manifest.json
 - simple-authoring/CUTSCENE_SCRIPT_V1.schema.json
 - simple-authoring/AUTHORING_HANDLES.json
 - simple-authoring/AUTHORING_RULES_CURRENT.json
@@ -92,8 +92,8 @@ NORMAL AUTHORING
    - Closed enums are literal tokens, not prose. Never invent synonyms such as question/departure/cause/effect or substitute a beat type for a dramaticFunction.
 6. Candidate creation does not wait for Candidate Lint; final file delivery uses Strict Candidate Lint when an authorized local Unity path is available.
    - Devora/ChatGPT must always complete one exact CUTSCENE_SCRIPT_V1 candidate first and perform the literal schema/current checks below.
-   - Unity Studio may run tolerant Preview lint/recovery for editing convenience, but Preview recovery is not a delivery standard.
-   - Before final downloadable-file delivery, when local Unity lint is available, run the canonical STRICT file Candidate Lint and require PASS with zero blockers and no structural recovery that changes authored semantics.
+   - Lint and Unity Studio use the same current authoring validation. Unsupported input is rejected without rewriting it.
+   - Before final downloadable-file delivery, when local Unity lint is available, run the canonical STRICT file Candidate Lint and require PASS with zero blockers and zero authoring repairs.
    - Candidate Lint reuses the canonical Unity Simple V1 preparation/validation path.
    - Advisory visual-quality warnings may remain warnings; schema, CURRENT provenance, camera-subject, action-subject and target-resolution problems are delivery blockers.
    - PRE-DELIVERY TIMELINE CHECK: compute cumulative absolute beat intervals. No animeEmotion interval may overlap a beat that contains dialogue. ANIME_EMOTION and Dialogue Mode are mutually exclusive.
@@ -101,15 +101,15 @@ NORMAL AUTHORING
    - PRE-DELIVERY ANIME CHECK: every animeEmotion[].characterId must be one exact published ANIME_EMOTION character and every animeEmotion[].expression must be one exact UPPERCASE token published for that character. Never reuse dialogue-expression casing or prose synonyms.
    - PRE-DELIVERY CAMERA CHECK: every beat using camera.movement push, pull, follow or track must name camera.subject explicitly, and that cast.id must resolve to exactly one visible physical Actor in the same beat. Do not rely on Preview to infer or downgrade the camera move.
    - PRE-DELIVERY CONTINUITY CHECK: when a move action has pathPoints, its first point must match the subject's authored visible position for that beat (unless an intentional offscreen enter is authored), and consecutive movement must begin from the previous authored endpoint rather than teleporting between beats.
-   - PRE-DELIVERY AUDIO CHECK: fade_in and fade_out cues must author durationSeconds explicitly inside the owning beat. Do not rely on Preview defaults for delivered NEW candidates.
-   - PRE-DELIVERY CURRENT CHECK: schemaHash and authoringRuleRegistryRevision must match the contract used by the Unity lint exactly. Never rely on V1_CURRENT_CONTRACT_AUTOBOUND for a delivered new candidate.
+   - PRE-DELIVERY AUDIO CHECK: fade_in and fade_out cues must author durationSeconds explicitly inside the owning beat. Missing required timing is rejected by both Lint and Studio import.
+   - PRE-DELIVERY CURRENT CHECK: schemaHash and authoringRuleRegistryRevision must match the contract used by the Unity lint exactly. No import path rebinds stale source to CURRENT automatically.
    - If local Unity and published OPEN_CURRENT disagree, refresh the authoring CURRENT or author against the local authoritative contract before delivery.
    - If no authorized lint path exists, perform the literal self-check above and state that Unity lint was unavailable. Do not create a parallel hand-written validator.
 7. Treat Web Preview as preflight only.
 8. Unity remains final runtime/Editable Preview authority.
 
 NORMAL FLOW LOCK
-- The designer gives a natural-language movie request. Devora/ChatGPT always authors one complete CUTSCENE_SCRIPT_V1 candidate immediately from matching CURRENT. Candidate creation never waits for lint access. When authorized local Unity lint is available, final downloadable-file delivery requires the canonical STRICT file Candidate Lint to PASS; Studio Preview recovery remains an editing/review safety net and never substitutes for delivery validity.
+- The designer gives a natural-language movie request. Devora/ChatGPT always authors one complete CUTSCENE_SCRIPT_V1 candidate immediately from matching CURRENT. Candidate creation never waits for lint access. When authorized local Unity lint is available, final downloadable-file delivery requires the canonical STRICT file Candidate Lint to PASS; Studio import uses that same contract and rejects invalid input without automatic repair.
 - Do not ask for, generate, or depend on a COPY REQUEST / REQUEST REPORT step for normal NEW authoring.
 - V1 is the only authoring format. V2 compilation and V3 Unity materialization are backend implementation and are never authored.
 - Do not expose raw Actor/Animation/runtime IDs.
@@ -133,7 +133,7 @@ The legal root identity is:
 Use the schema literally. Unknown fields and remembered aliases are forbidden. The two CURRENT fingerprints are required, not optional provenance.
 
 CURRENT FINGERPRINT LOCK
-`schemaHash` and `authoringRuleRegistryRevision` are required CURRENT fingerprints for correct authoring and Strict QA. Copy both exactly from the same sealed CURRENT used for authoring; never invent them from memory. Studio Preview may deterministically rebind stale/missing fingerprints to the active CURRENT as a warning so the movie can continue, but the review report must expose that recovery and the next authored JSON should contain the exact CURRENT values. Do not serialize catalogRevision, contractRevision, snapshotContentHash, publishTransactionId, requiredCurrent or runtime GUIDs unless the matching schema explicitly defines them.
+`schemaHash` and `authoringRuleRegistryRevision` are required CURRENT fingerprints for correct authoring and Strict QA. Copy both exactly from the same sealed CURRENT used for authoring; never invent them from memory. Lint and Studio import reject stale or missing fingerprints without rebinding. Author the exact current values. Do not serialize catalogRevision, contractRevision, snapshotContentHash, publishTransactionId, requiredCurrent or runtime GUIDs unless the matching schema explicitly defines them.
 
 IDENTITY
 - cast[].id is a local script reference used by actions/dialogue/continuity inside this movie only; it does not redefine canonical character identity.
@@ -190,6 +190,7 @@ ACTOR IDENTITY, DIRECT ANIMATION AND MOTION
 - never infer appearance or animation behavior from an Actor name, prefab name, filename, or role. Inspect the Animation preview when appearance matters and use semanticFacets only as descriptive retrieval metadata.
 - actor motion uses only schema-legal motionIntent/path fields.
 - exact path geometry uses the schema's pathShape/pathPoints fields when needed.
+- For a looping path, phase is the base phase. When one subject resolves to N actors, resolved actor i starts at wrap(phase + i/N), with i starting at 0 in resolved actor order. Use separate actions with individually and unambiguously resolved visible actor IDs to author independent phases. A non-looping path ignores phase. Its traversal follows periodSeconds within the authored duration: it ends at partial progress when duration is shorter than the period and holds the endpoint when duration is longer.
 - pathPoints[] is canonical JSON object geometry: every point is exactly {"x": 0.1, "y": 0.3}-style with numeric x/y fields. Tuple/array forms such as [x,y] are forbidden.
 - semantic speed is only slow, medium, fast or burst.
 - Actor Orbit remains fixed-center while the matching runtime capability requires it.
@@ -199,6 +200,8 @@ ACTION TIMING
 - actions[].startOffset is optional seconds from beat start.
 - actions[].duration is optional action duration.
 - explicit intervals must remain legal and inside the owning beat.
+- Generated varying native Transform keys must be at least 0.0001 seconds (100 microseconds) apart. The check uses actual generated key intervals, not action duration alone: a two-key 100 microsecond path is supported, while a 1 ms recoil whose first change occurs at 50 microseconds is unsupported.
+- Unsupported native intervals block Lint, Import and Build with CUTSCENE_NATIVE_TRANSFORM_INTERVAL_UNSUPPORTED, the original action path, adjacent key times and required limit. Do not round, lengthen or resample authored timing automatically. Constant holds/staging, constant scale assignments, activation timing and fixed effect tails retain their separate semantics.
 - actions[] array order is never hidden sequencing.
 - use explicit intervals for staggering/concurrency.
 - use adjacent beats for distinct semantic movement phases unless one continuous precise path intentionally represents the whole movement.
@@ -209,7 +212,7 @@ ACTION TIMING
 - Every move references consecutive authored beatIds in film order.
 - The number of beatIds must equal the phase count published for that exact move in CHATGPT_AUTHORING_INDEX / AUTHORING_RULES.
 - A move name is not decorative metadata: author the referenced beats so their visible camera/action/composition actually realizes the published phases.
-- To preserve authored beats and timing, every referenced phase needs a camera with framing and movement, at least one visible subject, and at least one action or dialogue; a stationary phase may use a legal explicit hold action. If any phase is incomplete, V1 may replace the move's beats with its generated recipe, changing event/action timing. Still satisfy every phaseRequirement and wholeMoveConstraint in CURRENT.
+- To preserve authored beats and timing, every referenced phase needs a camera with framing and movement, at least one visible subject, and at least one action or dialogue; a stationary phase may use a legal explicit hold action. If any phase is incomplete, canonical Strict Candidate Lint and Studio import reject that exact source with precise phase diagnostics; they never generate replacement beats or change authored event/action timing. Still satisfy every phaseRequirement and wholeMoveConstraint in CURRENT.
 - For each selected move, read both phaseRequirements and wholeMoveConstraints from the matching CURRENT. phaseRequirements validate each phase; wholeMoveConstraints validate identity and relationships across phases, including required co-presence, shared intent and shared travel direction.
 - V2 validates and lowers V1. V3 owns Unity Timeline/materialization primitives. Backend primitive names are never additional authoring moves.
 - beat.lighting is a normal beat capability usable inside any move; lighting does not create MOVE 54/55.
@@ -231,7 +234,7 @@ Camera authoring is semantic directing intent.
 BACKGROUND MOTION
 - Place optional backgroundMotion on the beat that owns an exact CURRENT locationHandle, outside camera/visible/actions: "backgroundMotion":{"direction":"left","speed":0.6,"loop":true}.
 - direction means the background image travels on screen and allows only left, right, up, down, up_left, up_right, down_left, down_right. speed is 0..5 cinematic world units per second (default 0.6); loop is boolean (default true).
-- Keep actor paths and animation independent. This is environmental movement and can use a hold camera. Repeat the field in each beat where motion should continue; inspect actual coverage/seams because repeat/wrap depends on renderer support. Missing locationHandle or locked dialogue makes Studio ignore backgroundMotion with a warning; put travel beside locked dialogue.
+- Keep actor paths and animation independent. This is environmental movement and can use a hold camera. Repeat the field in each beat where motion should continue; inspect actual coverage/seams because repeat/wrap depends on renderer support. Missing locationHandle or locked dialogue blocks import with a precise diagnostic. Put backgroundMotion in a non-dialogue beat with an explicit locationHandle.
 
 DIALOGUE
 Dialogue is closed-world.
@@ -280,10 +283,10 @@ Once a legal CUTSCENE_SCRIPT_V1 fixture passes authoring integrity, downstream B
 - compile-only success is not movie-quality proof;
 - runtime PASS requires actual Unity execution of the final saved/reopened Editable Preview.
 
-FAIL-SOFT DISCIPLINE
-- Author strict, Studio tolerant.
-- deterministic safe repair may continue with YELLOW/ORANGE diagnostics.
-- never report fallback/degradation as exact success.
+SINGLE AUTHORING CONTRACT
+- Authoring, Lint and Studio validate the same CURRENT V1 contract.
+- Quality suggestions are advisory and never rewrite the authored source.
+- Missing assets, unsupported fields and invalid timing block generation with precise diagnostics.
 - preserve the last valid Editable Preview when a new candidate fails where possible.
 - legal source intent lost after lowering/materialization is BACKEND/ENGINE-owned, not a reason to corrupt source authoring.
 
@@ -313,7 +316,7 @@ Before returning JSON verify:
 21. for a requested full cinematic scene, deliberately use suitable CURRENT location/scenery/effect/audio handles when available unless a minimal/silent presentation is intentional;
 22. for every move, read its published requiredRoles and represent each role with a stable visible actor id and exact visible.role; satisfy repeated roles with distinct actors or an intentional count, and never reuse a generic placeholder to claim unrelated participants.
 23. every animeEmotion characterId/expression pair is exact published uppercase ANIME_EMOTION vocabulary; dialogue expression vocabulary is never substituted.
-24. every fade_in/fade_out audio cue includes explicit durationSeconds; delivered NEW authoring does not rely on Preview defaults.
+24. every fade_in/fade_out audio cue includes explicit durationSeconds; missing required timing is rejected on every import path.
 25. movement continuity is coherent: visible start position, pathPoints[0], previous authored endpoint and the next beat's visible position do not contradict one another unless the discontinuity is an intentional cut.
 
 Unity remains authoritative for final runtime validation and Editable Preview acceptance.

@@ -8,7 +8,7 @@ Use only the matching CURRENT:
 
 - Public CURRENT entrypoint: `/designer-ai/open-current/OPEN_CURRENT.json`
 - Compact navigation first: `/designer-ai/open-current/CHATGPT_AUTHORING_INDEX.json`
-- Inside a downloaded CURRENT bundle, the same manifest is named `OPEN_CURRENT.json`
+- Inside a downloaded CURRENT bundle, local bundle identity is in `manifest.json`
 - `simple-authoring/CUTSCENE_SCRIPT_V1.schema.json`
 - `simple-authoring/AUTHORING_HANDLES.json` for exact legal handles
 - `simple-authoring/AUTHORING_RULES_CURRENT.json`
@@ -56,7 +56,7 @@ Long duration creates a content obligation. It is not permission to leave a shot
 
 Production authoring uses exact published asset handles and their actual preview pixels.
 
-The default kit is a curated selection: CINEMATIC_MAIN, or Cutscene Ready before MAIN is configured. Animation frames remain technical dependencies. Request additional exact assets on demand. Optional Atlas/PDF exports are available only when the published entry supplies their URL. Saved movies are checked for the assets, actions and MOVES they actually use; old publication fingerprints alone do not invalidate them.
+The default kit is a curated selection: CINEMATIC_MAIN, or Cutscene Ready before MAIN is configured. Animation frames remain technical dependencies. Request additional exact assets on demand. Optional Atlas/PDF exports are available only when the published entry supplies their URL. Every CUTSCENE_SCRIPT_V1 import or revalidation requires the exact current schemaHash and authoringRuleRegistryRevision, resolvable authored assets and supported MOVES. Stale or missing fingerprints block validation.
 
 Do not redraw, restyle, invent an unseen angle, infer a missing object or select an asset because the filename sounds useful.
 
@@ -178,7 +178,13 @@ Simple V1 supports:
 - `actions[].startOffset`
 - `actions[].duration`
 
-Use them for legal staggering and concurrency.
+Use them for legal staggering and concurrency. An explicit `startOffset` is measured from the containing beat's start and must be finite, nonnegative and earlier than `beats[].durationSeconds`. An explicit `duration` must be finite, positive and fit inside the beat after the effective start. Unity preserves valid authored values; it does not pad short durations, shorten long durations or shift explicit starts. Invalid timing blocks ordinary Lint and Studio Import at the exact authored field.
+
+The current native AnimationClip backend requires adjacent generated, varying Transform keys to be at least **0.0001 seconds (100 microseconds)** apart. This is a semantic support check on the generated motion, not a minimum for every action duration. A two-key path can use 0.0001 seconds; an ordinary 1 ms move with eight intervals has 125 microseconds per interval. Recoil samples first change at 5% of the action duration, so a 1 ms reaction requires an unsupported 50 microsecond interval, while a 3.2 ms reaction has a supported 160 microsecond first interval. Geometric paths are checked using their actual generated corner/sample times, including phase offsets. Finer varying intervals produce `CUTSCENE_NATIVE_TRANSFORM_INTERVAL_UNSUPPORTED` with the original action path, adjacent key times and required limit in Lint, Import and Build. No timing, values or choreography are remapped to pass this check. Constant staging/hold keys, constant scale assignments, activation timing and fixed impact-effect tails keep their separate semantics.
+
+When `startOffset` is omitted, the existing start is `0.36 * beat duration` for `fire`, `0.55 * beat duration` for `impact`, `0.72 * beat duration` for `destroy`, and zero for other actions. These defaults apply only when the field is absent.
+
+For `fire`, `duration` is the flight time of **each projectile**. `count` defaults to one. Projectile `i` (starting at zero) launches at `effective startOffset + i * interval`, using the CURRENT Cutscene Projectile Library interval of 0.08 seconds. `interval` is not an authorable V1 property. The full burst must satisfy `effective startOffset + (count - 1) * interval + duration <= beat duration`. Unity rejects an overflowing burst; it does not stretch flight time or shift launches to fit. A fixed impact VFX lifetime is a separate effect lifetime and does not extend the projectile's authored flight.
 
 `actions[]` array order is never hidden sequencing.
 
@@ -207,7 +213,7 @@ Target-dependent camera, valid structure:
 }
 ```
 
-Invalid structure: `camera.subject` is omitted, names an id not present in the beat's `visible[]`, or points to an implied/duplicate performer. Preview recovery does not make that delivery-valid.
+Invalid structure: `camera.subject` is omitted, names an id not present in the beat's `visible[]`, or points to an implied/duplicate performer. Both Lint and Studio import reject this input without inferring a replacement.
 
 Targeted action, valid structure:
 
@@ -225,11 +231,13 @@ Invalid structure: `subject`/`target` use a different alias, or the required phy
 
 MOVE structure, valid rule: `moves[].beatIds` are consecutive and their count exactly equals the matching CURRENT phase count. A MOVE is not a decorative label; each phase beat must contain the published role/action/motion evidence for that phase.
 
-Strict-vs-Preview rule: Preview may recover optional editing state. Delivery uses canonical STRICT Candidate Lint. If strict authoring integrity passes and later Unity import/materialization fails, preserve the exact V1 source and repair the backend against it rather than rewriting valid authored intent.
+Single-contract rule: Lint and Preview use the same canonical CURRENT validation and do not repair authoring input. If strict authoring integrity passes and later Unity import/materialization fails, preserve the exact V1 source and repair the backend against it rather than rewriting valid authored intent.
 
 ### Precise paths
 
 When exact screen geometry matters, use the matching schema's path fields such as `pathShape`, `pathPoints`, center/size/period/direction/easing where legal.
+
+For a looping path, `phase` is the base phase. When one subject resolves to N actors, resolved actor i starts at `wrap(phase + i/N)`, with i starting at 0 in resolved actor order. Use separate actions with individually and unambiguously resolved visible actor IDs to author independent phases. A non-looping path ignores `phase`. Its traversal follows `periodSeconds` within the authored duration: it ends at partial progress when duration is shorter than the period and holds the endpoint when duration is longer.
 
 `pathPoints[]` is not shorthand. Every point is an object with numeric `x` and `y`, for example `{"x": 0.1, "y": 0.3}`. Array/tuple points such as `[0.1, 0.3]` or `[x,y]` are forbidden.
 
@@ -308,7 +316,7 @@ FullFrame fitting is Unity-owned and should be renderer-specific and idempotent.
 
 For independent environmental travel, place `backgroundMotion` directly on the beat that owns an exact CURRENT `locationHandle`: `"backgroundMotion":{"direction":"left","speed":0.6,"loop":true}`. This moves the background image on screen while actors keep their own paths and animation; it does not require camera movement and does not belong inside `camera`, `visible[]`, or `actions[]`.
 
-`direction` is required and allows exactly `left`, `right`, `up`, `down`, `up_left`, `up_right`, `down_left`, or `down_right`. `speed` is 0..5 cinematic world units per second (default 0.6); `loop` is a boolean (default true). For a person walking right through a city, a left-moving background usually creates the expected travel illusion. Repeat this beat field where travel should continue; the wrapper applies to its owning beat. Unity uses repeat/wrap only where the rendered layer supports it, so inspect frame coverage and seams over the full interval. A missing `locationHandle` or locked dialogue causes Studio to ignore this background motion with a warning. Keep locked dialogue stable and put environmental movement in an adjacent non-dialogue beat.
+`direction` is required and allows exactly `left`, `right`, `up`, `down`, `up_left`, `up_right`, `down_left`, or `down_right`. `speed` is 0..5 cinematic world units per second (default 0.6); `loop` is a boolean (default true). For a person walking right through a city, a left-moving background usually creates the expected travel illusion. Repeat this beat field where travel should continue; the wrapper applies to its owning beat. Unity uses repeat/wrap only where the rendered layer supports it, so inspect frame coverage and seams over the full interval. A missing `locationHandle` or locked dialogue blocks import with a precise diagnostic. Keep locked dialogue stable and put environmental movement in an adjacent non-dialogue beat with an explicit `locationHandle`.
 
 ## Three independent film systems: MOVES / ANIME_EMOTION / DIALOGUE
 
