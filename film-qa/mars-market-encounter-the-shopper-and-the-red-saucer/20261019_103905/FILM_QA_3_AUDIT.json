@@ -1,0 +1,250 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "Mars Market Encounter — The Shopper and the Red Saucer",
+  "projectId": "41749acc051c4fbfb5339b41d5d76440",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "PASS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "No sampled black frames outside detected transitions; this is not full technical clearance",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 52,
+    "blackFrames": 0,
+    "handoffBoundaryBlanks": 0,
+    "edgeClipping": 3,
+    "actorOverlap": 1,
+    "actorOversized": 0,
+    "meanBrightness": 0.12234987977605599,
+    "originalFlags": 7,
+    "events": 8,
+    "eventCaptured": 8,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "SIMPLE_b09_shot_saucer_WEAPON_1|PROJECTILE - SIMPLE_b09_shot_saucer_WEAPON_1 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 41.20000076293945,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "saucer",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0041.200s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_b09_shot_saucer_WEAPON_1|PROJECTILE - SIMPLE_b09_shot_saucer_WEAPON_1 - 01 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 41.28000259399414,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "saucer",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0041.280s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_b09_shot_saucer_WEAPON_1|PROJECTILE - SIMPLE_b09_shot_saucer_WEAPON_1 - 02 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 41.36000061035156,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "saucer",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0041.360s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_b09_shot_saucer_WEAPON_1|PROJECTILE - SIMPLE_b09_shot_saucer_WEAPON_1 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 44.70000076293945,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "saucer",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0044.700s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_b09_shot_saucer_WEAPON_1|PROJECTILE - SIMPLE_b09_shot_saucer_WEAPON_1 - 01 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 44.78000259399414,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "saucer",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0044.780s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_b09_shot_saucer_WEAPON_1|PROJECTILE - SIMPLE_b09_shot_saucer_WEAPON_1 - 02 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 44.86000061035156,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "saucer",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0044.860s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_b10_shot_cargo_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 45.099998474121094,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0045.100s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "handoff_simple_Mars_Market_Encounter___The_Shopper_and_the_Red_Saucer",
+      "kind": "HandoffRequested",
+      "timeSeconds": 60,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0060.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 22,
+      "imageFile": "frame_0022.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 24,
+      "imageFile": "frame_0024.000s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 34,
+      "imageFile": "frame_0034.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 58,
+      "imageFile": "frame_0058.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    }
+  ],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 20,
+      "fileName": "frame_0020.000s.png"
+    },
+    {
+      "timeSeconds": 22,
+      "fileName": "frame_0022.000s.png"
+    },
+    {
+      "timeSeconds": 24,
+      "fileName": "frame_0024.000s.png"
+    },
+    {
+      "timeSeconds": 30,
+      "fileName": "frame_0030.000s.png"
+    },
+    {
+      "timeSeconds": 34,
+      "fileName": "frame_0034.000s.png"
+    },
+    {
+      "timeSeconds": 42,
+      "fileName": "frame_0042.000s.png"
+    },
+    {
+      "timeSeconds": 50,
+      "fileName": "frame_0050.000s.png"
+    },
+    {
+      "timeSeconds": 58,
+      "fileName": "frame_0058.000s.png"
+    },
+    {
+      "timeSeconds": 59.88,
+      "fileName": "frame_0059.880s.png"
+    },
+    {
+      "timeSeconds": 60,
+      "fileName": "frame_0060.000s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
