@@ -1,8 +1,8 @@
 {
   "schema": "STARWARS_DELTA_DIRECTOR_ANIMATION_EVIDENCE",
   "schemaVersion": 1,
-  "publishTransactionId": "20261019-072010283-f2084230",
-  "catalogRevision": "7622057418985198640",
+  "publishTransactionId": "20261019-203534528-54e37e9c",
+  "catalogRevision": "7622005875596124303",
   "rawAnimationHandlesIncluded": false,
   "directAuthoringRoute": "animationIntent/performanceIntent",
   "presentationRecordCount": 167,
@@ -5708,7 +5708,6 @@
       "assetId": "657bcde71c34c2746bf5652c0bc1749b:7400000",
       "displayName": "SpaceRobot02 Walk Start",
       "controllerStateNames": [
-        "Idle",
         "SpaceRobot02_Walk_Start"
       ],
       "semanticTags": [
@@ -6136,8 +6135,7 @@
       "assetId": "6e34eb8fdef5c8c4c83ea56017ce4af9:7400000",
       "displayName": "SpaceRobot02 Walk Loop",
       "controllerStateNames": [
-        "SpaceRobot02_Walk_Loop",
-        "Walk"
+        "SpaceRobot02_Walk_Loop"
       ],
       "semanticTags": [
         "animation",
@@ -7661,7 +7659,6 @@
       "assetId": "9d771ed1b2c3ce040ba41e876ca602ef:7400000",
       "displayName": "SpaceRobot01 Launch",
       "controllerStateNames": [
-        "Launch",
         "SpaceRobot01_Launch"
       ],
       "semanticTags": [
@@ -9949,9 +9946,7 @@
       "assetId": "bafb826466c710c4c98f45d390b30842:7400000",
       "displayName": "SpaceRobot01 Walk Loop",
       "controllerStateNames": [
-        "Idle",
-        "SpaceRobot01_Walk_Loop",
-        "Walk"
+        "SpaceRobot01_Walk_Loop"
       ],
       "semanticTags": [
         "animation",
@@ -10358,7 +10353,6 @@
       "assetId": "c8f47d52273b84748b2b0f95855475cc:7400000",
       "displayName": "SpaceRobot01 Damage",
       "controllerStateNames": [
-        "Damage",
         "SpaceRobot01_Damage"
       ],
       "semanticTags": [
@@ -12028,6 +12022,37 @@
       "backendEvidenceOnly": true
     },
     {
+      "assetId": "f561c21163f56544dae9561d0ada9690:7400000",
+      "displayName": "TURRET 1",
+      "controllerStateNames": [
+        "TURRET_1"
+      ],
+      "semanticTags": [
+        "animation",
+        "loop"
+      ],
+      "compatibleActorAssetIds": [],
+      "animationFrameKeyframes": [
+        {
+          "time": 0.125,
+          "spriteAssetId": "4635185e1b4e194429baad70da3b08af:-1081946422"
+        },
+        {
+          "time": 0.25,
+          "spriteAssetId": "4635185e1b4e194429baad70da3b08af:211363324"
+        },
+        {
+          "time": 0.375,
+          "spriteAssetId": "4635185e1b4e194429baad70da3b08af:-75094802"
+        },
+        {
+          "time": 0.5,
+          "spriteAssetId": "4635185e1b4e194429baad70da3b08af:1977198054"
+        }
+      ],
+      "backendEvidenceOnly": true
+    },
+    {
       "assetId": "f69d7725d66bf8e498ef38ea03095652:-450284675636174923",
       "displayName": "Nautolan Ship   Scout   Shield Clip",
       "controllerStateNames": [
@@ -12106,8 +12131,6 @@
       "assetId": "f845510b253ef724e8f9e09366013735:7400000",
       "displayName": "SpaceRobot01 Deactivation",
       "controllerStateNames": [
-        "Deactivate",
-        "Die",
         "SpaceRobot01_Deactivation"
       ],
       "semanticTags": [

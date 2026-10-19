@@ -1,24 +1,24 @@
 {
   "schema": "STARWARS_DELTA_ANIMATION_COVERAGE",
   "schemaVersion": 1,
-  "publishTransactionId": "20261019-072010283-f2084230",
+  "publishTransactionId": "20261019-203534528-54e37e9c",
   "selectionScope": "COMPACT_AUTHORING",
-  "sourceCount": 119,
-  "accountedCount": 119,
-  "directAuthorableAnimationCount": 78,
+  "sourceCount": 120,
+  "accountedCount": 120,
+  "directAuthorableAnimationCount": 79,
   "directTechnicalStatusCounts": {
-    "SIMPLE_ROOT_SPRITE_SEQUENCE": 78,
+    "SIMPLE_ROOT_SPRITE_SEQUENCE": 79,
     "COMPLEX_OR_UNSUPPORTED": 41
   },
   "directAuthoringPolicy": "Direct simple-Sprite Animation materials are authorable independently of Actor ownership when the catalog routes them to Animation. Unsafe/sample-only records remain excluded. Preview and semantic facets describe selection quality, not ownership permission.",
   "visualStatusCounts": {
-    "VISUALIZATION_FAILED": 118,
+    "VISUALIZATION_FAILED": 119,
     "VISUALIZED": 1
   },
   "semanticStatusCounts": {
     "FACETS_ONLY": 31,
     "SEMANTIC_PROVEN": 83,
-    "SEMANTIC_UNRESOLVED": 5
+    "SEMANTIC_UNRESOLVED": 6
   },
   "gaps": [
     {
@@ -61,6 +61,17 @@
       ],
       "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
       "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
+    },
+    {
+      "assetId": "f561c21163f56544dae9561d0ada9690:7400000",
+      "displayName": "TURRET 1",
+      "path": "Assets/_Game/MY_Core/MY_Art/3D_TURRET/TURRET_1.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED",
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
       "assetId": "4b945d31c5bcf624cba9936a2edb57cd:7400000",
@@ -1218,10 +1229,10 @@
   ],
   "status": "CURRENT_VERIFIED",
   "requiredCurrent": {
-    "catalogRevision": "7622057418985198640",
+    "catalogRevision": "7622005875596124303",
     "contractRevision": "95EC8B374D696481937DF48E2C15BBD9EF9545B5E2108BA2CE0AC4C2EBA7E3F0",
     "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
-    "snapshotContentHash": "15F6CD80F63302FF25CDA04232351AC4E50B5A3234E9C5B70480F2BE2ED25D22",
+    "snapshotContentHash": "366D4C432E5337729400971C17B2C1620626FCB3BB4061B2E018188186BC8D9D",
     "authoringRuleRegistryRevision": "E315C26FC5A7968D619512AA71D772703E0DD43F75CEB28BF6EC922752BB025A"
   }
 }
