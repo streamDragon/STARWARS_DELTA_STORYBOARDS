@@ -1,24 +1,78 @@
 <!doctype html>
-<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Level QA | STARWARS_DELTA</title>
-<style>body{margin:0;background:#111b29;color:#eaf2ff;font:16px system-ui}header,main{max-width:1120px;margin:auto;padding:20px}a{color:#7ce3ff}h1{font-size:30px}#status{background:#25344c;padding:16px;border-radius:10px}section{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}article{background:#202e42;padding:12px;border-radius:10px}img{width:100%;height:auto;display:block;border-radius:6px}small{color:#bbcbdd}footer{text-align:center;margin:35px}</style></head>
-<body><header><a href="./">← חזרה לאתר</a><h1>Level Visual QA</h1><p>צילומים אמיתיים של סצנות מתוך Unity. תמונות מקוריות בלבד, עם פרטי הריצה והסצנה.</p></header>
-<main><div id="status">טוען צילומים...</div><div id="runs"></div></main><footer>STARWARS_DELTA</footer>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="צילומי רמות מ־Unity והדמיות הגלים המשוערים עליהן, לפי סקירת QA.">
+<title>רמות וגלים | STARWARS_DELTA</title>
+<link rel="stylesheet" href="assets/site.css?build=he-game-20260926">
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#111b29;color:#eaf2ff;font:16px/1.6 system-ui,sans-serif}a{color:#7ce3ff}button,select{font:inherit}button,a,select{-webkit-tap-highlight-color:transparent}:focus-visible{outline:3px solid #7ce3ff;outline-offset:4px}[hidden]{display:none!important}.qa-shell{max-width:1480px;margin:auto;padding:28px clamp(16px,4vw,52px) 64px}.qa-intro{margin-bottom:24px}.qa-intro h1{font-size:clamp(30px,4vw,44px);line-height:1.2;margin:8px 0 12px}.qa-intro p{color:#b8c9dd;max-width:760px;margin:0}.eyebrow{color:#7ce3ff;font-size:12px;font-weight:700;letter-spacing:.1em}.status{padding:14px 18px;background:#202e42;border:1px solid #3a4e68;border-radius:12px;margin-bottom:22px}.qa-layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:26px;align-items:start}.levels{display:grid;gap:10px}.level{display:block;text-align:right;text-decoration:none;padding:16px;background:#192638;border:1px solid #334760;border-radius:12px;color:inherit}.level:hover{border-color:#7ce3ff}.level[aria-current=page]{border-color:#7ce3ff;background:#203b4c}.level strong{display:block;font-size:20px;direction:ltr;text-align:right}.level small{display:block;color:#b8c9dd;font-size:12px}.level .wave-tag{color:#99e1bf;margin-top:5px}.sidebar h2{font-size:15px;color:#b8c9dd;margin:0 0 12px}.review-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:18px}.review-head h2{margin:0;font-size:28px}.review-date{margin:2px 0;color:#b8c9dd;font-size:14px}.run-picker{display:grid;gap:4px;font-size:13px;color:#b8c9dd}.run-picker select{background:#192638;border:1px solid #50627a;border-radius:8px;color:#fff;padding:8px;max-width:100%}.frames{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.frame{margin:0;min-width:0;background:#192638;border:1px solid #334760;border-radius:14px;overflow:hidden}.frame.wide{grid-column:1/-1}.frame header{padding:16px 18px 12px}.frame h3{font-size:19px;margin:0 0 4px}.frame p{color:#b8c9dd;font-size:13px;margin:0}.image-link{display:block;background:#0b1421}.frame img{width:100%;height:auto;display:block}.frame footer{padding:10px 18px;font-size:13px;margin:0;text-align:start}.frame .image-error{padding:30px 18px;color:#ffd3a0}.empty{padding:22px;border:1px dashed #50627a;border-radius:12px;color:#b8c9dd;grid-column:1/-1}.capture-note{font-size:13px;color:#a4b8ce;margin:20px 0 0}.site-footer{text-align:center;color:#a4b8ce;font-size:12px;padding:24px}.source-link{font-size:12px;color:#a4b8ce}.review-status{font-size:13px;color:#b8c9dd;margin:4px 0}.review-status.issue{color:#ffd3a0}@media(max-width:800px){.qa-layout{grid-template-columns:1fr}.levels{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}.frames{grid-template-columns:1fr}.qa-shell{padding-top:22px}.review-head{display:block}.run-picker{margin-top:12px;max-width:100%}}
+</style>
+</head>
+<body>
+<nav class="tool-nav" aria-label="כלי האתר">
+  <a class="tool-brand" href="./"><span class="tool-brand-mark">Δ</span><span>STARWARS_DELTA</span></a>
+  <div class="tool-nav-links"><a href="./">בית</a><a href="storyboards.html">סטוריבורדים</a><a href="cutscene-preview.html">סרטים</a><a href="film-qa.html">Film QA</a><a class="active" href="level-qa.html" aria-current="page">רמות וגלים</a><a href="catalog.html">קטלוג</a></div>
+</nav>
+<main class="qa-shell">
+  <header class="qa-intro"><span class="eyebrow">LEVEL QA</span><h1>הרמה, והגלים שעליה.</h1><p>בוחרים רמה ורואים את הצילומים מהסקירה שלה ואת מפת הגלים המשוערים. לחיצה על תמונה פותחת אותה בגודל מלא.</p></header>
+  <div id="status" class="status" role="status" aria-live="polite">טוען סקירות רמות…</div>
+  <div id="layout" class="qa-layout" hidden>
+    <aside class="sidebar"><h2>בחירת רמה</h2><nav id="levels" class="levels" aria-label="רמות עם סקירות"></nav></aside>
+    <section id="review" aria-label="סקירת הרמה הנבחרת"></section>
+  </div>
+  <p class="capture-note">הצילומים מציגים את מצב הרמה במועד הסקירה. מפת הגלים היא המחשה לפי נתוני התכנון והמסלולים שנשמרו בסקירה; היא אינה צילום של משחק פעיל.</p>
+</main>
+<footer class="site-footer">STARWARS_DELTA · <a href="./">חזרה לבית</a> · <a href="https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/tree/main/level-qa" target="_blank" rel="noopener">קובצי הסקירות ב־GitHub</a></footer>
 <script>
-(async()=>{
-const status=document.getElementById('status'),out=document.getElementById('runs');
-try{
-const r=await fetch('./level-qa/index.json?ts='+Date.now(),{cache:'no-store'});
-if(!r.ok)throw Error('HTTP '+r.status);
-const index=await r.json(),runs=Array.isArray(index.runs)?index.runs:[];
-if(!runs.length){status.textContent='עדיין לא פורסם צילום Level מאומת.';return;}
-status.textContent='ריצות צילום: '+runs.length;
-for(const run of runs){
-const el=document.createElement('div'),h=document.createElement('h2'),p=document.createElement('p'),grid=document.createElement('section');
-h.textContent=run.sceneName||run.scenePath||'Level';p.textContent=(run.generatedUtc||'')+' | '+(run.captureStatus||'');
-el.append(h,p);for(const frame of run.frames||[]){
-if(!frame.path)continue;const art=document.createElement('article'),a=document.createElement('a'),im=document.createElement('img'),t=document.createElement('p');
-a.href=frame.path;a.target='_blank';a.rel='noopener';im.src=frame.path;im.loading='lazy';im.alt=frame.frameId||'Unity capture';t.textContent=(frame.frameId||'capture')+' | '+(frame.source||'');a.append(im);art.append(a,t);grid.append(art);
-}el.append(grid);out.append(el);}
-}catch(e){status.textContent='לא ניתן לטעון את אינדקס הצילומים: '+e.message;}
+(()=>{
+'use strict';
+const status=document.getElementById('status'),layout=document.getElementById('layout'),levels=document.getElementById('levels'),review=document.getElementById('review');
+const groups=new Map();
+const date=value=>{const d=new Date(value);return Number.isNaN(d.getTime())?'תאריך לא זמין':new Intl.DateTimeFormat('he-IL',{timeZone:'Asia/Jerusalem',dateStyle:'short',timeStyle:'short'}).format(d);};
+const time=run=>Date.parse(run.generatedUtc)||0;
+const asset=frame=>typeof frame?.path==='string'&&/^level-qa\/[A-Za-z0-9_-]+\/[A-Za-z0-9_.-]+\.(png|jpe?g|webp|svg)$/.test(frame.path);
+const wave=frame=>frame.source==='authoring_wave_projection';
+const frameOf=(run,id)=>(run.frames||[]).find(f=>f.frameId===id&&asset(f));
+const linkFor=(key,run)=>'#'+new URLSearchParams({level:key,...(run?{run}: {})}).toString();
+function card(frame,title,description,wide=false){
+  const el=document.createElement('figure');el.className='frame'+(wide?' wide':'');
+  const head=document.createElement('header'),h=document.createElement('h3'),p=document.createElement('p');h.textContent=title;p.textContent=description;head.append(h,p);
+  const a=document.createElement('a'),img=document.createElement('img');a.href=frame.path;a.target='_blank';a.rel='noopener';a.className='image-link';a.setAttribute('aria-label',title+' — פתיחה בגודל מלא');img.src=frame.path;img.alt=title;img.decoding='async';
+  img.addEventListener('error',()=>{img.hidden=true;const error=document.createElement('p');error.className='image-error';error.textContent='התמונה לא נטענה. אפשר לנסות לפתוח את הקובץ בגודל מלא.';a.append(error);},{once:true});a.append(img);
+  const foot=document.createElement('footer'),full=document.createElement('a');full.href=frame.path;full.target='_blank';full.rel='noopener';full.textContent='פתיחה בגודל מלא ↗';foot.append(full);el.append(head,a,foot);return el;
+}
+function render(){
+  const params=new URLSearchParams(location.hash.slice(1)),key=groups.has(params.get('level'))?params.get('level'):groups.keys().next().value;
+  const runs=groups.get(key);if(!runs)return;
+  const run=runs.find(r=>r.runId===params.get('run'))||runs[0];
+  for(const a of levels.children){if(a.dataset.key===key)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');}
+  review.replaceChildren();
+  const head=document.createElement('div');head.className='review-head';const info=document.createElement('div'),h=document.createElement('h2'),when=document.createElement('p');h.textContent=run.sceneName||key;h.dir='auto';when.className='review-date';when.textContent='צילום מתאריך '+date(run.generatedUtc)+' · שעון ישראל';info.append(h,when);
+  if(run.reviewStatus||run.acceptanceStatus){const s=document.createElement('p');s.className='review-status';s.textContent=run.reviewStatus==='REVIEWED'?'נבדקה חזותית':'ממתינה לסקירה חזותית';if(run.acceptanceStatus==='APPROVED')s.textContent+=' · אושרה';else if(run.acceptanceStatus==='REJECTED'||run.acceptanceStatus==='NEEDS_WORK'){s.textContent+=' · נדרשים תיקונים';s.classList.add('issue');}info.append(s);}
+  head.append(info);
+  if(runs.length>1){const label=document.createElement('label');label.className='run-picker';label.textContent='מועד הסקירה';const select=document.createElement('select');select.setAttribute('aria-label','מועד הסקירה');for(const [i,r] of runs.entries()){const option=document.createElement('option');option.value=r.runId;option.textContent=date(r.generatedUtc)+(i===0?' — אחרונה':'');option.selected=r.runId===run.runId;select.append(option);}select.addEventListener('change',()=>{location.hash=linkFor(key,select.value);});label.append(select);head.append(label);}
+  review.append(head);const grid=document.createElement('div');grid.className='frames';
+  const overview=frameOf(run,'scene_overview'),game=frameOf(run,'game_view'),projection=(run.frames||[]).find(f=>wave(f)&&asset(f));
+  if(overview)grid.append(card(overview,'מבט על הרמה','צילום כללי של הסצנה מתוך Unity.'));
+  if(game)grid.append(card(game,'מבט מצלמת המשחק',game.source==='actual_editor_game_view_texture'?'צילום מתוך חלון המשחק ב־Unity.':'תצוגת מצלמת המשחק שנרנדרה ב־Unity.'));
+  if(projection)grid.append(card(projection,'הגלים המשוערים על הרמה','מפה לפי תכנון הגלים: נקודות הופעה ומסלולים שזמינים בנתוני הסקירה.',true));
+  else{const empty=document.createElement('div');empty.className='empty';empty.textContent='לא פורסמה הדמיית גלים לסקירה הזאת.';grid.append(empty);const spatial=frameOf(run,'spatial_schematic');if(spatial)grid.append(card(spatial,'מפת הרמה והמסלולים','תרשים מרחבי של הרמה. אינו הדמיית גלים.',true));}
+  review.append(grid);const share=document.createElement('p'),a=document.createElement('a');a.href=linkFor(key,run.runId);a.textContent='קישור ישיר לסקירה הזאת';share.append(a);review.append(share);
+}
+async function load(){
+  try{
+    const response=await fetch('./level-qa/index.json?ts='+Date.now(),{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);const index=await response.json();
+    const runs=(Array.isArray(index.runs)?index.runs:[]).filter(r=>r&&r.captureStatus==='COMPLETED'&&r.runId&&Array.isArray(r.frames)&&r.frames.some(asset)).sort((a,b)=>time(b)-time(a));
+    for(const run of runs){const key=run.scenePath||run.sceneName;if(!key)continue;if(!groups.has(key))groups.set(key,[]);if(!groups.get(key).some(r=>r.runId===run.runId))groups.get(key).push(run);}
+    if(!groups.size){status.textContent='עדיין לא פורסמו סקירות רמות. הצילומים יופיעו כאן לאחר פרסום הסקירה.';return;}
+    for(const [key,items] of groups){const latest=items[0],a=document.createElement('a'),title=document.createElement('strong'),small=document.createElement('small'),tag=document.createElement('small');a.className='level';a.href=linkFor(key);a.dataset.key=key;title.textContent=latest.sceneName||key;small.textContent=date(latest.generatedUtc);tag.className='wave-tag';tag.textContent=latest.frames.some(f=>wave(f)&&asset(f))?'צילום רמה + הדמיית גלים':'צילום רמה';a.append(title,small,tag);levels.append(a);}
+    status.textContent=groups.size+' רמות · '+Array.from(groups.values()).reduce((n,a)=>n+a.length,0)+' סקירות שפורסמו · מוצגת הסקירה האחרונה לכל רמה';layout.hidden=false;render();window.addEventListener('hashchange',render);
+  }catch(e){status.textContent='לא ניתן לטעון כרגע את סקירות הרמות. אפשר לרענן את העמוד ולנסות שוב.';console.error('Level QA index:',e);}
+}
+load();
 })();
-</script></body></html>
+</script>
+</body>
+</html>
