@@ -35,11 +35,11 @@ root.mountLevelTimeline=async function(host,url){
  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 1000 562.5');svg.classList.add('timeline-overlay');svg.setAttribute('aria-label','חלון המשחק ונקודות הופעת הגלים');stage.append(image,svg);
  const controls=el('div',null,'timeline-controls'),play=el('button','▶ נגן'),reset=el('button','חזרה להתחלה'),range=el('input'),readout=el('output');
  play.type=reset.type='button';range.type='range';range.min=0;range.step='0.1';range.value=0;range.setAttribute('aria-label','זמן והתקדמות הרמה');
- const end=Math.max(1,...d.waves.map(w=>w.at+Math.max(0,w.count-1)*Math.max(0,w.interval)+(w.teleportDelay||0)+15));range.max=end;
+ const end=Math.max(1,...d.waves.map(w=>w.at+Math.max(0,w.count-1)*Math.max(0,w.interval)+(w.teleportDelay||0)+15));range.max=end;const first=d.waves.find(w=>w.spawn);if(first)range.value=first.at+(first.teleportDelay||0);
  const rate=el('select');rate.setAttribute('aria-label','מהירות הניגון');for(const n of [1,2,5,10]){const opt=el('option','×'+n);opt.value=n;rate.append(opt);}rate.value=5;
  const showAll=el('input');showAll.type='checkbox';const label=el('label','כל נקודות ההופעה');label.prepend(showAll);
  controls.append(play,reset,range,readout,rate,label);
- const legend=el('p','מסגרת תכלת: אזור המשחק · זהב: הופעה במועד שנבחר · קו מקווקו: מסלול מתוכנן · סימן ללא תנועה: מיקום הופעה בלבד','timeline-note');
+ const legend=el('p','מסגרת תכלת: אזור המשחק · זהב: הופעה במועד שנבחר · קו מקווקו: מסלול מתוכנן · סימן ללא תנועה: הופעה ב־15 השניות האחרונות בלבד','timeline-note');
  const list=el('div',null,'timeline-waves');const buttons=[];
  for(const w of d.waves){const b=el('button',w.id+'. '+w.name+' ×'+w.count+' · '+w.at+' שנ׳');b.type='button';b.title=w.note||'מסלול משוער';b.onclick=()=>{stop();range.value=w.at+(w.teleportDelay||0);draw();};list.append(b);buttons.push([w,b]);}
  host.append(title,note,stage,controls,legend,list);let playing=false,last=0;
@@ -51,7 +51,7 @@ root.mountLevelTimeline=async function(host,url){
   const c=d.camera;if(c){const p=xy({x:c.x-c.width/2+d.scrollSpeed*t,y:c.y+c.height/2});S('rect',{x:p.x,y:p.y,width:c.width/(d.bounds.maxX-d.bounds.minX)*1000,height:c.height/(d.bounds.maxY-d.bounds.minY)*562.5,fill:'#67dcff18',stroke:'#7ce3ff','stroke-width':2});}
   let unresolved=0;
   for(const [w,b]of buttons){
-   const start=w.at+(w.teleportDelay||0),active=t>=start&&t<=start+Math.max(0,w.count-1)*w.interval+(w.lifetime>0?w.lifetime:15);
+   const start=w.at+(w.teleportDelay||0),active=t>=start&&t<=start+Math.max(0,w.count-1)*w.interval+(w.lifetime>0?w.lifetime:(w.prediction==='spline'?end:15));
    b.classList.toggle('current',active);b.setAttribute('aria-pressed',String(active));
    if(!active&&!showAll.checked)continue;
    if(!w.spawn){unresolved++;continue;}
