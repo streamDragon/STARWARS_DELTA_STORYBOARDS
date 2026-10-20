@@ -58,7 +58,7 @@ function render(){
   if(runs.length>1){const label=document.createElement('label');label.className='run-picker';label.textContent='מועד הסקירה';const select=document.createElement('select');select.setAttribute('aria-label','מועד הסקירה');for(const [i,r] of runs.entries()){const option=document.createElement('option');option.value=r.runId;option.textContent=date(r.generatedUtc)+(i===0?' — אחרונה':'');option.selected=r.runId===run.runId;select.append(option);}select.addEventListener('change',()=>{location.hash=linkFor(key,select.value);});label.append(select);head.append(label);}
   review.append(head);const grid=document.createElement('div');grid.className='frames';
   const overview=frameOf(run,'scene_overview'),game=frameOf(run,'game_view'),projection=(run.frames||[]).find(f=>wave(f)&&asset(f));
-  if(typeof run.timelinePath==='string'&&/^level-qa\\/[A-Za-z0-9_-]+\\/timeline\\.json$/.test(run.timelinePath)){
+  if(typeof run.timelinePath==='string'&&new RegExp('^level-qa/[A-Za-z0-9_-]+/timeline[.]json$').test(run.timelinePath)){
     const host=document.createElement('section');host.className='timeline';host.setAttribute('aria-label','הרמה והגלים לאורך הזמן');host.textContent='טוען תצוגת רמה וגלים…';grid.append(host);
     window.mountLevelTimeline(host,run.timelinePath).catch(error=>{if(error.name!=='AbortError'&&host.isConnected)host.textContent='תצוגת הזמן לא נטענה. אפשר לרענן ולנסות שוב.';});
   }
