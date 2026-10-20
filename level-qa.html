@@ -62,7 +62,7 @@ function render(){
     const host=document.createElement('section');host.className='timeline';host.setAttribute('aria-label','הרמה והגלים לאורך הזמן');host.textContent='טוען תצוגת רמה וגלים…';grid.append(host);
     window.mountLevelTimeline(host,run.timelinePath).catch(error=>{if(error.name!=='AbortError'&&host.isConnected)host.textContent='תצוגת הזמן לא נטענה. אפשר לרענן ולנסות שוב.';});
   }
-  if(projection)grid.append(card(projection,'מבט על הרמה + גלים מחושבים','הדמיה אוטומטית מנתוני WavesManager על גבי צילום הרמה; לא צילום אויבים במהלך משחק.',true));
+  if(projection)grid.append(card(projection,run.timelinePath?'מבט על הרמה + גלים מחושבים':'תרשים גלים ישן (ללא נגן זמן)',run.timelinePath?'שכבת גלים שהופקה מנתוני WavesManager. תצוגת הזמן מופיעה בנפרד.':'זהו תרשים התכנון הישן, לא הדמיית תנועה על גבי צילום הרמה. נדרש ליצור ולפרסם סקירת QA חדשה.',true));
   if(overview)grid.append(card(overview,'מבט על הרמה','צילום כללי של הסצנה מתוך Unity.'));
   if(game)grid.append(card(game,'מבט מצלמת המשחק',game.source==='actual_editor_game_view_texture'?'צילום מתוך חלון המשחק ב־Unity.':'תצוגת מצלמת המשחק שנרנדרה ב־Unity.'));
   else{const empty=document.createElement('div');empty.className='empty';empty.textContent='לא פורסמה הדמיית גלים לסקירה הזאת.';grid.append(empty);const spatial=frameOf(run,'spatial_schematic');if(spatial)grid.append(card(spatial,'מפת הרמה והמסלולים','תרשים מרחבי של הרמה. אינו הדמיית גלים.',true));}
