@@ -1,0 +1,233 @@
+{
+    "movementGuide": "NAV computes a runtime path; it is not a fixed Spline. Wave behaviors: FollowPlayer, InterceptPlayer, GuardArea, FollowEnemy, GoToDestination. GuardArea uses navMeshGuardRadius; GoToDestination requires a resolvable destination. Validate on the actual baked NAV surface before claiming obstacle clearance.",
+    "items": [
+        {
+            "id": "N001",
+            "prefabPath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_TURRET_ENEMY/FIRE_LEVEL_SOLAR_TOWER_WAVE_NAV.prefab",
+            "previewFile": "NAV_ATLAS_N001.svg",
+            "previewKind": "Static SpriteRenderer artwork, not runtime movement proof",
+            "spriteAssets": [
+                "Assets/MY_ART/GradSunEnemies/SOLAR_TOWER.png",
+                "Assets/_Game/MY_Art/Turrets/TOWER_MISSILES_Atlas.png"
+            ],
+            "components": [
+                "Animator",
+                "Enemy_data_info",
+                "MEnemy_AI_Movement",
+                "MY_DamagerBody",
+                "MY_EnemyOrPlayer_Identity",
+                "MY_ShotCollisionDamage",
+                "NavMeshAgent",
+                "NetworkObject",
+                "PolygonCollider2D",
+                "Rigidbody2D",
+                "SceneTower",
+                "SpinRotation",
+                "SpriteRenderer",
+                "TowerShipLauncher",
+                "TowerWeaponBrain",
+                "Transform"
+            ]
+        },
+        {
+            "id": "N002",
+            "prefabPath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/YELLOW_NAV_MESH/base_Yellow_nav_enemy.prefab",
+            "previewFile": "NAV_ATLAS_N002.svg",
+            "previewKind": "Static SpriteRenderer artwork, not runtime movement proof",
+            "spriteAssets": [
+                "Assets/_Game/MY_Core/MY_Art/sprites/vehicle 1/vehicle-1.ase"
+            ],
+            "components": [
+                "Animator",
+                "Enemy_data_info",
+                "MEnemy_AI_Movement",
+                "MY_DamagerBody",
+                "MY_EnemyOrPlayer_Identity",
+                "MY_ShotCollisionDamage",
+                "NavMeshAgent",
+                "NetworkObject",
+                "NetworkTransform",
+                "PolygonCollider2D",
+                "Rigidbody2D",
+                "SortingGroup",
+                "SpriteRenderer",
+                "Transform"
+            ]
+        },
+        {
+            "id": "N003",
+            "prefabPath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/YELLOW_NAV_MESH/BLUE_FIRE_JELLY_NAV_enemy.prefab",
+            "previewFile": "NAV_ATLAS_N003.svg",
+            "previewKind": "Static SpriteRenderer artwork, not runtime movement proof",
+            "spriteAssets": [
+                "Assets/MY_ART/GradSunEnemies/BLUE_FIRE_JELLY.png"
+            ],
+            "components": [
+                "Animator",
+                "Enemy_data_info",
+                "MEnemy_AI_Movement",
+                "MY_DamagerBody",
+                "MY_EnemyOrPlayer_Identity",
+                "MY_ShotCollisionDamage",
+                "NavMeshAgent",
+                "NetworkObject",
+                "NetworkTransform",
+                "PolygonCollider2D",
+                "Rigidbody2D",
+                "SortingGroup",
+                "SpriteRenderer",
+                "Transform"
+            ]
+        },
+        {
+            "id": "N004",
+            "prefabPath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/YELLOW_NAV_MESH/FIRE_JELLY_NAV_enemy.prefab",
+            "previewFile": "NAV_ATLAS_N004.svg",
+            "previewKind": "Static SpriteRenderer artwork, not runtime movement proof",
+            "spriteAssets": [
+                "Assets/MY_ART/GradSunEnemies/FIRE_JELLY.png"
+            ],
+            "components": [
+                "Animator",
+                "Enemy_data_info",
+                "MEnemy_AI_Movement",
+                "MY_DamagerBody",
+                "MY_EnemyOrPlayer_Identity",
+                "MY_ShotCollisionDamage",
+                "NavMeshAgent",
+                "NetworkObject",
+                "NetworkTransform",
+                "PolygonCollider2D",
+                "Rigidbody2D",
+                "SortingGroup",
+                "SpriteRenderer",
+                "Transform"
+            ]
+        },
+        {
+            "id": "N005",
+            "prefabPath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/YELLOW_NAV_MESH/NAV_!_Yellow_enemy_NEWAGENT.prefab",
+            "previewFile": "NAV_ATLAS_N005.svg",
+            "previewKind": "Static SpriteRenderer artwork, not runtime movement proof",
+            "spriteAssets": [
+                "Assets/_Game/MY_Core/MY_Art/sprites/vehicle 1/vehicle-1.ase"
+            ],
+            "components": [
+                "Animator",
+                "Enemy_data_info",
+                "MEnemy_AI_Movement",
+                "MY_DamagerBody",
+                "MY_EnemyOrPlayer_Identity",
+                "MY_ShotCollisionDamage",
+                "NavMeshAgent",
+                "NetworkObject",
+                "NetworkTransform",
+                "PolygonCollider2D",
+                "Rigidbody2D",
+                "SortingGroup",
+                "SpriteRenderer",
+                "Transform"
+            ]
+        },
+        {
+            "id": "N006",
+            "prefabPath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/YELLOW_NAV_MESH/NAV_2_Yellow_enemy.prefab",
+            "previewFile": "NAV_ATLAS_N006.svg",
+            "previewKind": "Static SpriteRenderer artwork, not runtime movement proof",
+            "spriteAssets": [
+                "Assets/_Game/MY_Core/MY_Art/sprites/vehicle 2/frames/vehicle-2-1.png"
+            ],
+            "components": [
+                "Animator",
+                "Enemy_data_info",
+                "MEnemy_AI_Movement",
+                "MY_DamagerBody",
+                "MY_EnemyOrPlayer_Identity",
+                "MY_ShotCollisionDamage",
+                "NavMeshAgent",
+                "NetworkObject",
+                "NetworkTransform",
+                "PolygonCollider2D",
+                "Rigidbody2D",
+                "SortingGroup",
+                "SpriteRenderer",
+                "Transform"
+            ]
+        },
+        {
+            "id": "N007",
+            "prefabPath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/YELLOW_NAV_MESH/NAV_3_yellow_enemy.prefab",
+            "previewFile": "NAV_ATLAS_N007.svg",
+            "previewKind": "Static SpriteRenderer artwork, not runtime movement proof",
+            "spriteAssets": [
+                "Assets/_Game/MY_Core/MY_Art/sprites/vehicle 3/vehicle-3-static.png"
+            ],
+            "components": [
+                "Animator",
+                "Enemy_data_info",
+                "MEnemy_AI_Movement",
+                "MY_DamagerBody",
+                "MY_EnemyOrPlayer_Identity",
+                "MY_ShotCollisionDamage",
+                "NavMeshAgent",
+                "NetworkObject",
+                "NetworkTransform",
+                "PolygonCollider2D",
+                "Rigidbody2D",
+                "SortingGroup",
+                "SpriteRenderer",
+                "Transform"
+            ]
+        },
+        {
+            "id": "N008",
+            "prefabPath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/YELLOW_NAV_MESH/NAV_4_Mechanical/NAV_4_AmberInterceptor.prefab",
+            "previewFile": "NAV_ATLAS_N008.svg",
+            "previewKind": "Static SpriteRenderer artwork, not runtime movement proof",
+            "spriteAssets": [
+                "Assets/_Game/MY_Core/MY_Art/sprites/vehicle 1/vehicle-1.ase"
+            ],
+            "components": [
+                "Animator",
+                "Enemy_data_info",
+                "MEnemy_AI_Movement",
+                "MY_DamagerBody",
+                "MY_EnemyOrPlayer_Identity",
+                "MY_ShotCollisionDamage",
+                "NavMeshAgent",
+                "NetworkObject",
+                "NetworkTransform",
+                "PolygonCollider2D",
+                "Rigidbody2D",
+                "SortingGroup",
+                "SpriteRenderer",
+                "Transform"
+            ]
+        },
+        {
+            "id": "N009",
+            "prefabPath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/YELLOW_NAV_MESH/Nav_misslleWhite_enemy.prefab",
+            "previewFile": "NAV_ATLAS_N009.svg",
+            "previewKind": "Static SpriteRenderer artwork, not runtime movement proof",
+            "spriteAssets": [
+                "Assets/_Game/MY_Core/MY_Art/DGraphics/ship222.png"
+            ],
+            "components": [
+                "Animator",
+                "Enemy_data_info",
+                "MEnemy_AI_Movement",
+                "MY_DamagerBody",
+                "MY_EnemyOrPlayer_Identity",
+                "MY_ShotCollisionDamage",
+                "NavMeshAgent",
+                "NetworkObject",
+                "NetworkTransform",
+                "PolygonCollider2D",
+                "Rigidbody2D",
+                "SortingGroup",
+                "SpriteRenderer",
+                "Transform"
+            ]
+        }
+    ]
+}
