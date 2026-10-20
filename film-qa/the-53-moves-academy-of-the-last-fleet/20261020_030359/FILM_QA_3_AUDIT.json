@@ -1,0 +1,2501 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "THE 53 MOVES | Academy of the Last Fleet",
+  "projectId": "d34669317d044af095b80e0cba0bdc68",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "WARNINGS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "Inspect sampled black frames and authored transitions",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 83,
+    "blackFrames": 62,
+    "handoffBoundaryBlanks": 0,
+    "edgeClipping": 44,
+    "actorOverlap": 26,
+    "actorOversized": 32,
+    "meanBrightness": 0.06943699651038701,
+    "originalFlags": 122,
+    "events": 21,
+    "eventCaptured": 21,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "SIMPLE_M03_P02_shot_m03_attacker1_WEAPON_1|PROJECTILE - SIMPLE_M03_P02_shot_m03_attacker1_WEAPON_1 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 32.604000091552734,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m03_attacker1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0032.604s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M03_P02_shot_m03_attacker1_WEAPON_1|PROJECTILE - SIMPLE_M03_P02_shot_m03_attacker1_WEAPON_1 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 32.916000097990036,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m03_attacker1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0032.916s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M04_P02_shot_m04_attacker1_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 48.945003509521484,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0048.945s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M16_P01_shot_m16_damaged_actor1_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 203.84494018554688,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0203.845s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M32_P04_shot_m32_attacker1_WEAPON_0|PROJECTILE - SIMPLE_M32_P04_shot_m32_attacker1_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 413.6036071777344,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m32_attacker1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0413.604s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M32_P04_shot_m32_attacker1_WEAPON_0|PROJECTILE - SIMPLE_M32_P04_shot_m32_attacker1_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 413.9156071841717,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m32_attacker1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0413.916s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M35_P03_shot_m35_attacker1_WEAPON_0|PROJECTILE - SIMPLE_M35_P03_shot_m35_attacker1_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 457.0035400390625,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m35_attacker1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0457.004s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M35_P03_shot_m35_attacker1_WEAPON_0|PROJECTILE - SIMPLE_M35_P03_shot_m35_attacker1_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 457.3155400454998,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m35_attacker1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0457.316s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M35_P04_shot_m35_target1_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 461.64453125,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0461.645s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M39_P01_shot_m39_source1_WEAPON_0|PROJECTILE - SIMPLE_M39_P01_shot_m39_source1_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 513.0034790039062,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m39_source1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0513.004s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M39_P01_shot_m39_source1_WEAPON_0|PROJECTILE - SIMPLE_M39_P01_shot_m39_source1_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 513.3154790103436,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m39_source1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0513.316s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M39_P02_shot_m39_first_target1_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 517.6444702148438,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0517.645s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M39_P03_shot_m39_first_target1_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 521.5444946289062,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0521.545s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M39_P05_shot_m39_second_target1_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 529.3445434570312,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0529.345s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M47_P01_shot_m47_cause1_WEAPON_0|PROJECTILE - SIMPLE_M47_P01_shot_m47_cause1_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 627.5040893554688,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m47_cause1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0627.504s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M47_P01_shot_m47_cause1_WEAPON_0|PROJECTILE - SIMPLE_M47_P01_shot_m47_cause1_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 627.816089361906,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m47_cause1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0627.816s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M47_P02_shot_m47_effect_target1_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 632.1451416015625,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0632.145s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M49_P03_shot_m49_weapon1_WEAPON_1|PROJECTILE - SIMPLE_M49_P03_shot_m49_weapon1_WEAPON_1 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 658.7042846679688,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m49_weapon1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0658.704s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M49_P03_shot_m49_weapon1_WEAPON_1|PROJECTILE - SIMPLE_M49_P03_shot_m49_weapon1_WEAPON_1 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 659.016284674406,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m49_weapon1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0659.016s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M50_P03_shot_m50_target1_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 675.9453735351562,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0675.945s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "handoff_simple_THE_53_MOVES___Academy_of_the_Last_Fleet",
+      "kind": "HandoffRequested",
+      "timeSeconds": 712.8005981445312,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0712.801s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 32.484,
+      "imageFile": "frame_0032.484s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 32.484,
+      "imageFile": "frame_0032.484s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 32.484,
+      "imageFile": "frame_0032.484s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 32.604,
+      "imageFile": "frame_0032.604s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 32.604,
+      "imageFile": "frame_0032.604s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 32.604,
+      "imageFile": "frame_0032.604s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 32.724,
+      "imageFile": "frame_0032.724s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 32.724,
+      "imageFile": "frame_0032.724s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 32.724,
+      "imageFile": "frame_0032.724s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 32.796,
+      "imageFile": "frame_0032.796s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 32.796,
+      "imageFile": "frame_0032.796s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 32.796,
+      "imageFile": "frame_0032.796s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 32.916,
+      "imageFile": "frame_0032.916s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 32.916,
+      "imageFile": "frame_0032.916s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 32.916,
+      "imageFile": "frame_0032.916s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 33.036,
+      "imageFile": "frame_0033.036s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 33.036,
+      "imageFile": "frame_0033.036s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 33.036,
+      "imageFile": "frame_0033.036s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 48.825,
+      "imageFile": "frame_0048.825s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 48.825,
+      "imageFile": "frame_0048.825s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 48.825,
+      "imageFile": "frame_0048.825s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 48.825,
+      "imageFile": "frame_0048.825s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 48.945,
+      "imageFile": "frame_0048.945s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 48.945,
+      "imageFile": "frame_0048.945s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 48.945,
+      "imageFile": "frame_0048.945s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 48.945,
+      "imageFile": "frame_0048.945s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 49.065,
+      "imageFile": "frame_0049.065s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 49.065,
+      "imageFile": "frame_0049.065s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 49.065,
+      "imageFile": "frame_0049.065s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 49.065,
+      "imageFile": "frame_0049.065s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 203.7249,
+      "imageFile": "frame_0203.725s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 203.8449,
+      "imageFile": "frame_0203.845s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 203.9649,
+      "imageFile": "frame_0203.965s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 413.4836,
+      "imageFile": "frame_0413.484s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 413.4836,
+      "imageFile": "frame_0413.484s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 413.6036,
+      "imageFile": "frame_0413.604s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 413.6036,
+      "imageFile": "frame_0413.604s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 413.7236,
+      "imageFile": "frame_0413.724s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 413.7236,
+      "imageFile": "frame_0413.724s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 413.7956,
+      "imageFile": "frame_0413.796s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 413.7956,
+      "imageFile": "frame_0413.796s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 413.9156,
+      "imageFile": "frame_0413.916s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 413.9156,
+      "imageFile": "frame_0413.916s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 414.0356,
+      "imageFile": "frame_0414.036s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 414.0356,
+      "imageFile": "frame_0414.036s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 456.8835,
+      "imageFile": "frame_0456.884s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 457.0035,
+      "imageFile": "frame_0457.004s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 457.1235,
+      "imageFile": "frame_0457.124s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 457.1955,
+      "imageFile": "frame_0457.196s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 457.3155,
+      "imageFile": "frame_0457.316s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 457.4355,
+      "imageFile": "frame_0457.436s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 461.5245,
+      "imageFile": "frame_0461.525s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 461.6445,
+      "imageFile": "frame_0461.645s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 461.7645,
+      "imageFile": "frame_0461.765s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 512.8835,
+      "imageFile": "frame_0512.884s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 512.8835,
+      "imageFile": "frame_0512.884s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 512.8835,
+      "imageFile": "frame_0512.884s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 512.8835,
+      "imageFile": "frame_0512.884s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.0035,
+      "imageFile": "frame_0513.004s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.0035,
+      "imageFile": "frame_0513.004s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.0035,
+      "imageFile": "frame_0513.004s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.0035,
+      "imageFile": "frame_0513.004s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.1235,
+      "imageFile": "frame_0513.124s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.1235,
+      "imageFile": "frame_0513.124s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.1235,
+      "imageFile": "frame_0513.124s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.1235,
+      "imageFile": "frame_0513.124s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.1955,
+      "imageFile": "frame_0513.196s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.1955,
+      "imageFile": "frame_0513.196s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.1955,
+      "imageFile": "frame_0513.196s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.1955,
+      "imageFile": "frame_0513.196s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.3155,
+      "imageFile": "frame_0513.316s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.3155,
+      "imageFile": "frame_0513.316s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.3155,
+      "imageFile": "frame_0513.316s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.3155,
+      "imageFile": "frame_0513.316s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.4355,
+      "imageFile": "frame_0513.436s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.4355,
+      "imageFile": "frame_0513.436s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.4355,
+      "imageFile": "frame_0513.436s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 513.4355,
+      "imageFile": "frame_0513.436s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 517.5245,
+      "imageFile": "frame_0517.525s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 517.5245,
+      "imageFile": "frame_0517.525s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 517.5245,
+      "imageFile": "frame_0517.525s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 517.5245,
+      "imageFile": "frame_0517.525s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 517.6445,
+      "imageFile": "frame_0517.645s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 517.6445,
+      "imageFile": "frame_0517.645s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 517.6445,
+      "imageFile": "frame_0517.645s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 517.6445,
+      "imageFile": "frame_0517.645s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 517.7645,
+      "imageFile": "frame_0517.765s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 517.7645,
+      "imageFile": "frame_0517.765s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 517.7645,
+      "imageFile": "frame_0517.765s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 517.7645,
+      "imageFile": "frame_0517.765s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 521.4245,
+      "imageFile": "frame_0521.425s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 521.4245,
+      "imageFile": "frame_0521.425s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 521.4245,
+      "imageFile": "frame_0521.425s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 521.4245,
+      "imageFile": "frame_0521.425s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 521.5445,
+      "imageFile": "frame_0521.545s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 521.5445,
+      "imageFile": "frame_0521.545s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 521.5445,
+      "imageFile": "frame_0521.545s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 521.5445,
+      "imageFile": "frame_0521.545s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 521.6645,
+      "imageFile": "frame_0521.665s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 521.6645,
+      "imageFile": "frame_0521.665s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 521.6645,
+      "imageFile": "frame_0521.665s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 521.6645,
+      "imageFile": "frame_0521.665s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 529.2245,
+      "imageFile": "frame_0529.225s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 529.2245,
+      "imageFile": "frame_0529.225s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 529.2245,
+      "imageFile": "frame_0529.225s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 529.2245,
+      "imageFile": "frame_0529.225s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 529.3445,
+      "imageFile": "frame_0529.345s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 529.3445,
+      "imageFile": "frame_0529.345s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 529.3445,
+      "imageFile": "frame_0529.345s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 529.3445,
+      "imageFile": "frame_0529.345s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 529.4645,
+      "imageFile": "frame_0529.465s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 529.4645,
+      "imageFile": "frame_0529.465s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 529.4645,
+      "imageFile": "frame_0529.465s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 529.4645,
+      "imageFile": "frame_0529.465s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 627.3841,
+      "imageFile": "frame_0627.384s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 627.5041,
+      "imageFile": "frame_0627.504s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 627.6241,
+      "imageFile": "frame_0627.624s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 627.6961,
+      "imageFile": "frame_0627.696s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 627.8161,
+      "imageFile": "frame_0627.816s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 627.9361,
+      "imageFile": "frame_0627.936s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 632.0251,
+      "imageFile": "frame_0632.025s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 632.0251,
+      "imageFile": "frame_0632.025s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 632.1451,
+      "imageFile": "frame_0632.145s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 632.1451,
+      "imageFile": "frame_0632.145s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 632.2651,
+      "imageFile": "frame_0632.265s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 632.2651,
+      "imageFile": "frame_0632.265s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.5843,
+      "imageFile": "frame_0658.584s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.5843,
+      "imageFile": "frame_0658.584s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.5843,
+      "imageFile": "frame_0658.584s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.5843,
+      "imageFile": "frame_0658.584s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.7043,
+      "imageFile": "frame_0658.704s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.7043,
+      "imageFile": "frame_0658.704s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.7043,
+      "imageFile": "frame_0658.704s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.7043,
+      "imageFile": "frame_0658.704s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.8243,
+      "imageFile": "frame_0658.824s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.8243,
+      "imageFile": "frame_0658.824s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.8243,
+      "imageFile": "frame_0658.824s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.8243,
+      "imageFile": "frame_0658.824s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.8963,
+      "imageFile": "frame_0658.896s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.8963,
+      "imageFile": "frame_0658.896s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.8963,
+      "imageFile": "frame_0658.896s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.8963,
+      "imageFile": "frame_0658.896s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 659.0163,
+      "imageFile": "frame_0659.016s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 659.0163,
+      "imageFile": "frame_0659.016s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 659.0163,
+      "imageFile": "frame_0659.016s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 659.0163,
+      "imageFile": "frame_0659.016s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 659.1363,
+      "imageFile": "frame_0659.136s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 659.1363,
+      "imageFile": "frame_0659.136s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 659.1363,
+      "imageFile": "frame_0659.136s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 659.1363,
+      "imageFile": "frame_0659.136s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 675.8254,
+      "imageFile": "frame_0675.825s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 675.8254,
+      "imageFile": "frame_0675.825s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 675.9454,
+      "imageFile": "frame_0675.945s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 675.9454,
+      "imageFile": "frame_0675.945s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 676.0654,
+      "imageFile": "frame_0676.065s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 676.0654,
+      "imageFile": "frame_0676.065s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 712.6806,
+      "imageFile": "frame_0712.681s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 712.6806,
+      "imageFile": "frame_0712.681s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 712.6806,
+      "imageFile": "frame_0712.681s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 712.6806,
+      "imageFile": "frame_0712.681s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "BLACK_FRAME",
+      "domain": "TECHNICAL_VISUAL",
+      "severity": "WARNING",
+      "confidence": "MEDIUM",
+      "timeSeconds": 712.8006,
+      "imageFile": "frame_0712.801s.png",
+      "expected": "Visible image or intentional transition",
+      "observed": "Almost-black captured frame",
+      "recommendation": "Inspect shot boundary or missing layers; confirm black is intentional",
+      "owner": "FILM_QA_OR_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 712.8006,
+      "imageFile": "frame_0712.801s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 712.8006,
+      "imageFile": "frame_0712.801s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 712.8006,
+      "imageFile": "frame_0712.801s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    }
+  ],
+  "keyframes": [
+    {
+      "timeSeconds": 32.484,
+      "fileName": "frame_0032.484s.png"
+    },
+    {
+      "timeSeconds": 32.604,
+      "fileName": "frame_0032.604s.png"
+    },
+    {
+      "timeSeconds": 32.724,
+      "fileName": "frame_0032.724s.png"
+    },
+    {
+      "timeSeconds": 32.796,
+      "fileName": "frame_0032.796s.png"
+    },
+    {
+      "timeSeconds": 32.916,
+      "fileName": "frame_0032.916s.png"
+    },
+    {
+      "timeSeconds": 33.036,
+      "fileName": "frame_0033.036s.png"
+    },
+    {
+      "timeSeconds": 48.825,
+      "fileName": "frame_0048.825s.png"
+    },
+    {
+      "timeSeconds": 48.945,
+      "fileName": "frame_0048.945s.png"
+    },
+    {
+      "timeSeconds": 49.065,
+      "fileName": "frame_0049.065s.png"
+    },
+    {
+      "timeSeconds": 187.6,
+      "fileName": "frame_0187.600s.png"
+    },
+    {
+      "timeSeconds": 189.65,
+      "fileName": "frame_0189.650s.png"
+    },
+    {
+      "timeSeconds": 203.7249,
+      "fileName": "frame_0203.725s.png"
+    },
+    {
+      "timeSeconds": 203.8449,
+      "fileName": "frame_0203.845s.png"
+    },
+    {
+      "timeSeconds": 203.9649,
+      "fileName": "frame_0203.965s.png"
+    },
+    {
+      "timeSeconds": 362,
+      "fileName": "frame_0362.000s.png"
+    },
+    {
+      "timeSeconds": 364.05,
+      "fileName": "frame_0364.050s.png"
+    },
+    {
+      "timeSeconds": 413.4836,
+      "fileName": "frame_0413.484s.png"
+    },
+    {
+      "timeSeconds": 413.6036,
+      "fileName": "frame_0413.604s.png"
+    },
+    {
+      "timeSeconds": 413.7236,
+      "fileName": "frame_0413.724s.png"
+    },
+    {
+      "timeSeconds": 413.7956,
+      "fileName": "frame_0413.796s.png"
+    },
+    {
+      "timeSeconds": 413.9156,
+      "fileName": "frame_0413.916s.png"
+    },
+    {
+      "timeSeconds": 414.0356,
+      "fileName": "frame_0414.036s.png"
+    },
+    {
+      "timeSeconds": 456.8835,
+      "fileName": "frame_0456.884s.png"
+    },
+    {
+      "timeSeconds": 457.0035,
+      "fileName": "frame_0457.004s.png"
+    },
+    {
+      "timeSeconds": 457.1235,
+      "fileName": "frame_0457.124s.png"
+    },
+    {
+      "timeSeconds": 457.1955,
+      "fileName": "frame_0457.196s.png"
+    },
+    {
+      "timeSeconds": 457.3155,
+      "fileName": "frame_0457.316s.png"
+    },
+    {
+      "timeSeconds": 457.4355,
+      "fileName": "frame_0457.436s.png"
+    },
+    {
+      "timeSeconds": 461.5245,
+      "fileName": "frame_0461.525s.png"
+    },
+    {
+      "timeSeconds": 461.6445,
+      "fileName": "frame_0461.645s.png"
+    },
+    {
+      "timeSeconds": 461.7645,
+      "fileName": "frame_0461.765s.png"
+    },
+    {
+      "timeSeconds": 512.8835,
+      "fileName": "frame_0512.884s.png"
+    },
+    {
+      "timeSeconds": 513.0035,
+      "fileName": "frame_0513.004s.png"
+    },
+    {
+      "timeSeconds": 513.1235,
+      "fileName": "frame_0513.124s.png"
+    },
+    {
+      "timeSeconds": 513.1955,
+      "fileName": "frame_0513.196s.png"
+    },
+    {
+      "timeSeconds": 513.3155,
+      "fileName": "frame_0513.316s.png"
+    },
+    {
+      "timeSeconds": 513.4355,
+      "fileName": "frame_0513.436s.png"
+    },
+    {
+      "timeSeconds": 517.5245,
+      "fileName": "frame_0517.525s.png"
+    },
+    {
+      "timeSeconds": 517.6445,
+      "fileName": "frame_0517.645s.png"
+    },
+    {
+      "timeSeconds": 517.7645,
+      "fileName": "frame_0517.765s.png"
+    },
+    {
+      "timeSeconds": 521.4245,
+      "fileName": "frame_0521.425s.png"
+    },
+    {
+      "timeSeconds": 521.5445,
+      "fileName": "frame_0521.545s.png"
+    },
+    {
+      "timeSeconds": 521.6645,
+      "fileName": "frame_0521.665s.png"
+    },
+    {
+      "timeSeconds": 529.2245,
+      "fileName": "frame_0529.225s.png"
+    },
+    {
+      "timeSeconds": 529.3445,
+      "fileName": "frame_0529.345s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
