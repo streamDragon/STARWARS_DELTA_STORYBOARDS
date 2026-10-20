@@ -1,0 +1,905 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "THE 53 MOVES | Academy of the Last Fleet",
+  "projectId": "4b8e0b5e4bd34dfa91846d8f488734e8",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "PASS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "No sampled black frames outside detected transitions; this is not full technical clearance",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 170,
+    "blackFrames": 0,
+    "handoffBoundaryBlanks": 0,
+    "edgeClipping": 20,
+    "actorOverlap": 5,
+    "actorOversized": 1,
+    "meanBrightness": 0.31151994545670114,
+    "originalFlags": 109,
+    "events": 21,
+    "eventCaptured": 21,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "SIMPLE_MOVEVIS_ATTACK_RUN_shot_m03_attacker1_WEAPON_1|PROJECTILE - SIMPLE_MOVEVIS_ATTACK_RUN_shot_m03_attacker1_WEAPON_1 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 31.200000762939453,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m03_attacker1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0031.200s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_ATTACK_RUN_shot_m03_attacker1_WEAPON_1|PROJECTILE - SIMPLE_MOVEVIS_ATTACK_RUN_shot_m03_attacker1_WEAPON_1 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 33.600001096725464,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m03_attacker1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0033.600s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_ATTACK_RUN_shot_m03_target1_IMPACT_2",
+      "kind": "VisualCue",
+      "timeSeconds": 34.650001525878906,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0034.650s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_BOOM_AND_BREAK_shot_m04_attacker1_WEAPON_0|PROJECTILE - SIMPLE_MOVEVIS_BOOM_AND_BREAK_shot_m04_attacker1_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 43.68000030517578,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m04_attacker1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0043.680s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_BOOM_AND_BREAK_shot_m04_attacker1_WEAPON_0|PROJECTILE - SIMPLE_MOVEVIS_BOOM_AND_BREAK_shot_m04_attacker1_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 45.760000467300415,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m04_attacker1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0045.760s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_BOOM_AND_BREAK_shot_m04_target1_IMPACT_1",
+      "kind": "VisualCue",
+      "timeSeconds": 46.540000915527344,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0046.540s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_DAMAGED_WITHDRAWAL_shot_m16_damaged_actor1_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 201.69998168945312,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0201.700s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M32_P04_shot_m32_attacker1_WEAPON_0|PROJECTILE - SIMPLE_M32_P04_shot_m32_attacker1_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 413.6039733886719,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m32_attacker1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0413.604s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_M32_P04_shot_m32_attacker1_WEAPON_0|PROJECTILE - SIMPLE_M32_P04_shot_m32_attacker1_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 413.9159733951092,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m32_attacker1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0413.916s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_FALSE_DIRECTION_ATTACK_C_shot_m35_attacker1_WEAPON_1|PROJECTILE - SIMPLE_MOVEVIS_FALSE_DIRECTION_ATTACK_C_shot_m35_attacker1_WEAPON_1 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 457.93994140625,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m35_attacker1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0457.940s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_FALSE_DIRECTION_ATTACK_C_shot_m35_target1_IMPACT_2",
+      "kind": "VisualCue",
+      "timeSeconds": 459.8899230957031,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0459.890s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_FALSE_DIRECTION_ATTACK_C_shot_m35_attacker1_WEAPON_1|PROJECTILE - SIMPLE_MOVEVIS_FALSE_DIRECTION_ATTACK_C_shot_m35_attacker1_WEAPON_1 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 460.01994156837463,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m35_attacker1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0460.020s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_CHAIN_REACTION_shot_m39_source1_WEAPON_0|PROJECTILE - SIMPLE_MOVEVIS_CHAIN_REACTION_shot_m39_source1_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 512.2499389648438,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m39_source1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0512.250s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_CHAIN_REACTION_shot_m39_source1_WEAPON_0|PROJECTILE - SIMPLE_MOVEVIS_CHAIN_REACTION_shot_m39_source1_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 514.8499391078949,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m39_source1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0514.850s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_CHAIN_REACTION_shot_m39_first_target1_IMPACT_1",
+      "kind": "VisualCue",
+      "timeSeconds": 515.6624755859375,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0515.663s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_CHAIN_REACTION_shot_m39_second_target1_IMPACT_3",
+      "kind": "VisualCue",
+      "timeSeconds": 521.6749267578125,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0521.675s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_CAUSE_EFFECT_REACTION_B_shot_m47_effect_target1_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 630.7587280273438,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0630.759s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_WEAPON_TARGET_FIRE_C_shot_m49_weapon1_WEAPON_1|PROJECTILE - SIMPLE_MOVEVIS_WEAPON_TARGET_FIRE_C_shot_m49_weapon1_WEAPON_1 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 657.3799438476562,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m49_weapon1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0657.360s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_WEAPON_TARGET_FIRE_C_shot_m49_weapon1_WEAPON_1|PROJECTILE - SIMPLE_MOVEVIS_WEAPON_TARGET_FIRE_C_shot_m49_weapon1_WEAPON_1 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 659.0513724088669,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "m49_weapon1",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0659.051s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_MOVEVIS_MISSILE_TARGET_IMPACT_C_shot_m50_target1_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 674.212890625,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0674.213s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "handoff_simple_THE_53_MOVES___Academy_of_the_Last_Fleet",
+      "kind": "HandoffRequested",
+      "timeSeconds": 712.8004150390625,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0712.800s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 0,
+      "imageFile": "frame_0000.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 23.76,
+      "imageFile": "frame_0023.760s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 31.08,
+      "imageFile": "frame_0031.080s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 33.48,
+      "imageFile": "frame_0033.480s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 39.6,
+      "imageFile": "frame_0039.600s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 45.64,
+      "imageFile": "frame_0045.640s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 190.0801,
+      "imageFile": "frame_0190.080s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 229.6801,
+      "imageFile": "frame_0229.680s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 229.6801,
+      "imageFile": "frame_0229.680s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 285.1202,
+      "imageFile": "frame_0285.120s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 293.0402,
+      "imageFile": "frame_0293.040s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 300.9602,
+      "imageFile": "frame_0300.960s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 308.8802,
+      "imageFile": "frame_0308.880s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 348.4802,
+      "imageFile": "frame_0348.480s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 348.4802,
+      "imageFile": "frame_0348.480s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 372.2402,
+      "imageFile": "frame_0372.240s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 413.484,
+      "imageFile": "frame_0413.484s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 413.604,
+      "imageFile": "frame_0413.604s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 413.724,
+      "imageFile": "frame_0413.724s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 413.796,
+      "imageFile": "frame_0413.796s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 413.916,
+      "imageFile": "frame_0413.916s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 414.036,
+      "imageFile": "frame_0414.036s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 498.9603,
+      "imageFile": "frame_0498.960s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 562.3203,
+      "imageFile": "frame_0562.320s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 617.7604,
+      "imageFile": "frame_0617.760s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 649.4404,
+      "imageFile": "frame_0649.440s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 658.9314,
+      "imageFile": "frame_0658.931s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 659.0514,
+      "imageFile": "frame_0659.051s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERLAP",
+      "domain": "CINEMATIC_STAGING",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 704.8804,
+      "imageFile": "frame_0704.880s.png",
+      "expected": "Readable spatial separation and hierarchy between simultaneous subjects",
+      "observed": "Actor screen regions overlap heavily",
+      "recommendation": "Review formation spacing, depth, screen positions and shot size",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 712.6804,
+      "imageFile": "frame_0712.680s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 712.8004,
+      "imageFile": "frame_0712.800s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    }
+  ],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 7.92,
+      "fileName": "frame_0007.920s.png"
+    },
+    {
+      "timeSeconds": 23.76,
+      "fileName": "frame_0023.760s.png"
+    },
+    {
+      "timeSeconds": 31.08,
+      "fileName": "frame_0031.080s.png"
+    },
+    {
+      "timeSeconds": 33.48,
+      "fileName": "frame_0033.480s.png"
+    },
+    {
+      "timeSeconds": 39.6,
+      "fileName": "frame_0039.600s.png"
+    },
+    {
+      "timeSeconds": 43.56,
+      "fileName": "frame_0043.560s.png"
+    },
+    {
+      "timeSeconds": 43.68,
+      "fileName": "frame_0043.680s.png"
+    },
+    {
+      "timeSeconds": 43.8,
+      "fileName": "frame_0043.800s.png"
+    },
+    {
+      "timeSeconds": 45.64,
+      "fileName": "frame_0045.640s.png"
+    },
+    {
+      "timeSeconds": 45.76,
+      "fileName": "frame_0045.760s.png"
+    },
+    {
+      "timeSeconds": 45.88,
+      "fileName": "frame_0045.880s.png"
+    },
+    {
+      "timeSeconds": 46.42,
+      "fileName": "frame_0046.420s.png"
+    },
+    {
+      "timeSeconds": 46.54,
+      "fileName": "frame_0046.540s.png"
+    },
+    {
+      "timeSeconds": 46.66,
+      "fileName": "frame_0046.660s.png"
+    },
+    {
+      "timeSeconds": 47.52,
+      "fileName": "frame_0047.520s.png"
+    },
+    {
+      "timeSeconds": 55.44,
+      "fileName": "frame_0055.440s.png"
+    },
+    {
+      "timeSeconds": 79.2,
+      "fileName": "frame_0079.200s.png"
+    },
+    {
+      "timeSeconds": 87.1201,
+      "fileName": "frame_0087.120s.png"
+    },
+    {
+      "timeSeconds": 93.95,
+      "fileName": "frame_0093.950s.png"
+    },
+    {
+      "timeSeconds": 118.8001,
+      "fileName": "frame_0118.800s.png"
+    },
+    {
+      "timeSeconds": 182.1601,
+      "fileName": "frame_0182.160s.png"
+    },
+    {
+      "timeSeconds": 185.55,
+      "fileName": "frame_0185.550s.png"
+    },
+    {
+      "timeSeconds": 189.65,
+      "fileName": "frame_0189.650s.png"
+    },
+    {
+      "timeSeconds": 190.0801,
+      "fileName": "frame_0190.080s.png"
+    },
+    {
+      "timeSeconds": 198.0001,
+      "fileName": "frame_0198.000s.png"
+    },
+    {
+      "timeSeconds": 201.58,
+      "fileName": "frame_0201.580s.png"
+    },
+    {
+      "timeSeconds": 205.9201,
+      "fileName": "frame_0205.920s.png"
+    },
+    {
+      "timeSeconds": 213.8401,
+      "fileName": "frame_0213.840s.png"
+    },
+    {
+      "timeSeconds": 229.6801,
+      "fileName": "frame_0229.680s.png"
+    },
+    {
+      "timeSeconds": 245.5201,
+      "fileName": "frame_0245.520s.png"
+    },
+    {
+      "timeSeconds": 261.3602,
+      "fileName": "frame_0261.360s.png"
+    },
+    {
+      "timeSeconds": 285.1202,
+      "fileName": "frame_0285.120s.png"
+    },
+    {
+      "timeSeconds": 293.0402,
+      "fileName": "frame_0293.040s.png"
+    },
+    {
+      "timeSeconds": 300.9602,
+      "fileName": "frame_0300.960s.png"
+    },
+    {
+      "timeSeconds": 308.8802,
+      "fileName": "frame_0308.880s.png"
+    },
+    {
+      "timeSeconds": 324.7202,
+      "fileName": "frame_0324.720s.png"
+    },
+    {
+      "timeSeconds": 332.6402,
+      "fileName": "frame_0332.640s.png"
+    },
+    {
+      "timeSeconds": 340.5602,
+      "fileName": "frame_0340.560s.png"
+    },
+    {
+      "timeSeconds": 348.4802,
+      "fileName": "frame_0348.480s.png"
+    },
+    {
+      "timeSeconds": 356.4002,
+      "fileName": "frame_0356.400s.png"
+    },
+    {
+      "timeSeconds": 364.05,
+      "fileName": "frame_0364.050s.png"
+    },
+    {
+      "timeSeconds": 372.2402,
+      "fileName": "frame_0372.240s.png"
+    },
+    {
+      "timeSeconds": 388.0802,
+      "fileName": "frame_0388.080s.png"
+    },
+    {
+      "timeSeconds": 413.484,
+      "fileName": "frame_0413.484s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
