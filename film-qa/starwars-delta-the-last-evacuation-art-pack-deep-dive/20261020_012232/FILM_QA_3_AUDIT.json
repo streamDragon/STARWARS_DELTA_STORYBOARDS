@@ -1,0 +1,553 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "STARWARS DELTA: THE LAST EVACUATION - ART PACK DEEP DIVE",
+  "projectId": "8a9cc2eef6ce4a78b20cc373af4d3f92",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "PASS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "No sampled black frames outside detected transitions; this is not full technical clearance",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 80,
+    "blackFrames": 0,
+    "handoffBoundaryBlanks": 0,
+    "edgeClipping": 8,
+    "actorOverlap": 0,
+    "actorOversized": 24,
+    "meanBrightness": 0.4038827466079965,
+    "originalFlags": 32,
+    "events": 1,
+    "eventCaptured": 1,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "handoff_simple_STARWARS_DELTA__THE_LAST_EVACUATION_-_ART_PACK_DEEP_DIVE",
+      "kind": "HandoffRequested",
+      "timeSeconds": 154.89999389648438,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0154.900s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 10,
+      "imageFile": "frame_0010.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 12,
+      "imageFile": "frame_0012.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 52,
+      "imageFile": "frame_0052.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 54,
+      "imageFile": "frame_0054.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 56,
+      "imageFile": "frame_0056.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 58,
+      "imageFile": "frame_0058.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 60,
+      "imageFile": "frame_0060.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 62,
+      "imageFile": "frame_0062.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 64,
+      "imageFile": "frame_0064.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 66,
+      "imageFile": "frame_0066.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 68,
+      "imageFile": "frame_0068.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 134,
+      "imageFile": "frame_0134.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 136,
+      "imageFile": "frame_0136.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 138,
+      "imageFile": "frame_0138.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 140,
+      "imageFile": "frame_0140.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 142,
+      "imageFile": "frame_0142.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 144,
+      "imageFile": "frame_0144.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 144,
+      "imageFile": "frame_0144.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 146,
+      "imageFile": "frame_0146.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 146,
+      "imageFile": "frame_0146.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 148,
+      "imageFile": "frame_0148.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 148,
+      "imageFile": "frame_0148.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 150,
+      "imageFile": "frame_0150.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 150,
+      "imageFile": "frame_0150.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 152,
+      "imageFile": "frame_0152.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 152,
+      "imageFile": "frame_0152.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 154,
+      "imageFile": "frame_0154.000s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 154,
+      "imageFile": "frame_0154.000s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 154.78,
+      "imageFile": "frame_0154.780s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 154.78,
+      "imageFile": "frame_0154.780s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_EDGE_CLIPPING",
+      "domain": "CINEMATIC_COMPOSITION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 154.9,
+      "imageFile": "frame_0154.900s.png",
+      "expected": "Subjects remain inside intentional safe framing unless the crop is clearly motivated",
+      "observed": "Actor bounds approach or cross the frame edge",
+      "recommendation": "Review framing, camera scale, actor path and safe margins",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "ACTOR_OVERSIZED",
+      "domain": "CINEMATIC_SCALE",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "MEDIUM",
+      "timeSeconds": 154.9,
+      "imageFile": "frame_0154.900s.png",
+      "expected": "Subject scale matches the authored shot hierarchy",
+      "observed": "Actor occupies an unusually large portion of the frame",
+      "recommendation": "Review per-shot actor fit and orthographic size; do not treat global actor scale as shot-invariant",
+      "owner": "CINEMATIC_DIRECTOR"
+    }
+  ],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 10,
+      "fileName": "frame_0010.000s.png"
+    },
+    {
+      "timeSeconds": 12,
+      "fileName": "frame_0012.000s.png"
+    },
+    {
+      "timeSeconds": 30,
+      "fileName": "frame_0030.000s.png"
+    },
+    {
+      "timeSeconds": 52,
+      "fileName": "frame_0052.000s.png"
+    },
+    {
+      "timeSeconds": 54,
+      "fileName": "frame_0054.000s.png"
+    },
+    {
+      "timeSeconds": 56,
+      "fileName": "frame_0056.000s.png"
+    },
+    {
+      "timeSeconds": 58,
+      "fileName": "frame_0058.000s.png"
+    },
+    {
+      "timeSeconds": 60,
+      "fileName": "frame_0060.000s.png"
+    },
+    {
+      "timeSeconds": 62,
+      "fileName": "frame_0062.000s.png"
+    },
+    {
+      "timeSeconds": 64,
+      "fileName": "frame_0064.000s.png"
+    },
+    {
+      "timeSeconds": 66,
+      "fileName": "frame_0066.000s.png"
+    },
+    {
+      "timeSeconds": 68,
+      "fileName": "frame_0068.000s.png"
+    },
+    {
+      "timeSeconds": 88,
+      "fileName": "frame_0088.000s.png"
+    },
+    {
+      "timeSeconds": 90,
+      "fileName": "frame_0090.000s.png"
+    },
+    {
+      "timeSeconds": 120,
+      "fileName": "frame_0120.000s.png"
+    },
+    {
+      "timeSeconds": 134,
+      "fileName": "frame_0134.000s.png"
+    },
+    {
+      "timeSeconds": 136,
+      "fileName": "frame_0136.000s.png"
+    },
+    {
+      "timeSeconds": 138,
+      "fileName": "frame_0138.000s.png"
+    },
+    {
+      "timeSeconds": 140,
+      "fileName": "frame_0140.000s.png"
+    },
+    {
+      "timeSeconds": 142,
+      "fileName": "frame_0142.000s.png"
+    },
+    {
+      "timeSeconds": 144,
+      "fileName": "frame_0144.000s.png"
+    },
+    {
+      "timeSeconds": 146,
+      "fileName": "frame_0146.000s.png"
+    },
+    {
+      "timeSeconds": 148,
+      "fileName": "frame_0148.000s.png"
+    },
+    {
+      "timeSeconds": 150,
+      "fileName": "frame_0150.000s.png"
+    },
+    {
+      "timeSeconds": 152,
+      "fileName": "frame_0152.000s.png"
+    },
+    {
+      "timeSeconds": 154,
+      "fileName": "frame_0154.000s.png"
+    },
+    {
+      "timeSeconds": 154.78,
+      "fileName": "frame_0154.780s.png"
+    },
+    {
+      "timeSeconds": 154.9,
+      "fileName": "frame_0154.900s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
