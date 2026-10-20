@@ -1,0 +1,193 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "THE 53 MOVES | Academy of the Last Fleet",
+  "projectId": "ab2081afb9e54901a06d7a838667f08e",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "PASS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "No sampled black frames outside detected transitions; this is not full technical clearance",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 21,
+    "blackFrames": 0,
+    "handoffBoundaryBlanks": 0,
+    "edgeClipping": 0,
+    "actorOverlap": 0,
+    "actorOversized": 0,
+    "meanBrightness": 0.3907061020533244,
+    "originalFlags": 27,
+    "events": 0,
+    "eventCaptured": 0,
+    "eventObserved": 0
+  },
+  "eventProof": [],
+  "issues": [
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 187.6,
+      "imageFile": "frame_0187.600s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 189.65,
+      "imageFile": "frame_0189.650s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 362,
+      "imageFile": "frame_0362.000s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 364.05,
+      "imageFile": "frame_0364.050s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 576.9,
+      "imageFile": "frame_0576.900s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 578.95,
+      "imageFile": "frame_0578.950s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    }
+  ],
+  "keyframes": [
+    {
+      "timeSeconds": 93.95,
+      "fileName": "frame_0093.950s.png"
+    },
+    {
+      "timeSeconds": 96,
+      "fileName": "frame_0096.000s.png"
+    },
+    {
+      "timeSeconds": 98.05,
+      "fileName": "frame_0098.050s.png"
+    },
+    {
+      "timeSeconds": 185.55,
+      "fileName": "frame_0185.550s.png"
+    },
+    {
+      "timeSeconds": 187.6,
+      "fileName": "frame_0187.600s.png"
+    },
+    {
+      "timeSeconds": 189.65,
+      "fileName": "frame_0189.650s.png"
+    },
+    {
+      "timeSeconds": 277.15,
+      "fileName": "frame_0277.150s.png"
+    },
+    {
+      "timeSeconds": 279.2,
+      "fileName": "frame_0279.200s.png"
+    },
+    {
+      "timeSeconds": 281.25,
+      "fileName": "frame_0281.250s.png"
+    },
+    {
+      "timeSeconds": 359.95,
+      "fileName": "frame_0359.950s.png"
+    },
+    {
+      "timeSeconds": 362,
+      "fileName": "frame_0362.000s.png"
+    },
+    {
+      "timeSeconds": 364.05,
+      "fileName": "frame_0364.050s.png"
+    },
+    {
+      "timeSeconds": 463.75,
+      "fileName": "frame_0463.750s.png"
+    },
+    {
+      "timeSeconds": 465.8,
+      "fileName": "frame_0465.800s.png"
+    },
+    {
+      "timeSeconds": 467.85,
+      "fileName": "frame_0467.850s.png"
+    },
+    {
+      "timeSeconds": 574.85,
+      "fileName": "frame_0574.850s.png"
+    },
+    {
+      "timeSeconds": 576.9,
+      "fileName": "frame_0576.900s.png"
+    },
+    {
+      "timeSeconds": 578.95,
+      "fileName": "frame_0578.950s.png"
+    },
+    {
+      "timeSeconds": 661.55,
+      "fileName": "frame_0661.550s.png"
+    },
+    {
+      "timeSeconds": 663.6,
+      "fileName": "frame_0663.600s.png"
+    },
+    {
+      "timeSeconds": 665.65,
+      "fileName": "frame_0665.650s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
