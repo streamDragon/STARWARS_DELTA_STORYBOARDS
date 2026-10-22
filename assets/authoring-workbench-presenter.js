@@ -2,6 +2,7 @@
 'use strict';
 const stages={BRIEF:'הרעיון',STORYBOARD:'תכנון השוטים',DESIGN:'תכנון השלב',ASSETS:'בחירת חומרים',TARGET_REVIEW:'בדיקת תמונת היעד',AUTHORING:'הכנת הסרט',LEVEL_JSON:'הכנת קובץ השלב',UNITY_BUILD:'בנייה ביוניטי',LEVEL_BUILD:'בניית השלב',QA:'בדיקת התוצאה',LEVEL_QA:'בדיקת השלב',WAVES:'גלים ונקודות הופעה',GAMEPLAY_QA:'בדיקת משחק',REVISION:'תיקונים',COMPLETE:'סיום'};
 const statuses={PASS:'עבר',PASS_CLEAN:'עבר',STRICT_PASS_CLEAN:'עבר',COMPLETED:'הושלם',CAPTURED:'צילום שמור',PARTIAL:'הושלם חלקית',FAILED:'לא עבר',FAIL:'לא עבר',ERROR:'נמצאה שגיאה',PLANNING:'בתכנון',IN_PROGRESS:'בעבודה',PENDING:'ממתין להמשך',PENDING_REMOTE:'ממתין לביצוע ביוניטי',NOT_RUN:'טרם בוצע',NOT_TESTED:'טרם נבדק',NOT_RECHECKED:'לא נבדק מחדש',NOT_REVIEWED:'טרם נבדק',REVIEW_REQUIRED:'דרושה בדיקה',IMPLEMENTED_PENDING_USER_REVIEW:'מוכן לעיון',WARNINGS:'יש הערות',READY_WITH_WARNINGS:'מוכן עם הערות',SOURCE_ATTACHED:'המקור צורף',RESOLVED:'טופל',CLOSED:'נסגר',UNKNOWN:'לא תועד',ACCEPTED:'אושר'};
+Object.assign(statuses,{IMPORTED_QA_REVIEW_REQUIRED:'ממתין לבדיקת התוצאה',PREPARATION_ONLY:'הכנה בלבד',PREPARED_NATIVE_PENDING:'הוכן · ממתין לביצוע ביוניטי'});
 const stageLabel=v=>stages[v]||'שלב לא ידוע';
 const statusLabel=v=>statuses[v]||'מצב לא מוכר';
 const evidenceName=v=>({REFERENCE:'תמונת השראה או מקור',PLAN:'תכנון / סטוריבורד',ASSET_COMPOSITION:'הרכבה מחומרים',ACTUAL_CAPTURE:'צילום מתוך המערכת',UNKNOWN:'קובץ מצורף'})[v]||'קובץ מצורף';

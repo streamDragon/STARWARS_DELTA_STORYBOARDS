@@ -8,6 +8,8 @@ test('Hebrew stages and unknown statuses remain honest',()=>{
  assert.equal(p.stageLabel('WAVES'),'גלים ונקודות הופעה');
  assert.equal(p.statusLabel('NOT_TESTED'),'טרם נבדק');
  assert.equal(p.statusLabel('SOMETHING_NEW'),'מצב לא מוכר');
+ assert.equal(p.statusLabel('IMPORTED_QA_REVIEW_REQUIRED'),'ממתין לבדיקת התוצאה');
+ assert.equal(p.statusLabel('PREPARATION_ONLY'),'הכנה בלבד');
 });
 test('advisor gives unknown submitted operations priority and never suggests replay',()=>{
  const a=p.advice(session({inFlightAction:{status:'UNKNOWN'},stage:'UNITY_BUILD'}));
