@@ -1,0 +1,233 @@
+{
+  "schema": "STARWARS_DELTA_AUTHORING_SESSION",
+  "version": 1,
+  "id": "cinematic-system-integration",
+  "kind": "film",
+  "title": "אינטגרציה · מערכת יצירה אחת",
+  "revision": 6,
+  "stage": "QA",
+  "status": "IMPLEMENTED_PENDING_USER_REVIEW",
+  "updatedUtc": "2026-10-22T13:30:00.000Z",
+  "originalBrief": "Build one stable website Copy message, repository-backed progress and crash-safe continuation. Preserve existing tools. Film uses four cinematic systems; level uses Level Builder then Reverse waves. Agent without Remote can author and persist work; native operations remain pending.",
+  "approvedTargetRevision": 1,
+  "targetArtifacts": [],
+  "storyboard": [],
+  "assets": [],
+  "gaps": [
+    {
+      "request": "Native integration and actual movie acceptance",
+      "status": "PENDING",
+      "replacementAction": "Follow planB-D. D4 native BUILD/capture report is attached to semantic-director4 but cinematicREVIEW_REQUIRED/runtimeNOT_TESTED. No full integrated-film acceptance."
+    },
+    {
+      "request": "NativeEditor safe readiness",
+      "status": "BLOCKED_BY_DIALOG",
+      "replacementAction": "Scene(s) Have Been Modified id32,GRAD1,opened04:41:51Z. Supported installedAPI is read-only dialog tracking; Cancel authorized but unavailable. Preserve all manual work. Exact report attached."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "design-approval-20261022",
+      "type": "DESIGN_APPROVAL",
+      "reference": "User: מאשר after CINEMATIC_INTEGRATION_DESIGN_20261022.html",
+      "accepted": true
+    },
+    {
+      "id": "execution-authorization-20261022",
+      "type": "EXECUTION_AUTHORIZATION",
+      "reference": "User explicitly authorized implementation/publication without further approvals and requested stable initial instructions",
+      "accepted": true
+    }
+  ],
+  "runs": [
+    {
+      "id": "workbench-release-bf2e8af9",
+      "sourceIdentity": {
+        "repositoryCommit": "bf2e8af935f811ac6a0ad6fc0fa3daba7548ca79",
+        "localCodeCommit": "05987b8"
+      },
+      "capture": "NOT_RUN",
+      "technical": "PASS",
+      "cinematic": "NOT_RUN",
+      "runtime": "PENDING_REMOTE",
+      "evidence": "Root executed node --test assets/authoring-workbench.test.js tools/authoring-session.test.mjs assets/preview-session-bridge.test.js:31 tests,31 pass,0 fail. Website deployment/browser smoke tracked separately; this is not Unity evidence."
+    },
+    {
+      "id": "workbench-browser-smoke-20261022",
+      "capture": "NOT_RUN",
+      "technical": "PASS",
+      "cinematic": "NOT_RUN",
+      "runtime": "PENDING_REMOTE",
+      "sourceIdentity": {
+        "siteCommit": "066cfcaa022d7fcd37d2fe9eec8a5bb77ed79cbf"
+      },
+      "evidence": "33/33 Node tests; actual public browser loads68dossiers, film source verified and43s cursor restores; level QA/wave lane shown; copy button reports success. Cloud virtual clipboard cannot read navigator clipboard, and download event was not exposed, so exact OS paste/download event not independently verified. Core/TXT bytes equal and published file unchanged. Final immediate revision3 refresh checked separately.",
+      "artifacts": [
+        {
+          "path": "workbench/projects/cinematic-system-integration/artifacts/9cc0f7ad4f4562f9908113dbd5c7bb5671196a5f9379706250de078668eb7191-workbench-live-20261022.jpg",
+          "label": "האתר שפורסם · צילום ממשק בלבד",
+          "kind": "reference",
+          "sha256": "9cc0f7ad4f4562f9908113dbd5c7bb5671196a5f9379706250de078668eb7191",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "note": "Browser UI screenshot of website revision2; not a Unity capture or movie acceptance."
+        }
+      ]
+    },
+    {
+      "id": "workbench-live-resume-20261022",
+      "capture": "NOT_RUN",
+      "technical": "PASS",
+      "cinematic": "NOT_RUN",
+      "runtime": "PENDING_REMOTE",
+      "sourceIdentity": {
+        "siteCommit": "7bc85d6e764141ffbbf45f883f8047390e66f390",
+        "observedSessionRevision": 3,
+        "uiBlob": "a5fff818069ed5126cab6e095452fff08e2cc863"
+      },
+      "evidence": "GitHubPages workflow39770569775 build/deploy successful; browser clicked prominent homepage CTA, observed versioned UI loader and revision3. This record creates revision4 to verify immediate fresh-state continuation; immutable prior revisions preserved. Website verification only; native cinematics remain pending."
+    },
+    {
+      "id": "workbench-pinned-reader-final-20261022",
+      "capture": "NOT_RUN",
+      "technical": "PASS",
+      "cinematic": "NOT_RUN",
+      "runtime": "PENDING_REMOTE",
+      "sourceIdentity": {
+        "siteCommit": "292abd49a8597edee3d8f0eb4fb8f4cec3eba6b3",
+        "uiSha256": "91f086c18032896033e7eea819649fb2ec7c0544726e859adc356fd44e682542"
+      },
+      "evidence": "37/37 root Node tests passed. Separate code review PASS,noImportant/Critical. Public unauthenticated GitHubrefAPI returned200,correctHEAD,CORS*. Reader pins index/session/source tooneSHA, doesnot silentlyfall back onAPIerror. This revision is the immediate live-resume proof update; bootstrap bytes unchanged. Native build/cinematic/runtime acceptance not claimed."
+    },
+    {
+      "id": "composer-isolated-three-launch-regression-20261022",
+      "capture": "NOT_RUN",
+      "technical": "PASS",
+      "cinematic": "NOT_RUN",
+      "runtime": "NOT_TESTED",
+      "evidence": "Isolated .NET tests executed locally 15/15 PASS. In WORK staging only: MY_CinematicComposerShotWriter.cs no longer creates an extra volley in TRAVEL; updated Program.cs asserts 3 launches and travel continuation requirement. The real Unity materializer's projectile continuity has NOT been demonstrated. No Unity native EditMode Test Runner or Game View screenshot."
+    }
+  ],
+  "history": [
+    {
+      "revision": 1,
+      "stage": "AUTHORING",
+      "status": "IN_PROGRESS",
+      "updatedUtc": "2026-10-22T03:02:24.018586Z",
+      "snapshotPath": "workbench/projects/cinematic-system-integration/revisions/000001.json"
+    },
+    {
+      "revision": 2,
+      "stage": "QA",
+      "status": "IMPLEMENTED_PENDING_USER_REVIEW",
+      "updatedUtc": "2026-10-22T11:11:15.503Z",
+      "snapshotPath": "workbench/projects/cinematic-system-integration/revisions/000002.json"
+    },
+    {
+      "revision": 3,
+      "stage": "QA",
+      "status": "IMPLEMENTED_PENDING_USER_REVIEW",
+      "updatedUtc": "2026-10-22T11:21:38.284Z",
+      "snapshotPath": "workbench/projects/cinematic-system-integration/revisions/000003.json"
+    },
+    {
+      "revision": 4,
+      "stage": "QA",
+      "status": "IMPLEMENTED_PENDING_USER_REVIEW",
+      "updatedUtc": "2026-10-22T11:29:54.021Z",
+      "snapshotPath": "workbench/projects/cinematic-system-integration/revisions/000004.json"
+    },
+    {
+      "revision": 5,
+      "stage": "QA",
+      "status": "IMPLEMENTED_PENDING_USER_REVIEW",
+      "updatedUtc": "2026-10-22T11:38:58.683Z",
+      "snapshotPath": "workbench/projects/cinematic-system-integration/revisions/000005.json"
+    }
+  ],
+  "lastCompletedAction": "Continued previous studio/Composer implementation on authorized Windows workstation. Recovered GitHub integration rev5 and MAIN camera blocker. Fixed isolated Composer six-shot FIRE->TRAVEL duplicate firing: three launches rather than six, travel visual requirement now explicitly references existing three projectiles. Unity-bundled .NET runner tests 15/15 PASS after scoped source/test edit under WORK/qa/cinematic_composer_20261022. No MAIN, Unity scene, or production film changed; no new native compile/build/capture. Local receipt: WORK/qa/cinematic_composer_20261022/CONTINUATION_RECEIPT_20261022.md.",
+  "nextAction": "Composer prepared-only continuation: implement exact CURRENT adapter and canonical CUTSCENE_SCRIPT_V1 emission (not a new schema); establish real cross-shot projectile instance continuity, not metadata alone. Resolve preserved GRAD1 unsaved-scene dialog through safe supported Editor UI action before source integration, recheck seven guarded camera hashes, then focused Unity compilation/Film QA, FLEET22/FLEET30 and 90s live shot capture and manual save/reopen. Native/runtimes NOT_RUN; do not mark visual acceptance.",
+  "inFlightAction": null,
+  "sourceArtifacts": [
+    {
+      "path": "workbench/projects/cinematic-system-integration/artifacts/45f543564a42ce9926e816c59bb59dc7e4734f9dd5b9f385a100590a01948fee-CINEMATIC_INTEGRATION_DESIGN_20261022.html",
+      "label": "התכנון המאושר",
+      "kind": "plan",
+      "sha256": "45f543564a42ce9926e816c59bb59dc7e4734f9dd5b9f385a100590a01948fee",
+      "evidenceStatus": "SOURCE_ATTACHED"
+    },
+    {
+      "path": "workbench/projects/cinematic-system-integration/artifacts/ce0a53ae9d14e31178359a3c98182b0bebb8d3cb8807f0c215dd123f0f2741b5-CINEMATIC_INTEGRATION_IMPLEMENTATION_PLAN_20261022.md",
+      "label": "תכנית מימוש וקבצים מדויקים",
+      "kind": "plan",
+      "sha256": "ce0a53ae9d14e31178359a3c98182b0bebb8d3cb8807f0c215dd123f0f2741b5",
+      "evidenceStatus": "SOURCE_ATTACHED"
+    },
+    {
+      "path": "workbench/projects/cinematic-system-integration/artifacts/e06f3596245d2af9265e6bc247d5dd14093f13736705055a311b5a8be6522803-PROJECT_AGENTS.md",
+      "label": "PROJECT_AGENTS.md",
+      "kind": "reference",
+      "sha256": "e06f3596245d2af9265e6bc247d5dd14093f13736705055a311b5a8be6522803",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/cinematic-system-integration/artifacts/0d3fe25598635b8a8ad2d24aed88059c660294f01d4cdd68159c002455686df3-LEVEL_BUILDER_WORKFLOW.md",
+      "label": "LEVEL_BUILDER_WORKFLOW.md",
+      "kind": "reference",
+      "sha256": "0d3fe25598635b8a8ad2d24aed88059c660294f01d4cdd68159c002455686df3",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/cinematic-system-integration/artifacts/b6f5122ffd3b1acc4d9a8c97691467df8bb5ad7e5344d303675c495d21092224-LEVEL_UNITS_AND_EVIDENCE.md",
+      "label": "LEVEL_UNITS_AND_EVIDENCE.md",
+      "kind": "reference",
+      "sha256": "b6f5122ffd3b1acc4d9a8c97691467df8bb5ad7e5344d303675c495d21092224",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/cinematic-system-integration/artifacts/51c9327da3857421f2d4e75f175968cd97bacae5ffdf96f625cd9965b9919a90-ART_INTAKE.md",
+      "label": "ART_INTAKE.md",
+      "kind": "reference",
+      "sha256": "51c9327da3857421f2d4e75f175968cd97bacae5ffdf96f625cd9965b9919a90",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/cinematic-system-integration/artifacts/43d9dfc6ad5f3b374274c3ae15d50271dff924d00f78f405a87d460b8bb71ee1-CHATGPT_START_CURRENT.txt",
+      "label": "CHATGPT_START_CURRENT.txt",
+      "kind": "reference",
+      "sha256": "43d9dfc6ad5f3b374274c3ae15d50271dff924d00f78f405a87d460b8bb71ee1",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/cinematic-system-integration/artifacts/0ee0e330737887dc793a1a525c5292101cce87a659c6409892a770cc598a36cc-CAMERA_INTEGRATION_ATTEMPT_20261022.md",
+      "label": "תוצאת בדיקת אינטגרציית המצלמה",
+      "kind": "reference",
+      "sha256": "0ee0e330737887dc793a1a525c5292101cce87a659c6409892a770cc598a36cc",
+      "evidenceStatus": "SOURCE_ATTACHED"
+    },
+    {
+      "path": "workbench/projects/cinematic-system-integration/artifacts/9cc0f7ad4f4562f9908113dbd5c7bb5671196a5f9379706250de078668eb7191-workbench-live-20261022.jpg",
+      "label": "האתר שפורסם · צילום ממשק בלבד",
+      "kind": "reference",
+      "sha256": "9cc0f7ad4f4562f9908113dbd5c7bb5671196a5f9379706250de078668eb7191",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "note": "Browser UI screenshot of website revision2; not a Unity capture or movie acceptance."
+    }
+  ],
+  "currentIdentity": {
+    "publishTransactionId": "20261020-040324592-9f3fa147",
+    "observedVia": "GitHub connector, original published CURRENT",
+    "status": "CURRENT_VERIFIED",
+    "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
+    "note": "Refresh at every new authoring request; this is an intake observation, not a permanent pin."
+  }
+}
