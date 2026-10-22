@@ -5,108 +5,70 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>STARWARS_DELTA — כלי יצירה</title>
-<link rel="stylesheet" href="assets/site.css?build=he-game-20260926">
+<link rel="stylesheet" href="assets/site.css?build=portal-20261023">
 </head>
 <body>
 <nav class="tool-nav" aria-label="כלי האתר">
   <a class="tool-brand" href="./"><span class="tool-brand-mark">Δ</span><span>STARWARS_DELTA</span></a>
   <div class="tool-nav-links">
-    <a href="workbench.html">סביבת יצירה</a>
-    <a class="active" href="./">בית</a>
-    <a href="storyboards.html">סטוריבורדים</a>
-    <a href="sprite-sheet-player.html">אנימציה</a>
-    <a href="cutscene-preview.html">סרטים</a>
-    <a href="devora.html">דבורה</a>
-    <a href="film-qa.html">Film QA</a>
-    <a href="level-qa.html">Level QA</a>
-    <a href="catalog.html">קטלוג</a>
+    <a class="active" aria-current="page" href="./">בית</a>
+    <a href="workbench.html?kind=film">יצירת סרט</a>
+    <a href="workbench.html?kind=level">בניית רמה</a>
+    <a href="film-qa.html">בדיקות סרטים</a>
+    <a href="level-qa.html">בדיקות רמות</a>
+    <a href="catalog.html">קטלוג אמנות</a>
+    <details class="portal-extra"><summary>כלים נוספים</summary>
+      <div class="portal-extra-links">
+        <a href="storyboards.html">סטוריבורדים</a>
+        <a href="sprite-sheet-player.html">נגן אנימציות</a>
+        <a href="cutscene-preview.html">תצוגת סרט</a>
+        <a href="devora.html">דבורה</a>
+        <a href="cinematic-director.html">מדריך בימוי</a>
+      </div>
+    </details>
   </div>
 </nav>
 
-<main class="home-shell">
+<main class="home-shell portal-home">
   <section class="home-hero">
     <div class="home-hero-copy">
-      <div class="eyebrow">STARWARS_DELTA / סביבת יצירה</div>
-      <h1>בית אחד.<br>כל כלי היצירה.</h1>
-      <div class="quick-links"><a href="workbench.html">מתחילים כאן: הוראות לסוכן והמשך פרויקט ←</a></div>
-      <p>נכנסים לכלי שרוצים, עובדים, וחוזרים הביתה מכל מקום. סטוריבורדים, אנימציה, סרטים, דבורה והקטלוג נמצאים עכשיו באותה סביבת עבודה ברורה.</p>
+      <div class="eyebrow">STARWARS_DELTA / CREATIVE STUDIO</div>
+      <h1>מה יוצרים היום?</h1>
+      <p>מקום אחד לבניית סרטים ורמות, להמשך עבודה עם סוכן ולבדיקה של מה ש־Unity באמת יצר.</p>
+      <div class="portal-hero-actions">
+        <a class="portal-primary" href="workbench.html?kind=film">יצירת סרט <span aria-hidden="true">←</span></a>
+        <a class="portal-secondary" href="workbench.html?kind=level">בניית רמה <span aria-hidden="true">←</span></a>
+      </div>
     </div>
-    <aside class="home-current">
-      <div>
-        <div class="eyebrow">המערכת שפורסמה</div>
-        <strong><span class="current-dot"></span><span id="currentStatus">בודק CURRENT…</span></strong>
-      </div>
-      <small id="currentDetail">קורא את תאריך הפרסום המאומת...</small>
-      <div class="publish-times" aria-live="polite">
-        <div><span>פרסום CURRENT האחרון (Smart Publish)</span><strong id="currentPublishedAt">בודק...</strong></div>
-      </div>
-      <div class="quick-links">
-        <a href="designer-ai/open-current/OPEN_CURRENT.json" target="_blank" rel="noopener">מצב CURRENT</a>
-        <a href="catalog.html#visualBrowserGrid">דפדפן חזותי</a>
-      </div>
+    <aside class="home-current" aria-label="מצב הפרסום">
+      <div class="eyebrow">הפרסום המאומת</div>
+      <strong><span class="current-dot" id="currentIndicator" data-state="pending"></span><span id="currentStatus" role="status" aria-live="polite">בודק CURRENT…</span></strong>
+      <small id="currentDetail">המערכת בודקת את סטטוס הפרסום.</small>
+      <div class="publish-times"><div><span>פרסום Smart Publish אחרון</span><strong id="currentPublishedAt">בודק…</strong></div></div>
+      <a class="portal-status-link" href="designer-ai/open-current/OPEN_CURRENT.json" target="_blank" rel="noopener">פרטי הפרסום ↗</a>
     </aside>
   </section>
-
-  <div class="home-section-head">
-    <div><h2>מה יוצרים עכשיו?</h2><p>חמישה אזורי עבודה ברורים, ובכולם יש דרך ישירה חזרה לבית.</p></div>
-  </div>
-
-  <section class="home-grid">
-    <a class="home-card" data-tone="cyan" href="storyboards.html">
-      <div class="home-card-icon">SB</div>
-      <h3>סטוריבורדים</h3>
-      <p>צפייה בסטוריבורדים שפורסמו, מעבר בין שוטים, Motion Board וניגון Animatic.</p>
-      <span class="home-card-go">פתיחת סטוריבורדים ←</span>
-    </a>
-
-    <a class="home-card" data-tone="green" href="sprite-sheet-player.html">
-      <div class="home-card-icon">AN</div>
-      <h3>אנימציה</h3>
-      <p>טעינת Sprite Sheet, בדיקת פריימים, זיהוי Grid ותצוגת תנועה אמיתית על במה.</p>
-      <span class="home-card-go">פתיחת כלי האנימציה ←</span>
-    </a>
-
-    <a class="home-card" data-tone="violet" href="cutscene-preview.html">
-      <div class="home-card-icon">▶</div>
-      <h3>תצוגת סרט</h3>
-      <p>טעינת JSON של Cutscene ובדיקה מהירה של הסרט בדפדפן לפני שחוזרים ל־Unity.</p>
-      <span class="home-card-go">פתיחת תצוגת הסרט ←</span>
-    </a>
-
-    <a class="home-card" data-tone="gold" href="devora.html">
-      <div class="home-card-icon">♛</div>
-      <h3>דבורה המלכה</h3>
-      <p>נקודת הכניסה ליצירת סרטים עם ChatGPT על בסיס חוזה ה־CURRENT הסגור.</p>
-      <span class="home-card-go">פתיחת דבורה ←</span>
-    </a>
-
-    <a class="home-card" data-tone="cyan" href="film-qa.html">
-      <div class="home-card-icon">QA</div>
-      <h3>Film QA</h3>
-      <p>Captures מ־Unity עם PDF, צילומי סרט, זמנים, Timeline evidence ו־ChatGPT brief לכל סצנה.</p>
-      <span class="home-card-go">פתיחת Film QA ←</span>
-    </a>
-
-    <a class="home-card" data-tone="green" href="level-qa.html">
-      <div class="home-card-icon">LQ</div>
-      <h3>Level QA</h3>
-      <p>תמונות אמיתיות מ־Unity: סצנה כללית, צילום מצלמת המשחק עם אפקטים ומפת גלים ומסלולים אוטומטית.</p>
-      <span class="home-card-go">פתיחת Level QA ←</span>
-    </a>
-
-    <a class="home-card featured" data-tone="pink" href="catalog.html">
-      <div class="home-card-icon">DL</div>
-      <h3>קטלוג והורדות</h3>
-      <p>חיפוש דמויות, אנימציות, אפקטים ורקעים, פתיחת האטלס והגעה לכל משאבי ה־CURRENT בלי לחפור בתיקיות build ישנות.</p>
-      <span class="home-card-go">פתיחת הקטלוג ←</span>
-    </a>
+  <div class="home-section-head"><div><h2>בדיקות ותוצרים</h2><p>התוצאה לפני הדוחות: רואים מה נבנה, ואז מחליטים מה לתקן.</p></div></div>
+  <section class="home-grid portal-main-grid" aria-label="בדיקות ותוצרים">
+    <a class="home-card" data-tone="cyan" href="film-qa.html"><div class="home-card-icon" aria-hidden="true">▶</div><h3>סרטים שצולמו</h3><p>צילומי שוטים, Timeline, תוצאות בדיקות וקבצי QA.</p><span class="home-card-go">פתיחת בדיקות הסרטים ←</span></a>
+    <a class="home-card" data-tone="green" href="level-qa.html"><div class="home-card-icon" aria-hidden="true">▦</div><h3>רמות וגלים</h3><p>צילומי Scene ו־Game, מסלולים, גלים והתפתחות לאורך זמן.</p><span class="home-card-go">פתיחת בדיקות הרמות ←</span></a>
+    <a class="home-card" data-tone="violet" href="catalog.html"><div class="home-card-icon" aria-hidden="true">✦</div><h3>קטלוג חומרים</h3><p>חיפוש נכסים ואנימציות מתוך CURRENT, עם תצוגות חזותיות.</p><span class="home-card-go">פתיחת קטלוג ←</span></a>
   </section>
-
-  <div class="quick-links">
-    <a href="viewer.html?id=25sec">סטוריבורד שפורסם</a>
-    <a href="designer-ai/open-current/CHATGPT_AUTHORING_INDEX.json" target="_blank" rel="noopener">אינדקס Authoring</a>
-    <a href="designer-ai/open-current/ANIMATION_COVERAGE_CURRENT.json" target="_blank" rel="noopener">כיסוי אנימציות</a>
-  </div>
+  <details class="portal-library">
+    <summary>ספריית כלים ומסמכים מתקדמים</summary>
+    <div class="portal-library-content">
+      <p>כלי צפייה ומסמכי מקור נשמרים זמינים, אבל לא חייבים להופיע במסך העבודה הראשי.</p>
+      <div class="portal-resource-links">
+        <a href="storyboards.html">סטוריבורדים</a>
+        <a href="sprite-sheet-player.html">נגן אנימציות</a>
+        <a href="cutscene-preview.html">תצוגת Cutscene</a>
+        <a href="devora.html">דבורה</a>
+        <a href="cinematic-director.html">מדריך בימוי</a>
+        <a href="designer-ai/open-current/CHATGPT_AUTHORING_INDEX.json" target="_blank" rel="noopener">אינדקס Authoring</a>
+        <a href="designer-ai/open-current/ANIMATION_COVERAGE_CURRENT.json" target="_blank" rel="noopener">כיסוי אנימציות</a>
+      </div>
+    </div>
+  </details>
 </main>
 
 <footer>STARWARS_DELTA — סביבת היצירה</footer>
@@ -122,10 +84,12 @@
     if(!r.ok)throw Error('HTTP '+r.status);
     const m=await r.json();
     const verified=m.status==='CURRENT_VERIFIED';
+    document.getElementById('currentIndicator').dataset.state=verified?'verified':'unverified';
     document.getElementById('currentStatus').textContent=verified?'CURRENT מאומת':'CURRENT לא מאומת';
     document.getElementById('currentDetail').textContent=verified?'גרסה מאומתת: '+(m.publishTransactionId||'CURRENT'):'הפרסום האחרון לא אומת.';
     document.getElementById('currentPublishedAt').textContent=verified && (m.publishedUtc||m.provenance?.publishedUtc)?time(m.publishedUtc||m.provenance.publishedUtc):'לא אומת';
   } catch(e) {
+    document.getElementById('currentIndicator').dataset.state='unavailable';
     document.getElementById('currentStatus').textContent='CURRENT לא זמין כרגע';
     document.getElementById('currentDetail').textContent='לא ניתן לאמת כרגע את נתוני ה־CURRENT.';
     document.getElementById('currentPublishedAt').textContent='לא זמין';
