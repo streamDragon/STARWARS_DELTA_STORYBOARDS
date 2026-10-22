@@ -3,9 +3,77 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>בימוי ועריכה — Cinematic Director</title>
 <style>
 :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#091423;color:#e7eff7;font:18px/1.75 system-ui,sans-serif}main,nav{max-width:1100px;margin:auto;padding:22px}nav{display:flex;gap:22px;flex-wrap:wrap;border-bottom:1px solid #294056}a{color:#7de4e7}h1{font-size:clamp(36px,6vw,64px);line-height:1.2;margin:16px 0}h2{font-size:27px;margin:0 0 14px}h3{margin:4px 0}p{margin:12px 0}.muted{color:#b3c7d8}.eyebrow{color:#7de4e7;font-size:15px}section{margin:28px 0;padding:25px;border:1px solid #294056;border-radius:18px;background:#102034}.lead{font-size:23px}.status{border-right:5px solid #f0b35a}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{padding:18px;border:1px solid #34536a;border-radius:12px;background:#142b3e}.tag{font-size:14px;color:#f0c47b}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:620px}th,td{text-align:right;vertical-align:top;padding:12px;border-bottom:1px solid #34536a}th{color:#7de4e7}.time{white-space:nowrap;font-variant-numeric:tabular-nums}.frames{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}figure{margin:0}img{width:100%;height:auto;border-radius:10px}figcaption{font-size:15px;color:#bfd0de}.foot{font-size:15px;color:#b3c7d8}code{direction:ltr;unicode-bidi:isolate;font-size:.9em;overflow-wrap:anywhere}@media(max-width:620px){body{font-size:16px}.cards,.frames{grid-template-columns:1fr}main,nav{padding:15px}section{padding:17px}}
+/* Cinematic Director refined UI 2026-10 */
+:root{color-scheme:dark;--surface:#101c2a;--surface2:#152739;--line:#304a5c;--accent:#80ddd4;--muted:#a4bbcc}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{background:radial-gradient(ellipse 70% 25% at 60% 0%,#17374b 0%,transparent 85%),#08111b;color:#ecf5f9;font:16px/1.75 system-ui,"Segoe UI",sans-serif}
+main{max-width:1200px;padding:30px 25px 90px}
+nav{position:sticky;top:0;z-index:10;max-width:none;padding:13px max(24px,calc((100vw - 1150px)/2));background:#0c1724f2;border-bottom:1px solid #31495b;backdrop-filter:blur(14px)}
+nav a{color:#b4d4e0;text-decoration:none;font-size:14px;font-weight:650}
+nav a:hover{color:white}
+header{padding:30px 0 18px}
+h1{font-size:clamp(38px,5.2vw,65px);line-height:1.12;letter-spacing:-1.2px}
+h2{font-size:clamp(21px,2.4vw,28px);line-height:1.3}
+h3{font-size:19px}
+p{max-width:90ch}
+section{margin:20px 0;padding:clamp(19px,3vw,30px);background:linear-gradient(135deg,#121f2e,#0e1a28);border:1px solid #2b455b;border-radius:17px;box-shadow:0 10px 30px #0002}
+section.status{border-right:5px solid #d5a855}
+.card{background:#142738;border:1px solid #375265;border-radius:13px;padding:21px;min-width:0}
+.card:hover{border-color:#5c939c}
+.lead{font-size:clamp(20px,2.3vw,25px);line-height:1.5}
+.muted,.foot{color:#aebfcf}
+.eyebrow{color:#8cece0;font-size:12px;font-weight:800;letter-spacing:.08em}
+.tag{display:inline-block;padding:6px 10px;border-radius:9px;background:#252a27;color:#eacb94;border:1px solid #5e5543}
+table{font-size:14px;min-width:660px}
+th{color:#a5eee3;background:#172a38}
+td,th{border-bottom-color:#30495b}
+tbody tr:hover{background:#192f41}
+figure{background:#091522;border:1px solid #2d4356;border-radius:14px;overflow:hidden}
+figure img{border-radius:0}
+figcaption{padding:12px 14px}
+code{background:#0b1826;border:1px solid #293d50;border-radius:5px;padding:1px 5px}
+a{color:#83e5db;text-underline-offset:4px}
+a:hover{color:#befff5}
+.cd-hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:24px}
+.cd-btn{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:10px 17px;border:1px solid #4f8193;border-radius:12px;text-decoration:none;font-size:14px;font-weight:800;background:#193248;color:#dff7fa}
+.cd-btn.primary{background:#78ded0;color:#09222c;border-color:#78ded0}
+.cd-btn:hover{transform:translateY(-1px)}
+.cd-progress{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:27px 0 7px}
+.cd-progress>div{padding:13px 12px;border-radius:11px;background:#132535;border:1px solid #315062;min-width:0}
+.cd-progress strong{display:block;font-size:13px;color:#e1f6fa}
+.cd-progress span{display:block;font-size:11px;color:#a9bccb;margin-top:3px}
+.cd-progress .good{border-color:#347e6d}.cd-progress .good strong{color:#89e7cb}
+.cd-progress .review{border-color:#92754b}.cd-progress .review strong{color:#f1d0a2}
+.cd-next{background:linear-gradient(120deg,#133a40,#152636);border-color:#477d7b}
+.cd-next h2{color:#adf6e8}
+.cd-next p{max-width:82ch}
+.cd-shortcuts{display:flex;gap:8px;flex-wrap:wrap;padding:3px 0 9px}
+.cd-shortcuts a{padding:7px 11px;border:1px solid #2c4b5d;border-radius:999px;background:#101f2d;text-decoration:none;font-size:12px}
+:focus-visible{outline:3px solid #87f4e5;outline-offset:3px}
+@media(max-width:850px){.cd-progress{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:1fr}nav{position:static}}
+@media(max-width:620px){main{padding:18px 13px 50px}.cd-progress{grid-template-columns:1fr}.cd-btn{width:100%}.frames{grid-template-columns:1fr}section{padding:17px}table{min-width:610px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cd-btn:hover{transform:none}}
+
 </style></head>
 <body><nav aria-label="ניווט"><a href="https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/workbench.html">יומן העבודה והוראות לסוכן</a><a href="https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/">בית</a><a href="https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/film-qa.html">Film QA</a></nav>
 <main><header><p class="eyebrow">מערכת 4 · הסבר ומצב שנבדק ב־22.10.2026</p><h1>בימוי ועריכה<br><span lang="en" dir="ltr">Cinematic Director</span></h1><p class="lead">מה רואים עכשיו, למי חותכים, באיזה גודל פריים, לכמה זמן — ומה הצופה מבין מהחיבור בין השוטים.</p><p>זו השכבה שמחברת חללית ענקית, עיניים של טייס, תותח, ירי, פגיעה ותגובה לסיפור אחד. המצלמה היא אחד הכלים שלה; גם בחירת השוט, החיתוך, הקצב, הסאונד והסיבתיות שייכים לה.</p></header>
+<div class="cd-progress" aria-label="מצב הצינור המאומת">
+<div class="good"><strong>01 · STRICT עבר</strong><span>תסריט V1 קודם אומת</span></div>
+<div class="good"><strong>02 · BUILD עבר</strong><span>סרט 96 שניות נבנה</span></div>
+<div class="good"><strong>03 · FILM QA הושלם</strong><span>71 פריימים נבדקו</span></div>
+<div class="review"><strong>04 · איכות בבדיקה</strong><span>תנועה, קנה מידה, תגובות</span></div>
+</div>
+<div class="cd-hero-actions">
+<a class="cd-btn primary" href="workbench.html?id=semantic-director4">פתיחת תיק הבימוי והמשך העבודה ←</a>
+<a class="cd-btn" href="film-qa.html">צילומים וביקורת סרטים</a>
+<a class="cd-btn" href="#pipeline">יכולות קיימות</a>
+</div>
+<div class="cd-shortcuts" aria-label="קיצורי דרך בתוך הדף"><a href="#next">השלב הבא</a><a href="#pipeline">53 MOVES</a><a href="#inference">השלמה קולנועית</a><a href="#quality">מצב האיכות</a><a href="#visuals">הפריימים האמיתיים</a></div>
+<section class="cd-next" id="next">
+<h2>מה עושים עכשיו?</h2>
+<p>משלימים את החיבור הקולנועי, לא מתחילים מחדש את מערכת ה־Build: בודקים נכסים מאומתים לדמויות ולאוניית דגל, מוודאים שהמצלמה מתרגמת שוט רחב ותקריב לתוצאה ממשית, ורק אז מריצים STRICT, Build ו־Film QA על גרסה חדשה.</p>
+<p class="muted">חשוב: הסרט הקודם נבנה ונבדק. גרסת השחקנים המתוקנת עדיין לא קיבלה בדיקת Unity חדשה, ואין להציג אותה כסרט מאושר.</p>
+</section>
 <section><h2>ארבע המערכות עובדות יחד</h2><div class="cards"><div class="card"><h3>53 MOVES</h3><p>אוצר התנועה והכוריאוגרפיה: מרדף, מעבר בפריים, מבנה צי, תקיפה ותבניות פעולה קיימות.</p></div><div class="card"><h3>Dialogue · דיאלוג</h3><p>מי מדבר, מי מקשיב, מה נאמר ומתי. פקודה בזמן סכנה מקבלת משמעות לפי השוט שסביבה.</p></div><div class="card"><h3>Anime Emotion · רגש</h3><p>הפנים והתגובה האנושית: עיניים, הלם, היסוס ונחישות. בדוגמת V1 קיימים EYES ו־SNAP_ZOOM; זו אינה הוכחה שהחיבור המלא לסרט כבר עובד.</p></div><div class="card"><h3>Cinematic Director · בימוי ועריכה</h3><p>בוחר ומסדר את כל אלה: חשיפה → תגובה → החלטה → פעולה → תוצאה → תגובה חדשה.</p></div></div><p>ה־<b>Composer</b> הוא המתרגם של תכנית הבימוי לקובץ <code>CUTSCENE_SCRIPT_V1</code> הקיים. הסטודיו ו־Timeline/Cinemachine אמורים לבצע אותה ב־Unity. לא נוצר כאן פורמט יבוא ציבורי נוסף.</p></section>
 <section id="pipeline"><h2>מה כבר אפשר להרכיב בדרך הקיימת?</h2><p>בדיקת הקוד והקטלוג מראה ש־53 MOVES הם גם תנועה וגם <b>אבני עריכה</b>. כבר קיימים מבט–מטרה–מבט, תותח–מטרה–ירי וסיבה–תוצאה–תגובה. ה־Director בוחר ומחבר ביניהם. אפשר לכתוב V1 ישירות; אין צורך להמתין ל־Composer כדי לתכנן סרט.</p><div class="table-wrap"><table><thead><tr><th>מה רוצים</th><th>במה משתמשים</th><th>מה צריך להוכיח</th></tr></thead><tbody>
 <tr><td>מרדף, מעבר, ליווי ומבנה צי</td><td><code>CROSSING_FLYBY</code>, <code>PURSUIT_LANES</code>, <code>ESCORT_COLUMN</code></td><td>נכסים פתורים, תנועה וכיוון שנראים בצילום.</td></tr>
@@ -31,7 +99,7 @@
 <section><h2>שמונת מתכוני הבימוי המתועדים</h2><p class="muted">ספריית תכנון קיימת. היא אינה שמונה MOVES חדשים ואינה הוכחה לשמונה מנגנוני Runtime ממומשים.</p><div class="table-wrap"><table><thead><tr><th>מתכון</th><th>התפקיד שלו</th></tr></thead><tbody>
 <tr><td>מרדף עם חיתוך לאדם</td><td>מרדף → פנים → איום → התחמקות → תגובה.</td></tr><tr><td>לחץ בין חוץ לפנים</td><td>חללית בחוץ → תא טייס → אזהרה → פרט → חזרה לסכנה.</td></tr><tr><td>חשיפת איום</td><td>מבט מחוץ לפריים → גילוי האויב → השוואת גודל → תגובה.</td></tr><tr><td>כניסת גיבור</td><td>סביבה → גילוי חלקי → מעבר משמעותי → פרט → תנועה.</td></tr><tr><td>פגיעה עם השלכה</td><td>הכנה → ירי → פגיעה → נזק שנשאר → השתהות.</td></tr><tr><td>דיאלוג תחת איום</td><td>דובר → מאזין → איום בחוץ → פנים משתנות → פעולה.</td></tr><tr><td>גילוי והחלטה</td><td>רמז → פנים → פרט → מחשבה → החלטה → תנועה.</td></tr><tr><td>חילוץ</td><td>סכנה → הופעת מציל → חילוץ → תגובה → יציאה משותפת.</td></tr>
 </tbody></table></div><p>בנפרד קיימים שמונה תגים סמנטיים כגון HUMAN_REACTION ו־WEAPON_CAUSE_EFFECT. הם מתארים תפקיד דרמטי, ולא ביצוע במנוע.</p></section>
-<section class="status"><h2>מה כבר קיים, ומה עדיין לא הוכח</h2><div class="table-wrap"><table><thead><tr><th>רכיב</th><th>המצב שנבדק</th></tr></thead><tbody>
+<section class="status" id="quality"><h2>מה כבר קיים, ומה עדיין לא הוכח</h2><div class="table-wrap"><table><thead><tr><th>רכיב</th><th>המצב שנבדק</th></tr></thead><tbody>
 <tr><td>מחקר ומתכוני בימוי</td><td>קיימים במסמכי הפרויקט, כולל קנה מידה, סיבתיות וחוץ־פנים.</td></tr>
 <tr><td>Composer</td><td>בהכנה מחוץ ל־MAIN. מממש כרגע FLEET_VOLLEY_22 בלבד: SCALE, WEAPON, FIRE, TRAVEL, IMPACT, AFTERMATH. לפי קבלת ההמשך, 15 בדיקות ‎.NET מבודדות עברו ותוקן ירי כפול ב־TRAVEL.</td></tr>
 <tr><td>חיבור Composer ל־CURRENT ול־V1</td><td>עדיין חסר. שלוש תוויות דרמה פרטיות דורשות תרגום לערכי V1 החוקיים; אין עדיין יצוא V1 שאפשר לבדוק מכאן. דרישות טקסט כגון ״אותם קליעים״ אינן הוכחה לרציפות אובייקטים ב־Unity.</td></tr>
@@ -40,7 +108,7 @@
 <tr><td>סרט Unity שפורסם</td><td>THE LAST EVACUATION: נבנה, 96 שניות, 71 פריימים. זה מוכיח בנייה וצילום; האיכות הקולנועית עדיין REVIEW_REQUIRED ו־Runtime לא נבדק.</td></tr>
 <tr><td>חיתוכי 0.5 שנייה וזום חזק על חללית/תותח</td><td>מוגדרים כמטרת קבלה. טרם הוצגה הוכחה מצולמת לשרשרת המלאה.</td></tr>
 </tbody></table></div><p><b>מסקנת הבדיקה: השפה והתכנון מתאימים לכיוון שביקשת; הסרט המצולם עדיין אינו מוכיח שהגענו לרמה הזאת.</b></p></section>
-<section><h2>מה נראה בפריימים האמיתיים</h2><p>נבדקו שישה מתוך 71 הפריימים של הריצה שפורסמה: 0, 24, 48, 72, 78.320 ו־95.880 שניות. במדגם נראות חלליות קטנות על רקע גלקסיה; אין בו את שרשרת תקריבי הפנים והתותח המתוארת למעלה. הפריימים ב־24 וב־48 שניות זהים בבייטים. ב־78.320 לא נראה במדגם פיצוץ ברור. זו בדיקת מדגם, לא צפייה רציפה בכל הסרט.</p><div class="frames">
+<section id="visuals"><h2>מה נראה בפריימים האמיתיים</h2><p>נבדקו שישה מתוך 71 הפריימים של הריצה שפורסמה: 0, 24, 48, 72, 78.320 ו־95.880 שניות. במדגם נראות חלליות קטנות על רקע גלקסיה; אין בו את שרשרת תקריבי הפנים והתותח המתוארת למעלה. הפריימים ב־24 וב־48 שניות זהים בבייטים. ב־78.320 לא נראה במדגם פיצוץ ברור. זו בדיקת מדגם, לא צפייה רציפה בכל הסרט.</p><div class="frames">
 <figure><img loading="lazy" src="https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/3494b2f3db9841995f2d749b6360920424abea0f/film-qa/the-last-evacuation-d4-v1-engine-test/20261022_031816/frame_0000.000s.png" alt="צילום Unity אמיתי בשנייה אפס: שלוש חלליות על רקע גלקסיה"><figcaption>פריים אמיתי · 0 שניות · אינו תמונת יעד</figcaption></figure>
 <figure><img loading="lazy" src="https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/3494b2f3db9841995f2d749b6360920424abea0f/film-qa/the-last-evacuation-d4-v1-engine-test/20261022_031816/frame_0078.320s.png" alt="צילום Unity אמיתי בסמוך לזמן הפגיעה המתוכנן"><figcaption>פריים אמיתי · 78.320 שניות · דרוש עדיין אימות תוצאת הפגיעה</figcaption></figure></div><p><a href="https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/workbench.html?id=semantic-director4">תיק הבימוי: המקורות, הפריימים והבדיקה המדויקת</a></p></section>
 <section><h2>איך זה מתחבר ל־Yamato ולסטוריבורדים</h2><p>מחקר Yamato בפרויקט תומך בהחלפה בין פרט תותח גדול, ספינת גיבור וצי רחב, בשלוש שכבות עומק ובכיוון ירי עקבי. חוזה Squadron 42 מוסיף את השרשרת ״איום → תגובה אנושית → פקודה → פעולה נראית → תוצאה → החלטה חדשה״. אלה העקרונות שצריך לתרגם מהסטוריבורד קדימה לסרט, ומהפריימים האמיתיים בחזרה ל־QA.</p><p>הסטוריבורד ההפוך של Yamato דגם 31 תמונות בהפרשים של שמונה שניות. הוא אינו יכול לבדו להוכיח חיתוך של חצי שנייה או מהירות זום. גם דמיון בתמונת מטרה אינו מוכיח רציפות, רגש וסיבתיות לאורך זמן. אין כאן טענה שכל סרטי Star Wars או Star Blazers הושוו אחד־אחד לתוצאה ב־Unity.</p></section>
