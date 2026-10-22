@@ -22,6 +22,6 @@ test('CURRENT status has pending, verified and unavailable states rather than al
   assert.match(home,/dataset\.state='unavailable'/);
 });
 test('workbench honors kind=level deep link and updates URL when user switches tabs',()=>{
-  assert.match(workbench,/searchParams\.get\('kind'\)/);
+  assert.match(workbench,/URLSearchParams\(location\.search\)\.get\('kind'\)/);
   assert.match(workbench,/searchParams\.set\('kind',kind\)/);
 });
