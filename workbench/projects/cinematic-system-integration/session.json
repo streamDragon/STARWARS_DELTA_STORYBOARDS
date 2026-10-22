@@ -4,10 +4,10 @@
   "id": "cinematic-system-integration",
   "kind": "film",
   "title": "אינטגרציה · מערכת יצירה אחת",
-  "revision": 2,
+  "revision": 3,
   "stage": "QA",
   "status": "IMPLEMENTED_PENDING_USER_REVIEW",
-  "updatedUtc": "2026-10-22T11:11:15.503Z",
+  "updatedUtc": "2026-10-22T11:21:38.284Z",
   "originalBrief": "Build one stable website Copy message, repository-backed progress and crash-safe continuation. Preserve existing tools. Film uses four cinematic systems; level uses Level Builder then Reverse waves. Agent without Remote can author and persist work; native operations remain pending.",
   "approvedTargetRevision": 1,
   "targetArtifacts": [],
@@ -17,12 +17,12 @@
     {
       "request": "Native integration and actual movie acceptance",
       "status": "PENDING",
-      "replacementAction": "Use implementation plan B–D after single-owner/source checks; no new native proof yet"
+      "replacementAction": "Follow planB-D. D4 native BUILD/capture report is attached to semantic-director4 but cinematicREVIEW_REQUIRED/runtimeNOT_TESTED. No full integrated-film acceptance."
     },
     {
-      "request": "Native Editor state",
-      "status": "UNKNOWN",
-      "replacementAction": "One read-only status request timed out; inspect original response/log, never discard manual work"
+      "request": "NativeEditor safe readiness",
+      "status": "BLOCKED_BY_DIALOG",
+      "replacementAction": "Scene(s) Have Been Modified id32,GRAD1,opened04:41:51Z. Supported installedAPI is read-only dialog tracking; Cancel authorized but unavailable. Preserve all manual work. Exact report attached."
     }
   ],
   "decisions": [
@@ -51,6 +51,27 @@
       "cinematic": "NOT_RUN",
       "runtime": "PENDING_REMOTE",
       "evidence": "Root executed node --test assets/authoring-workbench.test.js tools/authoring-session.test.mjs assets/preview-session-bridge.test.js:31 tests,31 pass,0 fail. Website deployment/browser smoke tracked separately; this is not Unity evidence."
+    },
+    {
+      "id": "workbench-browser-smoke-20261022",
+      "capture": "NOT_RUN",
+      "technical": "PASS",
+      "cinematic": "NOT_RUN",
+      "runtime": "PENDING_REMOTE",
+      "sourceIdentity": {
+        "siteCommit": "066cfcaa022d7fcd37d2fe9eec8a5bb77ed79cbf"
+      },
+      "evidence": "33/33 Node tests; actual public browser loads68dossiers, film source verified and43s cursor restores; level QA/wave lane shown; copy button reports success. Cloud virtual clipboard cannot read navigator clipboard, and download event was not exposed, so exact OS paste/download event not independently verified. Core/TXT bytes equal and published file unchanged. Final immediate revision3 refresh checked separately.",
+      "artifacts": [
+        {
+          "path": "workbench/projects/cinematic-system-integration/artifacts/9cc0f7ad4f4562f9908113dbd5c7bb5671196a5f9379706250de078668eb7191-workbench-live-20261022.jpg",
+          "label": "האתר שפורסם · צילום ממשק בלבד",
+          "kind": "reference",
+          "sha256": "9cc0f7ad4f4562f9908113dbd5c7bb5671196a5f9379706250de078668eb7191",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "note": "Browser UI screenshot of website revision2; not a Unity capture or movie acceptance."
+        }
+      ]
     }
   ],
   "history": [
@@ -60,10 +81,17 @@
       "status": "IN_PROGRESS",
       "updatedUtc": "2026-10-22T03:02:24.018586Z",
       "snapshotPath": "workbench/projects/cinematic-system-integration/revisions/000001.json"
+    },
+    {
+      "revision": 2,
+      "stage": "QA",
+      "status": "IMPLEMENTED_PENDING_USER_REVIEW",
+      "updatedUtc": "2026-10-22T11:11:15.503Z",
+      "snapshotPath": "workbench/projects/cinematic-system-integration/revisions/000002.json"
     }
   ],
-  "lastCompletedAction": "Published durable workbench at commit bf2e8af935f811ac6a0ad6fc0fa3daba7548ca79. Fresh root verification: 31/31 Node tests passed; 68 dossier index/session/immutable snapshots consistent; reviewed code and exact-source preview selection passed.",
-  "nextAction": "Open the website workbench and copy the same stable initial instructions for a new film/level or explicit resume. Continue native integration plan B–D in the serialized MAIN lane; camera READY is still uninstalled and actual integrated-film/runtime acceptance remains pending.",
+  "lastCompletedAction": "Published reviewed durable workbench,68 dossiers and recovered native D4 sources/QA. Root full Node suite:33/33 PASS. Actual browser loaded source-bound LastVolley90 preview and restored43s cursor after reload. Cache fix published066cfcaa; final live refresh verification tracked in evidence. Deployed066cfcaa verified: browser loaded revision2; native readiness resolved to BLOCKED_BY_DIALOG.",
+  "nextAction": "Use the same Copy initial instructions for every new film/level or explicit resume. Native D1 remains pending: exact GRAD1 unsaved-scene dialog blocks safe refresh; installed nativeAPI has noCancel action. Preserve unsaved work and resume the guarded READY camera batch only after supported dialog resolution, then fresh compilation/tests/FLEET capture. Composer B tasks and integrated cinematic/runtime acceptance remain pending.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -124,6 +152,21 @@
       "evidenceStatus": "SOURCE_ATTACHED",
       "sourceKind": "REMOTE_TEXT_EXPORT",
       "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/cinematic-system-integration/artifacts/0ee0e330737887dc793a1a525c5292101cce87a659c6409892a770cc598a36cc-CAMERA_INTEGRATION_ATTEMPT_20261022.md",
+      "label": "תוצאת בדיקת אינטגרציית המצלמה",
+      "kind": "reference",
+      "sha256": "0ee0e330737887dc793a1a525c5292101cce87a659c6409892a770cc598a36cc",
+      "evidenceStatus": "SOURCE_ATTACHED"
+    },
+    {
+      "path": "workbench/projects/cinematic-system-integration/artifacts/9cc0f7ad4f4562f9908113dbd5c7bb5671196a5f9379706250de078668eb7191-workbench-live-20261022.jpg",
+      "label": "האתר שפורסם · צילום ממשק בלבד",
+      "kind": "reference",
+      "sha256": "9cc0f7ad4f4562f9908113dbd5c7bb5671196a5f9379706250de078668eb7191",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "note": "Browser UI screenshot of website revision2; not a Unity capture or movie acceptance."
     }
   ],
   "currentIdentity": {
