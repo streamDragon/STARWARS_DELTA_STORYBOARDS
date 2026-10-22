@@ -175,8 +175,8 @@ async function loadSession(){
   if(selection.navigationError||new URLSearchParams(location.search).has('navigationError'))throw Error(selection.navigationError||'Unsafe navigation parameters');
   if(!selection.session)return;
   const base=bridge.base(location.href),path='workbench/projects/'+bridge.id(selection.session)+'/session.json';
-  const readBytes=async path=>{const response=await fetch(new URL(bridge.path(path),base),{cache:'no-store'});if(!response.ok)throw Error('Source HTTP '+response.status);return new Uint8Array(await response.arrayBuffer());};
-  const session=JSON.parse(new TextDecoder().decode(await readBytes(path)));
+  const readBytes=async (path,mutable=false)=>{const url=new URL(bridge.path(path),base);if(mutable)url.searchParams.set('_fresh',Date.now().toString(36)+'-'+request+'-'+Math.random().toString(36).slice(2));const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error('Source HTTP '+response.status);return new Uint8Array(await response.arrayBuffer());};
+  const session=JSON.parse(new TextDecoder().decode(await readBytes(path,true)));
   if(session.id!==selection.session||session.kind!=='film')throw Error('Session identity is not a film dossier');
   const source=await bridge.chooseSource(session,selection,readBytes,crypto);if(request!==loadGeneration)return;
   if(!source)throw Error('SOURCE_V1_REQUIRED · אין בתיק מקור מפורש בסכימת STARWARS_DELTA_CUTSCENE_SCRIPT. Semantic plan is not V1.');
