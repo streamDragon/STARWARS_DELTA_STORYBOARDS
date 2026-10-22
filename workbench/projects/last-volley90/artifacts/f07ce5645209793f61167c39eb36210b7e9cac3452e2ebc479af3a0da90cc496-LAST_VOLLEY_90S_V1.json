@@ -1,0 +1,1220 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+  "schemaVersion": 1,
+  "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
+  "authoringRuleRegistryRevision": "E315C26FC5A7968D619512AA71D772703E0DD43F75CEB28BF6EC922752BB025A",
+  "title": "THE LAST VOLLEY | המטח האחרון | 90s",
+  "creativeIntent": "Original 90-second 2D space-opera film. One escort is lost, the commander orders a decisive counter-volley, the enemy is destroyed and the survivors leave an empty place in formation. Use current legal sprite proxies to begin. Intended cinematic flagship is existing linked CS_FLEET_Invasion.prefab; visual/muzzle anchoring and Film QA are separate necessary acceptance steps, not already achieved.",
+  "durationSeconds": 90,
+  "cast": [
+    {
+      "id": "hero",
+      "materialHandle": "2dspaceshipsfreetrialatlassideviewblue_0__3d37a4ba",
+      "displayName": "Flagship / Battlecruiser proxy",
+      "semanticRole": "hero",
+      "entityKind": "Spaceship"
+    },
+    {
+      "id": "escort_alpha",
+      "materialHandle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+      "displayName": "Escort One",
+      "semanticRole": "escort",
+      "entityKind": "Spaceship"
+    },
+    {
+      "id": "escort_beta",
+      "materialHandle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+      "displayName": "Escort Two",
+      "semanticRole": "escort",
+      "entityKind": "Spaceship"
+    },
+    {
+      "id": "enemy",
+      "materialHandle": "bossship__712b573d",
+      "displayName": "Enemy Flagship",
+      "semanticRole": "antagonist",
+      "entityKind": "Spaceship"
+    },
+    {
+      "id": "captain",
+      "identityHandle": "LEADER_DESLOK_01",
+      "displayName": "Commander",
+      "semanticRole": "captain",
+      "entityKind": "Person"
+    },
+    {
+      "id": "comms",
+      "identityHandle": "FEMALE_COMMS_01",
+      "displayName": "Communications Officer",
+      "semanticRole": "officer",
+      "entityKind": "Person"
+    }
+  ],
+  "moves": [],
+  "beats": [
+    {
+      "id": "LV_00_FLEET_REVEAL",
+      "type": "establishing",
+      "durationSeconds": 6,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "One huge flagship and two escorts advance past the planet; establish scale without filling the screen with tiny identical icons",
+      "dramaticFunction": "setup",
+      "energy": "medium",
+      "camera": {
+        "framing": "wide",
+        "movement": "pull",
+        "subject": "hero",
+        "purpose": "Reveal one large flagship with escorts at different apparent depths"
+      },
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue_0__3d37a4ba",
+          "role": "ship",
+          "screenX": 0.53,
+          "screenY": 0.52,
+          "screenWidthFraction": 0.34,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "escort_alpha",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "role": "ship",
+          "screenX": 0.19,
+          "screenY": 0.7,
+          "screenWidthFraction": 0.16,
+          "depth": "background",
+          "saliency": "support"
+        },
+        {
+          "id": "escort_beta",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "role": "ship",
+          "screenX": 0.23,
+          "screenY": 0.3,
+          "screenWidthFraction": 0.13,
+          "depth": "far",
+          "saliency": "support"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "flyby",
+          "speed": "slow",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.45,
+              "y": 0.54
+            },
+            {
+              "x": 0.58,
+              "y": 0.51
+            }
+          ],
+          "duration": 5.5,
+          "startOffset": 0
+        },
+        {
+          "type": "move",
+          "subject": "escort_alpha",
+          "motionIntent": "flyby",
+          "speed": "slow",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.16,
+              "y": 0.7
+            },
+            {
+              "x": 0.25,
+              "y": 0.69
+            }
+          ],
+          "duration": 5.5,
+          "startOffset": 0
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "delta7_engine__5bfd7f6a",
+          "operation": "play",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 5.8,
+          "intensity": "low"
+        }
+      ],
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_06_HULL_PASS",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Pass close to the flagship hull and expose the forward gun position; avoid enlarging tiny pixel artwork beyond useful detail",
+      "dramaticFunction": "reveal",
+      "energy": "medium",
+      "camera": {
+        "framing": "close",
+        "movement": "track",
+        "subject": "hero",
+        "purpose": "Track moving ship with mild rotation and no camera roll"
+      },
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue_0__3d37a4ba",
+          "role": "ship",
+          "screenX": 0.49,
+          "screenY": 0.5,
+          "screenWidthFraction": 0.47,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "flyby",
+          "speed": "medium",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.4,
+              "y": 0.53
+            },
+            {
+              "x": 0.6,
+              "y": 0.49
+            }
+          ],
+          "duration": 3.8,
+          "startOffset": 0,
+          "pathRotationDegrees": 12
+        }
+      ],
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_10_WARNING",
+      "type": "dialogue",
+      "durationSeconds": 4,
+      "locationHandle": "bg_command_bridge__fb8ff00c",
+      "storyClaim": "Red warning lights illuminate the command bridge. The crew sees the enemy closing",
+      "dramaticFunction": "build",
+      "energy": "high",
+      "camera": {
+        "framing": "medium",
+        "movement": "hold",
+        "purpose": "Command bridge cutaway"
+      },
+      "dialogue": [
+        {
+          "speaker": "comms",
+          "listener": "captain",
+          "text": "Enemy flagship closing. Our escort screen cannot hold.",
+          "delivery": "warning",
+          "presentation": "portrait",
+          "voice": "text_only"
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "bossalarm__decb304b",
+          "operation": "play",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 3.7,
+          "intensity": "high"
+        }
+      ],
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_14_ANIME_CONCERN",
+      "type": "custom",
+      "durationSeconds": 3,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Held portrait: dread before any response, allowing silence to build tension",
+      "dramaticFunction": "reaction",
+      "energy": "low",
+      "camera": {
+        "framing": "close",
+        "movement": "hold",
+        "purpose": "Held anxious anime face"
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_17_ENEMY_REVEAL",
+      "type": "threat_reveal",
+      "durationSeconds": 5,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Enemy flagship enters from the right, visually dwarfing the distant hero",
+      "dramaticFunction": "reveal",
+      "energy": "high",
+      "camera": {
+        "framing": "wide",
+        "movement": "pull",
+        "subject": "enemy",
+        "purpose": "Reveal enemy from dark side against the same space background"
+      },
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue_0__3d37a4ba",
+          "role": "ship",
+          "screenX": 0.2,
+          "screenY": 0.52,
+          "screenWidthFraction": 0.17,
+          "depth": "background",
+          "saliency": "support"
+        },
+        {
+          "id": "enemy",
+          "handle": "bossship__712b573d",
+          "role": "ship",
+          "screenX": 0.72,
+          "screenY": 0.49,
+          "screenWidthFraction": 0.35,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "enemy",
+          "motionIntent": "flyby",
+          "speed": "medium",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.98,
+              "y": 0.48
+            },
+            {
+              "x": 0.72,
+              "y": 0.49
+            }
+          ],
+          "duration": 4.8,
+          "startOffset": 0
+        }
+      ],
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_22_ATTACK_RUN",
+      "type": "battle",
+      "durationSeconds": 4,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Two escorts split altitude while the enemy fires at the vulnerable rear escort",
+      "dramaticFunction": "pursuit",
+      "energy": "peak",
+      "camera": {
+        "framing": "wide",
+        "movement": "track",
+        "subject": "escort_alpha",
+        "purpose": "Follow one escort during the pass, not arbitrary camera shake"
+      },
+      "visible": [
+        {
+          "id": "escort_alpha",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "role": "ship",
+          "screenX": 0.34,
+          "screenY": 0.65,
+          "screenWidthFraction": 0.2,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "escort_beta",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "role": "ship",
+          "screenX": 0.23,
+          "screenY": 0.32,
+          "screenWidthFraction": 0.15,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "enemy",
+          "handle": "bossship__712b573d",
+          "role": "ship",
+          "screenX": 0.78,
+          "screenY": 0.49,
+          "screenWidthFraction": 0.31,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "escort_alpha",
+          "motionIntent": "flyby",
+          "speed": "fast",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.13,
+              "y": 0.65
+            },
+            {
+              "x": 0.54,
+              "y": 0.59
+            }
+          ],
+          "duration": 3.5,
+          "startOffset": 0
+        },
+        {
+          "type": "move",
+          "subject": "enemy",
+          "motionIntent": "flyby",
+          "speed": "slow",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.89,
+              "y": 0.5
+            },
+            {
+              "x": 0.69,
+              "y": 0.49
+            }
+          ],
+          "duration": 3.5,
+          "startOffset": 0
+        },
+        {
+          "type": "fire",
+          "subject": "enemy",
+          "target": "escort_beta",
+          "projectileId": "CS_PROJECTILE_PURPLE_BOLT",
+          "impactMode": "target_anchor",
+          "effectHandle": "muzzleflash01__24a4a045",
+          "impactEffectHandle": "energyexplosion__0357da2c",
+          "startOffset": 2,
+          "duration": 1.3
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "autocannon__shot_1__644a3a13",
+          "operation": "play",
+          "startOffsetSeconds": 2,
+          "durationSeconds": 1.6,
+          "intensity": "high"
+        }
+      ],
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_26_ESCORT_HIT",
+      "type": "destruction",
+      "durationSeconds": 5,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Escort Two takes two distinct hits, catches fire and disappears behind a final explosion",
+      "dramaticFunction": "impact",
+      "energy": "peak",
+      "camera": {
+        "framing": "close",
+        "movement": "impact_shake",
+        "subject": "escort_beta",
+        "purpose": "Hold the damage in a readable frame, then destroy the escort"
+      },
+      "visible": [
+        {
+          "id": "escort_beta",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "role": "ship",
+          "screenX": 0.48,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.36,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "enemy",
+          "handle": "bossship__712b573d",
+          "role": "ship",
+          "screenX": 0.83,
+          "screenY": 0.55,
+          "screenWidthFraction": 0.15,
+          "depth": "background",
+          "saliency": "support"
+        }
+      ],
+      "actions": [
+        {
+          "type": "impact",
+          "subject": "escort_beta",
+          "target": "escort_beta",
+          "impactMode": "target_anchor",
+          "effectHandle": "energyexplosion__0357da2c",
+          "startOffset": 0.7,
+          "duration": 0.65
+        },
+        {
+          "type": "impact",
+          "subject": "escort_beta",
+          "target": "escort_beta",
+          "impactMode": "target_anchor",
+          "effectHandle": "energyexplosion__0357da2c",
+          "startOffset": 1.55,
+          "duration": 0.65
+        },
+        {
+          "type": "react",
+          "subject": "escort_beta",
+          "effectHandle": "flame_smoke__613b151a",
+          "startOffset": 2.1,
+          "duration": 1.6
+        },
+        {
+          "type": "destroy",
+          "subject": "escort_beta",
+          "target": "escort_beta",
+          "effectHandle": "bigexplosion__9d286a08",
+          "startOffset": 3.45,
+          "duration": 1
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "audioclip_generic_gethit__c04b35f9",
+          "operation": "play",
+          "startOffsetSeconds": 0.75,
+          "durationSeconds": 1,
+          "intensity": "high"
+        },
+        {
+          "kind": "sfx",
+          "handle": "autocannon__shot_1__644a3a13",
+          "operation": "play",
+          "startOffsetSeconds": 3.3,
+          "durationSeconds": 1.4,
+          "intensity": "high"
+        }
+      ],
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_31_LOSS_REPORT",
+      "type": "dialogue",
+      "durationSeconds": 4,
+      "locationHandle": "bg_command_bridge__fb8ff00c",
+      "storyClaim": "The communications officer reports an irreversible loss",
+      "dramaticFunction": "reaction",
+      "energy": "low",
+      "camera": {
+        "framing": "medium",
+        "movement": "hold",
+        "purpose": "Return to command bridge after losing an escort"
+      },
+      "dialogue": [
+        {
+          "speaker": "comms",
+          "listener": "captain",
+          "text": "Escort Two is gone. We have no escape corridor.",
+          "delivery": "urgent",
+          "presentation": "portrait",
+          "voice": "text_only"
+        }
+      ],
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_35_ANIME_SHOCK",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Still anime portrait punctuated by a restrained snap zoom in the emotional presentation",
+      "dramaticFunction": "reaction",
+      "energy": "quiet",
+      "camera": {
+        "framing": "close",
+        "movement": "hold",
+        "purpose": "A held shock reaction instead of another battle clip"
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_39_FINAL_ORDER",
+      "type": "dialogue",
+      "durationSeconds": 4,
+      "locationHandle": "bg_command_bridge__fb8ff00c",
+      "storyClaim": "The commander chooses one decisive, risky shot",
+      "dramaticFunction": "climax",
+      "energy": "high",
+      "camera": {
+        "framing": "medium",
+        "movement": "hold",
+        "purpose": "Command shot ahead of weapon charge"
+      },
+      "dialogue": [
+        {
+          "speaker": "captain",
+          "listener": "comms",
+          "text": "Divert all remaining power to the forward batteries. One shot.",
+          "delivery": "command",
+          "presentation": "portrait",
+          "voice": "text_only"
+        }
+      ],
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_43_GUN_APPROACH",
+      "type": "custom",
+      "durationSeconds": 5,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "The camera slowly approaches the nose of the still-moving flagship. This shot cannot claim detailed moving cannon machinery from the tiny source sprite",
+      "dramaticFunction": "build",
+      "energy": "medium",
+      "camera": {
+        "framing": "detail",
+        "movement": "push",
+        "subject": "hero",
+        "purpose": "Moderate zoom to painted muzzle area. Local Transform anchor still to be set"
+      },
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue_0__3d37a4ba",
+          "role": "ship",
+          "screenX": 0.51,
+          "screenY": 0.51,
+          "screenWidthFraction": 0.48,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "flyby",
+          "speed": "slow",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.45,
+              "y": 0.52
+            },
+            {
+              "x": 0.58,
+              "y": 0.51
+            }
+          ],
+          "duration": 4.8,
+          "startOffset": 0,
+          "pathRotationDegrees": 10
+        }
+      ],
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_48_WEAPON_CHARGE",
+      "type": "custom",
+      "durationSeconds": 6,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Energy gathers around the forward battery, intensifies, then creates a short precursor flash",
+      "dramaticFunction": "build",
+      "energy": "high",
+      "camera": {
+        "framing": "detail",
+        "movement": "zoom_in",
+        "subject": "hero",
+        "purpose": "Build visible charge with regular Unity VFX cues"
+      },
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue_0__3d37a4ba",
+          "role": "ship",
+          "screenX": 0.5,
+          "screenY": 0.52,
+          "screenWidthFraction": 0.5,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "react",
+          "subject": "hero",
+          "effectHandle": "aura__beaf512c",
+          "startOffset": 0.5,
+          "duration": 2.4
+        },
+        {
+          "type": "react",
+          "subject": "hero",
+          "effectHandle": "fx_sphere__9ece07c2",
+          "startOffset": 2.3,
+          "duration": 2.1
+        },
+        {
+          "type": "brighten",
+          "subject": "hero",
+          "effectHandle": "muzzleflash01__24a4a045",
+          "startOffset": 4.7,
+          "duration": 0.55
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "delta7_engine__5bfd7f6a",
+          "operation": "play",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 5.9,
+          "intensity": "medium"
+        }
+      ],
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_54_ANIME_RESOLVE",
+      "type": "custom",
+      "durationSeconds": 3,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "A decisive anime close-up interrupts the charging sequence at the emotional peak",
+      "dramaticFunction": "reaction",
+      "energy": "medium",
+      "camera": {
+        "framing": "close",
+        "movement": "hold",
+        "purpose": "Determined portrait just before firing"
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_57_TARGET_LOCK",
+      "type": "custom",
+      "durationSeconds": 3,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Enemy flagship dominates frame. A target lock is communicated by zoom and audio, without inventing a new lock-on UI",
+      "dramaticFunction": "build",
+      "energy": "high",
+      "camera": {
+        "framing": "close",
+        "movement": "zoom_in",
+        "subject": "enemy",
+        "purpose": "Target fills the central frame before the cut back to the firing ship"
+      },
+      "visible": [
+        {
+          "id": "enemy",
+          "handle": "bossship__712b573d",
+          "role": "ship",
+          "screenX": 0.52,
+          "screenY": 0.51,
+          "screenWidthFraction": 0.45,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "hold",
+          "subject": "enemy",
+          "startOffset": 0,
+          "duration": 2.9
+        }
+      ],
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_60_FLEET_VOLLEY",
+      "type": "battle",
+      "durationSeconds": 4,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Stagger three bursts rather than spawning all projectiles in one instant",
+      "dramaticFunction": "climax",
+      "energy": "peak",
+      "camera": {
+        "framing": "wide",
+        "movement": "track",
+        "subject": "hero",
+        "purpose": "Stagger source shots on hero and escort, preserve wide geometry"
+      },
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue_0__3d37a4ba",
+          "role": "ship",
+          "screenX": 0.25,
+          "screenY": 0.53,
+          "screenWidthFraction": 0.31,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "escort_alpha",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "role": "ship",
+          "screenX": 0.18,
+          "screenY": 0.72,
+          "screenWidthFraction": 0.15,
+          "depth": "background",
+          "saliency": "support"
+        },
+        {
+          "id": "enemy",
+          "handle": "bossship__712b573d",
+          "role": "ship",
+          "screenX": 0.76,
+          "screenY": 0.44,
+          "screenWidthFraction": 0.28,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "fire",
+          "subject": "hero",
+          "target": "enemy",
+          "projectileId": "CS_PROJECTILE_POWERBALL",
+          "impactMode": "target_anchor",
+          "effectHandle": "muzzleflash01__24a4a045",
+          "impactEffectHandle": "energyexplosion__0357da2c",
+          "startOffset": 0.6,
+          "duration": 1.3
+        },
+        {
+          "type": "fire",
+          "subject": "escort_alpha",
+          "target": "enemy",
+          "projectileId": "CS_PROJECTILE_BLUE_BOLT",
+          "impactMode": "target_anchor",
+          "effectHandle": "muzzleflash01__24a4a045",
+          "impactEffectHandle": "energyexplosion__0357da2c",
+          "startOffset": 1.05,
+          "duration": 1.3
+        },
+        {
+          "type": "fire",
+          "subject": "hero",
+          "target": "enemy",
+          "projectileId": "CS_PROJECTILE_BLUE_BOLT",
+          "impactMode": "target_anchor",
+          "effectHandle": "muzzleflash01__24a4a045",
+          "impactEffectHandle": "energyexplosion__0357da2c",
+          "startOffset": 1.5,
+          "duration": 1.3
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "autocannon__shot_1__644a3a13",
+          "operation": "play",
+          "startOffsetSeconds": 0.55,
+          "durationSeconds": 2.25,
+          "intensity": "high"
+        }
+      ],
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_64_PROJECTILE_PATH",
+      "type": "battle",
+      "durationSeconds": 5,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "A final visible bolt crosses space toward the enemy as the camera tracks the destination",
+      "dramaticFunction": "pursuit",
+      "energy": "peak",
+      "camera": {
+        "framing": "medium",
+        "movement": "track",
+        "subject": "enemy",
+        "purpose": "Follow target and keep both projectile origin and target understandable"
+      },
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue_0__3d37a4ba",
+          "role": "ship",
+          "screenX": 0.18,
+          "screenY": 0.56,
+          "screenWidthFraction": 0.17,
+          "depth": "background",
+          "saliency": "support"
+        },
+        {
+          "id": "enemy",
+          "handle": "bossship__712b573d",
+          "role": "ship",
+          "screenX": 0.67,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.36,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "fire",
+          "subject": "hero",
+          "target": "enemy",
+          "projectileId": "CS_PROJECTILE_BLUE_BOLT",
+          "impactMode": "target_anchor",
+          "effectHandle": "muzzleflash01__24a4a045",
+          "impactEffectHandle": "energyexplosion__0357da2c",
+          "startOffset": 0.4,
+          "duration": 1.3
+        }
+      ],
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_69_HULL_IMPACTS",
+      "type": "destruction",
+      "durationSeconds": 6,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Three distinct target-local hit events strike the same hull. QA must prove they do not appear at world origin",
+      "dramaticFunction": "impact",
+      "energy": "peak",
+      "camera": {
+        "framing": "close",
+        "movement": "impact_shake",
+        "subject": "enemy",
+        "purpose": "Three time-separated hits on enemy hull"
+      },
+      "visible": [
+        {
+          "id": "enemy",
+          "handle": "bossship__712b573d",
+          "role": "ship",
+          "screenX": 0.52,
+          "screenY": 0.52,
+          "screenWidthFraction": 0.47,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "impact",
+          "subject": "enemy",
+          "target": "enemy",
+          "impactMode": "target_anchor",
+          "effectHandle": "energyexplosion__0357da2c",
+          "startOffset": 0.25,
+          "duration": 0.65
+        },
+        {
+          "type": "impact",
+          "subject": "enemy",
+          "target": "enemy",
+          "impactMode": "target_anchor",
+          "effectHandle": "energyexplosion__0357da2c",
+          "startOffset": 1.3,
+          "duration": 0.65
+        },
+        {
+          "type": "impact",
+          "subject": "enemy",
+          "target": "enemy",
+          "impactMode": "target_anchor",
+          "effectHandle": "energyexplosion__0357da2c",
+          "startOffset": 2.65,
+          "duration": 0.65
+        },
+        {
+          "type": "react",
+          "subject": "enemy",
+          "effectHandle": "flame_smoke__613b151a",
+          "startOffset": 3.3,
+          "duration": 2
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "audioclip_generic_gethit__c04b35f9",
+          "operation": "play",
+          "startOffsetSeconds": 0.3,
+          "durationSeconds": 0.6,
+          "intensity": "high"
+        },
+        {
+          "kind": "sfx",
+          "handle": "audioclip_generic_gethit__c04b35f9",
+          "operation": "play",
+          "startOffsetSeconds": 1.4,
+          "durationSeconds": 0.6,
+          "intensity": "high"
+        },
+        {
+          "kind": "sfx",
+          "handle": "audioclip_generic_gethit__c04b35f9",
+          "operation": "play",
+          "startOffsetSeconds": 2.7,
+          "durationSeconds": 0.6,
+          "intensity": "high"
+        }
+      ],
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_75_ENEMY_BREAK",
+      "type": "destruction",
+      "durationSeconds": 5,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Enemy flagship is consumed by a large explosion, then disappears; the aftermath must not cut away too early",
+      "dramaticFunction": "aftermath",
+      "energy": "peak",
+      "camera": {
+        "framing": "medium",
+        "movement": "pull",
+        "subject": "enemy",
+        "purpose": "Show the result for long enough to register"
+      },
+      "visible": [
+        {
+          "id": "enemy",
+          "handle": "bossship__712b573d",
+          "role": "ship",
+          "screenX": 0.5,
+          "screenY": 0.49,
+          "screenWidthFraction": 0.39,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "react",
+          "subject": "enemy",
+          "effectHandle": "flame_smoke__613b151a",
+          "startOffset": 0.3,
+          "duration": 2
+        },
+        {
+          "type": "destroy",
+          "subject": "enemy",
+          "target": "enemy",
+          "effectHandle": "bigexplosion__9d286a08",
+          "startOffset": 1.5,
+          "duration": 2
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "autocannon__shot_1__644a3a13",
+          "operation": "play",
+          "startOffsetSeconds": 1.4,
+          "durationSeconds": 2.25,
+          "intensity": "high"
+        }
+      ],
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_80_ANIME_AFTERSHOCK",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "An exhausted emotional pause rather than an unearned celebration",
+      "dramaticFunction": "reaction",
+      "energy": "quiet",
+      "camera": {
+        "framing": "close",
+        "movement": "hold",
+        "purpose": "Pilot remains stunned despite victory"
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    },
+    {
+      "id": "LV_84_FLEET_AFTER",
+      "type": "retreat",
+      "durationSeconds": 6,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "The flagship moves on with only one escort remaining. Hold the empty space where Escort Two should be",
+      "dramaticFunction": "aftermath",
+      "energy": "low",
+      "camera": {
+        "framing": "extreme_wide",
+        "movement": "pull",
+        "subject": "hero",
+        "purpose": "Final tableau leaves one missing escort visible by omission"
+      },
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue_0__3d37a4ba",
+          "role": "ship",
+          "screenX": 0.42,
+          "screenY": 0.52,
+          "screenWidthFraction": 0.32,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "escort_alpha",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "role": "ship",
+          "screenX": 0.19,
+          "screenY": 0.68,
+          "screenWidthFraction": 0.15,
+          "depth": "background",
+          "saliency": "support"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "flyby",
+          "speed": "slow",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.43,
+              "y": 0.53
+            },
+            {
+              "x": 0.54,
+              "y": 0.5
+            }
+          ],
+          "duration": 5.7,
+          "startOffset": 0
+        },
+        {
+          "type": "move",
+          "subject": "escort_alpha",
+          "motionIntent": "flyby",
+          "speed": "slow",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.18,
+              "y": 0.67
+            },
+            {
+              "x": 0.28,
+              "y": 0.64
+            }
+          ],
+          "duration": 5.7,
+          "startOffset": 0
+        }
+      ],
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Authored with sealed 2026-10-19 CURRENT legal handles. The fleet sprite is a catalog-legal proxy; the intended linked CS_FLEET_Invasion prefab and physical muzzle anchors require ordinary Unity instance editing and captured visual QA."
+    }
+  ],
+  "animeEmotion": [
+    {
+      "characterId": "ANIME_SPACE_PILOT_01",
+      "expression": "SHOCKED",
+      "startSeconds": 14,
+      "durationSeconds": 3,
+      "layout": "PORTRAIT_ONLY",
+      "framing": "CLOSE",
+      "motionStyle": "HOLD"
+    },
+    {
+      "characterId": "ANIME_SPACE_PILOT_01",
+      "expression": "SHOCKED",
+      "startSeconds": 35,
+      "durationSeconds": 4,
+      "layout": "PORTRAIT_ONLY",
+      "framing": "EYES",
+      "motionStyle": "SNAP_ZOOM"
+    },
+    {
+      "characterId": "ANIME_SPACE_PILOT_01",
+      "expression": "DETERMINED",
+      "startSeconds": 54,
+      "durationSeconds": 3,
+      "layout": "PORTRAIT_ONLY",
+      "framing": "CLOSE",
+      "motionStyle": "PUSH_IN"
+    },
+    {
+      "characterId": "ANIME_SPACE_PILOT_01",
+      "expression": "SHOCKED",
+      "startSeconds": 80,
+      "durationSeconds": 4,
+      "layout": "PORTRAIT_ONLY",
+      "framing": "CLOSE",
+      "motionStyle": "HOLD"
+    }
+  ]
+}

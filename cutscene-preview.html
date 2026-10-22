@@ -12,9 +12,17 @@
 <nav class="tool-nav">
   <a class="tool-brand" href="./"><span class="tool-brand-mark">Δ</span><span>STARWARS_DELTA</span></a>
   <div class="tool-nav-links">
-    <a href="./">בית</a><a href="storyboards.html">סטוריבורדים</a><a href="sprite-sheet-player.html">אנימציה</a><a class="active" href="cutscene-preview.html">סרטים</a><a href="devora.html">דבורה</a><a href="catalog.html">קטלוג</a>
+    <a id="workbench-link" href="workbench.html">תיק הפרויקט</a><a href="./">בית</a><a href="storyboards.html">סטוריבורדים</a><a href="sprite-sheet-player.html">אנימציה</a><a class="active" href="cutscene-preview.html">סרטים</a><a href="devora.html">דבורה</a><a href="catalog.html">קטלוג</a>
   </div>
 </nav>
 <iframe class="preview-frame" src="designer-ai/simple-preview.html" title="תצוגה מקדימה של סרט STARWARS_DELTA"></iframe>
+<script src="assets/preview-session-bridge.js"></script>
+<script>
+try {
+ const p=PreviewSessionBridge.params(location.search);
+ document.querySelector('iframe').src='designer-ai/simple-preview.html'+(p.size?'?'+p.toString():'');
+ document.querySelector('#workbench-link').href='workbench.html'+(p.has('session')?'?id='+encodeURIComponent(p.get('session')):'');
+} catch(e) { document.querySelector('iframe').src='designer-ai/simple-preview.html?navigationError=1'; }
+</script>
 </body>
 </html>

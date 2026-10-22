@@ -1,0 +1,70 @@
+{
+  "schema": "STARWARS_DELTA_AUTHORING_SESSION",
+  "version": 1,
+  "id": "fleet30-camera",
+  "kind": "film",
+  "title": "FLEET · הוכחת מצלמה 30 שניות",
+  "revision": 1,
+  "stage": "UNITY_BUILD",
+  "status": "PREPARATION_ONLY",
+  "updatedUtc": "2026-10-22T03:02:24.018586Z",
+  "originalBrief": "Use actual CS_FLEET_Invasion prefab (13 ships). One continuous follow shot Master 5–15s, inspect t=10 after ship translation and rotation. Wide and detail proof.",
+  "approvedTargetRevision": 0,
+  "targetArtifacts": [],
+  "storyboard": [],
+  "assets": [
+    {
+      "requestedPath": "Assets/_Game/MY_Core/MY_Cutscenes/Kits/EnemyFleet/CS_FLEET_Invasion.prefab",
+      "resolvedPath": null,
+      "evidenceStatus": "PREFAB_BINDING_PENDING",
+      "builtInAnimation": "INSPECT_REQUIRED",
+      "ownership": "ONE_CAMERA_WRITER"
+    }
+  ],
+  "gaps": [
+    {
+      "request": "Real gun-local anchor and linked fleet",
+      "placeholder": "Sprite proxy in planning inputs",
+      "replacementAction": "Bind original prefab child in Inspector, then native playback proof",
+      "status": "PENDING"
+    },
+    {
+      "request": "Measured camera integration",
+      "replacementAction": "Use only consolidated READY patch after fresh source/owner check",
+      "status": "PREPARED_NOT_INSTALLED"
+    }
+  ],
+  "decisions": [],
+  "runs": [
+    {
+      "id": "fleet30-intake",
+      "capture": "NOT_RUN",
+      "technical": "NOT_RUN",
+      "cinematic": "NOT_ACCEPTED",
+      "runtime": "NOT_TESTED",
+      "artifacts": []
+    }
+  ],
+  "history": [],
+  "lastCompletedAction": "Imported existing source evidence; no new Unity operation",
+  "nextAction": "Read FLEET30 handoff and final CAMERA_OWNER_INTEGRATION_READY. Recheck claims/source hashes and get one native owner. Build through ordinary Studio with warnings, bind actual muzzle, verify continuous follow then capture/play/save-reopen. Original and proxy sources have different lint evidence; preserve that distinction.",
+  "inFlightAction": null,
+  "sourceArtifacts": [
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/4a1d1f2672ce1832516213c22840bb69c4ae12748da697597e409f62e96778bc-FLEET30_HANDOFF.md",
+      "label": "מסירת FLEET30 — טרם נבנה/צולם",
+      "kind": "reference",
+      "sha256": "4a1d1f2672ce1832516213c22840bb69c4ae12748da697597e409f62e96778bc",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    }
+  ],
+  "currentIdentity": {
+    "publishTransactionId": "20261020-040324592-9f3fa147",
+    "observedVia": "GitHub connector, original published CURRENT",
+    "status": "CURRENT_VERIFIED",
+    "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
+    "note": "Refresh at every new authoring request; this is an intake observation, not a permanent pin."
+  }
+}

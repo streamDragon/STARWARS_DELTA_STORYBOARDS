@@ -1,0 +1,372 @@
+{
+  "title": "THE LAST VOLLEY | המטח האחרון | 90s",
+  "sourceFormat": "CUTSCENE_SCRIPT_V1",
+  "catalogTransactionId": "20261019-203534528-54e37e9c",
+  "totalSeconds": 90,
+  "beatCount": 20,
+  "animeCount": 4,
+  "dialogueCount": 3,
+  "requestedHeroPrefab": "Assets/_Game/MY_Core/MY_Cutscenes/Kits/EnemyFleet/CS_FLEET_Invasion.prefab",
+  "heroPrefabBound": false,
+  "artistFacingNote": "The cast hero is a legal original 2D spaceship Sprite proxy. The FLEET linked prefab, physical muzzle Transform, camera target and particle locations require visual assembly/Inspector binding before acceptance.",
+  "editorImportBuild": "NOT RUN",
+  "filmQA": "NOT RUN",
+  "shots": [
+    {
+      "id": "LV_00_FLEET_REVEAL",
+      "startSeconds": 0,
+      "endSeconds": 6,
+      "beatType": "establishing",
+      "camera": {
+        "framing": "wide",
+        "movement": "pull",
+        "subject": "hero",
+        "purpose": "Reveal one large flagship with escorts at different apparent depths"
+      },
+      "actionTypes": [
+        "move",
+        "move"
+      ],
+      "needsOriginalFleetPrefab": true
+    },
+    {
+      "id": "LV_06_HULL_PASS",
+      "startSeconds": 6,
+      "endSeconds": 10,
+      "beatType": "custom",
+      "camera": {
+        "framing": "close",
+        "movement": "track",
+        "subject": "hero",
+        "purpose": "Track moving ship with mild rotation and no camera roll"
+      },
+      "actionTypes": [
+        "move"
+      ],
+      "needsOriginalFleetPrefab": true
+    },
+    {
+      "id": "LV_10_WARNING",
+      "startSeconds": 10,
+      "endSeconds": 14,
+      "beatType": "dialogue",
+      "camera": {
+        "framing": "medium",
+        "movement": "hold",
+        "purpose": "Command bridge cutaway"
+      },
+      "actionTypes": [],
+      "needsOriginalFleetPrefab": false
+    },
+    {
+      "id": "LV_14_ANIME_CONCERN",
+      "startSeconds": 14,
+      "endSeconds": 17,
+      "beatType": "custom",
+      "camera": {
+        "framing": "close",
+        "movement": "hold",
+        "purpose": "Held anxious anime face"
+      },
+      "actionTypes": [],
+      "needsOriginalFleetPrefab": false
+    },
+    {
+      "id": "LV_17_ENEMY_REVEAL",
+      "startSeconds": 17,
+      "endSeconds": 22,
+      "beatType": "threat_reveal",
+      "camera": {
+        "framing": "wide",
+        "movement": "pull",
+        "subject": "enemy",
+        "purpose": "Reveal enemy from dark side against the same space background"
+      },
+      "actionTypes": [
+        "move"
+      ],
+      "needsOriginalFleetPrefab": false
+    },
+    {
+      "id": "LV_22_ATTACK_RUN",
+      "startSeconds": 22,
+      "endSeconds": 26,
+      "beatType": "battle",
+      "camera": {
+        "framing": "wide",
+        "movement": "track",
+        "subject": "escort_alpha",
+        "purpose": "Follow one escort during the pass, not arbitrary camera shake"
+      },
+      "actionTypes": [
+        "move",
+        "move",
+        "fire"
+      ],
+      "needsOriginalFleetPrefab": false
+    },
+    {
+      "id": "LV_26_ESCORT_HIT",
+      "startSeconds": 26,
+      "endSeconds": 31,
+      "beatType": "destruction",
+      "camera": {
+        "framing": "close",
+        "movement": "impact_shake",
+        "subject": "escort_beta",
+        "purpose": "Hold the damage in a readable frame, then destroy the escort"
+      },
+      "actionTypes": [
+        "impact",
+        "impact",
+        "react",
+        "destroy"
+      ],
+      "needsOriginalFleetPrefab": false
+    },
+    {
+      "id": "LV_31_LOSS_REPORT",
+      "startSeconds": 31,
+      "endSeconds": 35,
+      "beatType": "dialogue",
+      "camera": {
+        "framing": "medium",
+        "movement": "hold",
+        "purpose": "Return to command bridge after losing an escort"
+      },
+      "actionTypes": [],
+      "needsOriginalFleetPrefab": false
+    },
+    {
+      "id": "LV_35_ANIME_SHOCK",
+      "startSeconds": 35,
+      "endSeconds": 39,
+      "beatType": "custom",
+      "camera": {
+        "framing": "close",
+        "movement": "hold",
+        "purpose": "A held shock reaction instead of another battle clip"
+      },
+      "actionTypes": [],
+      "needsOriginalFleetPrefab": false
+    },
+    {
+      "id": "LV_39_FINAL_ORDER",
+      "startSeconds": 39,
+      "endSeconds": 43,
+      "beatType": "dialogue",
+      "camera": {
+        "framing": "medium",
+        "movement": "hold",
+        "purpose": "Command shot ahead of weapon charge"
+      },
+      "actionTypes": [],
+      "needsOriginalFleetPrefab": false
+    },
+    {
+      "id": "LV_43_GUN_APPROACH",
+      "startSeconds": 43,
+      "endSeconds": 48,
+      "beatType": "custom",
+      "camera": {
+        "framing": "detail",
+        "movement": "push",
+        "subject": "hero",
+        "purpose": "Moderate zoom to painted muzzle area. Local Transform anchor still to be set"
+      },
+      "actionTypes": [
+        "move"
+      ],
+      "needsOriginalFleetPrefab": true
+    },
+    {
+      "id": "LV_48_WEAPON_CHARGE",
+      "startSeconds": 48,
+      "endSeconds": 54,
+      "beatType": "custom",
+      "camera": {
+        "framing": "detail",
+        "movement": "zoom_in",
+        "subject": "hero",
+        "purpose": "Build visible charge with regular Unity VFX cues"
+      },
+      "actionTypes": [
+        "react",
+        "react",
+        "brighten"
+      ],
+      "needsOriginalFleetPrefab": true
+    },
+    {
+      "id": "LV_54_ANIME_RESOLVE",
+      "startSeconds": 54,
+      "endSeconds": 57,
+      "beatType": "custom",
+      "camera": {
+        "framing": "close",
+        "movement": "hold",
+        "purpose": "Determined portrait just before firing"
+      },
+      "actionTypes": [],
+      "needsOriginalFleetPrefab": false
+    },
+    {
+      "id": "LV_57_TARGET_LOCK",
+      "startSeconds": 57,
+      "endSeconds": 60,
+      "beatType": "custom",
+      "camera": {
+        "framing": "close",
+        "movement": "zoom_in",
+        "subject": "enemy",
+        "purpose": "Target fills the central frame before the cut back to the firing ship"
+      },
+      "actionTypes": [
+        "hold"
+      ],
+      "needsOriginalFleetPrefab": false
+    },
+    {
+      "id": "LV_60_FLEET_VOLLEY",
+      "startSeconds": 60,
+      "endSeconds": 64,
+      "beatType": "battle",
+      "camera": {
+        "framing": "wide",
+        "movement": "track",
+        "subject": "hero",
+        "purpose": "Stagger source shots on hero and escort, preserve wide geometry"
+      },
+      "actionTypes": [
+        "fire",
+        "fire",
+        "fire"
+      ],
+      "needsOriginalFleetPrefab": true
+    },
+    {
+      "id": "LV_64_PROJECTILE_PATH",
+      "startSeconds": 64,
+      "endSeconds": 69,
+      "beatType": "battle",
+      "camera": {
+        "framing": "medium",
+        "movement": "track",
+        "subject": "enemy",
+        "purpose": "Follow target and keep both projectile origin and target understandable"
+      },
+      "actionTypes": [
+        "fire"
+      ],
+      "needsOriginalFleetPrefab": false
+    },
+    {
+      "id": "LV_69_HULL_IMPACTS",
+      "startSeconds": 69,
+      "endSeconds": 75,
+      "beatType": "destruction",
+      "camera": {
+        "framing": "close",
+        "movement": "impact_shake",
+        "subject": "enemy",
+        "purpose": "Three time-separated hits on enemy hull"
+      },
+      "actionTypes": [
+        "impact",
+        "impact",
+        "impact",
+        "react"
+      ],
+      "needsOriginalFleetPrefab": false
+    },
+    {
+      "id": "LV_75_ENEMY_BREAK",
+      "startSeconds": 75,
+      "endSeconds": 80,
+      "beatType": "destruction",
+      "camera": {
+        "framing": "medium",
+        "movement": "pull",
+        "subject": "enemy",
+        "purpose": "Show the result for long enough to register"
+      },
+      "actionTypes": [
+        "react",
+        "destroy"
+      ],
+      "needsOriginalFleetPrefab": false
+    },
+    {
+      "id": "LV_80_ANIME_AFTERSHOCK",
+      "startSeconds": 80,
+      "endSeconds": 84,
+      "beatType": "custom",
+      "camera": {
+        "framing": "close",
+        "movement": "hold",
+        "purpose": "Pilot remains stunned despite victory"
+      },
+      "actionTypes": [],
+      "needsOriginalFleetPrefab": false
+    },
+    {
+      "id": "LV_84_FLEET_AFTER",
+      "startSeconds": 84,
+      "endSeconds": 90,
+      "beatType": "retreat",
+      "camera": {
+        "framing": "extreme_wide",
+        "movement": "pull",
+        "subject": "hero",
+        "purpose": "Final tableau leaves one missing escort visible by omission"
+      },
+      "actionTypes": [
+        "move",
+        "move"
+      ],
+      "needsOriginalFleetPrefab": false
+    }
+  ],
+  "keyFrames": [
+    {
+      "at": 2,
+      "expected": "Large foreground flagship and two offset escorts"
+    },
+    {
+      "at": 7.5,
+      "expected": "Camera follows moving hull without roll"
+    },
+    {
+      "at": 15.5,
+      "expected": "Concerned anime closeup, no overlapping dialogue or combat"
+    },
+    {
+      "at": 28,
+      "expected": "Escort hit location is real, explosions and smoke visible"
+    },
+    {
+      "at": 46,
+      "expected": "Moderate muzzle-area framing, physical muzzle unbound until Unity manual edit"
+    },
+    {
+      "at": 51,
+      "expected": "Energy charge visibly builds and does not float at origin"
+    },
+    {
+      "at": 61.1,
+      "expected": "Three staggered projectiles with clear origins"
+    },
+    {
+      "at": 71,
+      "expected": "Multiple separate impacts on target hull"
+    },
+    {
+      "at": 77,
+      "expected": "Final target destruction and lingering smoke"
+    },
+    {
+      "at": 87,
+      "expected": "Two surviving ships, one missing escort"
+    }
+  ]
+}

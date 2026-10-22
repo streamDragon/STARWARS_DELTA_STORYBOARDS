@@ -1,0 +1,547 @@
+{
+  "system": "STARWARS_DELTA_SEMANTIC_DIRECTOR_4",
+  "version": 1,
+  "status": "PLANNED_NOT_RENDERED",
+  "title": "THE LAST EVACUATION - CINEMATIC DIRECTOR 4",
+  "dramaticPremise": "An immense human fleet is overwhelmed. Its commander notices civilians in danger, orders an escort corridor and one pilot sacrifices a safe route to keep refugees alive.",
+  "durationSeconds": 96,
+  "intentSource": "User narrative translated into existing legal V1 MOVES; not new runtime semantics",
+  "semanticArc": [
+    {
+      "index": 1,
+      "id": "D4_01",
+      "semanticAbility": "ESTABLISH_SCALE",
+      "dramaticPurpose": "עוצמת הצי",
+      "interval": {
+        "startSeconds": 0,
+        "durationSeconds": 12
+      },
+      "selectedMove": {
+        "id": "ESCORT_COLUMN",
+        "canonicalOrdinal": 10,
+        "canonicalPhases": [
+          "principal_leads",
+          "escorts_hold_spacing",
+          "shared_travel"
+        ]
+      },
+      "alternatives": [
+        "SCALE_REVEAL",
+        "CROSS_TRAFFIC"
+      ],
+      "roles": {
+        "giant_ship": "capital",
+        "human": "captain",
+        "hero": "pilot",
+        "civilian": "refugee_ship",
+        "enemy": "attacker"
+      },
+      "shotPlan": [
+        {
+          "shotId": "D4_01_01",
+          "phase": "principal_leads",
+          "preferredFraming": "wide",
+          "expectedVisibleChange": "A giant ship must remain visibly larger than at least one fighter; foreground/mid/far depth must read",
+          "durationSeconds": 4,
+          "cameraMovement": "hold"
+        },
+        {
+          "shotId": "D4_01_02",
+          "phase": "escorts_hold_spacing",
+          "preferredFraming": "medium",
+          "expectedVisibleChange": "A giant ship must remain visibly larger than at least one fighter; foreground/mid/far depth must read",
+          "durationSeconds": 4,
+          "cameraMovement": "track"
+        },
+        {
+          "shotId": "D4_01_03",
+          "phase": "shared_travel",
+          "preferredFraming": "close",
+          "expectedVisibleChange": "A giant ship must remain visibly larger than at least one fighter; foreground/mid/far depth must read",
+          "durationSeconds": 4,
+          "cameraMovement": "push"
+        }
+      ],
+      "visualProof": "A giant ship must remain visibly larger than at least one fighter; foreground/mid/far depth must read",
+      "dependencies": [
+        "valid CURRENT handles",
+        "real Unity materialization",
+        "actor-relative camera target verification"
+      ],
+      "fallback": "Retain V1 authored source, issue ORANGE visual deviation, create editable placeholder; never substitute an invented asset."
+    },
+    {
+      "index": 2,
+      "id": "D4_02",
+      "semanticAbility": "REVEAL_THREAT",
+      "dramaticPurpose": "חשיפת האיום",
+      "interval": {
+        "startSeconds": 12,
+        "durationSeconds": 12
+      },
+      "selectedMove": {
+        "id": "LOOK_OFFSCREEN_REVEAL",
+        "canonicalOrdinal": 53,
+        "canonicalPhases": [
+          "offscreen_look",
+          "seen_reveal",
+          "relation_confirm"
+        ]
+      },
+      "alternatives": [
+        "THREAT_REVEAL_PASS",
+        "SCALE_REVEAL"
+      ],
+      "roles": {
+        "giant_ship": "capital",
+        "human": "captain",
+        "hero": "pilot",
+        "civilian": "refugee_ship",
+        "enemy": "attacker"
+      },
+      "shotPlan": [
+        {
+          "shotId": "D4_02_01",
+          "phase": "offscreen_look",
+          "preferredFraming": "wide",
+          "expectedVisibleChange": "Threat silhouette precedes full reveal; visible size contrast follows",
+          "durationSeconds": 4,
+          "cameraMovement": "hold"
+        },
+        {
+          "shotId": "D4_02_02",
+          "phase": "seen_reveal",
+          "preferredFraming": "medium",
+          "expectedVisibleChange": "Threat silhouette precedes full reveal; visible size contrast follows",
+          "durationSeconds": 4,
+          "cameraMovement": "track"
+        },
+        {
+          "shotId": "D4_02_03",
+          "phase": "relation_confirm",
+          "preferredFraming": "close",
+          "expectedVisibleChange": "Threat silhouette precedes full reveal; visible size contrast follows",
+          "durationSeconds": 4,
+          "cameraMovement": "push"
+        }
+      ],
+      "visualProof": "Threat silhouette precedes full reveal; visible size contrast follows",
+      "dependencies": [
+        "valid CURRENT handles",
+        "real Unity materialization",
+        "actor-relative camera target verification"
+      ],
+      "fallback": "Retain V1 authored source, issue ORANGE visual deviation, create editable placeholder; never substitute an invented asset."
+    },
+    {
+      "index": 3,
+      "id": "D4_03",
+      "semanticAbility": "HUMAN_REACTION",
+      "dramaticPurpose": "הפחד האנושי",
+      "interval": {
+        "startSeconds": 24,
+        "durationSeconds": 12
+      },
+      "selectedMove": {
+        "id": "LOOK_REVEAL_REACTION",
+        "canonicalOrdinal": 33,
+        "canonicalPhases": [
+          "looking_face",
+          "seen_subject",
+          "reaction_push_in"
+        ]
+      },
+      "alternatives": [
+        "REACTION_BEFORE_CAUSE",
+        "THREAT_REACTION_THREAT"
+      ],
+      "roles": {
+        "giant_ship": "capital",
+        "human": "captain",
+        "hero": "pilot",
+        "civilian": "refugee_ship",
+        "enemy": "attacker"
+      },
+      "shotPlan": [
+        {
+          "shotId": "D4_03_01",
+          "phase": "looking_face",
+          "preferredFraming": "wide",
+          "expectedVisibleChange": "Same identifiable person reacts after an observed danger, not unrelated generic motion",
+          "durationSeconds": 4,
+          "cameraMovement": "hold"
+        },
+        {
+          "shotId": "D4_03_02",
+          "phase": "seen_subject",
+          "preferredFraming": "medium",
+          "expectedVisibleChange": "Same identifiable person reacts after an observed danger, not unrelated generic motion",
+          "durationSeconds": 4,
+          "cameraMovement": "track"
+        },
+        {
+          "shotId": "D4_03_03",
+          "phase": "reaction_push_in",
+          "preferredFraming": "close",
+          "expectedVisibleChange": "Same identifiable person reacts after an observed danger, not unrelated generic motion",
+          "durationSeconds": 4,
+          "cameraMovement": "push"
+        }
+      ],
+      "visualProof": "Same identifiable person reacts after an observed danger, not unrelated generic motion",
+      "dependencies": [
+        "valid CURRENT handles",
+        "real Unity materialization",
+        "actor-relative camera target verification"
+      ],
+      "fallback": "Retain V1 authored source, issue ORANGE visual deviation, create editable placeholder; never substitute an invented asset."
+    },
+    {
+      "index": 4,
+      "id": "D4_04",
+      "semanticAbility": "TACTICAL_ORDER",
+      "dramaticPurpose": "פקודה שמשנה את הקרב",
+      "interval": {
+        "startSeconds": 36,
+        "durationSeconds": 12
+      },
+      "selectedMove": {
+        "id": "TARGET_LOCK",
+        "canonicalOrdinal": 32,
+        "canonicalPhases": [
+          "attacker_establish",
+          "target_cut",
+          "attacker_push_in",
+          "fire"
+        ]
+      },
+      "alternatives": [
+        "FORMATION_SPREAD",
+        "FLANK_LEFT",
+        "FLANK_RIGHT"
+      ],
+      "roles": {
+        "giant_ship": "capital",
+        "human": "captain",
+        "hero": "pilot",
+        "civilian": "refugee_ship",
+        "enemy": "attacker"
+      },
+      "shotPlan": [
+        {
+          "shotId": "D4_04_01",
+          "phase": "attacker_establish",
+          "preferredFraming": "wide",
+          "expectedVisibleChange": "An identifiable order precedes changed formations, lanes or trajectories",
+          "durationSeconds": 3,
+          "cameraMovement": "hold"
+        },
+        {
+          "shotId": "D4_04_02",
+          "phase": "target_cut",
+          "preferredFraming": "medium",
+          "expectedVisibleChange": "An identifiable order precedes changed formations, lanes or trajectories",
+          "durationSeconds": 3,
+          "cameraMovement": "track"
+        },
+        {
+          "shotId": "D4_04_03",
+          "phase": "attacker_push_in",
+          "preferredFraming": "medium",
+          "expectedVisibleChange": "An identifiable order precedes changed formations, lanes or trajectories",
+          "durationSeconds": 3,
+          "cameraMovement": "track"
+        },
+        {
+          "shotId": "D4_04_04",
+          "phase": "fire",
+          "preferredFraming": "close",
+          "expectedVisibleChange": "An identifiable order precedes changed formations, lanes or trajectories",
+          "durationSeconds": 3,
+          "cameraMovement": "push"
+        }
+      ],
+      "visualProof": "An identifiable order precedes changed formations, lanes or trajectories",
+      "dependencies": [
+        "valid CURRENT handles",
+        "real Unity materialization",
+        "actor-relative camera target verification"
+      ],
+      "fallback": "Retain V1 authored source, issue ORANGE visual deviation, create editable placeholder; never substitute an invented asset."
+    },
+    {
+      "index": 5,
+      "id": "D4_05",
+      "semanticAbility": "WEAPON_CAUSE_EFFECT",
+      "dramaticPurpose": "ירי שמייצר תוצאה",
+      "interval": {
+        "startSeconds": 48,
+        "durationSeconds": 12
+      },
+      "selectedMove": {
+        "id": "WEAPON_TARGET_FIRE",
+        "canonicalOrdinal": 49,
+        "canonicalPhases": [
+          "weapon",
+          "target",
+          "weapon_fire"
+        ]
+      },
+      "alternatives": [
+        "MISSILE_TARGET_IMPACT",
+        "CAUSE_EFFECT_REACTION",
+        "CHAIN_REACTION"
+      ],
+      "roles": {
+        "giant_ship": "capital",
+        "human": "captain",
+        "hero": "pilot",
+        "civilian": "refugee_ship",
+        "enemy": "attacker"
+      },
+      "shotPlan": [
+        {
+          "shotId": "D4_05_01",
+          "phase": "weapon",
+          "preferredFraming": "wide",
+          "expectedVisibleChange": "An explicit weapon fires at an explicit target, a correctly placed impact changes target state",
+          "durationSeconds": 4,
+          "cameraMovement": "hold"
+        },
+        {
+          "shotId": "D4_05_02",
+          "phase": "target",
+          "preferredFraming": "medium",
+          "expectedVisibleChange": "An explicit weapon fires at an explicit target, a correctly placed impact changes target state",
+          "durationSeconds": 4,
+          "cameraMovement": "track"
+        },
+        {
+          "shotId": "D4_05_03",
+          "phase": "weapon_fire",
+          "preferredFraming": "close",
+          "expectedVisibleChange": "An explicit weapon fires at an explicit target, a correctly placed impact changes target state",
+          "durationSeconds": 4,
+          "cameraMovement": "push"
+        }
+      ],
+      "visualProof": "An explicit weapon fires at an explicit target, a correctly placed impact changes target state",
+      "dependencies": [
+        "valid CURRENT handles",
+        "real Unity materialization",
+        "actor-relative camera target verification"
+      ],
+      "fallback": "Retain V1 authored source, issue ORANGE visual deviation, create editable placeholder; never substitute an invented asset."
+    },
+    {
+      "index": 6,
+      "id": "D4_06",
+      "semanticAbility": "BREAK_FORMATION",
+      "dramaticPurpose": "שבירת המערך",
+      "interval": {
+        "startSeconds": 60,
+        "durationSeconds": 12
+      },
+      "selectedMove": {
+        "id": "FORMATION_BREAK",
+        "canonicalOrdinal": 38,
+        "canonicalPhases": [
+          "formation_wide",
+          "single_ship_emphasis",
+          "break_accelerate",
+          "wide_split"
+        ]
+      },
+      "alternatives": [
+        "BOOM_AND_BREAK",
+        "FORMATION_RETREAT"
+      ],
+      "roles": {
+        "giant_ship": "capital",
+        "human": "captain",
+        "hero": "pilot",
+        "civilian": "refugee_ship",
+        "enemy": "attacker"
+      },
+      "shotPlan": [
+        {
+          "shotId": "D4_06_01",
+          "phase": "formation_wide",
+          "preferredFraming": "wide",
+          "expectedVisibleChange": "Multiple distinct ships leave previously stable lanes; measurable separation changes",
+          "durationSeconds": 3,
+          "cameraMovement": "hold"
+        },
+        {
+          "shotId": "D4_06_02",
+          "phase": "single_ship_emphasis",
+          "preferredFraming": "medium",
+          "expectedVisibleChange": "Multiple distinct ships leave previously stable lanes; measurable separation changes",
+          "durationSeconds": 3,
+          "cameraMovement": "track"
+        },
+        {
+          "shotId": "D4_06_03",
+          "phase": "break_accelerate",
+          "preferredFraming": "medium",
+          "expectedVisibleChange": "Multiple distinct ships leave previously stable lanes; measurable separation changes",
+          "durationSeconds": 3,
+          "cameraMovement": "track"
+        },
+        {
+          "shotId": "D4_06_04",
+          "phase": "wide_split",
+          "preferredFraming": "close",
+          "expectedVisibleChange": "Multiple distinct ships leave previously stable lanes; measurable separation changes",
+          "durationSeconds": 3,
+          "cameraMovement": "push"
+        }
+      ],
+      "visualProof": "Multiple distinct ships leave previously stable lanes; measurable separation changes",
+      "dependencies": [
+        "valid CURRENT handles",
+        "real Unity materialization",
+        "actor-relative camera target verification"
+      ],
+      "fallback": "Retain V1 authored source, issue ORANGE visual deviation, create editable placeholder; never substitute an invented asset."
+    },
+    {
+      "index": 7,
+      "id": "D4_07",
+      "semanticAbility": "INTERNAL_CHAOS",
+      "dramaticPurpose": "נזק בתוך הספינה",
+      "interval": {
+        "startSeconds": 72,
+        "durationSeconds": 12
+      },
+      "selectedMove": {
+        "id": "CAUSE_EFFECT_REACTION",
+        "canonicalOrdinal": 47,
+        "canonicalPhases": [
+          "cause_action",
+          "effect",
+          "actor_reaction"
+        ]
+      },
+      "alternatives": [
+        "DISCOVERY_REVEAL_REACTION",
+        "DAMAGED_WITHDRAWAL"
+      ],
+      "roles": {
+        "giant_ship": "capital",
+        "human": "captain",
+        "hero": "pilot",
+        "civilian": "refugee_ship",
+        "enemy": "attacker"
+      },
+      "shotPlan": [
+        {
+          "shotId": "D4_07_01",
+          "phase": "cause_action",
+          "preferredFraming": "wide",
+          "expectedVisibleChange": "Exterior impact is followed by an observable interior alarm, reaction or loss",
+          "durationSeconds": 4,
+          "cameraMovement": "hold"
+        },
+        {
+          "shotId": "D4_07_02",
+          "phase": "effect",
+          "preferredFraming": "medium",
+          "expectedVisibleChange": "Exterior impact is followed by an observable interior alarm, reaction or loss",
+          "durationSeconds": 4,
+          "cameraMovement": "track"
+        },
+        {
+          "shotId": "D4_07_03",
+          "phase": "actor_reaction",
+          "preferredFraming": "close",
+          "expectedVisibleChange": "Exterior impact is followed by an observable interior alarm, reaction or loss",
+          "durationSeconds": 4,
+          "cameraMovement": "push"
+        }
+      ],
+      "visualProof": "Exterior impact is followed by an observable interior alarm, reaction or loss",
+      "dependencies": [
+        "valid CURRENT handles",
+        "real Unity materialization",
+        "actor-relative camera target verification"
+      ],
+      "fallback": "Retain V1 authored source, issue ORANGE visual deviation, create editable placeholder; never substitute an invented asset."
+    },
+    {
+      "index": 8,
+      "id": "D4_08",
+      "semanticAbility": "SACRIFICE_DECISION",
+      "dramaticPurpose": "החלטת הקרבה",
+      "interval": {
+        "startSeconds": 84,
+        "durationSeconds": 12
+      },
+      "selectedMove": {
+        "id": "OBJECT_MEMORY_FACE",
+        "canonicalOrdinal": 52,
+        "canonicalPhases": [
+          "meaningful_object",
+          "face",
+          "object_return"
+        ]
+      },
+      "alternatives": [
+        "RESCUE_PASS",
+        "ESCORT_PEEL_OFF",
+        "HOLD_THEN_BURST"
+      ],
+      "roles": {
+        "giant_ship": "capital",
+        "human": "captain",
+        "hero": "pilot",
+        "civilian": "refugee_ship",
+        "enemy": "attacker"
+      },
+      "shotPlan": [
+        {
+          "shotId": "D4_08_01",
+          "phase": "meaningful_object",
+          "preferredFraming": "wide",
+          "expectedVisibleChange": "A specific person chooses; one ship sacrifices its safe route and others visibly escape",
+          "durationSeconds": 4,
+          "cameraMovement": "hold"
+        },
+        {
+          "shotId": "D4_08_02",
+          "phase": "face",
+          "preferredFraming": "medium",
+          "expectedVisibleChange": "A specific person chooses; one ship sacrifices its safe route and others visibly escape",
+          "durationSeconds": 4,
+          "cameraMovement": "track"
+        },
+        {
+          "shotId": "D4_08_03",
+          "phase": "object_return",
+          "preferredFraming": "close",
+          "expectedVisibleChange": "A specific person chooses; one ship sacrifices its safe route and others visibly escape",
+          "durationSeconds": 4,
+          "cameraMovement": "push"
+        }
+      ],
+      "visualProof": "A specific person chooses; one ship sacrifices its safe route and others visibly escape",
+      "dependencies": [
+        "valid CURRENT handles",
+        "real Unity materialization",
+        "actor-relative camera target verification"
+      ],
+      "fallback": "Retain V1 authored source, issue ORANGE visual deviation, create editable placeholder; never substitute an invented asset."
+    }
+  ],
+  "acceptance": {
+    "causality": "Every major action produces visible consequence",
+    "geography": "Respect screen-space locations and travel lanes across cuts",
+    "scale": "Giant must have clear small-actor scale comparator",
+    "emotionalAnchor": "Follow a recognisable person across crisis",
+    "exits": "EXIT is proven only when actor has actually left viewport by final evaluation",
+    "camera": "Track moving/rotating subject at intermediate times, not only end position",
+    "sound": "Audio sync with explicit impacts/reveals and reaction holds",
+    "final": "EDITOR_TIMELINE_EVALUATION is not runtime Play Mode proof"
+  },
+  "integration": "Choose verified CURRENT identities, author exactly one CUTSCENE_SCRIPT_V1, invoke existing strict lint/build/Film QA; visual refinement in Unity."
+}

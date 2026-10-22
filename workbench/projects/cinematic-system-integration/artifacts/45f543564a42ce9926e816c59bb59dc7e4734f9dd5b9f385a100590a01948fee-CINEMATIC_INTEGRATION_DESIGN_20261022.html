@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="he" dir="rtl"><meta charset="utf-8"><title>STARWARS DELTA — תכנון האינטגרציה הסינמטית</title>
+<style>
+body{font:17px/1.75 Arial,sans-serif;background:#f1f4f8;color:#17243b;margin:0}main{max-width:1080px;margin:auto;padding:32px}section{background:white;border:1px solid #dce3ed;border-radius:12px;padding:24px;margin:18px 0}h1{line-height:1.35}h2{color:#174c78}h3{margin-bottom:4px}table{width:100%;border-collapse:collapse;font-size:15px}td,th{padding:11px;border:1px solid #d8e0e9;vertical-align:top;text-align:right}th{background:#eef3fa}code,pre,.path{direction:ltr;unicode-bidi:embed;overflow-wrap:anywhere;font-size:13px}pre{white-space:pre-wrap;text-align:left;background:#f3f5f8;padding:15px}.note{border-right:5px solid #d5921f;padding:12px;background:#fff7e8}.tag{color:#8c4a00;font-weight:bold}a{color:#155da5}li{margin:7px 0}@media print{body{background:white}main{padding:0}section{break-inside:avoid}}
+</style><main>
+<h1>תכנון איחוד המערכת הסינמטית</h1>
+<p><b>STARWARS_DELTA · 22 באוקטובר 2026 · מסמך לתכנון ולסקירה</b></p>
+<p class="note">בוצעו מיפוי מסמכים וארבע בדיקות מקבילות בקריאה בלבד. מסמך זה אינו הוכחת התקנה, ניגון, צילום או פרסום. לא שונה MAIN ולא הופעלה Unity במהלך הבדיקה. לא אותרו ואומתו עשרה סוכנים פעילים; נאספו מסירות ממספר מסלולי עבודה קיימים.</p>
+
+<section><h2>1. התוצאה המבוקשת</h2>
+<p>משתמש מתאר סרט; המערכת מציעה מטרה וסטוריבורד, בודקת נכסים אמיתיים, מציגה חוסרים, בונה באמצעות הסטודיו הקיים, מצלמת ומשווה. כל ההחלטות והתוצאות נשמרות בתיק סרט באתר. סוכן חדש ממשיך מהשלב הבא בלי שהמשתמש ילמד אותו מחדש את השפה.</p>
+<p>שלוש המערכות הקיימות נשארות בעלות תפקיד ברור: Anime Emotion להצגת רגש, Dialogue לשיחה ו־MOVES לפעולה. Cinematic Director מחבר אותן באמצעות סיבה ותוצאה, בחירת שוטים, מצלמה, קצב ועריכה. ממשיכים בחוזה CUTSCENE_SCRIPT_V1 יחיד. הכינוי System 4 מתאר תפקיד במערכת ואינו פורמט JSON חדש.</p>
+<p>האתר הוא זיכרון תהליך והוכחות. לאחר יצירה, הסצנה, ה־Prefab וה־Timeline הם תוצרי Unity רגילים לעריכה חופשית. תיעוד הגרסאות אינו סמכות לדרוס ליטוש ידני.</p></section>
+
+<section><h2>2. ממצאים שעליהם התכנון נשען</h2>
+<table><thead><tr><th>מסלול</th><th>מה נמצא</th><th>מה עדיין לא הוכח</th></tr></thead><tbody>
+<tr><td>שפת הבימוי</td><td>CINEMATIC_DIRECTOR_PROTOCOLS כבר מכיל שמונה מתכוני עריכה, מטרת שוט, תגובות אנושיות, שינוי קנה מידה ועומק.</td><td>הפעלת המתכונים באופן עקבי בתוצר החדש.</td></tr>
+<tr><td>Semantic Director 4</td><td>מתכנן חיצוני; 53 MOVES מתועדים; שמונה יכולות סמנטיות. 25 MOVES משויכים ליכולות ו־28 נוספים ניתנים להזמנה מפורשת.</td><td>המסירה UNBOUND אינה V1 חוקי. הרישום אומר Unity integration NOT STARTED. חלוקת זמן אחידה ומצלמה כללית אינן בימוי מבוסס סיפור.</td></tr>
+<tr><td>Composer</td><td>פרוסת C# חיצונית עבור FLEET_VOLLEY_22 בלבד: קנה מידה, נשק, ירי, מסלול, פגיעה, תוצאות.</td><td>אינה מחולל סרט כללי. דרישות לפגיעות ולעשן אינן ביצוע בפועל.</td></tr>
+<tr><td>FLEET ומצלמה</td><td>מסלול CameraPlan/Cinemachine/Timeline קיים. תיקון מדידת עוגן תותח מוכן מחוץ ל־Assets.</td><td>התיקון לא הותקן; קומפילציה, בדיקות, סרט וצילומים מסומנים false או NOT_RUN. תיקיית הצילומים שנבדקה ריקה.</td></tr>
+<tr><td>Lint ל־FLEET30</td><td>לקובץ המקורי תוצאה עם 18 חסמים; גרסת proxy קיבלה PASS_WITH_WARNINGS.</td><td>ה־proxy אינו ה־Prefab האמיתי ואינו הוכחת סרט או עקיבת תותח.</td></tr>
+<tr><td>מחקר Yamato</td><td>31 תמונות מקור, מרווחי דגימה של שמונה שניות, 00:00–04:00. קומפוזיציה, שכבות עומק, פרטי מכניקה וקנה מידה.</td><td>אי אפשר להסיק מדגימה זו משכי חיתוך של חצי שנייה או מהירות תנועת מצלמה.</td></tr>
+<tr><td>מסירות Studio</td><td>קיים תיעוד נרחב לחוזה V1, CURRENT, יצירה ו־QA.</td><td>קיימות ראיות היסטוריות לאי־התאמה בין CURRENT ציבורי למקומי. מצב היסטורי אינו מצב נוכחי מוכח.</td></tr>
+<tr><td>נכסים</td><td>נמצאו מגבלות 24 בהמלצות ובתצוגה מובחרת.</td><td>טרם הוכח חסם גורף של 24 על גילוי הנכסים. יש להבחין בין כיסוי החיפוש לבין מספר כרטיסי התצוגה.</td></tr>
+</tbody></table></section>
+
+<section><h2>3. החלטת הארכיטקטורה המוצעת</h2>
+<table><tr><th>אפשרות</th><th>משמעות</th><th>הערכה</th></tr>
+<tr><td><b>איחוד בתוך המסלול הקיים — מומלץ</b></td><td>מחברים מתכוני Director, בחירת נכסים, תכנית שוטים ותיק סרט אל V1 → Studio → Timeline → Film QA.</td><td>שומר על ההשקעה ועל עריכת Unity; דורש השלמת חיבורים ובדיקות נקודתיות.</td></tr>
+<tr><td>תיעוד בלבד</td><td>ריכוז מדריכים והנחיות לסוכן בלי לחבר יצירה, מצלמה ו־QA.</td><td>מהיר יותר, אך משאיר את כשל הרציפות והמסירות הבלתי מחוברות.</td></tr>
+<tr><td>פורמט ומנוע חדשים</td><td>V4 ציבורי ומסלול בנייה מקביל.</td><td>מוסיף הגירה ונתיבי תחזוקה; לא נמצאה לכך הצדקה בבדיקה הנוכחית.</td></tr></table>
+<p>התיקון צריך להתרחש בכניסה ובמעברים בין המערכות. רכיב עובד נשמר; רכיב שחסר נכתב רק לאחר שחזור ממוקד של החסר.</p></section>
+
+<section><h2>4. תיק סרט באתר — נקודת הכניסה האחת</h2>
+<p>באתר הקיים מוסיפים או משלימים דף לכל סרט. אין להקים אתר חדש לפני בדיקת מסלולי האתר ומקורם. הדף מציג תמיד את המטרה המאושרת ואת מצב Unity שנלכד בפועל, עם תווית ברורה לכל סוג תמונה.</p>
+<table><tr><th>חלק בתיק</th><th>תכולה מחייבת</th></tr>
+<tr><td>כוונה ואישורים</td><td>רעיון מקורי, משך, רגש רצוי, שפה נבחרת, החלטות משתמש, היקף אחרון מאושר.</td></tr>
+<tr><td>סטוריבורד</td><td>shotId, מטרה, כניסה ויציאה, משך, סיבה, תוצאה, דמות מגיבה, כיוון מסך, קנה מידה, קול ומצלמה.</td></tr>
+<tr><td>נכסים</td><td>זהות CURRENT, נתיב Unity מדויק, תמונה, Prefab או Sprite, מידות/PPU/pivot, אנימציה מובנית, עוגנים, מקור הבדיקה ורמת הוכחה.</td></tr>
+<tr><td>חוסרים</td><td>הפרדה בין נכס שלא חיפשנו, נכס שאינו קיים ויכולת כלי חסרה. prompt לאמן או משימת כלי, placeholder בולט ופעולת החלפה נתמכת.</td></tr>
+<tr><td>תוצר ו־QA</td><td>V1 המקורי, עותק ביצוע ששוחזר במידת הצורך, build/run identity, סצנה/Timeline, תמונות מקור, אזהרות, השוואה וסקירת QA.</td></tr>
+<tr><td>המשך</td><td>שלב אחרון שהושלם, פעולה מדויקת הבאה, גרסת מקור/חתימות, בעלות השילוב ותוצאות פעולות שכבר הוגשו.</td></tr>
+</table>
+<p><b>Copy for Chat</b> מפיק קישור קבוע לתיק, החלטות מאושרות, חוזה V1 ו־CURRENT שנבחר, רשימת נכסים מדויקת, תוצאות QA והפעולה הבאה. <b>Copy QA</b> מפיק זוג מטרה/תוצאה מאותה גרסה ורשימת פערים עם shotId וזמן.</p>
+<p>הדף צריך לאפשר הבדל בין Latest attempt לבין Latest accepted. ניסיון כושל נשמר. התוצאה העדכנית אינה מחליפה בשקט את המטרה המאושרת. עדכון התהליך מתבצע בגבולות פעולה; לא נדרשים סריקה, צילום או poller רציפים.</p></section>
+
+<section><h2>5. מעבר מרעיון לסרט</h2>
+<ol>
+<li><b>פתיחה או המשך:</b> יוצרים תיק או ממפים סרט קיים דרך הכלים. אוספים מצב שמור, שינויים ידניים והמסירה האחרונה.</li>
+<li><b>כוונה:</b> מגדירים מה הצופה צריך להבין ולהרגיש ומה משתנה עד סוף הסרט.</li>
+<li><b>סטוריבורד:</b> מציעים רצף סיבתי ומאשרים את הכיוון. תמונת השראה מסומנת כהשראה.</li>
+<li><b>בדיקת חומר:</b> חיפוש בכל משפחות הנכסים הרלוונטיות ובדיקת התאמה. מציגים הרכבה מהנכסים האמיתיים ורשימת חוסרים.</li>
+<li><b>השלמות:</b> משימות אמנות או יכולת כלי בעלות הוכחת קבלה. ממשיכים עם placeholders מותרים; שומרים את הבקשה המקורית.</li>
+<li><b>מטרה בת־ביצוע:</b> מעדכנים סטוריבורד והרכבה; משתמש מאשר את התוצאה הרצויה לפני יצירת התוכן.</li>
+<li><b>V1 ובנייה:</b> בודקים יכולת ייצוג מול הסכמה והנתיב הנוכחיים; מפיקים V1 חוקי ובונים בכלי הרגיל. שלב סמנטי פנימי אינו פורמט יבוא ציבורי נוסף.</li>
+<li><b>ניגון וצילום:</b> מתעדים קומפילציה, Lint, Build, Play, צילום ו־QA כתוצאות נפרדות.</li>
+<li><b>השוואה ותיקון:</b> משווים שוטים מאותה גרסה לפי סיפור, קנה מידה, רגש, עוגנים, תזמון ותוצאות גלויות.</li>
+<li><b>סיום:</b> ליטוש ידני, שמירה ופתיחה מחדש; אישור המשתמש סוגר את עבודת הסרט. פרסום ו־Plastic נשארים פעולות מפורשות ובהיקף מוגדר.</li>
+</ol>
+<p>עבודה על סרט קיים מאפשרת הוספה, שינוי או יצירה מחדש לתוצר חדש לפי היקף שנבחר. אין מחיקה אוטומטית של תוצר שמור או דריסה של שינויים ידניים בגלל שינוי תכנית.</p></section>
+
+<section><h2>6. מה המערכת הרביעית צריכה להחליט</h2>
+<p>השרשרת הבסיסית: <b>איום → תגובה אנושית → פקודה → פעולה נראית → תוצאה → החלטה שהשתנתה.</b> לא כל סרט צריך את כל השלבים, אך כל קשר נטען צריך הוכחה בסרט.</p>
+<table><tr><th>החלטה</th><th>דרישה</th></tr>
+<tr><td>בחירת מתכון</td><td>מתכוני CINEMATIC_DIRECTOR_PROTOCOLS הם מקור עבודה. הבחירה נשענת על כוונה וסיבתיות; אין ברירת מחדל תמידית של ה־MOVE הראשון.</td></tr>
+<tr><td>קצב</td><td>משך נגזר ממטרת השוט, פעולה, מרחק ומהירות, זמן קריאה ותגובה. אין חלוקה שווה אוטומטית בין כל השלבים.</td></tr>
+<tr><td>חיתוכים מהירים</td><td>רצפי חצי שנייה נשענים על פעולה ויעד משותפים: עין/איום/תותח/ירי/פגיעה. בודקים שהם קריאים בתנועה, ולא מסיקים זאת מתמונות דלילות.</td></tr>
+<tr><td>גאוגרפיה</td><td>שומרים זהות צי/ספינה/מטרה, כיוון מסך, מיקומים יחסיים וקשר חוץ/פנים. שינוי ציר מקבל שוט מעבר מתאים.</td></tr>
+<tr><td>רגש ודיאלוג</td><td>תגובה קשורה לאירוע אמיתי. פקודה גורמת לשינוי פעולה גלוי. Dialogue ו־Anime Emotion שומרים על שכבותיהם ועל יכולותיהם הקיימות.</td></tr>
+<tr><td>ירי</td><td>טעינה, יציאה מעוגן נשק ממשי, מסלול אל אותה מטרה, פגיעה, מצב נזק מתמשך ותגובה. טקסט שמתאר פגיעה אינו פגיעה.</td></tr>
+<tr><td>מצלמה</td><td>בעל כתיבה אחד בכל רגע; Master Timeline אחד. עקיבה אחרי עוגן מקומי כוללת תנועה, סיבוב, pivot ומרחבי קואורדינטות.</td></tr>
+<tr><td>הבדלי סגנון</td><td>Yamato: מכניקה, מסה, ציים ומטח. Star Wars: טייסים, מרדף ותגובות. ההבדלים צריכים להופיע בפריימים ובעריכה, מעבר לשם preset.</td></tr>
+</table>
+<p>יש להגדיר לכל שוט precondition/postcondition עריכתיים כהערות תהליך, ולממש את הפעולות באמצעות שדות חוקיים קיימים. אין להוסיף שדות מומצאים ל־V1.</p></section>
+
+<section><h2>7. גילוי נכסים ואנימציה</h2>
+<p>בודקים כיסוי של ArtPack, Graphics ו־MY_Art לצד מקורות נדרשים נוספים. שומרים ספירות לפי ספרייה, סיבת סינון, סוג נכס, מוכנות, אנימציה ועוגנים. חיפוש מדורג ומדופדף יכול להציג 24 המלצות בכל פעם בלי להפוך 24 לתקרת הגילוי.</p>
+<p>כל בחירת נכס שומרת למה נבחר, אילו חלופות רלוונטיות נבדקו ואיזה מקור לא נסקר. חוסר תוצאה בקבוצת המלצות אינו מוכיח חוסר נכס בפרויקט.</p>
+<p>לפני הוספת טראק: בודקים אם ה־Prefab מפעיל Animator, particles או רכיב אנימציה קיים, מתי הוא מתחיל, ואילו מאפיינים הוא כותב. מתעדים בעלות על מאפיינים. Timeline נדרש רק כשצריך שליטה נתמכת; אין להפעיל שני writers על אותה תנועה או הבעה. הרצה ב־Edit Mode וניגון ב־Play Mode נבדקים בנפרד.</p>
+<p>רענון אינדקס: משתמשים בכלי האיסוף הקיים ורענון מצומצם לפי צורך, ללא סריקת רקע. אפשר להציג בקשת אישור כאשר האינדקס ישן מ־14 יום; זהו סעיף תכנון, ולא נוצרה תזכורת או משימה מתוזמנת.</p></section>
+
+<section><h2>8. חוזה המשכיות בין סוכנים</h2>
+<p>הנתונים הבאים מוצעים כמטא־דאטה לתיק העבודה באתר, ואינם שדות בסכמת הסרט:</p>
+<pre>{
+  "filmId": "stable editorial identity",
+  "revision": 1,
+  "stage": "STORYBOARD | ASSETS | BUILD | QA | REVIEW",
+  "approvedTargetRevision": 1,
+  "sourceSnapshot": "exact version and hashes",
+  "currentRunId": "actual tool run or null",
+  "lastCompletedAction": "specific action with evidence",
+  "inFlightAction": "submitted tool operation or null",
+  "nextAction": "one concrete resumable step",
+  "editorOwner": "acknowledged owner or null",
+  "evidence": [],
+  "warningsAndReplacements": []
+}</pre>
+<p>מזהי השדות כאן הם הצעה לסקירה; יש להתאים אותם למודל הקיים לפני יישום. אם כבר קיים Session/manifest מתאים, מרחיבים אותו ואינם ממציאים מנהל משימות.</p>
+<p>סוכן ממשיך קורא את הכוונה והגרסה המאושרת, בודק חתימות מקור ותוצאה של פעולה שבוצעה, ורק אז מתקדם. timeout הוא מצב לא ידוע: אין לחזור על פעולת בנייה בלי לבדוק את תוצאת הניסיון המקורי. רישום בעלות היסטורי אינו נעילה חיה, ומסמך אינו מאשר שקשר דו־צדדי בין סוכנים אכן התקיים.</p>
+<p>מפעיל אחד משלב ב־MAIN ומפעיל Unity; יתר הסוכנים מכינים ובודקים מחוץ ל־Assets. אין סנכרון אוטומטי אל הסצנה ואין שחזור תורים ישנים.</p></section>
+
+<section><h2>9. סדר השילוב וההוכחות</h2>
+<table><tr><th>שלב</th><th>תוצר</th><th>תנאי קבלה</th></tr>
+<tr><td>א. סגירת המיפוי</td><td>מפת entrypoints וגרסאות מפורסמות/מקומיות; בעלות; חלוקת יכולות קיימות וחסרות.</td><td>נתיב מקור לכל טענה; אין ערבוב proxy/Prefab או offline/native.</td></tr>
+<tr><td>ב. כניסה והמשך</td><td>תיק סרט ו־Copy for Chat במסגרת האתר וה־Studio הקיימים.</td><td>סוכן שני ממשיך מאמצע ניסיון בלי הנחיות נוספות ובלי לחזור על mutation שכבר הוגש.</td></tr>
+<tr><td>ג. חיבור Director</td><td>מתכונים סמנטיים אל V1 חוקי דרך הכניסה הרגילה.</td><td>בחירה ותזמון תלויי סיפור; נכסים קשורים בפועל; יצירה ממשיכה עם חוסרים מתועדים.</td></tr>
+<tr><td>ד. הוכחת מצלמה</td><td>סרט FLEET30 בתשתית הקיימת, אחרי יישוב הסתירות במסירות.</td><td>Prefab של 13 ספינות; חלון עקיבה רציף 5–15 שניות; בדיקה בשנייה 10 לאחר תנועה וסיבוב. תוצאה בנקודת סיום אינה מספקת.</td></tr>
+<tr><td>ה. הוכחת שילוב קולנועית</td><td>סרט חדש עם דיאלוג, Anime Emotion, פעולת צי ותוצאה נמשכת; סיפור ומשך יאושרו מראש.</td><td>איום/תגובה/פקודה/פעולה/תוצאה נקראים בפועל; זהות מטרה נשמרת; אין טענה לאפקט שלא נצפה.</td></tr>
+<tr><td>ו. יציבות ועריכה</td><td>QA, סקירה עצמאית ושמירה/פתיחה מחדש אחרי שינוי ידני.</td><td>השינוי נשמר בלי reimport; התיק מפנה לראיות הנכונות; פרסום רק בהיקף מאושר.</td></tr>
+</table>
+<p>התנאים המפורטים הם מדדי איכות וקבלה. כישלון בהם אינו עילה לחסום יצירת סרט בסיסי עם placeholders: בהתאם למדיניות הפרויקט, רק אי־יכולת לקרוא קלט או ליצור/לשמור תוצר Unity בסיסי עוצרת יצירה.</p>
+<p>לפני שילוב מצלמה בודקים את חתימות המקור הנוכחיות. חבילת CAMERA_OWNER_INTEGRATION_READY היא המועמדת שנבדקה; אין לערום עליה REV2/REV3 או mixer ישן. יש להכריע בין קובץ FLEET המקורי שנכשל ב־Lint לבין גרסת proxy עם תוצאות, ולהתאים למסלול הרגיל ששומר אזהרות וממשיך יצירה.</p></section>
+
+<section><h2>10. חבילות עבודה מוצעות</h2>
+<p>אלה עשרה תחומי אחריות לשילוב, ולא טענה שאותרו עשרה סוכנים חיים: כניסה ו־CURRENT; גילוי נכסים; שפת Director; compiler/V1; מצלמה; Anime Emotion; Dialogue; MOVES/ירי ותוצאות; אתר/המשכיות; Film QA וקבלה. לכל תחום ייקבעו בעלים וקבצים מדויקים לאחר בדיקת המסירות והמקור.</p>
+<p>אין לכתוב מחדש את ה־publisher או הקטלוג רק כדי לאחד את התהליך. מתקנים פער מוכח בכניסה, בכיסוי או בהעברת מידע. אין לשנות חבילות Unity או PackageCache; היעד הנוכחי נשאר Pipeline 0.7.0-exp.1 לפי AGENTS.md.</p></section>
+
+<section><h2>11. מקורות וגבולות הבדיקה</h2>
+<p>שורש P: <span class="path">C:\Users\nlpis\wkspaces\STARWARS_DELTA</span><br>שורש W: <span class="path">C:\Users\nlpis\wkspaces\STARWARS_DELTA_WORK</span></p>
+<ul>
+<li><span class="path">P/AGENTS.md</span>; <span class="path">W/README_AGENT_WORKFLOW_HE.md</span>; <span class="path">W/STARWARS_DELTA_AGENT_SYSTEM_MAP.md</span>.</li>
+<li><span class="path">P/.agents/skills/level-builder-workflow/SKILL.md</span> והמסמך <span class="path">references/units-and-evidence.md</span> — מקור העקרונות שהועברו לתהליך הסרט.</li>
+<li><span class="path">P/Assets/WISDOM/CutsceneStudio/V1_MOVIE_AUTHORING_INPUT_AND_GUIDES/CINEMATIC_DIRECTOR_PROTOCOLS.json</span>.</li>
+<li><span class="path">W/qa/semantic_director_4_20261022/INTEGRATION_AND_ACCEPTANCE.md</span>, <span class="path">semantic-director-4.cjs</span>, <span class="path">SEMANTIC_DIRECTOR_4_REGISTRY.json</span>, <span class="path">V1_AUTHORING_HANDOFF_UNBOUND.json</span>.</li>
+<li><span class="path">W/qa/cinematic_composer_20261022/source/MY_CinematicComposerStoryPlanner.cs</span>; <span class="path">MY_CinematicComposerShotWriter.cs</span>.</li>
+<li><span class="path">W/qa/cinematic_director_completion_20261021/SQUADRON42_DIRECTOR_EXECUTION_V1.md</span>; <span class="path">SQUADRON42_DEEP_IMPLEMENTATION_AUDIT_20261022.md</span>.</li>
+<li><span class="path">W/qa/cinematic_director_completion_20261021/cinemachine_owner_fix_20261021/CAMERA_OWNER_INTEGRATION_READY/CURRENT_GATE_20261022.md</span> ו־<span class="path">READY_MANIFEST.json</span>.</li>
+<li><span class="path">W/qa/cinematic_director_completion_20261021/FLEET30_CAMERA_ACCEPTANCE_20261022/INTEGRATION_HANDOFF.md</span> ו־<span class="path">FLEET_30S_CAMERA_BINDINGS.json</span>.</li>
+<li><span class="path">W/qa/cinematic_director_completion_20261021/YAMATO_ORIGINAL_HTML_REVIEW/CAMERA_LANGUAGE_FINDINGS.md</span>; <span class="path">C:\Users\nlpis\Desktop\YAMATO_2202_ORIGINAL_REVERSE_STORYBOARD.html</span>.</li>
+<li><span class="path">W/qa/the_last_volley_20261022/SHOT_ACCEPTANCE_90S.json</span>; <span class="path">W/qa/STUDIO_COMPLETION_COORDINATION_20261019.md</span>; <span class="path">W/reports/DEVORA_PUBLIC_VS_LOCAL_CURRENT_PARITY_20261020_AUDIT.md</span>.</li>
+</ul>
+<p>מיפוי זה נשען על קבצים ודוחות ועל סקירות מקור ממוקדות. לא נסקרו כל הפריימים בכל הסרטים, לא נקראה כל היסטוריית הפרויקט ולא נבדקה כעת זמינות ציבורית חיה. פרטי הבדיקה הנוספים מצורפים בעדכון להלן.</p></section>
+<section><h2>12. השלמות מארבע סקירות המקור</h2>
+<p><b>כיסוי נכסים:</b> האינדקס כולל עמודים של 32 רשומות לכל קטגוריה, ולא מכסה של 32 בסך הכול. רשימת פתיחה כוללת עד 32 Actors, רשימת SEARCH_INDEX קצרה כוללת 20, ואנימציות featured מכוונות ל־24; אלו שכבות תצוגה. המלצות מוגבלות ל־100 לכל קריאה. יש למדוד בנפרד: discovered → cataloged → eligible → handle-emitted → surfaced. הגדרות scanRoots החיות ומספרי הכיסוי בכל ספרייה טרם נבדקו.</p>
+<p><b>מקורות נכסים:</b> תחת <span class="path">P/Assets/WISDOM/CutsceneStudio/Editor/</span>: <span class="path">Authoring/MY_CutsceneAssetBrief.cs</span>, <span class="path">Catalog/UnifiedAssetCatalogService.cs</span>, <span class="path">Scanner/UnifiedAssetCatalogScanner.cs</span>, <span class="path">Scanner/UnifiedAssetCatalogGenericScanFilter.cs</span>; ובתיקיית <span class="path">V4_CURRENT_ASSET_CATALOG_CHATGPT_EXPORT_PROJECTIONS_AND_PUBLISHER</span>: <span class="path">MY_DesignerAiChatGptAuthoringIndexProjection.cs</span>, <span class="path">MY_DesignerAiAuthoringHandlesProjection.cs</span>.</p>
+<p><b>אנימציה מובנית:</b> דוח <span class="path">W/qa/artpack_ship_animation_probe_20261017.txt</span> מתעד controllers ואנימציות לולאה ב־Hunter, Mohican, Atom, Serpent, C64 Delta, Transporter ו־Big Boss. Blade Boss כולל גם תנועת Transform מקומית. זו ראיה היסטורית למבנה, ולא בדיקת Runtime טרייה. הבעלות על אנימציה צריכה להבחין בין wrapper לתנועת עולם לבין visual child של ה־Prefab.</p>
+<p><b>כניסה נוכחית:</b> <span class="path">MY_CutsceneStudioWindow.TryBuildCreativeContextForChat</span> מיועד לתיקון ומפנה יצירה רגילה ל־CURRENT המפורסם. אין להציג אותו כ־Copy for Chat כללי שכבר פועל. הרחבת הכניסה צריכה להשתלב בהחלטה זו ולשמור התאמת transaction לאורך כל החבילה.</p>
+<p><b>רענון קטלוג:</b> <span class="path">Editor/Authoring/MY_CutsceneAuthoringContextCapture.cs</span> יכול להפעיל כיום ScanChanges כשחסר קטלוג או כשהוא מיושן וה־Editor פנוי; הוא משמר snapshot שימושי ומאפשר placeholders. אין להוסיף רענון מקביל או להסתמך על דוח ישן שמתאר התנהגות snapshot-only.</p>
+<p><b>Film QA:</b> תחת <span class="path">P/Assets/_Game/MY_Core/MY_Scripts/HAGGAI_STUFF/Cutscenes/Editor/</span> קיימים <span class="path">MY_CutsceneFilmQaScannerWindow.cs</span> ו־<span class="path">MY_CutsceneFilmQaSitePublisher.cs</span>. ה־Scanner תומך עד 301 פריימים, 960×540 ותשעה thumbnails לעמוד. מצב הצילום הוא EDITOR_TIMELINE_EVALUATION; runtimeQa נשאר NOT_TESTED עד לבדיקה נפרדת. קצב צילום כזה אינו מוכיח כשלעצמו תנועה או חיתוכים מהירים.</p>
+<p><b>אתר קיים לפי קוד:</b> הסקריפט <span class="path">tools/Publish-FilmQaToStoryboardsSite.ps1</span> כותב <span class="path">film-qa/&lt;scene-slug&gt;/&lt;UTC-run&gt;/</span> ומעדכן אינדקס ריצות. זו תשתית להרחבה לתיק סרט. לא נמצאה בבדיקה המוגבלת הוכחה לסימולטור V1 ציבורי פעיל.</p>
+<p><b>קישורים מתועדים:</b> <a href="https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/OPEN_CURRENT.json">CURRENT</a> · <a href="https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/film-qa.html">ארכיון Film QA</a>. ניסיון פתיחה דרך כלי האינטרנט לא הצליח; אין להסיק ממנו שהאתר עצמו מושבת. הכתובות מבוססות על קבצי הפרויקט ולא על אימות פרסום חי.</p>
+<p><b>חידוש עבודה קיים:</b> Studio שומר בקשת בנייה ב־SessionState ומטפל בחזרה אחרי compile/reload. אם reload התרחש לאחר תחילת materialization, הוא שומר preview קודם ומחייב revalidation במקום replay שקט. Publisher מחזיק checkpoints בשלבים. יש להרחיב מעל המנגנונים הללו את זיכרון התהליך העריכתי, ולבדוק את יכולתם אחרי החלפת סוכן ותהליך, בלי להניח שהם כבר מכסים את הכול.</p>
+<p><b>מדדי QA היסטוריים:</b> בתיעוד STUDIO_COMPLETION_COORDINATION נרשמו הצלחות Lint/Build לצד 30 פריימים שחורים שלא התקבלו חזותית. זו דוגמה ישירה לצורך לשמור סטטוסים נפרדים. אין זו קביעה שהריצה הנוכחית שחורה.</p>
+<p><b>בדיקת ההמשכיות הנדרשת:</b> סוכן א׳ מסיים אישור סטוריבורד, סוכן ב׳ ממשיך לבחירת נכסים מתוך התיק; סוכן ג׳ אוסף תוצאת build שהוגש וממשיך ל־QA. אף אחד מהם לא מקבל הסבר מחדש מהמשתמש. לאחר שינוי ידני ב־Unity, פתיחת התיק אינה משנה את התוצר.</p>
+<p class="note">המסמך הוא תכנון טכני נקודתי, ולא דוח סטטוס חלופי לטבלת 26Report. אישור התכנון קודם לשינוי קוד ולקביעת קבצי שילוב סופיים; גרסאות וחתימות ייבדקו מחדש בגבול השילוב.</p>
+</section>
+</main></html>

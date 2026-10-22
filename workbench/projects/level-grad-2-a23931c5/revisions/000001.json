@@ -1,0 +1,135 @@
+{
+  "schema": "STARWARS_DELTA_AUTHORING_SESSION",
+  "version": 1,
+  "id": "level-grad-2-a23931c5",
+  "kind": "level",
+  "title": "GRAD_2",
+  "revision": 1,
+  "stage": "LEVEL_QA",
+  "status": "IMPORTED_QA_REVIEW_REQUIRED",
+  "updatedUtc": "2026-10-20T14:06:58.4332748Z",
+  "originalBrief": "Historical Level QA import. Existing scene remains editable Unity content; this dossier does not claim ownership of another agent's level.",
+  "approvedTargetRevision": 0,
+  "targetArtifacts": [],
+  "storyboard": [],
+  "assets": [],
+  "gaps": [],
+  "decisions": [],
+  "runs": [
+    {
+      "runId": "level-GRAD_2-20261020140658428",
+      "generatedUtc": "2026-10-20T14:06:58.4332748Z",
+      "sceneName": "GRAD_2",
+      "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRAD_2.unity",
+      "captureStatus": "COMPLETED",
+      "reviewStatus": "NOT_REVIEWED",
+      "acceptanceStatus": "PENDING",
+      "warningCount": 1,
+      "sourceRevision": "scene-deps-8d821668fcd729fdbf3fb4a7ce429b00",
+      "timelinePath": "level-qa/level-GRAD_2-20261020140658428/timeline.json",
+      "frames": [
+        {
+          "frameId": "scene_overview",
+          "source": "level_urp_scene_camera_render",
+          "path": "level-qa/level-GRAD_2-20261020140658428/scene_overview.png"
+        },
+        {
+          "frameId": "game_view",
+          "source": "gameplay_camera_urp_offscreen_postprocessing",
+          "path": "level-qa/level-GRAD_2-20261020140658428/game_view.png"
+        },
+        {
+          "frameId": "spatial_schematic",
+          "source": "authoring_wave_projection",
+          "path": "level-qa/level-GRAD_2-20261020140658428/scene_with_wave_overlay.svg"
+        }
+      ],
+      "id": "level-GRAD_2-20261020140658428",
+      "capture": "COMPLETED",
+      "technical": "UNKNOWN",
+      "cinematic": "NOT_REVIEWED",
+      "runtime": "NOT_TESTED",
+      "artifacts": [
+        {
+          "path": "level-qa/level-GRAD_2-20261020140658428/scene_overview.png",
+          "kind": "capture",
+          "label": "scene_overview",
+          "runId": "level-GRAD_2-20261020140658428",
+          "evidenceStatus": "CAPTURED",
+          "provenance": "level_urp_scene_camera_render"
+        },
+        {
+          "path": "level-qa/level-GRAD_2-20261020140658428/game_view.png",
+          "kind": "capture",
+          "label": "game_view",
+          "runId": "level-GRAD_2-20261020140658428",
+          "evidenceStatus": "CAPTURED",
+          "provenance": "gameplay_camera_urp_offscreen_postprocessing"
+        },
+        {
+          "path": "level-qa/level-GRAD_2-20261020140658428/scene_with_wave_overlay.svg",
+          "kind": "composition",
+          "label": "spatial_schematic",
+          "runId": "level-GRAD_2-20261020140658428",
+          "evidenceStatus": "AUTHORED",
+          "provenance": "authoring_wave_projection"
+        }
+      ]
+    },
+    {
+      "runId": "level-GRAD_2-authored-waves-20261020",
+      "generatedUtc": "2026-10-20T04:57:26Z",
+      "sceneName": "GRAD_2",
+      "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRAD_2.unity",
+      "captureStatus": "PARTIAL",
+      "reviewStatus": "NOT_REVIEWED",
+      "acceptanceStatus": "PENDING",
+      "warningCount": 1,
+      "sourceRevision": "waves-export-fd80e03feb93f953",
+      "frames": [
+        {
+          "frameId": "game_view",
+          "source": "actual_editor_game_view_texture",
+          "path": "level-qa/level-GRAD_2-authored-waves-20261020/game_view.jpg"
+        },
+        {
+          "frameId": "wave_schedule",
+          "source": "authored_wave_schedule",
+          "path": "level-qa/level-GRAD_2-authored-waves-20261020/waves_by_km.svg"
+        }
+      ],
+      "reviewUrl": "level-qa/level-GRAD_2-authored-waves-20261020/review.html",
+      "waveCount": 51,
+      "id": "level-GRAD_2-authored-waves-20261020",
+      "capture": "PARTIAL",
+      "technical": "UNKNOWN",
+      "cinematic": "NOT_REVIEWED",
+      "runtime": "NOT_TESTED",
+      "artifacts": [
+        {
+          "path": "level-qa/level-GRAD_2-authored-waves-20261020/game_view.jpg",
+          "kind": "capture",
+          "label": "game_view",
+          "runId": "level-GRAD_2-authored-waves-20261020",
+          "evidenceStatus": "UNKNOWN",
+          "provenance": "actual_editor_game_view_texture"
+        },
+        {
+          "path": "level-qa/level-GRAD_2-authored-waves-20261020/waves_by_km.svg",
+          "kind": "capture",
+          "label": "wave_schedule",
+          "runId": "level-GRAD_2-authored-waves-20261020",
+          "evidenceStatus": "UNKNOWN",
+          "provenance": "authored_wave_schedule"
+        }
+      ]
+    }
+  ],
+  "history": [],
+  "lastCompletedAction": "Imported existing source evidence; no new Unity operation",
+  "nextAction": "Read exact scene/run and matching frames. Consult the level owner and original approved design; continue with existing Level Builder/Reverse tools only within assigned scope.",
+  "inFlightAction": null,
+  "sourceArtifacts": [],
+  "currentIdentity": null,
+  "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRAD_2.unity"
+}

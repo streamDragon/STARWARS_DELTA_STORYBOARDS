@@ -1,0 +1,73 @@
+{
+  "schema": "STARWARS_DELTA_AUTHORING_CAPABILITIES",
+  "version": 1,
+  "observedDate": "2026-10-22",
+  "repository": "streamDragon/STARWARS_DELTA_STORYBOARDS",
+  "entry": "workbench.html",
+  "bootstrap": "workbench/START_HERE.txt",
+  "protocol": "workbench/AGENT_PROTOCOL.md",
+  "sessionIndex": "workbench/index.json",
+  "authority": {
+    "editorialProgress": "repository sessions",
+    "movieAuthoring": "fresh sealed CURRENT CUTSCENE_SCRIPT_V1",
+    "generatedContent": "ordinary editable Unity Scene/Prefab/Timeline"
+  },
+  "routes": {
+    "current": "designer-ai/open-current/OPEN_CURRENT.json",
+    "authoringIndex": "designer-ai/open-current/CHATGPT_AUTHORING_INDEX.json",
+    "preview": "cutscene-preview.html",
+    "filmQa": "film-qa.html",
+    "levelQa": "level-qa.html"
+  },
+  "systems": [
+    {
+      "id": "ANIME_EMOTION",
+      "role": "Emotional portrait/expression presentation",
+      "state": "EXISTING_NOT_RETESTED_THIS_SESSION"
+    },
+    {
+      "id": "DIALOGUE",
+      "role": "Speaker/listener/text delivery",
+      "state": "EXISTING_NOT_RETESTED_THIS_SESSION"
+    },
+    {
+      "id": "MOVES",
+      "role": "53 current canonical choreography/editorial moves",
+      "state": "CURRENT_INDEX_VERIFIED",
+      "count": 53
+    },
+    {
+      "id": "CINEMATIC_DIRECTOR",
+      "role": "Causal shot recipes, scale, geography, pacing and reaction",
+      "state": "RECIPES_AVAILABLE_PRODUCTION_COMPOSER_PENDING",
+      "recipes": "workbench/projects/semantic-director4/session.json"
+    }
+  ],
+  "native": {
+    "editorStatus": "UNKNOWN",
+    "observation": "Single read-only editor_status request timed out; no mutation was submitted",
+    "sourceModifiedByIntegrator": false,
+    "cameraPatch": "PREPARED_NOT_INSTALLED",
+    "composer": "PREPARED_NOT_INTEGRATED",
+    "filmQa": "Existing archive; new playback proof NOT_RUN",
+    "note": "Website readiness is not acceptance of native camera/film runtime. Use ordinary Studio/Level Builder/Reverse tools; record PENDING_REMOTE without access."
+  },
+  "assetCoverage": {
+    "featuredIsInventory": false,
+    "stages": [
+      "discovered",
+      "cataloged",
+      "eligible",
+      "selected",
+      "emitted",
+      "surfaced"
+    ],
+    "snapshotIncludesSelection": true,
+    "sourceFolders": [
+      "ArtPack",
+      "Graphics",
+      "MY_Art"
+    ],
+    "note": "Inspect real configured paths and all relevant category chunks; never infer asset absence from recommendations."
+  }
+}
