@@ -4,10 +4,10 @@
   "id": "cinematic-system-integration",
   "kind": "film",
   "title": "אינטגרציה · מערכת יצירה אחת",
-  "revision": 8,
+  "revision": 9,
   "stage": "QA",
   "status": "IMPLEMENTED_PENDING_USER_REVIEW",
-  "updatedUtc": "2026-10-22T18:21:42.500Z",
+  "updatedUtc": "2026-10-22T20:44:09.707Z",
   "originalBrief": "Build one stable website Copy message, repository-backed progress and crash-safe continuation. Preserve existing tools. Film uses four cinematic systems; level uses Level Builder then Reverse waves. Agent without Remote can author and persist work; native operations remain pending.",
   "approvedTargetRevision": 1,
   "targetArtifacts": [],
@@ -157,10 +157,17 @@
       "status": "IMPLEMENTED_PENDING_USER_REVIEW",
       "updatedUtc": "2026-10-22T17:46:21.709Z",
       "snapshotPath": "workbench/projects/cinematic-system-integration/revisions/000007.json"
+    },
+    {
+      "revision": 8,
+      "stage": "QA",
+      "status": "IMPLEMENTED_PENDING_USER_REVIEW",
+      "updatedUtc": "2026-10-22T18:21:42.500Z",
+      "snapshotPath": "workbench/projects/cinematic-system-integration/revisions/000008.json"
     }
   ],
-  "lastCompletedAction": "Reviewed native MOVE compiler/import/camera source read-only and fresh sealed CURRENT. Published directing pipeline contract and primary-research comparison: audience inference, coverage, cut versus in-shot motion, post-lowering timing and evidence acceptance. Existing editorial MOVES are reused. No movie, MAIN mutation, Unity compile/test/build/capture or new native acceptance in this lane.",
-  "nextAction": "Film production remains with the user-appointed film agent. At its next action boundary, read CINEMATIC_PIPELINE.md, compare authored and effective subjects/cuts/durations, validate launch timing after lowering, and collect exact-run boundary frames and continuity evidence. DIRECTED_PHASE_PRESERVATION is a bounded source observation requiring a native regression or actual-film reproduction before a native fix. Keep manual scenes authoritative.",
+  "lastCompletedAction": "Reworked the workbench UI/UX: Hebrew overview, readable stages and records, progressive disclosure, context-sensitive next-step guidance and explicit exact-run selection.47 automated tests PASS; independent review PASS after fixing Level QA→WAVES ordering and failed/pending evidence guidance. Stable bootstrap and all project/source identities preserved. Native Unity/movie work untouched.",
+  "nextAction": "Verify the published UI in a real browser: project search and navigation, film/level lanes, exact-run QA selection and advisor updates, detail disclosures and copy entrypoints. Continue native film integration only through its existing film-owner dossier and exact-run evidence.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -284,6 +291,13 @@
       "label": "מיפוי 53 MOVES, חוזה המצלמה וממצאי בדיקת קוד",
       "sha256": "20007145877262df42f583cc4ef268a542666de6e84eedb956e8a9c585963d46",
       "evidenceStatus": "SOURCE_REVIEW_AND_PLANNING_NOT_NATIVE_PROOF"
+    },
+    {
+      "path": "workbench/projects/cinematic-system-integration/artifacts/76af1b86bfaf6e081a9baea238d61f43d9f3cbe6362c2104545be84390d2914d-WORKBENCH_UI.md",
+      "kind": "reference",
+      "label": "הממשק החדש וההכוונה להמשך — שימוש וכללי בדיקה",
+      "sha256": "76af1b86bfaf6e081a9baea238d61f43d9f3cbe6362c2104545be84390d2914d",
+      "evidenceStatus": "DOCUMENTATION_NOT_NATIVE_PROOF"
     }
   ],
   "currentIdentity": {
@@ -299,6 +313,12 @@
     "contract": "workbench/CINEMATIC_PIPELINE.md",
     "capabilityAudit": "workbench/CINEMATIC_CAPABILITY_AUDIT.json",
     "filmOwner": "User-appointed other agent; no live claim inferred",
+    "nativeMutation": false
+  },
+  "uiReview": {
+    "status": "IMPLEMENTED_AUTOMATED_AND_INDEPENDENT_REVIEW_PASS_BROWSER_PENDING",
+    "guide": "workbench/WORKBENCH_UI.md",
+    "testsPassed": 47,
     "nativeMutation": false
   }
 }

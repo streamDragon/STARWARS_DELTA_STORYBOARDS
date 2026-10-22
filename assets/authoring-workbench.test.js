@@ -21,7 +21,7 @@ class Element{
 }
 const initialHead='a'.repeat(40),headBase=sha=>core.BASE.replace('/main/','/'+sha+'/');
 async function uiHarness(href='https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/workbench.html'){
- const nodes=Object.fromEntries(['notice','project','projects','film-tab','level-tab','reload','copy-start','project-search'].map(id=>[id,new Element()]));const pending=[],heads=[],remote={sha:initialHead,status:200};const context={window:{AuthoringWorkbench:core},document:{getElementById:id=>nodes[id],createElement:tag=>new Element(tag)},location:{href},history:{replaceState(_a,_b,url){context.location.href=String(url);}},navigator:{},URL,fetch:(url,options)=>{if(new URL(url).hostname==='api.github.com'){heads.push({url,options});const sha=remote.sha,status=remote.status;return Promise.resolve({ok:status===200,status,json:async()=>({ref:'refs/heads/main',object:{sha,type:'commit'}})});}return new Promise((resolve,reject)=>pending.push({url,options,resolve:data=>resolve({ok:true,json:async()=>data}),reject}));}};vm.runInNewContext(fs.readFileSync('assets/authoring-workbench-ui.js','utf8'),context);await flush();return {nodes,pending,heads,remote,context};
+ const nodes=Object.fromEntries(['notice','project','projects','film-tab','level-tab','reload','copy-start','project-search'].map(id=>[id,new Element()]));const pending=[],heads=[],remote={sha:initialHead,status:200};const context={window:{AuthoringWorkbench:core,AuthoringPresentation:require('./authoring-workbench-presenter.js')},document:{getElementById:id=>nodes[id],createElement:tag=>new Element(tag)},location:{href},history:{replaceState(_a,_b,url){context.location.href=String(url);}},navigator:{},URL,fetch:(url,options)=>{if(new URL(url).hostname==='api.github.com'){heads.push({url,options});const sha=remote.sha,status=remote.status;return Promise.resolve({ok:status===200,status,json:async()=>({ref:'refs/heads/main',object:{sha,type:'commit'}})});}return new Promise((resolve,reject)=>pending.push({url,options,resolve:data=>resolve({ok:true,json:async()=>data}),reject}));}};vm.runInNewContext(fs.readFileSync('assets/authoring-workbench-ui.js','utf8'),context);await flush();return {nodes,pending,heads,remote,context};
 }
 const flush=()=>new Promise(resolve=>setImmediate(resolve));
 function projectEntry(id='one',revision=1){return{id,kind:'film',title:id,revision,stage:'BRIEF',sessionPath:`workbench/projects/${id}/session.json`};}
@@ -39,3 +39,24 @@ test('public reload resolves HEAD then pins index and session to that exact comm
 test('HEAD API rate limit or invalid SHA refuses stale fallback and clears old displayed state',async()=>{for(const invalid of [false,true]){const h=await uiHarness();h.pending[0].resolve(indexOf(projectEntry()));await flush();h.pending[1].resolve({...make(),nextAction:'OLD ACTION'});await flush();if(invalid)h.remote.sha='main';else h.remote.status=403;h.nodes.reload.onclick();await flush();assert.match(h.nodes.notice.textContent,/HEAD|GitHub/);assert.doesNotMatch(h.nodes.project.textContent,/OLD ACTION/);assert.equal(h.pending.length,2);}});
 
 test('production loader names its exact canonical UI bytes instead of relying on a query-string cache key',()=>{const html=fs.readFileSync('workbench.html','utf8'),match=html.match(/src="(assets\/authoring-workbench-ui\.([a-f0-9]{12})\.js)"/);assert.ok(match,'production HTML requires a content-addressed UI filename');const canonical=fs.readFileSync('assets/authoring-workbench-ui.js');assert.equal(require('node:crypto').createHash('sha256').update(canonical).digest('hex').slice(0,12),match[2]);assert.deepEqual(fs.readFileSync(match[1]),canonical);});
+
+function descendants(el){return [el,...el.children.flatMap(descendants)];}
+test('overview shows human guidance and puts technical identity behind disclosure',async()=>{
+ const h=await uiHarness();h.pending[0].resolve(indexOf(projectEntry()));await flush();
+ h.pending[1].resolve({...make(),currentIdentity:{schemaHash:'EXACT_HASH_KEEP'},nextAction:'EXACT AGENT INSTRUCTION'});await flush();
+ const all=descendants(h.nodes.project);
+ assert.match(h.nodes.project.textContent,/מה כדאי לעשות עכשיו/);
+ assert.match(h.nodes.project.textContent,/מחדדים מה רוצים ליצור/);
+ const technical=all.find(e=>e.tag==='details'&&e.textContent.includes('EXACT_HASH_KEEP'));
+ assert.ok(technical);assert.notEqual(technical.open,true);
+ assert.ok(all.some(e=>e.textContent.includes('EXACT AGENT INSTRUCTION')));
+});
+test('QA starts without silently selecting the oldest run and updates advice after exact selection',async()=>{
+ const h=await uiHarness();h.pending[0].resolve(indexOf({...projectEntry(),stage:'QA'}));await flush();
+ h.pending[1].resolve({...make(),stage:'QA',runs:[{id:'old',technical:'PASS',cinematic:'PASS',runtime:'PASS'},{id:'new',capture:'COMPLETED',technical:'PASS',cinematic:'REVIEW_REQUIRED'}]});await flush();
+ const select=descendants(h.nodes.project).find(e=>e.tag==='select');assert.equal(select.value,'');
+ assert.match(h.nodes.project.textContent,/בחרו איזו בדיקה לראות/);
+ select.value='1';select.onchange();
+ assert.match(h.nodes.project.textContent,/בודקים איך התוצאה נראית/);
+ assert.doesNotMatch(h.nodes.project.textContent,/התוצאה מוכנה לעיון שלך/);
+});
