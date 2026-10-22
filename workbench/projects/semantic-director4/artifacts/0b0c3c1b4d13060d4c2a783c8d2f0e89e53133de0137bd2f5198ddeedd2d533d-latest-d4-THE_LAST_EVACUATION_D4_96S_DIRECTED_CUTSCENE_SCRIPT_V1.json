@@ -1,0 +1,1550 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+  "schemaVersion": 1,
+  "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
+  "authoringRuleRegistryRevision": "DD86C108076E923DD28F7B9444B8EA5F389CE8A492B5E9012C74BDB72D7A8F54",
+  "title": "THE LAST EVACUATION - D4 V1 ENGINE TEST",
+  "durationSeconds": 96,
+  "creativeIntent": "A huge fleet in danger, threat reveal, command and human stakes, causal weapon hits, formation break, interior consequence and sacrifice. This first draft uses symbolic legal CURRENT ship actors for unverified giant/human/interior art; distinguish technical build from cinematic fidelity.",
+  "cast": [
+    {
+      "id": "CAPITAL",
+      "identityHandle": "spaceship_p1__0abe8156",
+      "displayName": "Flagship (scale unverified)"
+    },
+    {
+      "id": "ESCORT_A",
+      "identityHandle": "spaceship_p2__94c16d63",
+      "displayName": "Escort A"
+    },
+    {
+      "id": "ESCORT_B",
+      "identityHandle": "spaceship_p3__46aabb53",
+      "displayName": "Escort B"
+    },
+    {
+      "id": "THREAT",
+      "identityHandle": "spaceship_p4__63f6317d",
+      "displayName": "Hostile ship"
+    },
+    {
+      "id": "PILOT",
+      "identityHandle": "shipvert__ff75fbe6",
+      "displayName": "Pilot symbolic ship (human portrait unavailable)"
+    },
+    {
+      "id": "CIVILIAN",
+      "identityHandle": "space_1_0__5f7a8879",
+      "displayName": "Civilian craft (identity appearance unverified)"
+    }
+  ],
+  "moves": [
+    {
+      "id": "ESCORT_COLUMN",
+      "beatIds": [
+        "D4_01_01",
+        "D4_01_02",
+        "D4_01_03"
+      ]
+    },
+    {
+      "id": "LOOK_OFFSCREEN_REVEAL",
+      "beatIds": [
+        "D4_02_01",
+        "D4_02_02",
+        "D4_02_03"
+      ]
+    },
+    {
+      "id": "LOOK_REVEAL_REACTION",
+      "beatIds": [
+        "D4_03_01",
+        "D4_03_02",
+        "D4_03_03"
+      ]
+    },
+    {
+      "id": "TARGET_LOCK",
+      "beatIds": [
+        "D4_04_01",
+        "D4_04_02",
+        "D4_04_03",
+        "D4_04_04"
+      ]
+    },
+    {
+      "id": "WEAPON_TARGET_FIRE",
+      "beatIds": [
+        "D4_05_01",
+        "D4_05_02",
+        "D4_05_03"
+      ]
+    },
+    {
+      "id": "FORMATION_BREAK",
+      "beatIds": [
+        "D4_06_01",
+        "D4_06_02",
+        "D4_06_03",
+        "D4_06_04"
+      ]
+    },
+    {
+      "id": "CAUSE_EFFECT_REACTION",
+      "beatIds": [
+        "D4_07_01",
+        "D4_07_02",
+        "D4_07_03"
+      ]
+    },
+    {
+      "id": "OBJECT_MEMORY_FACE",
+      "beatIds": [
+        "D4_08_01",
+        "D4_08_02",
+        "D4_08_03"
+      ]
+    }
+  ],
+  "beats": [
+    {
+      "id": "D4_01_01",
+      "type": "establishing",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "עוצמת הצי / principal_leads",
+      "dramaticFunction": "build",
+      "energy": "low",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "principal",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.5,
+          "screenY": 0.38,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        },
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "escort",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.37,
+          "screenY": 0.5,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        },
+        {
+          "id": "ESCORT_B",
+          "handle": "spaceship_p3__46aabb53",
+          "role": "escort",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.24,
+          "screenY": 0.62,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: A giant ship must remain visibly larger than at least one fighter; foreground/mid/far depth must read",
+      "actions": [
+        {
+          "type": "move",
+          "subject": "CAPITAL",
+          "motionIntent": "convoy",
+          "travelDirection": "left_to_right",
+          "speed": "fast",
+          "duration": 3.6
+        },
+        {
+          "type": "move",
+          "subject": "ESCORT_A",
+          "motionIntent": "escort",
+          "travelDirection": "left_to_right",
+          "speed": "fast",
+          "duration": 3.6
+        },
+        {
+          "type": "move",
+          "subject": "ESCORT_B",
+          "motionIntent": "escort",
+          "travelDirection": "left_to_right",
+          "speed": "fast",
+          "duration": 3.6
+        }
+      ]
+    },
+    {
+      "id": "D4_01_02",
+      "type": "establishing",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "עוצמת הצי / escorts_hold_spacing",
+      "dramaticFunction": "build",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "principal",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.58,
+          "screenY": 0.38,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        },
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "escort",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.44999999999999996,
+          "screenY": 0.5,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        },
+        {
+          "id": "ESCORT_B",
+          "handle": "spaceship_p3__46aabb53",
+          "role": "escort",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.31999999999999995,
+          "screenY": 0.62,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "track",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: A giant ship must remain visibly larger than at least one fighter; foreground/mid/far depth must read",
+      "actions": [
+        {
+          "type": "move",
+          "subject": "CAPITAL",
+          "motionIntent": "convoy",
+          "travelDirection": "left_to_right",
+          "speed": "fast",
+          "duration": 3.6
+        },
+        {
+          "type": "move",
+          "subject": "ESCORT_A",
+          "motionIntent": "escort",
+          "travelDirection": "left_to_right",
+          "speed": "fast",
+          "duration": 3.6
+        },
+        {
+          "type": "move",
+          "subject": "ESCORT_B",
+          "motionIntent": "escort",
+          "travelDirection": "left_to_right",
+          "speed": "fast",
+          "duration": 3.6
+        }
+      ]
+    },
+    {
+      "id": "D4_01_03",
+      "type": "establishing",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "עוצמת הצי / shared_travel",
+      "dramaticFunction": "build",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "principal",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.66,
+          "screenY": 0.38,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        },
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "escort",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.53,
+          "screenY": 0.5,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        },
+        {
+          "id": "ESCORT_B",
+          "handle": "spaceship_p3__46aabb53",
+          "role": "escort",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.4,
+          "screenY": 0.62,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: A giant ship must remain visibly larger than at least one fighter; foreground/mid/far depth must read",
+      "actions": [
+        {
+          "type": "move",
+          "subject": "CAPITAL",
+          "motionIntent": "convoy",
+          "travelDirection": "left_to_right",
+          "speed": "fast",
+          "duration": 3.6
+        },
+        {
+          "type": "move",
+          "subject": "ESCORT_A",
+          "motionIntent": "escort",
+          "travelDirection": "left_to_right",
+          "speed": "fast",
+          "duration": 3.6
+        },
+        {
+          "type": "move",
+          "subject": "ESCORT_B",
+          "motionIntent": "escort",
+          "travelDirection": "left_to_right",
+          "speed": "fast",
+          "duration": 3.6
+        }
+      ]
+    },
+    {
+      "id": "D4_02_01",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "חשיפת האיום / offscreen_look",
+      "dramaticFunction": "build",
+      "energy": "low",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "looker",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.18,
+          "screenY": 0.36,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: Threat silhouette precedes full reveal; visible size contrast follows",
+      "actions": [
+        {
+          "type": "move",
+          "subject": "CAPITAL",
+          "motionIntent": "look_up",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_02_02",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "חשיפת האיום / seen_reveal",
+      "dramaticFunction": "build",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "revealed_subject",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.365,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "ESCORT_A",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: Threat silhouette precedes full reveal; visible size contrast follows",
+      "actions": [
+        {
+          "type": "reveal",
+          "subject": "ESCORT_A",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_02_03",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "חשיפת האיום / relation_confirm",
+      "dramaticFunction": "build",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "looker",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.23,
+          "screenY": 0.36,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        },
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "revealed_subject",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.39,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "pull",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: Threat silhouette precedes full reveal; visible size contrast follows",
+      "actions": [
+        {
+          "type": "hold",
+          "subject": "CAPITAL",
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "id": "D4_03_01",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "הפחד האנושי / looking_face",
+      "dramaticFunction": "build",
+      "energy": "low",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "looker",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.18,
+          "screenY": 0.36,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: Same identifiable person reacts after an observed danger, not unrelated generic motion",
+      "actions": [
+        {
+          "type": "hold",
+          "subject": "CAPITAL",
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "id": "D4_03_02",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "הפחד האנושי / seen_subject",
+      "dramaticFunction": "build",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "observed_subject",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.365,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "ESCORT_A",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: Same identifiable person reacts after an observed danger, not unrelated generic motion",
+      "actions": [
+        {
+          "type": "reveal",
+          "subject": "ESCORT_A",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_03_03",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "הפחד האנושי / reaction_push_in",
+      "dramaticFunction": "build",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "looker",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.23,
+          "screenY": 0.36,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        }
+      ],
+      "camera": {
+        "framing": "close",
+        "movement": "push",
+        "subject": "CAPITAL",
+        "direction": "toward",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Emphasize the reaction after an explicit reveal."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: Same identifiable person reacts after an observed danger, not unrelated generic motion",
+      "actions": [
+        {
+          "type": "react",
+          "subject": "CAPITAL",
+          "target": "ESCORT_A",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_04_01",
+      "type": "custom",
+      "durationSeconds": 3,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "פקודה שמשנה את הקרב / attacker_establish",
+      "dramaticFunction": "build",
+      "energy": "low",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "attacker",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.18,
+          "screenY": 0.36,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: An identifiable order precedes changed formations, lanes or trajectories",
+      "actions": [
+        {
+          "type": "hold",
+          "subject": "CAPITAL",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_04_02",
+      "type": "custom",
+      "durationSeconds": 3,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "פקודה שמשנה את הקרב / target_cut",
+      "dramaticFunction": "build",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "target",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.365,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "ESCORT_A",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: An identifiable order precedes changed formations, lanes or trajectories",
+      "actions": [
+        {
+          "type": "hold",
+          "subject": "ESCORT_A",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_04_03",
+      "type": "custom",
+      "durationSeconds": 3,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "פקודה שמשנה את הקרב / attacker_push_in",
+      "dramaticFunction": "build",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "attacker",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.23,
+          "screenY": 0.36,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        }
+      ],
+      "camera": {
+        "framing": "close",
+        "movement": "push",
+        "subject": "CAPITAL",
+        "direction": "toward",
+        "intensity": "strong",
+        "parallax": "none",
+        "purpose": "Attacker is visibly closer before fire"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: An identifiable order precedes changed formations, lanes or trajectories",
+      "actions": [
+        {
+          "type": "move",
+          "subject": "CAPITAL",
+          "motionIntent": "approach",
+          "travelDirection": "left_to_right",
+          "speed": "fast",
+          "duration": 2
+        }
+      ]
+    },
+    {
+      "id": "D4_04_04",
+      "type": "custom",
+      "durationSeconds": 3,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "פקודה שמשנה את הקרב / fire",
+      "dramaticFunction": "build",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "attacker",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.255,
+          "screenY": 0.36,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        },
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "target",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.415,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: An identifiable order precedes changed formations, lanes or trajectories",
+      "actions": [
+        {
+          "type": "fire",
+          "subject": "CAPITAL",
+          "target": "ESCORT_A",
+          "projectileId": "CS_PROJECTILE_BLUE_BOLT",
+          "impactMode": "target_anchor",
+          "count": 1,
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_05_01",
+      "type": "battle",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "ירי שמייצר תוצאה / weapon",
+      "dramaticFunction": "build",
+      "energy": "low",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "weapon",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.18,
+          "screenY": 0.36,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: An explicit weapon fires at an explicit target, a correctly placed impact changes target state",
+      "actions": [
+        {
+          "type": "hold",
+          "subject": "CAPITAL",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_05_02",
+      "type": "battle",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "ירי שמייצר תוצאה / target",
+      "dramaticFunction": "build",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "target",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.365,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "ESCORT_A",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: An explicit weapon fires at an explicit target, a correctly placed impact changes target state",
+      "actions": [
+        {
+          "type": "hold",
+          "subject": "ESCORT_A",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_05_03",
+      "type": "battle",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "ירי שמייצר תוצאה / weapon_fire",
+      "dramaticFunction": "build",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "weapon",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.23,
+          "screenY": 0.36,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        },
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "target",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.39,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "close",
+        "movement": "push",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: An explicit weapon fires at an explicit target, a correctly placed impact changes target state",
+      "actions": [
+        {
+          "type": "fire",
+          "subject": "CAPITAL",
+          "target": "ESCORT_A",
+          "projectileId": "CS_PROJECTILE_BLUE_BOLT",
+          "impactMode": "target_anchor",
+          "count": 1,
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_06_01",
+      "type": "custom",
+      "durationSeconds": 3,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "שבירת המערך / formation_wide",
+      "dramaticFunction": "build",
+      "energy": "low",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "formation_member",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.39,
+          "screenY": 0.43,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        },
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "formation_member",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.5,
+          "screenY": 0.5,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        },
+        {
+          "id": "ESCORT_B",
+          "handle": "spaceship_p3__46aabb53",
+          "role": "formation_member",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.61,
+          "screenY": 0.5700000000000001,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: Multiple distinct ships leave previously stable lanes; measurable separation changes",
+      "actions": [
+        {
+          "type": "hold",
+          "subject": "CAPITAL",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_06_02",
+      "type": "custom",
+      "durationSeconds": 3,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "שבירת המערך / single_ship_emphasis",
+      "dramaticFunction": "build",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "formation_member",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.39,
+          "screenY": 0.43,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        }
+      ],
+      "camera": {
+        "framing": "close",
+        "movement": "hold",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: Multiple distinct ships leave previously stable lanes; measurable separation changes",
+      "actions": [
+        {
+          "type": "hold",
+          "subject": "CAPITAL",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_06_03",
+      "type": "custom",
+      "durationSeconds": 3,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "שבירת המערך / break_accelerate",
+      "dramaticFunction": "build",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "formation_member",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.22999999999999998,
+          "screenY": 0.32999999999999996,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        },
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "formation_member",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.5,
+          "screenY": 0.5,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        },
+        {
+          "id": "ESCORT_B",
+          "handle": "spaceship_p3__46aabb53",
+          "role": "formation_member",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.77,
+          "screenY": 0.67,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "pull",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: Multiple distinct ships leave previously stable lanes; measurable separation changes",
+      "actions": [
+        {
+          "type": "move",
+          "subject": "CAPITAL",
+          "motionIntent": "formation_break",
+          "travelDirection": "left_to_right",
+          "speed": "fast",
+          "duration": 2.7
+        },
+        {
+          "type": "move",
+          "subject": "ESCORT_A",
+          "motionIntent": "formation_break",
+          "travelDirection": "right_to_left",
+          "speed": "fast",
+          "duration": 2.7
+        },
+        {
+          "type": "move",
+          "subject": "ESCORT_B",
+          "motionIntent": "formation_break",
+          "travelDirection": "left_to_right",
+          "speed": "fast",
+          "duration": 2.7
+        }
+      ]
+    },
+    {
+      "id": "D4_06_04",
+      "type": "custom",
+      "durationSeconds": 3,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "שבירת המערך / wide_split",
+      "dramaticFunction": "build",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "formation_member",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.22999999999999998,
+          "screenY": 0.32999999999999996,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        },
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "formation_member",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.5,
+          "screenY": 0.5,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        },
+        {
+          "id": "ESCORT_B",
+          "handle": "spaceship_p3__46aabb53",
+          "role": "formation_member",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.77,
+          "screenY": 0.67,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: Multiple distinct ships leave previously stable lanes; measurable separation changes",
+      "actions": [
+        {
+          "type": "move",
+          "subject": "CAPITAL",
+          "motionIntent": "formation_break",
+          "travelDirection": "left_to_right",
+          "speed": "fast",
+          "duration": 2.7
+        },
+        {
+          "type": "move",
+          "subject": "ESCORT_A",
+          "motionIntent": "formation_break",
+          "travelDirection": "right_to_left",
+          "speed": "fast",
+          "duration": 2.7
+        },
+        {
+          "type": "move",
+          "subject": "ESCORT_B",
+          "motionIntent": "formation_break",
+          "travelDirection": "left_to_right",
+          "speed": "fast",
+          "duration": 2.7
+        }
+      ]
+    },
+    {
+      "id": "D4_07_01",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "נזק בתוך הספינה / cause_action",
+      "dramaticFunction": "build",
+      "energy": "low",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "cause",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.18,
+          "screenY": 0.36,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        },
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "effect_target",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.34,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        },
+        {
+          "id": "ESCORT_B",
+          "handle": "spaceship_p3__46aabb53",
+          "role": "reactor",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.5,
+          "screenY": 0.6,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: Exterior impact is followed by an observable interior alarm, reaction or loss",
+      "actions": [
+        {
+          "type": "fire",
+          "subject": "CAPITAL",
+          "target": "ESCORT_A",
+          "projectileId": "CS_PROJECTILE_BLUE_BOLT",
+          "impactMode": "target_anchor",
+          "count": 1,
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_07_02",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "נזק בתוך הספינה / effect",
+      "dramaticFunction": "build",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "cause",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.205,
+          "screenY": 0.36,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        },
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "effect_target",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.365,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        },
+        {
+          "id": "ESCORT_B",
+          "handle": "spaceship_p3__46aabb53",
+          "role": "reactor",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.525,
+          "screenY": 0.6,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "impact_shake",
+        "subject": "ESCORT_A",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: Exterior impact is followed by an observable interior alarm, reaction or loss",
+      "actions": [
+        {
+          "type": "impact",
+          "subject": "ESCORT_A",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_07_03",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "נזק בתוך הספינה / actor_reaction",
+      "dramaticFunction": "build",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "cause",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.23,
+          "screenY": 0.36,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        },
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "effect_target",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.39,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        },
+        {
+          "id": "ESCORT_B",
+          "handle": "spaceship_p3__46aabb53",
+          "role": "reactor",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.55,
+          "screenY": 0.6,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "close",
+        "movement": "push",
+        "subject": "ESCORT_B",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: Exterior impact is followed by an observable interior alarm, reaction or loss",
+      "actions": [
+        {
+          "type": "react",
+          "subject": "ESCORT_B",
+          "target": "ESCORT_A",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_08_01",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "החלטת הקרבה / meaningful_object",
+      "dramaticFunction": "build",
+      "energy": "low",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "meaningful_object",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.18,
+          "screenY": 0.36,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: A specific person chooses; one ship sacrifices its safe route and others visibly escape",
+      "actions": [
+        {
+          "type": "hold",
+          "subject": "CAPITAL",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_08_02",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "החלטת הקרבה / face",
+      "dramaticFunction": "build",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "ESCORT_A",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "face",
+          "depth": "foreground",
+          "saliency": "support",
+          "screenX": 0.365,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.11,
+          "screenHeightFraction": 0.12
+        }
+      ],
+      "camera": {
+        "framing": "close",
+        "movement": "push",
+        "subject": "ESCORT_A",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: A specific person chooses; one ship sacrifices its safe route and others visibly escape",
+      "actions": [
+        {
+          "type": "react",
+          "subject": "ESCORT_A",
+          "target": "CAPITAL",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "D4_08_03",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "החלטת הקרבה / object_return",
+      "dramaticFunction": "build",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "CAPITAL",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "meaningful_object",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.23,
+          "screenY": 0.36,
+          "screenWidthFraction": 0.26,
+          "screenHeightFraction": 0.22
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "CAPITAL",
+        "intensity": "medium",
+        "parallax": "none",
+        "purpose": "Existing MOVE executor authors camera coverage and choreography."
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "evidence": "Semantic Director 4 uses exact CURRENT handles; the canonical 53 MOVE executor supplies visible motion; visual intent: A specific person chooses; one ship sacrifices its safe route and others visibly escape",
+      "actions": [
+        {
+          "type": "hold",
+          "subject": "CAPITAL",
+          "duration": 1
+        }
+      ]
+    }
+  ]
+}
