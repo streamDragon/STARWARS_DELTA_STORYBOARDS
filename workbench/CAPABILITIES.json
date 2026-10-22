@@ -18,7 +18,9 @@
     "preview": "cutscene-preview.html",
     "filmQa": "film-qa.html",
     "levelQa": "level-qa.html",
-    "cinematicDirectorGuide": "cinematic-director.html"
+    "cinematicDirectorGuide": "cinematic-director.html",
+    "cinematicPipeline": "workbench/CINEMATIC_PIPELINE.md",
+    "cinematicCapabilityAudit": "workbench/CINEMATIC_CAPABILITY_AUDIT.json"
   },
   "systems": [
     {
@@ -33,9 +35,14 @@
     },
     {
       "id": "MOVES",
-      "role": "53 current canonical choreography/editorial moves",
+      "role": "53 current choreography AND editorial association/cause-effect moves",
       "state": "CURRENT_INDEX_VERIFIED",
-      "count": 53
+      "count": 53,
+      "publishedReadinessGroups": {
+        "EDITOR_RUNTIME_VERIFIED": 31,
+        "CODE_QA_VERIFIED_RUNTIME_VISUAL_PENDING": 10,
+        "CODE_QA_VERIFIED_EDITORIAL_RUNTIME_VISUAL_PENDING": 12
+      }
     },
     {
       "id": "CINEMATIC_DIRECTOR",
@@ -81,5 +88,14 @@
     ],
     "note": "Inspect real configured paths and all relevant category chunks; never infer asset absence from recommendations."
   },
-  "observedUtc": "2026-10-22T17:46:21.451726Z"
+  "observedUtc": "2026-10-22T17:46:21.451726Z",
+  "pipelineStructure": {
+    "status": "DOCUMENTED_SOURCE_REVIEWED_NATIVE_ACCEPTANCE_PENDING",
+    "authority": "fresh sealed V1, effective beats, generated editable Timeline",
+    "mandatoryComposer": false,
+    "hardCutAndInShotMotionAreIndependent": true,
+    "postLoweringTimingCheckRequired": true,
+    "literalProjectileContinuityDistinctFromEllipsis": true,
+    "lastReviewNativeMutation": false
+  }
 }

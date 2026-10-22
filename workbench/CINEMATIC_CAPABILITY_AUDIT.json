@@ -1,0 +1,1160 @@
+{
+  "schema": "STARWARS_DELTA_CINEMATIC_CAPABILITY_AUDIT",
+  "version": 1,
+  "observedDate": "2026-10-22",
+  "scope": "READ_ONLY_NATIVE_SOURCE_AND_SEALED_CURRENT_REVIEW_NO_FILM_CREATED",
+  "repositorySnapshot": "e5da4dc625a5444fed57005366ad49e974c54a92",
+  "current": {
+    "publishTransactionId": "20261020-040324592-9f3fa147",
+    "schema": "CUTSCENE_SCRIPT_V1",
+    "indexCounts": {
+      "actors": 32,
+      "featuredActors": 32,
+      "totalLegalActors": 169,
+      "directAnimationMaterials": 12,
+      "featuredAnimationMaterials": 12,
+      "totalLegalDirectAnimationMaterials": 79,
+      "animationCharacters": 0,
+      "effectGroups": 2,
+      "audioGroups": 2,
+      "audioHandles": 87,
+      "effectHandles": 155,
+      "sceneryGroups": 2,
+      "uiGroups": 1,
+      "featuredUi": 6,
+      "uiTarget": 6,
+      "uiShortage": 0,
+      "uiHandles": 98,
+      "moves": 53,
+      "dialogueCharacters": 6
+    }
+  },
+  "nativeProof": {
+    "editorStatus": "NOT_RECHECKED",
+    "compile": "NOT_RUN",
+    "tests": "NOT_RUN",
+    "build": "NOT_RUN",
+    "capture": "NOT_RUN",
+    "runtime": "NOT_RUN",
+    "mainMutated": false
+  },
+  "contract": "workbench/CINEMATIC_PIPELINE.md",
+  "evidenceVocabulary": [
+    "PUBLISHED_READINESS_CLAIM",
+    "SCHEMA_SUPPORTED",
+    "SOURCE_PRESENT",
+    "STAGED_ONLY",
+    "NATIVE_TESTED",
+    "CAPTURED",
+    "VISUALLY_REVIEWED",
+    "USER_ACCEPTED"
+  ],
+  "moves": [
+    {
+      "ordinal": 1,
+      "id": "CROSSING_FLYBY",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "traveler"
+      ],
+      "phases": [
+        "enter",
+        "pass_camera",
+        "exit"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 2,
+      "id": "HERO_SWEEP",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "hero"
+      ],
+      "phases": [
+        "flyby",
+        "foreground_arc",
+        "bank_away",
+        "exit"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 3,
+      "id": "ATTACK_RUN",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "attacker",
+        "target"
+      ],
+      "phases": [
+        "approach",
+        "fire_during_pass",
+        "pass_camera",
+        "bank_away"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 4,
+      "id": "BOOM_AND_BREAK",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "attacker",
+        "target",
+        "wingman",
+        "wingman"
+      ],
+      "phases": [
+        "attack",
+        "impact",
+        "formation_break",
+        "clear_blast"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 5,
+      "id": "DOUBLE_INTERCEPT",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "target",
+        "interceptor",
+        "interceptor"
+      ],
+      "phases": [
+        "separate_defenders",
+        "converge",
+        "hold_intercept_lane"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 6,
+      "id": "FLANK_LEFT",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "target",
+        "left_flanker",
+        "wingmate"
+      ],
+      "phases": [
+        "peel_left",
+        "arc_intercept",
+        "hold_target_readability"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 7,
+      "id": "FLANK_RIGHT",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "target",
+        "right_flanker",
+        "wingmate"
+      ],
+      "phases": [
+        "peel_right",
+        "arc_intercept",
+        "hold_target_readability"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 8,
+      "id": "PURSUIT_LANES",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "pursued",
+        "pursuer"
+      ],
+      "phases": [
+        "establish_depth_lanes",
+        "parallel_pursuit",
+        "closing_gap"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 9,
+      "id": "CHASE_THROUGH_FRAME",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "pursued",
+        "pursuer"
+      ],
+      "phases": [
+        "target_crosses",
+        "chasers_enter",
+        "same_direction_exit"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 10,
+      "id": "ESCORT_COLUMN",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "principal",
+        "escort",
+        "escort"
+      ],
+      "phases": [
+        "principal_leads",
+        "escorts_hold_spacing",
+        "shared_travel"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 11,
+      "id": "ESCORT_PEEL_OFF",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "protected",
+        "escort",
+        "escort"
+      ],
+      "phases": [
+        "escort",
+        "peel_off",
+        "bank_away",
+        "exit"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 12,
+      "id": "FORMATION_SPREAD",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "formation_member",
+        "formation_member",
+        "formation_member"
+      ],
+      "phases": [
+        "stable_formation",
+        "open_spacing",
+        "hold"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 13,
+      "id": "FORMATION_CONVERGE",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "formation_member",
+        "formation_member",
+        "formation_member"
+      ],
+      "phases": [
+        "separate_entries",
+        "converge_to_slots",
+        "hold"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 14,
+      "id": "BANK_AND_EXIT",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "traveler"
+      ],
+      "phases": [
+        "bank_away",
+        "accelerate",
+        "exit"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 15,
+      "id": "FORMATION_RETREAT",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "formation_member",
+        "formation_member",
+        "formation_member",
+        "threat"
+      ],
+      "phases": [
+        "formation_break",
+        "retreat_lanes",
+        "exit"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 16,
+      "id": "DAMAGED_WITHDRAWAL",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "damaged_actor"
+      ],
+      "phases": [
+        "impact_or_react",
+        "brief_hold",
+        "crippled_drift",
+        "escape"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 17,
+      "id": "TAKEOFF_ESCORT",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "takeoff_actor",
+        "escort"
+      ],
+      "phases": [
+        "takeoff",
+        "escort_join",
+        "shared_travel"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 18,
+      "id": "LAUNCH_WAVE",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "launched_actor",
+        "launched_actor"
+      ],
+      "phases": [
+        "staggered_takeoffs",
+        "clear_launch_area"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 19,
+      "id": "LANDING_APPROACH",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "lander"
+      ],
+      "phases": [
+        "approach",
+        "landing",
+        "settle_hold"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 20,
+      "id": "LAND_THEN_GUARD_ORBIT",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "center",
+        "guard",
+        "guard"
+      ],
+      "phases": [
+        "landing",
+        "center_stops",
+        "guards_orbit"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 21,
+      "id": "STATIC_CENTER_ORBIT_REVEAL",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "center",
+        "orbiter",
+        "orbiter"
+      ],
+      "phases": [
+        "static_center",
+        "guard_orbit",
+        "pull_reveal",
+        "hold"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 22,
+      "id": "ORBIT_THEN_BREAK",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "center",
+        "orbiter",
+        "orbiter"
+      ],
+      "phases": [
+        "orbit",
+        "break",
+        "bank_away"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 23,
+      "id": "RESCUE_PASS",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "rescuer",
+        "rescued"
+      ],
+      "phases": [
+        "rescue_approach",
+        "visible_meet",
+        "escort_escape"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 24,
+      "id": "CONVOY_ESCAPE",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "leader",
+        "protected",
+        "escort",
+        "threat"
+      ],
+      "phases": [
+        "convoy_travel",
+        "threat_pressure",
+        "escape_same_direction"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 25,
+      "id": "THREAT_REVEAL_PASS",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "foreground_passer",
+        "threat"
+      ],
+      "phases": [
+        "foreground_pass",
+        "threat_revealed",
+        "pull_scale_context"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 26,
+      "id": "VICTORY_FLYBY",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "ship",
+        "ship",
+        "ship"
+      ],
+      "phases": [
+        "formation_flyby",
+        "celebratory_break",
+        "exit"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 27,
+      "id": "QUIET_DRIFT_OUT",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "retreating_actor"
+      ],
+      "phases": [
+        "slow_drift",
+        "quiet_exit"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 28,
+      "id": "SCREEN_CROSS_REVEAL",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "occluder",
+        "hidden_subject"
+      ],
+      "phases": [
+        "foreground_occlusion",
+        "cross_frame",
+        "target_revealed"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 29,
+      "id": "CROSS_TRAFFIC",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "traffic_a",
+        "traffic_b"
+      ],
+      "phases": [
+        "lane_a_cross",
+        "lane_b_cross_other_depth",
+        "clear_readable_flow"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 30,
+      "id": "HOLD_THEN_BURST",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "traveler"
+      ],
+      "phases": [
+        "hold",
+        "burst_acceleration",
+        "travel_payoff"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 31,
+      "id": "ARRIVE_SETTLE_HOLD",
+      "publishedReadiness": "EDITOR_RUNTIME_VERIFIED",
+      "publishedRuntimeProof": "QA31_RUNTIME",
+      "publishedVisualProof": "QA31_VISUAL_92_93",
+      "requiredRoles": [
+        "arriving_actor"
+      ],
+      "phases": [
+        "arrive",
+        "decelerate_settle",
+        "hold"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 32,
+      "id": "TARGET_LOCK",
+      "publishedReadiness": "CODE_QA_VERIFIED_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA32_41_CODE",
+      "publishedVisualProof": "QA32_41_VISUAL_PENDING",
+      "requiredRoles": [
+        "attacker",
+        "target"
+      ],
+      "phases": [
+        "attacker_establish",
+        "target_cut",
+        "attacker_push_in",
+        "fire"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 33,
+      "id": "LOOK_REVEAL_REACTION",
+      "publishedReadiness": "CODE_QA_VERIFIED_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA32_41_CODE",
+      "publishedVisualProof": "QA32_41_VISUAL_PENDING",
+      "requiredRoles": [
+        "looker",
+        "observed_subject"
+      ],
+      "phases": [
+        "looking_face",
+        "seen_subject",
+        "reaction_push_in"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 34,
+      "id": "THREAT_APPROACH",
+      "publishedReadiness": "CODE_QA_VERIFIED_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA32_41_CODE",
+      "publishedVisualProof": "QA32_41_VISUAL_PENDING",
+      "requiredRoles": [
+        "subject",
+        "threat"
+      ],
+      "phases": [
+        "subject",
+        "distant_threat",
+        "subject_return",
+        "closer_threat",
+        "reaction_closeup"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 35,
+      "id": "FALSE_DIRECTION_ATTACK",
+      "publishedReadiness": "CODE_QA_VERIFIED_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA32_41_CODE",
+      "publishedVisualProof": "QA32_41_VISUAL_PENDING",
+      "requiredRoles": [
+        "attacker",
+        "target"
+      ],
+      "phases": [
+        "attacker_exits",
+        "target_hold",
+        "offscreen_attack_from_implied_direction",
+        "impact"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 36,
+      "id": "PASS_BY_REVEAL",
+      "publishedReadiness": "CODE_QA_VERIFIED_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA32_41_CODE",
+      "publishedVisualProof": "QA32_41_VISUAL_PENDING",
+      "requiredRoles": [
+        "foreground_passer",
+        "revealed_subject"
+      ],
+      "phases": [
+        "foreground_pass",
+        "brief_occlusion",
+        "new_subject_reveal",
+        "hold_reveal"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 37,
+      "id": "REACTION_BEFORE_CAUSE",
+      "publishedReadiness": "CODE_QA_VERIFIED_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA32_41_CODE",
+      "publishedVisualProof": "QA32_41_VISUAL_PENDING",
+      "requiredRoles": [
+        "reactor",
+        "cause"
+      ],
+      "phases": [
+        "reaction_first",
+        "turn_or_look",
+        "cause_reveal"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 38,
+      "id": "FORMATION_BREAK",
+      "publishedReadiness": "CODE_QA_VERIFIED_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA32_41_CODE",
+      "publishedVisualProof": "QA32_41_VISUAL_PENDING",
+      "requiredRoles": [
+        "formation_member",
+        "formation_member",
+        "formation_member"
+      ],
+      "phases": [
+        "formation_wide",
+        "single_ship_emphasis",
+        "break_accelerate",
+        "wide_split"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 39,
+      "id": "CHAIN_REACTION",
+      "publishedReadiness": "CODE_QA_VERIFIED_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA32_41_CODE",
+      "publishedVisualProof": "QA32_41_VISUAL_PENDING",
+      "requiredRoles": [
+        "source",
+        "first_target",
+        "second_target"
+      ],
+      "phases": [
+        "projectile_or_shot",
+        "first_impact",
+        "first_explosion",
+        "secondary_reaction",
+        "second_explosion"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 40,
+      "id": "HIDDEN_PURSUER",
+      "publishedReadiness": "CODE_QA_VERIFIED_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA32_41_CODE",
+      "publishedVisualProof": "QA32_41_VISUAL_PENDING",
+      "requiredRoles": [
+        "traveler",
+        "pursuer"
+      ],
+      "phases": [
+        "traveler_exits",
+        "camera_lingers",
+        "pursuer_enters",
+        "unaware_hero"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 41,
+      "id": "SCALE_REVEAL",
+      "publishedReadiness": "CODE_QA_VERIFIED_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA32_41_CODE",
+      "publishedVisualProof": "QA32_41_VISUAL_PENDING",
+      "requiredRoles": [
+        "small_subject",
+        "giant_subject"
+      ],
+      "phases": [
+        "close_ship",
+        "pull_out",
+        "giant_subject_reveal",
+        "hold_scale_contrast"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 42,
+      "id": "LOOK_TARGET_LOOK",
+      "publishedReadiness": "CODE_QA_VERIFIED_EDITORIAL_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA42_53_CODE",
+      "publishedVisualProof": "QA42_53_VISUAL_PENDING",
+      "requiredRoles": [
+        "looker",
+        "looked_at_target"
+      ],
+      "phases": [
+        "looker",
+        "looked_at_target",
+        "looker_return"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 43,
+      "id": "AIM_TARGET_CONFIRM",
+      "publishedReadiness": "CODE_QA_VERIFIED_EDITORIAL_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA42_53_CODE",
+      "publishedVisualProof": "QA42_53_VISUAL_PENDING",
+      "requiredRoles": [
+        "aimer",
+        "target"
+      ],
+      "phases": [
+        "armed_subject",
+        "target",
+        "armed_subject_confirm"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 44,
+      "id": "SHIP_TARGET_ATTACK_INTENT",
+      "publishedReadiness": "CODE_QA_VERIFIED_EDITORIAL_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA42_53_CODE",
+      "publishedVisualProof": "QA42_53_VISUAL_PENDING",
+      "requiredRoles": [
+        "ship",
+        "target"
+      ],
+      "phases": [
+        "ship",
+        "target",
+        "ship_push_in"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 45,
+      "id": "THREAT_REACTION_THREAT",
+      "publishedReadiness": "CODE_QA_VERIFIED_EDITORIAL_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA42_53_CODE",
+      "publishedVisualProof": "QA42_53_VISUAL_PENDING",
+      "requiredRoles": [
+        "threat",
+        "reactor"
+      ],
+      "phases": [
+        "threat",
+        "reaction",
+        "closer_threat"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 46,
+      "id": "DISCOVERY_REVEAL_REACTION",
+      "publishedReadiness": "CODE_QA_VERIFIED_EDITORIAL_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA42_53_CODE",
+      "publishedVisualProof": "QA42_53_VISUAL_PENDING",
+      "requiredRoles": [
+        "searcher",
+        "discovery"
+      ],
+      "phases": [
+        "searching_subject",
+        "discovery_reveal",
+        "reaction"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 47,
+      "id": "CAUSE_EFFECT_REACTION",
+      "publishedReadiness": "CODE_QA_VERIFIED_EDITORIAL_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA42_53_CODE",
+      "publishedVisualProof": "QA42_53_VISUAL_PENDING",
+      "requiredRoles": [
+        "cause",
+        "effect_target",
+        "reactor"
+      ],
+      "phases": [
+        "cause_action",
+        "effect",
+        "actor_reaction"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 48,
+      "id": "WATCHER_SUBJECT_WATCHER",
+      "publishedReadiness": "CODE_QA_VERIFIED_EDITORIAL_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA42_53_CODE",
+      "publishedVisualProof": "QA42_53_VISUAL_PENDING",
+      "requiredRoles": [
+        "watcher",
+        "observed_subject"
+      ],
+      "phases": [
+        "watcher",
+        "observed_subject",
+        "watcher_return"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 49,
+      "id": "WEAPON_TARGET_FIRE",
+      "publishedReadiness": "CODE_QA_VERIFIED_EDITORIAL_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA42_53_CODE",
+      "publishedVisualProof": "QA42_53_VISUAL_PENDING",
+      "requiredRoles": [
+        "weapon",
+        "target"
+      ],
+      "phases": [
+        "weapon",
+        "target",
+        "weapon_fire"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 50,
+      "id": "MISSILE_TARGET_IMPACT",
+      "publishedReadiness": "CODE_QA_VERIFIED_EDITORIAL_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA42_53_CODE",
+      "publishedVisualProof": "QA42_53_VISUAL_PENDING",
+      "requiredRoles": [
+        "missile",
+        "target"
+      ],
+      "phases": [
+        "missile",
+        "target",
+        "impact"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 51,
+      "id": "ENEMY_HERO_STANDOFF",
+      "publishedReadiness": "CODE_QA_VERIFIED_EDITORIAL_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA42_53_CODE",
+      "publishedVisualProof": "QA42_53_VISUAL_PENDING",
+      "requiredRoles": [
+        "enemy",
+        "hero"
+      ],
+      "phases": [
+        "enemy",
+        "hero",
+        "enemy_tighter"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 52,
+      "id": "OBJECT_MEMORY_FACE",
+      "publishedReadiness": "CODE_QA_VERIFIED_EDITORIAL_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA42_53_CODE",
+      "publishedVisualProof": "QA42_53_VISUAL_PENDING",
+      "requiredRoles": [
+        "meaningful_object",
+        "face"
+      ],
+      "phases": [
+        "meaningful_object",
+        "face",
+        "object_return"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    },
+    {
+      "ordinal": 53,
+      "id": "LOOK_OFFSCREEN_REVEAL",
+      "publishedReadiness": "CODE_QA_VERIFIED_EDITORIAL_RUNTIME_VISUAL_PENDING",
+      "publishedRuntimeProof": "QA42_53_CODE",
+      "publishedVisualProof": "QA42_53_VISUAL_PENDING",
+      "requiredRoles": [
+        "looker",
+        "revealed_subject"
+      ],
+      "phases": [
+        "offscreen_look",
+        "seen_reveal",
+        "relation_confirm"
+      ],
+      "freshNativeValidation": "NOT_RUN"
+    }
+  ],
+  "publicCamera": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "framing": {
+        "enum": [
+          "extreme_wide",
+          "wide",
+          "medium",
+          "close",
+          "detail"
+        ]
+      },
+      "movement": {
+        "enum": [
+          "hold",
+          "push",
+          "pull",
+          "zoom",
+          "zoom_in",
+          "zoom_out",
+          "zoom_in_out",
+          "follow",
+          "track",
+          "pan",
+          "drift",
+          "shake",
+          "impact_shake",
+          "cut"
+        ]
+      },
+      "subject": {
+        "type": "string"
+      },
+      "direction": {
+        "enum": [
+          "left",
+          "right",
+          "up",
+          "down",
+          "clockwise",
+          "counterclockwise",
+          "toward",
+          "away",
+          "none"
+        ]
+      },
+      "intensity": {
+        "enum": [
+          "subtle",
+          "medium",
+          "strong"
+        ],
+        "description": "Camera intensity only. Use exactly subtle, medium, or strong; low/high are not camera intensity values."
+      },
+      "parallax": {
+        "enum": [
+          "none",
+          "subtle",
+          "medium",
+          "strong"
+        ]
+      },
+      "zoomMultiplier": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "maximum": 10,
+        "description": "Target orthographic-size multiplier for push, pull, zoom, zoom_in, zoom_out, or the first leg of zoom_in_out. Values below 1 zoom in; values above 1 zoom out."
+      },
+      "zoomReturnMultiplier": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "maximum": 10,
+        "description": "For zoom_in_out only: final orthographic-size multiplier relative to the authored framing. Defaults to 1, which returns to the starting framing without a snap."
+      },
+      "zoomHoldSeconds": {
+        "type": "number",
+        "minimum": 0,
+        "description": "For zoom_in_out only: seconds to hold at the peak zoom before the return leg begins."
+      },
+      "purpose": {
+        "type": "string"
+      }
+    }
+  },
+  "publicTransition": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "style"
+    ],
+    "properties": {
+      "style": {
+        "enum": [
+          "cut",
+          "crossfade",
+          "fade_to_black",
+          "fade_from_black"
+        ]
+      },
+      "durationSeconds": {
+        "type": "number",
+        "minimum": 0
+      }
+    }
+  },
+  "findings": [
+    {
+      "id": "DIRECTED_PHASE_PRESERVATION",
+      "state": "SOURCE_OBSERVATION_NATIVE_REPRO_REQUIRED",
+      "source": "MY_CutsceneV1MoveVisualPlanCompiler.cs",
+      "method": "HasDeliberateAuthoredShotPlan",
+      "observation": "Requires non-hold camera movement; framing/transition changes alone do not satisfy heuristic.",
+      "acceptance": "Compare authored and effective cuts, subjects and duration on actual film."
+    },
+    {
+      "id": "SHORT_SHOT_TIMING",
+      "state": "POST_LOWERING_CHECK_REQUIRED",
+      "source": "MY_CutsceneV1MoveVisualPlanCompiler.cs",
+      "method": "NormalizeMoveDuration / ScaleTimedChildren",
+      "acceptance": "effectiveStart + (count-1)*CURRENT_interval + flightDuration <= effectiveBeatDuration; no silent source rewrite"
+    },
+    {
+      "id": "CUT_EXECUTION",
+      "state": "SOURCE_PRESENT_NATIVE_VISUAL_PENDING",
+      "source": "MY_CutsceneV1MovieJsonAuthoringPreparationAndValidation.cs",
+      "method": "ApplySimpleActions",
+      "observation": "transition.style=cut populates authoredHardCut.",
+      "acceptance": "First incoming frame has intended framing; no overlap/ease across intentional cut."
+    },
+    {
+      "id": "PROJECTILE_CONTINUITY",
+      "state": "PUBLIC_CONTRACT_LIMIT",
+      "observation": "Each fire flight must finish inside its beat. Editorial ellipsis is not literal projectile-instance persistence across beats.",
+      "acceptance": "Explicitly state which claim the film makes; never respawn a volley as continuation."
+    }
+  ],
+  "propertyOwnership": {
+    "shotSelection": "Timeline CinemachineTrack on active execution route",
+    "framingAndTracking": "Cinemachine per-shot state",
+    "continuousCameraProperties": "Assigned native camera animation or camera component; one owner per property",
+    "actorMotion": "Existing MOVE/actor track",
+    "builtInAnimation": "Existing asset Animator/particles unless explicitly overridden"
+  },
+  "authoringRule": "No new public import properties. Journal coverage notes are planning/QA only; use sealed V1 for movies.",
+  "researchSources": [
+    {
+      "id": "MAGLIANO_ZACKS_2011",
+      "url": "https://doi.org/10.1111/j.1551-6709.2011.01202.x"
+    },
+    {
+      "id": "SMITH_2012",
+      "url": "https://ualresearchonline.arts.ac.uk/id/eprint/21187/"
+    },
+    {
+      "id": "MULLENNIX_2019",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0224623"
+    },
+    {
+      "id": "CALBI_2019",
+      "url": "https://www.nature.com/articles/s41598-018-37786-y"
+    },
+    {
+      "id": "MAGLIANO_1996",
+      "url": "https://doi.org/10.1080/01638539609544973"
+    },
+    {
+      "id": "BRUCKERT_2021",
+      "url": "https://arxiv.org/abs/2102.13378"
+    },
+    {
+      "id": "UNITY_TIMELINE",
+      "url": "https://docs.unity3d.com/Packages/com.unity.cinemachine@3.1/manual/setup-timeline.html"
+    },
+    {
+      "id": "UNITY_BLENDS",
+      "url": "https://docs.unity3d.com/Packages/com.unity.cinemachine@3.1/manual/ControllingAndCustomizingBlends.html"
+    }
+  ]
+}
