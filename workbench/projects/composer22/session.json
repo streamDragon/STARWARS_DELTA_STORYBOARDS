@@ -4,10 +4,10 @@
   "id": "composer22",
   "kind": "film",
   "title": "Composer · מטח סיבתי 22 שניות",
-  "revision": 1,
+  "revision": 2,
   "stage": "AUTHORING",
-  "status": "PREPARATION_ONLY",
-  "updatedUtc": "2026-10-22T03:02:24.018586Z",
+  "status": "PREPARED_NATIVE_PENDING",
+  "updatedUtc": "2026-10-22T17:46:21.572Z",
   "originalBrief": "Reuse existing staged FLEET_VOLLEY_22 Composer; fix legal V1 lowering, action end timing and duplicated volley before importing.",
   "approvedTargetRevision": 0,
   "targetArtifacts": [],
@@ -18,15 +18,143 @@
       "request": "Legal V1 emission",
       "status": "PREPARED_ONLY",
       "replacementAction": "Read integration plan B1; use existing schema/context/resolver and ordinary importer"
+    },
+    {
+      "request": "CURRENT adapter and canonical V1 lowering",
+      "status": "NOT_IMPLEMENTED",
+      "replacementAction": "Map private dramatic labels anticipation/attack/travel to legal V1 values; never serialize the private model as public V1."
+    },
+    {
+      "request": "Short-duration action timing",
+      "status": "REPRODUCED_IN_STAGED_SOURCE",
+      "replacementAction": "Normalize full action intervals: 1s brief creates FIRE shot0.181818s but fire offsets0.45/0.86/1.27. Existing15tests cover22s,not full interval safety."
+    },
+    {
+      "request": "Same-projectile continuity across cuts",
+      "status": "NOT_PROVEN",
+      "replacementAction": "TRAVEL requirement now avoids new launches; prove same runtime projectile identities in normal V1/Unity route."
+    },
+    {
+      "request": "Duplicate volley in TRAVEL",
+      "status": "RESOLVED_IN_STAGED_SOURCE",
+      "replacementAction": "Three launches remain in FIRE; TRAVEL creates no new launch. Exact source and15/15reportedtestreceipt attached; runtime continuity is still a separate pending requirement."
     }
   ],
   "decisions": [],
-  "runs": [],
-  "history": [],
-  "lastCompletedAction": "Imported existing source evidence; no new Unity operation",
-  "nextAction": "Review staged Composer models/planner/writer and new integration plan. Fix only reproduced defects: legal dramaticFunction, normalized short timing, single volley across cuts. Prepare outside Assets and serialize integration.",
+  "runs": [
+    {
+      "id": "composer-isolated-three-launch-regression-20261022",
+      "capture": "NOT_RUN",
+      "technical": "PASS",
+      "cinematic": "NOT_RUN",
+      "runtime": "NOT_TESTED",
+      "evidence": "Original continuation receipt reports15/15 isolated.NET tests; root reviewed exact staged source and verified original byte hashes, did not rerun.NET or Unity. Native V1 adapter/camera/playback remain unimplemented or unproved.",
+      "artifacts": [
+        {
+          "path": "workbench/projects/composer22/artifacts/aec59db868a486e7e87acdb1245a941c83fd0f06b147b4e2dfa2beffa782e1ef-cinematic_composer_20261022--CONTINUATION_RECEIPT_20261022.md",
+          "label": "cinematic_composer_20261022--CONTINUATION_RECEIPT_20261022.md",
+          "kind": "reference",
+          "sha256": "aec59db868a486e7e87acdb1245a941c83fd0f06b147b4e2dfa2beffa782e1ef",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "sourceKind": "VERIFIED_EXACT_REMOTE_BYTES",
+          "originalFileSha256": "aec59db868a486e7e87acdb1245a941c83fd0f06b147b4e2dfa2beffa782e1ef",
+          "originalPath": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\qa\\cinematic_composer_20261022\\CONTINUATION_RECEIPT_20261022.md",
+          "sourceUpdatedUtc": "2026-10-22T13:20:37.9131281Z"
+        },
+        {
+          "path": "workbench/projects/composer22/artifacts/d2b7795546d41cd5baf800b8a5247f91b0f0ae996352fbc64aa31564e1e22e0f-cinematic_composer_20261022--source--MY_CinematicComposerModels.cs",
+          "label": "cinematic_composer_20261022--source--MY_CinematicComposerModels.cs",
+          "kind": "reference",
+          "sha256": "d2b7795546d41cd5baf800b8a5247f91b0f0ae996352fbc64aa31564e1e22e0f",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "sourceKind": "VERIFIED_EXACT_REMOTE_BYTES",
+          "originalFileSha256": "d2b7795546d41cd5baf800b8a5247f91b0f0ae996352fbc64aa31564e1e22e0f",
+          "originalPath": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\qa\\cinematic_composer_20261022\\source\\MY_CinematicComposerModels.cs",
+          "sourceUpdatedUtc": "2026-10-22T01:57:40.3479424Z"
+        },
+        {
+          "path": "workbench/projects/composer22/artifacts/701d578086886124621f3a55e1f0b3bd078eb333845621cf5042ae93d76ec270-cinematic_composer_20261022--source--MY_CinematicComposerStoryPlanner.cs",
+          "label": "cinematic_composer_20261022--source--MY_CinematicComposerStoryPlanner.cs",
+          "kind": "reference",
+          "sha256": "701d578086886124621f3a55e1f0b3bd078eb333845621cf5042ae93d76ec270",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "sourceKind": "VERIFIED_EXACT_REMOTE_BYTES",
+          "originalFileSha256": "701d578086886124621f3a55e1f0b3bd078eb333845621cf5042ae93d76ec270",
+          "originalPath": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\qa\\cinematic_composer_20261022\\source\\MY_CinematicComposerStoryPlanner.cs",
+          "sourceUpdatedUtc": "2026-10-22T01:57:42.1078833Z"
+        },
+        {
+          "path": "workbench/projects/composer22/artifacts/ceb3b3e797561717bf057146528a70858005305ebe00a21a8605906eea4a87b6-cinematic_composer_20261022--source--MY_CinematicComposerShotWriter.cs",
+          "label": "cinematic_composer_20261022--source--MY_CinematicComposerShotWriter.cs",
+          "kind": "reference",
+          "sha256": "ceb3b3e797561717bf057146528a70858005305ebe00a21a8605906eea4a87b6",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "sourceKind": "VERIFIED_EXACT_REMOTE_BYTES",
+          "originalFileSha256": "ceb3b3e797561717bf057146528a70858005305ebe00a21a8605906eea4a87b6",
+          "originalPath": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\qa\\cinematic_composer_20261022\\source\\MY_CinematicComposerShotWriter.cs",
+          "sourceUpdatedUtc": "2026-10-22T13:19:18.8811341Z"
+        }
+      ]
+    }
+  ],
+  "history": [
+    {
+      "revision": 1,
+      "stage": "AUTHORING",
+      "status": "PREPARATION_ONLY",
+      "updatedUtc": "2026-10-22T03:02:24.018586Z",
+      "snapshotPath": "workbench/projects/composer22/revisions/000001.json"
+    }
+  ],
+  "lastCompletedAction": "Recovered the other agent's exact source/receipt: duplicate TRAVEL volley removed,3 FIRE launches. Receipt reports15/15 isolated.NET tests. Files and original SHA256 verified; no new Unity operation or native installation. This dossier now matches the newer progress already recorded in integration revision6.",
+  "nextAction": "Continue staged Composer from attached source/receipt. Implement CURRENT→canonicalV1 adapter, legal enum translation and timing for every full action interval; prove native projectile continuity. Before integration recheck fresh MAIN ownership/hashes/Editor readiness. Old11:14 dialog observation is not a current lock.",
   "inFlightAction": null,
-  "sourceArtifacts": [],
+  "sourceArtifacts": [
+    {
+      "path": "workbench/projects/composer22/artifacts/aec59db868a486e7e87acdb1245a941c83fd0f06b147b4e2dfa2beffa782e1ef-cinematic_composer_20261022--CONTINUATION_RECEIPT_20261022.md",
+      "label": "cinematic_composer_20261022--CONTINUATION_RECEIPT_20261022.md",
+      "kind": "reference",
+      "sha256": "aec59db868a486e7e87acdb1245a941c83fd0f06b147b4e2dfa2beffa782e1ef",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "VERIFIED_EXACT_REMOTE_BYTES",
+      "originalFileSha256": "aec59db868a486e7e87acdb1245a941c83fd0f06b147b4e2dfa2beffa782e1ef",
+      "originalPath": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\qa\\cinematic_composer_20261022\\CONTINUATION_RECEIPT_20261022.md",
+      "sourceUpdatedUtc": "2026-10-22T13:20:37.9131281Z"
+    },
+    {
+      "path": "workbench/projects/composer22/artifacts/d2b7795546d41cd5baf800b8a5247f91b0f0ae996352fbc64aa31564e1e22e0f-cinematic_composer_20261022--source--MY_CinematicComposerModels.cs",
+      "label": "cinematic_composer_20261022--source--MY_CinematicComposerModels.cs",
+      "kind": "reference",
+      "sha256": "d2b7795546d41cd5baf800b8a5247f91b0f0ae996352fbc64aa31564e1e22e0f",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "VERIFIED_EXACT_REMOTE_BYTES",
+      "originalFileSha256": "d2b7795546d41cd5baf800b8a5247f91b0f0ae996352fbc64aa31564e1e22e0f",
+      "originalPath": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\qa\\cinematic_composer_20261022\\source\\MY_CinematicComposerModels.cs",
+      "sourceUpdatedUtc": "2026-10-22T01:57:40.3479424Z"
+    },
+    {
+      "path": "workbench/projects/composer22/artifacts/701d578086886124621f3a55e1f0b3bd078eb333845621cf5042ae93d76ec270-cinematic_composer_20261022--source--MY_CinematicComposerStoryPlanner.cs",
+      "label": "cinematic_composer_20261022--source--MY_CinematicComposerStoryPlanner.cs",
+      "kind": "reference",
+      "sha256": "701d578086886124621f3a55e1f0b3bd078eb333845621cf5042ae93d76ec270",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "VERIFIED_EXACT_REMOTE_BYTES",
+      "originalFileSha256": "701d578086886124621f3a55e1f0b3bd078eb333845621cf5042ae93d76ec270",
+      "originalPath": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\qa\\cinematic_composer_20261022\\source\\MY_CinematicComposerStoryPlanner.cs",
+      "sourceUpdatedUtc": "2026-10-22T01:57:42.1078833Z"
+    },
+    {
+      "path": "workbench/projects/composer22/artifacts/ceb3b3e797561717bf057146528a70858005305ebe00a21a8605906eea4a87b6-cinematic_composer_20261022--source--MY_CinematicComposerShotWriter.cs",
+      "label": "cinematic_composer_20261022--source--MY_CinematicComposerShotWriter.cs",
+      "kind": "reference",
+      "sha256": "ceb3b3e797561717bf057146528a70858005305ebe00a21a8605906eea4a87b6",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "VERIFIED_EXACT_REMOTE_BYTES",
+      "originalFileSha256": "ceb3b3e797561717bf057146528a70858005305ebe00a21a8605906eea4a87b6",
+      "originalPath": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\qa\\cinematic_composer_20261022\\source\\MY_CinematicComposerShotWriter.cs",
+      "sourceUpdatedUtc": "2026-10-22T13:19:18.8811341Z"
+    }
+  ],
   "currentIdentity": {
     "publishTransactionId": "20261020-040324592-9f3fa147",
     "observedVia": "GitHub connector, original published CURRENT",

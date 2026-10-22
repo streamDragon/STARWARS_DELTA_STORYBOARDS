@@ -89,3 +89,12 @@ Selected films link to `cutscene-preview.html?session=<stable-id>`. Attach an ex
 Preview source selection is exact: `?run=<id>` must name an existing run and uses only its `artifacts`/`sourceArtifacts` source entries, references to session source paths/IDs, or session sources explicitly tagged with that runId. It never falls back to untagged global sources. `source` and `run` intersect. Session-only preview with several native sources requires an exact `?source=<path-or-id>` or explicit session `currentSourcePath`; array order is not current-source authority. If neither exists, preview reports SOURCE_AMBIGUOUS and links back to the dossier. A single verified V1 source remains usable without extra metadata.
 
 For visual art discovery, also read the fresh shared [MY_Art policy](https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/main/designer-ai/my-art-policy.txt), used by the catalog, Devora and Level Builder. Follow its configured paths and visual evidence; do not create a second competing inventory.
+
+
+## Journal closure and cinematic evidence
+
+At an authoring action boundary, compare the fresh Film QA/Level QA indexes and latest scoped native handoffs with the selected dossier. Associate by exact native projectId/scenePath and capture/run IDs; never by title alone. Enrich an already-linked dossier before creating a duplicate for the same native project. Attach the actual source/continuation receipt and matching public capture paths; a local handoff path mentioned in lastCompletedAction is not an accessible website attachment. Preserve all prior runs/snapshots and keep Composer isolated tests separate from native compile, build, capture and artistic acceptance.
+
+Native readiness observations expire: a dated busy/dialog report is historical evidence, not a live lock. Recheck current readiness before Unity operations; do not discard unsaved work or automatically replay an old mutation. Source hash inspection does not establish current Editor readiness.
+
+Human-readable explanation and current audited limits: [Cinematic Director — בימוי ועריכה](https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/cinematic-director.html). Its montage example is a target, not a rendered movie. The original stable START_HERE remains unchanged.

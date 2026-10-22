@@ -1,0 +1,42 @@
+# YAMATO 2202 | reverse storyboard image review | 2026-10-22
+
+## Provenance and bounds of evidence
+User-supplied original HTML:
+C:\Users\nlpis\Desktop\YAMATO_2202_ORIGINAL_REVERSE_STORYBOARD.html
+SHA256 BB652CC1EAA2C6395AC6761B644B9C67D3CE58E10DC3F0394D1C7CBE79FB1BC8
+Self-contained HTML, 31 embedded JPEG stills and 31 cards, eight-second sample interval from 00:00 to 04:00, reference duration 04:07.
+Source YouTube listed INSIDE HTML: https://www.youtube.com/watch?v=XcBYXC3ThRk. This is NOT the separately discussed AMV HPJeVioj6rY.
+The text labels in the provided HTML appear to contain replacement glyphs/garbled Hebrew: do not invent source wording or assert precise camera velocities, cuts, or clip lengths from stills alone.
+Parsed frames and review contact sheets in same directory.
+
+## Source-derived visible patterns
+Frames 01-03 (00:00-00:16): single Yamato against full planet, then forward-on symmetrical ship image against intense red, then glowing turquoise horizontal ocean/space horizon. EXTREME LONG -> PROUD FULL SHIP -> ENVIRONMENT/POWER.
+Frames 04-06 (00:24-00:40): layered turquoise light trails and combat ships; close grazing view across illuminated ship hull; diagonal hero ship photographed as enormous machine. Visual readability comes from luminous vector lines and strong figure/ground separation.
+Frames 07-10 (00:48-01:12): dark huge silhouette in orange; orange fleet chaos; extremely large looming background fortress / swarm; orange huge fortress with ships in foreground. This is three-scale composition with small craft, capital ships, environmental megastructure.
+Frames 11-15 (01:20-01:52): lone capital ship; layered red surroundings; wide masses of red hanging fleet silhouettes; ship layers at different depth; front-on propulsive glowing engines. Distinct foreground fleet, hero, background.
+Frames 16-21 (02:00-02:40): dark fighter-scale shots, dense diagonal projectile streaks crossing larger ships, many red glowing bolt trajectories; explosive breach/ring; arranged green-lit repeated formation; incoming fire and gray smoke trails. Clearly managed line-of-action and weapon density.
+Frames 22-26 (02:48-03:20): huge light-field orange/blue transitions, ship within smoke-like or cosmic turbulence, contrasting hot/cold impact, distant circular opening and energy debris. Size/impact conveyed by environment carrying the event.
+Frames 27-31 (03:28-04:00): bright mechanical energy core, high-key impact on ship hardware, aftershock/damaged vessel under cloud, blue return to fleet full shot, extremely bright blue weapon charge at finish. Detail-to-wide contrast is important; final still is a charged energy core, NOT a proven emotional reaction shot.
+
+## Existing 30-second NEW FLEET screenplay mapping (verified from actual JSON)
+0-5 YAM_01_ESTABLISH: use source frame 01 (planet/ship) and 09-10 (fleet relative to mega environment). Real fleet must fit in frame; strong foreground/background size differentiation.
+5-9 YAM_02_GUN_DETAIL: source frames 06, 15, 27 and 28 suggest detail hardware with luminous edges. Manual LocalRect child Transform on actual Battlecruiser. Do not frame entire hull.
+9-13 YAM_03_CHARGE: source 31 for energy intensity progression and 27 mechanical glow. Charge VFX cannot change measured camera bounds.
+13-15 YAM_04_FIRE: frames 17-18 show coherent projectile trajectories and direction. Use real V1 fire event and existing recoil (no duplicate camera owner).
+15-19 YAM_05_TARGET: frames 13-16 fleet geographic context. Cut to actual target, preserve screen direction and correct impact anchor.
+19-23 YAM_06_IMPACT: frames 19 and 22-26 for layered breach, prolonged aftermath and hot/cold contrast. Existing impact events; no assumed automatic damage animation.
+23-27 YAM_07_SHIP_REVEAL: source 01, 11, 15 show full ship with clear silhouette. Need explicit composition from muzzle to whole hull.
+27-30 YAM_08_FLEET_REVEAL: frames 09, 13, 30 layered fleet mass and subject-to-fleet proportion. Use explicit roster hull renderers in fleet bounds, not VFX.
+
+## Five new acceptance requirements sourced from storyboard
+A. SCALE LADDER: mechanical gun (~70% meaningful frame dimension) -> hero ship (~45%-55%) -> visible fleet (all authored hull renderers with margins); at no step should camera zoom change the Transform.scale of actors.
+B. WEAPON VECTOR: coherent direction of luminous trails and firing lines; preserve target identity when cutting to the far side.
+C. COLOR/CONTRAST: charge/electric cyan distinct from red/orange battle background. This is visual design for the film, NOT a new camera subsystem.
+D. FOREGROUND/BACKGROUND: at least three spatial scale layers in fleet shot, chosen by actual scene instances, not catalog handles only.
+E. EFFECT INDEPENDENCE: very large beam, explosion or muzzle flash must not inflate camera measured bounds. Check at 13.8s and 20s.
+
+## Evidence NOT in source
+These 31 stills do NOT show exact inter-frame camera movement (pan vs zoom vs cut), actual duration of each shot, Timeline binding, Animator state, impact position, or whether a ship was followed continuously. Those must be tested in Unity, not inferred.
+
+## Runtime acceptance (not executed yet)
+FLEET_YAMATO_CAMERA_30S_V1_QA.json eight shots/30 seconds validated offline. Actual Unity instantiation, cinematography, captures, save/reopen and manual editing persistence remain unverified. Only integrate via the single MAIN Editor during explicit owner window; no alternate Unity Editor or regeneration of existing movies.

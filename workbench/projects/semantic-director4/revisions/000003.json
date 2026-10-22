@@ -1,0 +1,394 @@
+{
+  "schema": "STARWARS_DELTA_AUTHORING_SESSION",
+  "version": 1,
+  "id": "semantic-director4",
+  "kind": "film",
+  "title": "בימוי ועריכה · Cinematic Director",
+  "revision": 3,
+  "stage": "QA",
+  "status": "REVIEW_REQUIRED",
+  "updatedUtc": "2026-10-22T17:46:21.641Z",
+  "originalBrief": "Unify existing eight cinematic recipes, 53 canonical MOVES, Anime Emotion and Dialogue into ordinary V1 with causal, visible consequence.",
+  "approvedTargetRevision": 0,
+  "targetArtifacts": [],
+  "storyboard": [],
+  "assets": [],
+  "gaps": [
+    {
+      "request": "Production semantic/V1 connection",
+      "status": "NOT_INTEGRATED",
+      "replacementAction": "Use existing single V1 route and bind legal identities; no new public format"
+    }
+  ],
+  "decisions": [],
+  "runs": [
+    {
+      "id": "d4-native-engine-test-20261022-061816",
+      "projectId": "95ef217322be4f58af72c096aae03250",
+      "capture": "COMPLETED",
+      "technical": "WARNINGS",
+      "cinematic": "REVIEW_REQUIRED",
+      "runtime": "NOT_TESTED",
+      "durationSeconds": 96,
+      "frameCount": 71,
+      "sourceIdentity": {
+        "fileName": "THE_LAST_EVACUATION_D4_96S_DIRECTED_CUTSCENE_SCRIPT_V1.json",
+        "sha256": null
+      },
+      "evidenceStatus": "REPORTED_NATIVE_RESULTS",
+      "provenance": "Recovered native report text exports, original file SHA unknown; no new integrator capture or comprehensive frame review",
+      "artifacts": [
+        {
+          "path": "workbench/projects/semantic-director4/artifacts/adc17377ba169951b0eeae576633cdeddffb0ac7800c3bb18be3879fcf85ca8a-latest-d4-findings.md",
+          "label": "latest-d4-findings.md",
+          "kind": "reference",
+          "sha256": "adc17377ba169951b0eeae576633cdeddffb0ac7800c3bb18be3879fcf85ca8a",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "sourceKind": "REMOTE_TEXT_EXPORT",
+          "originalFileSha256": null
+        },
+        {
+          "path": "workbench/projects/semantic-director4/artifacts/1afd853c31cf650d18481dfd7e0930e637ac624270a71e197ca01165b169ce87-latest-d4-report.json",
+          "label": "latest-d4-report.json",
+          "kind": "reference",
+          "sha256": "1afd853c31cf650d18481dfd7e0930e637ac624270a71e197ca01165b169ce87",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "sourceKind": "REMOTE_TEXT_EXPORT",
+          "originalFileSha256": null
+        },
+        {
+          "path": "workbench/projects/semantic-director4/artifacts/66105274df70c827a2e9ba596697a405e50658c52d30f16949c1fa3dff0d7770-latest-d4-FILM-QA-3-AUDIT.json",
+          "label": "latest-d4-FILM-QA-3-AUDIT.json",
+          "kind": "reference",
+          "sha256": "66105274df70c827a2e9ba596697a405e50658c52d30f16949c1fa3dff0d7770",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "sourceKind": "REMOTE_TEXT_EXPORT",
+          "originalFileSha256": null
+        },
+        {
+          "path": "workbench/projects/semantic-director4/artifacts/659dda023236d9d1620e47ab720411c77cf8f7a2d6e7725d93cf373a144c04a2-latest-d4-CHATGPT-REVIEW.md",
+          "label": "latest-d4-CHATGPT-REVIEW.md",
+          "kind": "reference",
+          "sha256": "659dda023236d9d1620e47ab720411c77cf8f7a2d6e7725d93cf373a144c04a2",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "sourceKind": "REMOTE_TEXT_EXPORT",
+          "originalFileSha256": null
+        },
+        {
+          "path": "workbench/projects/semantic-director4/artifacts/0b0c3c1b4d13060d4c2a783c8d2f0e89e53133de0137bd2f5198ddeedd2d533d-latest-d4-THE_LAST_EVACUATION_D4_96S_DIRECTED_CUTSCENE_SCRIPT_V1.json",
+          "label": "latest-d4-THE_LAST_EVACUATION_D4_96S_DIRECTED_CUTSCENE_SCRIPT_V1.json",
+          "kind": "source",
+          "sha256": "0b0c3c1b4d13060d4c2a783c8d2f0e89e53133de0137bd2f5198ddeedd2d533d",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "sourceKind": "REMOTE_TEXT_EXPORT",
+          "originalFileSha256": null
+        },
+        {
+          "path": "workbench/projects/semantic-director4/artifacts/e577f136e23e6fbd4c21e5a99a4543e84adf8386b191da95202d9599ffe317c6-latest-d4-THE_LAST_EVACUATION_D4_BUILD_RESULT.txt",
+          "label": "latest-d4-THE_LAST_EVACUATION_D4_BUILD_RESULT.txt",
+          "kind": "reference",
+          "sha256": "e577f136e23e6fbd4c21e5a99a4543e84adf8386b191da95202d9599ffe317c6",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "sourceKind": "REMOTE_TEXT_EXPORT",
+          "originalFileSha256": null
+        },
+        {
+          "path": "workbench/projects/semantic-director4/artifacts/f765e310a423a53d9ab9b43087e8934c570fb6e34fe2b0c6879bf42a44f34b7d-latest-d4-THE_LAST_EVACUATION_DIRECTED_LINT.json",
+          "label": "latest-d4-THE_LAST_EVACUATION_DIRECTED_LINT.json",
+          "kind": "reference",
+          "sha256": "f765e310a423a53d9ab9b43087e8934c570fb6e34fe2b0c6879bf42a44f34b7d",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "sourceKind": "REMOTE_TEXT_EXPORT",
+          "originalFileSha256": null
+        },
+        {
+          "path": "workbench/projects/semantic-director4/artifacts/2647ea86308526ac8f3308f1c2c8627b3f39186c43cf2c1eb71ad19106ae2205-latest-d4-D4_ACTUAL_ART_CANDIDATES_AND_CAMERA_GAP.md",
+          "label": "latest-d4-D4_ACTUAL_ART_CANDIDATES_AND_CAMERA_GAP.md",
+          "kind": "reference",
+          "sha256": "2647ea86308526ac8f3308f1c2c8627b3f39186c43cf2c1eb71ad19106ae2205",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "sourceKind": "REMOTE_TEXT_EXPORT",
+          "originalFileSha256": null
+        },
+        {
+          "path": "film-qa/the-last-evacuation-d4-v1-engine-test/20261022_031816/frame_0000.000s.png",
+          "label": "צילום Unity אמיתי · frame_0000.000s.png",
+          "kind": "capture",
+          "sha256": "008c2a415045c53479e0791565a0c799381b7c07c9093d2cffc4b428a84b3408",
+          "evidenceStatus": "CAPTURED",
+          "runId": "d4-native-engine-test-20261022-061816",
+          "nativeArchiveRunId": "20261022_031816",
+          "nativeProjectId": "95ef217322be4f58af72c096aae03250",
+          "sourceKind": "EXISTING_NATIVE_EDITOR_TIMELINE_CAPTURE"
+        },
+        {
+          "path": "film-qa/the-last-evacuation-d4-v1-engine-test/20261022_031816/frame_0024.000s.png",
+          "label": "צילום Unity אמיתי · frame_0024.000s.png",
+          "kind": "capture",
+          "sha256": "e74bdd7c44cb5603c7b72c5d3e77d27e55e35e33201104681ed05b23ad7a2601",
+          "evidenceStatus": "CAPTURED",
+          "runId": "d4-native-engine-test-20261022-061816",
+          "nativeArchiveRunId": "20261022_031816",
+          "nativeProjectId": "95ef217322be4f58af72c096aae03250",
+          "sourceKind": "EXISTING_NATIVE_EDITOR_TIMELINE_CAPTURE"
+        },
+        {
+          "path": "film-qa/the-last-evacuation-d4-v1-engine-test/20261022_031816/frame_0048.000s.png",
+          "label": "צילום Unity אמיתי · frame_0048.000s.png",
+          "kind": "capture",
+          "sha256": "e74bdd7c44cb5603c7b72c5d3e77d27e55e35e33201104681ed05b23ad7a2601",
+          "evidenceStatus": "CAPTURED",
+          "runId": "d4-native-engine-test-20261022-061816",
+          "nativeArchiveRunId": "20261022_031816",
+          "nativeProjectId": "95ef217322be4f58af72c096aae03250",
+          "sourceKind": "EXISTING_NATIVE_EDITOR_TIMELINE_CAPTURE"
+        },
+        {
+          "path": "film-qa/the-last-evacuation-d4-v1-engine-test/20261022_031816/frame_0072.000s.png",
+          "label": "צילום Unity אמיתי · frame_0072.000s.png",
+          "kind": "capture",
+          "sha256": "d67d79d876791e3d96448e1680422d7c25ca42a0993cc3dcea0f15a6e2baa85f",
+          "evidenceStatus": "CAPTURED",
+          "runId": "d4-native-engine-test-20261022-061816",
+          "nativeArchiveRunId": "20261022_031816",
+          "nativeProjectId": "95ef217322be4f58af72c096aae03250",
+          "sourceKind": "EXISTING_NATIVE_EDITOR_TIMELINE_CAPTURE"
+        },
+        {
+          "path": "film-qa/the-last-evacuation-d4-v1-engine-test/20261022_031816/frame_0078.320s.png",
+          "label": "צילום Unity אמיתי · frame_0078.320s.png",
+          "kind": "capture",
+          "sha256": "3acdbcfc00f6edbb3a246be536b3f98c5673fdc0c5f4a04badcad5dd5d05f96b",
+          "evidenceStatus": "CAPTURED",
+          "runId": "d4-native-engine-test-20261022-061816",
+          "nativeArchiveRunId": "20261022_031816",
+          "nativeProjectId": "95ef217322be4f58af72c096aae03250",
+          "sourceKind": "EXISTING_NATIVE_EDITOR_TIMELINE_CAPTURE"
+        },
+        {
+          "path": "film-qa/the-last-evacuation-d4-v1-engine-test/20261022_031816/frame_0095.880s.png",
+          "label": "צילום Unity אמיתי · frame_0095.880s.png",
+          "kind": "capture",
+          "sha256": "da0e4efca5a2409d8959b7126dc4cd2f38b6f9c90dbc8cffe82e6a59598d6d9a",
+          "evidenceStatus": "CAPTURED",
+          "runId": "d4-native-engine-test-20261022-061816",
+          "nativeArchiveRunId": "20261022_031816",
+          "nativeProjectId": "95ef217322be4f58af72c096aae03250",
+          "sourceKind": "EXISTING_NATIVE_EDITOR_TIMELINE_CAPTURE"
+        }
+      ],
+      "nativeStrict": "PASS_CLEAN",
+      "nativeBuild": "PASS",
+      "sampledBlackFrameAudit": "PASS",
+      "visibleEventActions": 0,
+      "cameraPlan": "V3_CAMERA_PLAN_NOT_AUTHORED",
+      "nativeArchiveRunId": "20261022_031816",
+      "nativeCaptureGeneratedUtc": "2026-10-22T03:18:16.4781559Z",
+      "reportPath": "film-qa/the-last-evacuation-d4-v1-engine-test/20261022_031816/report.json",
+      "publishedIndexTechnical": "PASS",
+      "visualSampleReview": {
+        "observedUtc": "2026-10-22T17:46:21.451726Z",
+        "reviewedFrames": [
+          "frame_0000.000s.png",
+          "frame_0024.000s.png",
+          "frame_0048.000s.png",
+          "frame_0072.000s.png",
+          "frame_0078.320s.png",
+          "frame_0095.880s.png"
+        ],
+        "reviewedCount": 6,
+        "totalFrames": 71,
+        "scope": "Six still frames,not full motion/runtime playback",
+        "findings": [
+          "Wide galaxy background and small cartoon ships; no face or gun close-up in this sample.",
+          "24s and48s sample bytes identical.",
+          "No obvious impact blast in78.320s sample.",
+          "Published capture belongs to DIRECTED V1,not later ACTORS_REBOUND source."
+        ],
+        "verdict": "REVIEW_REQUIRED"
+      }
+    }
+  ],
+  "history": [
+    {
+      "revision": 1,
+      "stage": "AUTHORING",
+      "status": "PREPARATION_ONLY",
+      "updatedUtc": "2026-10-22T03:02:24.018586Z",
+      "snapshotPath": "workbench/projects/semantic-director4/revisions/000001.json"
+    },
+    {
+      "revision": 2,
+      "stage": "QA",
+      "status": "REVIEW_REQUIRED",
+      "updatedUtc": "2026-10-22T11:12:00.844Z",
+      "snapshotPath": "workbench/projects/semantic-director4/revisions/000002.json"
+    }
+  ],
+  "lastCompletedAction": "Reconciled matching published D4 archive run20261022_031816 into this existing dossier (nativeProject95ef...). Attached6actual hashed frame links and reviewed those6/71; same background/small ships,no human/gun closeups in sample,24s/48s identical. No full cinematic acceptance. Recovered newer staged FLEET30/Director handoffs; current inspected MAIN source remains prepatch.",
+  "nextAction": "Use the בימוי/עריכה guide and exact8editorial recipes as target. Current Composer implements only six-phaseFLEET_VOLLEY_22; complete V1 lowering/timing/camera integration. New candidate must visibly prove ship→face→gun→fire→same-projectile impact→lasting damage with two0.5s inserts; preserve original sources and separate code/native/visual/runtime statuses. Do not accept older DIRECTED captures for ACTORS_REBOUND.",
+  "inFlightAction": null,
+  "sourceArtifacts": [
+    {
+      "path": "workbench/projects/semantic-director4/artifacts/f0219d174e5d9eb02970c373b5850e690333902df7a35f5ccb19fe538093099a-SEMANTIC_DIRECTOR_INTEGRATION.md",
+      "label": "מצב מערכת 4 — הכנה בלבד",
+      "kind": "reference",
+      "sha256": "f0219d174e5d9eb02970c373b5850e690333902df7a35f5ccb19fe538093099a",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/semantic-director4/artifacts/332264840b9b00acec4c0d57f7c156d56152826a705c4acf2059ac48f4a7bf78-SEMANTIC_DIRECTOR_PLAN.json",
+      "label": "תכנית סמנטית — לא קובץ ליבוא לסטודיו",
+      "kind": "reference",
+      "sha256": "332264840b9b00acec4c0d57f7c156d56152826a705c4acf2059ac48f4a7bf78",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/semantic-director4/artifacts/8ad1e9e41086f8afaa56a0ac671d06d04adb2083d8a72913a9d74764d861762a-CINEMATIC_DIRECTOR_PROTOCOLS.json",
+      "label": "שמונת מתכוני הבימוי הקיימים",
+      "kind": "reference",
+      "sha256": "8ad1e9e41086f8afaa56a0ac671d06d04adb2083d8a72913a9d74764d861762a",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/semantic-director4/artifacts/adc17377ba169951b0eeae576633cdeddffb0ac7800c3bb18be3879fcf85ca8a-latest-d4-findings.md",
+      "label": "latest-d4-findings.md",
+      "kind": "reference",
+      "sha256": "adc17377ba169951b0eeae576633cdeddffb0ac7800c3bb18be3879fcf85ca8a",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/semantic-director4/artifacts/1afd853c31cf650d18481dfd7e0930e637ac624270a71e197ca01165b169ce87-latest-d4-report.json",
+      "label": "latest-d4-report.json",
+      "kind": "reference",
+      "sha256": "1afd853c31cf650d18481dfd7e0930e637ac624270a71e197ca01165b169ce87",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/semantic-director4/artifacts/66105274df70c827a2e9ba596697a405e50658c52d30f16949c1fa3dff0d7770-latest-d4-FILM-QA-3-AUDIT.json",
+      "label": "latest-d4-FILM-QA-3-AUDIT.json",
+      "kind": "reference",
+      "sha256": "66105274df70c827a2e9ba596697a405e50658c52d30f16949c1fa3dff0d7770",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/semantic-director4/artifacts/659dda023236d9d1620e47ab720411c77cf8f7a2d6e7725d93cf373a144c04a2-latest-d4-CHATGPT-REVIEW.md",
+      "label": "latest-d4-CHATGPT-REVIEW.md",
+      "kind": "reference",
+      "sha256": "659dda023236d9d1620e47ab720411c77cf8f7a2d6e7725d93cf373a144c04a2",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/semantic-director4/artifacts/0b0c3c1b4d13060d4c2a783c8d2f0e89e53133de0137bd2f5198ddeedd2d533d-latest-d4-THE_LAST_EVACUATION_D4_96S_DIRECTED_CUTSCENE_SCRIPT_V1.json",
+      "label": "latest-d4-THE_LAST_EVACUATION_D4_96S_DIRECTED_CUTSCENE_SCRIPT_V1.json",
+      "kind": "source",
+      "sha256": "0b0c3c1b4d13060d4c2a783c8d2f0e89e53133de0137bd2f5198ddeedd2d533d",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/semantic-director4/artifacts/e577f136e23e6fbd4c21e5a99a4543e84adf8386b191da95202d9599ffe317c6-latest-d4-THE_LAST_EVACUATION_D4_BUILD_RESULT.txt",
+      "label": "latest-d4-THE_LAST_EVACUATION_D4_BUILD_RESULT.txt",
+      "kind": "reference",
+      "sha256": "e577f136e23e6fbd4c21e5a99a4543e84adf8386b191da95202d9599ffe317c6",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/semantic-director4/artifacts/f765e310a423a53d9ab9b43087e8934c570fb6e34fe2b0c6879bf42a44f34b7d-latest-d4-THE_LAST_EVACUATION_DIRECTED_LINT.json",
+      "label": "latest-d4-THE_LAST_EVACUATION_DIRECTED_LINT.json",
+      "kind": "reference",
+      "sha256": "f765e310a423a53d9ab9b43087e8934c570fb6e34fe2b0c6879bf42a44f34b7d",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/semantic-director4/artifacts/2647ea86308526ac8f3308f1c2c8627b3f39186c43cf2c1eb71ad19106ae2205-latest-d4-D4_ACTUAL_ART_CANDIDATES_AND_CAMERA_GAP.md",
+      "label": "latest-d4-D4_ACTUAL_ART_CANDIDATES_AND_CAMERA_GAP.md",
+      "kind": "reference",
+      "sha256": "2647ea86308526ac8f3308f1c2c8627b3f39186c43cf2c1eb71ad19106ae2205",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/semantic-director4/artifacts/954faa4840ee4c60c7fdef847cb4bee4daa5ad6a611cd2f37d0dd930f06b4a83-cinematic_director_completion_20261021--truth_source_patch_20261022--INTEGRATION_MANIFEST.json",
+      "label": "cinematic_director_completion_20261021--truth_source_patch_20261022--INTEGRATION_MANIFEST.json",
+      "kind": "reference",
+      "sha256": "954faa4840ee4c60c7fdef847cb4bee4daa5ad6a611cd2f37d0dd930f06b4a83",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "VERIFIED_EXACT_REMOTE_BYTES",
+      "originalFileSha256": "954faa4840ee4c60c7fdef847cb4bee4daa5ad6a611cd2f37d0dd930f06b4a83",
+      "originalPath": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\qa\\cinematic_director_completion_20261021\\truth_source_patch_20261022\\INTEGRATION_MANIFEST.json",
+      "sourceUpdatedUtc": "2026-10-22T11:24:54.8494266Z"
+    },
+    {
+      "path": "workbench/projects/semantic-director4/artifacts/82fda72082b6dc9a4373d7c0b9990dd038064fd903873e977ca064834dd8a9f4-cinematic_director_completion_20261021--FLEET30_YAMATO_REV3_20261022--REV3_RESULTS.md",
+      "label": "cinematic_director_completion_20261021--FLEET30_YAMATO_REV3_20261022--REV3_RESULTS.md",
+      "kind": "reference",
+      "sha256": "82fda72082b6dc9a4373d7c0b9990dd038064fd903873e977ca064834dd8a9f4",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "VERIFIED_EXACT_REMOTE_BYTES",
+      "originalFileSha256": "82fda72082b6dc9a4373d7c0b9990dd038064fd903873e977ca064834dd8a9f4",
+      "originalPath": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\qa\\cinematic_director_completion_20261021\\FLEET30_YAMATO_REV3_20261022\\REV3_RESULTS.md",
+      "sourceUpdatedUtc": "2026-10-22T11:20:49.1053296Z"
+    },
+    {
+      "path": "workbench/projects/semantic-director4/artifacts/36a8e10de1aff42a3921d98ef10bc0a88b33219eefea95bd6ca9f5f270717af5-cinematic_director_completion_20261021--YAMATO_ORIGINAL_HTML_REVIEW--CAMERA_LANGUAGE_FINDINGS.md",
+      "label": "cinematic_director_completion_20261021--YAMATO_ORIGINAL_HTML_REVIEW--CAMERA_LANGUAGE_FINDINGS.md",
+      "kind": "reference",
+      "sha256": "36a8e10de1aff42a3921d98ef10bc0a88b33219eefea95bd6ca9f5f270717af5",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "VERIFIED_EXACT_REMOTE_BYTES",
+      "originalFileSha256": "36a8e10de1aff42a3921d98ef10bc0a88b33219eefea95bd6ca9f5f270717af5",
+      "originalPath": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\qa\\cinematic_director_completion_20261021\\YAMATO_ORIGINAL_HTML_REVIEW\\CAMERA_LANGUAGE_FINDINGS.md",
+      "sourceUpdatedUtc": "2026-10-22T02:15:38.1445084Z"
+    },
+    {
+      "path": "workbench/projects/semantic-director4/artifacts/ae860d9b9dd29bc9c2f7fbc82a1bc375e2f45cc3ada69cf686c8631dc3676a81-semantic_director_4_20261022--D4_ACTORS_REBOUND_OFFLINE_COHERENCE_AUDIT.json",
+      "label": "semantic_director_4_20261022--D4_ACTORS_REBOUND_OFFLINE_COHERENCE_AUDIT.json",
+      "kind": "reference",
+      "sha256": "ae860d9b9dd29bc9c2f7fbc82a1bc375e2f45cc3ada69cf686c8631dc3676a81",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "VERIFIED_EXACT_REMOTE_BYTES",
+      "originalFileSha256": "ae860d9b9dd29bc9c2f7fbc82a1bc375e2f45cc3ada69cf686c8631dc3676a81",
+      "originalPath": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\qa\\semantic_director_4_20261022\\D4_ACTORS_REBOUND_OFFLINE_COHERENCE_AUDIT.json",
+      "sourceUpdatedUtc": "2026-10-22T11:26:59.3603973Z"
+    },
+    {
+      "path": "workbench/projects/semantic-director4/artifacts/fd1667b0c8e775f18ff4f2ff52d50bc119280df1235b41a5532e0cad2b69240e-CINEMATIC_DIRECTOR_GUIDE_20261022.html",
+      "label": "בימוי ועריכה — הסבר, יכולות, רצף שוטים ומצב אמיתי",
+      "kind": "reference",
+      "sha256": "fd1667b0c8e775f18ff4f2ff52d50bc119280df1235b41a5532e0cad2b69240e",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "url": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/workbench/projects/semantic-director4/artifacts/fd1667b0c8e775f18ff4f2ff52d50bc119280df1235b41a5532e0cad2b69240e-CINEMATIC_DIRECTOR_GUIDE_20261022.html"
+    }
+  ],
+  "currentIdentity": {
+    "publishTransactionId": "20261020-040324592-9f3fa147",
+    "observedVia": "GitHub connector, original published CURRENT",
+    "status": "CURRENT_VERIFIED",
+    "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
+    "note": "Refresh at every new authoring request; this is an intake observation, not a permanent pin."
+  },
+  "nativeProjectIds": [
+    "95ef217322be4f58af72c096aae03250"
+  ]
+}

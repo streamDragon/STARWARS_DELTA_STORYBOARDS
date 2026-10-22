@@ -1,0 +1,22 @@
+{
+  "status": "STAGED_SOURCE_PATCH_ONLY",
+  "source_sha256": {
+    "MY_CutsceneStudioWindow.cs": "a9e6e02ded9093a59cab5bda74989325fae3df0bc4077ad52f211a10f1e455e6",
+    "MY_CinematicDirectorMode.cs": "b898b3f0b490c7c4364da5f2faedb7dd3e5787831c878c16dca665847f2b33d4"
+  },
+  "targets": [
+    "MY_CutsceneStudioWindow.cs",
+    "MY_CinematicDirectorMode.cs"
+  ],
+  "checks": {
+    "studio_draw_invoked": true,
+    "workshop_service_is_authority": true,
+    "master_and_generated_scrub": true,
+    "generated_timeline_selected": true
+  },
+  "limitations": [
+    "Source shot times remain authored and may drift after manual Timeline edits",
+    "No Unity compile or film QA yet",
+    "GRAD11_V2 dirty scene is protected"
+  ]
+}
