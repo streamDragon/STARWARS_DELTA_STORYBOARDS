@@ -80,7 +80,7 @@ The [integration session](https://raw.githubusercontent.com/streamDragon/STARWAR
 - [ART_INTAKE.md](https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/main/workbench/projects/cinematic-system-integration/artifacts/51c9327da3857421f2d4e75f175968cd97bacae5ffdf96f625cd9965b9919a90-ART_INTAKE.md)
 - [CHATGPT_START_CURRENT.txt](https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/main/workbench/projects/cinematic-system-integration/artifacts/43d9dfc6ad5f3b374274c3ae15d50271dff924d00f78f405a87d460b8bb71ee1-CHATGPT_START_CURRENT.txt)
 
-The public workbench reads index/session/artifact/history URLs from raw GitHub main to avoid deployment lag; loopback previews read local files. A revision mismatch between index and session is a refresh error, never an authoritative last stage.
+The public workbench resolves the current main HEAD through the public GitHub ref API, then reads the index and sessions at that exact commit SHA. Project navigation retains that index snapshot until refresh; every refresh resolves HEAD again. API failure or rate limiting is a visible error, never a fallback to a silently stale branch URL. Immutable artifact/history links remain raw GitHub paths; loopback previews read local files without the API. A revision mismatch is a refresh error, never an authoritative last stage. Browser film preview likewise pins its session and source reads to one resolved HEAD. Production UI assets use content-addressed filenames so a prior browser cache cannot silently retain a superseded reader.
 
 ## Browser preview continuity
 

@@ -174,7 +174,8 @@ async function loadSession(){
  try{
   if(selection.navigationError||new URLSearchParams(location.search).has('navigationError'))throw Error(selection.navigationError||'Unsafe navigation parameters');
   if(!selection.session)return;
-  const base=bridge.base(location.href),path='workbench/projects/'+bridge.id(selection.session)+'/session.json';
+  let base=bridge.base(location.href);const path='workbench/projects/'+bridge.id(selection.session)+'/session.json';
+  if(!['localhost','127.0.0.1','[::1]'].includes(new URL(location.href).hostname)){const url=new URL('https://api.github.com/repos/streamDragon/STARWARS_DELTA_STORYBOARDS/git/ref/heads/main');url.searchParams.set('_fresh',Date.now().toString(36)+'-'+request+'-'+Math.random().toString(36).slice(2));const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error('GitHub HEAD cannot be verified (HTTP '+response.status+'; API rate limit may apply)');const ref=await response.json();if(ref.ref!=='refs/heads/main'||ref.object?.type!=='commit'||!/^[0-9a-f]{40}$/.test(ref.object?.sha||''))throw Error('GitHub HEAD is not a valid commit');base=base.replace('/main/','/'+ref.object.sha+'/');if(request!==loadGeneration)return;}
   const readBytes=async (path,mutable=false)=>{const url=new URL(bridge.path(path),base);if(mutable)url.searchParams.set('_fresh',Date.now().toString(36)+'-'+request+'-'+Math.random().toString(36).slice(2));const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error('Source HTTP '+response.status);return new Uint8Array(await response.arrayBuffer());};
   const session=JSON.parse(new TextDecoder().decode(await readBytes(path,true)));
   if(session.id!==selection.session||session.kind!=='film')throw Error('Session identity is not a film dossier');
