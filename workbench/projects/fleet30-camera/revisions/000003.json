@@ -1,0 +1,235 @@
+{
+  "schema": "STARWARS_DELTA_AUTHORING_SESSION",
+  "version": 1,
+  "id": "fleet30-camera",
+  "kind": "film",
+  "title": "FLEET · הוכחת מצלמה 30 שניות",
+  "revision": 3,
+  "stage": "UNITY_BUILD",
+  "status": "WEB_PREVIEW_REPAIR_PUBLISHED_NATIVE_PENDING",
+  "updatedUtc": "2026-10-23T01:18:21.894Z",
+  "originalBrief": "Use actual CS_FLEET_Invasion prefab (13 ships). One continuous follow shot Master 5–15s, inspect t=10 after ship translation and rotation. Wide and detail proof.",
+  "approvedTargetRevision": 0,
+  "targetArtifacts": [],
+  "storyboard": [
+    {
+      "id": "YAM_01_ESTABLISH",
+      "label": "חשיפת הצי",
+      "startSeconds": 0,
+      "endSeconds": 5,
+      "description": "The fleet emerges against a much larger threat; establish scale and bearings before weapons.",
+      "camera": {
+        "framing": "extreme_wide",
+        "movement": "hold",
+        "subject": "fleet_battlecruiser",
+        "purpose": "FLEET GRAND REVEAL"
+      },
+      "purpose": "FLEET GRAND REVEAL",
+      "evidenceStatus": "AUTHORED_ONLY"
+    },
+    {
+      "id": "YAM_02_GUN_DETAIL",
+      "label": "תקריב תותח",
+      "startSeconds": 5,
+      "endSeconds": 9,
+      "description": "Battlecruiser turns into a moving mechanical close-up; follow a REAL child muzzle in Unity.",
+      "camera": {
+        "framing": "detail",
+        "movement": "follow",
+        "subject": "fleet_battlecruiser",
+        "purpose": "MOVING ROTATING MECHANICAL MUZZLE"
+      },
+      "purpose": "MOVING ROTATING MECHANICAL MUZZLE",
+      "evidenceStatus": "AUTHORED_ONLY"
+    },
+    {
+      "id": "YAM_03_CHARGE",
+      "label": "מתח לפני ירי",
+      "startSeconds": 9,
+      "endSeconds": 13,
+      "description": "Hold the tracking muzzle while the ship advances; visible light-charge must be added on live Timeline.",
+      "camera": {
+        "framing": "detail",
+        "movement": "follow",
+        "subject": "fleet_battlecruiser",
+        "purpose": "PREFIRE GROWING ENERGY AND TENSION"
+      },
+      "purpose": "PREFIRE GROWING ENERGY AND TENSION",
+      "evidenceStatus": "AUTHORED_ONLY"
+    },
+    {
+      "id": "YAM_04_FIRE",
+      "label": "שלושה שיגורים",
+      "startSeconds": 13,
+      "endSeconds": 17,
+      "description": "Battlecruiser and escort fire three separate staggered volleys toward the same enemy.",
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "fleet_battlecruiser",
+        "purpose": "3-SOURCE-PASS FIRE READABILITY"
+      },
+      "purpose": "3-SOURCE-PASS FIRE READABILITY",
+      "evidenceStatus": "AUTHORED_ONLY"
+    },
+    {
+      "id": "YAM_05_TARGET",
+      "label": "מעבר למטרה",
+      "startSeconds": 17,
+      "endSeconds": 21,
+      "description": "Track flight corridor toward the enemy and keep its physical screen direction legible.",
+      "camera": {
+        "framing": "medium",
+        "movement": "track",
+        "subject": "fleet_target",
+        "purpose": "PROJECTILE CORRIDOR AND ENEMY REVEAL"
+      },
+      "purpose": "PROJECTILE CORRIDOR AND ENEMY REVEAL",
+      "evidenceStatus": "AUTHORED_ONLY"
+    },
+    {
+      "id": "YAM_06_IMPACT",
+      "label": "פגיעות",
+      "startSeconds": 21,
+      "endSeconds": 25,
+      "description": "Three staggered impacts on ONE enemy hull; explosions must resolve at the actual target.",
+      "camera": {
+        "framing": "close",
+        "movement": "hold",
+        "subject": "fleet_target",
+        "purpose": "3 HITS SAME PHYSICAL HULL"
+      },
+      "purpose": "3 HITS SAME PHYSICAL HULL",
+      "evidenceStatus": "AUTHORED_ONLY"
+    },
+    {
+      "id": "YAM_07_SHIP_REVEAL",
+      "label": "תגובה ונזק",
+      "startSeconds": 25,
+      "endSeconds": 28,
+      "description": "Hold on the struck enemy: ruin, smoke or burn must still be visible after the flashes.",
+      "camera": {
+        "framing": "medium",
+        "movement": "pull",
+        "subject": "fleet_battlecruiser",
+        "purpose": "VISIBLE LINGERING DAMAGE"
+      },
+      "purpose": "VISIBLE LINGERING DAMAGE",
+      "evidenceStatus": "AUTHORED_ONLY"
+    },
+    {
+      "id": "YAM_08_FLEET_REVEAL",
+      "label": "שוט סיום רחב",
+      "startSeconds": 28,
+      "endSeconds": 30,
+      "description": "Retreat to fleet wide without hiding the wounded enemy and the cost of the attack.",
+      "camera": {
+        "framing": "extreme_wide",
+        "movement": "hold",
+        "subject": "fleet_battlecruiser",
+        "purpose": "FLEET AND DAMAGE TOGETHER"
+      },
+      "purpose": "FLEET AND DAMAGE TOGETHER",
+      "evidenceStatus": "AUTHORED_ONLY"
+    }
+  ],
+  "assets": [
+    {
+      "requestedPath": "Assets/_Game/MY_Core/MY_Cutscenes/Kits/EnemyFleet/CS_FLEET_Invasion.prefab",
+      "resolvedPath": null,
+      "evidenceStatus": "PREFAB_BINDING_PENDING",
+      "builtInAnimation": "INSPECT_REQUIRED",
+      "ownership": "ONE_CAMERA_WRITER"
+    }
+  ],
+  "gaps": [
+    {
+      "request": "Real gun-local anchor and linked fleet",
+      "placeholder": "Sprite proxy in planning inputs",
+      "replacementAction": "Bind original prefab child in Inspector, then native playback proof",
+      "status": "PENDING"
+    },
+    {
+      "request": "Measured camera integration",
+      "replacementAction": "Use only consolidated READY patch after fresh source/owner check",
+      "status": "PREPARED_NOT_INSTALLED"
+    }
+  ],
+  "decisions": [],
+  "runs": [
+    {
+      "id": "fleet30-intake",
+      "capture": "NOT_RUN",
+      "technical": "NOT_RUN",
+      "cinematic": "NOT_ACCEPTED",
+      "runtime": "NOT_TESTED",
+      "artifacts": []
+    },
+    {
+      "id": "fleet30-web-authoring-20261023",
+      "capture": "NOT_RUN",
+      "technical": "SCHEMA_PENDING",
+      "cinematic": "NOT_ACCEPTED",
+      "runtime": "NOT_TESTED",
+      "sourceIdentity": {
+        "path": "workbench/projects/fleet30-camera/artifacts/fleet-last-volley-30s-v1-20261023.json",
+        "sha256": "0d2fcd25a85e79e036fe9d75e3c83a171a27715c26b4cddb3138adb86ba8c66b"
+      },
+      "artifacts": []
+    }
+  ],
+  "history": [
+    {
+      "revision": 1,
+      "stage": "UNITY_BUILD",
+      "status": "PREPARATION_ONLY",
+      "updatedUtc": "2026-10-22T03:02:24.018586Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000001.json"
+    },
+    {
+      "revision": 2,
+      "stage": "UNITY_BUILD",
+      "status": "SOURCE_READY_NATIVE_PENDING",
+      "updatedUtc": "2026-10-23T00:48:23.366Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000002.json"
+    }
+  ],
+  "lastCompletedAction": "Repaired site image URL prefix, actor-local dialogue identity lookup and default battlecruiser sprite. Unity build and native QA not run.",
+  "nextAction": "Verify live browser images/dialogue; then ordinary Studio native lint/build, real FLEET prefab and 5–15s moving barrel camera proof.",
+  "inFlightAction": null,
+  "sourceArtifacts": [
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/4a1d1f2672ce1832516213c22840bb69c4ae12748da697597e409f62e96778bc-FLEET30_HANDOFF.md",
+      "label": "מסירת FLEET30 — טרם נבנה/צולם",
+      "kind": "reference",
+      "sha256": "4a1d1f2672ce1832516213c22840bb69c4ae12748da697597e409f62e96778bc",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/fleet-last-volley-30s-v1-20261023.json",
+      "kind": "source",
+      "label": "FLEET · The Last Volley · 30s V1",
+      "sha256": "0d2fcd25a85e79e036fe9d75e3c83a171a27715c26b4cddb3138adb86ba8c66b",
+      "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+      "evidenceStatus": "SOURCE_ATTACHED"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/fleet-last-volley-30s-v1-20261023-repaired.json",
+      "kind": "source",
+      "label": "FLEET corrected preview source",
+      "sha256": "c3d3ad0439ba5f418537294cd5a3d47d754ba72c69e8e113fac9ef8a9d890752",
+      "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+      "evidenceStatus": "SOURCE_ATTACHED"
+    }
+  ],
+  "currentIdentity": {
+    "publishTransactionId": "20261020-040324592-9f3fa147",
+    "observedVia": "GitHub connector, original published CURRENT",
+    "status": "CURRENT_VERIFIED",
+    "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
+    "note": "Refresh at every new authoring request; this is an intake observation, not a permanent pin."
+  },
+  "currentSourcePath": "workbench/projects/fleet30-camera/artifacts/fleet-last-volley-30s-v1-20261023-repaired.json"
+}
