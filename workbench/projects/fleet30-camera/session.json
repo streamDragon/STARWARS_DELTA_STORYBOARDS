@@ -4,10 +4,10 @@
   "id": "fleet30-camera",
   "kind": "film",
   "title": "FLEET · הוכחת מצלמה 30 שניות",
-  "revision": 2,
+  "revision": 3,
   "stage": "UNITY_BUILD",
-  "status": "SOURCE_READY_NATIVE_PENDING",
-  "updatedUtc": "2026-10-23T00:48:23.366Z",
+  "status": "WEB_PREVIEW_REPAIR_PUBLISHED_NATIVE_PENDING",
+  "updatedUtc": "2026-10-23T01:18:21.894Z",
   "originalBrief": "Use actual CS_FLEET_Invasion prefab (13 ships). One continuous follow shot Master 5–15s, inspect t=10 after ship translation and rotation. Wide and detail proof.",
   "approvedTargetRevision": 0,
   "targetArtifacts": [],
@@ -185,10 +185,17 @@
       "status": "PREPARATION_ONLY",
       "updatedUtc": "2026-10-22T03:02:24.018586Z",
       "snapshotPath": "workbench/projects/fleet30-camera/revisions/000001.json"
+    },
+    {
+      "revision": 2,
+      "stage": "UNITY_BUILD",
+      "status": "SOURCE_READY_NATIVE_PENDING",
+      "updatedUtc": "2026-10-23T00:48:23.366Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000002.json"
     }
   ],
-  "lastCompletedAction": "Authored a 30-second FLEET V1 source with 8 shots, 4 dialogues, 2 Anime Emotion inserts and 3 shots/3 impacts. CURRENT handles checked, source prepared and attached for browser preview. Native Unity build not run.",
-  "nextAction": "Inspect exact V1 browser preview, then obtain safe Unity edit ownership; lint, build through existing Studio, bind real CS_FLEET_Invasion prefab/child muzzle, prove continuous follow from 5-15 at t=10, capture Film QA and save/reopen.",
+  "lastCompletedAction": "Repaired site image URL prefix, actor-local dialogue identity lookup and default battlecruiser sprite. Unity build and native QA not run.",
+  "nextAction": "Verify live browser images/dialogue; then ordinary Studio native lint/build, real FLEET prefab and 5–15s moving barrel camera proof.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -207,6 +214,14 @@
       "sha256": "0d2fcd25a85e79e036fe9d75e3c83a171a27715c26b4cddb3138adb86ba8c66b",
       "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
       "evidenceStatus": "SOURCE_ATTACHED"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/fleet-last-volley-30s-v1-20261023-repaired.json",
+      "kind": "source",
+      "label": "FLEET corrected preview source",
+      "sha256": "c3d3ad0439ba5f418537294cd5a3d47d754ba72c69e8e113fac9ef8a9d890752",
+      "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+      "evidenceStatus": "SOURCE_ATTACHED"
     }
   ],
   "currentIdentity": {
@@ -216,5 +231,5 @@
     "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
     "note": "Refresh at every new authoring request; this is an intake observation, not a permanent pin."
   },
-  "currentSourcePath": "workbench/projects/fleet30-camera/artifacts/fleet-last-volley-30s-v1-20261023.json"
+  "currentSourcePath": "workbench/projects/fleet30-camera/artifacts/fleet-last-volley-30s-v1-20261023-repaired.json"
 }

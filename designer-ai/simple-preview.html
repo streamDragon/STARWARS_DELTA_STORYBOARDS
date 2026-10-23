@@ -37,7 +37,7 @@ const dossier=$('#dossier'),download=$('#download-source');dossier.href='../work
 let state={cursorKey:null,originalBytes:null,downloadUrl:null,ready:false,validate:null,handles:new Map(),visual:new Map(),dialogue:new Map(),audioAvailable:false,beats:[],movie:null,index:0,playing:false,currentTime:0,totalDuration:0,beatStarts:[],raf:0,lastTs:0,secondsEditing:false};
 async function get(url,opt=false){const u=new URL(url,location.href);u.searchParams.set('_p',Date.now()+Math.random());const r=await fetch(u,{cache:'no-store'});if(opt&&r.status===404)return null;if(!r.ok)throw Error(url+' HTTP '+r.status);return r.json()}
 function entries(o){return Array.isArray(o?.entries)?o.entries:Array.isArray(o?.assets)?o.assets:[]}
-function assetUrl(u){u=E(u).trim();if(!u)return'';if(/^https?:\/\//i.test(u)||u.startsWith('data:'))return u;if(u.startsWith('open-current/'))return new URL(u,location.href).href;if(u.startsWith('full-visual-sheets/'))return new URL('open-current/'+u,location.href).href;return new URL(u,location.href).href}
+function assetUrl(u){u=E(u).trim();if(!u)return'';if(/^https?:\/\//i.test(u)||u.startsWith('data:'))return u;if(u.startsWith('visual-library/'))return new URL('open-current/'+u,location.href).href;if(u.startsWith('open-current/'))return new URL(u,location.href).href;if(u.startsWith('full-visual-sheets/'))return new URL('open-current/'+u,location.href).href;return new URL(u,location.href).href}
 function imageOf(e){for(const k of ['representativeImageUrl','previewUrl','thumbnailUrl','imageUrl','pageImageUrl'])if(e?.[k])return assetUrl(e[k]);return''}
 function handle(id,route){const h=state.handles.get(L(id));return h&&(!route||h.route===route)?h:null}
 function imageFor(h){if(!h)return'';for(const id of [h.runtimeId,h.visualReferenceId,h.catalogRecordId,h.recordId,h.stableId]){const u=state.visual.get(L(id));if(u)return u}return imageOf(h)||assetUrl(h.pageImageUrl||'')}
@@ -72,7 +72,7 @@ function authoringErrors(o){
    if(talkers.has(id))out.push(`cast.${id} dialogue participant requires identityHandle, not materialHandle`);
    continue;
   }
-  if(!handle(identity,'Actor'))out.push(`cast.${id} Actor identity unresolved: ${identity}`);
+  if(!handle(identity,'Actor')&&!Array.from(state.dialogue.values()).some(ch=>E(ch.identityHandle)===identity))out.push(`cast.${id} Actor identity unresolved: ${identity}`);
  }
  for(const b of o.beats||[]){
   if(b.locationHandle&&!handle(b.locationHandle,'Layer'))out.push(`beat.${b.id} Layer handle unresolved: ${b.locationHandle}`);
@@ -83,15 +83,15 @@ function authoringErrors(o){
    for(const role of ['speaker','listener']){
     const id=E(d[role]);if(!id)continue;
     const cast=(o.cast||[]).find(c=>E(c.id)===id),ch=state.dialogue.get(id);
-    if(!cast||!ch||E(cast.identityHandle)!==E(ch.identityHandle))out.push(`beat.${b.id} dialogue ${role} outside CURRENT repertoire: ${id}`);
+    if(!cast||!Array.from(state.dialogue.values()).some(ch=>E(ch.identityHandle)===E(cast.identityHandle)))out.push(`beat.${b.id} dialogue ${role} outside CURRENT repertoire: ${id}`);
    }
-   const ch=state.dialogue.get(E(d.speaker));
+   const actor=(o.cast||[]).find(c=>E(c.id)===E(d.speaker));const ch=Array.from(state.dialogue.values()).find(ch=>E(ch.identityHandle)===E(actor?.identityHandle));
    if(ch){const ex=E(d.expressionIntent||ch.defaultExpression);if(!(ch.supportedExpressions||[]).includes(ex))out.push(`beat.${b.id} unsupported expression ${d.speaker}: ${ex}`)}
   }
  }
  return out
 }
-function addPortrait(actorId,side,intent){const ch=state.dialogue.get(E(actorId));if(!ch){placeholder('Unknown dialogue actor: '+E(actorId),side);return;}const p=expressionPresentation(ch,intent);if(p?.image){const im=document.createElement('img');im.className='portrait '+side;im.src=p.image;im.alt=`${actorId} ${p.expression}`;stage.appendChild(im);return}const ph=document.createElement('div');ph.className='portrait-placeholder '+side;ph.textContent=`${actorId}\n${p?.expression||''}\nאין כרגע תצוגת פורטרט זמינה`;stage.appendChild(ph)}
+function addPortrait(actorId,side,intent){const actor=(state.movie?.cast||[]).find(c=>E(c.id)===E(actorId));const ch=Array.from(state.dialogue.values()).find(c=>E(c.identityHandle)===E(actor?.identityHandle));if(!ch){placeholder('Unknown dialogue actor: '+E(actorId),side);return;}const p=expressionPresentation(ch,intent);if(p?.image){const im=document.createElement('img');im.className='portrait '+side;im.src=p.image;im.alt=`${actorId} ${p.expression}`;stage.appendChild(im);return}const ph=document.createElement('div');ph.className='portrait-placeholder '+side;ph.textContent=`${actorId}\n${p?.expression||''}\nאין כרגע תצוגת פורטרט זמינה`;stage.appendChild(ph)}
 function placeholder(text,side=''){const ph=document.createElement('div');ph.className='portrait-placeholder '+side;ph.style.left=side==='right'?'75%':'25%';ph.textContent=text;stage.appendChild(ph);}
 function addVisible(v){
  const h=handle(v.handle),u=imageFor(h);if(!u){placeholder('Unknown visual: '+E(v.id)+' / '+E(v.handle),'right');return;}
