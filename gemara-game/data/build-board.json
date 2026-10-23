@@ -1,0 +1,180 @@
+{
+  "schema": "GEMARA_GAME_BUILD_BOARD",
+  "version": 1,
+  "asOf": "2026-10-23",
+  "source": "Local Unity project inspection, Plastic MAIN and recorded QA; static export, not live Unity sync",
+  "unityVersion": "6000.7.0b5",
+  "project": "GEMARA_GAME",
+  "indicators": [
+    {
+      "label": "סצנות Unity שנוצרו",
+      "value": "4",
+      "note": "קבצי .unity קיימים בפרויקט"
+    },
+    {
+      "label": "תחנות לימוד בכפר",
+      "value": "3",
+      "note": "בית מדרש, נפחייה ושדה"
+    },
+    {
+      "label": "בדיקת PlayMode מתועדת",
+      "value": "1/1",
+      "note": "למסלול הדמו הדו־ממדי בלבד"
+    },
+    {
+      "label": "APK שנבדק בטלפון",
+      "value": "0",
+      "note": "Android Build Support עדיין חסר"
+    }
+  ],
+  "items": [
+    {
+      "id": "demo",
+      "name": "משחק לימוד הגמרא",
+      "group": "built",
+      "stage": "verified",
+      "stageLabel": "נבדק מסלול משחק",
+      "short": "ממשק לימוד בעברית עם מעבר בין שלבי הסוגיה, תרגילי מיון, משוב ושמירת התקדמות.",
+      "scene": "Assets/GemaraGame/Generated/GemaraGameDemo.unity",
+      "features": [
+        "ממשק RTL בעברית",
+        "מעבדת מקרים ומיון טענות",
+        "שמירת התקדמות וחידוש שיעור"
+      ],
+      "proof": "בדיקות EditMode 11/11 ובדיקת PlayMode 1/1 בהרצה המתועדת מ־23.10.2026. לא בדיקת אנדרואיד.",
+      "next": "צילום ובדיקת תצוגת טלפון, התקנת Android Build Support.",
+      "image": "screenshots/gemara-lesson-gameview.jpg",
+      "imageLabel": "צילום אמיתי מ־Game View בזמן Play, דמו לימוד. מוצג חיתוך מתוך צילום Unity."
+    },
+    {
+      "id": "village",
+      "name": "הכפר שלי",
+      "group": "built",
+      "stage": "qa",
+      "stageLabel": "נבנה, ממתין לבדיקת Play",
+      "short": "כפר תלת־ממדי עם בית מדרש, נפחייה, שדה, דמויות ושלוש שאלות לימוד שאפשר להפעיל מתוך הסצנה.",
+      "scene": "Assets/GemaraGame/Generated/GemaraVillageHub.unity",
+      "features": [
+        "כפר תלת־ממדי בסצנה עצמאית",
+        "שלוש תחנות לימוד עם משוב וניקוד",
+        "ממשק מגע וניווט בין אזורים"
+      ],
+      "proof": "דו״ח מחולל הסצנה: PASS, 3 hotspots, 20 מופעי prefab. תצוגת Play טרם אומתה.",
+      "next": "בדיקת Play ממשית, צילום מסך והשלמת בדיקת הגדר שתוקנה בקוד.",
+      "image": null,
+      "imageLabel": null
+    },
+    {
+      "id": "beit",
+      "name": "בית מדרש תלת־ממדי",
+      "group": "built",
+      "stage": "qa",
+      "stageLabel": "סצנה קיימת, QA בהמשך",
+      "short": "סצנת בית מדרש נפרדת שנבנתה בתוך הפרויקט לצורך העולם המרכזי של הלימוד.",
+      "scene": "Assets/GemaraGame/Generated/BeitMidrash3D.unity",
+      "features": [
+        "קובץ סצנה נפרד קיים",
+        "חומרי תצוגה שנוצרו לבית מדרש",
+        "נקודת חיבור אפשרית לכפר"
+      ],
+      "proof": "קובץ הסצנה נמצא בפרויקט Unity, אך אין כרגע בדיקת Play מתועדת לסצנה זו.",
+      "next": "להציג בתוך Game View, לצלם ולוודא חיבור לכפר.",
+      "image": null,
+      "imageLabel": null
+    },
+    {
+      "id": "birds",
+      "name": "ציפורי המחלוקת בתלת־ממד",
+      "group": "built",
+      "stage": "qa",
+      "stageLabel": "סצנה וקוד קיימים",
+      "short": "מיון טענות הגמרא בין ענפים, עם ציפורים, העברות, משוב חיובי ושגיאות.",
+      "scene": "Assets/GemaraGame/Generated/BirdSort3DDemo.unity",
+      "features": [
+        "לוגיקת מיון טענות קיימת",
+        "סצנה תלת־ממדית נפרדת",
+        "התנהגות תזוזה ומשוב על החלטות"
+      ],
+      "proof": "קובץ סצנה ומחלקת BirdSort3DGame קיימים. אין צילום PlayMode מאומת לסצנה זו.",
+      "next": "לבדוק את הסצנה בפועל עם ממשק טלפון ולתעד משחק שלם.",
+      "image": null,
+      "imageLabel": null
+    },
+    {
+      "id": "shooter",
+      "name": "מטווח הטענות",
+      "group": "work",
+      "stage": "implementation",
+      "stageLabel": "מנגנון בפיתוח",
+      "short": "מזהים טענות ופוגעים רק בטענות הנכונות. גם הבחירה לא לירות חשובה.",
+      "scene": "Assets/GemaraGame/Runtime/TruthShooterGame.cs",
+      "features": [
+        "קוד חוקי משחק קיים",
+        "ממשק UI משולב בדמו",
+        "דרושה בדיקת משחק ותיעוד חזותי"
+      ],
+      "proof": "מחלקת TruthShooterGame וקובצי ממשק קיימים, אבל אין בדיקת Play חדשה או צילום נפרד מאומת.",
+      "next": "לאמת את זרימת המשחק ולתעד צילום Game View.",
+      "image": null,
+      "imageLabel": null
+    },
+    {
+      "id": "atlas",
+      "name": "מפת עולמות הגמרא",
+      "group": "work",
+      "stage": "integration",
+      "stageLabel": "ממשק באתר, חיבור למשחק בהמשך",
+      "short": "מפה לארגון מקומות ונושאים בעולם הגמרא. דף האתר וקובץ הנתונים קיימים, אבל עדיין לא נבדק חיבור משחק מלא.",
+      "scene": "site/world-atlas.html + site/world-atlas-v1.json",
+      "features": [
+        "דף HTML של מפת העולמות קיים",
+        "קובץ נתוני מיפוי קיים",
+        "אינטגרציה עם סצנות Unity טרם אומתה"
+      ],
+      "proof": "קיימים דף מפה וקובץ נתונים בתיקיית site; אין ראיה למעבר מלא בין עולמות מתוך משחק אנדרואיד.",
+      "next": "לקשר משימות בכפר לנושאים במפה ולבדוק מעבר בין עולמות.",
+      "image": null,
+      "imageLabel": null,
+      "link": "world-atlas.html"
+    }
+  ],
+  "nextTasks": [
+    {
+      "title": "QA וצילומי Game View",
+      "detail": "צילום Play אמיתי של הכפר, בית המדרש וציפורי המחלוקת, כולל בדיקת ממשק בעברית.",
+      "state": "next"
+    },
+    {
+      "title": "חיבור בית המדרש לכפר",
+      "detail": "מעבר בסצנה מהכפר אל בית המדרש ומשימות הלימוד שלו.",
+      "state": "work"
+    },
+    {
+      "title": "Android Build Support",
+      "detail": "התקנת המודול המתאים ל־Unity 6000.7.0b5 והפקת APK לבדיקה.",
+      "state": "blocked"
+    },
+    {
+      "title": "בדיקות במכשיר",
+      "detail": "מגע, טקסט RTL, שמירה, FPS וגודל הורדה. עדיין לא בוצעו.",
+      "state": "blocked"
+    }
+  ],
+  "evidence": [
+    {
+      "label": "דוח מחולל הכפר",
+      "path": "UnityProject/Library/GemaraVillage.build-result.txt",
+      "public": false
+    },
+    {
+      "label": "בדיקות קבלה היסטוריות",
+      "path": "docs/verification/EDITMODE_VERIFIED.xml + PLAYMODE_VERIFIED.xml",
+      "public": false
+    },
+    {
+      "label": "מקור אמת",
+      "path": "GEMARA_GAME@firebird721@cloud / main",
+      "public": false
+    }
+  ]
+}
