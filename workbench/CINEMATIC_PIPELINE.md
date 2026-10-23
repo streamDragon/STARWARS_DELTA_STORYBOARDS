@@ -114,3 +114,25 @@ Primary links:
 ## Decision
 
 Keep the current V1/Studio/MOVE pipeline. Strengthen its directing contract and inspect the compiled result. Avoid a second public screenplay schema, a second camera writer, or automatic scene reconciliation. Native fixes must be grounded in a reproducible finding from the other agent's film or a focused regression fixture, with one serialized MAIN integration owner.
+
+
+## Mandatory visual art-direction gate (2026-10-23, user correction)
+
+The user's filmed review of `films/how-a-shot-is-made-20261023.html` rejected its random pixel-art fighters, black silhouette used as a person's emotional expression, and the mixture of unrelated sprite styles. This is a real **cinematic acceptance failure**, even though the HTML runs. Do not promote this demonstration as an accepted finished film. Keep its source and revision history.
+
+### Root cause
+- `CURRENT` resolves/legalizes an asset identity, not visual suitability. Existing agents selected easy/recommended entries from `CHATGPT_AUTHORING_INDEX`, rather than opening complete Unity art-pack visual catalogs.
+- Choosing `man_1_0__79ff72e4` produced a black sitting silhouette, not the expressive face the story requires. The available public thumbnails include coarse pixel-art fighters and human sprites that do not match the intended anime/cinematic visual style.
+- Existing Unity art-pack assets were not visually reviewed or curated before authoring. The local art areas confirmed on 2026-10-23 include `Assets/_Game/MY_Core/MY_Art/CharacterSpriteSheets_6x5` (including the Arden and Auren 6x5 emotion/pose masters), `ANIME_EMOTION/STARWARS_DELTA_ANIME_EMOTIONS_V1` (characters with body, expression and cut-in assets), `CinematicAssets` (human action, interiors and cinematic backgrounds), `CutsceneArtPack`, and `Foozle_2DS0014_Void_EnemyFleet_3`. These are **candidates**: their filenames and existence do not yet prove runtime materialization or visual quality.
+
+### Rules, enforced by the authoring workflow before any final movie is declared
+1. First choose a film-wide visual direction and one compatible human-portrait pack, environment pack, and ship pack. Do not select individual sprites from CURRENT just because they are the first legal match.
+2. Inspect actual images / sprite sheets / animation frames with a contact sheet; evaluate character emotion readability at target resolution, art style consistency, sprite trim, resolution and palette. Catalogue links/names without image inspection are insufficient.
+3. For every intended close-up, require an actual expressive face or portrait and at least two verified emotion states. An opaque silhouette, miniature world sprite or unrelated pixel doctor is an explicit `ART_DIRECTION_REJECTED` and never silently substituted.
+4. Separate `ART_APPROVED`, `HANDLE_IN_CURRENT`, `MATERIALIZES_IN_UNITY`, `ANIMATES_AS_EXPECTED`, and `VISUAL_QA_PASS`. All are independent. Art assets outside CURRENT must go through the existing Unity catalog/publication route when ready. Never guess legal handles.
+5. For ships, compare geometry/proportions and render previews side-by-side with the chosen human portraits. Matching art style matters more than first-match handle availability.
+6. If no suitable identity is catalogued, report `ART_ASSET_NOT_IN_CURRENT` or `ART_REVIEW_PENDING` and preserve a clearly labelled work-in-progress placeholder. Do not silently use an ugly but valid substitute; never call this film complete.
+7. Require one emotion-driven beat sequence: human desire, relationship, complication, visible reaction, choice with cost and aftermath. `MOVES` and camera are supporting grammar, not a substitute for story.
+8. Final acceptance is Film QA shots at native target resolution, with evidence of visual continuity and expressive reaction, plus runtime playback separately. Website demo approval does not imply Unity approval.
+
+User's specific failed movie: `film-how-a-shot-is-made-20261023`. New revision must visibly replace the black silhouette and unrelated fighters with one coherent approved art pack, before being called a film.
