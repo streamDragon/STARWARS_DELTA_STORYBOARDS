@@ -3,170 +3,129 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#0b1122">
-  <meta name="description" content="גמרא גיים — מרכז הפיתוח, התוכן, המקורות והבדיקות של משחק הגמרא לטלפון.">
-  <title>גמרא גיים | מרכז הפיתוח</title>
-  <link rel="stylesheet" href="./styles.css?v=20261023-1">
-  <script src="./data/gordin-catalog.js?v=20261023-1" defer></script>
-  <script src="./app.js?v=20261023-1" defer></script>
+  <meta name="theme-color" content="#101d26">
+  <meta name="description" content="גמרא גיים: מה בנינו ב־Unity, מה נמצא בבנייה וצילומי משחק אמיתיים. ללא קטלוג נכסים.">
+  <title>גמרא גיים | מה בנוי עכשיו</title>
+  <link rel="stylesheet" href="./dashboard.css?v=20261023-2">
+  <script src="./build-board.js?v=20261023-2" defer></script>
 </head>
 <body>
-  <div class="shell">
-    <aside class="sidebar" aria-label="ניווט ראשי">
-      <a class="brand" href="#overview" aria-label="גמרא גיים — דשבורד">
-        <div class="brand-mark"><span>ג</span><span class="brand-spark">✦</span></div>
-        <div><strong>גמרא גיים</strong><small>DEVELOPER PORTAL <span class="version">BETA</span></small></div>
+  <a href="#main" class="skip-link">דלג לתוכן</a>
+  <div class="layout">
+    <aside class="sidebar" aria-label="תפריט אתר">
+      <a class="brand" href="#top" aria-label="גמרא גיים, חזרה לראש האתר">
+        <span class="brand-mark">ג<span>✦</span></span>
+        <span><strong>גמרא גיים</strong><small>מה באמת בנוי</small></span>
       </a>
-      <div class="workspace-pill"><span class="pulse-dot"></span><div>סביבת פיתוח <strong>GEMARA_GAME</strong></div></div>
-      <p class="nav-label">מרכז העבודה</p>
-      <nav class="side-nav" id="mainNav">
-        <a data-section="overview" href="#overview" class="active"><span>◫</span> סקירה כללית</a>
-        <a data-section="library" href="#library"><span>▤</span> ספריית מקורות <b class="nav-count" id="sourceCountSide">101</b></a>
-        <a data-section="games" href="#games"><span>✦</span> משחקונים</a>
-        <a data-section="media" href="#media"><span>▣</span> סרטים ומדיה</a>
-        <a data-section="tasks" href="#tasks"><span>☷</span> מעקב משימות</a>
-        <a data-section="sync" href="#sync"><span>⇄</span> סנכרון Unity</a>
-        <a data-section="agents" href="#agents"><span>⌘</span> כניסת מתכנת / AI</a>
+      <p class="sidebar-label">המשחק שלנו</p>
+      <nav class="main-nav" aria-label="ניווט בין רכיבי המשחק">
+        <a href="#overview"><span>◫</span> תמונת מצב</a>
+        <a href="#built"><span>▦</span> בנוי ב־Unity</a>
+        <a href="#work"><span>⚒</span> בבנייה עכשיו</a>
+        <a href="#screens"><span>▣</span> תמונות משחק</a>
+        <a href="#next"><span>☷</span> מה עדיין חסר</a>
       </nav>
       <div class="sidebar-bottom">
-        <div class="side-card">
-          <div class="muted mini">מקור האמת של הקוד</div>
-          <strong>Unity Version Control</strong>
-          <small class="code" dir="ltr">GEMARA_GAME@firebird721@cloud</small>
-          <a href="#sync" data-section="sync">איך מתעדכן האתר ←</a>
+        <div class="sidebar-note">
+          <strong>לא קטלוג נכסים</strong>
+          <p>כאן רואים רק סצנות, משחקונים ומערכות שהתחלנו לממש או שכבר קיימים בפרויקט.</p>
         </div>
-        <div class="sidebar-footer">Made for curious minds <span>✧</span></div>
+        <a class="agent-link" href="./AGENTS.md">מידע לסוכני פיתוח <span>↗</span></a>
       </div>
     </aside>
 
-    <main class="main">
-      <header class="topbar">
-        <div class="breadcrumbs"><span>GEMARA GAME</span><span class="crumb-sep">/</span><b id="crumbLabel">מרכז הפיתוח</b></div>
-        <div class="top-actions">
-          <div class="sync-info" title="הסטטוס שמוצג הוא תמונת מצב אחרונה שפורסמה, ולא חיבור חי לעורך Unity."><span id="syncDot" class="sync-led warning"></span><span id="syncText">טוען נתונים…</span></div>
-          <button id="refresh" class="top-btn" type="button" title="רענן את תמונת המצב"><span>↻</span><span>רענון</span></button>
-          <a class="top-btn external" href="https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/tree/main/gemara-game" target="_blank" rel="noopener noreferrer" title="קובצי האתר ב-GitHub">GitHub ↗</a>
+    <main id="main">
+      <header class="topbar" id="top">
+        <div class="crumb">GEMARA_GAME <span>/</span> לוח פיתוח</div>
+        <div class="top-right">
+          <span class="snapshot-dot"></span>
+          <span>תמונת מצב, לא חיבור חי ל־Unity</span>
+          <button type="button" id="reload" title="טען מחדש את קובץ הסטטוס">רענן ↻</button>
         </div>
       </header>
 
-      <div id="notice" role="status" aria-live="polite"></div>
-
-      <section class="panel active" id="overview" aria-labelledby="overviewTitle">
-        <div class="hero">
-          <div class="hero-copy">
-            <div class="eyebrow"><span class="eyebrow-line"></span> GEMARA GAME / PROJECT CONTROL</div>
-            <h1 id="overviewTitle">לומדים גמרא.<br><em>בונים משחק.</em></h1>
-            <p>הבית של כל מה שקשור לגמרא גיים: מה כבר עובד, מה עוד חסר, אילו מקורות זמינים ולמה המתכנת צריך לגשת עכשיו.</p>
-            <div class="hero-buttons"><button class="primary" type="button" data-go="tasks">למשימות הבאות <span>←</span></button><button class="secondary" type="button" data-go="agents">פתח הנחיות לסוכן <span>⌘</span></button></div>
+      <div class="content">
+        <section id="overview" class="hero" aria-labelledby="heroTitle">
+          <div class="hero-content">
+            <p class="overline"><span class="line"></span> UNITY DEVELOPMENT · 23.10.2026</p>
+            <h1 id="heroTitle">מה כבר <em>בנינו</em><br>בגמרא גיים?</h1>
+            <p class="hero-lead">כל סצנה שאפשר לפתוח, כל משחקון שהתחלנו לממש, ומה עדיין לא עובד. עם תמונות מתוך Unity, לא תמונות מחבילות בחנות.</p>
+            <div class="hero-buttons">
+              <a href="#built" class="btn btn-primary">לראות מה בנוי <span>←</span></a>
+              <a href="#screens" class="btn btn-outline">צילומי משחק <span>▣</span></a>
+            </div>
+            <p class="hero-footnote" id="asOf">טוען תאריך תמונת מצב...</p>
           </div>
-          <div class="hero-visual" aria-hidden="true">
-            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-            <div class="scroll-book"><div class="book-symbol">א <span>↔</span> ב</div><small>סוגיה → החלטה → משחק</small></div>
-            <div class="orb-label one">טענה</div><div class="orb-label two">קושיה</div><div class="orb-label three">תירוץ</div>
+          <div class="hero-art">
+            <div class="hero-art-glow"></div>
+            <div class="hero-frame">
+              <img src="./screenshots/gemara-lesson-gameview.jpg" alt="צילום Unity אמיתי של ממשק הלימוד בגמרא גיים" loading="eager">
+              <span class="photo-mark"><span class="live-dot"></span> צילום מתוך Unity · Play Mode</span>
+            </div>
+            <span class="float-label label-one">שיעור גמרא</span>
+            <span class="float-label label-two">עולם תלת־ממדי בבנייה</span>
           </div>
-        </div>
+        </section>
 
-        <div class="section-heading"><div><h2>תמונת מצב</h2><p>מספרים מתוך הקבצים והבדיקות, לא תחושות בטן.</p></div><span id="snapshotDate" class="date-note">23.10.2026</span></div>
-        <div class="stat-grid">
-          <article class="stat-card"><span class="stat-icon purple">▤</span><div class="stat-num" id="statSources">101</div><div class="stat-title">רשומות מקור מקוטלגות</div><div class="stat-sub">עמיחי גורדין · קישורים וקרדיט</div></article>
-          <article class="stat-card"><span class="stat-icon teal">✓</span><div class="stat-num" id="statEdit">11/11</div><div class="stat-title">בדיקות EditMode</div><div class="stat-sub">אימות Unity · לא בדיקת טלפון</div></article>
-          <article class="stat-card"><span class="stat-icon orange">▶</span><div class="stat-num" id="statPlay">1/1</div><div class="stat-title">בדיקת PlayMode</div><div class="stat-sub">מסלול משחק וטעינת שמירה</div></article>
-          <article class="stat-card"><span class="stat-icon red">!</span><div class="stat-num">0</div><div class="stat-title">בניות Android מאושרות</div><div class="stat-sub">מודול Android ומכשיר טרם אומתו</div></article>
-        </div>
-
-        <div class="split wide-left">
-          <article class="panel-card">
-            <div class="card-head"><div><h3>מסלול לגרסה הראשונה</h3><p>ההתקדמות מבוססת על שלבי קבלה, לא על אחוז מומצא.</p></div><span class="pill amber">MVP</span></div>
-            <div class="milestone-list" id="milestones"></div>
-          </article>
-          <article class="panel-card" id="currentFocus">
-            <div class="card-head"><div><h3>מה עושים עכשיו?</h3><p>העדיפות הטכנית האחרונה שאומתה.</p></div><span class="focus-icon">↗</span></div>
-            <div class="focus-block"><span class="focus-kicker">NEXT ACTION</span><h4>ביקורת חזותית ב־Game View</h4><p>לבדוק RTL, חיתוך טקסט, גלילה, משוב וכפתורים בסצנת הדמו לפני בניית APK.</p></div>
-            <button class="link-btn" type="button" data-go="tasks">פתח את רשימת המשימות ←</button>
-          </article>
-        </div>
-
-        <div class="split">
-          <article class="panel-card">
-            <div class="card-head"><h3>מקורות תוכן</h3><button class="inline-link" type="button" data-go="library">לכל המקורות ←</button></div>
-            <div class="source-summary"><span class="source-avatar gold">ע</span><div><strong>הרב עמיחי גורדין</strong><small>101 רשומות. שימוש מסחרי אושר, עם קרדיט וקישור למקור.</small></div><span class="tag ok">אושר בתנאי קרדיט</span></div>
-            <div class="source-summary"><span class="source-avatar blue">ס</span><div><strong>אתר סיני · הרב אורי בריליאנט</strong><small>מקור למחקר, שיעורים ותרשימי זרימה. עיבוד מסחרי דורש הסכמה מסודרת.</small></div><span class="tag pending">בתיאום</span></div>
-          </article>
-          <article class="panel-card">
-            <div class="card-head"><h3>נתיבי עבודה</h3><span class="caption">מהקוד ועד לשחקן</span></div>
-            <div class="pipeline-mini"><div><span>1</span><b>מקור</b><small>סוגיה ורישיון</small></div><i>←</i><div><span>2</span><b>תוכן</b><small>JSON v3</small></div><i>←</i><div><span>3</span><b>Unity</b><small>בדיקות</small></div><i>←</i><div><span>4</span><b>Android</b><small>לא הושלם</small></div></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="panel" id="library" aria-labelledby="libraryTitle">
-        <div class="page-header"><div><div class="eyebrow">CONTENT LIBRARY</div><h1 id="libraryTitle">ספריית המקורות</h1><p>קטלוג מקורות עם ייחוס, קישורים ישירים ומצב רישוי. קישור למקור אינו אישור לכך שהחומר מוכן למשחק.</p></div><span class="page-art">▤</span></div>
-        <div class="license-grid">
-          <div class="license-card"><div class="license-title"><span class="source-avatar gold">ע</span><div><h3>עמיחי גורדין</h3><small>תורת הר עציון · דפי עזר לדף היומי</small></div></div><p>הרשאה מפורשת לשימוש, גם מסחרי, בתנאי מתן קרדיט והפניה לדפי העזר המקוריים. כל פריט עדיין מחכה לביקורת תוכן תורנית.</p><span class="tag ok">היתר מתועד · 22.10.2026</span><a href="https://www.etzion.org.il/he/authors/rav-amichai-gordin" target="_blank" rel="noopener noreferrer">לעמוד המחבר ↗</a></div>
-          <div class="license-card"><div class="license-title"><span class="source-avatar blue">ס</span><div><h3>אורי בריליאנט / אתר סיני</h3><small>שיעורים, תרשימי סוגיות ומתודת לימוד</small></div></div><p>יש הסכמה עקרונית לשיתוף פעולה ולמתן קרדיט, אבל עדיין לא נקבעו תנאי שימוש ועיבוד מסחריים. בשלב זה קישורים חיצוניים בלבד, ללא העתקת תרשימים.</p><span class="tag pending">דרושה הסכמה סופית</span><a href="https://www.sinai.org.il/" target="_blank" rel="noopener noreferrer">לאתר סיני ↗</a></div>
-        </div>
-        <div class="panel-card library-card">
-          <div class="card-head"><div><h3>מאגר דפי העזר</h3><p id="resultsCount">מעלה רשומות…</p></div><span class="pill violet">SOURCE CATALOG · V1</span></div>
-          <div class="filter-bar">
-            <label class="search-wrap"><span>⌕</span><input id="searchSources" placeholder="חיפוש לפי מסכת, נושא או דף…" type="search" autocomplete="off" aria-label="חיפוש מקורות"></label>
-            <label class="select-wrap"><span>מסכת</span><select id="filterTractate" aria-label="סינון מסכת"><option value="">כל המסכתות</option></select></label>
+        <section class="stat-area" aria-label="נתוני פרויקט">
+          <div class="section-intro">
+            <div><p class="kicker">STATUS</p><h2>התקדמות לפי מה שקיים</h2></div>
+            <p>מספרים עם ראיות, בלי אחוזי התקדמות מומצאים.</p>
           </div>
-          <div class="source-list" id="sourceList"><div class="empty">ממתין לקטלוג…</div></div>
-          <button class="load-more" id="loadMore" type="button" hidden>הצג עוד רשומות ↓</button>
-          <div class="data-note">הרשומות מציגות תקציר וקישור לקובץ המקורי, ללא העתקת תוכן ה־PDF. כל מקור חייב ביקורת תורנית לפני שילוב במשחק.</div>
-        </div>
-      </section>
+          <div id="stats" class="stats" aria-live="polite"><div class="loading">טוען נתונים...</div></div>
+        </section>
 
-      <section class="panel" id="games" aria-labelledby="gamesTitle">
-        <div class="page-header"><div><div class="eyebrow">GAME DESIGN / UNITY</div><h1 id="gamesTitle">שלוש מכניקות, ליבה אחת</h1><p>משחקוני הדגמה שנועדו ללמד מהלך סוגיה. ה־HTML האינטראקטיבי הוא מוקאפ נפרד; מצב Unity משוקף מתוצאות הבדיקות בלבד.</p></div><span class="page-art">✦</span></div>
-        <div class="game-grid" id="gameGrid">
-          <article class="game-card birds"><div class="game-picture"><span class="gi a">🐦</span><span class="branch-shape">⌁</span><span class="gi b">🐤</span></div><div class="game-body"><span class="tiny-label">01 / ARGUMENT BIRDS</span><h3>ציפורי המחלוקת</h3><p>לשייך כל טענה לצד הנכון בוויכוח, עם משוב על ההחלטה.</p><span class="tag info">מכניקה מוגדרת</span></div></article>
-          <article class="game-card shots"><div class="game-picture"><span class="falling-claim">טענה</span><span class="target-ring">◎</span><span class="shot-flash">✹</span></div><div class="game-body"><span class="tiny-label">02 / TRUTH SHOOTER</span><h3>מטווח הטענות</h3><p>לירות בטענות המתאימות ולתת לשגויות לעבור. גם אי־ירי הוא החלטה.</p><span class="tag info">מכניקה מוגדרת</span></div></article>
-          <article class="game-card debate"><div class="game-picture"><span class="debate-icon">«</span><span class="debate-character">♟</span><span class="debate-icon">»</span></div><div class="game-body"><span class="tiny-label">03 / DIALOGUE DUEL</span><h3>קרב בית המדרש</h3><p>לבחור תשובה, ראיה או קושיה שתואמות לשיטה של החכם.</p><span class="tag info">מכניקה מוגדרת</span></div></article>
-        </div>
-        <div class="panel-card game-spec">
-          <div><span class="tiny-label">UNITY CONTENT CONTRACT</span><h3>המשחק מקבל תוכן, לא טענות מקודדות</h3><p>כל שלב מגיע מחבילת <code>GEMARA_GAME_LESSON</code> בגרסה <code>3</code> עם מזהה שיעור, מקור, טענות, תשובות, הסברים ואישור פרסום. הטיוטה הפעילה היא <code>bekhorot-34-demo-v3</code> ואינה דף יומי מאושר.</p></div>
-          <button class="primary" type="button" data-go="agents">הוראות פיתוח למתכנת ←</button>
-        </div>
-      </section>
+        <section class="section-area" id="built" aria-labelledby="builtTitle">
+          <div class="section-intro">
+            <div><p class="kicker">UNITY SCENES</p><h2 id="builtTitle">כבר בנוי בפרויקט</h2></div>
+            <p>קובצי סצנה קיימים. כל כרטיס מפריד בין בנייה לבין בדיקת משחק אמיתית.</p>
+          </div>
+          <div id="builtGrid" class="cards-grid"><div class="loading">מחפש סצנות...</div></div>
+        </section>
 
-      <section class="panel" id="media" aria-labelledby="mediaTitle">
-        <div class="page-header"><div><div class="eyebrow">STORYBOARDS / FILMS / REFERENCE</div><h1 id="mediaTitle">סרטים ומדיה</h1><p>מקום אחד לצפייה בסרטי הסבר, בסטוריבורדים ובתיעוד חזותי. לא מציגים סרט שלא הופק כאילו הוא כבר קיים.</p></div><span class="page-art">▣</span></div>
-        <div class="media-grid">
-          <article class="media-card"><div class="media-thumb studio"><span class="play-outline">▶</span><span class="media-kind">כלי קיים</span></div><div class="media-body"><h3>מנוע יצירת סרטים · Studio</h3><p>גישה לכלי הסינמטיקה הקיים של STARWARS_DELTA. דורש התאמה נפרדת לגמרא גיים.</p><a href="https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/cinematic-director.html" target="_blank" rel="noopener noreferrer">פתח את סביבת הסרטים ↗</a></div></article>
-          <article class="media-card"><div class="media-thumb source-video"><span class="play-outline">▶</span><span class="media-kind">תוכן חיצוני</span></div><div class="media-body"><h3>שיעורי אתר סיני</h3><p>צפייה בשיעורים והיכרות עם שיטת הצגת הסוגיה. הקישורים אינם מעניקים רשות להעתיק סרטים.</p><a href="https://www.sinai.org.il/" target="_blank" rel="noopener noreferrer">צפה במקור ↗</a></div></article>
-          <article class="media-card"><div class="media-thumb no-film"><span class="no-film-sign">+</span><span class="media-kind">טרם הופק</span></div><div class="media-body"><h3>סרטי גמרא מקוריים</h3><p>כאן יופיעו בעתיד סרטים שנוצרו ואומתו עבור הפרויקט, כולל תסריט, סצנה, גרסה והקלטת QA.</p><span class="tag pending">אין סרט מאומת</span></div></article>
-        </div>
-        <div class="panel-card"><div class="card-head"><h3>חוזה מדיה לסוכנים</h3></div><div class="media-contract"><span>רעיון / תסריט</span><b>←</b><span>Storyboard</span><b>←</b><span>Unity Scene</span><b>←</b><span>QA Capture</span><b>←</b><span>סרט מאושר</span></div><p class="muted">לפני הוספת מדיה לאתר נדרשים מקור, בעל זכויות, רישיון, קובץ או URL, תאריך וסטטוס ביקורת. כרגע אין קובצי וידאו מאושרים לפרסום.</p></div>
-      </section>
+        <section class="section-area" id="work" aria-labelledby="workTitle">
+          <div class="section-intro">
+            <div><p class="kicker">IN DEVELOPMENT</p><h2 id="workTitle">בבנייה עכשיו</h2></div>
+            <p>רכיבים שכבר התחילו להיכתב, ולא רק רעיונות שעלו בשיחה.</p>
+          </div>
+          <div id="workGrid" class="cards-grid"><div class="loading">טוען...</div></div>
+        </section>
 
-      <section class="panel" id="tasks" aria-labelledby="tasksTitle">
-        <div class="page-header"><div><div class="eyebrow">EXECUTION TRACKER</div><h1 id="tasksTitle">משימות והוכחות</h1><p>משימות עם קריטריון סיום ברור. רשימה זו היא נתוני הפרויקט שפורסמו לאתר, לא דיווח חי מכל סוכן.</p></div><span class="page-art">☷</span></div>
-        <div class="task-filters" id="taskFilters"><button class="filter active" data-task-filter="all">הכול <span id="tasksAll"></span></button><button class="filter" data-task-filter="next">לביצוע</button><button class="filter" data-task-filter="blocked">חסום / נדרש אישור</button><button class="filter" data-task-filter="done">בוצע</button></div>
-        <div id="taskList" class="task-list"></div>
-      </section>
+        <section class="section-area" id="screens" aria-labelledby="screensTitle">
+          <div class="section-intro">
+            <div><p class="kicker">REAL CAPTURES</p><h2 id="screensTitle">מה רואים בתוך Unity?</h2></div>
+            <p>צילומי משחק אמיתיים בלבד. צילום חסר מסומן כחסר, במקום להדביק תמונת פרסומת.</p>
+          </div>
+          <div id="gallery" class="gallery">
+            <div class="loading">טוען את צילומי הסצנות...</div>
+          </div>
+          <p class="evidence-note"><span>ⓘ</span> תצלום מתוך Editor אינו הוכחת PlayMode; תצלום מ־Game View אינו הוכחת גרסת Android. סוג ההוכחה רשום ליד כל תמונה.</p>
+        </section>
 
-      <section class="panel" id="sync" aria-labelledby="syncTitle">
-        <div class="page-header"><div><div class="eyebrow">SYNC / SOURCE OF TRUTH</div><h1 id="syncTitle">כך Unity והאתר נפגשים</h1><p>ל־GitHub Pages אין גישה ישירה למחשב שלך. לכן באתר מוצגת תמונת מצב מפורסמת, עם דרך ברורה לרענון ולמעקב אחרי מקורה.</p></div><span class="page-art">⇄</span></div>
-        <div class="sync-diagram"><div class="sync-node"><span class="node-icon">◫</span><b>Unity + Plastic</b><small>הקוד והסצנות</small><code>GEMARA_GAME</code></div><span class="sync-arrow">←</span><div class="sync-node"><span class="node-icon">↥</span><b>Export Snapshot</b><small>PowerShell / בדיקות / JSON</small><code>site/unity-snapshot.json</code></div><span class="sync-arrow">←</span><div class="sync-node"><span class="node-icon">⇄</span><b>GitHub Pages</b><small>תיעוד ונתוני אתר</small><code>/gemara-game/data/</code></div><span class="sync-arrow">←</span><div class="sync-node"><span class="node-icon">⌘</span><b>מתכנת + ChatGPT</b><small>קוראים / מעדכנים</small><code>AGENTS.md</code></div></div>
-        <div class="split">
-          <article class="panel-card"><div class="card-head"><h3>מצב הסנכרון</h3><span id="syncHealth" class="tag pending">בודק…</span></div><div class="detail-row"><span>תאריך תמונת מצב</span><strong id="syncAsOf">—</strong></div><div class="detail-row"><span>גרסת Unity</span><strong id="syncUnityVersion">—</strong></div><div class="detail-row"><span>תבנית</span><strong>Universal 2D</strong></div><div class="detail-row"><span>סנכרון אוטומטי בזמן אמת</span><strong class="warn-text">לא מחובר עדיין</strong></div><div class="detail-row"><span>פרסום לאתר</span><strong>Commit ל־GitHub</strong></div></article>
-          <article class="panel-card"><div class="card-head"><h3>איך מעדכנים בפועל?</h3></div><ol class="steps"><li>מסיימים שינוי ב־Unity ומריצים את בדיקות הקבלה.</li><li>מפעילים את <code>site/Export-GemaraSnapshot.ps1</code> בסביבת Windows.</li><li>מפרסמים את JSON ל־GitHub באמצעות הסוכן המחובר או כלי ההעלאה לאחר התחברות GitHub CLI.</li><li>האתר מציג את הגרסה שפורסמה ומועד הבדיקה, בלי לטעון שמדובר במצב Editor חי.</li></ol></article>
-        </div>
-        <div class="panel-card"><h3>קובצי הממשק למכונה</h3><div class="endpoint-list"><a href="./data/status.json" target="_blank">data/status.json <span>סטטוס Unity מאומת / תמונת מצב ↗</span></a><a href="./data/portal.json" target="_blank">data/portal.json <span>משימות, מקורות ורישוי ↗</span></a><a href="./data/gordin-catalog.js" target="_blank">data/gordin-catalog.js <span>101 רשומות ספריית עמיחי ↗</span></a><a href="./AGENTS.md" target="_blank">AGENTS.md <span>כללי עבודה למתכנתים ולסוכנים ↗</span></a></div></div>
-      </section>
+        <section class="section-area" id="next" aria-labelledby="nextTitle">
+          <div class="section-intro">
+            <div><p class="kicker">NEXT STEPS</p><h2 id="nextTitle">מה עדיין חסר כדי לשחק?</h2></div>
+            <p>אלה עבודות קונקרטיות שאפשר לבצע ולבדוק. שום משחק לא נחשב גמור רק כי נוצר Prefab.</p>
+          </div>
+          <div id="tasks" class="tasks"></div>
+        </section>
 
-      <section class="panel" id="agents" aria-labelledby="agentsTitle">
-        <div class="page-header"><div><div class="eyebrow">HANDOFF / MACHINE READABLE</div><h1 id="agentsTitle">כניסה לסוכן חדש</h1><p>המסך שכל מתכנת או סוכן AI צריך לראות לפני שהוא משנה אפילו שורה אחת. כן, גם כשמישהו בטוח שהוא כבר יודע הכול.</p></div><span class="page-art">⌘</span></div>
-        <div class="agent-hero"><div><span class="agent-chip">AGENT ENTRYPOINT</span><h2>לא מתחילים מאפס.<br>קוראים את החוזה, ואז פועלים.</h2><p>הפרויקט קיים ב־Unity; אין ליצור אותו מחדש. השינויים ב־Plastic MAIN, והאתר מכיל ייצוג מעודכן רק לאחר פרסום.</p><button class="primary" type="button" id="copyAgent">העתק הנחיות לסוכן <span>⧉</span></button></div><div class="agent-code"><code>GET /gemara-game/AGENTS.md<br>GET /gemara-game/data/status.json<br>GET /gemara-game/data/portal.json<br>GET /gemara-game/data/gordin-catalog.js<br><span>→ verify → implement → test → publish</span></code></div></div>
-        <div class="split">
-          <article class="panel-card"><h3>כללי חובה</h3><div class="rule"><span>01</span><p><b>Unity קיים.</b> לא פותחים פרויקט חלופי ולא משנים את STARWARS_DELTA.</p></div><div class="rule"><span>02</span><p><b>גרסת תוכן 3.</b> לא יוצרים סכמת שיעורים נוספת במקביל.</p></div><div class="rule"><span>03</span><p><b>בדיקות הן עובדות.</b> מדווחים PASS רק עם XML, צילום או ראיה חדשה.</p></div><div class="rule"><span>04</span><p><b>רישיון וביקורת תורנית.</b> לא מפרסמים שיעור טיוטה או חומר חיצוני ללא תנאים מאושרים.</p></div></article>
-          <article class="panel-card"><h3>קישורים שימושיים</h3><div class="endpoint-list"><a href="./AGENTS.md" target="_blank">AGENTS.md <span>חוזה עבודה ↗</span></a><a href="./data/status.json" target="_blank">Unity status <span>בדיקות + סצנה ↗</span></a><a href="./data/portal.json" target="_blank">Roadmap & tasks <span>משימות מדויקות ↗</span></a><a href="https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/tree/main/gemara-game" target="_blank" rel="noopener noreferrer">Source in GitHub <span>קבצי האתר ↗</span></a></div><div class="agent-warning"><b>שני עולמות, אחריות אחת:</b> Plastic שומר קוד וסצנות; GitHub שומר אתר ותמונות מצב. אל תחליף סטטוס אמיתי בהבטחה.</div></article>
-        </div>
-      </section>
-
-      <footer class="footer"><span>גמרא גיים · סביבת פיתוח · גרסת פורטל 0.1</span><span>Data is a published snapshot · <a href="#sync" data-section="sync">הסבר סנכרון</a></span></footer>
+        <section class="footer-strip" aria-label="מקורות ושקיפות">
+          <div><strong>Unity הוא מקור האמת.</strong><span>האתר הוא צילום מצב של הבנייה, לא שליטה ישירה במחשב.</span></div>
+          <div class="footer-links">
+            <a href="./world-atlas.html">מפת עולמות קיימת ↗</a>
+            <a href="./AGENTS.md">הוראות למתכנתים ↗</a>
+            <a href="https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/tree/main/gemara-game" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </section>
+        <footer><span>גמרא גיים · לוח פיתוח, גרסת 0.2</span><span>רק דברים שנבנו או נמצאים במימוש</span></footer>
+      </div>
     </main>
   </div>
+  <dialog id="lightbox" class="lightbox" aria-label="תמונת Unity מוגדלת">
+    <button type="button" class="lightbox-close" id="closeLightbox" aria-label="סגור תמונה">✕</button>
+    <img id="lightboxImage" src="" alt="">
+    <p id="lightboxCaption"></p>
+  </dialog>
 </body>
 </html>
