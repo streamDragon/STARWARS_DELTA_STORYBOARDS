@@ -1,0 +1,1435 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+  "schemaVersion": 1,
+  "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
+  "authoringRuleRegistryRevision": "E315C26FC5A7968D619512AA71D772703E0DD43F75CEB28BF6EC922752BB025A",
+  "title": "HOW A SHOT IS MADE - THE LAST ESCORT",
+  "durationSeconds": 80,
+  "creativeIntent": "A visual lesson in cinema: tiny escort encounters a huge starship, human recognizes threat, a shot is framed and fired, enemy takes visible damage, formation changes and civilians escape. Each of six canonical MOVES is intentionally illustrated by its required phase beats. Acceptance requires native physical shot/framing, role suitability, effective MOVE plan, visible fire/impact state, clear human reaction, exit off-screen, native Film QA and actual playback. The independent browser film teaches intent but is not runtime evidence.",
+  "cast": [
+    {
+      "id": "HERO",
+      "identityHandle": "spaceship_p1__0abe8156",
+      "displayName": "ספינת החילוץ"
+    },
+    {
+      "id": "WING",
+      "identityHandle": "spaceship_p2__94c16d63",
+      "displayName": "ספינת הליווי"
+    },
+    {
+      "id": "FLAG",
+      "identityHandle": "bossship__712b573d",
+      "displayName": "ספינת הדגל הענקית"
+    },
+    {
+      "id": "THREAT",
+      "identityHandle": "spaceship_p4__63f6317d",
+      "displayName": "חללית האויב"
+    },
+    {
+      "id": "PILOT",
+      "identityHandle": "man_1_0__79ff72e4",
+      "displayName": "הטייס"
+    },
+    {
+      "id": "EVAC",
+      "identityHandle": "evac_city_ship_v1__2845ca3f",
+      "displayName": "ספינת חילוץ אזרחית"
+    }
+  ],
+  "moves": [
+    {
+      "id": "SCALE_REVEAL",
+      "beatIds": [
+        "LAB_01_01",
+        "LAB_01_02",
+        "LAB_01_03",
+        "LAB_01_04"
+      ]
+    },
+    {
+      "id": "LOOK_REVEAL_REACTION",
+      "beatIds": [
+        "LAB_02_01",
+        "LAB_02_02",
+        "LAB_02_03"
+      ]
+    },
+    {
+      "id": "WEAPON_TARGET_FIRE",
+      "beatIds": [
+        "LAB_03_01",
+        "LAB_03_02",
+        "LAB_03_03"
+      ]
+    },
+    {
+      "id": "CAUSE_EFFECT_REACTION",
+      "beatIds": [
+        "LAB_04_01",
+        "LAB_04_02",
+        "LAB_04_03"
+      ]
+    },
+    {
+      "id": "FORMATION_BREAK",
+      "beatIds": [
+        "LAB_05_01",
+        "LAB_05_02",
+        "LAB_05_03",
+        "LAB_05_04"
+      ]
+    },
+    {
+      "id": "BANK_AND_EXIT",
+      "beatIds": [
+        "LAB_06_01",
+        "LAB_06_02",
+        "LAB_06_03"
+      ]
+    }
+  ],
+  "beats": [
+    {
+      "id": "LAB_01_01",
+      "type": "establishing",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "איך בונים קנה מידה / close_ship",
+      "dramaticFunction": "setup",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "HERO",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "small_subject",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.28,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "FLAG",
+          "handle": "bossship__712b573d",
+          "role": "giant_subject",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.53,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.55
+        }
+      ],
+      "camera": {
+        "framing": "close",
+        "movement": "cut",
+        "subject": "HERO",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "מייצרים יחידת מידה, לא מגדילים את כל החלליות; close_ship"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "HERO",
+          "FLAG"
+        ]
+      },
+      "captions": [
+        {
+          "text": "איך בונים קנה מידה: close_ship",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. מייצרים יחידת מידה, לא מגדילים את כל החלליות"
+    },
+    {
+      "id": "LAB_01_02",
+      "type": "establishing",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "איך בונים קנה מידה / pull_out",
+      "dramaticFunction": "setup",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "HERO",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "small_subject",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.32,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "FLAG",
+          "handle": "bossship__712b573d",
+          "role": "giant_subject",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.5700000000000001,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.55
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "pull",
+        "subject": "HERO",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "מייצרים יחידת מידה, לא מגדילים את כל החלליות; pull_out"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "HERO",
+          "FLAG"
+        ]
+      },
+      "captions": [
+        {
+          "text": "איך בונים קנה מידה: pull_out",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. מייצרים יחידת מידה, לא מגדילים את כל החלליות"
+    },
+    {
+      "id": "LAB_01_03",
+      "type": "establishing",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "איך בונים קנה מידה / giant_subject_reveal",
+      "dramaticFunction": "setup",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "HERO",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "small_subject",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.36000000000000004,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "FLAG",
+          "handle": "bossship__712b573d",
+          "role": "giant_subject",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.61,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.55
+        }
+      ],
+      "camera": {
+        "framing": "extreme_wide",
+        "movement": "follow",
+        "subject": "HERO",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "מייצרים יחידת מידה, לא מגדילים את כל החלליות; giant_subject_reveal"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "HERO",
+          "FLAG"
+        ]
+      },
+      "captions": [
+        {
+          "text": "איך בונים קנה מידה: giant_subject_reveal",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. מייצרים יחידת מידה, לא מגדילים את כל החלליות",
+      "actions": [
+        {
+          "type": "reveal",
+          "subject": "FLAG",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "LAB_01_04",
+      "type": "establishing",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "איך בונים קנה מידה / hold_scale_contrast",
+      "dramaticFunction": "setup",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "HERO",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "small_subject",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.4,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "FLAG",
+          "handle": "bossship__712b573d",
+          "role": "giant_subject",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.65,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.55
+        }
+      ],
+      "camera": {
+        "framing": "extreme_wide",
+        "movement": "hold",
+        "subject": "HERO",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "מייצרים יחידת מידה, לא מגדילים את כל החלליות; hold_scale_contrast"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "HERO",
+          "FLAG"
+        ]
+      },
+      "captions": [
+        {
+          "text": "איך בונים קנה מידה: hold_scale_contrast",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. מייצרים יחידת מידה, לא מגדילים את כל החלליות"
+    },
+    {
+      "id": "LAB_02_01",
+      "type": "threat_reveal",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "איך מבט יוצר משמעות / looking_face",
+      "dramaticFunction": "reaction",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "PILOT",
+          "handle": "man_1_0__79ff72e4",
+          "role": "looker",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.28,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.46
+        },
+        {
+          "id": "THREAT",
+          "handle": "spaceship_p4__63f6317d",
+          "role": "observed_subject",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.53,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.15
+        }
+      ],
+      "camera": {
+        "framing": "close",
+        "movement": "cut",
+        "subject": "PILOT",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "מבט, מטרה ותגובה הופכים שני דימויים לסיבה ותוצאה; looking_face"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "PILOT",
+          "THREAT"
+        ]
+      },
+      "captions": [
+        {
+          "text": "איך מבט יוצר משמעות: looking_face",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. מבט, מטרה ותגובה הופכים שני דימויים לסיבה ותוצאה"
+    },
+    {
+      "id": "LAB_02_02",
+      "type": "threat_reveal",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "איך מבט יוצר משמעות / seen_subject",
+      "dramaticFunction": "reaction",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "PILOT",
+          "handle": "man_1_0__79ff72e4",
+          "role": "looker",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.32,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.46
+        },
+        {
+          "id": "THREAT",
+          "handle": "spaceship_p4__63f6317d",
+          "role": "observed_subject",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.5700000000000001,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.15
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "pull",
+        "subject": "PILOT",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "מבט, מטרה ותגובה הופכים שני דימויים לסיבה ותוצאה; seen_subject"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "PILOT",
+          "THREAT"
+        ]
+      },
+      "captions": [
+        {
+          "text": "איך מבט יוצר משמעות: seen_subject",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. מבט, מטרה ותגובה הופכים שני דימויים לסיבה ותוצאה"
+    },
+    {
+      "id": "LAB_02_03",
+      "type": "threat_reveal",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "איך מבט יוצר משמעות / reaction_push_in",
+      "dramaticFunction": "reaction",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "PILOT",
+          "handle": "man_1_0__79ff72e4",
+          "role": "looker",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.36000000000000004,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.46
+        },
+        {
+          "id": "THREAT",
+          "handle": "spaceship_p4__63f6317d",
+          "role": "observed_subject",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.61,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.15
+        }
+      ],
+      "camera": {
+        "framing": "close",
+        "movement": "hold",
+        "subject": "PILOT",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "מבט, מטרה ותגובה הופכים שני דימויים לסיבה ותוצאה; reaction_push_in"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "PILOT",
+          "THREAT"
+        ]
+      },
+      "captions": [
+        {
+          "text": "איך מבט יוצר משמעות: reaction_push_in",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. מבט, מטרה ותגובה הופכים שני דימויים לסיבה ותוצאה",
+      "actions": [
+        {
+          "type": "react",
+          "subject": "PILOT",
+          "target": "THREAT",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "LAB_03_01",
+      "type": "battle",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "למה חותכים לתותח / weapon",
+      "dramaticFunction": "build",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "HERO",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "weapon",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.28,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "THREAT",
+          "handle": "spaceship_p4__63f6317d",
+          "role": "target",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.53,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.15
+        }
+      ],
+      "camera": {
+        "framing": "detail",
+        "movement": "cut",
+        "subject": "HERO",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "השינוי בפריים מקבל תפקיד: נשק, מטרה, ירי; weapon"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "HERO",
+          "THREAT"
+        ]
+      },
+      "captions": [
+        {
+          "text": "למה חותכים לתותח: weapon",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. השינוי בפריים מקבל תפקיד: נשק, מטרה, ירי"
+    },
+    {
+      "id": "LAB_03_02",
+      "type": "battle",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "למה חותכים לתותח / target",
+      "dramaticFunction": "build",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "HERO",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "weapon",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.32,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "THREAT",
+          "handle": "spaceship_p4__63f6317d",
+          "role": "target",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.5700000000000001,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.15
+        }
+      ],
+      "camera": {
+        "framing": "medium",
+        "movement": "pull",
+        "subject": "HERO",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "השינוי בפריים מקבל תפקיד: נשק, מטרה, ירי; target"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "HERO",
+          "THREAT"
+        ]
+      },
+      "captions": [
+        {
+          "text": "למה חותכים לתותח: target",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. השינוי בפריים מקבל תפקיד: נשק, מטרה, ירי"
+    },
+    {
+      "id": "LAB_03_03",
+      "type": "battle",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "למה חותכים לתותח / weapon_fire",
+      "dramaticFunction": "build",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "HERO",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "weapon",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.36000000000000004,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "THREAT",
+          "handle": "spaceship_p4__63f6317d",
+          "role": "target",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.61,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.15
+        }
+      ],
+      "camera": {
+        "framing": "detail",
+        "movement": "hold",
+        "subject": "HERO",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "השינוי בפריים מקבל תפקיד: נשק, מטרה, ירי; weapon_fire"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "HERO",
+          "THREAT"
+        ]
+      },
+      "captions": [
+        {
+          "text": "למה חותכים לתותח: weapon_fire",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. השינוי בפריים מקבל תפקיד: נשק, מטרה, ירי",
+      "actions": [
+        {
+          "type": "fire",
+          "subject": "HERO",
+          "target": "THREAT",
+          "projectileId": "CS_PROJECTILE_BLUE_BOLT",
+          "count": 1,
+          "impactMode": "target_anchor",
+          "duration": 2,
+          "impactEffectHandle": "evac_explosion_v1__4df82d70"
+        }
+      ]
+    },
+    {
+      "id": "LAB_04_01",
+      "type": "battle",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "איך יוצרים סיבתיות / cause_action",
+      "dramaticFunction": "impact",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "HERO",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "cause",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.28,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "THREAT",
+          "handle": "spaceship_p4__63f6317d",
+          "role": "effect_target",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.53,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "PILOT",
+          "handle": "man_1_0__79ff72e4",
+          "role": "reactor",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.78,
+          "screenY": 0.6599999999999999,
+          "screenWidthFraction": 0.46
+        }
+      ],
+      "camera": {
+        "framing": "medium",
+        "movement": "cut",
+        "subject": "HERO",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "פגיעה חייבת להישאר מורגשת גם בשוט הבא; cause_action"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "HERO",
+          "THREAT",
+          "PILOT"
+        ]
+      },
+      "captions": [
+        {
+          "text": "איך יוצרים סיבתיות: cause_action",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. פגיעה חייבת להישאר מורגשת גם בשוט הבא"
+    },
+    {
+      "id": "LAB_04_02",
+      "type": "battle",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "איך יוצרים סיבתיות / effect",
+      "dramaticFunction": "impact",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "HERO",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "cause",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.32,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "THREAT",
+          "handle": "spaceship_p4__63f6317d",
+          "role": "effect_target",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.5700000000000001,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "PILOT",
+          "handle": "man_1_0__79ff72e4",
+          "role": "reactor",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.8200000000000001,
+          "screenY": 0.6599999999999999,
+          "screenWidthFraction": 0.46
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "pull",
+        "subject": "HERO",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "פגיעה חייבת להישאר מורגשת גם בשוט הבא; effect"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "HERO",
+          "THREAT",
+          "PILOT"
+        ]
+      },
+      "captions": [
+        {
+          "text": "איך יוצרים סיבתיות: effect",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. פגיעה חייבת להישאר מורגשת גם בשוט הבא",
+      "actions": [
+        {
+          "type": "impact",
+          "subject": "THREAT",
+          "effectHandle": "evac_explosion_v1__4df82d70",
+          "duration": 1.2
+        }
+      ]
+    },
+    {
+      "id": "LAB_04_03",
+      "type": "battle",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "איך יוצרים סיבתיות / actor_reaction",
+      "dramaticFunction": "impact",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "HERO",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "cause",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.36000000000000004,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "THREAT",
+          "handle": "spaceship_p4__63f6317d",
+          "role": "effect_target",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.61,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "PILOT",
+          "handle": "man_1_0__79ff72e4",
+          "role": "reactor",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.86,
+          "screenY": 0.6599999999999999,
+          "screenWidthFraction": 0.46
+        }
+      ],
+      "camera": {
+        "framing": "close",
+        "movement": "hold",
+        "subject": "HERO",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "פגיעה חייבת להישאר מורגשת גם בשוט הבא; actor_reaction"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "HERO",
+          "THREAT",
+          "PILOT"
+        ]
+      },
+      "captions": [
+        {
+          "text": "איך יוצרים סיבתיות: actor_reaction",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. פגיעה חייבת להישאר מורגשת גם בשוט הבא",
+      "actions": [
+        {
+          "type": "react",
+          "subject": "PILOT",
+          "target": "THREAT",
+          "duration": 1.2
+        }
+      ]
+    },
+    {
+      "id": "LAB_05_01",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "מה משתנה אחרי החלטה / formation_wide",
+      "dramaticFunction": "climax",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "HERO",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "formation_member",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.28,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "WING",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "formation_member",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.53,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "EVAC",
+          "handle": "evac_city_ship_v1__2845ca3f",
+          "role": "formation_member",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.78,
+          "screenY": 0.6599999999999999,
+          "screenWidthFraction": 0.15
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "cut",
+        "subject": "HERO",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "מרחקים וכיוונים חדשים מוכיחים שהקרב השתנה; formation_wide"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "HERO",
+          "WING",
+          "EVAC"
+        ]
+      },
+      "captions": [
+        {
+          "text": "מה משתנה אחרי החלטה: formation_wide",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. מרחקים וכיוונים חדשים מוכיחים שהקרב השתנה"
+    },
+    {
+      "id": "LAB_05_02",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "מה משתנה אחרי החלטה / single_ship_emphasis",
+      "dramaticFunction": "climax",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "HERO",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "formation_member",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.32,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "WING",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "formation_member",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.5700000000000001,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "EVAC",
+          "handle": "evac_city_ship_v1__2845ca3f",
+          "role": "formation_member",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.8200000000000001,
+          "screenY": 0.6599999999999999,
+          "screenWidthFraction": 0.15
+        }
+      ],
+      "camera": {
+        "framing": "close",
+        "movement": "pull",
+        "subject": "HERO",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "מרחקים וכיוונים חדשים מוכיחים שהקרב השתנה; single_ship_emphasis"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "HERO",
+          "WING",
+          "EVAC"
+        ]
+      },
+      "captions": [
+        {
+          "text": "מה משתנה אחרי החלטה: single_ship_emphasis",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. מרחקים וכיוונים חדשים מוכיחים שהקרב השתנה"
+    },
+    {
+      "id": "LAB_05_03",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "מה משתנה אחרי החלטה / break_accelerate",
+      "dramaticFunction": "climax",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "HERO",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "formation_member",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.36000000000000004,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "WING",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "formation_member",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.61,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "EVAC",
+          "handle": "evac_city_ship_v1__2845ca3f",
+          "role": "formation_member",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.86,
+          "screenY": 0.6599999999999999,
+          "screenWidthFraction": 0.15
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "follow",
+        "subject": "HERO",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "מרחקים וכיוונים חדשים מוכיחים שהקרב השתנה; break_accelerate"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "HERO",
+          "WING",
+          "EVAC"
+        ]
+      },
+      "captions": [
+        {
+          "text": "מה משתנה אחרי החלטה: break_accelerate",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. מרחקים וכיוונים חדשים מוכיחים שהקרב השתנה",
+      "actions": [
+        {
+          "type": "move",
+          "subject": "HERO",
+          "motionIntent": "formation_break",
+          "travelDirection": "left_to_right",
+          "speed": "fast",
+          "duration": 3
+        },
+        {
+          "type": "move",
+          "subject": "WING",
+          "motionIntent": "formation_break",
+          "travelDirection": "right_to_left",
+          "speed": "fast",
+          "duration": 3
+        },
+        {
+          "type": "move",
+          "subject": "EVAC",
+          "motionIntent": "formation_break",
+          "travelDirection": "left_to_right",
+          "speed": "fast",
+          "duration": 3
+        }
+      ]
+    },
+    {
+      "id": "LAB_05_04",
+      "type": "custom",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "מה משתנה אחרי החלטה / wide_split",
+      "dramaticFunction": "climax",
+      "energy": "high",
+      "visible": [
+        {
+          "id": "HERO",
+          "handle": "spaceship_p1__0abe8156",
+          "role": "formation_member",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.4,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "WING",
+          "handle": "spaceship_p2__94c16d63",
+          "role": "formation_member",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.65,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.15
+        },
+        {
+          "id": "EVAC",
+          "handle": "evac_city_ship_v1__2845ca3f",
+          "role": "formation_member",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.86,
+          "screenY": 0.6599999999999999,
+          "screenWidthFraction": 0.15
+        }
+      ],
+      "camera": {
+        "framing": "extreme_wide",
+        "movement": "hold",
+        "subject": "HERO",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "מרחקים וכיוונים חדשים מוכיחים שהקרב השתנה; wide_split"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "HERO",
+          "WING",
+          "EVAC"
+        ]
+      },
+      "captions": [
+        {
+          "text": "מה משתנה אחרי החלטה: wide_split",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. מרחקים וכיוונים חדשים מוכיחים שהקרב השתנה"
+    },
+    {
+      "id": "LAB_06_01",
+      "type": "retreat",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "איך מסיימים סיפור / bank_away",
+      "dramaticFunction": "release",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "EVAC",
+          "handle": "evac_city_ship_v1__2845ca3f",
+          "role": "traveler",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.28,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        }
+      ],
+      "camera": {
+        "framing": "medium",
+        "movement": "cut",
+        "subject": "EVAC",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "הספינה צריכה לצאת ממש מהמסך, לא רק לקבל את הפעולה exit; bank_away"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "EVAC"
+        ]
+      },
+      "captions": [
+        {
+          "text": "איך מסיימים סיפור: bank_away",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. הספינה צריכה לצאת ממש מהמסך, לא רק לקבל את הפעולה exit"
+    },
+    {
+      "id": "LAB_06_02",
+      "type": "retreat",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "איך מסיימים סיפור / accelerate",
+      "dramaticFunction": "release",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "EVAC",
+          "handle": "evac_city_ship_v1__2845ca3f",
+          "role": "traveler",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.32,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "pull",
+        "subject": "EVAC",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "הספינה צריכה לצאת ממש מהמסך, לא רק לקבל את הפעולה exit; accelerate"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "EVAC"
+        ]
+      },
+      "captions": [
+        {
+          "text": "איך מסיימים סיפור: accelerate",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. הספינה צריכה לצאת ממש מהמסך, לא רק לקבל את הפעולה exit"
+    },
+    {
+      "id": "LAB_06_03",
+      "type": "retreat",
+      "durationSeconds": 4,
+      "locationHandle": "galaxy_06__501830b2",
+      "storyClaim": "איך מסיימים סיפור / exit",
+      "dramaticFunction": "release",
+      "energy": "medium",
+      "visible": [
+        {
+          "id": "EVAC",
+          "handle": "evac_city_ship_v1__2845ca3f",
+          "role": "traveler",
+          "depth": "foreground",
+          "saliency": "primary",
+          "screenX": 0.36000000000000004,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.15
+        }
+      ],
+      "camera": {
+        "framing": "extreme_wide",
+        "movement": "hold",
+        "subject": "EVAC",
+        "direction": "none",
+        "intensity": "medium",
+        "parallax": "subtle",
+        "purpose": "הספינה צריכה לצאת ממש מהמסך, לא רק לקבל את הפעולה exit; exit"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "continuity": {
+        "preserveScreenDirection": true,
+        "matchedEntityIds": [
+          "EVAC"
+        ]
+      },
+      "captions": [
+        {
+          "text": "איך מסיימים סיפור: exit",
+          "kind": "narrator",
+          "placement": "bottom",
+          "startOffset": 0.1,
+          "durationSeconds": 3.3
+        }
+      ],
+      "evidence": "Only authored cinematic intention. Must verify Unity effective MOVE + camera, final visible action and persistence. הספינה צריכה לצאת ממש מהמסך, לא רק לקבל את הפעולה exit",
+      "actions": [
+        {
+          "type": "exit",
+          "subject": "EVAC",
+          "duration": 3
+        }
+      ]
+    }
+  ]
+}
