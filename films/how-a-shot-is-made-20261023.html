@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>איך נולד שוט | STARWARS_DELTA</title>
+<style>
+:root{color-scheme:dark;--bg:#07101c;--ink:#eaf7ff;--muted:#a9becd;--line:#344b60;--gold:#f5c77c;--cyan:#8bf2e3}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% 0,#152d43,#07101c 70%);color:var(--ink);font:16px/1.5 system-ui,"Segoe UI",sans-serif}
+a{color:#9af0e4}nav{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:15px max(20px,calc((100vw - 1460px)/2));border-bottom:1px solid var(--line);background:#08121dec}
+nav a{text-decoration:none;font-size:14px}nav strong{color:var(--gold);margin-inline-end:auto}
+main{max-width:1430px;margin:auto;padding:30px 24px 80px}.eyebrow{color:var(--cyan);letter-spacing:.10em;font-size:12px;font-weight:800}h1{font-size:clamp(34px,5vw,64px);line-height:1.13;margin:8px 0}p{color:var(--muted)}.intro{max-width:880px;margin:10px 0 30px;font-size:18px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:20px;align-items:start}
+.player{background:#030913;border:1px solid #395069;border-radius:18px;overflow:hidden;box-shadow:0 26px 70px #0007}
+.stage{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000e20;isolation:isolate}
+.stars{position:absolute;inset:0;background:radial-gradient(circle at 56% 44%,#23435b66,transparent 47%),radial-gradient(#ffffffb8 1px,transparent 1.5px),radial-gradient(#94cbec77 1px,transparent 2px);background-size:auto,109px 77px,181px 113px;opacity:.54;animation:stars 15s linear infinite}
+.bg{position:absolute;inset:-5%;width:110%;height:110%;object-fit:cover;opacity:.33;filter:saturate(.7);transition:opacity .6s}
+.actor{position:absolute;object-fit:contain;transform:translate(-50%,-50%);filter:drop-shadow(0 9px 15px #000d) drop-shadow(0 0 6px #72d5ff4f);transition:transform 1s,opacity .8s;will-change:transform}
+.actor.boss{filter:drop-shadow(0 18px 23px #000e) drop-shadow(0 0 13px #87aaff66)}
+.overlay{position:absolute;inset:auto 0 0;padding:60px 28px 24px;background:linear-gradient(transparent,#020910e8);z-index:5}
+.kicker{display:inline-block;padding:4px 9px;background:#063940b3;border:1px solid #408d8d;color:#a3fcf0;border-radius:8px;font-size:12px}
+.overlay h2{margin:9px 0;font-size:clamp(21px,2.7vw,37px)}.overlay p{margin:0;color:#e3eff7;font-size:clamp(12px,1.5vw,18px)}
+.laser{position:absolute;height:4px;background:#87fff9;box-shadow:0 0 18px #52faff,0 0 30px #64efff;transform-origin:left center;display:none;z-index:3}
+.burst{position:absolute;border-radius:50%;border:8px solid #fff9a8;box-shadow:0 0 45px 20px #ff963f77,inset 0 0 35px #ffb32f;display:none;transform:translate(-50%,-50%)}
+.controls{padding:15px 20px;display:grid;gap:12px;background:#0d1b2b}
+.buttons{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+button{border:1px solid #49677d;background:#1a3045;color:#fff;padding:11px 17px;border-radius:10px;font:inherit;cursor:pointer}
+button:hover{border-color:#8ceae1;background:#254559}button.primary{background:#83e4d4;color:#08202b;font-weight:800;border-color:#83e4d4}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #93fff4;outline-offset:3px}
+.progress{display:grid;grid-template-columns:62px 1fr 62px;gap:12px;align-items:center;direction:ltr}
+input[type=range]{width:100%;accent-color:#81e9dd;cursor:pointer}
+time{font-variant-numeric:tabular-nums;color:#d0e9f1;font-size:13px}
+.sidebar{background:#102132;border:1px solid #30485e;border-radius:18px;padding:18px}
+.sidebar h2{margin:0 0 7px;font-size:20px}.sidebar p{font-size:13px;margin:4px 0 17px}
+.shotlist{max-height:650px;overflow:auto;display:grid;gap:7px}
+.shot{width:100%;display:grid;grid-template-columns:37px 1fr;gap:11px;text-align:right;background:#112638;border:1px solid transparent;padding:10px;border-radius:10px}
+.shot span{font-size:12px;color:#8fdad7}.shot strong{display:block;font-size:13px}.shot small{display:block;color:#a7bac7;font-size:11px}.shot.active{border-color:#7de7db;background:#174047}
+.below{margin-top:22px;display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+.panel{border:1px solid #33495e;background:#101f2d;border-radius:16px;padding:22px}
+.panel h3{margin:0 0 9px;font-size:20px}.panel p{line-height:1.75}.tag{display:inline-block;color:#a2e8dc;background:#173939;padding:6px 10px;border-radius:99px;font-size:11px;font-weight:700}
+.note{font-size:13px;color:#b5c8d3}
+@keyframes stars{to{transform:translateX(-18px)}}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}.shotlist{display:flex;overflow:auto;max-height:none}.shot{min-width:190px}.below{grid-template-columns:1fr}}
+@media(max-width:600px){main{padding:18px 12px 50px}.stage{aspect-ratio:4/3}.overlay{padding:42px 15px 14px}.controls{padding:12px}.progress{grid-template-columns:48px 1fr 48px;gap:7px}button{padding:9px 12px}.sidebar{padding:13px}}
+@media(prefers-reduced-motion:reduce){.stars{animation:none}.actor,.bg{transition:none}}
+</style></head>
+<body><nav><strong>Δ STARWARS_DELTA</strong><a href="./">בית</a><a href="workbench.html">סביבת עבודה</a><a href="cinematic-director.html">עקרונות הבימוי</a><a href="film-qa.html">Film QA</a></nav>
+<main><div class="eyebrow">SYSTEM 4 / CINEMA LAB / VISUAL STORYBOARD</div><h1>איך נולד שוט</h1>
+<p class="intro">80 שניות שמראות איך סיפור חלליות נבנה מגודל, מבט, תנועה, עריכה, תגובה ותוצאה. לחצו Play, עצרו בכל שוט, ותראו מדוע הוא נמצא בסרט.</p>
+<div class="layout"><div class="player"><div class="stage" id="stage" role="img" aria-label="הדגמה קולנועית מונפשת של שוטי חלליות"><div class="stars"></div><img class="bg" id="background" alt=""><div id="actors"></div><div class="laser" id="laser"></div><div class="burst" id="burst"></div><div class="overlay"><span class="kicker" id="chapter"></span><h2 id="shotTitle"></h2><p id="subtitle"></p></div></div><div class="controls"><div class="buttons"><button id="play" class="primary" aria-label="נגן את הסרט">▶ נגן סרט</button><button id="back" aria-label="חזור לשוט קודם">שוט קודם</button><button id="next" aria-label="עבור לשוט הבא">השוט הבא</button><button id="mute" aria-pressed="true">צליל כבוי</button><span class="tag">11 שוטים · 80 שניות</span></div><div class="progress"><time id="elapsed">00:00</time><input id="seek" type="range" min="0" max="80" step=".05" value="0" aria-label="מעבר לזמן בסרט"><time>01:20</time></div></div></div>
+<aside class="sidebar"><h2>מפת הסרט</h2><p>בחרו שוט כדי להבין מה הצופה אמור להרגיש ומה MOVE תורם לו.</p><div id="shotlist" class="shotlist"></div></aside></div>
+<div class="below"><section class="panel"><span class="eyebrow">למה חתכנו דווקא לכאן?</span><h3 id="principle">כוונה קולנועית</h3><p id="explanation"></p><div class="tag" id="move"></div><p class="note">ההדגמה נועדה ללמד קומפוזיציה וקצב. היא אינה תחליף לבדיקת תנועת Timeline ול־Play Mode בתוך Unity.</p></section><section class="panel"><h3>מה צריך להוכיח ב־Unity?</h3><p id="acceptance"></p><p class="note">מקור הדימויים: קטלוג CURRENT של STARWARS_DELTA. חלק מהקומפוזיציה והתנועה כאן הם אנימציית דפדפן ולא תוצאה מרונדרת של Unity.</p><a href="workbench.html" class="tag">תיק הפרויקט ←</a></section></div>
+</main>
+<script>
+const DATA={"title":"איך נולד שוט | HOW A SHOT IS MADE","durationSeconds":80,"kind":"BROWSER_STORYBOARD_DEMONSTRATION_NOT_UNITY_BUILD","currentStatus":"CURRENT_VERIFIED","source":"STARWARS_DELTA_CURRENT","assets":{"boss":"https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_37c84ecae38e62920084/preview.png","cruiser":"https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_3346aec45c37390fc23a/preview.png","pilot":"https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_812ee5772999f904dfe7/preview.png","civilian":"https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_a1ff90e648d961973d72/preview.png","fighter":"https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_7f55bcd224502e1be484/preview.png","wing":"https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_7f55bcd224502e1be484/preview.png","galaxy":"https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_9e25c18bb31478d383dc/preview.png","nebula":"https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_76d660cdae8e4023d69a/preview.png","explosion":"https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_3e4e03e4a433c3944567/preview.png","corridor":"https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_1dae0dcf32cb9e471b6d/preview.png"},"scenes":[{"t":0,"d":7,"name":"מתחילים בשאלה","point":"מה הצופה צריך להבין?","move":"ESTABLISHING","shot":"wide","chapter":"01 · כוונה","desc":"בתוך חלל שקט מופיע אור קטן. לא צריך אפקטים כדי לעורר שאלה.","ships":[["fighter",0.2,0.58,0.1]],"line":"כל סרט מתחיל בשאלה, לא ברשימת אפקטים."},{"t":7,"d":8,"name":"קנה מידה","point":"קטן ליד ענק","move":"SCALE_REVEAL","shot":"extreme_wide","chapter":"02 · קומפוזיציה","desc":"אוניית הדגל חולפת בחזית. ספינת החילוץ הקטנה נותנת לצופה יחידת מידה.","ships":[["boss",0.69,0.44,0.53],["fighter",0.2,0.7,0.1]],"line":"איך גורמים לספינה להרגיש ענקית? משווים אותה למשהו קטן."},{"t":15,"d":7,"name":"חשיפת האיום","point":"מסתירים לפני שמגלים","move":"THREAT_REVEAL_PASS","shot":"wide","chapter":"03 · גילוי","desc":"הספינה העצומה מסתירה את האויב. רק לאחר החליפה מתגלה מקור הסכנה.","ships":[["boss",0.76,0.39,0.48],["fighter",0.23,0.68,0.12]],"line":"חשיפה טובה מתחילה במה שעדיין לא רואים."},{"t":22,"d":7,"name":"מבט ותגובה","point":"האיום הופך לאישי","move":"LOOK_REVEAL_REACTION","shot":"close","chapter":"04 · רגש","desc":"חותכים אל הטייס. אותו אויב מקבל משמעות חדשה מפני שמישהו מפחד ממנו.","ships":[["pilot",0.51,0.54,0.62]],"line":"הצופה לא צריך לשמוע 'אני מפחד' כדי להבין."},{"t":29,"d":6,"name":"פקודה","point":"משפט שמשנה פעולה","move":"TARGET_LOCK","shot":"medium","chapter":"05 · דיאלוג","desc":"הטייס מקבל החלטה: 'הגן על הספינה האזרחית'. עכשיו חייב להשתנות משהו בעולם.","ships":[["pilot",0.27,0.53,0.39],["civilian",0.78,0.63,0.24]],"line":"'מגנים על האזרחים!'"},{"t":35,"d":8,"name":"כיוון ותנועה","point":"המצלמה לא מחליפה גאוגרפיה","move":"ESCORT_COLUMN","shot":"wide","chapter":"06 · MOVES","desc":"שתי חלליות נעות באותו כיוון ושומרות על המרחק ביניהן.","ships":[["fighter",0.3,0.54,0.22],["wing",0.65,0.67,0.16],["civilian",0.47,0.27,0.13]],"line":"התנועה מספרת על יחסים, לא רק על מהירות."},{"t":43,"d":6,"name":"תקריב חד","point":"חיתוך, לא זום איטי","move":"WEAPON_TARGET_FIRE","shot":"detail","chapter":"07 · מצלמה","desc":"שוט רחב הופך בחתך חד לפרט הנשק. הפוקוס מתחלף בלי לשנות את גודל החללית עצמה.","ships":[["fighter",0.48,0.5,0.76]],"line":"חיתוך חד = החלטה דרמטית."},{"t":49,"d":8,"name":"ירי ופגיעה","point":"סיבה קודמת לתוצאה","move":"CAUSE_EFFECT_REACTION","shot":"medium","chapter":"08 · סיבתיות","desc":"הירייה נעה מהמגן אל האויב. הפגיעה צריכה להיראות בדיוק במקום שבו האיום נמצא.","ships":[["fighter",0.2,0.58,0.18],["boss",0.78,0.42,0.36]],"laser":true,"line":"בלי מטרה ופגיעה, ירי הוא רק קישוט."},{"t":57,"d":7,"name":"שבירת המערך","point":"רואים שהעולם השתנה","move":"FORMATION_BREAK","shot":"wide","chapter":"09 · המשכיות","desc":"אחרי הפגיעה המבנה הקודם מתפרק. זו תוצאה שממשיכה מעבר לחיתוך.","ships":[["fighter",0.2,0.34,0.15],["wing",0.72,0.7,0.15],["boss",0.47,0.5,0.36]],"explode":true,"line":"מה שנפגע בשוט קודם נשאר פגוע בשוט הבא."},{"t":64,"d":7,"name":"החלטת הקרבה","point":"רגש שמייצר מחיר","move":"OBJECT_MEMORY_FACE","shot":"close","chapter":"10 · משמעות","desc":"הטייס יכול לברוח, אבל פונה להציל את האזרחים. בימוי הוא בחירה עם מחיר.","ships":[["pilot",0.43,0.53,0.58],["civilian",0.82,0.71,0.12]],"line":"החלטה הופכת לרגש כשהיא משנה את המסלול."},{"t":71,"d":9,"name":"שוט הסיום","point":"חוזרים לרחב, אבל לא לאותו עולם","move":"BANK_AND_EXIT","shot":"extreme_wide","chapter":"11 · סגירה","desc":"ספינת האזרחים מתרחקת. נותר חלל שקט ונזק במקום האיום. הצופה משלים מה שקרה.","ships":[["civilian",0.7,0.57,0.14],["fighter",0.19,0.38,0.11]],"line":"אותו חלל. משמעות אחרת."}]};
+const $=id=>document.getElementById(id);
+const preload={};for(const [k,url] of Object.entries(DATA.assets)){const i=new Image();i.src=url;preload[k]=i}
+const state={time:0,playing:false,last:0,mute:true,active:-1};
+const sceneAt=t=>DATA.scenes.findIndex((s,i)=>t>=s.t&&t<s.t+s.d)||(t===0?0:0);
+const current=t=>DATA.scenes[Math.max(0,Math.min(DATA.scenes.length-1,DATA.scenes.findIndex(s=>t<s.t+s.d)))];
+const fmt=t=>{t=Math.floor(t);return String(Math.floor(t/60)).padStart(2,'0')+':'+String(t%60).padStart(2,'0')};
+let audio;
+function chirp(freq=190){if(state.mute)return;try{audio=audio||new (window.AudioContext||window.webkitAudioContext)();const o=audio.createOscillator(),g=audio.createGain();o.type='sine';o.frequency.value=freq;g.gain.setValueAtTime(.0001,audio.currentTime);g.gain.exponentialRampToValueAtTime(.04,audio.currentTime+.02);g.gain.exponentialRampToValueAtTime(.0001,audio.currentTime+.17);o.connect(g);g.connect(audio.destination);o.start();o.stop(audio.currentTime+.18)}catch{}}
+function show(t){
+ state.time=Math.min(80,Math.max(0,t));const s=current(state.time);if(!s)return;
+ const idx=DATA.scenes.indexOf(s);const local=state.time-s.t,progress=Math.min(1,local/s.d);
+ if(idx!==state.active){state.active=idx;$('chapter').textContent=s.chapter;$('shotTitle').textContent=s.name;$('subtitle').textContent=s.line;$('principle').textContent=s.point;$('explanation').textContent=s.desc;$('move').textContent='MOVE · '+s.move;$('acceptance').textContent=s.point+' : זו מטרת הצילום. חובה לראות שינוי ברור בפריימים, ולא להסתפק בכך שהמערכת מחזירה BUILD PASS.';$('background').src=DATA.assets[idx===3||idx===4||idx===9?'corridor':idx>=7?'nebula':'galaxy'];document.querySelectorAll('.shot').forEach((b,i)=>b.classList.toggle('active',i===idx));chirp(145+idx*29);}
+ const parent=$('actors');parent.replaceChildren();
+ for(const [i,item] of s.ships.entries()){const [name,x,y,size]=item;const node=document.createElement('img');node.className='actor '+name;node.src=DATA.assets[name];node.alt=name;node.style.width=(size*100)+'%';node.style.height=(size*100)+'%';let dx=0,dy=0,scale=1;
+  if(idx===1&&i===0){dx=-18*progress;scale=1+.22*progress}
+  if(idx===2&&i===0){dx=-67*progress}
+  if(idx===5){dx=(i%2?-24:19)*progress}
+  if(idx===6){scale=1+.27*progress}
+  if(idx===7&&i===0)dx=12*progress;
+  if(idx===8){dx=(i===0?-16:i===1?17:0)*progress;dy=(i===0?-16:i===1?12:0)*progress}
+  if(idx===10){dx=progress*30;scale=1-progress*.32}
+  node.style.left=(x*100+dx)+'%';node.style.top=(y*100+dy)+'%';node.style.transform='translate(-50%,-50%) scale('+scale+')';parent.append(node);
+ }
+ const fire=s.laser&&progress>.22&&progress<.8;$('laser').style.display=fire?'block':'none';if(fire){$('laser').style.left=(24+progress*50)+'%';$('laser').style.top=(59-progress*15)+'%';$('laser').style.width='20%';$('laser').style.transform='rotate(-14deg)'}
+ const burst=s.explode&&progress<.72;$('burst').style.display=burst?'block':'none';if(burst){const n=50+Math.sin(progress*Math.PI)*80;$('burst').style.width=n+'px';$('burst').style.height=n+'px';$('burst').style.left='53%';$('burst').style.top='50%'}
+ $('elapsed').textContent=fmt(state.time);$('seek').value=String(state.time);
+}
+DATA.scenes.forEach((s,i)=>{const b=document.createElement('button');b.className='shot';b.innerHTML='<span>'+String(i+1).padStart(2,'0')+'</span><div><strong></strong><small></small></div>';b.querySelector('strong').textContent=s.name;b.querySelector('small').textContent=s.move;b.addEventListener('click',()=>{state.playing=false;$('play').textContent='▶ נגן סרט';show(s.t)});$('shotlist').append(b)});
+$('play').onclick=()=>{if(state.time>=80)show(0);state.playing=!state.playing;$('play').textContent=state.playing?'Ⅱ עצור':'▶ נגן סרט';state.last=performance.now()};
+$('seek').oninput=e=>show(Number(e.target.value));
+$('back').onclick=()=>{const i=DATA.scenes.findIndex(s=>state.time<s.t+s.d);show(DATA.scenes[Math.max(0,i-1)].t)};
+$('next').onclick=()=>{const i=DATA.scenes.findIndex(s=>state.time<s.t+s.d);show(DATA.scenes[Math.min(DATA.scenes.length-1,i+1)].t)};
+$('mute').onclick=()=>{state.mute=!state.mute;$('mute').textContent=state.mute?'צליל כבוי':'צליל פעיל';$('mute').setAttribute('aria-pressed',String(state.mute));chirp(440)};
+function tick(now){if(state.playing){let dt=(now-state.last)/1000;show(state.time+Math.min(dt,.1));if(state.time>=80){state.playing=false;$('play').textContent='▶ נגן סרט'}}state.last=now;requestAnimationFrame(tick)}show(0);requestAnimationFrame(tick);
+</script></body></html>
