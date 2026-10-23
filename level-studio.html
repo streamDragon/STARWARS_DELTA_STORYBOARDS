@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="מרכז הרמות של STARWARS_DELTA: Layer 0, מפות, גלים, QA ומתכוני בנייה אמיתיים.">
 <title>מרכז הרמות · STARWARS_DELTA</title>
-<link rel="stylesheet" href="assets/level-studio.css?v=20261023-a">
-<script defer src="assets/level-studio.js?v=20261023-a"></script>
+<link rel="stylesheet" href="assets/level-studio.css?v=20261023-routes">
+<script defer src="assets/level-timeline.js?v=20261023-routes"></script>
+<script defer src="assets/level-studio.js?v=20261023-routes"></script>
 </head>
 <body>
 <a class="skip" href="#workspace">דלג לכלי הרמה</a>
@@ -67,7 +68,7 @@
    <div class="tabbar" role="tablist" aria-label="מערכות הרמה">
     <button type="button" role="tab" id="tab-overview-button" aria-selected="true" aria-controls="overview" data-tab="overview">סקירה</button>
     <button type="button" role="tab" id="tab-layer0-button" aria-selected="false" aria-controls="layer0" data-tab="layer0">Layer 0</button>
-    <button type="button" role="tab" id="tab-waves-button" aria-selected="false" aria-controls="waves" data-tab="waves">גלים ו־Spawn</button>
+    <button type="button" role="tab" id="tab-waves-button" aria-selected="false" aria-controls="waves" data-tab="waves">גלים, מסלולים ו־Spawn</button>
     <button type="button" role="tab" id="tab-qa-button" aria-selected="false" aria-controls="qa" data-tab="qa">QA וצילומים</button>
     <button type="button" role="tab" id="tab-files-button" aria-selected="false" aria-controls="files" data-tab="files">קבצים וכלים</button>
    </div>
@@ -100,9 +101,9 @@
     </div>
    </section>
    <section class="tab-panel" id="waves" role="tabpanel" aria-labelledby="tab-waves-button" hidden>
-    <div class="section-head"><div><h3>גלים, ספאון ותזמון</h3><p>נתוני WavesManager/Reverse שפורסמו, והפרדה ברורה בין תכנון להפעלה במשחק.</p></div><span class="source-pill">גלים ≠ מפגעי Layer 0</span></div>
+    <div class="section-head"><div><h3>גלים ומסלולי אויבים על צילום הרמה</h3><p>אותו נגן <code>LevelTimeline</code> שכבר משמש את Level QA: צילומי Unity, ספאון, Splines, דרכי SpriteShape ומעקב זמן. מסלול מחושב הוא המחשה, לא תוצאת Play Mode.</p></div><span class="source-pill">מקור: Level QA · לא סימולציית קרב</span></div>
     <div id="wave-summary"></div>
-    <div id="wave-viz"></div>
+    <div id="wave-viz" class="wave-player-mount" aria-label="נגן גלים ומסלולים מצולם"></div>
     <div id="wave-rows"></div>
     <div class="action-strip"><div><h4>בניית גלים חדשים</h4><p>המקור לעריכה הוא כלי Reverse Wave Authoring ב־Unity. האתר מציג נתונים ויוצר הנחיות, אבל אינו משנה את WavesManager.</p></div><button type="button" class="btn secondary" id="copy-wave">העתקת בקשת גלים לסוכן</button></div>
    </section>

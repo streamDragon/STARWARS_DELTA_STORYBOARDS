@@ -37,10 +37,12 @@ root.mountLevelTimeline=async function(host,url){
  play.type=reset.type='button';range.type='range';range.min=0;range.step='0.1';range.value=0;range.setAttribute('aria-label','זמן והתקדמות הרמה');
  const end=Math.max(1,...d.waves.map(w=>w.at+Math.max(0,w.count-1)*Math.max(0,w.interval)+(w.teleportDelay||0)+15));range.max=end;const first=d.waves.find(w=>w.spawn);if(first)range.value=first.at+(first.teleportDelay||0);
  const rate=el('select');rate.setAttribute('aria-label','מהירות הניגון');for(const n of [1,2,5,10]){const opt=el('option','×'+n);opt.value=n;rate.append(opt);}rate.value=5;
- const showAll=el('input');showAll.type='checkbox';const label=el('label','כל נקודות ההופעה');label.prepend(showAll);
- controls.append(play,reset,range,readout,rate,label);
+ const showAll=el('input');showAll.type='checkbox';const label=el('label','כל נקודות ההופעה והמסלולים');label.prepend(showAll);
+ const showRoads=el('input');showRoads.type='checkbox';const roadsLabel=el('label','דרכי SpriteShape (לא מסלולי אויב)');roadsLabel.prepend(showRoads);
+ controls.append(play,reset,range,readout,rate,label,roadsLabel);
  const legend=el('p','מסגרת תכלת: אזור המשחק · זהב: הופעה במועד שנבחר · קו מקווקו: מסלול מתוכנן · סימן ללא תנועה: הופעה ב־15 השניות האחרונות בלבד','timeline-note');
  const list=el('div',null,'timeline-waves');const buttons=[];
+ const roads=(Array.isArray(d.roads)?d.roads:[]).filter(r=>Array.isArray(r.points)&&r.points.length>1).map(r=>({id:r.id,coords:r.points.filter((v,i)=>i%Math.max(1,Math.ceil(r.points.length/180))===0||i===r.points.length-1).map(v=>project(v,d.bounds)).filter(v=>Number.isFinite(v.x)&&Number.isFinite(v.y))}));
  for(const w of d.waves){const b=el('button',w.id+'. '+w.name+' ×'+w.count+' · '+w.at+' שנ׳');b.type='button';b.title=w.note||'מסלול משוער';b.onclick=()=>{stop();range.value=w.at+(w.teleportDelay||0);draw();};list.append(b);buttons.push([w,b]);}
  host.append(title,note,stage,controls,legend,list);let playing=false,last=0;
  function stop(){playing=false;play.textContent='▶ נגן';cancelAnimationFrame(raf);}
@@ -48,6 +50,7 @@ root.mountLevelTimeline=async function(host,url){
  function xy(p){const q=project(p,d.bounds);return {x:q.x*1000,y:q.y*562.5};}
  function draw(){
   const t=Number(range.value);readout.textContent=t.toFixed(1)+' שניות / ק״מ משוערים';svg.replaceChildren();
+  if(showRoads.checked){const dx=1000*d.scrollSpeed*t/(d.bounds.maxX-d.bounds.minX||1);for(const road of roads){const points=road.coords.map(v=>(v.x*1000+dx).toFixed(1)+','+(v.y*562.5).toFixed(1)).join(' ');S('polyline',{points,fill:'none',stroke:'#69c9df','stroke-width':1.15,'stroke-dasharray':'3 6',opacity:0.55,class:'timeline-road'});}}
   const c=d.camera;if(c){const p=xy({x:c.x-c.width/2+d.scrollSpeed*t,y:c.y+c.height/2});S('rect',{x:p.x,y:p.y,width:c.width/(d.bounds.maxX-d.bounds.minX)*1000,height:c.height/(d.bounds.maxY-d.bounds.minY)*562.5,fill:'#67dcff18',stroke:'#7ce3ff','stroke-width':2});}
   let unresolved=0;
   for(const [w,b]of buttons){
@@ -69,6 +72,6 @@ root.mountLevelTimeline=async function(host,url){
  }
  function tick(now){if(!playing)return;if(last)range.value=Math.min(end,Number(range.value)+(now-last)/1000*Number(rate.value));last=now;draw();if(Number(range.value)>=end)stop();else raf=requestAnimationFrame(tick);}
  play.onclick=()=>{if(playing){stop();return;}if(Number(range.value)>=end)range.value=0;playing=true;last=0;play.textContent='⏸ עצור';raf=requestAnimationFrame(tick);};
- reset.onclick=()=>{stop();range.value=0;draw();};range.oninput=()=>{stop();draw();};showAll.onchange=draw;draw();
+ reset.onclick=()=>{stop();range.value=0;draw();};range.oninput=()=>{stop();draw();};showAll.onchange=draw;showRoads.onchange=draw;draw();
 };
 })(typeof window==='undefined'?this:window);
