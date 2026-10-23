@@ -1,0 +1,215 @@
+{
+  "schema": "STARWARS_DELTA_AUTHORING_SESSION",
+  "version": 1,
+  "id": "film-how-a-shot-is-made-20261023",
+  "kind": "film",
+  "title": "איך נולד שוט | סרט הדרכה קולנועי",
+  "revision": 1,
+  "stage": "AUTHORING",
+  "status": "BROWSER_DEMO_CREATED_NATIVE_PENDING",
+  "updatedUtc": "2026-10-23T00:58:02Z",
+  "originalBrief": "אני לא רואה שם כלום. בוא נבנה סרט שמראה איך בונים סרט, עם כל התיאוריה, כל העקרונות, 53 MOVES, הבימוי, המצלמה, הדיאלוג, הרגש, הסיבה והתוצאה, ושיהיה אפשר לראות אותו באתר.",
+  "approvedTargetRevision": 0,
+  "targetArtifacts": [
+    {
+      "path": "films/how-a-shot-is-made-20261023.html",
+      "kind": "preview",
+      "label": "איך נולד שוט: ניגון בדפדפן 11 שוטים",
+      "evidenceStatus": "BROWSER_DEMONSTRATION_NOT_RUNTIME"
+    },
+    {
+      "path": "films/how-a-shot-is-made-20261023/CUTSCENE_SCRIPT_V1.json",
+      "kind": "source",
+      "label": "CUTSCENE_SCRIPT_V1, 80 שניות, 6 MOVES",
+      "sha256": "24d97c1f555dddcf498c81da9e7fe1328aa04ede7c1601b4287123b4c73039f0",
+      "evidenceStatus": "SOURCE_ATTACHED"
+    }
+  ],
+  "storyboard": [
+    {
+      "shotId": "LAB_WEB_01",
+      "title": "כוונה",
+      "summary": "הגדרת השאלה הדרמטית",
+      "startSeconds": 0,
+      "endSeconds": 7
+    },
+    {
+      "shotId": "LAB_WEB_02",
+      "title": "קנה מידה",
+      "summary": "ספינה עצומה לעומת לוחם זעיר",
+      "startSeconds": 7,
+      "endSeconds": 15
+    },
+    {
+      "shotId": "LAB_WEB_03",
+      "title": "חשיפת האיום",
+      "summary": "חושפים אויב לאחר הסתרה",
+      "startSeconds": 15,
+      "endSeconds": 22
+    },
+    {
+      "shotId": "LAB_WEB_04",
+      "title": "מבט ותגובה",
+      "summary": "פנים, איום, פנים",
+      "startSeconds": 22,
+      "endSeconds": 29
+    },
+    {
+      "shotId": "LAB_WEB_05",
+      "title": "פקודה",
+      "summary": "החלטה משנה מערך",
+      "startSeconds": 29,
+      "endSeconds": 35
+    },
+    {
+      "shotId": "LAB_WEB_06",
+      "title": "MOVES",
+      "summary": "תנועת ליווי קוהרנטית",
+      "startSeconds": 35,
+      "endSeconds": 43
+    },
+    {
+      "shotId": "LAB_WEB_07",
+      "title": "תקריב חד",
+      "summary": "החלפת פריימינג באמצעות CUT",
+      "startSeconds": 43,
+      "endSeconds": 49
+    },
+    {
+      "shotId": "LAB_WEB_08",
+      "title": "ירי ופגיעה",
+      "summary": "נשק, מטרה, תוצאה",
+      "startSeconds": 49,
+      "endSeconds": 57
+    },
+    {
+      "shotId": "LAB_WEB_09",
+      "title": "שבירת המערך",
+      "summary": "תוצאה ממשיכה לשוט הבא",
+      "startSeconds": 57,
+      "endSeconds": 64
+    },
+    {
+      "shotId": "LAB_WEB_10",
+      "title": "הקרבה",
+      "summary": "בחירה עם מחיר אנושי",
+      "startSeconds": 64,
+      "endSeconds": 71
+    },
+    {
+      "shotId": "LAB_WEB_11",
+      "title": "סיום",
+      "summary": "יציאה מהמסך וחזרה לחלל שונה",
+      "startSeconds": 71,
+      "endSeconds": 80
+    }
+  ],
+  "assets": [
+    {
+      "handle": "bossship__712b573d",
+      "use": "Flagship, needs real relative scale QA"
+    },
+    {
+      "handle": "spaceship_p1__0abe8156",
+      "use": "Small escort spacecraft"
+    },
+    {
+      "handle": "man_1_0__79ff72e4",
+      "use": "Human response, requires source fidelity and emotion audit"
+    },
+    {
+      "handle": "galaxy_06__501830b2",
+      "use": "Background Layer"
+    },
+    {
+      "handle": "evac_explosion_v1__4df82d70",
+      "use": "Effect"
+    }
+  ],
+  "gaps": [
+    {
+      "request": "Native Unity STRICT & Build",
+      "status": "NOT_RUN",
+      "replacementAction": "Use the same saved exact V1 with CURRENT check and native Strict Lint. Do not replay unknown Editor operation."
+    },
+    {
+      "request": "Visual and Runtime QA",
+      "status": "NOT_RUN",
+      "replacementAction": "Capture actual generated Unity frames and PlayMode. Verify actor size, portrait, visible hit, real exit and camera transitions."
+    },
+    {
+      "request": "Browser scene fidelity",
+      "status": "DEMONSTRATION_ONLY",
+      "replacementAction": "Do not treat browser tweening or CSS sprites as native animation proof."
+    },
+    {
+      "request": "Full 53-MOVE coverage",
+      "status": "NOT_CLAIMED",
+      "replacementAction": "Source illustrates six canonical MOVES. The 53-MOVE system remains the available vocabulary, not all executed in 80s."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "USER_INTENT_20261023",
+      "type": "ORIGINAL_CREATIVE_BRIEF",
+      "reference": "User asked to build a film explaining how cinema works using all principles and to show it directly on the website."
+    }
+  ],
+  "runs": [
+    {
+      "id": "film-lab-web-20261023",
+      "capture": "NOT_RUN",
+      "technical": "BROWSER_SOURCE_CREATED",
+      "cinematic": "REVIEW_REQUIRED",
+      "runtime": "NOT_TESTED",
+      "evidence": "Interactive HTML committed and playable preview targeted; this is not Unity. V1 authored and structurally checked for cast, phase refs, 80 seconds. STRICT not run.",
+      "artifacts": [
+        {
+          "path": "films/how-a-shot-is-made-20261023.html",
+          "kind": "preview",
+          "evidenceStatus": "WEB_DEMONSTRATION"
+        },
+        {
+          "path": "films/how-a-shot-is-made-20261023/CUTSCENE_SCRIPT_V1.json",
+          "kind": "source",
+          "sha256": "24d97c1f555dddcf498c81da9e7fe1328aa04ede7c1601b4287123b4c73039f0",
+          "evidenceStatus": "SOURCE_ATTACHED"
+        }
+      ]
+    }
+  ],
+  "history": [
+    {
+      "revision": 1,
+      "stage": "AUTHORING",
+      "status": "BROWSER_DEMO_CREATED_NATIVE_PENDING",
+      "updatedUtc": "2026-10-23T00:58:02Z",
+      "snapshotPath": "workbench/projects/film-how-a-shot-is-made-20261023/revisions/000001.json"
+    }
+  ],
+  "lastCompletedAction": "Published 80s interactive browser film and a separate 20-beat legal-field V1 candidate (not native linted).",
+  "nextAction": "Check live browser playback and assets, then when canonical Unity Editor is idle and no scene is dirty/busy, run STRICT against exact V1, record result, Build only if valid, capture Film QA and refine only verified visual faults.",
+  "inFlightAction": null,
+  "sourceArtifacts": [
+    {
+      "path": "films/how-a-shot-is-made-20261023/CUTSCENE_SCRIPT_V1.json",
+      "kind": "source",
+      "label": "80s V1 candidate",
+      "sha256": "24d97c1f555dddcf498c81da9e7fe1328aa04ede7c1601b4287123b4c73039f0",
+      "evidenceStatus": "SOURCE_ATTACHED"
+    },
+    {
+      "path": "films/how-a-shot-is-made-20261023.html",
+      "kind": "preview",
+      "label": "Browser cinema movie lab",
+      "evidenceStatus": "BROWSER_DEMONSTRATION_NOT_UNITY"
+    }
+  ],
+  "currentIdentity": {
+    "status": "CURRENT_VERIFIED",
+    "publishTransactionId": "20261020-040324592-9f3fa147",
+    "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
+    "authoringRuleRegistryRevision": "E315C26FC5A7968D619512AA71D772703E0DD43F75CEB28BF6EC922752BB025A",
+    "verifiedFrom": "published OPEN_CURRENT"
+  }
+}
