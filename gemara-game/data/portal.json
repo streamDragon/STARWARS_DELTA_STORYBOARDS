@@ -1,0 +1,129 @@
+{
+  "schema": "GEMARA_GAME_PORTAL",
+  "version": 1,
+  "asOf": "2026-10-23",
+  "statusType": "PUBLISHED_SNAPSHOT_NOT_LIVE",
+  "sources": [
+    {
+      "id": "gordin",
+      "name": "עמיחי גורדין",
+      "status": "PERMITTED_WITH_ATTRIBUTION",
+      "grantDate": "2026-10-22",
+      "permission": "שימוש לרבות שימוש מסחרי, עם קרדיט וקישור לדפי העזר",
+      "count": 101,
+      "source": "https://www.etzion.org.il/he/authors/rav-amichai-gordin",
+      "note": "רישיון לשימוש אינו אישור תורני לתוכן שנגזר ממנו"
+    },
+    {
+      "id": "sinai",
+      "name": "אורי בריליאנט / אתר סיני",
+      "status": "CONDITIONAL_NEGOTIATION",
+      "grantDate": "2026-10-22",
+      "permission": "פתיחות עקרונית לשיתוף פעולה בכפוף לקרדיט; העיבוד וההיבט המסחרי טרם סוכמו",
+      "count": 0,
+      "source": "https://www.sinai.org.il/",
+      "note": "אין לפרסם העתקי תרשימים או וידאו לפני הבהרת התנאים"
+    }
+  ],
+  "milestones": [
+    {
+      "title": "הקמת פרויקט Unity ומערכת הדגמה",
+      "description": "Universal 2D, סצנה פעילה ובדיקות מקור",
+      "done": true
+    },
+    {
+      "title": "בדיקות UI ב־Unity",
+      "description": "11 EditMode ובדיקת PlayMode אחת עברו",
+      "done": true
+    },
+    {
+      "title": "QA חזותי ל־Game View",
+      "description": "עברית, RTL, סמלים, גלילה ותצוגת 390×844",
+      "done": false
+    },
+    {
+      "title": "Android Build Support ובניית APK",
+      "description": "עדיין לא מותקן / נבנה",
+      "done": false
+    },
+    {
+      "title": "ביקורת תוכן והכנת חנות",
+      "description": "דורש אישור תוכן, מכשיר, חתימה ומדיניות Google Play",
+      "done": false
+    }
+  ],
+  "tasks": [
+    {
+      "id": "GEM-001",
+      "title": "לאמת חזותית את סצנת GemaraGameDemo",
+      "description": "צילום Game View עם עברית, RTL, טקסט ארוך, סמלים, גלילה ומשוב. מעבר רק לאחר בדיקה אמיתית.",
+      "status": "next",
+      "owner": "Unity developer",
+      "evidence": "UnityProject/Assets/GemaraGame/Generated/GemaraGameDemo.unity"
+    },
+    {
+      "id": "GEM-002",
+      "title": "להתקין Android Build Support תואם",
+      "description": "להתקין Android SDK/NDK/OpenJDK עבור גרסת העורך ולהכין Development APK.",
+      "status": "blocked",
+      "owner": "Build developer",
+      "evidence": "docs/UNITY_ACCEPTANCE.md"
+    },
+    {
+      "id": "GEM-003",
+      "title": "לבדוק APK במכשיר Android אמיתי",
+      "description": "בדיקות מגע, safe area, RTL, שמירה, ביצועים וקריסה לאחר בנייה.",
+      "status": "blocked",
+      "owner": "QA",
+      "evidence": "No APK currently verified"
+    },
+    {
+      "id": "GEM-004",
+      "title": "לנתח סוגיה ולבנות תוכן JSON v3",
+      "description": "לשמור קישור למקור, סיווג טענות, מניעי תשובות, ורשומת ביקורת תורנית.",
+      "status": "next",
+      "owner": "Content developer",
+      "evidence": "GEMARA_GAME_LESSON schemaVersion 3"
+    },
+    {
+      "id": "GEM-005",
+      "title": "להשלים תנאי שימוש עם אתר סיני",
+      "description": "לא לפרסם תרשימים מועתקים או שימוש מסחרי לפני סיכום תנאי ההסכמה.",
+      "status": "blocked",
+      "owner": "Content rights",
+      "evidence": "Email correspondence 22.10.2026"
+    },
+    {
+      "id": "GEM-006",
+      "title": "לפרסם תמונת מצב מ־Plastic ל־GitHub Pages",
+      "description": "להפעיל סקריפט יצוא, לאמת שדות ולהעלות JSON; ריצה עתידית טעונה תזמון והרשאות.",
+      "status": "next",
+      "owner": "Release agent",
+      "evidence": "site/Export-GemaraSnapshot.ps1"
+    },
+    {
+      "id": "GEM-007",
+      "title": "בדיקות EditMode מקוריות",
+      "description": "11 מתוך 11 בדיקות עברו; מצב זה מתייחס להרצה הקודמת המתועדת בלבד.",
+      "status": "done",
+      "owner": "Unity QA",
+      "evidence": "docs/verification/EDITMODE_VERIFIED.xml"
+    },
+    {
+      "id": "GEM-008",
+      "title": "בדיקת PlayMode למסלול ממשק",
+      "description": "בדיקה אחת מתוך אחת עברה, כולל שמירה, טעינה והפעלה מחדש.",
+      "status": "done",
+      "owner": "Unity QA",
+      "evidence": "docs/verification/PLAYMODE_VERIFIED.xml"
+    },
+    {
+      "id": "GEM-009",
+      "title": "לקטלג דפי עזר של הרב עמיחי גורדין",
+      "description": "101 רשומות, קישור למקור ודרישת ייחוס; טרם הוסמך תוכן משחק מתוך המסמכים.",
+      "status": "done",
+      "owner": "Content catalog",
+      "evidence": "content/licensed/amichai_gordin/gordin_catalog_v1.json"
+    }
+  ]
+}
