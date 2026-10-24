@@ -4,10 +4,10 @@
   "id": "fleet30-camera",
   "kind": "film",
   "title": "FLEET · הוכחת מצלמה 30 שניות",
-  "revision": 4,
-  "stage": "TARGET_REVIEW",
-  "status": "EIGHT_SHOT_TARGET_PLAN_PUBLISHED_NATIVE_NOT_RUN",
-  "updatedUtc": "2026-10-23T03:01:53.289Z",
+  "revision": 5,
+  "stage": "AUTHORING",
+  "status": "V7_VISUAL_PREVIS_PUBLISHED_NATIVE_PENDING",
+  "updatedUtc": "2026-10-25T01:50:00+03:00",
   "originalBrief": "Use actual CS_FLEET_Invasion prefab (13 ships). One continuous follow shot Master 5–15s, inspect t=10 after ship translation and rotation. Wide and detail proof.",
   "approvedTargetRevision": 0,
   "targetArtifacts": [
@@ -16,6 +16,12 @@
       "label": "FLEET 30s · eight-shot storyboard · target proposal only",
       "url": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/storyboard.html?session=fleet30-camera",
       "evidenceStatus": "PLAN_PUBLISHED_NOT_APPROVED"
+    },
+    {
+      "kind": "preview",
+      "label": "FLEET V7 Continuity Cut 30s · real sprites, corrected temporal edit (offline animatic only)",
+      "url": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/films/fleet-v7-continuity.html",
+      "evidenceStatus": "OFFLINE_ANIMATIC_NOT_UNITY_CAPTURE"
     }
   ],
   "storyboard": [
@@ -452,6 +458,12 @@
       "placeholder": "Existing browser V1 only and incomplete physical continuity proof",
       "replacementAction": "Re-time existing 3 fire actions for 15–17; ensure 20–23 hits refer to same target; verify portrait asset, damage state and filmed result",
       "status": "NATIVE_QA_PENDING"
+    },
+    {
+      "request": "Real moving and rotating muzzle anchor in CS_FLEET_Invasion",
+      "placeholder": "Current prefab Battlecruiser Transform has no children; V7 visual gun glow is on a composed ship image, not a real tracked muzzle.",
+      "replacementAction": "Inspect reusable existing gun/MLB prefab and add as child in Unity Inspector only after current dirty scene and integration owner are safe; bind Cinemachine follow to actual child Transform and capture t=5,10,15.",
+      "status": "CONFIRMED_PREFAB_MUZZLE_MISSING"
     }
   ],
   "decisions": [],
@@ -498,10 +510,17 @@
       "status": "WEB_PREVIEW_REPAIR_PUBLISHED_NATIVE_PENDING",
       "updatedUtc": "2026-10-23T01:18:21.894Z",
       "snapshotPath": "workbench/projects/fleet30-camera/revisions/000003.json"
+    },
+    {
+      "revision": 4,
+      "stage": "TARGET_REVIEW",
+      "status": "EIGHT_SHOT_TARGET_PLAN_PUBLISHED_NATIVE_NOT_RUN",
+      "updatedUtc": "2026-10-23T03:01:53.289Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000004.json"
     }
   ],
-  "lastCompletedAction": "Published films index and cinematic storyboard viewer to main (commit 81c10e7); prepared 8-shot 30s target with continuous 5–15 follow, exact causal chain and explicit evidence criteria. Existing V1 source bytes preserved. No new Unity build or capture.",
-  "nextAction": "Review storyboard visually with annotations hidden; resolve and bind the real CS_FLEET_Invasion gun child. Author a separate CURRENT V1 build copy matching the 5–15 continuous follow and three shots; lint/build via Studio, capture t=5/10/15 plus firing/impact/reaction, then Film QA. Keep GRAD11 unsaved Editor scene untouched.",
+  "lastCompletedAction": "Created a 30-second eight-shot V7 offline animatic from actual project Nautolan and FEMALE_COMMS_01 sprites; corrected shot boundaries 0-5/5-15/15-17/17-20/20-23/23-26/26-28/28-30, introduced separate dynamic launch/flight/impact VFX, shock->relief character expressions, and browser JS syntax PASS. Verified CS_FLEET_Invasion prefab has Battlecruiser sprite with no gun child; real Cinemachine muzzle tracking and Unity Studio build remain unverified.",
+  "nextAction": "Inspect real prefab for gun child (currently missing), coordinate with Unity MAIN integration owner before any scene switch because GRAD11 is dirty, create/attach genuine muzzle child or use existing gun prefab, author a detached CURRENT V1 that keeps 5–15 uninterrupted, run Studio native import/build/capture, verify shots and emotion, publish native evidence. Do not substitute browser V7 for Unity.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
