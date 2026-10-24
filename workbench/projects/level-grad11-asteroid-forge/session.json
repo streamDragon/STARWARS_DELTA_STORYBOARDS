@@ -7,7 +7,7 @@
   "revision": 3,
   "stage": "LEVEL_QA",
   "status": "PARTIAL_FIX_COMMITTED_WAVES_MISSING",
-  "updatedUtc": "2026-10-24T22:39:00.000Z",
+  "updatedUtc": "2026-10-25T00:50:00Z",
   "originalBrief": "Connect existing GRAD11 and GRAD11_V2 construction to our Storyboards website dossier and continue missing work. The live screenshot shows GRAD11 as primary; preserve V2 separately.",
   "approvedTargetRevision": 0,
   "targetArtifacts": [
@@ -226,50 +226,48 @@
   "workStatus": {
     "scene": "GRAD11",
     "verifiedAt": "2026-10-24T18:45:46.787Z",
-    "summary": "Play Mode קצר עבר, הסצנה נשמרה ב־MAIN; עדיין חסרים גלים, רצפה תקינה ובדיקת משחק מלאה.",
+    "source": "Native Unity and Plastic MAIN; historical report, not live monitoring",
     "plastic": {
       "branch": "main",
       "changeset": 9493,
-      "checkedInScene": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRAD11.unity",
-      "statusAtCheckin": "CLEAN"
+      "workspaceCleanAt": "2026-10-24T18:45:46.787Z"
     },
-    "qa": {
-      "nativePlaySmoke": "PASSED_STARTUP_ONLY",
-      "fullLevel": "NOT_TESTED",
-      "publicCapture": "MISSING",
-      "compile": "NOT_FAILED_AT_LAST_TEST",
-      "visualAcceptance": "NOT_ACCEPTED"
-    },
+    "summary": "סצנת GRAD11 נשמרה בענף MAIN. בדיקת Play קצרה הצליחה, אך גלים לא נבנו; הרצפה באזור B עדיין פגומה; בדיקות מגדלים ומשחק מלא חסרות.",
     "tasks": [
       {
-        "title": "לתקן את רצפת B_OUTER_FLOOR",
-        "detail": "שבע נקודות ספליין קיימות, אך רוחב הרינדור נשאר אפס. ניסיון Refresh/Bake והחלפת פרופיל זמנית לא פתרו; הפרופיל המקורי הוחזר.",
-        "acceptance": "Renderer bounds ברוחב חיובי, Collider מתאים, צילום לפני/אחרי ובדיקה במעבר בין B ל־C."
+        "title": "תיקון הרצפה באזור B",
+        "detail": "לפתוח את B_OUTER_FLOOR ב־Unity. לספליין 7 נקודות אך רוחב הרינדור שלו הוא 0. רענון ובניית Mesh מחדש לא פתרו זאת.",
+        "acceptance": "גבולות הרינדור אינם אפסיים, והמעבר נראה תקין בצילום Scene וב־Play Mode."
       },
       {
-        "title": "לחבר את המפעל והמנהרות",
-        "detail": "צילום Unity האחרון מציג חלל פתוח, מכשולים מרחפים וחלקי מפעל שאינם נקראים כרצף אחד.",
-        "acceptance": "צילומי QA לכל ארבעת האזורים, מעבר רציף ומעברים שנבדקו בין המסדרונות."
+        "title": "חיבור המפעל והמנהרות",
+        "detail": "לעבור על ארבעת האזורים A–D, הרציפות של Layer 0, הכור והמקומות ההריסים. להשתמש בנכסים הקיימים.",
+        "acceptance": "צילום QA של כל אזור מציג מעבר ברור, גאומטריה וקוליידרים תקינים."
       },
       {
-        "title": "לבדוק מגדלי ירי והאנגרים",
-        "detail": "נמצאו שלושה מגדלי ירי ושני האנגרים, אך אין הוכחה לירי, פתיחת דלת ולשיגור במסלול יחסי.",
-        "acceptance": "Play Mode המציג ירי ומעקב, פתיחת דלת ושיגור בנקודה יחסית למגדל."
+        "title": "בדיקת מגדלי ירי והאנגרים",
+        "detail": "לבדוק בפועל 3 מגדלי ירי ו־2 האנגרים: כיוון, ירי, פתיחת דלת, קצב השיגור ונקודת Spawn יחסית.",
+        "acceptance": "יש תיעוד Play Mode וצילומי פריימים שבהם רואים את ההתנהגות, לא רק רכיבי Inspector."
       },
       {
-        "title": "ליצור גלים דרך Reverse Wave Authoring",
-        "detail": "WavesManager קיים אך stages=[]; רק לאחר שתוקנו המעברים והגאומטריה יש ליצור JSON גלים, לבדוק Spawn ומסלולים.",
-        "acceptance": "גלים שמורים בסצנה, משחק משולב, Timeline מצולם ו־QA חדש מפורסם באתר דרך RunSmartPublish."
+        "title": "בניית גלים ומסלולים",
+        "detail": "ב־WavesManager רשימת stages ריקה. רק אחרי קבלת הגאומטריה יש להשתמש בכלי Reverse Wave Authoring וב־JSON הקיים, כולל בדיקת קנה מידה ומהירות.",
+        "acceptance": "גלים נוצרו ונשמרו, וכל Spawn ומסלול נבדקו בזמן ריצה."
+      },
+      {
+        "title": "QA סופי ופרסום",
+        "detail": "להריץ בדיקת משחק משולבת, לבדוק ארבעה שחקנים, לשמור תמונות QA ולפרסם רק דרך RunSmartPublish.",
+        "acceptance": "צילום האתר תואם לריצת Unity ולרמה, ולא נותרו כשלים פתוחים לפני אישור המשתמש."
       }
     ],
     "localEvidence": [
       {
         "path": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\qa\\GRAD11\\GRAD11_SCENE_QA_20261024.png",
-        "status": "LOCAL_ONLY_NOT_PUBLISHED"
+        "status": "LOCAL_ONLY"
       },
       {
         "path": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\qa\\GRAD11\\GRAD11_PLAY_QA_20261024.png",
-        "status": "LOCAL_ONLY_NOT_PUBLISHED"
+        "status": "LOCAL_ONLY"
       }
     ]
   }
