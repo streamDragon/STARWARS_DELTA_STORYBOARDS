@@ -6,8 +6,10 @@
 <meta name="description" content="מרכז הרמות של STARWARS_DELTA: Layer 0, מפות, גלים, QA ומתכוני בנייה אמיתיים.">
 <title>מרכז הרמות · STARWARS_DELTA</title>
 <link rel="stylesheet" href="assets/level-studio.css?v=20261023-routes">
+<link rel="stylesheet" href="assets/level-progress.css?v=20261025-status">
 <script defer src="assets/level-timeline.js?v=20261023-routes"></script>
-<script defer src="assets/level-studio.js?v=20261023-routes"></script>
+<script defer src="assets/level-progress.js?v=20261025-status"></script>
+<script defer src="assets/level-studio.js?v=20261025-status"></script>
 </head>
 <body>
 <a class="skip" href="#workspace">דלג לכלי הרמה</a>
@@ -17,7 +19,7 @@
   <a href="./">בית</a>
   <a href="level-studio.html" aria-current="page">רמות ו־Layer 0</a>
   <a href="level-qa.html">QA מצולם</a>
-  <a href="workbench.html?kind=level">יומן רמות</a>
+  <a href="workbench.html?kind=level&technical=1">יומן טכני</a>
   <a href="workbench.html?kind=film">סרטים</a>
   <a href="catalog.html">ספריית אמנות</a>
  </div>
@@ -26,11 +28,11 @@
  <header class="intro">
   <div><p class="eyebrow">LEVEL DESIGN / STARWARS_DELTA</p>
    <h1>מרכז בניית הרמות</h1>
-   <p>רואים את הרמה, את Layer 0, את הגלים ואת הבדיקות באותו מקום. הנתונים מגיעים מקובצי הפרויקט וה־QA, לא מהמצאות של הדפדפן.</p>
+   <p>מה כבר בנוי? מה עוד חסר? ואיך ממשיכים לעבוד? הכול מתחיל בתמונת מצב ברורה, ואחריה המפות, הגלים והבדיקות.</p>
   </div>
   <div class="intro-actions">
    <a class="btn subtle" href="level-qa.html">כל צילומי QA ←</a>
-   <a class="btn subtle" href="workbench.html?kind=level">תיקי העבודה ←</a>
+   <a class="btn subtle" href="#work-dashboard">מצב העבודה והמשך ←</a>
   </div>
  </header>
  <div id="status" role="status" aria-live="polite" class="status-line">טוען את הרמות מהמאגר המאומת…</div>
@@ -42,14 +44,16 @@
    <div id="level-list" class="level-list" aria-label="בחירת רמה"></div>
    <div class="sidebar-bottom">
     <h3>מערכות העבודה</h3>
-    <a href="workbench.html?kind=level">יומן ופעולות לסוכן <span>↗</span></a>
+    <a href="#work-dashboard">מצב עבודה והוראות לסוכן <span>↗</span></a>
     <a href="level-qa.html">מפות וצילומים שפורסמו <span>↗</span></a>
+    <a href="workbench.html?kind=level&technical=1">יומן טכני מלא <span>↗</span></a>
     <a href="catalog.html">Sprite / Animation Catalog <span>↗</span></a>
    </div>
   </aside>
   <div class="main-column">
    <section class="scene-head" aria-label="הרמה שנבחרה">
     <div class="scene-title">
+     <div id="level-quick"><label for="level-quick-picker">איזו רמה רואים?</label><select id="level-quick-picker" aria-label="בחירת רמה מהירה בנייד"><option value="">טוען...</option></select></div>
      <p id="scene-context" class="eyebrow">בחר רמה מהרשימה</p>
      <h2 id="scene-title">רמות, Layer 0 וגלים</h2>
      <p id="scene-subtitle" class="scene-subtitle">בחירת רמה תציג את הנתונים ואת מה שחסר בה.</p>
@@ -59,6 +63,7 @@
      <select id="scene-select" aria-label="בחירת גרסת סצנה" disabled><option>טוען…</option></select>
     </div>
    </section>
+   <section id="work-dashboard" class="work-dashboard" aria-label="המצב המאומת, הפערים וההמשך" aria-live="polite"></section>
    <div id="metrics" class="metrics" aria-label="נתוני הרמה">
     <div class="metric"><span>אזורים</span><strong>—</strong></div>
     <div class="metric"><span>גאומטריה</span><strong>—</strong></div>

@@ -1,0 +1,82 @@
+
+/* Human-first live dossier reader; facts are from pinned GitHub session, not live Unity. */
+#work-dashboard{background:linear-gradient(150deg,#132e42,#10243a);border:1px solid #4b7085;border-radius:16px;padding:22px;margin:14px 0 22px;box-shadow:0 10px 32px #03101a44}
+#work-dashboard h3,#work-dashboard h4{margin:0}
+.state-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:18px}
+.state-eyebrow{font-size:12px;color:#9feaf0;letter-spacing:.04em;font-weight:750;margin:0 0 9px}
+.state-top-text{max-width:740px}
+.state-top-text h3{font-size:clamp(20px,2vw,27px);line-height:1.35}
+.state-top-text>p:last-child{color:#cfdfeb;line-height:1.7;margin:9px 0 0}
+.state-stamp{border-inline-start:2px solid #41697f;min-width:210px;padding-inline-start:16px;color:#b9cddc}
+.state-stamp .stamp-label,.state-stamp small{display:block;font-size:12px}
+.state-stamp .stamp-time{display:block;color:#f1f8ff;font-size:14px;margin:4px 0}
+.reality-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fact-item{display:flex;gap:11px;align-items:flex-start;padding:13px 14px;border:1px solid #42647a;border-radius:12px;background:#0d2638}
+.fact-item strong{font-size:14px}
+.fact-item p{margin:4px 0 0;color:#b5cedc;font-size:12px;line-height:1.55}
+.fact-marker{display:grid;place-items:center;width:26px;height:26px;flex:0 0 26px;border-radius:50%;background:#203e54;color:#d9f7ff;font-weight:900}
+.fact-verified .fact-marker{background:#174c51;color:#b7fff5}
+.fact-pending .fact-marker{background:#514026;color:#ffdd9a}
+.work-phases{margin:22px 0 20px}
+.work-phases h4,.next-work h4,.view-guide h4,.agent-handoff h4{font-size:19px;margin:0 0 12px}
+.phase-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.phase-item{display:flex;gap:10px;align-items:flex-start;background:#0c2031;border:1px solid #35546a;border-radius:10px;padding:13px}
+.phase-index{display:grid;place-items:center;border-radius:7px;background:#1d4555;color:#e1fbff;min-width:30px;height:30px;font-size:12px}
+.phase-item strong{font-size:13px}
+.phase-item p{margin:4px 0 0;font-size:12px;line-height:1.5;color:#bad0de}
+.phase-waiting .phase-index{background:#3d3440;color:#e7d5e4}
+.phase-active{border-color:#5d9ca5}
+.next-work{padding-top:18px;border-top:1px solid #34576d}
+.action-list{counter-reset:steps;list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0}
+.action-list li{counter-increment:steps;position:relative;background:#0c2535;border:1px solid #385a70;border-radius:10px;padding:13px 47px 13px 12px;min-width:0}
+.action-list li:before{content:counter(steps);position:absolute;right:12px;top:15px;border-radius:7px;background:#23475b;color:#e5fbff;width:26px;text-align:center;font-weight:700}
+.action-list strong{font-size:14px}
+.action-list p{color:#c7d9e4;font-size:13px;margin:7px 0 0;line-height:1.6;overflow-wrap:anywhere}
+.action-list .acceptance{border-top:1px solid #2c4a5f;padding-top:8px;color:#a6dbe2}
+.view-guide{border-top:1px solid #34576d;padding-top:18px;margin-top:22px}
+.guide-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.guide-cols>div{border:1px solid #37576e;border-radius:10px;background:#122f43;padding:14px}
+.guide-cols strong{font-size:13px}
+.guide-cols p,.local-note{font-size:13px;color:#b4cddd;margin:5px 0;line-height:1.65}
+.progress-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:13px}
+.progress-actions .btn{min-height:41px}
+.local-note{margin-top:13px}
+.agent-handoff{display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px 16px;border:1px solid #5b9e9c;border-radius:12px;background:linear-gradient(120deg,#113d47,#153044);padding:17px;margin-top:22px}
+.agent-handoff h4{font-size:19px;margin:0}
+.agent-handoff p{color:#d0e5ec;font-size:13px;line-height:1.65;margin:7px 0}
+.agent-handoff .btn{min-height:48px;max-width:280px;text-align:center}
+.agent-handoff .copy-feedback,.agent-handoff .handoff-text,.agent-handoff .technical-link{grid-column:1/-1}
+.agent-handoff .copy-feedback:empty{display:none}
+.handoff-text{width:100%;direction:ltr;text-align:left;resize:vertical;white-space:pre-wrap;max-height:260px;background:#071a27;border:1px solid #5a9b9d;color:#f3fcff;border-radius:8px;padding:11px;font:13px/1.6 system-ui,sans-serif}
+.handoff-text[hidden]{display:none}
+.technical-link{border-top:1px solid #487582;padding-top:9px;font-size:12px;color:#bed7e5}
+.technical-link summary{cursor:pointer;font-weight:650}
+.tech-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:9px}
+.tech-links a{color:#9ce8ee}
+#level-quick{display:none}
+@media(max-width:1050px){.phase-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){
+ .site-nav{padding:10px 14px}.site-nav .nav-links{display:none}
+ .intro{padding:1px 0 8px}.intro h1{font-size:26px;margin:4px 0}.intro p{font-size:13px;line-height:1.6}.intro-actions{display:none}
+ .shell{padding:10px 12px 38px}.status-line{font-size:11px}
+ .layout{display:flex;flex-direction:column;gap:10px}.main-column{order:0;width:100%;min-width:0}.sidebar{order:1;width:100%}
+ .sidebar-bottom{display:none}.scene-head{padding:14px}.scene-head h2{font-size:24px}.scene-context{font-size:11px}
+ #level-quick{display:block;margin-bottom:12px}
+ #level-quick label{display:block;margin-bottom:4px;font-size:12px;color:#acc8db}
+ #level-quick select{min-height:44px}
+ .scene-switch{margin-top:4px}.scene-switch select{min-height:42px}
+ #work-dashboard{margin:11px 0 14px;padding:15px;border-radius:13px}
+ .state-top{display:block}.state-stamp{margin-top:12px;border-inline-start:none;border-top:1px solid #426479;padding:10px 0 0;min-width:0}
+ .state-top-text h3{font-size:21px}
+ .reality-facts{grid-template-columns:1fr}.fact-item{padding:10px}.fact-item p{font-size:12px}
+ .phase-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.phase-item{display:block;padding:9px}.phase-item .phase-index{margin-bottom:6px}
+ .phase-item strong{font-size:12px}.phase-item p{font-size:11px}
+ .action-list{grid-template-columns:1fr}.action-list li{padding:13px 45px 13px 12px}
+ .guide-cols{grid-template-columns:1fr}
+ .progress-actions .btn{flex:1 1 43%;font-size:12px;padding:10px}
+ .agent-handoff{grid-template-columns:1fr;padding:13px}.agent-handoff .btn{width:100%;max-width:none}
+ .metrics{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.metric{padding:9px}.metric span{font-size:10px}.metric strong{font-size:20px}
+ .tabbar{position:sticky;top:0;background:#0a1c2c;z-index:10;padding:3px 0;margin-top:8px;scrollbar-width:thin}
+ .tabbar button{font-size:13px;padding:9px 12px}.tab-panel{padding:12px}
+ .site-explanation{padding:13px}
+}
