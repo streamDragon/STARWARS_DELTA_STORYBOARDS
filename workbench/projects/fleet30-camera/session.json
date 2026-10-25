@@ -4,10 +4,10 @@
   "id": "fleet30-camera",
   "kind": "film",
   "title": "FLEET · הוכחת מצלמה 30 שניות",
-  "revision": 13,
+  "revision": 14,
   "stage": "UNITY_BUILD",
   "status": "V2_NATIVE_PREVIEW_BUILT_FILM_QA_AND_FRAMING_STILL_OPEN",
-  "updatedUtc": "2026-10-25T22:48:58.844Z",
+  "updatedUtc": "2026-10-25T23:15:04.563Z",
   "originalBrief": "Use actual CS_FLEET_Invasion prefab (13 ships). One continuous follow shot Master 5–15s, inspect t=10 after ship translation and rotation. Wide and detail proof.",
   "approvedTargetRevision": 0,
   "targetArtifacts": [
@@ -1375,6 +1375,62 @@
           "evidenceStatus": "REVIEW_REQUIRED"
         }
       ]
+    },
+    {
+      "id": "fleet30-retake-candidate-20261025_230036",
+      "runId": "20261025_230036",
+      "projectId": "27c252928a83463cbd4c2c9b88a73afc",
+      "sceneName": "FLEET - LAST VOLLEY 30S - VISUAL RETAKE CANDIDATE (NOT BUILT)",
+      "scenePath": "Assets/_Game/MY_Core/MY_Cutscenes/Workshop/SCENE_Cutscene_Workshop.unity",
+      "captureMode": "EDITOR_TIMELINE_EVALUATION",
+      "captureStatus": "COMPLETED",
+      "nativeBuildStatus": "NOT_EVIDENCED",
+      "durationSeconds": 30,
+      "frameCount": 51,
+      "eventCount": 12,
+      "reviewFlagCount": 7,
+      "technical": "WARNINGS",
+      "cinematic": "REVIEW_REQUIRED",
+      "runtime": "NOT_TESTED",
+      "notes": "Separate projectId from canonical FLEET V2; the report has no build result or source hash. This is an Editor Timeline evaluation, not runtime proof. Authored events do not prove visible hits. The t=10 keyframe still shows a small ship without a gun closeup/anchor.",
+      "artifacts": [
+        {
+          "kind": "report",
+          "path": "film-qa/fleet-last-volley-30s-visual-retake-candidate-not-built/20261025_230036/report.json",
+          "label": "Editor Timeline evaluation report · separate retake candidate",
+          "evidenceStatus": "SOURCE_ATTACHED"
+        },
+        {
+          "kind": "report",
+          "path": "film-qa/fleet-last-volley-30s-visual-retake-candidate-not-built/20261025_230036/FILM_QA_3_AUDIT.json",
+          "label": "Film QA audit · black-frame scan only, not full technical clearance",
+          "evidenceStatus": "SOURCE_ATTACHED"
+        },
+        {
+          "kind": "report",
+          "path": "film-qa/fleet-last-volley-30s-visual-retake-candidate-not-built/20261025_230036/FILM_QA_VISUAL_REVIEW.pdf",
+          "label": "Visual review frame sequence",
+          "evidenceStatus": "REVIEW_REQUIRED"
+        },
+        {
+          "kind": "report",
+          "path": "film-qa/fleet-last-volley-30s-visual-retake-candidate-not-built/20261025_230036/CHATGPT_REVIEW.md",
+          "label": "Visual review brief",
+          "evidenceStatus": "REVIEW_BRIEF"
+        },
+        {
+          "kind": "capture",
+          "path": "film-qa/fleet-last-volley-30s-visual-retake-candidate-not-built/20261025_230036/frame_0010.000s.png",
+          "label": "t=10s · retake candidate",
+          "evidenceStatus": "CAPTURED"
+        },
+        {
+          "kind": "capture",
+          "path": "film-qa/fleet-last-volley-30s-visual-retake-candidate-not-built/20261025_230036/frame_0014.880s.png",
+          "label": "t=14.88s · retake candidate",
+          "evidenceStatus": "CAPTURED"
+        }
+      ]
     }
   ],
   "history": [
@@ -1468,10 +1524,17 @@
       "status": "V2_NATIVE_PREVIEW_BUILT_FILM_QA_AND_FRAMING_STILL_OPEN",
       "updatedUtc": "2026-10-25T22:48:58.844Z",
       "snapshotPath": "workbench/projects/fleet30-camera/revisions/000013.json"
+    },
+    {
+      "revision": 14,
+      "stage": "UNITY_BUILD",
+      "status": "V2_NATIVE_PREVIEW_BUILT_FILM_QA_AND_FRAMING_STILL_OPEN",
+      "updatedUtc": "2026-10-25T23:15:04.563Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000014.json"
     }
   ],
-  "lastCompletedAction": "2026-10-26 (Asia/Jerusalem): Confirmed the camera-duration fix compiles and the ArtPack 30s timeline captured 51 Unity frames. The 5–15s camera interval is present; t=10/t=14.88 still show the ship very small. Its report is technical WARNINGS, cinematic REVIEW_REQUIRED, runtime NOT_TESTED. Separately built Visual V2 project a54134b47dec4dddbfbcb899bdd0d189 as an editable preview (5 actors, 8 sequences, 3 materialization warnings). Six editor snapshots show the fleet overlapping at t=10 and fleetVisible=0 at t=24.3. This is not Film QA or acceptance.",
-  "nextAction": "The Workshop scene currently has unsaved changes; preserve and inspect that state before switching scenes. Then use existing Cutscene Studio controls to correct ship/gun framing and verify a real CS_FLEET_Invasion child anchor. Capture actual frames at t=5, 10 and 15 and run full native Film QA. Keep the separate 7b4bdd59f7d44081915538de2abddcf1 Studio build and a54134b47dec4dddbfbcb899bdd0d189 Visual V2 project distinct until each has its own matching review.",
+  "lastCompletedAction": "2026-10-26 (Asia/Jerusalem): Published and linked Film QA run 20261025_230036 as a separate Editor Timeline retake candidate (projectId 27c252928a83463cbd4c2c9b88a73afc). It contains 51 frames over 30s; technical WARNINGS, cinematic REVIEW_REQUIRED, runtime NOT_TESTED. It has no build result or source hash and is not canonical V2. Live V7 browser animatic is present and manual seek to t=10 selects THE GUN segment; it is not Unity footage. The captured t=10 frame still shows a small ship without a gun closeup.",
+  "nextAction": "Review the separate 20261025_230036 retake candidate at t=10 and t=14.88, keeping its projectId separate from canonical FLEET V2. Correct the real CS_FLEET_Invasion gun anchor and subject framing in Cutscene Studio; then capture t=5, t=10 and t=15 from the canonical source and complete Film QA plus Runtime review.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -1712,8 +1775,8 @@
       "actualSeconds": 0
     },
     "sourceFixSha256": "aaba01329783ac8301e22938c2d7d0d5d622706001ddafc58897f773107d7af6",
-    "compile": "PENDING",
-    "freshCaptureAfterDurationRepair": "NOT_RUN",
+    "compile": "PASS",
+    "freshCaptureAfterDurationRepair": "COMPLETED: fleet30-artpack-camera-clock-20261025_181354 (51-frame Editor capture; framing review remains open).",
     "runtime": "NOT_TESTED"
   }
 }

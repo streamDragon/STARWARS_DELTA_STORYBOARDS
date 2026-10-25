@@ -1,0 +1,1782 @@
+{
+  "schema": "STARWARS_DELTA_AUTHORING_SESSION",
+  "version": 1,
+  "id": "fleet30-camera",
+  "kind": "film",
+  "title": "FLEET · הוכחת מצלמה 30 שניות",
+  "revision": 14,
+  "stage": "UNITY_BUILD",
+  "status": "V2_NATIVE_PREVIEW_BUILT_FILM_QA_AND_FRAMING_STILL_OPEN",
+  "updatedUtc": "2026-10-25T23:15:04.563Z",
+  "originalBrief": "Use actual CS_FLEET_Invasion prefab (13 ships). One continuous follow shot Master 5–15s, inspect t=10 after ship translation and rotation. Wide and detail proof.",
+  "approvedTargetRevision": 0,
+  "targetArtifacts": [
+    {
+      "kind": "plan",
+      "label": "FLEET 30s · eight-shot storyboard · target proposal only",
+      "url": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/storyboard.html?session=fleet30-camera",
+      "evidenceStatus": "PLAN_PUBLISHED_NOT_APPROVED"
+    },
+    {
+      "kind": "preview",
+      "label": "FLEET V7 Continuity Cut 30s · real sprites, corrected temporal edit (offline animatic only)",
+      "url": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/films/fleet-v7-continuity.html",
+      "evidenceStatus": "OFFLINE_ANIMATIC_NOT_UNITY_CAPTURE"
+    }
+  ],
+  "storyboard": [
+    {
+      "id": "YAM_01_ESTABLISH",
+      "label": "האיום מתקרב",
+      "startSeconds": 0,
+      "endSeconds": 5,
+      "description": "הדגל והליווי משמאל. האויב מימין. קצינת הקשר מזהירה שהליווי חשוף.",
+      "audienceInference": "ספינת הליווי נמצאת בסכנה; הדגל חייבת לבחור אם להגן עליה.",
+      "cutReason": "תחילה נותנים לצופה מפה מרחבית ברורה.",
+      "continuityBridge": "הדגל והליווי משמאל, האויב מימין גם אחרי החיתוכים.",
+      "whatCouldFail": "אם אין הבחנה ברורה בין הצדדים, המתח אינו מובן.",
+      "camera": {
+        "framing": "extreme_wide",
+        "movement": "hold"
+      },
+      "scene": {
+        "actors": [
+          {
+            "id": "hero",
+            "label": "ספינת הדגל",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_aa84650271d63c150ae8/preview.png",
+            "x": 39,
+            "y": 48,
+            "w": 34
+          },
+          {
+            "id": "escort",
+            "label": "ספינת הליווי",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_3ca83c04685ef5f1b8d7/preview.png",
+            "x": 17,
+            "y": 71,
+            "w": 18
+          },
+          {
+            "id": "enemy",
+            "label": "האויב",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_cea32f801e35b06e4632/preview.png",
+            "x": 80,
+            "y": 45,
+            "w": 24
+          }
+        ],
+        "arrows": [
+          {
+            "fromX": 76,
+            "fromY": 43,
+            "toX": 23,
+            "toY": 66
+          }
+        ],
+        "effects": []
+      },
+      "evidenceStatus": "PLANNED_NOT_CAPTURED",
+      "reviewStatus": "NOT_REVIEWED"
+    },
+    {
+      "id": "YAM_02_GUN_FOLLOW",
+      "label": "עשר שניות על התותח",
+      "startSeconds": 5,
+      "endSeconds": 15,
+      "description": "שוט מצלמה רציף של 10 שניות: התותח של CS_FLEET_Invasion נע ומסתובב עם ספינת הדגל. אין CUT בשנייה 9 או בשנייה 10. רגע הרגש ב־10 יכול להיות overlay בלבד, לא חיתוך מצלמה.",
+      "audienceInference": "המפקד מכוון את הנשק ונאבק על הזמן עד שיתאפשר ירי.",
+      "cutReason": "כניסה חדה לשוט התותח בשנייה 5; החיתוך הבא רק בשנייה 15.",
+      "continuityBridge": "יש לעקוב אחר Transform ילד אמיתי של Prefab הדגל; לבדוק t=5, t=10, t=15 ותנועה+סיבוב.",
+      "whatCouldFail": "ה־V1 הקיים מכיל חיתוך ב־t=9 ו־Anime Emotion ב־t=10; שניהם עלולים לשבור את הדרישה לשוט רציף.",
+      "camera": {
+        "framing": "detail",
+        "movement": "follow"
+      },
+      "scene": {
+        "actors": [
+          {
+            "id": "hero",
+            "label": "ספינת הדגל",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_aa84650271d63c150ae8/preview.png",
+            "x": 47,
+            "y": 52,
+            "w": 85
+          },
+          {
+            "id": "weapon",
+            "label": "מערך הנשק (ייצוג)",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_93e953b5e76f5b2c7a4a/preview.png",
+            "x": 65,
+            "y": 40,
+            "w": 23
+          }
+        ],
+        "arrows": [
+          {
+            "fromX": 64,
+            "fromY": 39,
+            "toX": 91,
+            "toY": 33
+          }
+        ],
+        "effects": []
+      },
+      "evidenceStatus": "PLANNED_NOT_CAPTURED",
+      "reviewStatus": "NOT_REVIEWED"
+    },
+    {
+      "id": "YAM_03_FIRE",
+      "label": "פקודת אש · שלושה שיגורים",
+      "startSeconds": 15,
+      "endSeconds": 17,
+      "description": "פקודת המפקד גורמת בדיוק לשלושה שיגורים נפרדים מהדגל והליווי לעבר אויב אחד. שיגורים מדורגים; לא שלושה מטחים.",
+      "audienceInference": "החלטה אנושית הפכה לפעולה. המטרה היא האויב המאיים על הליווי.",
+      "cutReason": "חותכים מהנשק שהוכן אל תוצאת הפקודה.",
+      "continuityBridge": "ספירת שיגורים: 3; כל projectile חייב לצאת מנקודת נשק אמיתית ולהצביע לאותו אויב.",
+      "whatCouldFail": "ב־V1 הקיים הירי מתחיל ב־t=13, ולכן חייבים לעדכן את העותק לבנייה, לא את מקור ה־V1 המקורי.",
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "scene": {
+        "actors": [
+          {
+            "id": "hero",
+            "label": "ספינת הדגל",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_aa84650271d63c150ae8/preview.png",
+            "x": 30,
+            "y": 52,
+            "w": 36
+          },
+          {
+            "id": "escort",
+            "label": "ספינת הליווי",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_3ca83c04685ef5f1b8d7/preview.png",
+            "x": 15,
+            "y": 72,
+            "w": 19
+          },
+          {
+            "id": "enemy",
+            "label": "האויב",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_cea32f801e35b06e4632/preview.png",
+            "x": 81,
+            "y": 45,
+            "w": 25
+          }
+        ],
+        "arrows": [
+          {
+            "fromX": 39,
+            "fromY": 42,
+            "toX": 75,
+            "toY": 42
+          },
+          {
+            "fromX": 35,
+            "fromY": 54,
+            "toX": 75,
+            "toY": 48
+          },
+          {
+            "fromX": 22,
+            "fromY": 66,
+            "toX": 75,
+            "toY": 55
+          }
+        ],
+        "effects": []
+      },
+      "evidenceStatus": "PLANNED_NOT_CAPTURED",
+      "reviewStatus": "NOT_REVIEWED"
+    },
+    {
+      "id": "YAM_04_FLIGHT",
+      "label": "המרחק שאפשר להשמיט",
+      "startSeconds": 17,
+      "endSeconds": 20,
+      "description": "המצלמה עוקבת אחר מסדרון הירי לעבר האויב. אין שיגורים חדשים. ניתן לקצר את זמן התעופה בעריכה.",
+      "audienceInference": "הצופה מחבר את היריות מהשוט הקודם עם האויב שבקצה הנתיב.",
+      "cutReason": "חיתוך על כיוון התנועה; לא המצאת ירי נוסף.",
+      "continuityBridge": "זהו קיצור עריכתי, לא הוכחת שימור אותם מופעי projectile בין שוטים.",
+      "whatCouldFail": "הופעת שלוש יריות חדשות בשוט הזה תגרום לספירה כפולה.",
+      "camera": {
+        "framing": "medium",
+        "movement": "track"
+      },
+      "scene": {
+        "actors": [
+          {
+            "id": "enemy",
+            "label": "האויב",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_cea32f801e35b06e4632/preview.png",
+            "x": 78,
+            "y": 48,
+            "w": 33
+          }
+        ],
+        "arrows": [
+          {
+            "fromX": 3,
+            "fromY": 34,
+            "toX": 64,
+            "toY": 42
+          },
+          {
+            "fromX": 3,
+            "fromY": 52,
+            "toX": 64,
+            "toY": 51
+          },
+          {
+            "fromX": 3,
+            "fromY": 70,
+            "toX": 64,
+            "toY": 60
+          }
+        ],
+        "effects": []
+      },
+      "evidenceStatus": "PLANNED_NOT_CAPTURED",
+      "reviewStatus": "NOT_REVIEWED"
+    },
+    {
+      "id": "YAM_05_IMPACT",
+      "label": "שלוש פגיעות באויב אחד",
+      "startSeconds": 20,
+      "endSeconds": 23,
+      "description": "שלושה הבזקי פגיעה מדורגים באותה ספינת אויב. כל פגיעה נוגעת בגוף הספינה, ולא ברקע.",
+      "audienceInference": "הירי הצליח והאויב שילם מחיר.",
+      "cutReason": "MISSILE → TARGET → IMPACT; קשר סיבה ותוצאה.",
+      "continuityBridge": "נזק פיזי מתמשך צריך להישאר לאחר סיום ההבזקים.",
+      "whatCouldFail": "פיצוץ במיקום שגוי או החלפת דגם אויב ינתקו את הקשר.",
+      "camera": {
+        "framing": "close",
+        "movement": "hold"
+      },
+      "scene": {
+        "actors": [
+          {
+            "id": "enemy",
+            "label": "האויב",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_cea32f801e35b06e4632/preview.png",
+            "x": 50,
+            "y": 49,
+            "w": 71
+          }
+        ],
+        "arrows": [],
+        "effects": [
+          {
+            "x": 40,
+            "y": 42
+          },
+          {
+            "x": 54,
+            "y": 56
+          },
+          {
+            "x": 67,
+            "y": 39
+          }
+        ]
+      },
+      "evidenceStatus": "PLANNED_NOT_CAPTURED",
+      "reviewStatus": "NOT_REVIEWED"
+    },
+    {
+      "id": "YAM_06_REACTION",
+      "label": "אנשים מגיבים",
+      "startSeconds": 23,
+      "endSeconds": 26,
+      "description": "קצינת הקשר מגיבה לפגיעה, והמפקד מבין שהליווי ניצל. Anime Emotion חייב להראות הבעה אמיתית ולא צללית או רק כתוביות.",
+      "audienceInference": "הפעולה הצילה אנשים. הרגש נובע מהתוצאה שהצופה כבר ראה.",
+      "cutReason": "חותכים מפגיעה לתגובה אנושית.",
+      "continuityBridge": "זהות הדמויות נשארת MARK_VENTURE_01 ו־FEMALE_COMMS_01. יש לקשור אותן לנכסי הפורטרט ב־CURRENT.",
+      "whatCouldFail": "פורטרט חסר או טקסט בלבד אינם עומדים בדרישת הרגש.",
+      "camera": {
+        "framing": "close",
+        "movement": "cut"
+      },
+      "scene": {
+        "actors": [
+          {
+            "id": "escort",
+            "label": "ספינת הליווי",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_3ca83c04685ef5f1b8d7/preview.png",
+            "x": 26,
+            "y": 68,
+            "w": 27
+          },
+          {
+            "id": "enemy",
+            "label": "האויב",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_cea32f801e35b06e4632/preview.png",
+            "x": 76,
+            "y": 46,
+            "w": 35
+          }
+        ],
+        "arrows": [],
+        "effects": [
+          {
+            "x": 76,
+            "y": 40
+          }
+        ]
+      },
+      "evidenceStatus": "PLANNED_NOT_CAPTURED",
+      "reviewStatus": "NOT_REVIEWED"
+    },
+    {
+      "id": "YAM_07_AFTERMATH",
+      "label": "הנזק נשאר",
+      "startSeconds": 26,
+      "endSeconds": 28,
+      "description": "האויב הפגוע עדיין מעלה עשן או בוער. הליווי נשאר בחיים.",
+      "audienceInference": "לקרב יש תוצאה בעולם, לא רק אפקט רגעי.",
+      "cutReason": "אחרי רגש חוזרים להוכחת תוצאה.",
+      "continuityBridge": "נזק האויב חייב להמשיך גם בשוט הסיום.",
+      "whatCouldFail": "ה־V1 הקיים ממקד את המצלמה בדגל ולא באויב הפגוע.",
+      "camera": {
+        "framing": "medium",
+        "movement": "pull"
+      },
+      "scene": {
+        "actors": [
+          {
+            "id": "escort",
+            "label": "ספינת הליווי",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_3ca83c04685ef5f1b8d7/preview.png",
+            "x": 23,
+            "y": 67,
+            "w": 28
+          },
+          {
+            "id": "enemy",
+            "label": "האויב",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_cea32f801e35b06e4632/preview.png",
+            "x": 73,
+            "y": 46,
+            "w": 41
+          }
+        ],
+        "arrows": [],
+        "effects": [
+          {
+            "x": 73,
+            "y": 40
+          }
+        ]
+      },
+      "evidenceStatus": "PLANNED_NOT_CAPTURED",
+      "reviewStatus": "NOT_REVIEWED"
+    },
+    {
+      "id": "YAM_08_FLEET_REVEAL",
+      "label": "הצי לאחר הקרב",
+      "startSeconds": 28,
+      "endSeconds": 30,
+      "description": "שוט רחב אחד עם הדגל, הליווי והאויב הפגוע. הצופה יכול להצביע על כל השלושה.",
+      "audienceInference": "מי הגן על מי, מי נפגע, ומה השתנה.",
+      "cutReason": "חוזרים לגיאוגרפיה שהוקמה בפתיחה.",
+      "continuityBridge": "אותם צדדים, אותו אויב, אותו נזק.",
+      "whatCouldFail": "סיום ללא נזק מתמשך יבטל את משמעות הירי.",
+      "camera": {
+        "framing": "extreme_wide",
+        "movement": "hold"
+      },
+      "scene": {
+        "actors": [
+          {
+            "id": "hero",
+            "label": "ספינת הדגל",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_aa84650271d63c150ae8/preview.png",
+            "x": 39,
+            "y": 48,
+            "w": 33
+          },
+          {
+            "id": "escort",
+            "label": "ספינת הליווי",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_3ca83c04685ef5f1b8d7/preview.png",
+            "x": 17,
+            "y": 71,
+            "w": 18
+          },
+          {
+            "id": "enemy",
+            "label": "האויב",
+            "image": "https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/visual-library/assets/asset_cea32f801e35b06e4632/preview.png",
+            "x": 80,
+            "y": 45,
+            "w": 24
+          }
+        ],
+        "arrows": [],
+        "effects": [
+          {
+            "x": 80,
+            "y": 39
+          }
+        ]
+      },
+      "evidenceStatus": "PLANNED_NOT_CAPTURED",
+      "reviewStatus": "NOT_REVIEWED"
+    }
+  ],
+  "assets": [
+    {
+      "requestedPath": "Assets/_Game/MY_Core/MY_Cutscenes/Kits/EnemyFleet/CS_FLEET_Invasion.prefab",
+      "resolvedPath": null,
+      "evidenceStatus": "PREFAB_BINDING_PENDING",
+      "builtInAnimation": "INSPECT_REQUIRED",
+      "ownership": "ONE_CAMERA_WRITER"
+    }
+  ],
+  "gaps": [
+    {
+      "request": "Real gun-local anchor and linked fleet",
+      "placeholder": "Sprite proxy in planning inputs",
+      "replacementAction": "Bind original prefab child in Inspector, then native playback proof",
+      "status": "PENDING"
+    },
+    {
+      "request": "Measured camera integration",
+      "replacementAction": "The child camera timeline reached 30s and the repaired ArtPack capture completed. At t=10/14.88 the ship remains too small; correct composition, inspect the real gun-local Transform and verify t=5/10/15.",
+      "status": "CLOCK_REPAIR_CAPTURED_FRAMING_OPEN"
+    },
+    {
+      "request": "Uninterrupted gun follow at 5–15 in actual FLEET 13-ship prefab",
+      "placeholder": "Current V1 has a camera cut at 9 and anime insert at 10; storyboard is planning imagery",
+      "replacementAction": "Create separate authoring copy of CURRENT V1, remove cut at 9 and keep t=10 overlay non-cut; bind real child muzzle; run Unity capture",
+      "status": "RESOLVED_FOR_ARTPACK_TIMING_ONLY",
+      "resolution": "Built ArtPack source and native camera Timeline contain one continuous 5–15 shot. Gun-local target fidelity remains open in the other gaps."
+    },
+    {
+      "request": "Causal three shots/three hits and visible emotional reaction",
+      "placeholder": "Existing browser V1 only and incomplete physical continuity proof",
+      "replacementAction": "Re-time existing 3 fire actions for 15–17; ensure 20–23 hits refer to same target; verify portrait asset, damage state and filmed result",
+      "status": "NATIVE_QA_PENDING"
+    },
+    {
+      "request": "Real moving and rotating muzzle anchor in CS_FLEET_Invasion",
+      "placeholder": "Current prefab Battlecruiser Transform has no children; V7 visual gun glow is on a composed ship image, not a real tracked muzzle.",
+      "replacementAction": "Inspect reusable existing gun/MLB prefab and add as child in Unity Inspector only after current dirty scene and integration owner are safe; bind Cinemachine follow to actual child Transform and capture t=5,10,15.",
+      "status": "CONFIRMED_PREFAB_MUZZLE_MISSING"
+    },
+    {
+      "request": "Native Cutscene Studio import/build request returned no verifiable result",
+      "placeholder": "Unity editor currently showing GRAD1 dirty; eval_file read-only timed out; no build_result.txt or produced film QA evidence found",
+      "replacementAction": "Coordinate with current Unity integration owner. Inspect Editor state/logs and original pending request outcome before resubmitting. After safe handoff run a single import via existing Studio, capture actual Game View, link run-specific evidence.",
+      "status": "RESOLVED",
+      "resolution": "Earlier canonical baseline build and preview found; 53-frame capture now attached. This resolution applies only to project a1131662403b420f9cd7a31d2c32817e."
+    },
+    {
+      "request": "Native baseline fails cannon framing and screen occupancy",
+      "status": "OPEN",
+      "runId": "fleet30-artpack-camera-clock-20261025_181354",
+      "replacementAction": "The latest native ArtPack frames still fail the requested gun close-up and ship scale. Refine existing camera/actor composition and bind a real inspected muzzle child before acceptance."
+    },
+    {
+      "request": "Visual V2 build has editor snapshots but no matching Film QA",
+      "status": "OPEN",
+      "projectId": "a54134b47dec4dddbfbcb899bdd0d189",
+      "description": "Visual V2 built an editable preview, but six snapshots are not a continuous Film QA. The fleet overlaps at t=10 and fleetVisible=0 at t=24.3.",
+      "replacementAction": "Fix composition and continuity in the existing authoring workflow, then capture this exact project through Film QA with matching run evidence."
+    }
+  ],
+  "decisions": [],
+  "runs": [
+    {
+      "id": "fleet30-intake",
+      "capture": "NOT_RUN",
+      "technical": "NOT_RUN",
+      "cinematic": "NOT_ACCEPTED",
+      "runtime": "NOT_TESTED",
+      "artifacts": []
+    },
+    {
+      "id": "fleet30-web-authoring-20261023",
+      "capture": "NOT_RUN",
+      "technical": "SCHEMA_PENDING",
+      "cinematic": "NOT_ACCEPTED",
+      "runtime": "NOT_TESTED",
+      "sourceIdentity": {
+        "path": "workbench/projects/fleet30-camera/artifacts/fleet-last-volley-30s-v1-20261023.json",
+        "sha256": "0d2fcd25a85e79e036fe9d75e3c83a171a27715c26b4cddb3138adb86ba8c66b"
+      },
+      "artifacts": []
+    },
+    {
+      "id": "fleet30-v2-native-lint-20261025",
+      "label": "FLEET 30s V1 V2 native Studio lint",
+      "capture": "NOT_RUN",
+      "technical": "PASS_WITH_WARNINGS",
+      "cinematic": "NOT_ACCEPTED",
+      "runtime": "NOT_TESTED",
+      "warnings": 2,
+      "blockers": 0,
+      "artifacts": []
+    },
+    {
+      "id": "fleet30-native-baseline-20261025_102347",
+      "label": "Native baseline capture · earlier Sprite-only source, not ArtPack candidate",
+      "projectId": "a1131662403b420f9cd7a31d2c32817e",
+      "generatedUtc": "2026-10-25T10:23:47.9691195Z",
+      "build": "PASS",
+      "capture": "COMPLETED",
+      "technical": "WARNINGS",
+      "cinematic": "FAILED",
+      "runtime": "NOT_TESTED",
+      "frameCount": 53,
+      "durationSeconds": 30,
+      "artifacts": [
+        {
+          "path": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/report.json",
+          "kind": "report",
+          "label": "Native Unity Film QA · 53 frames · baseline requires revision",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-native-baseline-20261025_102347"
+        },
+        {
+          "path": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/FILM_QA_VISUAL_REVIEW.pdf",
+          "kind": "report",
+          "label": "Unity visual review · 30 seconds · not accepted",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-native-baseline-20261025_102347"
+        },
+        {
+          "path": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/frame_0010.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=10",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-native-baseline-20261025_102347",
+          "timeSeconds": 10,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "a1131662403b420f9cd7a31d2c32817e",
+            "report": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/frame_0013.820s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=13.82",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-native-baseline-20261025_102347",
+          "timeSeconds": 13.82,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "a1131662403b420f9cd7a31d2c32817e",
+            "report": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        }
+      ],
+      "sourceIdentity": {
+        "originalFileSha256": null,
+        "generatedTimeline": "Assets/_Game/MY_Core/MY_Data/Cutscenes/Generated/Projects/a1131662403b420f9cd7a31d2c32817e/Revisions/r1/7fc509b64d8943cca906220ca33fc01e/Timeline.playable",
+        "originalInputFilename": "FLEET_YAMATO_THE_LAST_VOLLEY_30S_SPRITE_ONLY_20261025_V1.json"
+      },
+      "review": {
+        "reviewer": "assistant visual inspection",
+        "inspectedTimesSeconds": [
+          0.12,
+          10,
+          13.82,
+          22,
+          26
+        ],
+        "findings": [
+          "t=10 does not show the requested cannon close-up or continuous moving muzzle follow.",
+          "Ships are small relative to the frame; portrait/dialogue panels and missing-voice notices obscure the image.",
+          "Generated projectile launch times begin at 13.35, 13.82 and 14.29 rather than the requested 15–17 interval."
+        ],
+        "scope": "These failures reject this earlier baseline against the target. They do not establish the outcome of the new ArtPack source."
+      }
+    },
+    {
+      "id": "fleet30-artpack-native-20261025_154857",
+      "label": "FLEET 30s ArtPack native build and QA · review required",
+      "projectId": "3f576197c1684adb8a811847ed7d10b4",
+      "generatedUtc": "2026-10-25T15:48:57.2438886Z",
+      "build": "PASS",
+      "actors": 5,
+      "sequences": 8,
+      "materializationWarnings": 9,
+      "capture": "COMPLETED",
+      "technical": "WARNINGS",
+      "cinematic": "REVIEW_REQUIRED",
+      "runtime": "NOT_TESTED",
+      "frameCount": 51,
+      "sourceIdentity": {
+        "sha256": "c08d02d991741c1632b736c37f8768505e5d829a30a8e148981f5e2b0ec2ff8c",
+        "inputFilename": "FLEET_ARTPACK_ANIMATED_V1_BUILD_INPUT_20261025.json"
+      },
+      "artifacts": [
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+          "kind": "report",
+          "label": "Native Unity Film QA · ArtPack build · 51 frames",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-native-20261025_154857"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/FILM_QA_VISUAL_REVIEW.pdf",
+          "kind": "report",
+          "label": "Native Unity visual review · cinematic review required",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-native-20261025_154857"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/FILM_QA_3_AUDIT.json",
+          "kind": "report",
+          "label": "Published site audit · technical PASS · no black frames",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-native-20261025_154857"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/CHATGPT_REVIEW.md",
+          "kind": "report",
+          "label": "Generated review brief · review required",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-native-20261025_154857"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0000.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=0.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 0,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0004.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=4.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 4,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0010.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=10.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 10,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0014.880s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=14.880s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 14.88,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0015.240s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=15.240s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 15.24,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0015.650s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=15.650s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 15.65,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0015.890s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=15.890s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 15.89,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0016.060s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=16.060s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 16.06,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0016.300s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=16.300s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 16.3,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0016.740s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=16.740s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 16.74,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0020.130s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=20.130s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 20.13,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0020.830s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=20.830s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 20.83,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0021.530s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=21.530s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 21.53,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0022.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=22.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 22,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0023.880s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=23.880s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 23.88,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0025.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=25.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 25,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0028.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=28.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 28,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0030.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=30.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 30,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        }
+      ],
+      "review": {
+        "reviewer": "assistant visual inspection",
+        "inspectedTimesSeconds": [
+          10,
+          15.53,
+          23.6
+        ],
+        "findings": [
+          "t=10 shows a tiny ship on a dark square instead of the requested cannon close-up.",
+          "At t=15.53, dialogue/error blocks obscure much of the frame.",
+          "At t=23.6, a full-screen Anime Emotion insert is visible.",
+          "Native report marks cinematicQa REVIEW_REQUIRED; runtime remains NOT_TESTED."
+        ],
+        "scope": "Successful build and completed capture establish native materialization and technical evidence; they do not establish cinematic approval or runtime validation."
+      },
+      "durationSeconds": 30
+    },
+    {
+      "id": "fleet30-artpack-layer-repair-20261025_165840",
+      "label": "ArtPack after source-layer visibility repair · native recapture",
+      "projectId": "3f576197c1684adb8a811847ed7d10b4",
+      "generatedUtc": "2026-10-25T16:58:40.4569675Z",
+      "build": "PASS",
+      "actors": 5,
+      "sequences": 8,
+      "materializationWarnings": 9,
+      "capture": "COMPLETED",
+      "technical": "WARNINGS",
+      "cinematic": "REVIEW_REQUIRED",
+      "runtime": "NOT_TESTED",
+      "frameCount": 51,
+      "sourceIdentity": {
+        "sha256": "c08d02d991741c1632b736c37f8768505e5d829a30a8e148981f5e2b0ec2ff8c",
+        "inputFilename": "FLEET_ARTPACK_ANIMATED_V1_BUILD_INPUT_20261025.json",
+        "assetRepair": {
+          "guid": "14999e8745e5bd547a501b2044e6de70",
+          "sha256": "cac3f13ab5c5e7465e463b101a764cc866f80b9a7fb0b971093f1c8e98b31f82",
+          "change": "Hide opaque Background and cyan Layer 5 in original Aseprite; preserve all 19 native subasset identities, 9 sprite frames and AnimationClip."
+        }
+      },
+      "artifacts": [
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+          "kind": "report",
+          "label": "Native Unity Film QA · ArtPack build · 51 frames",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/FILM_QA_VISUAL_REVIEW.pdf",
+          "kind": "report",
+          "label": "Native Unity visual review · cinematic review required",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/FILM_QA_3_AUDIT.json",
+          "kind": "report",
+          "label": "Published site audit · technical PASS · no black frames",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/CHATGPT_REVIEW.md",
+          "kind": "report",
+          "label": "Generated review brief · review required",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0000.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=0.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 0,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0004.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=4.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 4,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0010.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=10.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 10,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0014.880s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=14.880s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 14.88,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0015.240s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=15.240s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 15.24,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0015.650s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=15.650s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 15.65,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0015.890s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=15.890s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 15.89,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0016.060s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=16.060s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 16.06,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0016.300s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=16.300s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 16.3,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0016.740s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=16.740s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 16.74,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0020.130s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=20.130s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 20.13,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0020.830s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=20.830s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 20.83,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0021.530s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=21.530s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 21.53,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0022.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=22.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 22,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0023.880s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=23.880s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 23.88,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0025.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=25.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 25,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0028.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=28.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 28,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/frame_0030.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=30.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-layer-repair-20261025_165840",
+          "timeSeconds": 30,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_165840/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        }
+      ],
+      "review": {
+        "reviewer": "assistant visual inspection",
+        "inspectedTimesSeconds": [
+          10
+        ],
+        "findings": [
+          "t=10 native capture confirms opaque rectangle and cyan title removed.",
+          "Ship remains small at t=10; requested cannon framing remains unresolved.",
+          "51-frame recapture completed with no external visual scenes; cinematic review required and runtime not tested."
+        ],
+        "scope": "Source-art repair and native visual evidence only; this does not establish animation playback, cinematic acceptance, or runtime validation."
+      },
+      "durationSeconds": 30
+    },
+    {
+      "id": "fleet30-artpack-camera-clock-20261025_181354",
+      "label": "Native ArtPack QA after camera duration repair · 30s · composition still requires revision",
+      "projectId": "3f576197c1684adb8a811847ed7d10b4",
+      "generatedUtc": "2026-10-25T18:13:54.2725722Z",
+      "build": "PASS",
+      "capture": "COMPLETED",
+      "technical": "WARNINGS",
+      "cinematic": "REVIEW_REQUIRED",
+      "runtime": "NOT_TESTED",
+      "frameCount": 51,
+      "durationSeconds": 30,
+      "eventCount": 12,
+      "reviewFlagCount": 5,
+      "artifacts": [
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/report.json",
+          "kind": "report",
+          "label": "Unity Film QA · 51 frames · 30s · visual review required",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-camera-clock-20261025_181354"
+        },
+        {
+          "path": "workbench/projects/fleet30-camera/artifacts/camera-clock-after-duration-repair-20261025.json",
+          "kind": "report",
+          "label": "Camera clock proof · child director reaches 30s",
+          "evidenceStatus": "CLOCK_PROBE_EDITOR_ONLY",
+          "runId": "fleet30-artpack-camera-clock-20261025_181354"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/CHATGPT_REVIEW.md",
+          "kind": "report",
+          "label": "Frame review brief",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-camera-clock-20261025_181354"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/FILM_QA_3_AUDIT.json",
+          "kind": "report",
+          "label": "Audit · 0 black frames; not full technical clearance",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-camera-clock-20261025_181354"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/frame_0010.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=10 · ship remains small",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-camera-clock-20261025_181354",
+          "timeSeconds": 10,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/frame_0014.880s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=14.88 · end of continuous shot",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-camera-clock-20261025_181354",
+          "timeSeconds": 14.88,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fleet30-new-studio-build-20261025",
+      "projectId": "7b4bdd59f7d44081915538de2abddcf1",
+      "sceneName": "FLEET YAMATO | 30 Seconds New Camera Film",
+      "build": "PASS",
+      "capture": "NOT_RUN",
+      "technical": "NOT_TESTED",
+      "cinematic": "NOT_ACCEPTED",
+      "runtime": "NOT_TESTED",
+      "artifacts": [],
+      "notes": "Verified Unity build files: Master.playable (30s) and EditablePreview.prefab (8 Cinemachine virtual cameras). New project revision 1. Source is a sprite-proxy V1 candidate. No Unity footage or acceptance proof yet.",
+      "generatedUtc": "2026-10-25T22:02:45Z",
+      "note": "Native Master.playable and EditablePreview.prefab exist for project 7b4bdd59f7d44081915538de2abddcf1. No matching Film QA capture is published."
+    },
+    {
+      "id": "fleet30-visual-v2-editor-preview-20261026",
+      "label": "FLEET Visual V2 · editable Unity preview · six editor snapshots, not Film QA",
+      "projectId": "a54134b47dec4dddbfbcb899bdd0d189",
+      "generatedUtc": "2026-10-25T22:13:52.829Z",
+      "build": "PASS",
+      "capture": "NOT_RUN",
+      "technical": "NOT_TESTED",
+      "cinematic": "REVIEW_REQUIRED",
+      "runtime": "NOT_TESTED",
+      "frameCount": 0,
+      "previewFrameCount": 6,
+      "durationSeconds": 30,
+      "blockers": 0,
+      "lint": "PASS_WITH_WARNINGS",
+      "materializationWarnings": 3,
+      "artifacts": [
+        {
+          "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/FLEET_LAST_VOLLEY_VISUAL_V2_CANDIDATE.json",
+          "kind": "source",
+          "label": "Native Visual V2 source input · SHA-256 5BC0B647…544735",
+          "evidenceStatus": "NATIVE_BUILD_SOURCE"
+        },
+        {
+          "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/build-result.json",
+          "kind": "report",
+          "label": "Studio build · editable preview built, 3 materialization warnings",
+          "evidenceStatus": "BUILD_PASS_PREVIEW_ONLY"
+        },
+        {
+          "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/lint-result.json",
+          "kind": "report",
+          "label": "Native lint · PASS_WITH_WARNINGS, 0 blockers",
+          "evidenceStatus": "LINT_NOT_VISUAL_QA"
+        },
+        {
+          "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/capture-receipt.txt",
+          "kind": "report",
+          "label": "Six editor snapshots · t=0.5–29.5 · not Film QA",
+          "evidenceStatus": "EDITOR_SNAPSHOTS_NOT_FILM_QA"
+        },
+        {
+          "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/preview-contact-sheet.jpg",
+          "kind": "reference",
+          "label": "V2 preview contact sheet · fleet overlaps at t=10; absent at t=24.3",
+          "evidenceStatus": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/visual-review.md",
+          "kind": "report",
+          "label": "Visual V2 review · no Film QA acceptance",
+          "evidenceStatus": "REVIEW_REQUIRED"
+        }
+      ]
+    },
+    {
+      "id": "fleet30-retake-candidate-20261025_230036",
+      "runId": "20261025_230036",
+      "projectId": "27c252928a83463cbd4c2c9b88a73afc",
+      "sceneName": "FLEET - LAST VOLLEY 30S - VISUAL RETAKE CANDIDATE (NOT BUILT)",
+      "scenePath": "Assets/_Game/MY_Core/MY_Cutscenes/Workshop/SCENE_Cutscene_Workshop.unity",
+      "captureMode": "EDITOR_TIMELINE_EVALUATION",
+      "captureStatus": "COMPLETED",
+      "nativeBuildStatus": "NOT_EVIDENCED",
+      "durationSeconds": 30,
+      "frameCount": 51,
+      "eventCount": 12,
+      "reviewFlagCount": 7,
+      "technical": "WARNINGS",
+      "cinematic": "REVIEW_REQUIRED",
+      "runtime": "NOT_TESTED",
+      "notes": "Separate projectId from canonical FLEET V2; the report has no build result or source hash. This is an Editor Timeline evaluation, not runtime proof. Authored events do not prove visible hits. The t=10 keyframe still shows a small ship without a gun closeup/anchor.",
+      "artifacts": [
+        {
+          "kind": "report",
+          "path": "film-qa/fleet-last-volley-30s-visual-retake-candidate-not-built/20261025_230036/report.json",
+          "label": "Editor Timeline evaluation report · separate retake candidate",
+          "evidenceStatus": "SOURCE_ATTACHED"
+        },
+        {
+          "kind": "report",
+          "path": "film-qa/fleet-last-volley-30s-visual-retake-candidate-not-built/20261025_230036/FILM_QA_3_AUDIT.json",
+          "label": "Film QA audit · black-frame scan only, not full technical clearance",
+          "evidenceStatus": "SOURCE_ATTACHED"
+        },
+        {
+          "kind": "report",
+          "path": "film-qa/fleet-last-volley-30s-visual-retake-candidate-not-built/20261025_230036/FILM_QA_VISUAL_REVIEW.pdf",
+          "label": "Visual review frame sequence",
+          "evidenceStatus": "REVIEW_REQUIRED"
+        },
+        {
+          "kind": "report",
+          "path": "film-qa/fleet-last-volley-30s-visual-retake-candidate-not-built/20261025_230036/CHATGPT_REVIEW.md",
+          "label": "Visual review brief",
+          "evidenceStatus": "REVIEW_BRIEF"
+        },
+        {
+          "kind": "capture",
+          "path": "film-qa/fleet-last-volley-30s-visual-retake-candidate-not-built/20261025_230036/frame_0010.000s.png",
+          "label": "t=10s · retake candidate",
+          "evidenceStatus": "CAPTURED"
+        },
+        {
+          "kind": "capture",
+          "path": "film-qa/fleet-last-volley-30s-visual-retake-candidate-not-built/20261025_230036/frame_0014.880s.png",
+          "label": "t=14.88s · retake candidate",
+          "evidenceStatus": "CAPTURED"
+        }
+      ]
+    }
+  ],
+  "history": [
+    {
+      "revision": 1,
+      "stage": "UNITY_BUILD",
+      "status": "PREPARATION_ONLY",
+      "updatedUtc": "2026-10-22T03:02:24.018586Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000001.json"
+    },
+    {
+      "revision": 2,
+      "stage": "UNITY_BUILD",
+      "status": "SOURCE_READY_NATIVE_PENDING",
+      "updatedUtc": "2026-10-23T00:48:23.366Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000002.json"
+    },
+    {
+      "revision": 3,
+      "stage": "UNITY_BUILD",
+      "status": "WEB_PREVIEW_REPAIR_PUBLISHED_NATIVE_PENDING",
+      "updatedUtc": "2026-10-23T01:18:21.894Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000003.json"
+    },
+    {
+      "revision": 4,
+      "stage": "TARGET_REVIEW",
+      "status": "EIGHT_SHOT_TARGET_PLAN_PUBLISHED_NATIVE_NOT_RUN",
+      "updatedUtc": "2026-10-23T03:01:53.289Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000004.json"
+    },
+    {
+      "revision": 5,
+      "stage": "AUTHORING",
+      "status": "V7_VISUAL_PREVIS_PUBLISHED_NATIVE_PENDING",
+      "updatedUtc": "2026-10-25T01:50:00+03:00",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000005.json"
+    },
+    {
+      "revision": 6,
+      "stage": "AUTHORING",
+      "status": "NATIVE_V1_CANDIDATE_READY_UNITY_RESULT_UNKNOWN",
+      "updatedUtc": "2026-10-25T03:41:00+02:00",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000006.json"
+    },
+    {
+      "revision": 7,
+      "stage": "AUTHORING",
+      "status": "V1_LINT_PASS_WITH_2_WARNINGS_NATIVE_BUILD_PENDING",
+      "updatedUtc": "2026-10-25T05:18:00+02:00",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000007.json"
+    },
+    {
+      "revision": 8,
+      "stage": "UNITY_BUILD",
+      "status": "NATIVE_BASELINE_CAPTURED_ARTPACK_BUILD_PENDING",
+      "updatedUtc": "2026-10-25T10:41:49.440Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000008.json"
+    },
+    {
+      "revision": 9,
+      "stage": "REVISION",
+      "status": "ARTPACK_NATIVE_BUILD_CAPTURED_CINEMATIC_REVIEW_REQUIRED",
+      "updatedUtc": "2026-10-25T16:50:46.371Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000009.json"
+    },
+    {
+      "revision": 10,
+      "stage": "REVISION",
+      "status": "ARTPACK_NATIVE_BUILD_CAPTURED_CINEMATIC_REVIEW_REQUIRED",
+      "updatedUtc": "2026-10-25T17:01:46.526Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000010.json"
+    },
+    {
+      "revision": 11,
+      "stage": "REVISION",
+      "status": "CAMERA_DURATION_SOURCE_FIX_INSTALLED_COMPILING",
+      "updatedUtc": "2026-10-25T17:37:03.750Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000011.json"
+    },
+    {
+      "revision": 12,
+      "stage": "UNITY_BUILD",
+      "status": "NEW_STUDIO_BUILD_LINKED_CAPTURE_PENDING",
+      "updatedUtc": "2026-10-25T22:02:45Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000012.json"
+    },
+    {
+      "revision": 13,
+      "stage": "UNITY_BUILD",
+      "status": "V2_NATIVE_PREVIEW_BUILT_FILM_QA_AND_FRAMING_STILL_OPEN",
+      "updatedUtc": "2026-10-25T22:48:58.844Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000013.json"
+    },
+    {
+      "revision": 14,
+      "stage": "UNITY_BUILD",
+      "status": "V2_NATIVE_PREVIEW_BUILT_FILM_QA_AND_FRAMING_STILL_OPEN",
+      "updatedUtc": "2026-10-25T23:15:04.563Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000014.json"
+    }
+  ],
+  "lastCompletedAction": "2026-10-26 (Asia/Jerusalem): Published and linked Film QA run 20261025_230036 as a separate Editor Timeline retake candidate (projectId 27c252928a83463cbd4c2c9b88a73afc). It contains 51 frames over 30s; technical WARNINGS, cinematic REVIEW_REQUIRED, runtime NOT_TESTED. It has no build result or source hash and is not canonical V2. Live V7 browser animatic is present and manual seek to t=10 selects THE GUN segment; it is not Unity footage. The captured t=10 frame still shows a small ship without a gun closeup.",
+  "nextAction": "Review the separate 20261025_230036 retake candidate at t=10 and t=14.88, keeping its projectId separate from canonical FLEET V2. Correct the real CS_FLEET_Invasion gun anchor and subject framing in Cutscene Studio; then capture t=5, t=10 and t=15 from the canonical source and complete Film QA plus Runtime review.",
+  "inFlightAction": null,
+  "sourceArtifacts": [
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/4a1d1f2672ce1832516213c22840bb69c4ae12748da697597e409f62e96778bc-FLEET30_HANDOFF.md",
+      "label": "מסירה היסטורית מלפני הבנייה והצילום",
+      "kind": "reference",
+      "sha256": "4a1d1f2672ce1832516213c22840bb69c4ae12748da697597e409f62e96778bc",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "sourceKind": "REMOTE_TEXT_EXPORT",
+      "originalFileSha256": null
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/fleet-last-volley-30s-v1-20261023.json",
+      "kind": "source",
+      "label": "FLEET · The Last Volley · 30s V1",
+      "sha256": "0d2fcd25a85e79e036fe9d75e3c83a171a27715c26b4cddb3138adb86ba8c66b",
+      "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+      "evidenceStatus": "SOURCE_ATTACHED"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/fleet-last-volley-30s-v1-20261023-repaired.json",
+      "kind": "source",
+      "label": "FLEET corrected preview source",
+      "sha256": "c3d3ad0439ba5f418537294cd5a3d47d754ba72c69e8e113fac9ef8a9d890752",
+      "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+      "evidenceStatus": "SOURCE_ATTACHED"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/FLEET_30S_NATIVE_CANDIDATE_V1_20261025.json",
+      "kind": "source",
+      "label": "FLEET 30s native candidate V1 · eight shot timeline (UNBUILT)",
+      "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+      "sha256": "81254c51b217b92909e83c0f89452c8e773954537df6d19567116b06285c0d52",
+      "evidenceStatus": "SOURCE_ATTACHED_NATIVE_BUILD_NOT_VERIFIED"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/FLEET_30S_CATALOG_RESOLVED_CANDIDATE_V2.json",
+      "kind": "source",
+      "label": "FLEET V1 candidate V2 · native lint PASS with 2 warnings · unbuilt",
+      "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+      "evidenceStatus": "SOURCE_VALIDATED_NOT_UNITY_BUILT"
+    },
+    {
+      "path": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/report.json",
+      "kind": "report",
+      "label": "Native Unity Film QA · 53 frames · baseline requires revision",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "runId": "fleet30-native-baseline-20261025_102347"
+    },
+    {
+      "path": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/FILM_QA_VISUAL_REVIEW.pdf",
+      "kind": "report",
+      "label": "Unity visual review · 30 seconds · not accepted",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "runId": "fleet30-native-baseline-20261025_102347"
+    },
+    {
+      "path": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/frame_0010.000s.png",
+      "kind": "capture",
+      "label": "Actual Unity frame t=10",
+      "evidenceStatus": "CAPTURED",
+      "runId": "fleet30-native-baseline-20261025_102347",
+      "timeSeconds": 10,
+      "provenance": {
+        "tool": "MY_CutsceneFilmQaScannerWindow",
+        "nativeProjectId": "a1131662403b420f9cd7a31d2c32817e",
+        "report": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/report.json",
+        "captureMode": "EDITOR_TIMELINE_EVALUATION"
+      }
+    },
+    {
+      "path": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/frame_0013.820s.png",
+      "kind": "capture",
+      "label": "Actual Unity frame t=13.82",
+      "evidenceStatus": "CAPTURED",
+      "runId": "fleet30-native-baseline-20261025_102347",
+      "timeSeconds": 13.82,
+      "provenance": {
+        "tool": "MY_CutsceneFilmQaScannerWindow",
+        "nativeProjectId": "a1131662403b420f9cd7a31d2c32817e",
+        "report": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/report.json",
+        "captureMode": "EDITOR_TIMELINE_EVALUATION"
+      }
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/FLEET_ARTPACK_ANIMATED_V1_BUILD_INPUT_20261025.json",
+      "kind": "source",
+      "label": "מקור ArtPack שנבנה בפועל · 30 שניות",
+      "sha256": "c08d02d991741c1632b736c37f8768505e5d829a30a8e148981f5e2b0ec2ff8c",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/camera-clock-after-duration-repair-20261025.json",
+      "kind": "report",
+      "label": "Native camera clock and sprite probe · editor seek only",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4"
+    },
+    {
+      "kind": "unity_project",
+      "label": "FLEET חדש · פרויקט Studio מקומי · נבנה 25.10",
+      "path": "Assets/_Game/MY_Core/MY_Data/Cutscenes/Projects/FLEET_YAMATO_NEW_30S_20261025.asset",
+      "evidenceStatus": "UNITY_LOCAL_BUILD_VERIFIED_NOT_SITE_MEDIA"
+    },
+    {
+      "kind": "unity_timeline",
+      "label": "FLEET חדש · Timeline בן 30 שניות · מקומי ב־Unity",
+      "path": "Assets/_Game/MY_Core/MY_Data/Cutscenes/Generated/Stable/7b4bdd59f7d44081915538de2abddcf1/Master.playable",
+      "evidenceStatus": "UNITY_LOCAL_BUILD_VERIFIED_NOT_SITE_MEDIA"
+    },
+    {
+      "kind": "unity_prefab",
+      "label": "FLEET חדש · EditablePreview עם 8 מצלמות · מקומי ב־Unity",
+      "path": "Assets/_Game/MY_Core/MY_Data/Cutscenes/Generated/Stable/7b4bdd59f7d44081915538de2abddcf1/EditablePreview.prefab",
+      "evidenceStatus": "UNITY_LOCAL_BUILD_VERIFIED_NOT_SITE_MEDIA"
+    },
+    {
+      "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/report.json",
+      "kind": "report",
+      "label": "ArtPack camera-duration Film QA · 51 frames · review required",
+      "evidenceStatus": "CAPTURED_REVIEW_REQUIRED",
+      "runId": "fleet30-artpack-camera-clock-20261025_181354"
+    },
+    {
+      "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/frame_0010.000s.png",
+      "kind": "capture",
+      "label": "Actual Unity frame t=10 · ship remains small",
+      "evidenceStatus": "CAPTURED",
+      "runId": "fleet30-artpack-camera-clock-20261025_181354",
+      "timeSeconds": 10
+    },
+    {
+      "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/frame_0014.880s.png",
+      "kind": "capture",
+      "label": "Actual Unity frame t=14.88",
+      "evidenceStatus": "CAPTURED",
+      "runId": "fleet30-artpack-camera-clock-20261025_181354",
+      "timeSeconds": 14.88
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/FLEET_LAST_VOLLEY_VISUAL_V2_CANDIDATE.json",
+      "kind": "source",
+      "label": "FLEET Visual V2 native source input · project a54134…",
+      "evidenceStatus": "NATIVE_BUILD_SOURCE",
+      "nativeProjectId": "a54134b47dec4dddbfbcb899bdd0d189"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/build-result.json",
+      "kind": "report",
+      "label": "Visual V2 Studio build result · editable preview only",
+      "evidenceStatus": "BUILD_PASS_PREVIEW_ONLY",
+      "nativeProjectId": "a54134b47dec4dddbfbcb899bdd0d189"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/lint-result.json",
+      "kind": "report",
+      "label": "Visual V2 native lint · PASS_WITH_WARNINGS, 0 blockers",
+      "evidenceStatus": "LINT_NOT_VISUAL_QA",
+      "nativeProjectId": "a54134b47dec4dddbfbcb899bdd0d189"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/capture-receipt.txt",
+      "kind": "report",
+      "label": "Visual V2 editor snapshot receipt · six frames, not Film QA",
+      "evidenceStatus": "EDITOR_SNAPSHOTS_NOT_FILM_QA",
+      "nativeProjectId": "a54134b47dec4dddbfbcb899bdd0d189"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/preview-contact-sheet.jpg",
+      "kind": "reference",
+      "label": "Visual V2 contact sheet · composition review required",
+      "evidenceStatus": "VISUAL_REVIEW_REQUIRED",
+      "nativeProjectId": "a54134b47dec4dddbfbcb899bdd0d189"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/visual-review.md",
+      "kind": "report",
+      "label": "Visual V2 frame review · review required",
+      "evidenceStatus": "REVIEW_REQUIRED",
+      "nativeProjectId": "a54134b47dec4dddbfbcb899bdd0d189"
+    }
+  ],
+  "currentIdentity": {
+    "publishTransactionId": "20261020-040324592-9f3fa147",
+    "observedVia": "GitHub connector, original published CURRENT",
+    "status": "CURRENT_VERIFIED",
+    "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
+    "note": "Refresh at every new authoring request; this is an intake observation, not a permanent pin."
+  },
+  "currentSourcePath": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/FLEET_LAST_VOLLEY_VISUAL_V2_CANDIDATE.json",
+  "storyArc": {
+    "question": "האם ספינת הדגל תספיק להציל את הליווי לפני שהאויב יפגע בו?",
+    "threat": "אויב מתקרב אל ספינת הליווי החשופה.",
+    "decision": "המפקד מחליט לכוון את התותח ולהגן על הליווי.",
+    "action": "שלושה שיגורים נפרדים אל אויב אחד.",
+    "consequence": "האויב נפגע, הליווי ניצל, והנזק נשאר גלוי."
+  },
+  "preproductionCriteria": [
+    {
+      "question": "האם הצופה מבדיל בין הדגל, הליווי והאויב ללא תוויות?",
+      "evidence": "צילום 0–5 ו־28–30 ללא סימונים"
+    },
+    {
+      "question": "האם יש רציפות מצלמה מלאה 5–15 אחרי תותח שהוא child של CS_FLEET_Invasion?",
+      "evidence": "Game View t=5, t=10, t=15; מדידת תנועת הספינה וסיבובה; ללא cut פנימי"
+    },
+    {
+      "question": "האם יש בדיוק שלושה שיגורים מהמקורות המוגדרים?",
+      "evidence": "צילום 15–17 וספירת אירועי ירי עם יעד אחד"
+    },
+    {
+      "question": "האם הפגיעות הן באותו אויב והנזק נשאר?",
+      "evidence": "צילום 20–23, 26–28 ו־28–30; עקיבת target identity"
+    },
+    {
+      "question": "האם Anime Emotion אמיתי מחובר לדמויות ולא רק לכתוביות?",
+      "evidence": "צילום 23–26 וביקורת נכסים/זהויות CURRENT"
+    },
+    {
+      "question": "האם הסיפור מובן בלי חיצים והסברים?",
+      "evidence": "צפייה מלאה ב־30 שניות עם תוויות כבויות"
+    }
+  ],
+  "verificationProgress": {
+    "cameraTimelineDuration": 30,
+    "shotCount": 8,
+    "uncutFollowStartSeconds": 5,
+    "uncutFollowEndSeconds": 15,
+    "editorAnimationProbe": {
+      "at10": "Nautolan Ship - Battlecruiser - Weapons_Frame_4",
+      "at10_1": "Nautolan Ship - Battlecruiser - Weapons_Frame_5"
+    },
+    "generatorRegressionRed": {
+      "total": 1,
+      "failed": 1,
+      "expectedSeconds": 30,
+      "actualSeconds": 0
+    },
+    "sourceFixSha256": "aaba01329783ac8301e22938c2d7d0d5d622706001ddafc58897f773107d7af6",
+    "compile": "PASS",
+    "freshCaptureAfterDurationRepair": "COMPLETED: fleet30-artpack-camera-clock-20261025_181354 (51-frame Editor capture; framing review remains open).",
+    "runtime": "NOT_TESTED"
+  }
+}
