@@ -7,7 +7,7 @@
   "revision": 1,
   "stage": "ASSETS",
   "status": "ASSET_PREFLIGHT_OPEN_BUILDER_LOCKED",
-  "updatedUtc": "2026-10-25T12:35:00+02:00",
+  "updatedUtc": "2026-10-25T19:05:00Z",
   "originalBrief": "Recreate the simplest original 1985 Gradius Stage 1 (Volcano) as a repeatable test of our existing Level Builder. First a human-guided game-asset agent audits and finishes existing artwork, SpriteShape profiles, prefabs, spawners, volcano projectile mechanics and the right Big Core boss in Unity. Only AFTER assets are complete and accepted, the automatic Level Builder creates Layer0 v6 JSON for a NEW scene. Then Reverse Wave Authoring creates/validates enemy waves, followed by Play QA. Create a separate visible level dossier on our automatic level site. Do not redo existing art or overwrite GRAD1.",
   "approvedTargetRevision": 0,
   "targetArtifacts": [],
@@ -71,8 +71,8 @@
   ],
   "runs": [],
   "history": [],
-  "lastCompletedAction": "Read-only audit of existing Gradius art and profiles, turret, hatch and boss candidate inventory; confirmed automation not ready to claim finished; created source evidence ledger.",
-  "nextAction": "When Unity is safely available: dedicated game-asset agent inspects exact existing prefabs and animations, completes only missing Big Core/volcano/launch behavior, validates in test scene and records asset IDs + READY gate. Then new clean GRADIUS_VOLCANO_01 LevelBuilder context -> V6 JSON -> imported Layer0 -> Reverse Wave Authoring -> Play QA.",
+  "lastCompletedAction": "Verified website state, local Unity Editor, missing new scene, 15 draft waves and six published QA runs; published accurate status ledger in website repo commit 1c507c8.",
+  "nextAction": "Preserve active Unity Cutscene Workshop; validate asset gameplay and implement missing Big Core/volcano behavior; only then generate new LevelBuilder V6 scene and waves, playtest and publish proof.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -80,6 +80,12 @@
       "kind": "report",
       "label": "סוכן גרפיקה ופרופילים: נכסים, חסרים ושער מוכנות",
       "evidenceStatus": "AUDITED_READ_ONLY"
+    },
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/artifacts/LIVE_STATUS_20261025.md",
+      "kind": "report",
+      "label": "בדיקת מצב אמיתית: מה קיים, מה חסר ומה נדרש להשלמה",
+      "evidenceStatus": "VERIFIED_DESKTOP_AND_SITE"
     }
   ],
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
