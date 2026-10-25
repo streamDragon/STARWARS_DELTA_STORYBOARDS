@@ -4,10 +4,10 @@
   "id": "level-grad9-golden-gameplay",
   "kind": "level",
   "title": "GRAD9 | רמת משחק לדוגמה",
-  "revision": 2,
+  "revision": 3,
   "stage": "GAMEPLAY_QA",
-  "status": "AUTHORED_WAVES_RUNTIME_NOT_VERIFIED",
-  "updatedUtc": "2026-10-25T02:51:05.121Z",
+  "status": "SAVED_SCENE_CURRENT_QA_REQUIRED",
+  "updatedUtc": "2026-10-25T22:50:49.062Z",
   "originalBrief": "Continue the existing GRAD_9 scene as the complete sample gameplay level. Connect its current work to the website, including existing waves, routes, towers, real QA and beginning-to-victory acceptance. Preserve GRAD11 and other unsaved Unity work; do not create a replacement level.\n",
   "approvedTargetRevision": 0,
   "targetArtifacts": [],
@@ -22,17 +22,23 @@
     {
       "id": "showcase",
       "status": "OPEN",
-      "description": "Preview inspection found active QA_TOWER_SHOWCASE_10_TYPES with 12 direct tower children. Verify dependencies before disabling test-only content."
+      "description": "A prior preview found 12 active QA tower children; this was not rechecked against the 2026-10-25 saved scene."
     },
     {
       "id": "late-waves",
       "status": "OPEN",
-      "description": "Waves at km238 and km250 use 7/6 slots with 3-second teleport settings. Actual overlap, scheduler behavior and kill time remain unmeasured."
+      "description": "Prior preview notes describe km238/km250 slot and teleport settings. Actual scheduler behavior and kill time remain unmeasured for the current saved scene."
     },
     {
       "id": "published-timeline",
       "status": "OPEN",
       "description": "GRAD_9 historical images exist in repository, but no matching Timeline is in current Level QA index. A fresh native export is required; do not substitute GRAD2 or infer routes."
+    },
+    {
+      "id": "scene-freshness-20261026",
+      "status": "OPEN",
+      "description": "GRAD_9.unity was last saved 2026-10-25T19:22:43Z. No matching Level QA or continuous Play evidence exists for that saved scene; 10/21 images are historical.",
+      "replacementAction": "Inspect the current saved scene after preserving the dirty Workshop, then capture current matching Level QA and gameplay evidence."
     }
   ],
   "decisions": [],
@@ -44,10 +50,24 @@
       "status": "PLANNING",
       "updatedUtc": "2026-10-25T02:51:04.996Z",
       "snapshotPath": "workbench/projects/level-grad9-golden-gameplay/revisions/000001.json"
+    },
+    {
+      "revision": 2,
+      "stage": "GAMEPLAY_QA",
+      "status": "AUTHORED_WAVES_RUNTIME_NOT_VERIFIED",
+      "updatedUtc": "2026-10-25T02:51:05.121Z",
+      "snapshotPath": "workbench/projects/level-grad9-golden-gameplay/revisions/000002.json"
+    },
+    {
+      "revision": 3,
+      "stage": "GAMEPLAY_QA",
+      "status": "SAVED_SCENE_CURRENT_QA_REQUIRED",
+      "updatedUtc": "2026-10-25T22:50:49.062Z",
+      "snapshotPath": "workbench/projects/level-grad9-golden-gameplay/revisions/000003.json"
     }
   ],
-  "lastCompletedAction": "2026-10-25: Existing continuation plan inspected. It records native preview inspection of 22 WavesManager entries and 12 active QA showcase tower instances. No fresh continuous Play run or victory evidence. Website dossier connected; historical images remain references rather than accepted QA.",
-  "nextAction": "Preserve unsaved GRAD1; establish one Unity operator and safe save state. Continue the existing GRAD_9 scene, inspect the active QA showcase, measure actual enemy concurrency and teleport timing, then capture continuous start-to-boss-to-victory gameplay. Do not tune waves from counts alone.",
+  "lastCompletedAction": "2026-10-26: Read-only freshness check found GRAD_9.unity saved at 2026-10-25T19:22:43Z, after the archived 10/21 images and earlier preview inventory. No matching newer GRAD9 Level QA receipt or continuous Play run exists. Existing 22-wave and QA tower notes remain historical until rechecked against this saved scene.",
+  "nextAction": "Preserve the currently dirty Cutscene Workshop scene before any scene switch. Then inspect the existing saved GRAD_9 scene with the Level Builder workflow, verify its actual waves, tower showcase, routes and late-wave load, and capture matching Level QA plus a continuous start-to-victory Play run. Do not tune or accept from historical counts/images.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -73,22 +93,31 @@
       "kind": "reference",
       "label": "GRAD9 · תמונת Scene מארכיון, טרם אומתה",
       "evidenceStatus": "HISTORICAL_REFERENCE_NOT_QA_ACCEPTANCE"
+    },
+    {
+      "path": "workbench/projects/level-grad9-golden-gameplay/artifacts/NATIVE_SCENE_FRESHNESS_20261026.md",
+      "kind": "report",
+      "label": "GRAD9 · scene freshness metadata only · no current QA",
+      "evidenceStatus": "SAVED_SCENE_QA_REQUIRED"
     }
   ],
   "currentIdentity": {
     "primaryScenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRAD_9.unity",
     "nativeEvidence": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\plans\\GRAD9_GOLDEN_GAMEPLAY_PASS_20261025.md",
-    "runtime": "NOT_TESTED"
+    "runtime": "NOT_TESTED",
+    "sceneLastModifiedUtc": "2026-10-25T19:22:43Z",
+    "latestMatchingQaRunId": null,
+    "evidenceFreshness": "SAVED_SCENE_NEWER_THAN_AVAILABLE_QA"
   },
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRAD_9.unity",
   "workStatus": {
     "scene": "GRAD_9",
-    "source": "Continuation plan with prior native preview findings; no fresh gameplay validation",
-    "summary": "22 גלים מוגדרים קיימים לפי בדיקת Preview שתועדה. עדיין חסרה הוכחת משחק רציף עד ניצחון; גלריית מגדלי QA פעילה ועומס סוף הרמה דורשים בדיקה.",
+    "source": "Earlier Level Builder preview notes plus 2026-10-26 read-only scene metadata; no current gameplay validation",
+    "summary": "הסצנה נשמרה מחדש ב־25.10; ספירת 22 הגלים ו־12 מגדלי QA מתועדת מבדיקה קודמת בלבד. אין צילום QA או משחק רציף שתואמים לשמירה הנוכחית.",
     "tasks": [
       {
         "title": "לשמור על העבודה הפעילה",
-        "detail": "Unity נבדקה ב־25.10 ונמצאה על GRAD1 עם שינויים שלא נשמרו. אין להחליף סצנה או לדרוס עבודה.",
+        "detail": "Unity currently has a dirty Cutscene Workshop. Preserve it before switching to GRAD_9.",
         "acceptance": "מפעיל יחיד מאשר מצב שמירה בטוח לפני פתיחת GRAD_9."
       },
       {

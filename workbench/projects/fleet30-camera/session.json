@@ -4,10 +4,10 @@
   "id": "fleet30-camera",
   "kind": "film",
   "title": "FLEET · הוכחת מצלמה 30 שניות",
-  "revision": 12,
+  "revision": 13,
   "stage": "UNITY_BUILD",
-  "status": "NEW_STUDIO_BUILD_LINKED_CAPTURE_PENDING",
-  "updatedUtc": "2026-10-26T00:00:00Z",
+  "status": "V2_NATIVE_PREVIEW_BUILT_FILM_QA_AND_FRAMING_STILL_OPEN",
+  "updatedUtc": "2026-10-25T22:48:58.844Z",
   "originalBrief": "Use actual CS_FLEET_Invasion prefab (13 ships). One continuous follow shot Master 5–15s, inspect t=10 after ship translation and rotation. Wide and detail proof.",
   "approvedTargetRevision": 0,
   "targetArtifacts": [
@@ -444,8 +444,8 @@
     },
     {
       "request": "Measured camera integration",
-      "replacementAction": "Existing movie duration repaired to 30. Regression RED reproduced the generator bug; guarded materializer duration fix installed. Await fresh compile, focused tests and new capture.",
-      "status": "CONTENT_AND_SOURCE_DURATION_FIXED_VERIFICATION_PENDING"
+      "replacementAction": "The child camera timeline reached 30s and the repaired ArtPack capture completed. At t=10/14.88 the ship remains too small; correct composition, inspect the real gun-local Transform and verify t=5/10/15.",
+      "status": "CLOCK_REPAIR_CAPTURED_FRAMING_OPEN"
     },
     {
       "request": "Uninterrupted gun follow at 5–15 in actual FLEET 13-ship prefab",
@@ -476,8 +476,15 @@
     {
       "request": "Native baseline fails cannon framing and screen occupancy",
       "status": "OPEN",
-      "runId": "fleet30-native-baseline-20261025_102347",
-      "replacementAction": "Continue the detached ArtPack source through the canonical Studio. Verify actual animated ship/weapon materialization; capture uninterrupted 5–15 tracking and visible cannon; reduce composition obstruction through existing authoring and presentation controls. Preserve the baseline and manual edits."
+      "runId": "fleet30-artpack-camera-clock-20261025_181354",
+      "replacementAction": "The latest native ArtPack frames still fail the requested gun close-up and ship scale. Refine existing camera/actor composition and bind a real inspected muzzle child before acceptance."
+    },
+    {
+      "request": "Visual V2 build has editor snapshots but no matching Film QA",
+      "status": "OPEN",
+      "projectId": "a54134b47dec4dddbfbcb899bdd0d189",
+      "description": "Visual V2 built an editable preview, but six snapshots are not a continuous Film QA. The fleet overlaps at t=10 and fleetVisible=0 at t=24.3.",
+      "replacementAction": "Fix composition and continuity in the existing authoring workflow, then capture this exact project through Film QA with matching run evidence."
     }
   ],
   "decisions": [],
@@ -1228,6 +1235,79 @@
       "durationSeconds": 30
     },
     {
+      "id": "fleet30-artpack-camera-clock-20261025_181354",
+      "label": "Native ArtPack QA after camera duration repair · 30s · composition still requires revision",
+      "projectId": "3f576197c1684adb8a811847ed7d10b4",
+      "generatedUtc": "2026-10-25T18:13:54.2725722Z",
+      "build": "PASS",
+      "capture": "COMPLETED",
+      "technical": "WARNINGS",
+      "cinematic": "REVIEW_REQUIRED",
+      "runtime": "NOT_TESTED",
+      "frameCount": 51,
+      "durationSeconds": 30,
+      "eventCount": 12,
+      "reviewFlagCount": 5,
+      "artifacts": [
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/report.json",
+          "kind": "report",
+          "label": "Unity Film QA · 51 frames · 30s · visual review required",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-camera-clock-20261025_181354"
+        },
+        {
+          "path": "workbench/projects/fleet30-camera/artifacts/camera-clock-after-duration-repair-20261025.json",
+          "kind": "report",
+          "label": "Camera clock proof · child director reaches 30s",
+          "evidenceStatus": "CLOCK_PROBE_EDITOR_ONLY",
+          "runId": "fleet30-artpack-camera-clock-20261025_181354"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/CHATGPT_REVIEW.md",
+          "kind": "report",
+          "label": "Frame review brief",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-camera-clock-20261025_181354"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/FILM_QA_3_AUDIT.json",
+          "kind": "report",
+          "label": "Audit · 0 black frames; not full technical clearance",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-camera-clock-20261025_181354"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/frame_0010.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=10 · ship remains small",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-camera-clock-20261025_181354",
+          "timeSeconds": 10,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/frame_0014.880s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=14.88 · end of continuous shot",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-camera-clock-20261025_181354",
+          "timeSeconds": 14.88,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        }
+      ]
+    },
+    {
       "id": "fleet30-new-studio-build-20261025",
       "projectId": "7b4bdd59f7d44081915538de2abddcf1",
       "sceneName": "FLEET YAMATO | 30 Seconds New Camera Film",
@@ -1237,7 +1317,64 @@
       "cinematic": "NOT_ACCEPTED",
       "runtime": "NOT_TESTED",
       "artifacts": [],
-      "notes": "Verified Unity build files: Master.playable (30s) and EditablePreview.prefab (8 Cinemachine virtual cameras). New project revision 1. Source is a sprite-proxy V1 candidate. No Unity footage or acceptance proof yet."
+      "notes": "Verified Unity build files: Master.playable (30s) and EditablePreview.prefab (8 Cinemachine virtual cameras). New project revision 1. Source is a sprite-proxy V1 candidate. No Unity footage or acceptance proof yet.",
+      "generatedUtc": "2026-10-25T22:02:45Z",
+      "note": "Native Master.playable and EditablePreview.prefab exist for project 7b4bdd59f7d44081915538de2abddcf1. No matching Film QA capture is published."
+    },
+    {
+      "id": "fleet30-visual-v2-editor-preview-20261026",
+      "label": "FLEET Visual V2 · editable Unity preview · six editor snapshots, not Film QA",
+      "projectId": "a54134b47dec4dddbfbcb899bdd0d189",
+      "generatedUtc": "2026-10-25T22:13:52.829Z",
+      "build": "PASS",
+      "capture": "NOT_RUN",
+      "technical": "NOT_TESTED",
+      "cinematic": "REVIEW_REQUIRED",
+      "runtime": "NOT_TESTED",
+      "frameCount": 0,
+      "previewFrameCount": 6,
+      "durationSeconds": 30,
+      "blockers": 0,
+      "lint": "PASS_WITH_WARNINGS",
+      "materializationWarnings": 3,
+      "artifacts": [
+        {
+          "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/FLEET_LAST_VOLLEY_VISUAL_V2_CANDIDATE.json",
+          "kind": "source",
+          "label": "Native Visual V2 source input · SHA-256 5BC0B647…544735",
+          "evidenceStatus": "NATIVE_BUILD_SOURCE"
+        },
+        {
+          "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/build-result.json",
+          "kind": "report",
+          "label": "Studio build · editable preview built, 3 materialization warnings",
+          "evidenceStatus": "BUILD_PASS_PREVIEW_ONLY"
+        },
+        {
+          "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/lint-result.json",
+          "kind": "report",
+          "label": "Native lint · PASS_WITH_WARNINGS, 0 blockers",
+          "evidenceStatus": "LINT_NOT_VISUAL_QA"
+        },
+        {
+          "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/capture-receipt.txt",
+          "kind": "report",
+          "label": "Six editor snapshots · t=0.5–29.5 · not Film QA",
+          "evidenceStatus": "EDITOR_SNAPSHOTS_NOT_FILM_QA"
+        },
+        {
+          "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/preview-contact-sheet.jpg",
+          "kind": "reference",
+          "label": "V2 preview contact sheet · fleet overlaps at t=10; absent at t=24.3",
+          "evidenceStatus": "VISUAL_REVIEW_REQUIRED"
+        },
+        {
+          "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/visual-review.md",
+          "kind": "report",
+          "label": "Visual V2 review · no Film QA acceptance",
+          "evidenceStatus": "REVIEW_REQUIRED"
+        }
+      ]
     }
   ],
   "history": [
@@ -1310,16 +1447,32 @@
       "status": "ARTPACK_NATIVE_BUILD_CAPTURED_CINEMATIC_REVIEW_REQUIRED",
       "updatedUtc": "2026-10-25T17:01:46.526Z",
       "snapshotPath": "workbench/projects/fleet30-camera/revisions/000010.json"
+    },
+    {
+      "revision": 11,
+      "stage": "REVISION",
+      "status": "CAMERA_DURATION_SOURCE_FIX_INSTALLED_COMPILING",
+      "updatedUtc": "2026-10-25T17:37:03.750Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000011.json"
+    },
+    {
+      "revision": 12,
+      "stage": "UNITY_BUILD",
+      "status": "NEW_STUDIO_BUILD_LINKED_CAPTURE_PENDING",
+      "updatedUtc": "2026-10-25T22:02:45Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000012.json"
+    },
+    {
+      "revision": 13,
+      "stage": "UNITY_BUILD",
+      "status": "V2_NATIVE_PREVIEW_BUILT_FILM_QA_AND_FRAMING_STILL_OPEN",
+      "updatedUtc": "2026-10-25T22:48:58.844Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000013.json"
     }
   ],
-  "lastCompletedAction": "Linked the new Unity Studio build project 7b4bdd59f7d44081915538de2abddcf1 (revision 1) to the FLEET workbench as a distinct run. Master.playable 30 seconds and EditablePreview.prefab with 8 Cinemachine cameras exist locally. This is not the prior native artpack capture; no new capture is published.",
-  "nextAction": "Capture this exact new Studio build in Unity, replace sprite proxy with real CS_FLEET_Invasion prefab, verify continuous 5–15s muzzle follow and shooting; publish capture tied to project ID 7b4bdd59f7d44081915538de2abddcf1 and run ID. Do not treat old QA captures or animatic V7 as footage of this build.",
-  "inFlightAction": {
-    "type": "UNITY_RECOMPILE",
-    "requestId": "camera-duration-source-fix-20261025",
-    "status": "RUNNING",
-    "reason": "Guarded source fix AABA01329783AC8301E22938C2D7D0D5D622706001DDAFC58897F773107D7AF6 installed after verified native regression RED; one compile requested. Inspect its original status before tests or captures."
-  },
+  "lastCompletedAction": "2026-10-26 (Asia/Jerusalem): Confirmed the camera-duration fix compiles and the ArtPack 30s timeline captured 51 Unity frames. The 5–15s camera interval is present; t=10/t=14.88 still show the ship very small. Its report is technical WARNINGS, cinematic REVIEW_REQUIRED, runtime NOT_TESTED. Separately built Visual V2 project a54134b47dec4dddbfbcb899bdd0d189 as an editable preview (5 actors, 8 sequences, 3 materialization warnings). Six editor snapshots show the fleet overlapping at t=10 and fleetVisible=0 at t=24.3. This is not Film QA or acceptance.",
+  "nextAction": "The Workshop scene currently has unsaved changes; preserve and inspect that state before switching scenes. Then use existing Cutscene Studio controls to correct ship/gun framing and verify a real CS_FLEET_Invasion child anchor. Capture actual frames at t=5, 10 and 15 and run full native Film QA. Keep the separate 7b4bdd59f7d44081915538de2abddcf1 Studio build and a54134b47dec4dddbfbcb899bdd0d189 Visual V2 project distinct until each has its own matching review.",
+  "inFlightAction": null,
   "sourceArtifacts": [
     {
       "path": "workbench/projects/fleet30-camera/artifacts/4a1d1f2672ce1832516213c22840bb69c4ae12748da697597e409f62e96778bc-FLEET30_HANDOFF.md",
@@ -1435,6 +1588,71 @@
       "label": "FLEET חדש · EditablePreview עם 8 מצלמות · מקומי ב־Unity",
       "path": "Assets/_Game/MY_Core/MY_Data/Cutscenes/Generated/Stable/7b4bdd59f7d44081915538de2abddcf1/EditablePreview.prefab",
       "evidenceStatus": "UNITY_LOCAL_BUILD_VERIFIED_NOT_SITE_MEDIA"
+    },
+    {
+      "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/report.json",
+      "kind": "report",
+      "label": "ArtPack camera-duration Film QA · 51 frames · review required",
+      "evidenceStatus": "CAPTURED_REVIEW_REQUIRED",
+      "runId": "fleet30-artpack-camera-clock-20261025_181354"
+    },
+    {
+      "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/frame_0010.000s.png",
+      "kind": "capture",
+      "label": "Actual Unity frame t=10 · ship remains small",
+      "evidenceStatus": "CAPTURED",
+      "runId": "fleet30-artpack-camera-clock-20261025_181354",
+      "timeSeconds": 10
+    },
+    {
+      "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_181354/frame_0014.880s.png",
+      "kind": "capture",
+      "label": "Actual Unity frame t=14.88",
+      "evidenceStatus": "CAPTURED",
+      "runId": "fleet30-artpack-camera-clock-20261025_181354",
+      "timeSeconds": 14.88
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/FLEET_LAST_VOLLEY_VISUAL_V2_CANDIDATE.json",
+      "kind": "source",
+      "label": "FLEET Visual V2 native source input · project a54134…",
+      "evidenceStatus": "NATIVE_BUILD_SOURCE",
+      "nativeProjectId": "a54134b47dec4dddbfbcb899bdd0d189"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/build-result.json",
+      "kind": "report",
+      "label": "Visual V2 Studio build result · editable preview only",
+      "evidenceStatus": "BUILD_PASS_PREVIEW_ONLY",
+      "nativeProjectId": "a54134b47dec4dddbfbcb899bdd0d189"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/lint-result.json",
+      "kind": "report",
+      "label": "Visual V2 native lint · PASS_WITH_WARNINGS, 0 blockers",
+      "evidenceStatus": "LINT_NOT_VISUAL_QA",
+      "nativeProjectId": "a54134b47dec4dddbfbcb899bdd0d189"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/capture-receipt.txt",
+      "kind": "report",
+      "label": "Visual V2 editor snapshot receipt · six frames, not Film QA",
+      "evidenceStatus": "EDITOR_SNAPSHOTS_NOT_FILM_QA",
+      "nativeProjectId": "a54134b47dec4dddbfbcb899bdd0d189"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/preview-contact-sheet.jpg",
+      "kind": "reference",
+      "label": "Visual V2 contact sheet · composition review required",
+      "evidenceStatus": "VISUAL_REVIEW_REQUIRED",
+      "nativeProjectId": "a54134b47dec4dddbfbcb899bdd0d189"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/visual-review.md",
+      "kind": "report",
+      "label": "Visual V2 frame review · review required",
+      "evidenceStatus": "REVIEW_REQUIRED",
+      "nativeProjectId": "a54134b47dec4dddbfbcb899bdd0d189"
     }
   ],
   "currentIdentity": {
@@ -1444,7 +1662,7 @@
     "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
     "note": "Refresh at every new authoring request; this is an intake observation, not a permanent pin."
   },
-  "currentSourcePath": "workbench/projects/fleet30-camera/artifacts/FLEET_30S_CATALOG_RESOLVED_CANDIDATE_V2.json",
+  "currentSourcePath": "workbench/projects/fleet30-camera/artifacts/native-v2-20261026/FLEET_LAST_VOLLEY_VISUAL_V2_CANDIDATE.json",
   "storyArc": {
     "question": "האם ספינת הדגל תספיק להציל את הליווי לפני שהאויב יפגע בו?",
     "threat": "אויב מתקרב אל ספינת הליווי החשופה.",

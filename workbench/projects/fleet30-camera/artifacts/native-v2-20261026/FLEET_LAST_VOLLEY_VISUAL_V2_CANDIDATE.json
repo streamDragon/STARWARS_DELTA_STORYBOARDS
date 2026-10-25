@@ -1,0 +1,543 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+  "schemaVersion": 1,
+  "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
+  "authoringRuleRegistryRevision": "DD86C108076E923DD28F7B9444B8EA5F389CE8A492B5E9012C74BDB72D7A8F54",
+  "title": "FLEET - LAST VOLLEY 30S - VISUAL V2 CANDIDATE",
+  "creativeIntent": "A 30-second Yamato-inspired causal fleet film: reveal a massive capital ship, urgent radio command, gun-close-up and silent emotion, three precisely timed launches from ships at one target, three target-specific impacts, then visible aftermath and the survivors returning to wide composition. Uses verified CURRENT sprite handles as a web-visible cinematic source. Original 13-ship CS_FLEET_Invasion prefab remains the Unity integration target and is not falsely claimed to be bound. Visual V2: bridge-backed pilot reaction instead of spaceport market; remove repeated editorial banners so action remains visible. Original V1 and original generated Unity film remain untouched.",
+  "durationSeconds": 30,
+  "cast": [
+    {
+      "id": "fleet_battlecruiser",
+      "materialHandle": "animation__50f77fef",
+      "displayName": "Nautolan Battlecruiser · original ArtPack weapon animation",
+      "semanticRole": "hero",
+      "entityKind": "Spaceship"
+    },
+    {
+      "id": "fleet_wing",
+      "materialHandle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+      "displayName": "FLEET Escort",
+      "semanticRole": "escort"
+    },
+    {
+      "id": "fleet_target",
+      "materialHandle": "2dspaceshipsfreetrialatlassideviewred_0__fae3f618",
+      "displayName": "Enemy Interceptor",
+      "semanticRole": "target"
+    },
+    {
+      "id": "fleet_commander",
+      "identityHandle": "MARK_VENTURE_01",
+      "displayName": "Fleet Commander",
+      "semanticRole": "captain"
+    },
+    {
+      "id": "fleet_comms",
+      "identityHandle": "FEMALE_COMMS_01",
+      "displayName": "Comms Officer",
+      "semanticRole": "communicator"
+    }
+  ],
+  "moves": [],
+  "beats": [
+    {
+      "id": "YAM_01_ESTABLISH",
+      "type": "custom",
+      "durationSeconds": 5,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "The fleet emerges against a much larger threat; establish scale and bearings before weapons.",
+      "dramaticFunction": "build",
+      "energy": "medium",
+      "evidence": "Authored cinematic beat. CURRENT handles verified; browser preview is a simplified depiction, not Unity runtime or full asset/prefab fidelity.",
+      "camera": {
+        "framing": "extreme_wide",
+        "movement": "hold",
+        "subject": "fleet_battlecruiser",
+        "purpose": "FLEET GRAND REVEAL"
+      },
+      "visible": [
+        {
+          "id": "fleet_battlecruiser",
+          "handle": "animation__50f77fef",
+          "role": "ship",
+          "screenX": 0.42,
+          "screenY": 0.52,
+          "screenWidthFraction": 0.28,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "fleet_wing",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "role": "ship",
+          "screenX": 0.18,
+          "screenY": 0.66,
+          "screenWidthFraction": 0.17,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "fleet_battlecruiser",
+          "motionIntent": "move",
+          "speed": "slow",
+          "duration": 4.9,
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.38,
+              "y": 0.5
+            },
+            {
+              "x": 0.58,
+              "y": 0.52
+            }
+          ],
+          "animationHandle": "animation__50f77fef"
+        }
+      ],
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "captions": [],
+      "dialogue": [
+        {
+          "speaker": "fleet_comms",
+          "listener": "fleet_commander",
+          "text": "Enemy ship approaching. Our escort is exposed.",
+          "delivery": "warning",
+          "presentation": "radio",
+          "expressionIntent": "Urgent",
+          "voice": "text_only"
+        }
+      ]
+    },
+    {
+      "id": "YAM_02_GUN_FOLLOW_UNCUT",
+      "type": "custom",
+      "durationSeconds": 10,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "One unbroken ten-second detail shot of moving gun at 5-15; native child gun binding still required.",
+      "dramaticFunction": "build",
+      "energy": "medium",
+      "evidence": "Authored cinematic beat. CURRENT handles verified; browser preview is a simplified depiction, not Unity runtime or full asset/prefab fidelity.",
+      "camera": {
+        "framing": "detail",
+        "movement": "follow",
+        "subject": "fleet_battlecruiser",
+        "purpose": "UNBROKEN GUN FOLLOW 5-15; real muzzle child currently missing"
+      },
+      "visible": [
+        {
+          "id": "fleet_battlecruiser",
+          "handle": "animation__50f77fef",
+          "role": "ship",
+          "screenX": 0.48,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.4,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "fleet_battlecruiser",
+          "motionIntent": "move",
+          "speed": "slow",
+          "duration": 9.8,
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.38,
+              "y": 0.5
+            },
+            {
+              "x": 0.58,
+              "y": 0.52
+            }
+          ],
+          "animationHandle": "animation__50f77fef"
+        }
+      ],
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "captions": []
+    },
+    {
+      "id": "YAM_03_THREE_FIRE",
+      "type": "battle",
+      "durationSeconds": 2,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Battlecruiser and escort fire three separate staggered volleys toward the same enemy.",
+      "dramaticFunction": "impact",
+      "energy": "high",
+      "evidence": "Authored cinematic beat. CURRENT handles verified; browser preview is a simplified depiction, not Unity runtime or full asset/prefab fidelity.",
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "subject": "fleet_battlecruiser",
+        "purpose": "3-SOURCE-PASS FIRE READABILITY"
+      },
+      "visible": [
+        {
+          "id": "fleet_battlecruiser",
+          "handle": "animation__50f77fef",
+          "role": "ship",
+          "screenX": 0.42,
+          "screenY": 0.34,
+          "screenWidthFraction": 0.25,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "fleet_target",
+          "handle": "2dspaceshipsfreetrialatlassideviewred_0__fae3f618",
+          "role": "ship",
+          "screenX": 0.73,
+          "screenY": 0.5,
+          "screenWidthFraction": 0.17,
+          "depth": "mid",
+          "saliency": "support"
+        },
+        {
+          "id": "fleet_wing",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "role": "ship",
+          "screenX": 0.17,
+          "screenY": 0.72,
+          "screenWidthFraction": 0.12,
+          "depth": "mid",
+          "saliency": "support"
+        }
+      ],
+      "actions": [
+        {
+          "type": "fire",
+          "subject": "fleet_battlecruiser",
+          "target": "fleet_target",
+          "projectileId": "CS_PROJECTILE_BLUE_BOLT",
+          "startOffset": 0.12,
+          "duration": 0.65,
+          "impactMode": "target_anchor"
+        },
+        {
+          "type": "fire",
+          "subject": "fleet_wing",
+          "target": "fleet_target",
+          "projectileId": "CS_PROJECTILE_BLUE_BOLT",
+          "startOffset": 0.53,
+          "duration": 0.65,
+          "impactMode": "target_anchor"
+        },
+        {
+          "type": "fire",
+          "subject": "fleet_battlecruiser",
+          "target": "fleet_target",
+          "projectileId": "CS_PROJECTILE_BLUE_BOLT",
+          "startOffset": 0.97,
+          "duration": 0.65,
+          "impactMode": "target_anchor"
+        }
+      ],
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "captions": [],
+      "dialogue": [
+        {
+          "speaker": "fleet_commander",
+          "text": "All batteries. Fire.",
+          "delivery": "command",
+          "presentation": "radio",
+          "expressionIntent": "Defiant",
+          "voice": "text_only"
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "anomaly_shot_line_1_ec8291332c44__78109af7",
+          "startOffsetSeconds": 0.35,
+          "durationSeconds": 1.2,
+          "volume": 0.7
+        }
+      ]
+    },
+    {
+      "id": "YAM_04_FLIGHT",
+      "type": "battle",
+      "durationSeconds": 3,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Track flight corridor toward the enemy and keep its physical screen direction legible.",
+      "dramaticFunction": "build",
+      "energy": "medium",
+      "evidence": "Authored cinematic beat. CURRENT handles verified; browser preview is a simplified depiction, not Unity runtime or full asset/prefab fidelity.",
+      "camera": {
+        "framing": "medium",
+        "movement": "track",
+        "subject": "fleet_target",
+        "purpose": "PROJECTILE CORRIDOR AND ENEMY REVEAL"
+      },
+      "visible": [
+        {
+          "id": "fleet_target",
+          "handle": "2dspaceshipsfreetrialatlassideviewred_0__fae3f618",
+          "role": "ship",
+          "screenX": 0.73,
+          "screenY": 0.5,
+          "screenWidthFraction": 0.23,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "captions": []
+    },
+    {
+      "id": "YAM_05_THREE_IMPACTS",
+      "type": "battle",
+      "durationSeconds": 3,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Three staggered impacts on ONE enemy hull; explosions must resolve at the actual target.",
+      "dramaticFunction": "impact",
+      "energy": "high",
+      "evidence": "Authored cinematic beat. CURRENT handles verified; browser preview is a simplified depiction, not Unity runtime or full asset/prefab fidelity.",
+      "camera": {
+        "framing": "close",
+        "movement": "hold",
+        "subject": "fleet_target",
+        "purpose": "3 HITS SAME PHYSICAL HULL"
+      },
+      "visible": [
+        {
+          "id": "fleet_battlecruiser",
+          "handle": "animation__50f77fef",
+          "role": "ship",
+          "screenX": 0.48,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.23,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "fleet_target",
+          "handle": "2dspaceshipsfreetrialatlassideviewred_0__fae3f618",
+          "role": "ship",
+          "screenX": 0.73,
+          "screenY": 0.5,
+          "screenWidthFraction": 0.23,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "impact",
+          "subject": "fleet_target",
+          "target": "fleet_target",
+          "startOffset": 0.25,
+          "duration": 0.5,
+          "impactMode": "target_anchor"
+        },
+        {
+          "type": "impact",
+          "subject": "fleet_target",
+          "target": "fleet_target",
+          "startOffset": 0.95,
+          "duration": 0.5,
+          "impactMode": "target_anchor"
+        },
+        {
+          "type": "impact",
+          "subject": "fleet_target",
+          "target": "fleet_target",
+          "startOffset": 1.65,
+          "duration": 0.5,
+          "impactMode": "target_anchor"
+        }
+      ],
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "captions": []
+    },
+    {
+      "id": "YAM_06_HUMAN_REACTION",
+      "type": "custom",
+      "durationSeconds": 3,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Emotional reaction: comms sees confirmed hits and escort survives. Native portrait binding required.",
+      "dramaticFunction": "build",
+      "energy": "medium",
+      "evidence": "Authored cinematic beat. CURRENT handles verified; browser preview is a simplified depiction, not Unity runtime or full asset/prefab fidelity.",
+      "camera": {
+        "framing": "close",
+        "movement": "hold",
+        "subject": "fleet_comms",
+        "purpose": "HUMAN REACTION SHOCK TO RELIEF"
+      },
+      "visible": [],
+      "actions": [],
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "captions": []
+    },
+    {
+      "id": "YAM_07_PERSISTENT_DAMAGE",
+      "type": "custom",
+      "durationSeconds": 2,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Hold on the struck enemy: ruin, smoke or burn must still be visible after the flashes.",
+      "dramaticFunction": "aftermath",
+      "energy": "medium",
+      "evidence": "Authored cinematic beat. CURRENT handles verified; browser preview is a simplified depiction, not Unity runtime or full asset/prefab fidelity.",
+      "camera": {
+        "framing": "medium",
+        "movement": "pull",
+        "subject": "fleet_target",
+        "purpose": "VISIBLE LINGERING DAMAGE"
+      },
+      "visible": [
+        {
+          "id": "fleet_battlecruiser",
+          "handle": "animation__50f77fef",
+          "role": "ship",
+          "screenX": 0.48,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.23,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "fleet_target",
+          "handle": "2dspaceshipsfreetrialatlassideviewred_0__fae3f618",
+          "role": "ship",
+          "screenX": 0.73,
+          "screenY": 0.5,
+          "screenWidthFraction": 0.17,
+          "depth": "mid",
+          "saliency": "support"
+        }
+      ],
+      "actions": [],
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "captions": [],
+      "dialogue": []
+    },
+    {
+      "id": "YAM_08_FINAL_WIDE",
+      "type": "custom",
+      "durationSeconds": 2,
+      "locationHandle": "1__b51063db",
+      "storyClaim": "Retreat to fleet wide without hiding the wounded enemy and the cost of the attack.",
+      "dramaticFunction": "aftermath",
+      "energy": "medium",
+      "evidence": "Authored cinematic beat. CURRENT handles verified; browser preview is a simplified depiction, not Unity runtime or full asset/prefab fidelity.",
+      "camera": {
+        "framing": "extreme_wide",
+        "movement": "hold",
+        "subject": "fleet_battlecruiser",
+        "purpose": "FLEET AND DAMAGE TOGETHER"
+      },
+      "visible": [
+        {
+          "id": "fleet_battlecruiser",
+          "handle": "animation__50f77fef",
+          "role": "ship",
+          "screenX": 0.42,
+          "screenY": 0.52,
+          "screenWidthFraction": 0.25,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "fleet_wing",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "role": "ship",
+          "screenX": 0.18,
+          "screenY": 0.66,
+          "screenWidthFraction": 0.17,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "fleet_target",
+          "handle": "2dspaceshipsfreetrialatlassideviewred_0__fae3f618",
+          "role": "ship",
+          "screenX": 0.73,
+          "screenY": 0.5,
+          "screenWidthFraction": 0.17,
+          "depth": "mid",
+          "saliency": "support"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "fleet_battlecruiser",
+          "motionIntent": "move",
+          "speed": "slow",
+          "duration": 1.9,
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.38,
+              "y": 0.5
+            },
+            {
+              "x": 0.58,
+              "y": 0.52
+            }
+          ],
+          "animationHandle": "animation__50f77fef"
+        }
+      ],
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "captions": []
+    }
+  ],
+  "animeEmotion": [
+    {
+      "characterId": "ANIME_SPACE_PILOT_01",
+      "expression": "SHOCKED",
+      "startSeconds": 23.2,
+      "durationSeconds": 0.8,
+      "framing": "FACE",
+      "motionStyle": "IMPACT_SHAKE",
+      "caption": "TARGET HIT",
+      "captionKind": "impact",
+      "backgroundId": "BG/COMMAND_BRIDGE"
+    },
+    {
+      "characterId": "ANIME_SPACE_PILOT_01",
+      "expression": "SMILE",
+      "startSeconds": 24.4,
+      "durationSeconds": 1.2,
+      "framing": "FACE",
+      "motionStyle": "PUSH_IN",
+      "caption": "ESCORT SAFE",
+      "captionKind": "impact",
+      "backgroundId": "BG/COMMAND_BRIDGE"
+    }
+  ]
+}

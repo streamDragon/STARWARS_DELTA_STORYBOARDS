@@ -1,0 +1,171 @@
+{
+  "schema": "STARWARS_DELTA_V1_CANDIDATE_LINT",
+  "schemaVersion": 1,
+  "status": "PASS",
+  "qualityStatus": "PASS_WITH_WARNINGS",
+  "mode": "EDITABLE_CREATION",
+  "blockers": 0,
+  "warnings": 2,
+  "qualityWarningCount": 2,
+  "recoveryCount": 0,
+  "qualitySuggestions": [
+    "Optional review: beat 'YAM_05_THREE_IMPACTS' contains FIRE or IMPACT without an explicit linked, executable payoff in this or a later beat. Target(s): fleet_target. Narrative labels and story claims are intent, not visual evidence. Metadata cannot confirm what was rendered; the film QA must verify each physical source, hit and aftermath. Beat indices refer to the effective shot plan after MOVE planning and may differ from source JSON indices.",
+    "Dialogue YAM_03_THREE_FIRE_shot_line_1 has no reaction cue.",
+    "Show the cause of the enemy withdrawal before its exit: a legal shot, near-miss, impact, or visible reaction, using exact CURRENT assets.",
+    "Give the withdrawal a readable reaction or aftermath hold, rather than relying on narrative text alone."
+  ],
+  "corrections": [],
+  "issues": [
+    {
+      "code": "CINEMATIC_CAUSE_WITHOUT_DECLARED_CONSEQUENCE",
+      "ruleId": "",
+      "severity": "Warning",
+      "statusColor": "Yellow",
+      "owner": "Backend",
+      "phase": "simple-authoring",
+      "jsonPath": "$.beats[4]",
+      "message": "Optional review: beat 'YAM_05_THREE_IMPACTS' contains FIRE or IMPACT without an explicit linked, executable payoff in this or a later beat. Target(s): fleet_target. Narrative labels and story claims are intent, not visual evidence. Metadata cannot confirm what was rendered; the film QA must verify each physical source, hit and aftermath. Beat indices refer to the effective shot plan after MOVE planning and may differ from source JSON indices.",
+      "expected": "",
+      "actual": "",
+      "correction": "",
+      "resolution": "",
+      "blocksEditablePreview": false,
+      "blocksFinalReadiness": false
+    },
+    {
+      "code": "",
+      "ruleId": "",
+      "severity": "Info",
+      "statusColor": "Info",
+      "owner": "Backend",
+      "phase": "",
+      "jsonPath": "",
+      "message": "Project story idea is empty; package creativeIntent remains authoritative for this Preview.",
+      "expected": "",
+      "actual": "",
+      "correction": "",
+      "resolution": "",
+      "blocksEditablePreview": false,
+      "blocksFinalReadiness": false
+    },
+    {
+      "code": "",
+      "ruleId": "",
+      "severity": "Info",
+      "statusColor": "Info",
+      "owner": "Backend",
+      "phase": "",
+      "jsonPath": "",
+      "message": "Dialogue YAM_01_ESTABLISH_shot_line_1 voice clip is missing. Timed text is the canonical fallback.",
+      "expected": "",
+      "actual": "",
+      "correction": "",
+      "resolution": "",
+      "blocksEditablePreview": false,
+      "blocksFinalReadiness": false
+    },
+    {
+      "code": "",
+      "ruleId": "",
+      "severity": "Info",
+      "statusColor": "Info",
+      "owner": "Backend",
+      "phase": "",
+      "jsonPath": "",
+      "message": "Dialogue YAM_01_ESTABLISH_shot_line_1 has no explicit listener portrait; the selected preset may use its identity-safe built-in fallback.",
+      "expected": "",
+      "actual": "",
+      "correction": "",
+      "resolution": "",
+      "blocksEditablePreview": false,
+      "blocksFinalReadiness": false
+    },
+    {
+      "code": "",
+      "ruleId": "",
+      "severity": "Info",
+      "statusColor": "Info",
+      "owner": "Backend",
+      "phase": "",
+      "jsonPath": "",
+      "message": "Dialogue YAM_03_THREE_FIRE_shot_line_1 voice clip is missing. Timed text is the canonical fallback.",
+      "expected": "",
+      "actual": "",
+      "correction": "",
+      "resolution": "",
+      "blocksEditablePreview": false,
+      "blocksFinalReadiness": false
+    },
+    {
+      "code": "",
+      "ruleId": "",
+      "severity": "Info",
+      "statusColor": "Info",
+      "owner": "Backend",
+      "phase": "",
+      "jsonPath": "",
+      "message": "Dialogue YAM_03_THREE_FIRE_shot_line_1 has no explicit listener portrait; the selected preset may use its identity-safe built-in fallback.",
+      "expected": "",
+      "actual": "",
+      "correction": "",
+      "resolution": "",
+      "blocksEditablePreview": false,
+      "blocksFinalReadiness": false
+    },
+    {
+      "code": "",
+      "ruleId": "",
+      "severity": "Warning",
+      "statusColor": "Yellow",
+      "owner": "Backend",
+      "phase": "",
+      "jsonPath": "",
+      "message": "Dialogue YAM_03_THREE_FIRE_shot_line_1 has no reaction cue.",
+      "expected": "",
+      "actual": "",
+      "correction": "",
+      "resolution": "",
+      "blocksEditablePreview": false,
+      "blocksFinalReadiness": false
+    }
+  ],
+  "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
+  "catalogRevision": "7621615034856763583",
+  "runtimePackageSchemaHash": "20BC45812997959895409B091BDD24AB388964776C265D6E6C5A1718AF2028DA",
+  "authoringRuleRegistryRevision": "DD86C108076E923DD28F7B9444B8EA5F389CE8A492B5E9012C74BDB72D7A8F54",
+  "strictReadinessBlockers": 0,
+  "warningGroups": [
+    {
+      "code": "CINEMATIC_CAUSE_WITHOUT_DECLARED_CONSEQUENCE",
+      "assetId": "",
+      "count": 1,
+      "samplePaths": [
+        "$.beats[4]"
+      ]
+    },
+    {
+      "code": "",
+      "assetId": "",
+      "count": 1,
+      "samplePaths": [
+        ""
+      ]
+    }
+  ],
+  "directingReview": [
+    {
+      "code": "DIRECTING_RETREAT_WITHOUT_VISIBLE_CAUSE",
+      "beatId": "YAM_08_FINAL_WIDE",
+      "severity": "Advisory",
+      "suggestion": "Show the cause of the enemy withdrawal before its exit: a legal shot, near-miss, impact, or visible reaction, using exact CURRENT assets."
+    },
+    {
+      "code": "DIRECTING_WITHDRAWAL_REACTION_UNCLEAR",
+      "beatId": "YAM_08_FINAL_WIDE",
+      "severity": "Advisory",
+      "suggestion": "Give the withdrawal a readable reaction or aftermath hold, rather than relying on narrative text alone."
+    }
+  ],
+  "directingReviewCount": 2,
+  "currentIdentity": "catalog=7621615034856763583;freshness=catalog:639281657881173579;vision:639279931999279245;combined:7621615034856763583;schema=20BC45812997959895409B091BDD24AB388964776C265D6E6C5A1718AF2028DA;contract=95376DF60D51CAE3357F3CDB3C1C6BA8A4AC92C6E845CB2B282E76C0EE838101;enum=95376DF60D51CAE3357F3CDB3C1C6BA8A4AC92C6E845CB2B282E76C0EE838101;rules=DD86C108076E923DD28F7B9444B8EA5F389CE8A492B5E9012C74BDB72D7A8F54"
+}

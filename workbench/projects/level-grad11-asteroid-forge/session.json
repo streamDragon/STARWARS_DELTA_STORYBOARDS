@@ -4,10 +4,10 @@
   "id": "level-grad11-asteroid-forge",
   "kind": "level",
   "title": "GRAD11 | Asteroid Forge (GRAD11 + V2)",
-  "revision": 3,
+  "revision": 4,
   "stage": "LEVEL_QA",
-  "status": "PARTIAL_FIX_COMMITTED_WAVES_MISSING",
-  "updatedUtc": "2026-10-25T00:50:00Z",
+  "status": "PARTIAL_FIX_SMOKE_LINKED_WAVES_AND_ACCEPTANCE_OPEN",
+  "updatedUtc": "2026-10-25T22:50:49.062Z",
   "originalBrief": "Connect existing GRAD11 and GRAD11_V2 construction to our Storyboards website dossier and continue missing work. The live screenshot shows GRAD11 as primary; preserve V2 separately.",
   "approvedTargetRevision": 0,
   "targetArtifacts": [
@@ -50,8 +50,8 @@
   "gaps": [
     {
       "id": "gap-1",
-      "status": "OPEN",
-      "description": "Unsaved GRAD11* in screenshot; verify live Editor before save"
+      "status": "RECHECK_CURRENT_STATE",
+      "description": "A 10/24 report says the GRAD11 scene was saved and checked in after the startup smoke. The current primary scene metadata is 2026-10-25T00:07:36Z, later than both PNG files; verify the saved state before acceptance."
     },
     {
       "id": "gap-2",
@@ -97,6 +97,12 @@
       "id": "waves-20261024",
       "status": "OPEN",
       "description": "WavesManager serialized stages empty; no authored waves."
+    },
+    {
+      "id": "smoke-evidence-scope-20261026",
+      "status": "OPEN",
+      "description": "The Oct 24 native screenshots are startup smoke evidence, not Level QA; current scene and gameplay acceptance are open.",
+      "replacementAction": "Use them as reference, then capture fresh Level QA and integrated Play for the current saved GRAD11 scene."
     }
   ],
   "decisions": [],
@@ -158,6 +164,20 @@
       "status": "PARTIAL_FIX_COMMITTED_WAVES_MISSING",
       "updatedUtc": "2026-10-24T18:45:46.787Z",
       "snapshotPath": "workbench/projects/level-grad11-asteroid-forge/revisions/000002.json"
+    },
+    {
+      "revision": 3,
+      "stage": "LEVEL_QA",
+      "status": "PARTIAL_FIX_COMMITTED_WAVES_MISSING",
+      "updatedUtc": "2026-10-25T00:50:00Z",
+      "snapshotPath": "workbench/projects/level-grad11-asteroid-forge/revisions/000003.json"
+    },
+    {
+      "revision": 4,
+      "stage": "LEVEL_QA",
+      "status": "PARTIAL_FIX_SMOKE_LINKED_WAVES_AND_ACCEPTANCE_OPEN",
+      "updatedUtc": "2026-10-25T22:50:49.062Z",
+      "snapshotPath": "workbench/projects/level-grad11-asteroid-forge/revisions/000004.json"
     }
   ],
   "sourceArtifacts": [
@@ -206,12 +226,30 @@
     {
       "path": "workbench/projects/level-grad11-asteroid-forge/artifacts/GRAD11_NATIVE_FIX_AND_PLAY_QA_20261024.md",
       "kind": "report",
-      "label": "Native GRAD11 fixes, Plastic cs9493 and Play QA smoke",
-      "evidenceStatus": "LOCAL_VERIFIED_NOT_PUBLISHED"
+      "label": "Native GRAD11 partial fix and startup smoke report · not full Level QA",
+      "evidenceStatus": "PUBLISHED_REPORT_IMAGES_LINKED_NOT_ACCEPTED"
+    },
+    {
+      "path": "workbench/projects/level-grad11-asteroid-forge/artifacts/GRAD11_SCENE_QA_20261024.png",
+      "kind": "reference",
+      "label": "GRAD11 native Scene screenshot · startup smoke reference",
+      "evidenceStatus": "NATIVE_CAPTURE_NOT_LEVEL_QA"
+    },
+    {
+      "path": "workbench/projects/level-grad11-asteroid-forge/artifacts/GRAD11_PLAY_QA_20261024.png",
+      "kind": "reference",
+      "label": "GRAD11 native Play screenshot · startup smoke only",
+      "evidenceStatus": "NATIVE_CAPTURE_NOT_LEVEL_QA"
+    },
+    {
+      "path": "workbench/projects/level-grad11-asteroid-forge/artifacts/GRAD11_SITE_ATTACHMENT_20261026.md",
+      "kind": "report",
+      "label": "GRAD11 · evidence scope and attachment note",
+      "evidenceStatus": "SMOKE_ONLY_NOT_LEVEL_QA"
     }
   ],
-  "lastCompletedAction": "2026-10-24: Native Unity GRAD11 reactor art names corrected; Play Mode smoke capture taken, scene saved, checked in Plastic MAIN cs9493 and workspace verified clean. B_OUTER_FLOOR renderer unresolved (bounds width zero), WavesManager stages empty.",
-  "nextAction": "Read GRAD11_NATIVE_FIX_AND_PLAY_QA_20261024.md. Fix B_OUTER_FLOOR SpriteShape bounds, visual cohesion, verify towers and destructibles, independent Level QA, then Reverse Wave JSON.",
+  "lastCompletedAction": "2026-10-26: Linked the native 10/24 scene and startup Play smoke screenshots referenced by the Plastic MAIN cs9493 report. They show startup only; the report's B_OUTER_FLOOR bounds issue and empty WavesManager remain unresolved. Current Level QA entries are still the older Oct 22 runs, NOT_REVIEWED/PENDING.",
+  "nextAction": "The active Unity editor still has an unsaved Cutscene Workshop scene; preserve it before switching. Reopen the current saved GRAD11 scene only after that handoff, verify B_OUTER_FLOOR and the actual WavesManager state, then run matching Level QA. Next test destructibles, towers, tunnels and four-player clearance; create waves only through the existing Reverse Wave Authoring JSON flow.",
   "inFlightAction": null,
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRAD11.unity",
   "linkedScenePaths": [
@@ -221,7 +259,12 @@
     "primaryScenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRAD11.unity",
     "linkedScenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRAD11_V2.unity",
     "latestPrimaryRunId": "level-GRAD11-20261022040035744",
-    "latestV2RunId": "level-GRAD11_V2-20261022003343526"
+    "latestV2RunId": "level-GRAD11_V2-20261022003343526",
+    "primarySceneLastModifiedUtc": "2026-10-25T00:07:36Z",
+    "v2SceneLastModifiedUtc": "2026-10-22T02:38:24Z",
+    "latestMatchingPrimaryQaRunId": "level-GRAD11-20261022040035744",
+    "latestMatchingV2QaRunId": "level-GRAD11_V2-20261022003343526",
+    "latestRuntimeEvidence": "STARTUP_SMOKE_ONLY_NOT_FULL_LEVEL_QA"
   },
   "workStatus": {
     "scene": "GRAD11",
