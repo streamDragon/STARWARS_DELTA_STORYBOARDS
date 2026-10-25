@@ -1,0 +1,111 @@
+{
+  "schema": "STARWARS_DELTA_AUTHORING_SESSION",
+  "version": 1,
+  "id": "level-grad9-golden-gameplay",
+  "kind": "level",
+  "title": "GRAD9 | רמת משחק לדוגמה",
+  "revision": 2,
+  "stage": "GAMEPLAY_QA",
+  "status": "AUTHORED_WAVES_RUNTIME_NOT_VERIFIED",
+  "updatedUtc": "2026-10-25T02:51:05.121Z",
+  "originalBrief": "Continue the existing GRAD_9 scene as the complete sample gameplay level. Connect its current work to the website, including existing waves, routes, towers, real QA and beginning-to-victory acceptance. Preserve GRAD11 and other unsaved Unity work; do not create a replacement level.\n",
+  "approvedTargetRevision": 0,
+  "targetArtifacts": [],
+  "storyboard": [],
+  "assets": [],
+  "gaps": [
+    {
+      "id": "runtime",
+      "status": "OPEN",
+      "description": "No continuous beginning-to-victory Play evidence or multiplayer smoke verification."
+    },
+    {
+      "id": "showcase",
+      "status": "OPEN",
+      "description": "Preview inspection found active QA_TOWER_SHOWCASE_10_TYPES with 12 direct tower children. Verify dependencies before disabling test-only content."
+    },
+    {
+      "id": "late-waves",
+      "status": "OPEN",
+      "description": "Waves at km238 and km250 use 7/6 slots with 3-second teleport settings. Actual overlap, scheduler behavior and kill time remain unmeasured."
+    },
+    {
+      "id": "published-timeline",
+      "status": "OPEN",
+      "description": "GRAD_9 historical images exist in repository, but no matching Timeline is in current Level QA index. A fresh native export is required; do not substitute GRAD2 or infer routes."
+    }
+  ],
+  "decisions": [],
+  "runs": [],
+  "history": [
+    {
+      "revision": 1,
+      "stage": "BRIEF",
+      "status": "PLANNING",
+      "updatedUtc": "2026-10-25T02:51:04.996Z",
+      "snapshotPath": "workbench/projects/level-grad9-golden-gameplay/revisions/000001.json"
+    }
+  ],
+  "lastCompletedAction": "2026-10-25: Existing continuation plan inspected. It records native preview inspection of 22 WavesManager entries and 12 active QA showcase tower instances. No fresh continuous Play run or victory evidence. Website dossier connected; historical images remain references rather than accepted QA.",
+  "nextAction": "Preserve unsaved GRAD1; establish one Unity operator and safe save state. Continue the existing GRAD_9 scene, inspect the active QA showcase, measure actual enemy concurrency and teleport timing, then capture continuous start-to-boss-to-victory gameplay. Do not tune waves from counts alone.",
+  "inFlightAction": null,
+  "sourceArtifacts": [
+    {
+      "path": "workbench/projects/level-grad9-golden-gameplay/artifacts/CONTINUATION.md",
+      "kind": "report",
+      "label": "GRAD9 · ממצאים, פערים והמשך העבודה",
+      "evidenceStatus": "AUTHORED"
+    },
+    {
+      "path": "level-qa/level-GRAD_9-20261014213900238/scene_with_wave_overlay.svg",
+      "kind": "reference",
+      "label": "GRAD9 · תרשים גלים היסטורי, לא מצב נוכחי",
+      "evidenceStatus": "HISTORICAL_REFERENCE_NOT_QA_ACCEPTANCE"
+    },
+    {
+      "path": "level-qa/level-GRAD_9-20261014213900238/game_view.png",
+      "kind": "reference",
+      "label": "GRAD9 · תמונת Game View מארכיון, טרם אומתה",
+      "evidenceStatus": "HISTORICAL_REFERENCE_NOT_QA_ACCEPTANCE"
+    },
+    {
+      "path": "level-qa/level-GRAD_9-20261014213900238/scene_overview.png",
+      "kind": "reference",
+      "label": "GRAD9 · תמונת Scene מארכיון, טרם אומתה",
+      "evidenceStatus": "HISTORICAL_REFERENCE_NOT_QA_ACCEPTANCE"
+    }
+  ],
+  "currentIdentity": {
+    "primaryScenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRAD_9.unity",
+    "nativeEvidence": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\plans\\GRAD9_GOLDEN_GAMEPLAY_PASS_20261025.md",
+    "runtime": "NOT_TESTED"
+  },
+  "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRAD_9.unity",
+  "workStatus": {
+    "scene": "GRAD_9",
+    "source": "Continuation plan with prior native preview findings; no fresh gameplay validation",
+    "summary": "22 גלים מוגדרים קיימים לפי בדיקת Preview שתועדה. עדיין חסרה הוכחת משחק רציף עד ניצחון; גלריית מגדלי QA פעילה ועומס סוף הרמה דורשים בדיקה.",
+    "tasks": [
+      {
+        "title": "לשמור על העבודה הפעילה",
+        "detail": "Unity נבדקה ב־25.10 ונמצאה על GRAD1 עם שינויים שלא נשמרו. אין להחליף סצנה או לדרוס עבודה.",
+        "acceptance": "מפעיל יחיד מאשר מצב שמירה בטוח לפני פתיחת GRAD_9."
+      },
+      {
+        "title": "להמשיך את GRAD9 הקיימת",
+        "detail": "לבדוק את 22 הגלים ואת 12 מגדלי תצוגת QA באמצעות Unity; לא ליצור רמה חדשה.",
+        "acceptance": "גלים, Spawn ומסלולים נבדקו בסצנה האמיתית."
+      },
+      {
+        "title": "לבדוק משחק עד ניצחון",
+        "detail": "למדוד עומס אויבים בסוף הרמה, לבדוק ירי, פגיעות, בוס, ניצחון ושני שחקנים.",
+        "acceptance": "ריצת Play רציפה עם פריימים מתועדים ותוצאות מקוריות."
+      },
+      {
+        "title": "לחבר גלים וצילומים לאתר",
+        "detail": "להפיק Timeline ו־Level QA תואמים לסצנה ולפרסם דרך המסלול הקיים. תמונות ארכיון אינן ראיה למצב הנוכחי.",
+        "acceptance": "נגן הגלים מציג נתוני GRAD_9 והצילום תואם לריצה."
+      }
+    ]
+  }
+}
