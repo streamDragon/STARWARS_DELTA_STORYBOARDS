@@ -4,10 +4,10 @@
   "id": "fleet30-camera",
   "kind": "film",
   "title": "FLEET · הוכחת מצלמה 30 שניות",
-  "revision": 11,
-  "stage": "REVISION",
-  "status": "CAMERA_DURATION_SOURCE_FIX_INSTALLED_COMPILING",
-  "updatedUtc": "2026-10-25T17:37:03.750Z",
+  "revision": 12,
+  "stage": "UNITY_BUILD",
+  "status": "NEW_STUDIO_BUILD_LINKED_CAPTURE_PENDING",
+  "updatedUtc": "2026-10-26T00:00:00Z",
   "originalBrief": "Use actual CS_FLEET_Invasion prefab (13 ships). One continuous follow shot Master 5–15s, inspect t=10 after ship translation and rotation. Wide and detail proof.",
   "approvedTargetRevision": 0,
   "targetArtifacts": [
@@ -1226,6 +1226,18 @@
         "scope": "Source-art repair and native visual evidence only; this does not establish animation playback, cinematic acceptance, or runtime validation."
       },
       "durationSeconds": 30
+    },
+    {
+      "id": "fleet30-new-studio-build-20261025",
+      "projectId": "7b4bdd59f7d44081915538de2abddcf1",
+      "sceneName": "FLEET YAMATO | 30 Seconds New Camera Film",
+      "build": "PASS",
+      "capture": "NOT_RUN",
+      "technical": "NOT_TESTED",
+      "cinematic": "NOT_ACCEPTED",
+      "runtime": "NOT_TESTED",
+      "artifacts": [],
+      "notes": "Verified Unity build files: Master.playable (30s) and EditablePreview.prefab (8 Cinemachine virtual cameras). New project revision 1. Source is a sprite-proxy V1 candidate. No Unity footage or acceptance proof yet."
     }
   ],
   "history": [
@@ -1300,8 +1312,8 @@
       "snapshotPath": "workbench/projects/fleet30-camera/revisions/000010.json"
     }
   ],
-  "lastCompletedAction": "2026-10-25: Native checks identified the camera Timeline had FixedLength duration 0 despite 8 shots spanning 30 seconds. Corrected and saved only that Timeline duration, preserving shot timing (5–15 uncut). A new editor seek proves master/content/camera clocks all advance to 10 and 10.1 seconds; Cinemachine selects YAM_02 at size 2.25 after normal Brain update; actual hero sprites change Frame_4 to Frame_5. This verifies Timeline sprite animation and clock repair, not runtime/cinematic acceptance. Existing capture 20261025_165840 predates the duration repair. The native regression test then failed exactly as expected (1 test, expected 30 seconds, actual 0). Installed the guarded 9-line materializer duration fix after that RED result; compilation is pending.",
-  "nextAction": "Inspect the original current compilation outcome. After fresh compile/Editor-ready proof, run the focused Cinemachine materializer suite and confirm GREEN. Then recapture all 8 shots, refine cannon-local framing and overlay timing, and publish matching evidence. Never replay an unknown native action.",
+  "lastCompletedAction": "Linked the new Unity Studio build project 7b4bdd59f7d44081915538de2abddcf1 (revision 1) to the FLEET workbench as a distinct run. Master.playable 30 seconds and EditablePreview.prefab with 8 Cinemachine cameras exist locally. This is not the prior native artpack capture; no new capture is published.",
+  "nextAction": "Capture this exact new Studio build in Unity, replace sprite proxy with real CS_FLEET_Invasion prefab, verify continuous 5–15s muzzle follow and shooting; publish capture tied to project ID 7b4bdd59f7d44081915538de2abddcf1 and run ID. Do not treat old QA captures or animatic V7 as footage of this build.",
   "inFlightAction": {
     "type": "UNITY_RECOMPILE",
     "requestId": "camera-duration-source-fix-20261025",
@@ -1405,6 +1417,24 @@
       "label": "Native camera clock and sprite probe · editor seek only",
       "evidenceStatus": "SOURCE_ATTACHED",
       "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4"
+    },
+    {
+      "kind": "unity_project",
+      "label": "FLEET חדש · פרויקט Studio מקומי · נבנה 25.10",
+      "path": "Assets/_Game/MY_Core/MY_Data/Cutscenes/Projects/FLEET_YAMATO_NEW_30S_20261025.asset",
+      "evidenceStatus": "UNITY_LOCAL_BUILD_VERIFIED_NOT_SITE_MEDIA"
+    },
+    {
+      "kind": "unity_timeline",
+      "label": "FLEET חדש · Timeline בן 30 שניות · מקומי ב־Unity",
+      "path": "Assets/_Game/MY_Core/MY_Data/Cutscenes/Generated/Stable/7b4bdd59f7d44081915538de2abddcf1/Master.playable",
+      "evidenceStatus": "UNITY_LOCAL_BUILD_VERIFIED_NOT_SITE_MEDIA"
+    },
+    {
+      "kind": "unity_prefab",
+      "label": "FLEET חדש · EditablePreview עם 8 מצלמות · מקומי ב־Unity",
+      "path": "Assets/_Game/MY_Core/MY_Data/Cutscenes/Generated/Stable/7b4bdd59f7d44081915538de2abddcf1/EditablePreview.prefab",
+      "evidenceStatus": "UNITY_LOCAL_BUILD_VERIFIED_NOT_SITE_MEDIA"
     }
   ],
   "currentIdentity": {
