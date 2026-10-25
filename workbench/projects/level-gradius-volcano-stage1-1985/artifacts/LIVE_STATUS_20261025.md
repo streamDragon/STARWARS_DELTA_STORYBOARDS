@@ -26,3 +26,10 @@
 6. Run full stage Play QA to victory, publish Scene/Game View screenshots and timeline, then Plastic MAIN check-in and RunSmartPublish. Do not claim completion before those receipts.
 
 **Result of this audit: ASSETS BLOCKED, GAMEPLAY NOT TESTED.** This report is documentary evidence only.
+
+
+## Continuation: generator repair verified
+- Confirmed actual `TOWER_MISSILES_CUTE.prefab` at `Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_TURRET_ENEMY/TOWER_MISSILES_CUTE.prefab`; corrected bad `_TowerBases/` path in staging generator `GRADIUS_STAGE1_VOLCANO_20261025/build_from_levelbuilder_context.py`.
+- Added fail-closed protection: if mandatory tower prefabs are absent from the fresh CURRENT Builder catalog, generator throws an explicit error **before producing import JSON**. No silent omission.
+- Ran `python -m py_compile build_from_levelbuilder_context.py` PASS; ran generator without LevelBuilder context PASS; parsed generated draft `GRADIUS_VOLCANO_01_WAVES.json`: 15 entries. **No Unity import, real Big Core or Play pass claimed.**
+- Plastic workspace `/main@STARWARS_DELTA@firebird721@cloud` changeset 9509; unrelated modified `Assets/Tests/WaveSpawnPlacementLivePlayModeTests.cs` remains untouched.
