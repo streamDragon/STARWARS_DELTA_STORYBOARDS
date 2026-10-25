@@ -1,0 +1,122 @@
+{
+  "schema": "STARWARS_DELTA_AUTHORING_SESSION",
+  "version": 1,
+  "id": "level-gradius-volcano-stage1-1985",
+  "kind": "level",
+  "title": "GRADIUS 1985 | Stage 1 Volcano",
+  "revision": 1,
+  "stage": "ASSETS",
+  "status": "ASSET_PREFLIGHT_OPEN_BUILDER_LOCKED",
+  "updatedUtc": "2026-10-25T12:35:00+02:00",
+  "originalBrief": "Recreate the simplest original 1985 Gradius Stage 1 (Volcano) as a repeatable test of our existing Level Builder. First a human-guided game-asset agent audits and finishes existing artwork, SpriteShape profiles, prefabs, spawners, volcano projectile mechanics and the right Big Core boss in Unity. Only AFTER assets are complete and accepted, the automatic Level Builder creates Layer0 v6 JSON for a NEW scene. Then Reverse Wave Authoring creates/validates enemy waves, followed by Play QA. Create a separate visible level dossier on our automatic level site. Do not redo existing art or overwrite GRAD1.",
+  "approvedTargetRevision": 0,
+  "targetArtifacts": [],
+  "storyboard": [],
+  "assets": [
+    {
+      "path": "Assets/_Game/MY_Core/MY_Art/Gradious",
+      "state": "DISCOVERED_NOT_QA"
+    },
+    {
+      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/GRADIUS_MOUNTAIN.png",
+      "state": "DISCOVERED_NOT_QA"
+    },
+    {
+      "path": "Assets/_Game/MY_Core/MY_Data/LevelAuthoring/SpriteShapeProfiles/SSP_FIRE_RICH.asset",
+      "state": "DISCOVERED_NOT_QA"
+    },
+    {
+      "path": "Assets/_Game/MY_Core/MY_Art/VOLCANO/fire_volacno.prefab",
+      "state": "DISCOVERED_NOT_QA"
+    },
+    {
+      "path": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_TURRET_ENEMY/TOWER_AIRBASE_LAUNCHER.prefab",
+      "state": "DISCOVERED_NOT_QA"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "art-qa",
+      "status": "OPEN",
+      "description": "Validate existing sprites, profile and animations before any level recipe."
+    },
+    {
+      "id": "volcano-runtime",
+      "status": "OPEN",
+      "description": "Verify existing volcano crater system can eject timed destructible rocks."
+    },
+    {
+      "id": "boss-correctness",
+      "status": "OPEN",
+      "description": "Build or verify true Big Core shield/core/laser behavior; no generic boss proxy."
+    },
+    {
+      "id": "hatches",
+      "status": "OPEN",
+      "description": "Verify two launcher types and prefab-relative launch origin."
+    },
+    {
+      "id": "editor-busy",
+      "status": "BLOCKED",
+      "description": "Unity has an unsaved SCENE_Cutscene_Workshop modal. Do not dismiss or overwrite other scene."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "user-order-20261025",
+      "type": "USER_DIRECTION",
+      "reference": "User explicitly required designer agent finish all graphics/prefabs/bosses before automated Level Builder JSON.",
+      "description": "Preflight asset readiness gates Level Builder; split ownership between game-asset and JSON generation agents."
+    }
+  ],
+  "runs": [],
+  "history": [],
+  "lastCompletedAction": "Read-only audit of existing Gradius art and profiles, turret, hatch and boss candidate inventory; confirmed automation not ready to claim finished; created source evidence ledger.",
+  "nextAction": "When Unity is safely available: dedicated game-asset agent inspects exact existing prefabs and animations, completes only missing Big Core/volcano/launch behavior, validates in test scene and records asset IDs + READY gate. Then new clean GRADIUS_VOLCANO_01 LevelBuilder context -> V6 JSON -> imported Layer0 -> Reverse Wave Authoring -> Play QA.",
+  "inFlightAction": null,
+  "sourceArtifacts": [
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/artifacts/ASSET_READINESS.md",
+      "kind": "report",
+      "label": "סוכן גרפיקה ופרופילים: נכסים, חסרים ושער מוכנות",
+      "evidenceStatus": "AUDITED_READ_ONLY"
+    }
+  ],
+  "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
+  "currentIdentity": {
+    "primaryScenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
+    "sceneExists": false,
+    "artReady": false,
+    "levelJsonAllowed": false,
+    "levelBuild": "NOT_RUN",
+    "waves": "DRAFT_LOCAL_ONLY",
+    "play": "NOT_TESTED"
+  },
+  "workStatus": {
+    "scene": "GRADIUS_VOLCANO_01",
+    "source": "Remote read-only art inventory; asset QA pending",
+    "summary": "גרפיקת גרדיוס קיימת בכמות משמעותית. קודם מאמתים ומשלימים פרופילים, מפלצות, הרי געש, משגרי חלליות ובוס Big Core. ה־Level Builder נעול עד שכל חומרי המשחק מוכנים.",
+    "tasks": [
+      {
+        "title": "סוכן נכסי המשחק",
+        "detail": "לבדוק SpriteShape, אנימציות, אויבים, משגרים, הר געש ובוס ב־Unity; לתקן רק מה שחסר, לא לייצר מחדש.",
+        "acceptance": "Prefab/Controller/Collider + Play checks documented, current catalog asset IDs and explicit ASSETS_READY receipt."
+      },
+      {
+        "title": "בוס והר געש",
+        "detail": "להבטיח Big Core עם מגינים וליבה פגיעה וגלי סלעים משני לועות הרי געש.",
+        "acceptance": "Evidence from actual gameplay, not proxy."
+      },
+      {
+        "title": "סוכן Level Builder",
+        "detail": "רק אחרי ASSETS_READY, ליצור scene חדשה ו־Layer0 V6 עם CURRENT catalog.",
+        "acceptance": "Official importer success and real Layer0 screenshot."
+      },
+      {
+        "title": "WavesManager + QA",
+        "detail": "לייצא COPY AI מן הסצנה, לייצר גלים דרך Reverse ולבדוק עד סוף.",
+        "acceptance": "Waves import and continuous gameplay proof."
+      }
+    ]
+  }
+}
