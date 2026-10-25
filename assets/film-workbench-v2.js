@@ -138,6 +138,19 @@ async function reload(){
   await loadProject(id,version)
  }catch(e){if(version!==request)return;status('לא ניתן לטעון את מרכז הסרטים: '+e.message,true)}
 }
+// The film animatic has a fixed 960x540 authoring viewport. Scale the entire
+// document at small widths rather than clipping its artwork and controls.
+function resizePlayer(){
+ const frame=$('film-preview'),screen=document.querySelector('.screen');
+ if(!frame||!screen)return;
+ const width=screen.clientWidth||960;
+ frame.style.position='absolute';frame.style.top='0';frame.style.right='0';
+ frame.style.width='960px';frame.style.height='540px';
+ frame.style.transformOrigin='top right';frame.style.transform='scale('+(width/960)+')';
+}
+if(typeof ResizeObserver==='function')new ResizeObserver(resizePlayer).observe(document.querySelector('.screen'));
+else window.addEventListener('resize',resizePlayer);
 $('refresh').onclick=reload;
+resizePlayer();
 reload();
 })();
