@@ -124,6 +124,54 @@ async function copyText(t){
   const box=el('textarea');box.value=t;box.rows=8;box.style.width='100%';const note=$('notice');note.replaceChildren(el('span','העתקה אוטומטית לא זמינה. אפשר להעתיק מהתיבה: '),box);box.select()
  }
 }
+
+function renderNativeReview(s){
+ const pending=$('pending-native');
+ const action=s.inFlightAction;
+ const outstanding=action&&['QUEUED','SUBMITTED','RUNNING','UNKNOWN','SCHEDULED'].includes(String(action.status||'').toUpperCase());
+ if(outstanding){
+   pending.hidden=false;
+   pending.textContent='פעולת Unity קיימת ממתינה לבדיקה: '+(action.requestId||action.id||'ללא מזהה')+'. יש לבדוק את התוצאה המקורית לפני הפעלת בנייה נוספת.';
+ }else pending.hidden=true;
+ const panel=$('native-review'),host=$('native-review-images');
+ host.replaceChildren();
+ const runs=Array.isArray(s.runs)?s.runs:[];
+ const captureRuns=runs.filter(r=>['COMPLETED','CAPTURED'].includes(String(runStatus(r,'capture')).toUpperCase())&&(r.artifacts||[]).some(a=>a.kind==='capture'&&a.runId===r.id&&a.path));
+ const run=captureRuns[captureRuns.length-1];
+ if(!run){panel.hidden=true;return;}
+ const captures=(run.artifacts||[]).filter(a=>a.kind==='capture'&&a.runId===run.id&&typeof a.path==='string'&&a.path.startsWith('film-qa/')&&!a.path.includes('..'));
+ if(!captures.length){panel.hidden=true;return}
+ const sorted=captures.slice().sort((a,b)=>(Number(a.timeSeconds)||0)-(Number(b.timeSeconds)||0));
+ function nearest(seconds,exclude){
+   return sorted.reduce((best,cur)=>{
+      if(exclude&&cur.path===exclude.path)return best;
+      if(!best)return cur;
+      return Math.abs((cur.timeSeconds||0)-seconds)<Math.abs((best.timeSeconds||0)-seconds)?cur:best;
+   },null);
+ }
+ const first=nearest(10),second=nearest(14,first);
+ const images=[];
+ if(first)images.push({path:first.path,label:'צילום Unity · t='+Number(first.timeSeconds).toFixed(2)+'s',description:'צילום אמיתי של הריצה '+run.id,kind:'native'});
+ if(second)images.push({path:second.path,label:'צילום Unity · t='+Number(second.timeSeconds).toFixed(2)+'s',description:'אותה ריצה, זמן שונה',kind:'native'});
+ if(s.id==='fleet30-camera')images.push({path:'films/fleet-stills-v7/02-YAM_02_GUN_FOLLOW.png',label:'תמונת יעד · אנימטיק V7',description:'תכנון בלבד. לא פריים מ־Unity',kind:'plan'});
+ for(const item of images){
+   const fig=el('figure',undefined,'native-evidence'),link=el('a');
+   link.href=item.path;link.target='_blank';link.rel='noopener';
+   const image=el('img');image.src=item.path;image.alt=item.label;image.loading='lazy';
+   link.append(image);
+   const cap=el('figcaption');cap.append(el('strong',item.label),el('span',item.description));
+   fig.append(link,cap);host.append(fig);
+ }
+ const report=(run.artifacts||[]).find(a=>a.kind==='report'&&typeof a.path==='string'&&a.path.startsWith('film-qa/')&&a.path.endsWith('/report.json')&&!a.path.includes('..'));
+ const reportLink=$('native-review-report');reportLink.hidden=!report;if(report)reportLink.href=report.path;
+ $('native-review-text').textContent='צילומי מקור מ־Unity מאותה ריצה: '+run.id+'. תמונת האנימטיק היא ייחוס חזותי בלבד.';
+ const failed=['FAILED','FAIL','NOT_ACCEPTED'].includes(String(run.cinematic||'').toUpperCase());
+ $('native-review-verdict').textContent=failed?'הריצה הזו לא אושרה':'הריצה הזו דורשת סקירה';
+ const findings=run.review?.findings;
+ $('native-review-findings').textContent=Array.isArray(findings)&&findings.length?findings.join(' • '):'עדיין נדרשת השוואה חזותית לתכנון לפני אישור.';
+ panel.hidden=false;
+}
+
 function render(s){
  session=s;set('film-title',s.title||s.id);set('film-type',(s.id==='fleet30-camera'?'FLEET · 30 שניות':'סרט · תיק עבודה')+' · '+(s.storyboard||[]).length+' שוטים');
  const a=actionText(s);set('current-stage',labels[s.stage]||s.stage);set('stage-explanation',s.id==='fleet30-camera'?'תכנון ואנימטיק קיימים. הסרט עצמו עדיין דורש בנייה, צילום ובדיקות ב־Unity.':'שלב העבודה הנוכחי: '+(labels[s.stage]||s.stage)+'. המצב נקבע לפי היומן, לא לפי הדמיה.');
@@ -136,7 +184,7 @@ function render(s){
  if(pv){preview.removeAttribute('srcdoc');preview.src=pv+(pv.includes('?')?'&':'?')+'embed=1';link.href=pv;link.hidden=false;set('preview-state','תצוגת הכנה · לא צילום Unity')}
  else{emptyFrame('עדיין לא נוצר אנימטיק לצפייה בסרט הזה.');link.hidden=true;set('preview-state','אין תצוגה מצולמת זמינה')}
  const sb='storyboard.html?session='+encodeURIComponent(s.id);$('storyboard-link').href=sb;$('full-storyboard').href=sb;
- renderReadiness(s);renderShots(s);renderQA(s);renderSources(s);
+ renderReadiness(s);renderShots(s);renderQA(s);renderNativeReview(s);renderSources(s);
  const select=$('project-select');select.value=s.id;
  const url=new URL(location.href);url.searchParams.set('id',s.id);history.replaceState(null,'',url);
  status('נתוני התיק נטענו בהצלחה · גרסה '+s.revision+' · מקור: '+(base?.includes('raw.githubusercontent')?'GitHub MAIN':'האתר'));

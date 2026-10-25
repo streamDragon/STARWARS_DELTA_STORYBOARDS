@@ -6,8 +6,8 @@
 <meta name="description" content="מרכז עבודה ברור לסרטים ב־STARWARS_DELTA: צפייה, מצב בנייה, בדיקות והמשך עבודה.">
 <title>מרכז הסרטים · STARWARS_DELTA</title>
 <script>(function(){const p=new URLSearchParams(location.search);if(p.get("kind")==="level"&&p.get("technical")!=="1"){const u=new URL("level-studio.html",location.href);["id","scene","tab"].forEach(k=>{if(p.has(k))u.searchParams.set(k,p.get(k));});location.replace(u.href);}})();</script>
-<link rel="stylesheet" href="assets/film-workbench-v2.css?v=20261025-4">
-<script defer src="assets/film-workbench-v2.js?v=20261025-pending-build"></script>
+<link rel="stylesheet" href="assets/film-workbench-v2.css?v=20261025-native-review-1">
+<script defer src="assets/film-workbench-v2.js?v=20261025-native-review-1"></script>
 </head>
 <body>
 <header class="topbar">
@@ -49,6 +49,12 @@
       <a class="button outline" href="film-qa.html">בדיקות הסרט</a>
     </div>
   </section>
+  <section class="native-review panel" id="native-review" aria-labelledby="native-review-title" hidden>
+    <div class="native-review-head"><div><p class="section-overline">בדיקת הצילום האמיתי</p><h2 id="native-review-title">מה Unity צילם, לעומת מה שתכננו?</h2><p id="native-review-text">השוואה בין צילום מסוים של Unity לבין תמונת היעד. אין לערבב בין שתי ריצות.</p></div><a id="native-review-report" href="film-qa.html" target="_blank" rel="noopener">דוח הריצה המקורי ↗</a></div>
+    <div class="native-review-images" id="native-review-images"></div>
+    <div class="native-review-footer"><strong id="native-review-verdict"></strong><p id="native-review-findings"></p></div>
+  </section>
+  <div id="pending-native" class="pending-native" role="status" hidden></div>
   <section class="next panel" aria-labelledby="next-title"><div><p class="section-overline">הפעולה הבאה</p><h2 id="next-title">לחבר תותח אמיתי לספינה ולהריץ צילום Unity</h2><p id="next-description">הסצנה הקיימת מכילה ספינה, אבל אין בה עדיין עוגן קנה תותח מאומת למצלמה. לאחר החיבור יש לבדוק צילום רציף בין השניות 5–15.</p></div><button class="button accent" id="copy-next">העתק הוראות לסוכן</button></section>
   <section class="story" aria-labelledby="shots-title">
     <div class="section-header"><div><p class="section-overline">הסיפור בזמן</p><h2 id="shots-title">מה רואים בכל שנייה?</h2><p>לחיצה על שוט פותחת את התכנון המדויק. אין צורך לנחש מה אמור לקרות.</p></div><a id="full-storyboard" href="storyboard.html?session=fleet30-camera">לסטוריבורד המלא ↗</a></div>
