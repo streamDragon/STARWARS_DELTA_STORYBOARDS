@@ -1,0 +1,143 @@
+(function(){'use strict';
+const REPO='https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/';
+const SITE='https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/';
+const stages=['BRIEF','STORYBOARD','ASSETS','TARGET_REVIEW','AUTHORING','UNITY_BUILD','QA','COMPLETE'];
+const labels={BRIEF:'הגדרת הרעיון',STORYBOARD:'תכנון השוטים',ASSETS:'בחירת נכסים',TARGET_REVIEW:'סקירת היעד',AUTHORING:'הכנת הסרט',UNITY_BUILD:'בנייה ב־Unity',QA:'בדיקות וצילום',COMPLETE:'סרט גמור'};
+const $=id=>document.getElementById(id);
+const qs=new URLSearchParams(location.search);
+let index=null,session=null,base=null,request=0;
+const el=(tag,txt,cls)=>{const n=document.createElement(tag);if(txt!==undefined)n.textContent=txt;if(cls)n.className=cls;return n};
+const set=(id,txt)=>{$(id).textContent=txt};
+const status=(txt,bad=false)=>{set('notice',txt);$('notice').className=bad?'notice error':'notice'};
+const previewUrl=s=>{
+ const a=(s.targetArtifacts||[]).filter(x=>x&&x.kind==='preview'&&x.url).slice(-1)[0];
+ if(a&&/^https:\/\/streamdragon\.github\.io\/STARWARS_DELTA_STORYBOARDS\/films\/[a-z0-9-]+\.html$/i.test(a.url))return a.url;
+ return s.id==='fleet30-camera'?SITE+'films/fleet-v7-continuity.html':null;
+};
+const sitePath=url=>{try{const u=new URL(url,location.href);return u.origin===location.origin?u.href:u.origin===new URL(SITE).origin?u.href:null}catch{return null}};
+const repoLink=path=>typeof path==='string'&&/^[a-zA-Z0-9_./-]+$/.test(path)&&!path.includes('..')?'https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/blob/main/'+path:null;
+function emptyFrame(message){$('film-preview').removeAttribute('src');$('film-preview').srcdoc='<html lang="he" dir="rtl"><body style="background:#06111c;color:#d9ebf3;display:grid;place-items:center;height:100%;font:20px system-ui;text-align:center"><p>'+message+'</p></body></html>'}
+async function headBase(){
+ const local=['localhost','127.0.0.1'].includes(location.hostname);
+ if(local)return new URL('.',location.href).href;
+ const u='https://api.github.com/repos/streamDragon/STARWARS_DELTA_STORYBOARDS/git/ref/heads/main?nocache='+Date.now();
+ const r=await fetch(u,{cache:'no-store'});
+ if(!r.ok)throw Error('GitHub API '+r.status);
+ const j=await r.json();
+ if(j.ref!=='refs/heads/main'||j.object?.type!=='commit'||!/^[0-9a-f]{40}$/.test(j.object?.sha||''))throw Error('HEAD אינו תקין');
+ return REPO+j.object.sha+'/';
+}
+async function json(path,from){if(!/^[a-zA-Z0-9_./-]+$/.test(path)||path.includes('..'))throw Error('נתיב קובץ לא תקין');const url=new URL(path,from);url.searchParams.set('_',Date.now());const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw Error('קריאת '+path+' נכשלה: '+r.status);return r.json()}
+function actionText(s){
+ if(s.id==='fleet30-camera')return {title:'לחבר תותח אמיתי לספינה ולצלם את השוט הרציף',description:'בתוך CS_FLEET_Invasion חסר כרגע עוגן קנה תותח מאומת. צריך לחבר את הקנה, לוודא שהמצלמה עוקבת אחריו ללא חיתוך בשניות 5–15, ואז לבנות ולצלם את כל 30 השניות ב־Unity.'};
+ const byStage={
+  BRIEF:['להשלים את רעיון הסרט','להגדיר מה קורה, מי הדמויות ומה התוצאה שהצופה אמור להבין.'],
+  STORYBOARD:['להשלים את תכנון השוטים','לתעד כל שוט, את הזמנים ואת מעבר המצלמה.'],
+  ASSETS:['לחבר את הנכסים האמיתיים','לבדוק מה זמין בקטלוג ומה חסר.'],
+  TARGET_REVIEW:['לבדוק את תמונת היעד','להשוות בין התכנון לחומרי האמנות לפני הבנייה.'],
+  AUTHORING:['להכין תסריט V1 לבנייה','לאמת תזמונים ונכסים לפני יבוא לסטודיו.'],
+  UNITY_BUILD:['לבנות ולצלם ב־Unity','לייבא לסטודיו, לבדוק קומפילציה ולהפיק ראיות מצולמות.'],
+  QA:['לבדוק את התוצאה המצולמת','לבחור ריצה מדויקת ולהשוות את הצילום לתכנון.'],
+  COMPLETE:['להציג את התוצר המאושר','סיום מחייב אישור מפורש ותיעוד.']
+ };
+ const a=byStage[s.stage]||['לברר את השלב הנוכחי','הפרטים זמינים בחלק הטכני למטה.'];return {title:a[0],description:a[1]}
+}
+function runStatus(run,key){
+ if(!run)return 'NOT_RUN';
+ return run[key]??run[({capture:'captureStatus',technical:'technicalVisualQa',cinematic:'cinematicQa',runtime:'runtimeQa'})[key]]??'NOT_RUN';
+}
+function statusHebrew(v){
+ const m={NOT_RUN:'לא בוצע',NOT_TESTED:'לא נבדק',NOT_ACCEPTED:'לא אושר',SCHEMA_PENDING:'תסריט טרם אומת',NOT_RECHECKED:'לא נבדק מחדש',PENDING:'ממתין',PASS:'עבר',PASS_CLEAN:'עבר',STRICT_PASS_CLEAN:'עבר',CAPTURED:'צולם',COMPLETED:'הושלם',FAILED:'נכשל',FAIL:'נכשל',ERROR:'שגיאה',WARNINGS:'עם הערות'};
+ return m[v]||((v||'').includes('PENDING')?'ממתין לבדיקה':'טרם אומת');
+}
+function renderQA(s){
+ const runs=Array.isArray(s.runs)?s.runs:[],run=runs[runs.length-1];
+ const fields=[['צילום מתוך Unity','capture'],['תקינות טכנית','technical'],['איכות קולנועית','cinematic'],['התנהגות בהרצה','runtime']];
+ const host=$('qa-cards');host.replaceChildren();
+ for(const [title,key] of fields){const card=el('div',undefined,'qa-card'),strong=el('strong',title),val=runStatus(run,key),v=el('span',statusHebrew(val));if(['PASS','PASS_CLEAN','STRICT_PASS_CLEAN','CAPTURED','COMPLETED'].includes(val))v.style.color='#9df4dc';card.append(strong,v);host.append(card)}
+ const note=run?.id?'ריצה אחרונה שתועדה: '+run.id+'. ':'';
+ document.querySelector('.qa-warning').textContent=note+'תצוגת דפדפן אינה צילום מתוך Unity. PASS ייחשב ראיה רק אם מצורפים קבצי צילום של אותה ריצה.';
+}
+function renderShots(s){
+ const host=$('shot-list');host.replaceChildren();const shots=Array.isArray(s.storyboard)?s.storyboard:[];
+ if(!shots.length){host.append(el('p','טרם הוכנו שוטים לסרט הזה.','loading-card'));return}
+ shots.forEach((sh,i)=>{
+  const card=el('a',undefined,'shot');card.href='storyboard.html?session='+encodeURIComponent(s.id)+'#shot-'+encodeURIComponent(sh.id||i);
+  card.append(el('span','שוט '+String(i+1).padStart(2,'0'),'shot-num'));
+  const time=Number.isFinite(sh.startSeconds)&&Number.isFinite(sh.endSeconds)?sh.startSeconds+'–'+sh.endSeconds+' שניות':'ללא זמן';
+  card.append(el('span',time,'time'),el('strong',sh.label||sh.title||sh.id||'שוט'));
+  const summary=sh.description||sh.summary||'עדיין אין תיאור חזותי.';
+  card.append(el('span',summary.length>180?summary.slice(0,177)+'…':summary,'summary'));
+  card.append(el('span','לפתיחת פרטי השוט ↗','action'));host.append(card);
+ })
+}
+function renderSources(s){
+ const host=$('sources');host.replaceChildren();
+ const sources=[...(s.sourceArtifacts||[]),...(s.targetArtifacts||[])];
+ const seen=new Set();
+ for(const a of sources){
+  const key=a.path||a.url;if(!key||seen.has(key))continue;seen.add(key);
+  const box=el('div',undefined,'tech-item'),href=a.url?sitePath(a.url):repoLink(a.path);
+  const name=a.label||a.path||a.url||'קובץ';
+  if(href){const link=el('a',name);link.href=href;link.target='_blank';link.rel='noopener';box.append(link)}else box.append(el('strong',name));
+  box.append(el('p',a.evidenceStatus||'מצב לא תועד'));host.append(box)
+ }
+ if(!seen.size)host.append(el('p','טרם צורפו קבצים.'))
+ const gaps=$('gaps');gaps.replaceChildren();const open=(s.gaps||[]).filter(g=>!['CLOSED','FIXED','RESOLVED','COMPLETE'].includes(String(g.status||'').toUpperCase()));
+ open.slice(-7).forEach(g=>{const box=el('div',undefined,'tech-item');box.append(el('strong',g.request||g.title||'פער פתוח'));box.append(el('p',g.replacementAction||g.note||'דורש טיפול'));gaps.append(box)});
+ if(!open.length)gaps.append(el('p','אין פערים מתועדים.'))
+ set('technical-state','תיק '+s.id+' · גרסה '+s.revision+' · '+s.stage+' · '+(s.status||'לא ידוע')+' · '+(s.runs||[]).length+' ריצות מתועדות');
+ set('agent-instructions',JSON.stringify({sessionPath:index?.projects.find(p=>p.id===s.id)?.sessionPath,currentSourcePath:s.currentSourcePath,lastCompletedAction:s.lastCompletedAction,nextAction:s.nextAction,inFlightAction:s.inFlightAction},null,2))
+}
+function buildCopyText(s){
+ const next=actionText(s);
+ return ['המשך עבודה על סרט STARWARS_DELTA מתוך תיק העבודה המעודכן.','מאגר: streamDragon/STARWARS_DELTA_STORYBOARDS, branch main','קרא workbench/AGENT_PROTOCOL.md ו־workbench/index.json.','תיק: '+s.id+' · גרסה '+s.revision+' · שלב '+s.stage,'קרא את '+(index?.projects.find(p=>p.id===s.id)?.sessionPath||'תיק הפרויקט'),'המשימה הבאה: '+next.title,next.description,'קרא את lastCompletedAction, nextAction, runs, gaps ו־inFlightAction לפני כל פעולה.','אל תדרוס עבודה מקומית או סצנה פתוחה. השתמש רק ב־CUTSCENE_SCRIPT_V1, CURRENT, ובנה/צלם ב־Unity.','אין להציג אנימטיק בדפדפן כהוכחת צילום Unity.'].join('\n')
+}
+async function copyText(t){
+ try{await navigator.clipboard.writeText(t);status('הוראות ההמשך הועתקו לסוכן.')}catch{
+  const box=el('textarea');box.value=t;box.rows=8;box.style.width='100%';const note=$('notice');note.replaceChildren(el('span','העתקה אוטומטית לא זמינה. אפשר להעתיק מהתיבה: '),box);box.select()
+ }
+}
+function render(s){
+ session=s;set('film-title',s.title||s.id);set('film-type',(s.id==='fleet30-camera'?'FLEET · 30 שניות':'סרט · תיק עבודה')+' · '+(s.storyboard||[]).length+' שוטים');
+ const a=actionText(s);set('current-stage',labels[s.stage]||s.stage);set('stage-explanation',s.id==='fleet30-camera'?'תכנון ואנימטיק קיימים. הסרט עצמו עדיין דורש בנייה, צילום ובדיקות ב־Unity.':'שלב העבודה הנוכחי: '+(labels[s.stage]||s.stage)+'. המצב נקבע לפי היומן, לא לפי הדמיה.');
+ set('film-subtitle',s.id==='fleet30-camera'?'V7 זמין לצפייה · צילום Unity עדיין לא הושלם.':'מצב הסרט לפי תיק העבודה המעודכן.');
+ set('phase-pill',(labels[s.stage]||s.stage)+' · '+(stages.includes(s.stage)?(stages.indexOf(s.stage)+1)+'/8':''));
+ const date=new Date(s.updatedUtc);set('last-updated','גרסה '+s.revision+(Number.isFinite(date.getTime())?' · עודכן '+date.toLocaleString('he-IL',{timeZone:'Asia/Jerusalem',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}):''));
+ set('next-title',a.title);set('next-description',a.description);
+ $('copy-next').onclick=()=>copyText(buildCopyText(s));
+ const pv=previewUrl(s),preview=$('film-preview'),link=$('open-preview');
+ if(pv){preview.removeAttribute('srcdoc');preview.src=pv;link.href=pv;link.hidden=false;set('preview-state','תצוגת הכנה · לא צילום Unity')}
+ else{emptyFrame('עדיין לא נוצר אנימטיק לצפייה בסרט הזה.');link.hidden=true;set('preview-state','אין תצוגה מצולמת זמינה')}
+ const sb='storyboard.html?session='+encodeURIComponent(s.id);$('storyboard-link').href=sb;$('full-storyboard').href=sb;
+ renderShots(s);renderQA(s);renderSources(s);
+ const select=$('project-select');select.value=s.id;
+ const url=new URL(location.href);url.searchParams.set('id',s.id);history.replaceState(null,'',url);
+ status('נתוני התיק נטענו בהצלחה · גרסה '+s.revision+' · מקור: '+(base?.includes('raw.githubusercontent')?'GitHub MAIN':'האתר'));
+}
+async function loadProject(id,version=++request){
+ const p=index?.projects.find(p=>p.id===id&&p.kind==='film');if(!p){status('תיק הסרט לא נמצא באינדקס.',true);return}
+ status('קורא את תיק '+(p.title||p.id)+'…');
+ try{const s=await json(p.sessionPath,base);if(version!==request)return;if(s.id!==p.id||s.kind!=='film'||s.revision!==p.revision)throw Error('גרסת האינדקס אינה תואמת לתיק');render(s)}
+ catch(e){if(version!==request)return;status('שגיאה בקריאת התיק: '+e.message+'. נסה לרענן.',true);set('stage-explanation','התיק לא נטען. אין להסיק שהסרט הושלם.')}
+}
+async function reload(){
+ const version=++request;status('מאמת את גרסת MAIN וקורא את רשימת הסרטים…');
+ try{
+  let fallback=false;
+  try{base=await headBase();index=await json('workbench/index.json',base)}
+  catch(e){fallback=true;base=new URL('.',location.href).href;index=await json('workbench/index.json',base)}
+  if(version!==request)return;
+  if(index.schema!=='STARWARS_DELTA_AUTHORING_WORKBENCH'||!Array.isArray(index.projects))throw Error('אינדקס לא תקין');
+  const films=index.projects.filter(p=>p.kind==='film');const select=$('project-select');select.replaceChildren();
+  films.forEach(p=>{const opt=el('option',p.title||p.id);opt.value=p.id;select.append(opt)});
+  select.onchange=()=>loadProject(select.value);
+  const requested=qs.get('id');const id=films.some(p=>p.id===requested)?requested:(index.activeByKind?.film||films[0]?.id);
+  if(!id)throw Error('אין תיקי סרטים במאגר');
+  if(fallback)status('לא הצלחתי לאמת HEAD דרך GitHub; מציג את הגרסה האחרונה הזמינה באתר.');
+  await loadProject(id,version)
+ }catch(e){if(version!==request)return;status('לא ניתן לטעון את מרכז הסרטים: '+e.message,true)}
+}
+$('refresh').onclick=reload;
+reload();
+})();
