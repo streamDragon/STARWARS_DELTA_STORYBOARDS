@@ -2,3 +2,6 @@
 /* Keep the entire 960x540 storyboard player visible at mobile widths. */
 .screen{overflow:hidden;position:relative}
 .screen iframe{position:absolute;top:0;right:0;width:960px;height:540px;transform-origin:top right}
+
+/* Picture-first FLEET screen and accessible preview */
+.screen iframe{position:static!important;width:100%!important;height:100%!important;transform:none!important;transform-origin:center!important}.shot-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:9px;display:block;border:1px solid #36596c;background:#050f1a}.shot{padding:10px;gap:7px}.shot .time,.shot .summary,.shot .shot-num,.shot .action,.shot strong{padding-inline:4px}.image-error{display:block;padding:18px;color:#f6d5a4;background:#142e3e}.primary-grid{grid-template-columns:minmax(0,1.85fr) minmax(315px,.8fr)}.intro h1{font-size:clamp(27px,3vw,41px)}.film-heading{margin-bottom:12px}.shots{gap:14px}@media(max-width:880px){.primary-grid{grid-template-columns:1fr}}

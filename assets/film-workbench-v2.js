@@ -63,6 +63,8 @@ function renderShots(s){
  if(!shots.length){host.append(el('p','טרם הוכנו שוטים לסרט הזה.','loading-card'));return}
  shots.forEach((sh,i)=>{
   const card=el('a',undefined,'shot');card.href='storyboard.html?session='+encodeURIComponent(s.id)+'#shot-'+encodeURIComponent(sh.id||i);
+  const imageNames=['shot_01.jpg','shot_02.jpg','shot_04.jpg','shot_05.jpg','shot_06.jpg','reaction_shocked.jpg','shot_07.jpg','shot_08.jpg'];
+  if(s.id==='fleet30-camera'&&i<imageNames.length){const im=el('img');im.className='shot-thumb';im.alt='תכנון שוט '+(i+1)+' · לא צילום Unity';im.loading='lazy';im.src='films/assets/fleet-v7/'+imageNames[i];im.addEventListener('error',()=>{im.replaceWith(el('span','תמונת התכנון לא זמינה','image-error'))});card.append(im)}
   card.append(el('span','שוט '+String(i+1).padStart(2,'0'),'shot-num'));
   const time=Number.isFinite(sh.startSeconds)&&Number.isFinite(sh.endSeconds)?sh.startSeconds+'–'+sh.endSeconds+' שניות':'ללא זמן';
   card.append(el('span',time,'time'),el('strong',sh.label||sh.title||sh.id||'שוט'));
@@ -107,7 +109,7 @@ function render(s){
  set('next-title',a.title);set('next-description',a.description);
  $('copy-next').onclick=()=>copyText(buildCopyText(s));
  const pv=previewUrl(s),preview=$('film-preview'),link=$('open-preview');
- if(pv){preview.removeAttribute('srcdoc');preview.src=pv;link.href=pv;link.hidden=false;set('preview-state','תצוגת הכנה · לא צילום Unity')}
+ if(pv){preview.removeAttribute('srcdoc');preview.src=pv+(pv.includes('?')?'&':'?')+'embed=1';link.href=pv;link.hidden=false;set('preview-state','תצוגת הכנה · לא צילום Unity')}
  else{emptyFrame('עדיין לא נוצר אנימטיק לצפייה בסרט הזה.');link.hidden=true;set('preview-state','אין תצוגה מצולמת זמינה')}
  const sb='storyboard.html?session='+encodeURIComponent(s.id);$('storyboard-link').href=sb;$('full-storyboard').href=sb;
  renderShots(s);renderQA(s);renderSources(s);
@@ -129,7 +131,7 @@ async function reload(){
   catch(e){fallback=true;base=new URL('.',location.href).href;index=await json('workbench/index.json',base)}
   if(version!==request)return;
   if(index.schema!=='STARWARS_DELTA_AUTHORING_WORKBENCH'||!Array.isArray(index.projects))throw Error('אינדקס לא תקין');
-  const films=index.projects.filter(p=>p.kind==='film');const select=$('project-select');select.replaceChildren();
+  const films=index.projects.filter(p=>p.kind==='film').sort((a,b)=>(b.id==='fleet30-camera')-(a.id==='fleet30-camera')||new Date(b.updatedUtc||0)-new Date(a.updatedUtc||0));const select=$('project-select');select.replaceChildren();
   films.forEach(p=>{const opt=el('option',p.title||p.id);opt.value=p.id;select.append(opt)});
   select.onchange=()=>loadProject(select.value);
   const requested=qs.get('id');const id=films.some(p=>p.id===requested)?requested:(index.activeByKind?.film||films[0]?.id);
@@ -140,14 +142,7 @@ async function reload(){
 }
 // The film animatic has a fixed 960x540 authoring viewport. Scale the entire
 // document at small widths rather than clipping its artwork and controls.
-function resizePlayer(){
- const frame=$('film-preview'),screen=document.querySelector('.screen');
- if(!frame||!screen)return;
- const width=screen.clientWidth||960;
- frame.style.position='absolute';frame.style.top='0';frame.style.right='0';
- frame.style.width='960px';frame.style.height='540px';
- frame.style.transformOrigin='top right';frame.style.transform='scale('+(width/960)+')';
-}
+function resizePlayer(){const frame=$('film-preview');if(frame){frame.style.transform='none';frame.style.transformOrigin='center';}}
 if(typeof ResizeObserver==='function')new ResizeObserver(resizePlayer).observe(document.querySelector('.screen'));
 else window.addEventListener('resize',resizePlayer);
 $('refresh').onclick=reload;
