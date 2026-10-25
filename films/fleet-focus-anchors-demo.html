@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="FLEET 30s: השוואת בימוי בין V7 לבין הרחבה עתידית של מערכת 4 עם Focus Anchors ו-Anime Emotion">
+<title>FLEET | לפני ואחרי מוקדי עניין · מעבדת מערכת 4</title>
+<style>
+:root{color-scheme:dark;--bg:#06101c;--panel:#102335;--edge:#355168;--txt:#ebf7ff;--muted:#b8cede;--accent:#87e9df;--warm:#ffc77f}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% 0,#19384d,#07101b 68%);color:var(--txt);font:16px/1.56 system-ui,"Segoe UI",Arial,sans-serif}
+a{color:#9bf1e9}
+nav{display:flex;gap:18px;flex-wrap:wrap;align-items:center;padding:14px max(18px,calc((100vw - 1460px)/2));background:#0c1c29;border-bottom:1px solid var(--edge)}
+nav a{text-decoration:none;font-size:14px}nav strong{color:var(--warm);margin-inline-end:auto}
+main{max-width:1480px;margin:auto;padding:25px 20px 65px}
+.kicker{font-size:12px;font-weight:800;letter-spacing:.1em;color:#8ef6e9}
+h1{font-size:clamp(29px,4.5vw,51px);line-height:1.18;margin:7px 0 12px}
+.intro{font-size:18px;color:#c6d9e6;max-width:1100px;margin:0 0 13px}
+.caveat{border:1px solid #896e4b;border-radius:10px;background:#2b251e;color:#ffe2ae;padding:10px 14px;margin:15px 0 20px;font-size:14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.panel{background:#102235;border:1px solid #36526b;border-radius:16px;padding:12px;min-width:0;box-shadow:0 18px 44px #0004}
+.panel.after{border-color:#3b8588}
+.panelhead{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:4px 7px 12px}
+.panelhead strong{font-size:18px}.panelhead small{font-size:12px;color:#b9cbdb}
+.screen{position:relative;overflow:hidden;aspect-ratio:16/9;background:radial-gradient(#24445c,#030913 73%);border-radius:10px;border:1px solid #50677a;isolation:isolate}
+.screen img{display:block}
+.fullframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.world{position:absolute;inset:0;transform-origin:50% 50%;will-change:transform}
+.world img{width:100%;height:100%;object-fit:cover}
+.pin{position:absolute;z-index:3;width:5%;aspect-ratio:1;border:2px solid #adfff1;border-radius:50%;box-shadow:0 0 0 5px #00fbbe26,0 0 24px #21e6d9, inset 0 0 12px #57e3dd;transform:translate(-50%,-50%);pointer-events:none}
+.pin:after{content:"";display:block;position:absolute;inset:39%;border-radius:50%;background:#ddfff9}
+.screen .labeltop{position:absolute;inset:8px auto auto 8px;padding:5px 8px;direction:ltr;background:#02111dcb;border:1px solid #3e6775;border-radius:6px;font-size:11px;letter-spacing:.035em;z-index:8}
+.gradient{position:absolute;inset:auto 0 0;height:28%;background:linear-gradient(transparent,#020916fa 65%);pointer-events:none;z-index:4}
+.currentoverlay{position:absolute;z-index:7;bottom:11px;right:12px;left:12px;display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
+.currentoverlay strong{font-size:clamp(12px,1.3vw,17px);text-shadow:0 2px 8px #000}.currentoverlay small{font-size:11px;color:#aaf1e9;direction:ltr;background:#072d37bd;padding:3px 6px;border-radius:6px}
+.panelnote{margin:10px 6px 2px;color:#d3e2ec;font-size:14px;min-height:56px}
+.fx{position:absolute;inset:0;pointer-events:none;z-index:5}
+.bolt{position:absolute;width:10%;height:4px;border-radius:999px;background:#b1fff9;box-shadow:0 0 11px #a4faff,0 0 21px #56c5ff;display:none;transform:translate(-50%,-50%) rotate(-6deg)}
+.hit{position:absolute;border-radius:50%;border:3px solid #fff2af;background:radial-gradient(circle,#fff5cf,#ffc14bab 42%,#ff692a16 72%);box-shadow:0 0 24px 12px #ff7b31a6;transform:translate(-50%,-50%);display:none}
+.damage{position:absolute;left:73%;top:39%;width:18%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#ff9b32b0,#f75b3b54 25%,transparent 66%);filter:blur(6px);display:none;opacity:.8}
+.emotion{position:absolute;right:3%;top:7%;display:none;align-items:center;gap:8px;background:#051d2be8;border:1px solid #80d7d3;border-radius:11px;padding:6px;z-index:8;max-width:43%;box-shadow:0 12px 30px #0008}
+.emotion img{width:70px;height:62px;object-fit:cover;object-position:center 27%;border-radius:5px}
+.emotion strong{display:block;font-size:12px}.emotion small{display:block;color:#a5e2e0;font-size:10px}
+.controls{margin:19px 0;background:#102335;border:1px solid #355168;border-radius:14px;padding:16px;display:grid;gap:10px}
+.buttons{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+button{border:1px solid #53718a;color:var(--txt);background:#183c51;border-radius:10px;font:inherit;cursor:pointer;padding:8px 13px}
+button:hover,button:focus-visible{border-color:#a3fff5;outline:2px solid #4a9fa6}
+button.primary{background:#8fe9df;border-color:#8fe9df;color:#08222d;font-weight:750}
+button:disabled{opacity:.55;cursor:default}
+.range{display:grid;grid-template-columns:53px 1fr 53px;gap:12px;align-items:center;direction:ltr}
+input[type=range]{width:100%;accent-color:#85e7dd}
+.range span{font-size:13px;font-variant-numeric:tabular-nums;color:#dbf4f2}
+.track{display:flex;direction:ltr;gap:3px;border-radius:8px;overflow:hidden}
+.track button{min-width:0;border:0;padding:8px 1px;font-size:10px;text-align:center;background:#265267;border-radius:0;color:#e8f4fa}
+.track button[aria-current=true]{background:#c5f2e9;color:#0b2430;font-weight:800}
+.track button:focus-visible{z-index:2}
+.panel2{margin-top:18px;background:#102235;border:1px solid #345069;border-radius:16px;padding:19px}
+.panel2 h2{font-size:22px;margin:0 0 10px}
+.detailgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.detail{background:#0b1b2a;border:1px solid #315065;border-radius:12px;padding:14px}
+.detail b{color:#94e7e3}.detail p{color:#d0e1eb;margin:5px 0}
+.qa{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:12px}
+.qa div{border:1px solid #3c5a68;border-radius:10px;padding:10px;background:#102b38;font-size:12px;color:#d3e4ed}
+.qa small{display:block;color:#f4ca91}
+footer{margin-top:28px;color:#9ab5c6;font-size:13px}
+@media(max-width:960px){.grid{grid-template-columns:1fr}.panelnote{min-height:0}.qa{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){main{padding:18px 10px}.detailgrid{grid-template-columns:1fr}.panel{padding:8px}.emotion img{width:47px;height:44px}.emotion small{display:none}.track button{font-size:9px}.panelhead{display:grid}.qa{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){.world{will-change:auto}}
+</style>
+</head>
+<body>
+<nav><strong>Δ STARWARS_DELTA</strong><a href="../films/">ספריית הסרטים</a><a href="../workbench.html?id=fleet30-camera">תיק FLEET</a><a href="fleet-v7-continuity.html">אנימטיק V7 המקורי</a><a href="../storyboard.html?session=fleet30-camera">שמונת השוטים</a></nav>
+<main>
+<div class="kicker">SYSTEM 4 · FLEET · CONCEPT COMPARISON · 30 SEC</div>
+<h1>אותו סרט. אותם שמונה שוטים. עין קולנועית אחרת.</h1>
+<p class="intro">השוואה מסונכרנת של הסטוריבורד הקיים מול המחשת ההרחבה: בחירת חלקים בתוך אובייקט, מעקב אחר תותח, שלושה שיגורים, פגיעה בגוף אויב ומעבר מדויק ל־Anime Emotion. לחצו על נגן או על אחד השוטים.</p>
+<div class="caveat"><strong>הבהרה:</strong> שני הצדדים משתמשים בתמונות האנימטיק V7 שכבר פורסמו. הצד הימני מדגים באמצעות תנועת תמונה וסימונים כיצד <em>נרצה</em> לביים את הסרט אחרי חיבור Focus Anchors. זה <strong>אינו</strong> צילום חדש מתוך Unity, אין כאן עוגן תותח אמיתי, ואין הוכחה שהמערכת כבר מממשת זאת.</div>
+<section class="grid">
+ <article class="panel">
+  <div class="panelhead"><strong>הבסיס: V7 הקיים</strong><small>תמונות שוטים מתוך האנימטיק שפורסם</small></div>
+  <div class="screen"><img id="beforeImg" class="fullframe" alt="הפריים הקיים באנימטיק FLEET V7"><div class="labeltop">CURRENT V7 · REFERENCE FRAME</div></div>
+  <p id="beforeNote" class="panelnote"></p>
+ </article>
+ <article class="panel after">
+  <div class="panelhead"><strong>אחרי: מערכת 4 + מוקדי עניין</strong><small>המחשת תנועת מצלמה, לא Unity Capture</small></div>
+  <div class="screen">
+   <div id="world" class="world"><img id="afterImg" alt="המחשה של קומפוזיציית מצלמה משופרת"><div id="pin" class="pin"></div></div>
+   <div id="fx" class="fx"><i id="bolt0" class="bolt"></i><i id="bolt1" class="bolt"></i><i id="bolt2" class="bolt"></i><i id="hit0" class="hit"></i><i id="hit1" class="hit"></i><i id="hit2" class="hit"></i><i id="damage" class="damage"></i></div>
+   <div id="emotion" class="emotion"><img src="fleet-stills-v7/06-YAM_06_REACTION.png" alt="תמונת המחשה של קצינת הקשר"><div><strong id="emotionTitle">Anime Emotion</strong><small id="emotionSub">הבעה בלי חיתוך מצלמה</small></div></div>
+   <div class="gradient"></div>
+   <div class="labeltop">FOCUS ANCHOR · CONCEPT ONLY</div>
+   <div class="currentoverlay"><strong id="afterLabel"></strong><small id="anchorName"></small></div>
+  </div>
+  <p id="afterNote" class="panelnote"></p>
+ </article>
+</section>
+<section class="controls" aria-label="בקרת צפייה">
+ <div class="buttons"><button id="play" class="primary" type="button">▶ נגן את 30 השניות</button><button id="restart" type="button">↺ מהתחלה</button><button id="slower" type="button">מהירות ×1</button><span id="shotName" style="margin-inline-start:auto;color:#b9efe6;font-size:13px"></span></div>
+ <div class="range"><span id="time">00:00.0</span><input id="seek" type="range" min="0" max="30" step=".05" value="0" aria-label="מיקום בסרט" dir="ltr"><span>00:30.0</span></div>
+ <div class="track" id="track" aria-label="מעבר לשוטים"></div>
+</section>
+<section class="panel2" aria-live="polite">
+ <h2 id="detailTitle">מה משתנה כאן?</h2>
+ <div class="detailgrid"><div class="detail"><b>ב־V7</b><p id="detailBefore"></p></div><div class="detail"><b>אחרי הרחבת המערכת</b><p id="detailAfter"></p></div></div>
+</section>
+<section class="panel2">
+<h2>מה נדרש כדי שהדוגמה תהפוך לסרט אמיתי?</h2>
+<p>ההדמיה מחייבת ארבע הוכחות שונות ב־Unity, שאינן מתקבלות מעצם העובדה שהדפדפן מצליח לצייר תנועה:</p>
+<div class="qa"><div><strong>תותח מקומי אמיתי</strong><small>עדיין לא אומת</small>Transform ילד של CS_FLEET_Invasion; מעקב t=5–15 ללא CUT.</div><div><strong>ירי ממקורות אמיתיים</strong><small>נדרשת בדיקה מצולמת</small>שלושה מופעי Projectile, לא שכפול חזותי של מטח.</div><div><strong>פגיעה ונזק מתמשך</strong><small>נדרשת בדיקה מצולמת</small>שלושה מוקדי Impact על Hull אחד, ועשן שנשאר.</div><div><strong>Anime Emotion</strong><small>נדרש פורטרט מקושר</small>הלם והקלה של קצינת הקשר דרך הנכסים ב־CURRENT.</div></div>
+</section>
+<footer>מבוסס על תיק <code>fleet30-camera</code>, סטוריבורד 8 שוטים ורצף V7 הקיים. אין שינוי במנוע הסרטים, ב־CURRENT V1 או בבדיקות ה־QA. © נכסי STARWARS_DELTA המקוריים.</footer>
+</main>
+<script>
+(function(){
+'use strict';
+const shots=[
+ {from:0,to:5,id:'01',file:'01-YAM_01_ESTABLISH.png',name:'האיום מתקרב',before:'הפריים הרחב מציג ספינת דגל וליווי משמאל ואויב מימין.',after:'משאירים שוט רחב, ומחפשים את ספינת הליווי כנקודת המשמעות. לא כל שוט זקוק לזום.',bdetail:'כבר מתקבלת מפה מרחבית טובה.',adetail:'נשמור על הגאוגרפיה ונגדיר קשר בין האויב והליווי. עוגן E_SCORT ישמש למעקב בהמשך.',x:.5,y:.5,min:1,max:1.055,anchor:'SPATIAL MAP',pin:false},
+ {from:5,to:15,id:'02',file:'02-YAM_02_GUN_FOLLOW.png',name:'עשר שניות על התותח',before:'באנימטיק רואים גוף ספינה מוגדל וסימון נשק; עוגן קנה תותח אמיתי עדיין חסר.',after:'המצלמה מתקרבת בהדרגה למוקד הנשק ושומרת אותו במרכז גם בזמן תנועת הספינה. בשנייה 10 מתווספת הבעה בחלונית בלי לשבור שוט.',bdetail:'שוט 5–15 הוגדר כרציף, אבל תמונה של תותח איננה Transform שאפשר לעקוב אחריו.',adetail:'Camera Focus → child Transform של הצריח. Anchor: TURRET_BARREL. האובייקט זז ומסתובב, אבל מוקד העניין נשאר קריא; אין חיתוך ב־9 או ב־10.',x:.56,y:.37,min:1.03,max:1.65,anchor:'TURRET_BARREL',pin:true},
+ {from:15,to:17,id:'03',file:'03-YAM_03_FIRE.png',name:'פקודת אש, שלושה שיגורים',before:'הפריים מראה ירי מהדגל והליווי לעבר האויב.',after:'שלוש יריות נפרדות נוצרות מנקודות הנשק ויוצאות בזמנים מדורגים. המצלמה יודעת היכן הקנה ולא רק היכן מרכז הספינה.',bdetail:'הציור מראה כיוון ירי, אך אינו מוכיח שמוקדי הירי קשורים לחלקים נכונים.',adetail:'FireOrigin[0..2] צמודים לתותחים. רצף שיגורים ב־15.12, 15.53, 15.97, לפי דוח האירועים העדכני; יש לבדוק אותם חזותית ב־Unity.',x:.5,y:.5,min:1.02,max:1.085,anchor:'MUZZLE / LAUNCH',pin:false},
+ {from:17,to:20,id:'04',file:'04-YAM_04_FLIGHT.png',name:'מסדרון הירי',before:'מעבירים את העין אל כיוון תנועת הקליעים.',after:'המצלמה עוקבת אחרי נתיב הירי ויודעת מהיכן יצא הקליע ולאיזה אויב הוא שייך. לא נולדים קליעים חדשים בחיתוך.',bdetail:'חיתוך מהירי למעוף מחייב שמירת כיוון ותזמון.',adetail:'ProjectileFollow + TargetLink: המצלמה בוחרת קליע שכבר נורה, לא ממציאה ירייה נוספת לצורך העריכה.',x:.63,y:.49,min:1.05,max:1.30,anchor:'PROJECTILE_PATH',pin:false},
+ {from:20,to:23,id:'05',file:'05-YAM_05_IMPACT.png',name:'שלוש פגיעות באויב אחד',before:'האנימטיק מדגים הבזקי פגיעה במרכז החללית היריבה.',after:'הבמאי מתמקד בגוף האויב, והפגיעות מוצמדות לשלוש נקודות שונות על Hull. אחרי ההבזק נשאר נזק.',bdetail:'אפשר לשים אפקט במקום שנראה נכון בציור, אך זה עדיין לא מוכיח פגיעה באובייקט.',adetail:'ImpactAnchor[0..2] על Hull אחד. להדגים פגיעות ב־20.25, 20.95, 21.65 ולשמר DAMAGE_STATE בשוט הבא.',x:.53,y:.46,min:1.035,max:1.36,anchor:'ENEMY_HULL',pin:true},
+ {from:23,to:26,id:'06',file:'06-YAM_06_REACTION.png',name:'אנשים מגיבים',before:'יש תקריב של קצינת הקשר שראתה את הפגיעה.',after:'כאן Anime Emotion מקבל Cue ברור: הלם בעקבות הפגיעה, ואז הקלה כשהליווי ניצל. המצלמה מכוונת לעיניים, לא למרכז התמונה.',bdetail:'פריים רגשי טוב אינו מספיק כשאין שינוי הבעה מאומת.',adetail:'EmotionState SHOCK → RELIEF לדמות FEMALE_COMMS_01, עם Face/Eyes focus. בתצוגה זו תמונת הפנים סטטית; אנימציית הרגש עצמה היא יעד ל־Unity.',x:.5,y:.34,min:1.015,max:1.16,anchor:'FACE / EYES',pin:false},
+ {from:26,to:28,id:'07',file:'07-YAM_07_AFTERMATH.png',name:'הנזק נשאר',before:'חוזרים אל האויב אחרי התגובה האנושית.',after:'המצלמה בוחרת את מוקד הנזק שעל גוף האויב, ומאפשרת לראות שעשן/אש נמשכים לאחר שהשיגורים הסתיימו.',bdetail:'הפיצוץ עלול להיעלם בין שוטים אם הוא רק קישוט רגעי.',adetail:'DamageAnchor מצמיד עשן ועקב נזק ל־Transform המקומי של האויב גם אחרי החיתוך.',x:.73,y:.44,min:1.015,max:1.32,anchor:'DAMAGE_POINT',pin:true},
+ {from:28,to:30,id:'08',file:'08-YAM_08_FLEET_REVEAL.png',name:'הצי אחרי הקרב',before:'שוט סיום רחב מחזיר את שלוש הספינות למסך.',after:'חוזרים לרחב. הליווי שרד, ספינת הדגל במקומה והאויב נושא אותו נזק מהשוט הקודם.',bdetail:'הפריים סוגר את המעגל הגאוגרפי.',adetail:'המערכת הרביעית אינה עושה עוד זום. היא יודעת מתי לסיים בתוצאה מרחבית ברורה ולשמר מצב נזק.',x:.5,y:.5,min:1.09,max:1,anchor:'FLEET / RESULT',pin:false}
+];
+const byId=id=>document.getElementById(id),beforeImg=byId('beforeImg'),afterImg=byId('afterImg'),world=byId('world'),pin=byId('pin'),timeOut=byId('time'),seek=byId('seek'),play=byId('play'),track=byId('track');
+const filenames=shots.map(s=>'fleet-stills-v7/'+s.file);filenames.forEach(src=>{const im=new Image();im.src=src});
+let time=0,active=-1,playing=false,last=0,speed=1;
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),smooth=v=>v*v*(3-2*v),lerp=(a,b,v)=>a+(b-a)*v;
+function tformat(t){return '00:'+String(Math.floor(t)).padStart(2,'0')+'.'+String(Math.floor((t%1)*10))}
+shots.forEach((s,i)=>{const button=document.createElement('button');button.type='button';button.textContent=s.id;button.title=s.name;button.style.flex=String(s.to-s.from);button.addEventListener('click',()=>{playing=false;play.textContent='▶ המשך צפייה';show(s.from)});track.append(button)});
+function sparks(t){
+ const fireTimes=[15.12,15.53,15.97],impactTimes=[20.25,20.95,21.65];
+ fireTimes.forEach((start,i)=>{
+  const el=byId('bolt'+i),p=(t-start)/.62;el.style.display=p>=0&&p<=1?'block':'none';
+  if(p>=0&&p<=1){el.style.left=(29+48*p)+'%';el.style.top=(54-11*p+i*3)+'%';el.style.opacity=String(Math.sin(Math.PI*(.15+.75*p)));}
+ });
+ impactTimes.forEach((start,i)=>{
+  const el=byId('hit'+i),p=(t-start)/.53;el.style.display=p>=0&&p<=1?'block':'none';
+  if(p>=0&&p<=1){const pos=[[42,46],[55,52],[65,41]][i],size=18+45*Math.sin(p*Math.PI);
+  el.style.left=pos[0]+'%';el.style.top=pos[1]+'%';el.style.width=size+'px';el.style.height=size+'px';el.style.opacity=String(1-p*.65)}
+ });
+ const damage=byId('damage');damage.style.display=(t>=22&&t<30)?'block':'none';
+ damage.style.opacity=String(.57+.17*Math.sin(t*7));
+}
+function show(next){
+ time=clamp(next,0,30);const ix=Math.min(7,shots.findIndex(s=>time>=s.from&&time<s.to)>=0?shots.findIndex(s=>time>=s.from&&time<s.to):7);
+ const s=shots[ix],p=clamp((time-s.from)/(s.to-s.from),0,1),e=smooth(p);
+ if(active!==ix){active=ix;const src='fleet-stills-v7/'+s.file;beforeImg.src=src;afterImg.src=src;
+  byId('shotName').textContent='שוט '+s.id+' · '+s.name;byId('afterLabel').textContent=s.name;
+  byId('beforeNote').textContent=s.before;byId('afterNote').textContent=s.after;
+  byId('detailTitle').textContent='שוט '+s.id+' | '+s.name+' · '+s.from+'–'+s.to+' שניות';
+  byId('detailBefore').textContent=s.bdetail;byId('detailAfter').textContent=s.adetail;
+  byId('anchorName').textContent=s.anchor;
+  [...track.children].forEach((b,i)=>b.setAttribute('aria-current',String(i===ix)));
+ }
+ const scale=lerp(s.min,s.max,e);
+ // Translate the image while zooming to keep its specified interesting detail close to frame centre.
+ const strength=(s.id==='01'||s.id==='08')?0:(s.id==='03'?0.18:.92);
+ const tx=-(s.x-.5)*100*scale*strength*e;
+ const ty=-(s.y-.5)*100*scale*strength*e;
+ world.style.transform='translate('+tx.toFixed(3)+'%,'+ty.toFixed(3)+'%) scale('+scale.toFixed(4)+')';
+ pin.style.left=s.x*100+'%';pin.style.top=s.y*100+'%';pin.style.display=s.pin?'block':'none';
+ const emotion=byId('emotion');const emotionOn=(time>=9.7&&time<11.35)||(time>=23&&time<26);
+ emotion.style.display=emotionOn?'flex':'none';
+ byId('emotionTitle').textContent=time<15?'Anime Emotion · מתח':'Anime Emotion · הלם ← הקלה';
+ byId('emotionSub').textContent=time<15?'חלונית: בלי לחתוך את שוט התותח':'החלפת הבעה היא יעד ל־Unity';
+ sparks(time);seek.value=String(time);timeOut.textContent=tformat(time);
+ if(time>=30&&playing){playing=false;play.textContent='▶ נגן שוב'}
+}
+play.addEventListener('click',()=>{if(time>=30)show(0);playing=!playing;play.textContent=playing?'Ⅱ השהה':'▶ המשך צפייה';last=performance.now()});
+byId('restart').addEventListener('click',()=>{playing=false;play.textContent='▶ נגן את 30 השניות';show(0)});
+byId('slower').addEventListener('click',()=>{speed=speed===1?.5:1;byId('slower').textContent='מהירות ×'+speed});
+seek.addEventListener('input',()=>{playing=false;play.textContent='▶ המשך צפייה';show(Number(seek.value))});
+function tick(now){if(playing){show(time+Math.min(.08,(now-last)/1000)*speed)}last=now;requestAnimationFrame(tick)}
+show(0);requestAnimationFrame(tick);
+})();
+</script>
+</body></html>
