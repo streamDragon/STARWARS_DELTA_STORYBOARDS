@@ -59,6 +59,34 @@ function render({session,scene,recipe,qa,root,navigate}){
  );
  const state=el('div',undefined,'state-stamp');state.append(el('span','עודכן בתיק העבודה','stamp-label'),el('strong',date(modified),'stamp-time'),el('small','רוויזיה '+session.revision+' · נתונים מהמאגר המאומת'));
  head.append(intro,state);host.append(head);
+
+ // Visual proof is part of the working status, not buried under technical tabs.
+ if(published.length){
+  const q=published[0];
+  const gallery=el('section',undefined,'evidence-gallery');
+  const heading=el('div',undefined,'evidence-gallery-heading');
+  const desc=el('div');
+  desc.append(el('h4','כך נראתה הרמה בצילומי Unity'),el('p','צילום היסטורי מ־'+date(q.generatedUtc)+' · '+(q.reviewStatus==='NOT_REVIEWED'?'טרם נבדק':'מצב סקירה: '+q.reviewStatus)+' · אינו צילום חי או אישור משחק.'));
+  heading.append(desc);
+  const all=el('button','לכל הצילומים והבדיקות','btn secondary');all.type='button';all.onclick=()=>navigate('qa');heading.append(all);
+  gallery.append(heading);
+  const imgs=el('div',undefined,'evidence-images');
+  const frameSpecs=[['game_view','Game View · המראה במשחק'],['scene_overview','Scene · מבנה הרמה'],['spatial_schematic','Layer 0 · מסלולים ותכנון']];
+  for(const [kind,title]of frameSpecs){
+   const frame=(q.frames||[]).find(f=>f.frameId===kind&&safePath(f.path));
+   if(!frame)continue;
+   const anchor=el('a',undefined,'evidence-image');
+   anchor.href=root+frame.path;anchor.target='_blank';anchor.rel='noopener';
+   const img=el('img');img.src=root+frame.path;img.alt=title+' מתוך ריצת '+q.runId;img.loading='eager';img.decoding='async';
+   anchor.append(img,el('strong',title));imgs.append(anchor);
+  }
+  gallery.append(imgs);
+  gallery.append(el('p','מקור: '+q.runId+' · בדיקת תמונה בלבד. '+(isGrad11?'צ׳ק־אין 9493 מאוחר מהצילום הזה; תיקוני 24.10 אינם מוצגים כאן.':'גרסה זו נפרדת מצ׳ק־אין GRAD11 הראשית.'),'evidence-warning'));
+  host.append(gallery);
+ }else{
+  const missing=el('div',undefined,'evidence-missing');
+  missing.append(el('strong','אין צילום רמה מפורסם לסצנה שנבחרה'),el('p','יש נתוני תכנון או דוחות, אבל אין תמונה שאפשר להציג כראיה. לחץ על בדיקות וצילומים לפרטים.'));host.append(missing);
+ }
  const short=el('div',undefined,'reality-facts');
  const count=recipe?.segments?.length??session.storyboard?.length??null;
  createFact(short,recipe?'verified':'neutral',recipe?'Layer 0: מתכון קיים':'Layer 0: אין מתכון נגיש',recipe?'תכנון של '+count+' אזורים. אינו צילום Game View.':'בדוק את קובצי המקור בתיק.');
@@ -79,7 +107,7 @@ function render({session,scene,recipe,qa,root,navigate}){
  ['01','מבנה / Layer 0','נבנה, דורש תיקוני גאומטריה','active'],
  ['02','משחק בסיסי','Play Mode קצר עבר; מגדלים לא נבדקו','partial'],
  ['03','גלים ומסלולים','טרם נבנו לרמה 11','waiting'],
- ['04','QA ואישור','צילום מקומי בלבד, טרם אושר','waiting']
+ ['04','QA ואישור',published.length?'צילום היסטורי פורסם לבדיקה, טרם אושר':'צילום מקומי בלבד, טרם אושר','waiting']
  ]:isV2?[
  ['01','מתכון / Layer 0',recipe?'קיים במאגר':'לא נמצא','partial'],
  ['02','סצנה ב־Unity','יש ריצה מתועדת; תוצאתה לא נבדקה','partial'],
@@ -112,7 +140,7 @@ function render({session,scene,recipe,qa,root,navigate}){
  const evidenceActions=el('div',undefined,'progress-actions');
  for(const [label,key]of[['מפת Layer 0','layer0'],['גלים ומסלולים','waves'],['בדיקות וצילומים','qa'],['קבצי עבודה','files']]){const b=el('button',label,'btn secondary');b.type='button';b.onclick=()=>navigate(key);evidenceActions.append(b);}
  guide.append(evidenceActions);
- if(isGrad11){const note=el('p',undefined,'local-note');note.append(el('strong','צילום Play קיים אך לא באתר. '),document.createTextNode('קיים רק בקובץ מקומי מתאריך 24.10; הפרסום ייעשה באמצעות RunSmartPublish לאחר בדיקה.'));guide.append(note);}
+ if(isGrad11){const note=el('p',undefined,'local-note');note.append(el('strong','קיים צילום Play Mode חדש יותר. '),document.createTextNode('הצילום מ־24.10 עדיין מקומי. התמונות באתר הן מ־22.10, לפני צ׳ק־אין 9493, ומסומנות לבדיקה בלבד.'));guide.append(note);}
  host.append(guide);
  const handoff=el('section',undefined,'agent-handoff');const left=el('div');
  left.append(el('h4','סוכן חדש? ממשיכים מאותה נקודה'),el('p','הכפתור מעתיק את מזהה התיק, מצב העבודה המאומת, מקורות המידע והמשימות הבאות. אין צורך להסביר מחדש מה בנינו.'));
