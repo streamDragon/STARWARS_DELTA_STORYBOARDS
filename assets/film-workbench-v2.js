@@ -29,6 +29,11 @@ async function headBase(){
 }
 async function json(path,from){if(!/^[a-zA-Z0-9_./-]+$/.test(path)||path.includes('..'))throw Error('נתיב קובץ לא תקין');const url=new URL(path,from);url.searchParams.set('_',Date.now());const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw Error('קריאת '+path+' נכשלה: '+r.status);return r.json()}
 function actionText(s){
+ const pending=s.inFlightAction;
+ if(pending&&['UNKNOWN','SUBMITTED','QUEUED','RUNNING','SCHEDULED'].includes(String(pending.status||'').toUpperCase())){
+  const identity=pending.requestId||pending.id||pending.resultPath||'ללא מזהה מתועד';
+  return {title:'לבדוק את הפעולה שכבר נשלחה ל־Unity',description:'בקשה קיימת: '+identity+'. יש לבדוק את התוצאה והיומן של אותה בקשה. אין לשלוח בנייה או יבוא נוספים לפני בירור התוצאה.'};
+ }
  if(typeof s.nextAction==='string'&&s.nextAction.trim())return {title:'המשך העבודה לפי תיק הסרט',description:s.nextAction.trim()};
  const byStage={
   BRIEF:['להשלים את רעיון הסרט','להגדיר מה קורה, מי הדמויות ומה התוצאה שהצופה אמור להבין.'],

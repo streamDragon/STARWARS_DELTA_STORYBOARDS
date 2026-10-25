@@ -4,10 +4,10 @@
   "id": "fleet30-camera",
   "kind": "film",
   "title": "FLEET · הוכחת מצלמה 30 שניות",
-  "revision": 7,
-  "stage": "AUTHORING",
-  "status": "V1_LINT_PASS_WITH_2_WARNINGS_NATIVE_BUILD_PENDING",
-  "updatedUtc": "2026-10-25T05:18:00+02:00",
+  "revision": 8,
+  "stage": "UNITY_BUILD",
+  "status": "NATIVE_BASELINE_CAPTURED_ARTPACK_BUILD_PENDING",
+  "updatedUtc": "2026-10-25T10:41:49.440Z",
   "originalBrief": "Use actual CS_FLEET_Invasion prefab (13 ships). One continuous follow shot Master 5–15s, inspect t=10 after ship translation and rotation. Wide and detail proof.",
   "approvedTargetRevision": 0,
   "targetArtifacts": [
@@ -469,7 +469,14 @@
       "request": "Native Cutscene Studio import/build request returned no verifiable result",
       "placeholder": "Unity editor currently showing GRAD1 dirty; eval_file read-only timed out; no build_result.txt or produced film QA evidence found",
       "replacementAction": "Coordinate with current Unity integration owner. Inspect Editor state/logs and original pending request outcome before resubmitting. After safe handoff run a single import via existing Studio, capture actual Game View, link run-specific evidence.",
-      "status": "BUILD_OUTCOME_UNKNOWN"
+      "status": "RESOLVED",
+      "resolution": "Earlier canonical baseline build and preview found; 53-frame capture now attached. This resolution applies only to project a1131662403b420f9cd7a31d2c32817e."
+    },
+    {
+      "request": "Native baseline fails cannon framing and screen occupancy",
+      "status": "OPEN",
+      "runId": "fleet30-native-baseline-20261025_102347",
+      "replacementAction": "Continue the detached ArtPack source through the canonical Studio. Verify actual animated ship/weapon materialization; capture uninterrupted 5–15 tracking and visible cannon; reduce composition obstruction through existing authoring and presentation controls. Preserve the baseline and manual edits."
     }
   ],
   "decisions": [],
@@ -504,6 +511,84 @@
       "warnings": 2,
       "blockers": 0,
       "artifacts": []
+    },
+    {
+      "id": "fleet30-native-baseline-20261025_102347",
+      "label": "Native baseline capture · earlier Sprite-only source, not ArtPack candidate",
+      "projectId": "a1131662403b420f9cd7a31d2c32817e",
+      "generatedUtc": "2026-10-25T10:23:47.9691195Z",
+      "build": "PASS",
+      "capture": "COMPLETED",
+      "technical": "WARNINGS",
+      "cinematic": "FAILED",
+      "runtime": "NOT_TESTED",
+      "frameCount": 53,
+      "durationSeconds": 30,
+      "artifacts": [
+        {
+          "path": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/report.json",
+          "kind": "report",
+          "label": "Native Unity Film QA · 53 frames · baseline requires revision",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-native-baseline-20261025_102347"
+        },
+        {
+          "path": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/FILM_QA_VISUAL_REVIEW.pdf",
+          "kind": "report",
+          "label": "Unity visual review · 30 seconds · not accepted",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-native-baseline-20261025_102347"
+        },
+        {
+          "path": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/frame_0010.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=10",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-native-baseline-20261025_102347",
+          "timeSeconds": 10,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "a1131662403b420f9cd7a31d2c32817e",
+            "report": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/frame_0013.820s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=13.82",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-native-baseline-20261025_102347",
+          "timeSeconds": 13.82,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "a1131662403b420f9cd7a31d2c32817e",
+            "report": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        }
+      ],
+      "sourceIdentity": {
+        "originalFileSha256": null,
+        "generatedTimeline": "Assets/_Game/MY_Core/MY_Data/Cutscenes/Generated/Projects/a1131662403b420f9cd7a31d2c32817e/Revisions/r1/7fc509b64d8943cca906220ca33fc01e/Timeline.playable",
+        "originalInputFilename": "FLEET_YAMATO_THE_LAST_VOLLEY_30S_SPRITE_ONLY_20261025_V1.json"
+      },
+      "review": {
+        "reviewer": "assistant visual inspection",
+        "inspectedTimesSeconds": [
+          0.12,
+          10,
+          13.82,
+          22,
+          26
+        ],
+        "findings": [
+          "t=10 does not show the requested cannon close-up or continuous moving muzzle follow.",
+          "Ships are small relative to the frame; portrait/dialogue panels and missing-voice notices obscure the image.",
+          "Generated projectile launch times begin at 13.35, 13.82 and 14.29 rather than the requested 15–17 interval."
+        ],
+        "scope": "These failures reject this earlier baseline against the target. They do not establish the outcome of the new ArtPack source."
+      }
     }
   ],
   "history": [
@@ -548,11 +633,29 @@
       "status": "NATIVE_V1_CANDIDATE_READY_UNITY_RESULT_UNKNOWN",
       "updatedUtc": "2026-10-25T03:41:00+02:00",
       "snapshotPath": "workbench/projects/fleet30-camera/revisions/000006.json"
+    },
+    {
+      "revision": 7,
+      "stage": "AUTHORING",
+      "status": "V1_LINT_PASS_WITH_2_WARNINGS_NATIVE_BUILD_PENDING",
+      "updatedUtc": "2026-10-25T05:18:00+02:00",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000007.json"
     }
   ],
-  "lastCompletedAction": "Native Unity Cutscene Studio V1 candidate lint PASS, 0 blockers and 2 warnings (down from 15). V2 uses a resolved Nautolan Dreadnought Sprite as a temporary stand-in for the Battlecruiser prefab, avoids locked dialogue during 5–15 gun camera follow, and uses canonical ANIME_SPACE_PILOT_01 emotional frames. No Unity movie generation or capture was executed.",
-  "nextAction": "With integration owner and unsaved GRAD1 safe, build this V2 through the existing Studio exactly once. Replace temporary Dreadnought stand-in with accurate original Battlecruiser Sprite/Prefab authoring as supported, attach real muzzle child, capture 5/10/15 tracking and 30s result; remaining warnings: impact lacks linked executable aftermath, fire dialogue lacks reaction cue.",
-  "inFlightAction": null,
+  "lastCompletedAction": "2026-10-25: Located successful canonical baseline project a1131662403b420f9cd7a31d2c32817e, ran native Film QA, produced and published 53 nonblack Unity frames. Actual-frame review fails the requested cannon shot and composition; not accepted. ArtPack animated source passed native lint (0 blockers, 2 warnings, 0 recoveries) but its build remains pending; source copy hash recorded. Website continuation now checks an outstanding request before recommending any repeat.",
+  "nextAction": "Inspect the existing fleet30-artpack-20261025 Studio request and FLEET30_ARTPACK_BUILD_RESULT_20261025.txt before any new mutation. Unity displayed a Workshop save dialog during dispatch. Preserve manual Workshop changes. Once this exact request has a terminal result, inspect actual animation materialization, run native Film QA for that project, and verify 5–15 continuous moving cannon follow, 15–17 launches and aftermath. The earlier 53-frame run is a rejected baseline, not proof of the ArtPack candidate.",
+  "inFlightAction": {
+    "type": "NATIVE_BUILD",
+    "status": "QUEUED",
+    "requestId": "fleet30-artpack-20261025",
+    "sourceIdentity": {
+      "sha256": "c08d02d991741c1632b736c37f8768505e5d829a30a8e148981f5e2b0ec2ff8c",
+      "inputFilename": "FLEET_ARTPACK_ANIMATED_V1_BUILD_INPUT_20261025.json"
+    },
+    "note": "Original volatile Schedule was interrupted by domain reload; native detached diagnostic job was lost and no ArtPack project or result was present. Exact source request persisted through the existing Studio request-file route. Do not issue another import/build; inspect request, processing file and result first.",
+    "resultFilename": "FLEET30_ARTPACK_BUILD_RESULT_20261025.txt",
+    "requestFilename": "fleet30-artpack-20261025.request.txt"
+  },
   "sourceArtifacts": [
     {
       "path": "workbench/projects/fleet30-camera/artifacts/4a1d1f2672ce1832516213c22840bb69c4ae12748da697597e409f62e96778bc-FLEET30_HANDOFF.md",
@@ -593,6 +696,48 @@
       "label": "FLEET V1 candidate V2 · native lint PASS with 2 warnings · unbuilt",
       "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
       "evidenceStatus": "SOURCE_VALIDATED_NOT_UNITY_BUILT"
+    },
+    {
+      "path": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/report.json",
+      "kind": "report",
+      "label": "Native Unity Film QA · 53 frames · baseline requires revision",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "runId": "fleet30-native-baseline-20261025_102347"
+    },
+    {
+      "path": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/FILM_QA_VISUAL_REVIEW.pdf",
+      "kind": "report",
+      "label": "Unity visual review · 30 seconds · not accepted",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "runId": "fleet30-native-baseline-20261025_102347"
+    },
+    {
+      "path": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/frame_0010.000s.png",
+      "kind": "capture",
+      "label": "Actual Unity frame t=10",
+      "evidenceStatus": "CAPTURED",
+      "runId": "fleet30-native-baseline-20261025_102347",
+      "timeSeconds": 10,
+      "provenance": {
+        "tool": "MY_CutsceneFilmQaScannerWindow",
+        "nativeProjectId": "a1131662403b420f9cd7a31d2c32817e",
+        "report": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/report.json",
+        "captureMode": "EDITOR_TIMELINE_EVALUATION"
+      }
+    },
+    {
+      "path": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/frame_0013.820s.png",
+      "kind": "capture",
+      "label": "Actual Unity frame t=13.82",
+      "evidenceStatus": "CAPTURED",
+      "runId": "fleet30-native-baseline-20261025_102347",
+      "timeSeconds": 13.82,
+      "provenance": {
+        "tool": "MY_CutsceneFilmQaScannerWindow",
+        "nativeProjectId": "a1131662403b420f9cd7a31d2c32817e",
+        "report": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/report.json",
+        "captureMode": "EDITOR_TIMELINE_EVALUATION"
+      }
     }
   ],
   "currentIdentity": {
