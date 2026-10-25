@@ -1,0 +1,302 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "FLEET - LAST VOLLEY 30S - ARTPACK ANIMATION PROOF",
+  "projectId": "3f576197c1684adb8a811847ed7d10b4",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "PASS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "No sampled black frames outside detected transitions; this is not full technical clearance",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 51,
+    "blackFrames": 0,
+    "handoffBoundaryBlanks": 0,
+    "edgeClipping": 0,
+    "actorOverlap": 0,
+    "actorOversized": 0,
+    "meanBrightness": 0.2309658541983249,
+    "originalFlags": 4,
+    "events": 12,
+    "eventCaptured": 12,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "YAM_01_ESTABLISH_shot_line_1",
+      "kind": "DIALOGUE",
+      "timeSeconds": 0,
+      "director": "MAIN",
+      "source": "DIALOGUE_CLIP",
+      "actor": "fleet_comms",
+      "target": "fleet_commander",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0000.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "YAM_03_THREE_FIRE_shot_line_1",
+      "kind": "DIALOGUE",
+      "timeSeconds": 15,
+      "director": "MAIN",
+      "source": "DIALOGUE_CLIP",
+      "actor": "fleet_commander",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0015.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_03_THREE_FIRE_shot_fleet_battlecruiser_WEAPON_0|PROJECTILE - SIMPLE_YAM_03_THREE_FIRE_shot_fleet_battlecruiser_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 15.119999885559082,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "fleet_battlecruiser",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0015.120s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_03_THREE_FIRE_shot_fleet_wing_WEAPON_1|PROJECTILE - SIMPLE_YAM_03_THREE_FIRE_shot_fleet_wing_WEAPON_1 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 15.529999732971191,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "fleet_wing",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0015.530s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_03_THREE_FIRE_shot_fleet_battlecruiser_WEAPON_0|PROJECTILE - SIMPLE_YAM_03_THREE_FIRE_shot_fleet_battlecruiser_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 15.769999861717224,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "fleet_battlecruiser",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0015.770s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_03_THREE_FIRE_shot_fleet_battlecruiser_WEAPON_2|PROJECTILE - SIMPLE_YAM_03_THREE_FIRE_shot_fleet_battlecruiser_WEAPON_2 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 15.970000267028809,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "fleet_battlecruiser",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0015.970s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_03_THREE_FIRE_shot_fleet_wing_WEAPON_1|PROJECTILE - SIMPLE_YAM_03_THREE_FIRE_shot_fleet_wing_WEAPON_1 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 16.179999709129333,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "fleet_wing",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0016.180s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_03_THREE_FIRE_shot_fleet_battlecruiser_WEAPON_2|PROJECTILE - SIMPLE_YAM_03_THREE_FIRE_shot_fleet_battlecruiser_WEAPON_2 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 16.62000024318695,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "fleet_battlecruiser",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0016.620s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_05_THREE_IMPACTS_shot_fleet_target_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 20.25,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0020.250s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_05_THREE_IMPACTS_shot_fleet_target_IMPACT_1",
+      "kind": "VisualCue",
+      "timeSeconds": 20.950000762939453,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0020.950s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_05_THREE_IMPACTS_shot_fleet_target_IMPACT_2",
+      "kind": "VisualCue",
+      "timeSeconds": 21.649999618530273,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0021.650s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "handoff_simple_FLEET_-_LAST_VOLLEY_30S_-_ARTPACK_ANIMATION_PROOF",
+      "kind": "HandoffRequested",
+      "timeSeconds": 30,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0030.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 4,
+      "imageFile": "frame_0004.000s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 10,
+      "imageFile": "frame_0010.000s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 12,
+      "imageFile": "frame_0012.000s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    },
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 14,
+      "imageFile": "frame_0014.000s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    }
+  ],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 4,
+      "fileName": "frame_0004.000s.png"
+    },
+    {
+      "timeSeconds": 10,
+      "fileName": "frame_0010.000s.png"
+    },
+    {
+      "timeSeconds": 12,
+      "fileName": "frame_0012.000s.png"
+    },
+    {
+      "timeSeconds": 14,
+      "fileName": "frame_0014.000s.png"
+    },
+    {
+      "timeSeconds": 15.65,
+      "fileName": "frame_0015.650s.png"
+    },
+    {
+      "timeSeconds": 20.13,
+      "fileName": "frame_0020.130s.png"
+    },
+    {
+      "timeSeconds": 25,
+      "fileName": "frame_0025.000s.png"
+    },
+    {
+      "timeSeconds": 30,
+      "fileName": "frame_0030.000s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
