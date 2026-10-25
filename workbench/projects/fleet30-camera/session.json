@@ -4,10 +4,10 @@
   "id": "fleet30-camera",
   "kind": "film",
   "title": "FLEET · הוכחת מצלמה 30 שניות",
-  "revision": 6,
+  "revision": 7,
   "stage": "AUTHORING",
-  "status": "NATIVE_V1_CANDIDATE_READY_UNITY_RESULT_UNKNOWN",
-  "updatedUtc": "2026-10-25T03:41:00+02:00",
+  "status": "V1_LINT_PASS_WITH_2_WARNINGS_NATIVE_BUILD_PENDING",
+  "updatedUtc": "2026-10-25T05:18:00+02:00",
   "originalBrief": "Use actual CS_FLEET_Invasion prefab (13 ships). One continuous follow shot Master 5–15s, inspect t=10 after ship translation and rotation. Wide and detail proof.",
   "approvedTargetRevision": 0,
   "targetArtifacts": [
@@ -493,6 +493,17 @@
         "sha256": "0d2fcd25a85e79e036fe9d75e3c83a171a27715c26b4cddb3138adb86ba8c66b"
       },
       "artifacts": []
+    },
+    {
+      "id": "fleet30-v2-native-lint-20261025",
+      "label": "FLEET 30s V1 V2 native Studio lint",
+      "capture": "NOT_RUN",
+      "technical": "PASS_WITH_WARNINGS",
+      "cinematic": "NOT_ACCEPTED",
+      "runtime": "NOT_TESTED",
+      "warnings": 2,
+      "blockers": 0,
+      "artifacts": []
     }
   ],
   "history": [
@@ -530,10 +541,17 @@
       "status": "V7_VISUAL_PREVIS_PUBLISHED_NATIVE_PENDING",
       "updatedUtc": "2026-10-25T01:50:00+03:00",
       "snapshotPath": "workbench/projects/fleet30-camera/revisions/000005.json"
+    },
+    {
+      "revision": 6,
+      "stage": "AUTHORING",
+      "status": "NATIVE_V1_CANDIDATE_READY_UNITY_RESULT_UNKNOWN",
+      "updatedUtc": "2026-10-25T03:41:00+02:00",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000006.json"
     }
   ],
-  "lastCompletedAction": "Detached a native-authoring CUTSCENE_SCRIPT_V1 candidate from the existing repaired FLEET source. Verified eight contiguous beats totaling 30 seconds (5–15 continuous gun beat), exactly 3 fire actions and 3 impact actions, and shock/relief expressions. Candidate committed to workbench source artifacts. Unity import/build attempt timed out and produced no verifiable result; GRAD1 is now dirty and integration was not repeated.",
-  "nextAction": "Current Unity MAIN editor displays unsaved GRAD1 and does not reliably respond to read-only eval. Do not change scenes or rerun import blindly. Current integration owner should establish editor idle/scene-save state and inspect Studio automation logs, resolve absence of gun-child muzzle, import the detached V1 once, capture real t=5/10/15 continuity and full 30s, attach exact run evidence to this dossier.",
+  "lastCompletedAction": "Native Unity Cutscene Studio V1 candidate lint PASS, 0 blockers and 2 warnings (down from 15). V2 uses a resolved Nautolan Dreadnought Sprite as a temporary stand-in for the Battlecruiser prefab, avoids locked dialogue during 5–15 gun camera follow, and uses canonical ANIME_SPACE_PILOT_01 emotional frames. No Unity movie generation or capture was executed.",
+  "nextAction": "With integration owner and unsaved GRAD1 safe, build this V2 through the existing Studio exactly once. Replace temporary Dreadnought stand-in with accurate original Battlecruiser Sprite/Prefab authoring as supported, attach real muzzle child, capture 5/10/15 tracking and 30s result; remaining warnings: impact lacks linked executable aftermath, fire dialogue lacks reaction cue.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -568,6 +586,13 @@
       "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
       "sha256": "81254c51b217b92909e83c0f89452c8e773954537df6d19567116b06285c0d52",
       "evidenceStatus": "SOURCE_ATTACHED_NATIVE_BUILD_NOT_VERIFIED"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/FLEET_30S_CATALOG_RESOLVED_CANDIDATE_V2.json",
+      "kind": "source",
+      "label": "FLEET V1 candidate V2 · native lint PASS with 2 warnings · unbuilt",
+      "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+      "evidenceStatus": "SOURCE_VALIDATED_NOT_UNITY_BUILT"
     }
   ],
   "currentIdentity": {
@@ -577,7 +602,7 @@
     "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
     "note": "Refresh at every new authoring request; this is an intake observation, not a permanent pin."
   },
-  "currentSourcePath": "workbench/projects/fleet30-camera/artifacts/FLEET_30S_NATIVE_CANDIDATE_V1_20261025.json",
+  "currentSourcePath": "workbench/projects/fleet30-camera/artifacts/FLEET_30S_CATALOG_RESOLVED_CANDIDATE_V2.json",
   "storyArc": {
     "question": "האם ספינת הדגל תספיק להציל את הליווי לפני שהאויב יפגע בו?",
     "threat": "אויב מתקרב אל ספינת הליווי החשופה.",
