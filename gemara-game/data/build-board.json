@@ -1,15 +1,15 @@
 {
   "schema": "GEMARA_GAME_BUILD_BOARD",
   "version": 1,
-  "asOf": "2026-10-23",
+  "asOf": "2026-10-25",
   "source": "Local Unity project inspection, Plastic MAIN and recorded QA; static export, not live Unity sync",
   "unityVersion": "6000.7.0b5",
   "project": "GEMARA_GAME",
   "indicators": [
     {
       "label": "סצנות Unity שנוצרו",
-      "value": "4",
-      "note": "קבצי .unity קיימים בפרויקט"
+      "value": "12",
+      "note": "קובצי סצנה בתיקיית Generated; לא כולם עברו PlayMode"
     },
     {
       "label": "תחנות לימוד בכפר",
@@ -18,8 +18,8 @@
     },
     {
       "label": "בדיקת PlayMode מתועדת",
-      "value": "1/1",
-      "note": "למסלול הדמו הדו־ממדי בלבד"
+      "value": "2+",
+      "note": "מסלול הדמו ומסע ארבע הסצנות עברו; יש בדיקות נוספות נפרדות"
     },
     {
       "label": "APK שנבדק בטלפון",
@@ -50,8 +50,8 @@
       "id": "village",
       "name": "הכפר שלי",
       "group": "built",
-      "stage": "qa",
-      "stageLabel": "נבנה, ממתין לבדיקת Play",
+      "stage": "verified",
+      "stageLabel": "ניווט ב־PlayMode עבר",
       "short": "כפר תלת־ממדי עם בית מדרש, נפחייה, שדה, דמויות ושלוש שאלות לימוד שאפשר להפעיל מתוך הסצנה.",
       "scene": "Assets/GemaraGame/Generated/GemaraVillageHub.unity",
       "features": [
@@ -59,17 +59,17 @@
         "שלוש תחנות לימוד עם משוב וניקוד",
         "ממשק מגע וניווט בין אזורים"
       ],
-      "proof": "דו״ח מחולל הסצנה: PASS, 3 hotspots, 20 מופעי prefab. תצוגת Play טרם אומתה.",
-      "next": "בדיקת Play ממשית, צילום מסך והשלמת בדיקת הגדר שתוקנה בקוד.",
-      "image": null,
-      "imageLabel": null
+      "proof": "PlayMode PASS, 25.10.2026: הסצנה נטענה לאחר דיר הבכורות, נמצא בקר המשחק, והמעבר למשכן הצליח. לא נבדקו כל המשימות בכפר.",
+      "next": "לבדוק כל משימה בנפרד ולצמצם חסימות בין חלוניות ממשק וסביבת המשחק.",
+      "image": "screenshots/ATLAS_VILLAGE_GAME_VIEW.png",
+      "imageLabel": "צילום אמיתי מ־PlayMode: הכפר בעת המסע, 25.10.2026"
     },
     {
       "id": "beit",
       "name": "בית מדרש תלת־ממדי",
       "group": "built",
-      "stage": "qa",
-      "stageLabel": "סצנה קיימת, QA בהמשך",
+      "stage": "verified",
+      "stageLabel": "מעבר ב־PlayMode עבר",
       "short": "סצנת בית מדרש נפרדת שנבנתה בתוך הפרויקט לצורך העולם המרכזי של הלימוד.",
       "scene": "Assets/GemaraGame/Generated/BeitMidrash3D.unity",
       "features": [
@@ -77,17 +77,17 @@
         "חומרי תצוגה שנוצרו לבית מדרש",
         "נקודת חיבור אפשרית לכפר"
       ],
-      "proof": "קובץ הסצנה נמצא בפרויקט Unity, אך אין כרגע בדיקת Play מתועדת לסצנה זו.",
-      "next": "להציג בתוך Game View, לצלם ולוודא חיבור לכפר.",
-      "image": null,
-      "imageLabel": null
+      "proof": "PlayMode PASS, 25.10.2026: המסע התחיל בסצנת בית המדרש וחזר אליה דרך דיר הבכורות, הכפר והמשכן. צילום החזרה לבית המדרש אומת; צילום הפתיחה היה שגוי ולכן אינו מוצג כראיה.",
+      "next": "לשפר מצלמה, ספסלים ודמויות לומדים ולבדוק ממשק בטלפון אמיתי.",
+      "image": "screenshots/ATLAS_BEIT_GAME_VIEW.png",
+      "imageLabel": "צילום אמיתי מ־PlayMode: חזרה לבית המדרש, 25.10.2026"
     },
     {
       "id": "birds",
       "name": "ציפורי המחלוקת בתלת־ממד",
       "group": "built",
-      "stage": "qa",
-      "stageLabel": "סצנה וקוד קיימים",
+      "stage": "verified",
+      "stageLabel": "משחק מלא עבר ב־Unity",
       "short": "מיון טענות הגמרא בין ענפים, עם ציפורים, העברות, משוב חיובי ושגיאות.",
       "scene": "Assets/GemaraGame/Generated/BirdSort3DDemo.unity",
       "features": [
@@ -95,10 +95,64 @@
         "סצנה תלת־ממדית נפרדת",
         "התנהגות תזוזה ומשוב על החלטות"
       ],
-      "proof": "קובץ סצנה ומחלקת BirdSort3DGame קיימים. אין צילום PlayMode מאומת לסצנה זו.",
-      "next": "לבדוק את הסצנה בפועל עם ממשק טלפון ולתעד משחק שלם.",
+      "proof": "מהלכים תקינים ושגויים, ניצחון, ניקוד והתחלה מחדש עברו ב־PlayMode ב־25.10.2026. שש ציפורים מונפשות במשחק; תמונות Game View נבדקו.",
+      "next": "בדיקת אנדרואיד, גודל הציפורים והנראות בזמן תנועה.",
+      "image": "screenshots/BIRDS12_GAME_VIEW_INITIAL.png",
+      "imageLabel": "Unity PlayMode, 390×844, 25.10.2026"
+    },
+    {
+      "id": "bekhorot58",
+      "name": "בכורות נ״ח | דיר המעשר",
+      "group": "built",
+      "stage": "qa",
+      "stageLabel": "סצנה ותוכן קיימים; Play טרם אומת",
+      "short": "סצנת דיר ובה כבשים, ספירת עשירי, מזבח ותחנות לימוד לדף בכורות נ״ח.",
+      "scene": "Assets/GemaraGame/Generated/Bekhorot58Sanctuary.unity",
+      "features": [
+        "דיר וכבשים בתוך סצנת Unity",
+        "ממשק לימוד לדף בכורות נ״ח",
+        "תוכן טיוטה נפרד ממנוע המשחק"
+      ],
+      "proof": "קבצי הסצנה והקוד קיימים; דווח על בנייה ותקינות תוכן. לא אומתו 12 תחנות ברצף Play.",
+      "next": "PlayMode מלא, ספירה וסימון עשירי, תצלום Game View וביקורת תורנית.",
       "image": null,
       "imageLabel": null
+    },
+    {
+      "id": "berakhot3",
+      "name": "ברכות ג׳ | עולם הלילה",
+      "group": "built",
+      "stage": "qa",
+      "stageLabel": "סצנה בנויה; בדיקת משחק נדרשת",
+      "short": "עולם לילה תלת־ממדי עם שמונה תחנות לימוד, קישור למפת העולמות ומנגנוני משחק קיימים.",
+      "scene": "Assets/GemaraGame/Generated/Berakhot3NightWorld.unity",
+      "features": [
+        "8 תחנות לימוד",
+        "אווירת לילה ודמויות בתוך Unity",
+        "חיבור לתשתית הסוגיות המשותפת"
+      ],
+      "proof": "הסצנה נשמרה בפרויקט והקומפילציה הקודמת תועדה. טרם הוצגה הוכחת Play וצילום.",
+      "next": "להשלים מסלול Play וצילום אמיתי, ואז ביקורת תוכן תורנית.",
+      "image": null,
+      "imageLabel": null
+    },
+    {
+      "id": "berakhot41",
+      "name": "ברכות מ״א | מי קודם ומה פוטר?",
+      "group": "built",
+      "stage": "verified",
+      "stageLabel": "הושלם עד 100% ב־Unity",
+      "short": "דוגמה לדף קשה: שבעת המינים, עיקר וטפל, שני מופעי ׳ארץ׳ וברכות בתוך הסעודה. התוכן טיוטה ולא פסיקת הלכה.",
+      "scene": "Assets/GemaraGame/Generated/Berakhot41Demo.unity",
+      "features": [
+        "6 מעבדות ו־13 מצבי ניסוי",
+        "12 טענות למיון ציפורים ו־12 אתגרים",
+        "11 שלבים לשחזור הסוגיה ושמירת התקדמות"
+      ],
+      "proof": "PlayMode עבר: 6 מעבדות, 13 מצבים, 12 טענות, 12 אתגרים, 11 שלבי שחזור, שגיאות והפעלה מחדש. צילום סיום נבדק.",
+      "next": "בדיקת טלפון וביקורת תוכן.",
+      "image": "screenshots/BERAKHOT41_DONE_GAME_VIEW.png",
+      "imageLabel": "Unity PlayMode, 390×844, 25.10.2026"
     },
     {
       "id": "shooter",
@@ -122,20 +176,38 @@
       "id": "atlas",
       "name": "מפת עולמות הגמרא",
       "group": "work",
-      "stage": "integration",
-      "stageLabel": "ממשק באתר, חיבור למשחק בהמשך",
-      "short": "מפה לארגון מקומות ונושאים בעולם הגמרא. דף האתר וקובץ הנתונים קיימים, אבל עדיין לא נבדק חיבור משחק מלא.",
-      "scene": "site/world-atlas.html + site/world-atlas-v1.json",
+      "stage": "verified",
+      "stageLabel": "מסע ארבע סצנות עבר",
+      "short": "מפת נושאים ויעדי סצנות מחוברת ל־Unity. נבדק מסלול בית המדרש–עדר–כפר; עולמות מתוכננים עדיין אינם שלבים גמורים.",
+      "scene": "Assets/GemaraGame/Runtime/WorldAtlasMapController.cs",
       "features": [
-        "דף HTML של מפת העולמות קיים",
-        "קובץ נתוני מיפוי קיים",
-        "אינטגרציה עם סצנות Unity טרם אומתה"
+        "מפת נושאים בתוך Unity",
+        "יעד הסצנה נקרא מקובץ המפה",
+        "מסלול בית המדרש–עדר–כפר עבר ב־PlayMode"
       ],
-      "proof": "קיימים דף מפה וקובץ נתונים בתיקיית site; אין ראיה למעבר מלא בין עולמות מתוך משחק אנדרואיד.",
-      "next": "לקשר משימות בכפר לנושאים במפה ולבדוק מעבר בין עולמות.",
-      "image": null,
-      "imageLabel": null,
+      "proof": "PlayMode PASS, 25.10.2026: בית מדרש ← דיר הבכורות (תשובה נכונה ושמירת התקדמות) ← כפר ← משכן ומזבח ← חזרה לבית המדרש. דו״ח qa/atlas-journey-20261025-1652/qa-result.txt. צילום הפתיחה לא תקין; צילום החזרה תקין.",
+      "next": "לשפר צילום פתיחה, לבדוק כניסה לשאר העולמות ולבצע בדיקות Android.",
+      "image": "screenshots/ATLAS_HERD_ANSWER_GAME_VIEW.png",
+      "imageLabel": "צילום אמיתי מ־PlayMode: משימת בכורות עם תשובה נכונה, 25.10.2026",
       "link": "world-atlas.html"
+    },
+    {
+      "id": "sanctuary",
+      "name": "המשכן והמזבח",
+      "group": "built",
+      "stage": "verified",
+      "stageLabel": "כניסה ב־PlayMode נבדקה",
+      "short": "חצר לימודית סמלית, עם מזבח תלת־ממדי מתוך חבילת הנכסים הקיימת.",
+      "scene": "Assets/GemaraGame/Generated/SanctuaryLearningWorld.unity",
+      "features": [
+        "מזבח Prefab מיובא",
+        "חצר לימוד נפרדת",
+        "מעבר מתוך מפת הסוגיות"
+      ],
+      "proof": "PlayMode PASS, 25.10.2026: כניסה למשכן, אימות מצלמה ומזבח מיובא, וחזרה לבית המדרש. משחקיות הקרבנות לא נבדקה.",
+      "next": "להעשיר את הסביבה, להוסיף משחקיות לימודית ולבצע ביקורת תורנית.",
+      "image": "screenshots/ATLAS_SANCTUARY_GAME_VIEW.png",
+      "imageLabel": "צילום אמיתי מ־PlayMode: המשכן והמזבח, 25.10.2026"
     }
   ],
   "nextTasks": [
@@ -145,8 +217,8 @@
       "state": "next"
     },
     {
-      "title": "חיבור בית המדרש לכפר",
-      "detail": "מעבר בסצנה מהכפר אל בית המדרש ומשימות הלימוד שלו.",
+      "title": "שיפור עולמות קיימים",
+      "detail": "המסע בין בית המדרש, הדיר, הכפר והמשכן עבר. נדרשים שיפור חזותי, בדיקות משימות מלאות וצילום פתיחה מדויק.",
       "state": "work"
     },
     {
@@ -174,6 +246,11 @@
     {
       "label": "מקור אמת",
       "path": "GEMARA_GAME@firebird721@cloud / main",
+      "public": false
+    },
+    {
+      "label": "מסע עולמות PlayMode",
+      "path": "qa/atlas-journey-20261025-1652/qa-result.txt",
       "public": false
     }
   ]

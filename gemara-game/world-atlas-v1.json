@@ -1,0 +1,959 @@
+{
+  "schema": "GEMARA_GAME_WORLD_ATLAS",
+  "schemaVersion": 1,
+  "asOf": "2026-10-23",
+  "purpose": "Planning taxonomy. NOT a daf-by-daf verified map, Torah ruling, or historical reconstruction.",
+  "completion": {
+    "mappedTractates": 37,
+    "tractateRoutesAre": "THEMATIC_HEURISTICS",
+    "reviewedSugyot": 0,
+    "authoredDraftExamples": 3,
+    "renderedVerifiedWorlds": 0,
+    "androidVerified": false
+  },
+  "contract": {
+    "resolution": "daf -> sugya -> text/source ref -> concept topics -> one primary world + optional secondary worlds -> mechanic -> source and review status",
+    "crossCuttingWorldId": "hub",
+    "sceneRule": "Only load a scene if it exists in build settings; world entries are not scenes.",
+    "historicalRule": "Mishkan and Beit HaMikdash must have distinct historical variants. Do not treat a pagan shrine/Torii as either.",
+    "ethicsRule": "Represent animal slaughter and blood rituals symbolically in learning scenes; no graphic harm.",
+    "licenseRule": "Sefaria text-version licenses and reuse permissions need separate verification before commercial use."
+  },
+  "topics": [
+    {
+      "id": "blessings",
+      "title": "ברכות ותפילה"
+    },
+    {
+      "id": "time",
+      "title": "זמנים ולוח השנה"
+    },
+    {
+      "id": "shabbat",
+      "title": "שבת, עירובין ומלאכה"
+    },
+    {
+      "id": "festivals",
+      "title": "מועדים וחגים"
+    },
+    {
+      "id": "kinship",
+      "title": "משפחה ומעמד אישי"
+    },
+    {
+      "id": "property",
+      "title": "קניין וממון"
+    },
+    {
+      "id": "damages",
+      "title": "נזק ואחריות"
+    },
+    {
+      "id": "testimony",
+      "title": "דיינים, עדות ושבועות"
+    },
+    {
+      "id": "animals",
+      "title": "בעלי חיים ובכורות"
+    },
+    {
+      "id": "sacrifice",
+      "title": "קרבנות ועבודת מקדש"
+    },
+    {
+      "id": "grain",
+      "title": "גידולי שדה, שמיטה ומעשרות"
+    },
+    {
+      "id": "purity",
+      "title": "טומאה וטהרה"
+    },
+    {
+      "id": "vows",
+      "title": "נדרים והקדשות"
+    },
+    {
+      "id": "travel",
+      "title": "דרך, מרחק ואבידה"
+    },
+    {
+      "id": "work",
+      "title": "עבודה ואומנות"
+    },
+    {
+      "id": "reasoning",
+      "title": "מחלוקת ודרך הסוגיה"
+    },
+    {
+      "id": "narrative",
+      "title": "אגדה, אדם וחברה"
+    }
+  ],
+  "worlds": [
+    {
+      "id": "hub",
+      "icon": "🏛️",
+      "title": "בית המדרש",
+      "summary": "מקום המפגש והדיון: טענות, קושיות, ראיות וחזרה לסיכום.",
+      "era": "any",
+      "assetState": "BUILDER_EXISTS_SCENE_NOT_VERIFIED",
+      "topicIds": [
+        "reasoning",
+        "narrative"
+      ],
+      "mechanics": [
+        "debate",
+        "bird-sort",
+        "reconstruct"
+      ],
+      "assetHints": [
+        "Low Poly Tarvern Pack",
+        "EmaceArt furniture"
+      ],
+      "scene": "BeitMidrash3D",
+      "sceneBuiltVerified": true
+    },
+    {
+      "id": "synagogue",
+      "icon": "🕯️",
+      "title": "בית הכנסת והתפילה",
+      "summary": "זמן קריאת שמע, תפילות, ברכות וקריאה בציבור.",
+      "era": "rabbinic",
+      "assetState": "PLANNED_ASSETS_REUSABLE",
+      "topicIds": [
+        "blessings",
+        "time"
+      ],
+      "mechanics": [
+        "time-window",
+        "order",
+        "debate"
+      ],
+      "assetHints": [
+        "EmaceArt",
+        "Low Poly Tarvern Pack"
+      ],
+      "scene": "",
+      "sceneBuiltVerified": false
+    },
+    {
+      "id": "home",
+      "icon": "🏠",
+      "title": "בית, משפחה וחצר",
+      "summary": "מגורים, נישואין, מלאכת שבת, שכנים וחצר.",
+      "era": "mixed",
+      "assetState": "PLANNED_ASSETS_REUSABLE",
+      "topicIds": [
+        "kinship",
+        "shabbat",
+        "property"
+      ],
+      "mechanics": [
+        "case-choice",
+        "arrange-room",
+        "debate"
+      ],
+      "assetHints": [
+        "EmaceArt",
+        "Charttyp"
+      ],
+      "scene": "",
+      "sceneBuiltVerified": false
+    },
+    {
+      "id": "market",
+      "icon": "🪙",
+      "title": "השוק",
+      "summary": "מסחר, מציאות, שומרים, מחירים והתחייבויות.",
+      "era": "rabbinic",
+      "assetState": "PLANNED_ASSETS_REUSABLE",
+      "topicIds": [
+        "property",
+        "damages",
+        "work"
+      ],
+      "mechanics": [
+        "trade",
+        "find-object",
+        "negotiation"
+      ],
+      "assetHints": [
+        "EmaceArt",
+        "Gold Coins"
+      ],
+      "scene": "",
+      "sceneBuiltVerified": false
+    },
+    {
+      "id": "court",
+      "icon": "⚖️",
+      "title": "בית הדין",
+      "summary": "עדים, דיינים, הוכחות, אחריות והכרעות.",
+      "era": "mixed",
+      "assetState": "PLANNED_ASSETS_REUSABLE",
+      "topicIds": [
+        "testimony",
+        "damages",
+        "reasoning"
+      ],
+      "mechanics": [
+        "cross-examine",
+        "evidence-sort",
+        "debate"
+      ],
+      "assetHints": [
+        "Low Poly Tarvern Pack"
+      ],
+      "scene": "",
+      "sceneBuiltVerified": false
+    },
+    {
+      "id": "farm",
+      "icon": "🌾",
+      "title": "השדה והכרם",
+      "summary": "יבול, נזקי שדה, שביעית, גבולות ובעלי חיים.",
+      "era": "mixed",
+      "assetState": "VILLAGE_STATION_BUILDER_ONLY",
+      "topicIds": [
+        "grain",
+        "damages",
+        "animals"
+      ],
+      "mechanics": [
+        "field-puzzle",
+        "compare-cases",
+        "sort"
+      ],
+      "assetHints": [
+        "EmaceArt",
+        "UrsaAnimation"
+      ],
+      "scene": "GemaraVillageHub",
+      "sceneBuiltVerified": true
+    },
+    {
+      "id": "herd",
+      "icon": "🐑",
+      "title": "הדיר והעדר",
+      "summary": "בכורות, מומים, סימני בעלי חיים, שחיטת חולין כמקרה לימודי.",
+      "era": "mixed",
+      "assetState": "PLANNED_ASSETS_REUSABLE",
+      "topicIds": [
+        "animals",
+        "sacrifice"
+      ],
+      "mechanics": [
+        "animal-classifier",
+        "case-lab",
+        "sequence"
+      ],
+      "assetHints": [
+        "UrsaAnimation goat & sheep",
+        "Shepherd_Valley cow"
+      ],
+      "scene": "BekhorotHerdWorld",
+      "sceneBuiltVerified": true
+    },
+    {
+      "id": "sanctuary",
+      "icon": "🕍",
+      "title": "המשכן והמקדש",
+      "summary": "מקום עבודת הקרבנות, כלי הקודש וההלכות המתייחסות אליהם.",
+      "era": "biblical-temple",
+      "assetState": "ALTAR_PREFAB_CONFIRMED_OTHER_STRUCTURES_NOT_VERIFIED",
+      "topicIds": [
+        "sacrifice",
+        "purity",
+        "vows"
+      ],
+      "mechanics": [
+        "ritual-sequence",
+        "station-match",
+        "case-choice"
+      ],
+      "assetHints": [
+        "AndresCasaretto Tabernacle AltarOfBurntOffering prefab"
+      ],
+      "scene": "SanctuaryLearningWorld",
+      "sceneBuiltVerified": true
+    },
+    {
+      "id": "workshop",
+      "icon": "🛠️",
+      "title": "בית המלאכה",
+      "summary": "אומן, עובד, שומר ושאלות אחריות על חפצים.",
+      "era": "rabbinic",
+      "assetState": "VILLAGE_STATION_BUILDER_ONLY",
+      "topicIds": [
+        "work",
+        "property",
+        "damages"
+      ],
+      "mechanics": [
+        "repair-choice",
+        "responsibility",
+        "sequence"
+      ],
+      "assetHints": [
+        "3DForge",
+        "EmaceArt"
+      ],
+      "scene": "GemaraVillageHub",
+      "sceneBuiltVerified": true
+    },
+    {
+      "id": "road",
+      "icon": "🛤️",
+      "title": "הדרך והמסע",
+      "summary": "אבידה, מקום, תחומין, מסעות ועדים שהגיעו בדרך.",
+      "era": "mixed",
+      "assetState": "PLANNED_ASSETS_REUSABLE",
+      "topicIds": [
+        "travel",
+        "property",
+        "time"
+      ],
+      "mechanics": [
+        "navigate",
+        "find-object",
+        "distance-puzzle"
+      ],
+      "assetHints": [
+        "EmaceArt",
+        "Charttyp"
+      ],
+      "scene": "",
+      "sceneBuiltVerified": false
+    },
+    {
+      "id": "festival",
+      "icon": "🎉",
+      "title": "עיר המועדים",
+      "summary": "חגים, מועדי השנה, סוכה, פסח ומנהגי ציבור.",
+      "era": "mixed",
+      "assetState": "PLANNED_ASSETS_REUSABLE",
+      "topicIds": [
+        "festivals",
+        "time",
+        "shabbat"
+      ],
+      "mechanics": [
+        "calendar-puzzle",
+        "sequence",
+        "case-choice"
+      ],
+      "assetHints": [
+        "EmaceArt",
+        "Charttyp"
+      ],
+      "scene": "",
+      "sceneBuiltVerified": false
+    },
+    {
+      "id": "purity",
+      "icon": "💧",
+      "title": "מקווה ומרחב טהרה",
+      "summary": "מצבי טומאה, טהרה והבחנות מושגיות, ללא המחשה פולשנית.",
+      "era": "mixed",
+      "assetState": "PLANNED_REQUIRE_REVIEW",
+      "topicIds": [
+        "purity",
+        "sacrifice"
+      ],
+      "mechanics": [
+        "state-transition",
+        "case-sort",
+        "rules"
+      ],
+      "assetHints": [],
+      "scene": "",
+      "sceneBuiltVerified": false
+    },
+    {
+      "id": "night-berakhot3",
+      "icon": "🌙",
+      "title": "ברכות ג׳: מסע הלילה",
+      "summary": "דף ג׳ ע״א וע״ב. שמונה תחנות מן האשמורות והחורבה עד הכינור ודוד המלך; מזיקין מומחשים באופן סמלי בלבד.",
+      "era": "rabbinic-literary",
+      "assetState": "LOCAL_SCENE_BUILDER_UNDER_QA",
+      "topicIds": [
+        "blessings",
+        "time",
+        "travel",
+        "narrative",
+        "reasoning"
+      ],
+      "mechanics": [
+        "case-lab",
+        "bird-sort",
+        "quiz",
+        "reconstruct",
+        "3d-journey"
+      ],
+      "assetHints": [
+        "Polytope PT_Skeleton_Male_Modular",
+        "local night set"
+      ],
+      "scene": "Berakhot3NightWorld",
+      "sceneBuiltVerified": false
+    }
+  ],
+  "tractates": [
+    {
+      "id": "Berakhot",
+      "he": "ברכות",
+      "seder": "Zeraim",
+      "worldIds": [
+        "synagogue",
+        "home",
+        "hub",
+        "night-berakhot3"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Shabbat",
+      "he": "שבת",
+      "seder": "Moed",
+      "worldIds": [
+        "home",
+        "workshop",
+        "festival"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Eruvin",
+      "he": "עירובין",
+      "seder": "Moed",
+      "worldIds": [
+        "home",
+        "road",
+        "festival"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Pesachim",
+      "he": "פסחים",
+      "seder": "Moed",
+      "worldIds": [
+        "festival",
+        "home",
+        "sanctuary"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Rosh Hashanah",
+      "he": "ראש השנה",
+      "seder": "Moed",
+      "worldIds": [
+        "festival",
+        "court",
+        "synagogue"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Yoma",
+      "he": "יומא",
+      "seder": "Moed",
+      "worldIds": [
+        "sanctuary",
+        "festival",
+        "purity"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Sukkah",
+      "he": "סוכה",
+      "seder": "Moed",
+      "worldIds": [
+        "festival",
+        "home",
+        "sanctuary"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Beitzah",
+      "he": "ביצה",
+      "seder": "Moed",
+      "worldIds": [
+        "festival",
+        "home"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Taanit",
+      "he": "תענית",
+      "seder": "Moed",
+      "worldIds": [
+        "farm",
+        "synagogue",
+        "festival"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Megillah",
+      "he": "מגילה",
+      "seder": "Moed",
+      "worldIds": [
+        "synagogue",
+        "festival"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Moed Katan",
+      "he": "מועד קטן",
+      "seder": "Moed",
+      "worldIds": [
+        "festival",
+        "home",
+        "market"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Chagigah",
+      "he": "חגיגה",
+      "seder": "Moed",
+      "worldIds": [
+        "sanctuary",
+        "purity",
+        "festival"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Yevamot",
+      "he": "יבמות",
+      "seder": "Nashim",
+      "worldIds": [
+        "home",
+        "court"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Ketubot",
+      "he": "כתובות",
+      "seder": "Nashim",
+      "worldIds": [
+        "home",
+        "court",
+        "market"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Nedarim",
+      "he": "נדרים",
+      "seder": "Nashim",
+      "worldIds": [
+        "home",
+        "hub",
+        "market"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Nazir",
+      "he": "נזיר",
+      "seder": "Nashim",
+      "worldIds": [
+        "sanctuary",
+        "purity",
+        "home"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Sotah",
+      "he": "סוטה",
+      "seder": "Nashim",
+      "worldIds": [
+        "sanctuary",
+        "home",
+        "court"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Gittin",
+      "he": "גיטין",
+      "seder": "Nashim",
+      "worldIds": [
+        "home",
+        "court",
+        "road"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Kiddushin",
+      "he": "קידושין",
+      "seder": "Nashim",
+      "worldIds": [
+        "home",
+        "market",
+        "court"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Bava Kamma",
+      "he": "בבא קמא",
+      "seder": "Nezikin",
+      "worldIds": [
+        "farm",
+        "herd",
+        "court",
+        "market"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Bava Metzia",
+      "he": "בבא מציעא",
+      "seder": "Nezikin",
+      "worldIds": [
+        "market",
+        "road",
+        "workshop",
+        "court"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Bava Batra",
+      "he": "בבא בתרא",
+      "seder": "Nezikin",
+      "worldIds": [
+        "home",
+        "market",
+        "court",
+        "farm"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Sanhedrin",
+      "he": "סנהדרין",
+      "seder": "Nezikin",
+      "worldIds": [
+        "court",
+        "hub",
+        "sanctuary"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Makkot",
+      "he": "מכות",
+      "seder": "Nezikin",
+      "worldIds": [
+        "court",
+        "road"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Shevuot",
+      "he": "שבועות",
+      "seder": "Nezikin",
+      "worldIds": [
+        "court",
+        "sanctuary",
+        "market"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Avodah Zarah",
+      "he": "עבודה זרה",
+      "seder": "Nezikin",
+      "worldIds": [
+        "market",
+        "road",
+        "hub"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Horayot",
+      "he": "הוריות",
+      "seder": "Nezikin",
+      "worldIds": [
+        "court",
+        "sanctuary",
+        "hub"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Zevachim",
+      "he": "זבחים",
+      "seder": "Kodashim",
+      "worldIds": [
+        "sanctuary",
+        "herd"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Menachot",
+      "he": "מנחות",
+      "seder": "Kodashim",
+      "worldIds": [
+        "sanctuary",
+        "farm"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Chullin",
+      "he": "חולין",
+      "seder": "Kodashim",
+      "worldIds": [
+        "herd",
+        "home",
+        "hub"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Bekhorot",
+      "he": "בכורות",
+      "seder": "Kodashim",
+      "worldIds": [
+        "herd",
+        "farm",
+        "sanctuary"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Arakhin",
+      "he": "ערכין",
+      "seder": "Kodashim",
+      "worldIds": [
+        "sanctuary",
+        "market",
+        "court"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Temurah",
+      "he": "תמורה",
+      "seder": "Kodashim",
+      "worldIds": [
+        "herd",
+        "sanctuary",
+        "court"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Keritot",
+      "he": "כריתות",
+      "seder": "Kodashim",
+      "worldIds": [
+        "sanctuary",
+        "court",
+        "purity"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Meilah",
+      "he": "מעילה",
+      "seder": "Kodashim",
+      "worldIds": [
+        "sanctuary",
+        "market",
+        "court"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Tamid",
+      "he": "תמיד",
+      "seder": "Kodashim",
+      "worldIds": [
+        "sanctuary"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    },
+    {
+      "id": "Niddah",
+      "he": "נידה",
+      "seder": "Tahorot",
+      "worldIds": [
+        "purity",
+        "home"
+      ],
+      "status": "THEMATIC_ROUTING_ONLY_NOT_PAGE_VERIFIED"
+    }
+  ],
+  "supplementalTractates": [
+    {
+      "id": "Shekalim",
+      "he": "שקלים",
+      "corpus": "Yerushalmi-in-Daf-Yomi",
+      "worldIds": [
+        "sanctuary",
+        "market"
+      ],
+      "status": "PLANNING_ONLY",
+      "note": "מסכת שקלים שבדף היומי מבוססת על הירושלמי ולא על גמרא בבלית."
+    }
+  ],
+  "examples": [
+    {
+      "id": "berakhot-2a",
+      "ref": "Berakhot.2a",
+      "he": "ברכות ב ע״א",
+      "title": "מאימתי קורין את שמע בערבית",
+      "sourceRef": "Mishnah_Berakhot.1.1",
+      "lessonId": "berakhot-2a-she-ma-draft-v1",
+      "primaryWorld": "synagogue",
+      "worldIds": [
+        "synagogue",
+        "home",
+        "hub"
+      ],
+      "topicIds": [
+        "blessings",
+        "time",
+        "reasoning"
+      ],
+      "gameplay": [
+        "time-window",
+        "bird-sort",
+        "debate"
+      ],
+      "learningQuestion": "מה משתנה כשהזמן מתקדם, ואיזו עמדה שייכת לכל חכם?",
+      "status": "LOCAL_DRAFT_NOT_RABBINICALLY_REVIEWED",
+      "publicationAllowed": false
+    },
+    {
+      "id": "bekhorot-34a",
+      "ref": "Bekhorot.34a",
+      "he": "בכורות ל״ד ע״א",
+      "title": "מום שנגרם לבכור ומום נוסף",
+      "sourceRef": "Mishnah_Bekhorot.5.3",
+      "lessonId": "bekhorot-34-demo-v3",
+      "primaryWorld": "herd",
+      "worldIds": [
+        "herd",
+        "hub"
+      ],
+      "topicIds": [
+        "animals",
+        "reasoning"
+      ],
+      "gameplay": [
+        "case-lab",
+        "bird-sort"
+      ],
+      "learningQuestion": "כיצד מום נוסף משנה את הצגת המחלוקת בין הדעות?",
+      "status": "LOCAL_DRAFT_NOT_RABBINICALLY_REVIEWED",
+      "publicationAllowed": false
+    },
+    {
+      "id": "bekhorot-34b",
+      "ref": "Bekhorot.34b",
+      "he": "בכורות ל״ד ע״ב",
+      "title": "קנס, יורש וראיה משדה בשביעית",
+      "sourceRef": "Bekhorot.34b",
+      "lessonId": "bekhorot-34-demo-v3",
+      "primaryWorld": "court",
+      "worldIds": [
+        "court",
+        "farm",
+        "hub"
+      ],
+      "topicIds": [
+        "grain",
+        "testimony",
+        "reasoning"
+      ],
+      "gameplay": [
+        "evidence-sort",
+        "case-choice"
+      ],
+      "learningQuestion": "מה מלמדת הדוגמה מן השדה על ההבחנה בסוג הקנס?",
+      "status": "LOCAL_DRAFT_NOT_RABBINICALLY_REVIEWED",
+      "publicationAllowed": false
+    },
+    {
+      "id": "berakhot-3-night",
+      "ref": "Berakhot.3a-3b",
+      "he": "ברכות ג׳ ע״א–ע״ב",
+      "title": "מסע הלילה: האשמורות, החורבה ודוד",
+      "sourceRef": "Berakhot.3a",
+      "lessonId": "berakhot-3-night-v1",
+      "primaryWorld": "night-berakhot3",
+      "worldIds": [
+        "night-berakhot3",
+        "road",
+        "synagogue",
+        "hub"
+      ],
+      "topicIds": [
+        "blessings",
+        "time",
+        "travel",
+        "narrative",
+        "reasoning"
+      ],
+      "gameplay": [
+        "case-lab",
+        "bird-sort",
+        "reconstruct",
+        "night-journey"
+      ],
+      "learningQuestion": "מדוע האשמורות, סכנת החורבה וכינור דוד מופיעים באותו מסע לימודי?",
+      "status": "LOCAL_DRAFT_NOT_RABBINICALLY_REVIEWED",
+      "publicationAllowed": false
+    }
+  ],
+  "assetNotes": [
+    {
+      "source": "AndresCasaretto Tabernacle",
+      "kind": "prefab",
+      "path": "Assets/AndresCasaretto/Tabernacle/AltarOfBurntOffering/Prefabs/PF_AltarOfBurntOffering.prefab",
+      "state": "PRESENT_NOT_SCENE_TESTED"
+    },
+    {
+      "source": "Gold Coins",
+      "kind": "prefab",
+      "path": "Assets/LiquidFire Package 4 - BSH games/Devtoid - Gold Coins/3D Assets/Gold Coin - Single/Prefab/GoldCoin.prefab",
+      "state": "PRESENT_NOT_RENDER_TESTED"
+    },
+    {
+      "source": "Fantasy Map Assets Pack Lite",
+      "kind": "assetstore-screenshot",
+      "path": "",
+      "state": "NOT_CONFIRMED_IMPORTED"
+    },
+    {
+      "source": "Cozy Tavern Pack",
+      "kind": "unitypackage-cache",
+      "path": "",
+      "state": "IN_CACHE_NOT_CONFIRMED_IMPORTED"
+    }
+  ],
+  "sourceMetadata": {
+    "index": "https://www.sefaria.org/texts/Talmud/Bavli",
+    "api": "https://developers.sefaria.org/reference/getting-started",
+    "indexUse": "Tractate-level themes only; precise daf assignments need source-by-source examination."
+  }
+}
