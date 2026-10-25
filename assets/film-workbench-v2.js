@@ -1,8 +1,8 @@
 (function(){'use strict';
 const REPO='https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/';
 const SITE='https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/';
-const stages=['BRIEF','STORYBOARD','ASSETS','TARGET_REVIEW','AUTHORING','UNITY_BUILD','QA','COMPLETE'];
-const labels={BRIEF:'הגדרת הרעיון',STORYBOARD:'תכנון השוטים',ASSETS:'בחירת נכסים',TARGET_REVIEW:'סקירת היעד',AUTHORING:'הכנת הסרט',UNITY_BUILD:'בנייה ב־Unity',QA:'בדיקות וצילום',COMPLETE:'סרט גמור'};
+const stages=['BRIEF','STORYBOARD','ASSETS','TARGET_REVIEW','AUTHORING','UNITY_BUILD','QA','REVISION','COMPLETE'];
+const labels={BRIEF:'הגדרת הרעיון',STORYBOARD:'תכנון השוטים',ASSETS:'בחירת נכסים',TARGET_REVIEW:'סקירת היעד',AUTHORING:'הכנת הסרט',UNITY_BUILD:'בנייה ב־Unity',QA:'בדיקות וצילום',REVISION:'תיקון לאחר בדיקה',COMPLETE:'סרט גמור'};
 const $=id=>document.getElementById(id);
 const qs=new URLSearchParams(location.search);
 let index=null,session=null,base=null,request=0;
@@ -51,9 +51,13 @@ function runStatus(run,key){
  if(!run)return 'NOT_RUN';
  return run[key]??run[({capture:'captureStatus',technical:'technicalVisualQa',cinematic:'cinematicQa',runtime:'runtimeQa'})[key]]??'NOT_RUN';
 }
+function latestCapturedRun(s){
+ const runs=Array.isArray(s.runs)?s.runs:[];
+ return runs.filter(r=>['CAPTURED','COMPLETED'].includes(runStatus(r,'capture'))&&(r.artifacts||[]).some(a=>a.kind==='capture'&&a.evidenceStatus==='CAPTURED'&&a.runId===(r.id||r.runId)&&a.runId&&(a.path||a.url))).slice(-1)[0]||null;
+}
 function readinessItems(s){
  const runs=Array.isArray(s.runs)?s.runs:[];
- const capture=runs.some(r=>['CAPTURED','COMPLETED'].includes(runStatus(r,'capture'))&&(r.artifacts||[]).some(a=>a.kind==='capture'&&a.evidenceStatus==='CAPTURED'&&a.runId===(r.id||r.runId)&&a.runId&&(a.path||a.url)));
+ const capture=!!latestCapturedRun(s);
  const build=runs.some(r=>['PASS','COMPLETED'].includes(r.build||r.buildStatus));
  const preview=!!previewUrl(s);
  return [
@@ -172,11 +176,31 @@ function renderNativeReview(s){
  panel.hidden=false;
 }
 
+function fleetCaptions(s){
+ const items=readinessItems(s),built=items.find(x=>x.title==='סרט בנוי ב־Unity')?.done===true,captured=items.find(x=>x.title==='צילום מתוך Unity')?.done===true;
+ const capturedRun=latestCapturedRun(s);
+ const cinematic=String(capturedRun?runStatus(capturedRun,'cinematic'):'NOT_ACCEPTED').toUpperCase();
+ let explanation,subtitle;
+ if(!built){
+  explanation='תכנון ואנימטיק קיימים. בנייה מוצלחת ב־Unity עדיין לא תועדה.';
+  subtitle='V7 זמין לצפייה · בניית Unity וצילום עדיין לא תועדו.';
+ }else if(!captured){
+  explanation='בנייה מוצלחת תועדה. צילום מתוך Unity עדיין חסר.';
+  subtitle='בנייה תועדה · ממתינים לצילום מתוך Unity.';
+ }else{
+  explanation='בנייה וצילום Unity תועדו. נדרשת בדיקה קולנועית וקבלת משתמש מפורשת.';
+  const review=cinematic==='PASS'||cinematic==='PASS_CLEAN'||cinematic==='STRICT_PASS_CLEAN'
+   ?'בדיקת האיכות הקולנועית עברה; קבלת משתמש מפורשת עדיין לא תועדה.'
+   :'איכות קולנועית דורשת סקירה; הסרט עדיין לא אושר.';
+  subtitle='צילום Unity הושלם · '+review;
+ }
+ return {explanation,subtitle};
+}
 function render(s){
  session=s;set('film-title',s.title||s.id);set('film-type',(s.id==='fleet30-camera'?'FLEET · 30 שניות':'סרט · תיק עבודה')+' · '+(s.storyboard||[]).length+' שוטים');
- const a=actionText(s);set('current-stage',labels[s.stage]||s.stage);set('stage-explanation',s.id==='fleet30-camera'?'תכנון ואנימטיק קיימים. הסרט עצמו עדיין דורש בנייה, צילום ובדיקות ב־Unity.':'שלב העבודה הנוכחי: '+(labels[s.stage]||s.stage)+'. המצב נקבע לפי היומן, לא לפי הדמיה.');
- set('film-subtitle',s.id==='fleet30-camera'?'V7 זמין לצפייה · צילום Unity עדיין לא הושלם.':'מצב הסרט לפי תיק העבודה המעודכן.');
- set('phase-pill',(labels[s.stage]||s.stage)+' · '+(stages.includes(s.stage)?(stages.indexOf(s.stage)+1)+'/8':''));
+ const a=actionText(s),fleet=s.id==='fleet30-camera'?fleetCaptions(s):null;set('current-stage',labels[s.stage]||s.stage);set('stage-explanation',fleet?fleet.explanation:'שלב העבודה הנוכחי: '+(labels[s.stage]||s.stage)+'. המצב נקבע לפי היומן, לא לפי הדמיה.');
+ set('film-subtitle',fleet?fleet.subtitle:'מצב הסרט לפי תיק העבודה המעודכן.');
+ set('phase-pill',(labels[s.stage]||s.stage)+' · '+(stages.includes(s.stage)?(stages.indexOf(s.stage)+1)+'/'+stages.length:''));
  const date=new Date(s.updatedUtc);set('last-updated','גרסה '+s.revision+(Number.isFinite(date.getTime())?' · עודכן '+date.toLocaleString('he-IL',{timeZone:'Asia/Jerusalem',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}):''));
  set('next-title',a.title);set('next-description',a.description);
  $('copy-next').onclick=()=>copyText(buildCopyText(s));

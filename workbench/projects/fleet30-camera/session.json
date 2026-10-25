@@ -4,10 +4,10 @@
   "id": "fleet30-camera",
   "kind": "film",
   "title": "FLEET · הוכחת מצלמה 30 שניות",
-  "revision": 8,
-  "stage": "UNITY_BUILD",
-  "status": "NATIVE_BASELINE_CAPTURED_ARTPACK_BUILD_PENDING",
-  "updatedUtc": "2026-10-25T10:41:49.440Z",
+  "revision": 9,
+  "stage": "REVISION",
+  "status": "ARTPACK_NATIVE_BUILD_CAPTURED_CINEMATIC_REVIEW_REQUIRED",
+  "updatedUtc": "2026-10-25T16:50:46.371Z",
   "originalBrief": "Use actual CS_FLEET_Invasion prefab (13 ships). One continuous follow shot Master 5–15s, inspect t=10 after ship translation and rotation. Wide and detail proof.",
   "approvedTargetRevision": 0,
   "targetArtifacts": [
@@ -589,6 +589,323 @@
         ],
         "scope": "These failures reject this earlier baseline against the target. They do not establish the outcome of the new ArtPack source."
       }
+    },
+    {
+      "id": "fleet30-artpack-native-20261025_154857",
+      "label": "FLEET 30s ArtPack native build and QA · review required",
+      "projectId": "3f576197c1684adb8a811847ed7d10b4",
+      "generatedUtc": "2026-10-25T15:48:57.2438886Z",
+      "build": "PASS",
+      "actors": 5,
+      "sequences": 8,
+      "materializationWarnings": 9,
+      "capture": "COMPLETED",
+      "technical": "WARNINGS",
+      "cinematic": "REVIEW_REQUIRED",
+      "runtime": "NOT_TESTED",
+      "frameCount": 51,
+      "sourceIdentity": {
+        "sha256": "c08d02d991741c1632b736c37f8768505e5d829a30a8e148981f5e2b0ec2ff8c",
+        "inputFilename": "FLEET_ARTPACK_ANIMATED_V1_BUILD_INPUT_20261025.json"
+      },
+      "artifacts": [
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+          "kind": "report",
+          "label": "Native Unity Film QA · ArtPack build · 51 frames",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-native-20261025_154857"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/FILM_QA_VISUAL_REVIEW.pdf",
+          "kind": "report",
+          "label": "Native Unity visual review · cinematic review required",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-native-20261025_154857"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/FILM_QA_3_AUDIT.json",
+          "kind": "report",
+          "label": "Published site audit · technical PASS · no black frames",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-native-20261025_154857"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/CHATGPT_REVIEW.md",
+          "kind": "report",
+          "label": "Generated review brief · review required",
+          "evidenceStatus": "SOURCE_ATTACHED",
+          "runId": "fleet30-artpack-native-20261025_154857"
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0000.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=0.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 0,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0004.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=4.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 4,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0010.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=10.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 10,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0014.880s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=14.880s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 14.88,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0015.240s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=15.240s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 15.24,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0015.650s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=15.650s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 15.65,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0015.890s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=15.890s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 15.89,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0016.060s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=16.060s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 16.06,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0016.300s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=16.300s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 16.3,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0016.740s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=16.740s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 16.74,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0020.130s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=20.130s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 20.13,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0020.830s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=20.830s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 20.83,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0021.530s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=21.530s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 21.53,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0022.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=22.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 22,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0023.880s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=23.880s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 23.88,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0025.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=25.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 25,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0028.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=28.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 28,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        },
+        {
+          "path": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/frame_0030.000s.png",
+          "kind": "capture",
+          "label": "Actual Unity frame t=30.000s",
+          "evidenceStatus": "CAPTURED",
+          "runId": "fleet30-artpack-native-20261025_154857",
+          "timeSeconds": 30,
+          "provenance": {
+            "tool": "MY_CutsceneFilmQaScannerWindow",
+            "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4",
+            "report": "film-qa/fleet-last-volley-30s-artpack-animation-proof/20261025_154857/report.json",
+            "captureMode": "EDITOR_TIMELINE_EVALUATION"
+          }
+        }
+      ],
+      "review": {
+        "reviewer": "assistant visual inspection",
+        "inspectedTimesSeconds": [
+          10,
+          15.53,
+          23.6
+        ],
+        "findings": [
+          "t=10 shows a tiny ship on a dark square instead of the requested cannon close-up.",
+          "At t=15.53, dialogue/error blocks obscure much of the frame.",
+          "At t=23.6, a full-screen Anime Emotion insert is visible.",
+          "Native report marks cinematicQa REVIEW_REQUIRED; runtime remains NOT_TESTED."
+        ],
+        "scope": "Successful build and completed capture establish native materialization and technical evidence; they do not establish cinematic approval or runtime validation."
+      },
+      "durationSeconds": 30
     }
   ],
   "history": [
@@ -640,22 +957,18 @@
       "status": "V1_LINT_PASS_WITH_2_WARNINGS_NATIVE_BUILD_PENDING",
       "updatedUtc": "2026-10-25T05:18:00+02:00",
       "snapshotPath": "workbench/projects/fleet30-camera/revisions/000007.json"
+    },
+    {
+      "revision": 8,
+      "stage": "UNITY_BUILD",
+      "status": "NATIVE_BASELINE_CAPTURED_ARTPACK_BUILD_PENDING",
+      "updatedUtc": "2026-10-25T10:41:49.440Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000008.json"
     }
   ],
-  "lastCompletedAction": "2026-10-25: Located successful canonical baseline project a1131662403b420f9cd7a31d2c32817e, ran native Film QA, produced and published 53 nonblack Unity frames. Actual-frame review fails the requested cannon shot and composition; not accepted. ArtPack animated source passed native lint (0 blockers, 2 warnings, 0 recoveries) but its build remains pending; source copy hash recorded. Website continuation now checks an outstanding request before recommending any repeat.",
-  "nextAction": "Inspect the existing fleet30-artpack-20261025 Studio request and FLEET30_ARTPACK_BUILD_RESULT_20261025.txt before any new mutation. Unity displayed a Workshop save dialog during dispatch. Preserve manual Workshop changes. Once this exact request has a terminal result, inspect actual animation materialization, run native Film QA for that project, and verify 5–15 continuous moving cannon follow, 15–17 launches and aftermath. The earlier 53-frame run is a rejected baseline, not proof of the ArtPack candidate.",
-  "inFlightAction": {
-    "type": "NATIVE_BUILD",
-    "status": "QUEUED",
-    "requestId": "fleet30-artpack-20261025",
-    "sourceIdentity": {
-      "sha256": "c08d02d991741c1632b736c37f8768505e5d829a30a8e148981f5e2b0ec2ff8c",
-      "inputFilename": "FLEET_ARTPACK_ANIMATED_V1_BUILD_INPUT_20261025.json"
-    },
-    "note": "Original volatile Schedule was interrupted by domain reload; native detached diagnostic job was lost and no ArtPack project or result was present. Exact source request persisted through the existing Studio request-file route. Do not issue another import/build; inspect request, processing file and result first.",
-    "resultFilename": "FLEET30_ARTPACK_BUILD_RESULT_20261025.txt",
-    "requestFilename": "fleet30-artpack-20261025.request.txt"
-  },
+  "lastCompletedAction": "2026-10-25: 30-second ArtPack film build succeeded for project 3f576197c1684adb8a811847ed7d10b4 (5 actors, 8 sequences, 9 materialization warnings). Published native QA run 20261025_154857 completed 51 frames; original report technicalVisualQa WARNINGS, cinematicQa REVIEW_REQUIRED, runtimeQa NOT_TESTED. Site audit reports technical PASS and no black frames. Visual inspection identifies failed cannon framing at t=10, obstructive dialogue/error overlays near t=15.53, and a full-screen Anime Emotion insert at t=23.6. No cinematic acceptance.",
+  "nextAction": "Revise the shot composition and overlay timing in the ArtPack source; retain the successful native build and QA evidence. Run a new native capture after revisions and review all eight shots and key event boundaries. Keep runtime NOT_TESTED until runtime evidence exists; require explicit user acceptance before COMPLETE.",
+  "inFlightAction": null,
   "sourceArtifacts": [
     {
       "path": "workbench/projects/fleet30-camera/artifacts/4a1d1f2672ce1832516213c22840bb69c4ae12748da697597e409f62e96778bc-FLEET30_HANDOFF.md",
