@@ -4,10 +4,10 @@
   "id": "fleet30-camera",
   "kind": "film",
   "title": "FLEET · הוכחת מצלמה 30 שניות",
-  "revision": 5,
+  "revision": 6,
   "stage": "AUTHORING",
-  "status": "V7_VISUAL_PREVIS_PUBLISHED_NATIVE_PENDING",
-  "updatedUtc": "2026-10-25T01:50:00+03:00",
+  "status": "NATIVE_V1_CANDIDATE_READY_UNITY_RESULT_UNKNOWN",
+  "updatedUtc": "2026-10-25T03:41:00+02:00",
   "originalBrief": "Use actual CS_FLEET_Invasion prefab (13 ships). One continuous follow shot Master 5–15s, inspect t=10 after ship translation and rotation. Wide and detail proof.",
   "approvedTargetRevision": 0,
   "targetArtifacts": [
@@ -464,6 +464,12 @@
       "placeholder": "Current prefab Battlecruiser Transform has no children; V7 visual gun glow is on a composed ship image, not a real tracked muzzle.",
       "replacementAction": "Inspect reusable existing gun/MLB prefab and add as child in Unity Inspector only after current dirty scene and integration owner are safe; bind Cinemachine follow to actual child Transform and capture t=5,10,15.",
       "status": "CONFIRMED_PREFAB_MUZZLE_MISSING"
+    },
+    {
+      "request": "Native Cutscene Studio import/build request returned no verifiable result",
+      "placeholder": "Unity editor currently showing GRAD1 dirty; eval_file read-only timed out; no build_result.txt or produced film QA evidence found",
+      "replacementAction": "Coordinate with current Unity integration owner. Inspect Editor state/logs and original pending request outcome before resubmitting. After safe handoff run a single import via existing Studio, capture actual Game View, link run-specific evidence.",
+      "status": "BUILD_OUTCOME_UNKNOWN"
     }
   ],
   "decisions": [],
@@ -517,10 +523,17 @@
       "status": "EIGHT_SHOT_TARGET_PLAN_PUBLISHED_NATIVE_NOT_RUN",
       "updatedUtc": "2026-10-23T03:01:53.289Z",
       "snapshotPath": "workbench/projects/fleet30-camera/revisions/000004.json"
+    },
+    {
+      "revision": 5,
+      "stage": "AUTHORING",
+      "status": "V7_VISUAL_PREVIS_PUBLISHED_NATIVE_PENDING",
+      "updatedUtc": "2026-10-25T01:50:00+03:00",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000005.json"
     }
   ],
-  "lastCompletedAction": "Created a 30-second eight-shot V7 offline animatic from actual project Nautolan and FEMALE_COMMS_01 sprites; corrected shot boundaries 0-5/5-15/15-17/17-20/20-23/23-26/26-28/28-30, introduced separate dynamic launch/flight/impact VFX, shock->relief character expressions, and browser JS syntax PASS. Verified CS_FLEET_Invasion prefab has Battlecruiser sprite with no gun child; real Cinemachine muzzle tracking and Unity Studio build remain unverified.",
-  "nextAction": "Inspect real prefab for gun child (currently missing), coordinate with Unity MAIN integration owner before any scene switch because GRAD11 is dirty, create/attach genuine muzzle child or use existing gun prefab, author a detached CURRENT V1 that keeps 5–15 uninterrupted, run Studio native import/build/capture, verify shots and emotion, publish native evidence. Do not substitute browser V7 for Unity.",
+  "lastCompletedAction": "Detached a native-authoring CUTSCENE_SCRIPT_V1 candidate from the existing repaired FLEET source. Verified eight contiguous beats totaling 30 seconds (5–15 continuous gun beat), exactly 3 fire actions and 3 impact actions, and shock/relief expressions. Candidate committed to workbench source artifacts. Unity import/build attempt timed out and produced no verifiable result; GRAD1 is now dirty and integration was not repeated.",
+  "nextAction": "Current Unity MAIN editor displays unsaved GRAD1 and does not reliably respond to read-only eval. Do not change scenes or rerun import blindly. Current integration owner should establish editor idle/scene-save state and inspect Studio automation logs, resolve absence of gun-child muzzle, import the detached V1 once, capture real t=5/10/15 continuity and full 30s, attach exact run evidence to this dossier.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -547,6 +560,14 @@
       "sha256": "c3d3ad0439ba5f418537294cd5a3d47d754ba72c69e8e113fac9ef8a9d890752",
       "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
       "evidenceStatus": "SOURCE_ATTACHED"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/FLEET_30S_NATIVE_CANDIDATE_V1_20261025.json",
+      "kind": "source",
+      "label": "FLEET 30s native candidate V1 · eight shot timeline (UNBUILT)",
+      "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+      "sha256": "81254c51b217b92909e83c0f89452c8e773954537df6d19567116b06285c0d52",
+      "evidenceStatus": "SOURCE_ATTACHED_NATIVE_BUILD_NOT_VERIFIED"
     }
   ],
   "currentIdentity": {
@@ -556,7 +577,7 @@
     "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
     "note": "Refresh at every new authoring request; this is an intake observation, not a permanent pin."
   },
-  "currentSourcePath": "workbench/projects/fleet30-camera/artifacts/fleet-last-volley-30s-v1-20261023-repaired.json",
+  "currentSourcePath": "workbench/projects/fleet30-camera/artifacts/FLEET_30S_NATIVE_CANDIDATE_V1_20261025.json",
   "storyArc": {
     "question": "האם ספינת הדגל תספיק להציל את הליווי לפני שהאויב יפגע בו?",
     "threat": "אויב מתקרב אל ספינת הליווי החשופה.",
