@@ -1,13 +1,29 @@
-# GRAD9 · המשך הרמה הקיימת
+# GRAD9 · תוצאת Level QA סטטית ועדכון המשך
 
-מצב: גלים הוגדרו; בדיקת משחק מלאה לא בוצעה.
+**Run:** `level-GRAD_9-20261025232943939`  
+**Scene:** `Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRAD_9.unity`  
+**Captured:** 2026-10-25 23:29:50 UTC  
+**Scene dependency hash:** `scene-deps-ec991a45c206454588ea136d45ed5495`  
+**Status:** `COMPLETED` capture · `NOT_REVIEWED` · `PENDING`
 
-מקור הממצאים: `C:\Users\nlpis\wkspaces\STARWARS_DELTA_WORK\plans\GRAD9_GOLDEN_GAMEPLAY_PASS_20261025.md`. המסמך נקרא ב־25.10.2026. זהו סיכום התיעוד, לא תוצאת Play חדשה.
+[פתח את דף רמות וגלים באתר](https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/level-qa.html)
 
-ה־Preview שתועד זיהה 22 גלים, מ־km8 עד בוס Serpent ב־km296. הוא זיהה גם תצוגת QA פעילה עם 12 מגדלים. יש לבדוק לפני שינוי אם היא קשורה למפגשים האמיתיים. בגלים שב־km238 ו־km250 הוגדרו 7 ו־6 אויבים והגדרות Teleport של 3 שניות; עומס המשחק בפועל עדיין לא נמדד.
+## הראיות שפורסמו
 
-Unity נמצאה על GRAD1 עם שינויים שלא נשמרו. אין להחליף סצנה או להפעיל בנייה שמחליפה אותה. ממשיכים כאשר מצב השמירה והמפעיל היחיד ברורים.
+- [Scene overview](https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/level-qa/level-GRAD_9-20261025232943939/scene_overview.png)
+- [Game view](https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/level-qa/level-GRAD_9-20261025232943939/game_view.png)
+- [Timeline](https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/level-qa/level-GRAD_9-20261025232943939/timeline.json)
+- [Wave projection](https://streamdragon.github.io/STARWARS_DELTA_STORYBOARDS/level-qa/level-GRAD_9-20261025232943939/scene_with_wave_overlay.svg)
 
-השלבים שנותרו: לבדוק Spawn ומסלולים בפועל, להפעיל את תחילת הרמה, למדוד עומס בסופה, לבדוק מגדלים ופגיעות, להביס את הבוס, להוכיח ניצחון ולבדוק שני שחקנים. רק אז לבצע צילום ויצוא Timeline תואם ולפרסם במסלול הקיים.
+## היטל הגלים
 
-קישורי תמונות היסטוריות ותרשים הגלים נלקחו מקבצים שכבר נמצאים במאגר. אין להם כעת Manifest תואם באינדקס QA הנוכחי; הם מסומנים מקורות ארכיון, ואינם מייצגים את מצב GRAD9 הנוכחי או אישור משחק.
+ה־`wave_overlay_summary.json` המקומי מסכם 22 גלים, 11 קבוצות Spawn, בוס אחד, 5 מסלולי Spline ו־4 מסלולי Road; לא נמצאו הצבות unresolved או off-frame. המקור הוא `WavesManager via timeline.json`. זו תחזית authoring סטטית — אין בה צילום גל בתוך המשחק והיא אינה מוכיחה שה־scheduler, ה־Spawn או המסלולים פועלים בזמן ריצה.
+
+תמונת Game View מציגה את מצב הפתיחה `GET READY!`. אין עדיין ריצת Play רציפה, הוכחת ניצחון, מדידת עומס בגלים המאוחרים או בדיקת multiplayer. לכן נשארים `NOT_REVIEWED / PENDING`; לא סומנה קבלה.
+
+## העבודה שנותרה
+
+1. לבדוק את הצילום הנוכחי ואת מסגור הסצנה.
+2. לאמת Spawn, מסלולים ותזמון של הגלים ב־Play Mode, במיוחד בגלים המאוחרים.
+3. לבדוק את מגדלי ה־QA, ירי ופגיעות.
+4. לתעד ריצה רציפה מתחילת הרמה ועד ניצחון, וכן multiplayer smoke.

@@ -4,10 +4,10 @@
   "id": "level-grad9-golden-gameplay",
   "kind": "level",
   "title": "GRAD9 | רמת משחק לדוגמה",
-  "revision": 3,
+  "revision": 4,
   "stage": "GAMEPLAY_QA",
-  "status": "SAVED_SCENE_CURRENT_QA_REQUIRED",
-  "updatedUtc": "2026-10-25T22:50:49.062Z",
+  "status": "CURRENT_STATIC_QA_PUBLISHED_REVIEW_OPEN",
+  "updatedUtc": "2026-10-25T23:32:59Z",
   "originalBrief": "Continue the existing GRAD_9 scene as the complete sample gameplay level. Connect its current work to the website, including existing waves, routes, towers, real QA and beginning-to-victory acceptance. Preserve GRAD11 and other unsaved Unity work; do not create a replacement level.\n",
   "approvedTargetRevision": 0,
   "targetArtifacts": [],
@@ -27,22 +27,63 @@
     {
       "id": "late-waves",
       "status": "OPEN",
-      "description": "Prior preview notes describe km238/km250 slot and teleport settings. Actual scheduler behavior and kill time remain unmeasured for the current saved scene."
+      "description": "The current static overlay summarizes 22 waves, 11 spawn clusters, 1 boss, 5 spline routes, and 4 road routes from WavesManager via timeline.json. Scheduler execution, kill time, and late-wave load remain unmeasured."
     },
     {
       "id": "published-timeline",
-      "status": "OPEN",
-      "description": "GRAD_9 historical images exist in repository, but no matching Timeline is in current Level QA index. A fresh native export is required; do not substitute GRAD2 or infer routes."
+      "status": "RESOLVED_STATIC_CAPTURE_PUBLISHED",
+      "description": "A fresh current-scene Level QA timeline and wave projection are now published. They are authoring/static evidence only; runtime route execution and timing remain unverified."
     },
     {
       "id": "scene-freshness-20261026",
-      "status": "OPEN",
-      "description": "GRAD_9.unity was last saved 2026-10-25T19:22:43Z. No matching Level QA or continuous Play evidence exists for that saved scene; 10/21 images are historical.",
-      "replacementAction": "Inspect the current saved scene after preserving the dirty Workshop, then capture current matching Level QA and gameplay evidence."
+      "status": "RESOLVED_STATIC_QA_CAPTURED",
+      "description": "A matching static Level QA capture was generated and published after the 2026-10-25 scene save. Continuous Play evidence is still absent.",
+      "replacementAction": "Review this capture, then verify the current scene's gameplay and runtime behavior."
     }
   ],
   "decisions": [],
-  "runs": [],
+  "runs": [
+    {
+      "runId": "level-GRAD_9-20261025232943939",
+      "id": "level-GRAD_9-20261025232943939",
+      "sceneName": "GRAD_9",
+      "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRAD_9.unity",
+      "captureStatus": "COMPLETED",
+      "capture": "COMPLETED",
+      "reviewStatus": "NOT_REVIEWED",
+      "acceptanceStatus": "PENDING",
+      "technical": "STATIC_CAPTURE_ONLY",
+      "runtime": "NOT_TESTED",
+      "sourceRevision": "scene-deps-ec991a45c206454588ea136d45ed5495",
+      "warningCount": 1,
+      "artifacts": [
+        {
+          "path": "level-qa/level-GRAD_9-20261025232943939/timeline.json",
+          "kind": "timeline",
+          "label": "GRAD9 current Level QA timeline",
+          "evidenceStatus": "PUBLISHED_STATIC_QA_NOT_REVIEWED"
+        },
+        {
+          "path": "level-qa/level-GRAD_9-20261025232943939/scene_overview.png",
+          "kind": "image",
+          "label": "GRAD9 static scene overview",
+          "evidenceStatus": "PUBLISHED_STATIC_QA_NOT_REVIEWED"
+        },
+        {
+          "path": "level-qa/level-GRAD_9-20261025232943939/game_view.png",
+          "kind": "image",
+          "label": "GRAD9 gameplay camera startup frame",
+          "evidenceStatus": "PUBLISHED_STATIC_QA_NOT_REVIEWED"
+        },
+        {
+          "path": "level-qa/level-GRAD_9-20261025232943939/scene_with_wave_overlay.svg",
+          "kind": "diagram",
+          "label": "GRAD9 authored wave projection",
+          "evidenceStatus": "PUBLISHED_STATIC_PROJECTION_NOT_RUNTIME"
+        }
+      ]
+    }
+  ],
   "history": [
     {
       "revision": 1,
@@ -64,17 +105,24 @@
       "status": "SAVED_SCENE_CURRENT_QA_REQUIRED",
       "updatedUtc": "2026-10-25T22:50:49.062Z",
       "snapshotPath": "workbench/projects/level-grad9-golden-gameplay/revisions/000003.json"
+    },
+    {
+      "revision": 4,
+      "stage": "GAMEPLAY_QA",
+      "status": "CURRENT_STATIC_QA_PUBLISHED_REVIEW_OPEN",
+      "updatedUtc": "2026-10-25T23:32:59Z",
+      "snapshotPath": "workbench/projects/level-grad9-golden-gameplay/revisions/000004.json"
     }
   ],
-  "lastCompletedAction": "2026-10-26: Read-only freshness check found GRAD_9.unity saved at 2026-10-25T19:22:43Z, after the archived 10/21 images and earlier preview inventory. No matching newer GRAD9 Level QA receipt or continuous Play run exists. Existing 22-wave and QA tower notes remain historical until rechecked against this saved scene.",
-  "nextAction": "Preserve the currently dirty Cutscene Workshop scene before any scene switch. Then inspect the existing saved GRAD_9 scene with the Level Builder workflow, verify its actual waves, tower showcase, routes and late-wave load, and capture matching Level QA plus a continuous start-to-victory Play run. Do not tune or accept from historical counts/images.",
+  "lastCompletedAction": "2026-10-25: Captured and published current saved GRAD_9 Level QA run level-GRAD_9-20261025232943939. Static wave projection: 22 waves, 11 spawn clusters, 1 boss, 5 spline routes, 4 road routes; 0 unresolved/off-frame placements. Capture is NOT_REVIEWED/PENDING; no continuous Play, scheduler timing, victory, or multiplayer evidence.",
+  "nextAction": "Review the current static capture and correct any framing or layout issues, then verify the saved wave scheduler, towers, late-wave load, and routes in Play Mode; capture one continuous start-to-victory run and multiplayer smoke before acceptance.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
       "path": "workbench/projects/level-grad9-golden-gameplay/artifacts/CONTINUATION.md",
       "kind": "report",
       "label": "GRAD9 · ממצאים, פערים והמשך העבודה",
-      "evidenceStatus": "AUTHORED"
+      "evidenceStatus": "UPDATED_CURRENT_STATIC_QA_AND_OPEN_GAPS"
     },
     {
       "path": "level-qa/level-GRAD_9-20261014213900238/scene_with_wave_overlay.svg",
@@ -97,8 +145,20 @@
     {
       "path": "workbench/projects/level-grad9-golden-gameplay/artifacts/NATIVE_SCENE_FRESHNESS_20261026.md",
       "kind": "report",
-      "label": "GRAD9 · scene freshness metadata only · no current QA",
-      "evidenceStatus": "SAVED_SCENE_QA_REQUIRED"
+      "label": "GRAD9 · pre-capture scene freshness note · superseded",
+      "evidenceStatus": "SUPERSEDED_BY_CURRENT_STATIC_QA"
+    },
+    {
+      "path": "level-qa/level-GRAD_9-20261025232943939/timeline.json",
+      "kind": "timeline",
+      "label": "GRAD9 current Level QA timeline",
+      "evidenceStatus": "PUBLISHED_STATIC_QA_NOT_REVIEWED"
+    },
+    {
+      "path": "level-qa/level-GRAD_9-20261025232943939/scene_with_wave_overlay.svg",
+      "kind": "reference",
+      "label": "GRAD9 current authored wave projection",
+      "evidenceStatus": "PUBLISHED_STATIC_PROJECTION_NOT_RUNTIME"
     }
   ],
   "currentIdentity": {
@@ -106,34 +166,35 @@
     "nativeEvidence": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\plans\\GRAD9_GOLDEN_GAMEPLAY_PASS_20261025.md",
     "runtime": "NOT_TESTED",
     "sceneLastModifiedUtc": "2026-10-25T19:22:43Z",
-    "latestMatchingQaRunId": null,
-    "evidenceFreshness": "SAVED_SCENE_NEWER_THAN_AVAILABLE_QA"
+    "latestMatchingQaRunId": "level-GRAD_9-20261025232943939",
+    "evidenceFreshness": "CURRENT_SAVED_SCENE_HAS_STATIC_QA_RUNTIME_UNVERIFIED"
   },
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRAD_9.unity",
   "workStatus": {
     "scene": "GRAD_9",
-    "source": "Earlier Level Builder preview notes plus 2026-10-26 read-only scene metadata; no current gameplay validation",
-    "summary": "הסצנה נשמרה מחדש ב־25.10; ספירת 22 הגלים ו־12 מגדלי QA מתועדת מבדיקה קודמת בלבד. אין צילום QA או משחק רציף שתואמים לשמירה הנוכחית.",
+    "verifiedAt": "2026-10-25T23:29:50.7643844Z",
+    "source": "Saved Unity scene plus native static Level QA capture published 2026-10-25; no Play run.",
+    "summary": "נוסף צילום Level QA סטטי של הסצנה השמורה, יחד עם Timeline והיטל גלים באתר. הסיכום הסטטי מציג 22 גלים, 11 קבוצות Spawn, בוס אחד, 5 מסלולי Spline ו־4 מסלולי Road; אלה נתוני authoring ולא הוכחת ביצוע במשחק. הבדיקה נשארת NOT_REVIEWED / PENDING.",
     "tasks": [
       {
-        "title": "לשמור על העבודה הפעילה",
-        "detail": "Unity currently has a dirty Cutscene Workshop. Preserve it before switching to GRAD_9.",
-        "acceptance": "מפעיל יחיד מאשר מצב שמירה בטוח לפני פתיחת GRAD_9."
+        "title": "לבדוק את צילום ה־QA הנוכחי",
+        "detail": "לעבור על ה־Scene Overview ועל תמונת Game View; תמונת המשחק מציגה את מסך GET READY ולכן אינה ריצת משחק.",
+        "acceptance": "צילום מייצג את הסצנה הנוכחית, נבדק חזותית, ונשאר PENDING עד אישור reviewer."
       },
       {
-        "title": "להמשיך את GRAD9 הקיימת",
-        "detail": "לבדוק את 22 הגלים ואת 12 מגדלי תצוגת QA באמצעות Unity; לא ליצור רמה חדשה.",
-        "acceptance": "גלים, Spawn ומסלולים נבדקו בסצנה האמיתית."
+        "title": "לאמת גלים ומסלולים בזמן ריצה",
+        "detail": "היטל ה־WavesManager מציג 22 גלים ומסלולים, אך לא מוכיח שה־scheduler מזמן אותם או שהאויבים מסיימים את המסלול.",
+        "acceptance": "תיעוד Play מציג Spawn, מסלולים, תזמון ועומס גלים מאוחר."
       },
       {
         "title": "לבדוק משחק עד ניצחון",
-        "detail": "למדוד עומס אויבים בסוף הרמה, לבדוק ירי, פגיעות, בוס, ניצחון ושני שחקנים.",
-        "acceptance": "ריצת Play רציפה עם פריימים מתועדים ותוצאות מקוריות."
+        "detail": "אין כרגע ראיה רציפה מתחילת הרמה ועד להבסת הבוס או למסך ניצחון.",
+        "acceptance": "ריצת Play אחת מתחילה ועד ניצחון, עם פריימים ונתוני סיום."
       },
       {
-        "title": "לחבר גלים וצילומים לאתר",
-        "detail": "להפיק Timeline ו־Level QA תואמים לסצנה ולפרסם דרך המסלול הקיים. תמונות ארכיון אינן ראיה למצב הנוכחי.",
-        "acceptance": "נגן הגלים מציג נתוני GRAD_9 והצילום תואם לריצה."
+        "title": "לבדוק מגדלים ושני שחקנים",
+        "detail": "ספירת מגדלי QA קודמת אינה מאמתת את הסצנה השמורה; בדיקות ירי, פגיעות ומולטיפלייר חסרות.",
+        "acceptance": "בדיקת Play של המגדלים ו־multiplayer smoke מתועדת."
       }
     ]
   }
