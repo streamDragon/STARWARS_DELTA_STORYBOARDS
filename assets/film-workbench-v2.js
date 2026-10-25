@@ -29,7 +29,7 @@ async function headBase(){
 }
 async function json(path,from){if(!/^[a-zA-Z0-9_./-]+$/.test(path)||path.includes('..'))throw Error('נתיב קובץ לא תקין');const url=new URL(path,from);url.searchParams.set('_',Date.now());const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw Error('קריאת '+path+' נכשלה: '+r.status);return r.json()}
 function actionText(s){
- if(s.id==='fleet30-camera')return {title:'לחבר תותח אמיתי לספינה ולצלם את השוט הרציף',description:'בתוך CS_FLEET_Invasion חסר כרגע עוגן קנה תותח מאומת. צריך לחבר את הקנה, לוודא שהמצלמה עוקבת אחריו ללא חיתוך בשניות 5–15, ואז לבנות ולצלם את כל 30 השניות ב־Unity.'};
+ if(typeof s.nextAction==='string'&&s.nextAction.trim())return {title:'המשך העבודה לפי תיק הסרט',description:s.nextAction.trim()};
  const byStage={
   BRIEF:['להשלים את רעיון הסרט','להגדיר מה קורה, מי הדמויות ומה התוצאה שהצופה אמור להבין.'],
   STORYBOARD:['להשלים את תכנון השוטים','לתעד כל שוט, את הזמנים ואת מעבר המצלמה.'],
@@ -45,6 +45,25 @@ function actionText(s){
 function runStatus(run,key){
  if(!run)return 'NOT_RUN';
  return run[key]??run[({capture:'captureStatus',technical:'technicalVisualQa',cinematic:'cinematicQa',runtime:'runtimeQa'})[key]]??'NOT_RUN';
+}
+function readinessItems(s){
+ const runs=Array.isArray(s.runs)?s.runs:[];
+ const capture=runs.some(r=>['CAPTURED','COMPLETED'].includes(runStatus(r,'capture'))&&(r.artifacts||[]).some(a=>a.kind==='capture'&&a.evidenceStatus==='CAPTURED'&&a.runId===(r.id||r.runId)&&a.runId&&(a.path||a.url)));
+ const build=runs.some(r=>['PASS','COMPLETED'].includes(r.build||r.buildStatus));
+ const preview=!!previewUrl(s);
+ return [
+  {title:'תכנון השוטים',detail:(s.storyboard||[]).length+' שוטים מתועדים',done:(s.storyboard||[]).length>0},
+  {title:'תצוגת הכנה',detail:preview?'זמינה · אינה צילום Unity':'טרם צורפה',done:preview},
+  {title:'סרט בנוי ב־Unity',detail:build?'בנייה מוצלחת תועדה בריצה':'בנייה מוצלחת לא תועדה בריצה',done:build},
+  {title:'צילום מתוך Unity',detail:capture?'צורפה ראיה מצולמת':'אין עדיין ראיה מצולמת של הריצה',done:capture}
+ ];
+}
+function renderReadiness(s){
+ const host=$('readiness');host.replaceChildren();
+ for(const item of readinessItems(s)){
+  const row=el('div',undefined,'milestone'),icon=el('span',item.done?'✓':'○','m-icon '+(item.done?'done':'wait')),body=el('div');
+  body.append(el('strong',item.title),el('small',item.detail));row.append(icon,body);host.append(row);
+ }
 }
 function statusHebrew(v){
  const m={NOT_RUN:'לא בוצע',NOT_TESTED:'לא נבדק',NOT_ACCEPTED:'לא אושר',SCHEMA_PENDING:'תסריט טרם אומת',NOT_RECHECKED:'לא נבדק מחדש',PENDING:'ממתין',PASS:'עבר',PASS_CLEAN:'עבר',STRICT_PASS_CLEAN:'עבר',CAPTURED:'צולם',COMPLETED:'הושלם',FAILED:'נכשל',FAIL:'נכשל',ERROR:'שגיאה',WARNINGS:'עם הערות'};
@@ -112,7 +131,7 @@ function render(s){
  if(pv){preview.removeAttribute('srcdoc');preview.src=pv+(pv.includes('?')?'&':'?')+'embed=1';link.href=pv;link.hidden=false;set('preview-state','תצוגת הכנה · לא צילום Unity')}
  else{emptyFrame('עדיין לא נוצר אנימטיק לצפייה בסרט הזה.');link.hidden=true;set('preview-state','אין תצוגה מצולמת זמינה')}
  const sb='storyboard.html?session='+encodeURIComponent(s.id);$('storyboard-link').href=sb;$('full-storyboard').href=sb;
- renderShots(s);renderQA(s);renderSources(s);
+ renderReadiness(s);renderShots(s);renderQA(s);renderSources(s);
  const select=$('project-select');select.value=s.id;
  const url=new URL(location.href);url.searchParams.set('id',s.id);history.replaceState(null,'',url);
  status('נתוני התיק נטענו בהצלחה · גרסה '+s.revision+' · מקור: '+(base?.includes('raw.githubusercontent')?'GitHub MAIN':'האתר'));
