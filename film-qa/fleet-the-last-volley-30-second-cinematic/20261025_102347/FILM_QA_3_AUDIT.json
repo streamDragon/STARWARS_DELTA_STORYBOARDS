@@ -1,0 +1,284 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "FLEET: THE LAST VOLLEY | 30 SECOND CINEMATIC",
+  "projectId": "a1131662403b420f9cd7a31d2c32817e",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "PASS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "No sampled black frames outside detected transitions; this is not full technical clearance",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 53,
+    "blackFrames": 0,
+    "handoffBoundaryBlanks": 0,
+    "edgeClipping": 0,
+    "actorOverlap": 0,
+    "actorOversized": 0,
+    "meanBrightness": 0.21702811852940973,
+    "originalFlags": 1,
+    "events": 14,
+    "eventCaptured": 14,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "YAM_01_ESTABLISH_shot_line_1",
+      "kind": "DIALOGUE",
+      "timeSeconds": 0,
+      "director": "MAIN",
+      "source": "DIALOGUE_CLIP",
+      "actor": "fleet_comms",
+      "target": "fleet_commander",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0000.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "YAM_03_CHARGE_shot_line_1",
+      "kind": "DIALOGUE",
+      "timeSeconds": 9,
+      "director": "MAIN",
+      "source": "DIALOGUE_CLIP",
+      "actor": "fleet_commander",
+      "target": "fleet_comms",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0009.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "YAM_04_FIRE_shot_line_1",
+      "kind": "DIALOGUE",
+      "timeSeconds": 13,
+      "director": "MAIN",
+      "source": "DIALOGUE_CLIP",
+      "actor": "fleet_commander",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0013.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_04_FIRE_shot_fleet_battlecruiser_WEAPON_0|PROJECTILE - SIMPLE_YAM_04_FIRE_shot_fleet_battlecruiser_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 13.350000381469727,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "fleet_battlecruiser",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0013.350s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_04_FIRE_shot_fleet_wing_WEAPON_1|PROJECTILE - SIMPLE_YAM_04_FIRE_shot_fleet_wing_WEAPON_1 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 13.819999694824219,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "fleet_wing",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0013.820s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_04_FIRE_shot_fleet_battlecruiser_WEAPON_2|PROJECTILE - SIMPLE_YAM_04_FIRE_shot_fleet_battlecruiser_WEAPON_2 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 14.289999961853027,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "fleet_battlecruiser",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0014.290s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_04_FIRE_shot_fleet_battlecruiser_WEAPON_0|PROJECTILE - SIMPLE_YAM_04_FIRE_shot_fleet_battlecruiser_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 14.550000429153442,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "fleet_battlecruiser",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0014.550s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_04_FIRE_shot_fleet_wing_WEAPON_1|PROJECTILE - SIMPLE_YAM_04_FIRE_shot_fleet_wing_WEAPON_1 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 15.019999742507935,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "fleet_wing",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0015.020s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_04_FIRE_shot_fleet_battlecruiser_WEAPON_2|PROJECTILE - SIMPLE_YAM_04_FIRE_shot_fleet_battlecruiser_WEAPON_2 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 15.490000009536743,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "fleet_battlecruiser",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0015.490s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_06_IMPACT_shot_fleet_target_IMPACT_0",
+      "kind": "VisualCue",
+      "timeSeconds": 21.299999237060547,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0021.300s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_06_IMPACT_shot_fleet_target_IMPACT_1",
+      "kind": "VisualCue",
+      "timeSeconds": 21.950000762939453,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0021.950s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_YAM_06_IMPACT_shot_fleet_target_IMPACT_2",
+      "kind": "VisualCue",
+      "timeSeconds": 22.600000381469727,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0022.600s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "YAM_07_SHIP_REVEAL_shot_line_1",
+      "kind": "DIALOGUE",
+      "timeSeconds": 25,
+      "director": "MAIN",
+      "source": "DIALOGUE_CLIP",
+      "actor": "fleet_comms",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0025.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "handoff_simple_FLEET__THE_LAST_VOLLEY___30_SECOND_CINEMATIC",
+      "kind": "HandoffRequested",
+      "timeSeconds": 30,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0030.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [
+    {
+      "code": "STATIC_REVIEW",
+      "domain": "CONTINUITY",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "timeSeconds": 4,
+      "imageFile": "frame_0004.000s.png",
+      "expected": "Intentional hold or readable motion",
+      "observed": "Low change between sampled frames",
+      "recommendation": "Review the shot and timing; do not infer a freeze solely from pixel difference",
+      "owner": "CINEMATIC_DIRECTOR"
+    }
+  ],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 4,
+      "fileName": "frame_0004.000s.png"
+    },
+    {
+      "timeSeconds": 13.35,
+      "fileName": "frame_0013.350s.png"
+    },
+    {
+      "timeSeconds": 15.49,
+      "fileName": "frame_0015.490s.png"
+    },
+    {
+      "timeSeconds": 24,
+      "fileName": "frame_0024.000s.png"
+    },
+    {
+      "timeSeconds": 30,
+      "fileName": "frame_0030.000s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
