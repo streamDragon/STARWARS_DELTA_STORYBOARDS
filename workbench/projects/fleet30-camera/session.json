@@ -4,10 +4,10 @@
   "id": "fleet30-camera",
   "kind": "film",
   "title": "FLEET · הוכחת מצלמה 30 שניות",
-  "revision": 10,
+  "revision": 11,
   "stage": "REVISION",
-  "status": "ARTPACK_NATIVE_BUILD_CAPTURED_CINEMATIC_REVIEW_REQUIRED",
-  "updatedUtc": "2026-10-25T17:01:46.526Z",
+  "status": "CAMERA_DURATION_SOURCE_FIX_INSTALLED_COMPILING",
+  "updatedUtc": "2026-10-25T17:37:03.750Z",
   "originalBrief": "Use actual CS_FLEET_Invasion prefab (13 ships). One continuous follow shot Master 5–15s, inspect t=10 after ship translation and rotation. Wide and detail proof.",
   "approvedTargetRevision": 0,
   "targetArtifacts": [
@@ -444,14 +444,15 @@
     },
     {
       "request": "Measured camera integration",
-      "replacementAction": "Use only consolidated READY patch after fresh source/owner check",
-      "status": "PREPARED_NOT_INSTALLED"
+      "replacementAction": "Existing movie duration repaired to 30. Regression RED reproduced the generator bug; guarded materializer duration fix installed. Await fresh compile, focused tests and new capture.",
+      "status": "CONTENT_AND_SOURCE_DURATION_FIXED_VERIFICATION_PENDING"
     },
     {
       "request": "Uninterrupted gun follow at 5–15 in actual FLEET 13-ship prefab",
       "placeholder": "Current V1 has a camera cut at 9 and anime insert at 10; storyboard is planning imagery",
       "replacementAction": "Create separate authoring copy of CURRENT V1, remove cut at 9 and keep t=10 overlay non-cut; bind real child muzzle; run Unity capture",
-      "status": "KNOWN_SOURCE_TIMING_MISMATCH"
+      "status": "RESOLVED_FOR_ARTPACK_TIMING_ONLY",
+      "resolution": "Built ArtPack source and native camera Timeline contain one continuous 5–15 shot. Gun-local target fidelity remains open in the other gaps."
     },
     {
       "request": "Causal three shots/three hits and visible emotional reaction",
@@ -1290,15 +1291,27 @@
       "status": "ARTPACK_NATIVE_BUILD_CAPTURED_CINEMATIC_REVIEW_REQUIRED",
       "updatedUtc": "2026-10-25T16:50:46.371Z",
       "snapshotPath": "workbench/projects/fleet30-camera/revisions/000009.json"
+    },
+    {
+      "revision": 10,
+      "stage": "REVISION",
+      "status": "ARTPACK_NATIVE_BUILD_CAPTURED_CINEMATIC_REVIEW_REQUIRED",
+      "updatedUtc": "2026-10-25T17:01:46.526Z",
+      "snapshotPath": "workbench/projects/fleet30-camera/revisions/000010.json"
     }
   ],
-  "lastCompletedAction": "2026-10-25: Hid only the opaque Background and cyan Layer 5 in the original ArtPack Aseprite, preserving the GUID and all 19 native subasset identities, including nine sprite frames and the AnimationClip. Native recapture 20261025_165840 completed 51 frames and published. Actual t=10 frame confirms removal of rectangle and cyan title. Cannon close-up remains unresolved; cinematic REVIEW_REQUIRED and runtime NOT_TESTED.",
-  "nextAction": "Correct cannon close-up framing and follow/zoom using current V1 and inspect actual Timeline animation playback. Preserve successful source-art repair, existing generated/manual content, and all prior evidence. Capture revised movie and review all shot/event boundaries.",
-  "inFlightAction": null,
+  "lastCompletedAction": "2026-10-25: Native checks identified the camera Timeline had FixedLength duration 0 despite 8 shots spanning 30 seconds. Corrected and saved only that Timeline duration, preserving shot timing (5–15 uncut). A new editor seek proves master/content/camera clocks all advance to 10 and 10.1 seconds; Cinemachine selects YAM_02 at size 2.25 after normal Brain update; actual hero sprites change Frame_4 to Frame_5. This verifies Timeline sprite animation and clock repair, not runtime/cinematic acceptance. Existing capture 20261025_165840 predates the duration repair. The native regression test then failed exactly as expected (1 test, expected 30 seconds, actual 0). Installed the guarded 9-line materializer duration fix after that RED result; compilation is pending.",
+  "nextAction": "Inspect the original current compilation outcome. After fresh compile/Editor-ready proof, run the focused Cinemachine materializer suite and confirm GREEN. Then recapture all 8 shots, refine cannon-local framing and overlay timing, and publish matching evidence. Never replay an unknown native action.",
+  "inFlightAction": {
+    "type": "UNITY_RECOMPILE",
+    "requestId": "camera-duration-source-fix-20261025",
+    "status": "RUNNING",
+    "reason": "Guarded source fix AABA01329783AC8301E22938C2D7D0D5D622706001DDAFC58897F773107D7AF6 installed after verified native regression RED; one compile requested. Inspect its original status before tests or captures."
+  },
   "sourceArtifacts": [
     {
       "path": "workbench/projects/fleet30-camera/artifacts/4a1d1f2672ce1832516213c22840bb69c4ae12748da697597e409f62e96778bc-FLEET30_HANDOFF.md",
-      "label": "מסירת FLEET30 — טרם נבנה/צולם",
+      "label": "מסירה היסטורית מלפני הבנייה והצילום",
       "kind": "reference",
       "sha256": "4a1d1f2672ce1832516213c22840bb69c4ae12748da697597e409f62e96778bc",
       "evidenceStatus": "SOURCE_ATTACHED",
@@ -1377,6 +1390,21 @@
         "report": "film-qa/fleet-the-last-volley-30-second-cinematic/20261025_102347/report.json",
         "captureMode": "EDITOR_TIMELINE_EVALUATION"
       }
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/FLEET_ARTPACK_ANIMATED_V1_BUILD_INPUT_20261025.json",
+      "kind": "source",
+      "label": "מקור ArtPack שנבנה בפועל · 30 שניות",
+      "sha256": "c08d02d991741c1632b736c37f8768505e5d829a30a8e148981f5e2b0ec2ff8c",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4"
+    },
+    {
+      "path": "workbench/projects/fleet30-camera/artifacts/camera-clock-after-duration-repair-20261025.json",
+      "kind": "report",
+      "label": "Native camera clock and sprite probe · editor seek only",
+      "evidenceStatus": "SOURCE_ATTACHED",
+      "nativeProjectId": "3f576197c1684adb8a811847ed7d10b4"
     }
   ],
   "currentIdentity": {
@@ -1419,5 +1447,25 @@
       "question": "האם הסיפור מובן בלי חיצים והסברים?",
       "evidence": "צפייה מלאה ב־30 שניות עם תוויות כבויות"
     }
-  ]
+  ],
+  "verificationProgress": {
+    "cameraTimelineDuration": 30,
+    "shotCount": 8,
+    "uncutFollowStartSeconds": 5,
+    "uncutFollowEndSeconds": 15,
+    "editorAnimationProbe": {
+      "at10": "Nautolan Ship - Battlecruiser - Weapons_Frame_4",
+      "at10_1": "Nautolan Ship - Battlecruiser - Weapons_Frame_5"
+    },
+    "generatorRegressionRed": {
+      "total": 1,
+      "failed": 1,
+      "expectedSeconds": 30,
+      "actualSeconds": 0
+    },
+    "sourceFixSha256": "aaba01329783ac8301e22938c2d7d0d5d622706001ddafc58897f773107d7af6",
+    "compile": "PENDING",
+    "freshCaptureAfterDurationRepair": "NOT_RUN",
+    "runtime": "NOT_TESTED"
+  }
 }
