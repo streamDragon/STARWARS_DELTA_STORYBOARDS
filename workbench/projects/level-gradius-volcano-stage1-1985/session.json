@@ -6,7 +6,7 @@
   "title": "GRADIUS 1985 | Stage 1 Volcano",
   "revision": 1,
   "stage": "ASSETS",
-  "status": "ASSET_PREFLIGHT_OPEN_BUILDER_LOCKED",
+  "status": "SOURCE_RESEARCH_SPATIAL_MAPPING_PENDING",
   "updatedUtc": "2026-10-25T19:05:00Z",
   "originalBrief": "Recreate the simplest original 1985 Gradius Stage 1 (Volcano) as a repeatable test of our existing Level Builder. First a human-guided game-asset agent audits and finishes existing artwork, SpriteShape profiles, prefabs, spawners, volcano projectile mechanics and the right Big Core boss in Unity. Only AFTER assets are complete and accepted, the automatic Level Builder creates Layer0 v6 JSON for a NEW scene. Then Reverse Wave Authoring creates/validates enemy waves, followed by Play QA. Create a separate visible level dossier on our automatic level site. Do not redo existing art or overwrite GRAD1.",
   "approvedTargetRevision": 0,
@@ -71,8 +71,8 @@
   ],
   "runs": [],
   "history": [],
-  "lastCompletedAction": "Verified website state, local Unity Editor, missing new scene, 15 draft waves and six published QA runs; published accurate status ledger in website repo commit 1c507c8.",
-  "nextAction": "Preserve active Unity Cutscene Workshop; validate asset gameplay and implement missing Big Core/volcano behavior; only then generate new LevelBuilder V6 scene and waves, playtest and publish proof.",
+  "lastCompletedAction": "Published Arcade Stage 1 original reference dossier: verified stage identity, sources and documented all spatial/timing evidence gaps.",
+  "nextAction": "Measure source Arcade Stage1 map and video frames to get exact tower coordinates, enemy spawn times and trajectories, volcano stop-scroll and projectile mechanics BEFORE any LevelBuilder import.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -86,6 +86,12 @@
       "kind": "report",
       "label": "בדיקת מצב אמיתית: מה קיים, מה חסר ומה נדרש להשלמה",
       "evidenceStatus": "VERIFIED_DESKTOP_AND_SITE"
+    },
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/artifacts/ARCADE_STAGE1_ORIGINAL_RESEARCH_20261026.md",
+      "kind": "report",
+      "label": "מחקר המקור: Gradius Arcade 1985, Stage 1, מפת שטח, אויבים והצלבת מקורות",
+      "evidenceStatus": "SOURCE_RESEARCH_SPATIAL_TIMING_PENDING"
     }
   ],
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
