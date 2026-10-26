@@ -28,3 +28,13 @@ YouTube generated 320×180 thumbnails, arranged as 3×3 tiles on 960×540 images
 
 ## Project system mapping
 Turrets → TOWER_MISSILES_CUTE; hatches → TOWER_SHIP_SPAWNER_WHITE; volcano rocks → MLB_Gravitation; top/bottom terrain → SpriteShape; timed enemies → WavesManager + Reverse Wave Authoring; level import remains owned by main agent (Level Builder V6). This folder supplies evidence only.
+
+## Phase 2: Enlarged 800×600 secondary screenshots
+
+| Image | Observation | Status |
+|---|---|---|
+| https://stat.ameba.jp/user_images/20221231/09/dbh-washi/90/2f/p/o1320098615223422177.png?caw=800 | Hatch-like devices at [736,29,799,100] on ceiling and [737,497,799,566] on floor, both cropped by right frame edge | Screenshot annotations only, not Arcade-world coordinates |
+| https://stat.ameba.jp/user_images/20221231/10/dbh-washi/01/80/p/o1320098615223422833.png?caw=800 | Armed floating rock fires horizontal laser beams; floor-mounted turret-like unit [568,518,624,567] | Classification and time pending |
+| https://stat.ameba.jp/user_images/20221231/10/dbh-washi/ef/23/p/o1320098615223422835.png?caw=800 | Two volcano peaks and numerous orange flying rocks | Velocity / onset / gravity cannot be deduced from one still |
+
+No camera-offset calibration or overlapping-frame stitching established. The three-local-hatch claim (one top, two bottom) in Japanese walkthrough https://yuugikyo-rerise.net/gradius_stage1-4/ is a supported **section description**, not a count of all stage hatches. Full original map still unavailable; all source map X/Y remain null.
