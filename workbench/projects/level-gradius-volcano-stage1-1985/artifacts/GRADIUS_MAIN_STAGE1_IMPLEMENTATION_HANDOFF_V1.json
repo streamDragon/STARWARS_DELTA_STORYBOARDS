@@ -1,0 +1,180 @@
+{
+  "schema": "GRADIUS_MAIN_STAGE1_IMPLEMENTATION_HANDOFF_V1",
+  "revision": 1,
+  "buildReady": false,
+  "authority": "PRIMARY_AGENT",
+  "scope": "Original arcade opening through end twin volcano eruption; exclude original Big Core. New art permitted.",
+  "sourceEvidence": {
+    "researchCommit": "a224aac98b85f076fde90ee4a243a2c6089d76a4",
+    "researchRevision": 5,
+    "sourceClipSeconds": [
+      0,
+      145
+    ],
+    "samples": 146,
+    "sourceMapObtained": false,
+    "verifiedWorldObjectCount": 0,
+    "verifiedEnemyRouteCount": 0,
+    "approximateScrollStopSeconds": [
+      110,
+      113
+    ],
+    "scrollStopConfidence": "BRACKET_ONLY",
+    "geometryCalibration": "UNMEASURED"
+  },
+  "unity": {
+    "version": "6000.7.0b5",
+    "plasticscm": "MAIN",
+    "primaryScene": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
+    "primarySceneExists": false,
+    "editorStatus": "BUSY_OTHER_WORK",
+    "assetBindings": {
+      "towerBase": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_TURRET_ENEMY/TOWER_MASTER_BASE.prefab",
+      "turret": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_TURRET_ENEMY/GRADIUS_CUTE_BASE_VARIANT.prefab",
+      "silo": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_TURRET_ENEMY/GRADIUS_SILO_ROOF_VARIANT.prefab",
+      "volcanoBoss": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_BOSS_LIBRARY/GRADIUS_VOLCANO_MOUNTAIN_BOSS.prefab",
+      "air": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "siloShip": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/FIRE_BIRD_enemy.prefab"
+    },
+    "observedRuntime": {
+      "turretMLBProjectile": "B_missile",
+      "turretShotRateFrames": 90,
+      "siloDoorTriggers": [
+        "Open",
+        "Close"
+      ],
+      "siloSplineKnots": 5,
+      "siloShipCount": 10,
+      "siloShipIntervalSeconds": 4,
+      "siloShipWidthSpriteUnits": 3.62,
+      "siloRoofOpeningWidthUnits": "UNMEASURED",
+      "siloNetworkAnimator": true,
+      "volcanoEmitterCount": 2
+    },
+    "playTests": {
+      "turret": "NOT_RUN",
+      "silo": "NOT_RUN",
+      "volcano": "NOT_RUN",
+      "fullLevel": "NOT_RUN"
+    }
+  },
+  "sequence": [
+    {
+      "id": "open-air",
+      "videoWindowS": [
+        0,
+        36
+      ],
+      "sceneElements": "fighters and power-ups",
+      "evidence": "OBSERVED_COARSE",
+      "placements": []
+    },
+    {
+      "id": "terrain-entry",
+      "videoWindowS": [
+        36,
+        40
+      ],
+      "sceneElements": "upper/lower terrain first appears",
+      "evidence": "BRACKET_ONLY",
+      "placements": []
+    },
+    {
+      "id": "first-corridor",
+      "videoWindowS": [
+        40,
+        68
+      ],
+      "sceneElements": "fixed ceiling/floor turrets, fighter formations",
+      "evidence": "OBSERVED_COARSE",
+      "placements": []
+    },
+    {
+      "id": "mid-corridor",
+      "videoWindowS": [
+        68,
+        88
+      ],
+      "sceneElements": "more upper mounted guns and lower ground enemies",
+      "evidence": "OBSERVED_COARSE",
+      "placements": []
+    },
+    {
+      "id": "launchers",
+      "videoWindowS": [
+        88,
+        96
+      ],
+      "sceneElements": "ceiling/floor hatches and moving enemies",
+      "evidence": "OBSERVED_COARSE",
+      "placements": []
+    },
+    {
+      "id": "armed-rock",
+      "videoWindowS": [
+        96,
+        104
+      ],
+      "sceneElements": "floating armed rock and lasers",
+      "evidence": "OBSERVED_COARSE",
+      "placements": []
+    },
+    {
+      "id": "volcano-entry",
+      "videoWindowS": [
+        104,
+        112
+      ],
+      "sceneElements": "two mountains and red background shift",
+      "evidence": "OBSERVED_COARSE",
+      "placements": []
+    },
+    {
+      "id": "eruption",
+      "videoWindowS": [
+        112,
+        124
+      ],
+      "sceneElements": "scroll pause and gravitation hazards, one two-peak adapted mountain boss",
+      "evidence": "OBSERVED_COARSE",
+      "placements": []
+    }
+  ],
+  "assetAcceptance": [
+    {
+      "id": "CUTE_PROJECTILE",
+      "rule": "SpawnAttemptSequence>0 and LastSpawnDiagnostic=spawned-local",
+      "status": "PENDING"
+    },
+    {
+      "id": "SILO_DOOR",
+      "rule": "Door opens before launch and closes afterwards through NetworkAnimator",
+      "status": "PENDING"
+    },
+    {
+      "id": "SILO_CLEARANCE",
+      "rule": "FIRE_BIRD uses relative silo anchor and clears opening collision",
+      "status": "PENDING"
+    },
+    {
+      "id": "VOLCANO_ATTACKS",
+      "rule": "Both gravitation emitters spawn actual collidable and destructible projectiles",
+      "status": "PENDING"
+    },
+    {
+      "id": "WAVE_FIDELITY",
+      "rule": "Every imported spawn has evidence and coordinate calibration",
+      "status": "BLOCKED_UNMEASURED"
+    }
+  ],
+  "importGate": {
+    "blocked": true,
+    "reasons": [
+      "Missing source-map coordinate alignment and world anchor calibration",
+      "Canonical scene not yet created",
+      "Unity active on another workstream and busy",
+      "Runtime prefab checks pending"
+    ],
+    "nonCanonicalDraft": "GRADIUS_STAGE1_VOLCANO_20261025/build_from_levelbuilder_context.py; protected by fail-closed gate, NEVER import guessed 210KM layout"
+  }
+}
