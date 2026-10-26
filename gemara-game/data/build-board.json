@@ -1,7 +1,7 @@
 {
   "schema": "GEMARA_GAME_BUILD_BOARD",
   "version": 1,
-  "asOf": "2026-10-25",
+  "asOf": "2026-10-26",
   "source": "Local Unity project inspection, Plastic MAIN and recorded QA; static export, not live Unity sync",
   "unityVersion": "6000.7.0b5",
   "project": "GEMARA_GAME",
@@ -141,7 +141,7 @@
       "name": "ברכות מ״א | מי קודם ומה פוטר?",
       "group": "built",
       "stage": "verified",
-      "stageLabel": "הושלם עד 100% ב־Unity",
+      "stageLabel": "Unity PlayMode נבדק",
       "short": "דוגמה לדף קשה: שבעת המינים, עיקר וטפל, שני מופעי ׳ארץ׳ וברכות בתוך הסעודה. התוכן טיוטה ולא פסיקת הלכה.",
       "scene": "Assets/GemaraGame/Generated/Berakhot41Demo.unity",
       "features": [
@@ -149,8 +149,8 @@
         "12 טענות למיון ציפורים ו־12 אתגרים",
         "11 שלבים לשחזור הסוגיה ושמירת התקדמות"
       ],
-      "proof": "PlayMode עבר: 6 מעבדות, 13 מצבים, 12 טענות, 12 אתגרים, 11 שלבי שחזור, שגיאות והפעלה מחדש. צילום סיום נבדק.",
-      "next": "בדיקת טלפון וביקורת תוכן.",
+      "proof": "Unity Test Runner מ־26.10.2026: EditMode 2/2 PASS, PlayMode 1/1 PASS; נבדקו שלבי השיעור ושמירה/טעינה מחדש. APK וסקירת תצוגה בטלפון עדיין לא אומתו.",
+      "next": "צילום Game View ובדיקת APK בטלפון; הגרסה היא טיוטת תוכן.",
       "image": "screenshots/BERAKHOT41_DONE_GAME_VIEW.png",
       "imageLabel": "Unity PlayMode, 390×844, 25.10.2026"
     },
