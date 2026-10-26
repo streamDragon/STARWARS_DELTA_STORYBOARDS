@@ -1,0 +1,12 @@
+# GRADIUS Volcano two-peak mountain boss: Unity editor evidence (2026-10-26)
+- **Unity Editor** 6000.7.0b5, project `C:\Users\nlpis\wkspaces\STARWARS_DELTA`; active scene `SCENE_Cutscene_Workshop` left unchanged.
+- **Created dedicated prefab**: `Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_BOSS_LIBRARY/GRADIUS_VOLCANO_MOUNTAIN_BOSS.prefab`
+- **Asset GUID**: `a9ca6715c8de35d46a904e88d686ab5d`
+- **Plastic SCM**: checked in **MAIN cs:9526**. Only new prefab and its .meta included. Existing unrelated FLEET prefab edits excluded.
+- Constructed by cloning `MY_Cube_Boss.prefab` in isolated Prefab Stage with Unity Editor prefab utilities, **not** by modifying the original. Main_Boss_controller + 1 BossPartHandler kept.
+- One Kinematic Rigidbody2D, box collider size 9.6×3.0, legacy movement component disabled. Two separate peak sprites from existing `volcano33.png` (temporary art; new original production art still outstanding).
+- Added left and right `MLB_Gravitation.prefab` children, anchored at **local** (-2.60, 2.45, 0) and (2.60, 2.45, 0).
+- Fresh re-load from Unity AssetDatabase verified 2 peaks, 2 weapons, `TriggerAutoFire == true` on each of 2 `MY_SpreadPattern` controllers, 40 `MY_FireBullet` child points per weapon, intact root boss, root collider and preserved source prefab. Existing default `B_Gravitational` projectile references preserved.
+- **Proof level:** Prefab serialization/Inspector API checks **PASS**. Actual runtime emission, projectile damage/destruction, pooling, network authority, cinematic composition and Play Mode **NOT YET TESTED**. Do not claim `ASSETS_READY`.
+- Scene `GRADIUS_VOLCANO_01.unity` not created in this task. No Level Builder import, wave import or stage QA.
+- Next: focused safe prefabs-only Play test / dedicated temporary QA scene, review spawn and volley density of inherited 40 points, tune to reference run after research-agent measures arc/time. If runtime fails, fix this new prefab without changing shared originals.
