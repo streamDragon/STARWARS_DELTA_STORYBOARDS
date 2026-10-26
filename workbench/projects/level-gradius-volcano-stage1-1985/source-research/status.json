@@ -1,19 +1,26 @@
 {
   "schema": "GRADIUS_STAGE1_RESEARCH_AGENT_STATUS_V1",
-  "revision": 1,
-  "updatedUtc": "2026-10-26T00:00:00Z",
+  "revision": 2,
+  "updatedUtc": "2026-10-26T03:11:00+02:00",
   "owner": "source-research-agent",
-  "researchState": "AWAITING_AGENT_START",
+  "researchState": "PARTIAL_VIDEO_STORYBOARD_SAMPLES_VERIFIED_MAP_GEOMETRY_BLOCKED",
   "sourceMapObtained": false,
   "videoFrameSamplingDone": false,
   "measuredObjectCount": 0,
   "measuredEventCount": 0,
   "measuredRouteCount": 0,
-  "verifiedEvidenceCount": 0,
-  "artifacts": [],
+  "verifiedEvidenceCount": 5,
+  "artifacts": [
+    "workbench/projects/level-gradius-volcano-stage1-1985/source-research/GRADIUS_ARCADE_STAGE1_TERRAIN_V1.json",
+    "workbench/projects/level-gradius-volcano-stage1-1985/source-research/GRADIUS_ARCADE_STAGE1_OBJECTS_V1.json",
+    "workbench/projects/level-gradius-volcano-stage1-1985/source-research/GRADIUS_ARCADE_STAGE1_EVENTS_V1.json",
+    "workbench/projects/level-gradius-volcano-stage1-1985/source-research/GRADIUS_ARCADE_STAGE1_ROUTES_V1.json",
+    "workbench/projects/level-gradius-volcano-stage1-1985/source-research/GRADIUS_ARCADE_STAGE1_EVIDENCE.md"
+  ],
   "blockingIssues": [
-    "Original arcade Stage 1 map full image has not yet been downloaded or independently read",
-    "No original gameplay frames have been systematically measured"
+    "Full original arcade Stage1 map file returns HTTP 403; no pixel geometry.",
+    "Video storyboard samples are spaced 10s apart and are not original-resolution frames; exact entry/spawn, door, scrolling and rock rates unmeasured.",
+    "Needs original 1985 Japanese Arcade version confirmation beyond source labels and visual consistency."
   ],
   "lastCommit": null
 }

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "projectId": "level-gradius-volcano-stage1-1985",
+  "sourceVersion": "Gradius Arcade Japan 1985 Stage 1",
+  "measurementPolicy": "Null denotes unmeasured. YouTube storyboard thumbnails are 320x180 previews sampled at nominal 10-second intervals, NOT pixel-perfect arcade frames or exact transition times.",
+  "coordinateSystem": {
+    "map": {
+      "space": "SOURCE_MAP_PIXEL",
+      "origin": "top-left",
+      "units": "px",
+      "reportedDimensions": {
+        "width": 2304,
+        "height": 256
+      },
+      "imageVerified": false
+    },
+    "video": {
+      "space": "VIDEO_STORYBOARD_PREVIEW_PIXEL",
+      "origin": "top-left",
+      "units": "px",
+      "width": 320,
+      "height": 180,
+      "nominalSamplingPeriodS": 10,
+      "fullVideoFrameVerified": false
+    },
+    "world": {
+      "cameraOffsetPx": null,
+      "scrollPxPerSecond": null,
+      "calibrated": false
+    }
+  },
+  "schema": "GRADIUS_ARCADE_STAGE1_TERRAIN_V1",
+  "mapImageStatus": "403_IMAGE_NOT_OBTAINED",
+  "boundaries": [],
+  "passages": [],
+  "obstacles": [
+    {
+      "id": "TERRAIN_ARMED_FLOATING_ROCK_ZONE",
+      "type": "FLOATING_OBSTACLE",
+      "original_x": null,
+      "original_y": null,
+      "coordinate_space": "SOURCE_MAP_PIXEL",
+      "evidenceLevel": "SUPPORTED_MECHANIC",
+      "source_id": "SRC_RULES_03",
+      "evidenceUrl": "https://yuugikyo-rerise.net/gradius_stage1-4/",
+      "geometryUnmeasured": true
+    }
+  ],
+  "regions": [
+    {
+      "id": "TERRAIN_ENTRY",
+      "order": 1,
+      "type": "TOP_AND_BOTTOM_TERRAIN",
+      "mapStartX": null,
+      "mapEndX": null,
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidence": {
+        "source_id": "SRC_VIDEO_01",
+        "url": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=40s",
+        "nominalPreviewTimeS": 40,
+        "frameEvidenceType": "YOUTUBE_STORYBOARD_320x180",
+        "exactFrameTimeVerified": false
+      },
+      "note": "Terrain already visible in nominal 40s preview; not its entry time."
+    },
+    {
+      "id": "VOLCANO_GROUND",
+      "order": 2,
+      "type": "TWO_GROUND_PEAKS",
+      "mapStartX": null,
+      "mapEndX": null,
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidence": {
+        "source_id": "SRC_VIDEO_01",
+        "url": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=110s",
+        "nominalPreviewTimeS": 110,
+        "frameEvidenceType": "YOUTUBE_STORYBOARD_320x180",
+        "exactFrameTimeVerified": false
+      },
+      "note": "Both mountain peaks visible by nominal 110s preview; boundary pixels unmeasured."
+    }
+  ],
+  "verifiedMapBoundaryVertices": 0
+}

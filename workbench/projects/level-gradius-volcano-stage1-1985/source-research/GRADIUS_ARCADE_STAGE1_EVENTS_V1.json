@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "projectId": "level-gradius-volcano-stage1-1985",
+  "sourceVersion": "Gradius Arcade Japan 1985 Stage 1",
+  "measurementPolicy": "Null denotes unmeasured. YouTube storyboard thumbnails are 320x180 previews sampled at nominal 10-second intervals, NOT pixel-perfect arcade frames or exact transition times.",
+  "coordinateSystem": {
+    "map": {
+      "space": "SOURCE_MAP_PIXEL",
+      "origin": "top-left",
+      "units": "px",
+      "reportedDimensions": {
+        "width": 2304,
+        "height": 256
+      },
+      "imageVerified": false
+    },
+    "video": {
+      "space": "VIDEO_STORYBOARD_PREVIEW_PIXEL",
+      "origin": "top-left",
+      "units": "px",
+      "width": 320,
+      "height": 180,
+      "nominalSamplingPeriodS": 10,
+      "fullVideoFrameVerified": false
+    },
+    "world": {
+      "cameraOffsetPx": null,
+      "scrollPxPerSecond": null,
+      "calibrated": false
+    }
+  },
+  "schema": "GRADIUS_ARCADE_STAGE1_EVENTS_V1",
+  "timestampSemantics": "nominal_sample_s marks the storyboard frame's sampling slot, not exact event onset or gameplay timer.",
+  "events": [
+    {
+      "id": "EV_STAGE_START",
+      "type": "STAGE_START",
+      "nominal_sample_s": null,
+      "startTimeS": null,
+      "evidenceLevel": "SUPPORTED_MECHANIC",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g",
+      "notes": "Prior report estimates about 3s; opening not sampled to frame accuracy."
+    },
+    {
+      "id": "EV_TERRAIN_VISIBLE",
+      "type": "TERRAIN_PRESENT",
+      "nominal_sample_s": 40,
+      "startTimeS": null,
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidence": {
+        "source_id": "SRC_VIDEO_01",
+        "url": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=40s",
+        "nominalPreviewTimeS": 40,
+        "frameEvidenceType": "YOUTUBE_STORYBOARD_320x180",
+        "exactFrameTimeVerified": false
+      }
+    },
+    {
+      "id": "EV_FIRST_PEAK_SIGHTING",
+      "type": "VOLCANO_REGION_VISIBLE",
+      "nominal_sample_s": 50,
+      "startTimeS": null,
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidence": {
+        "source_id": "SRC_VIDEO_01",
+        "url": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=50s",
+        "nominalPreviewTimeS": 50,
+        "frameEvidenceType": "YOUTUBE_STORYBOARD_320x180",
+        "exactFrameTimeVerified": false
+      },
+      "notes": "Earlier mound appears in preview, not proof of eruption."
+    },
+    {
+      "id": "EV_FLOATING_ROCK_VISIBLE",
+      "type": "ARMED_FLOATING_ROCK_VISIBLE",
+      "nominal_sample_s": 100,
+      "startTimeS": null,
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidence": {
+        "source_id": "SRC_VIDEO_01",
+        "url": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=100s",
+        "nominalPreviewTimeS": 100,
+        "frameEvidenceType": "YOUTUBE_STORYBOARD_320x180",
+        "exactFrameTimeVerified": false
+      }
+    },
+    {
+      "id": "EV_TWIN_PEAKS_VISIBLE",
+      "type": "TWO_VOLCANOES_VISIBLE",
+      "nominal_sample_s": 110,
+      "startTimeS": null,
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidence": {
+        "source_id": "SRC_VIDEO_01",
+        "url": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=110s",
+        "nominalPreviewTimeS": 110,
+        "frameEvidenceType": "YOUTUBE_STORYBOARD_320x180",
+        "exactFrameTimeVerified": false
+      }
+    },
+    {
+      "id": "EV_ERUPTION_ACTIVE",
+      "type": "TWIN_VOLCANO_ERUPTION_ACTIVE",
+      "nominal_sample_s": 120,
+      "startTimeS": null,
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidence": {
+        "source_id": "SRC_VIDEO_01",
+        "url": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=120s",
+        "nominalPreviewTimeS": 120,
+        "frameEvidenceType": "YOUTUBE_STORYBOARD_320x180",
+        "exactFrameTimeVerified": false
+      },
+      "notes": "Many rocks are visible. Not eruption start."
+    },
+    {
+      "id": "EV_BIG_CORE_VISIBLE_EXCLUDED",
+      "type": "OUT_OF_SCOPE_BOSS",
+      "nominal_sample_s": 130,
+      "startTimeS": null,
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidence": {
+        "source_id": "SRC_VIDEO_01",
+        "url": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=130s",
+        "nominalPreviewTimeS": 130,
+        "frameEvidenceType": "YOUTUBE_STORYBOARD_320x180",
+        "exactFrameTimeVerified": false
+      },
+      "notes": "Big Core enters the visual sample. Exact completion time for eruption unknown."
+    }
+  ],
+  "scrollStopTimeS": null,
+  "eruptionOnsetTimeS": null,
+  "eruptionEndTimeS": null,
+  "rocksEmittedCount": null,
+  "rocksPerSecond": null,
+  "sampledPreviewCountStage1": 16,
+  "individualWaveEventCount": 0
+}

@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "projectId": "level-gradius-volcano-stage1-1985",
+  "sourceVersion": "Gradius Arcade Japan 1985 Stage 1",
+  "measurementPolicy": "Null denotes unmeasured. YouTube storyboard thumbnails are 320x180 previews sampled at nominal 10-second intervals, NOT pixel-perfect arcade frames or exact transition times.",
+  "coordinateSystem": {
+    "map": {
+      "space": "SOURCE_MAP_PIXEL",
+      "origin": "top-left",
+      "units": "px",
+      "reportedDimensions": {
+        "width": 2304,
+        "height": 256
+      },
+      "imageVerified": false
+    },
+    "video": {
+      "space": "VIDEO_STORYBOARD_PREVIEW_PIXEL",
+      "origin": "top-left",
+      "units": "px",
+      "width": 320,
+      "height": 180,
+      "nominalSamplingPeriodS": 10,
+      "fullVideoFrameVerified": false
+    },
+    "world": {
+      "cameraOffsetPx": null,
+      "scrollPxPerSecond": null,
+      "calibrated": false
+    }
+  },
+  "schema": "GRADIUS_ARCADE_STAGE1_OBJECTS_V1",
+  "objects": [
+    {
+      "id": "TURRET_GROUND_UNRESOLVED",
+      "type": "STATIC_TURRET",
+      "existingSystem": "TOWER_MISSILES_CUTE",
+      "coordinate_space": "SOURCE_MAP_PIXEL",
+      "original_x": null,
+      "original_y": null,
+      "direction": null,
+      "source_version": "Arcade Japan 1985",
+      "evidenceLevel": "SUPPORTED_MECHANIC",
+      "evidenceUrl": "https://yuugikyo-rerise.net/gradius_stage1-4/",
+      "source_id": "SRC_RULES_03",
+      "surface": "BOTTOM",
+      "quantity": null,
+      "inventoryStatus": "CLASS_ONLY_NO_INSTANCE_COUNT"
+    },
+    {
+      "id": "TURRET_CEILING_UNRESOLVED",
+      "type": "STATIC_TURRET",
+      "existingSystem": "TOWER_MISSILES_CUTE",
+      "coordinate_space": "SOURCE_MAP_PIXEL",
+      "original_x": null,
+      "original_y": null,
+      "direction": null,
+      "source_version": "Arcade Japan 1985",
+      "evidenceLevel": "SUPPORTED_MECHANIC",
+      "evidenceUrl": "https://yuugikyo-rerise.net/gradius_stage1-4/",
+      "source_id": "SRC_RULES_03",
+      "surface": "TOP",
+      "quantity": null,
+      "inventoryStatus": "CLASS_ONLY_NO_INSTANCE_COUNT"
+    },
+    {
+      "id": "HATCH_UNRESOLVED",
+      "type": "SHIP_HATCH",
+      "existingSystem": "TOWER_SHIP_SPAWNER_WHITE",
+      "coordinate_space": "SOURCE_MAP_PIXEL",
+      "original_x": null,
+      "original_y": null,
+      "direction": null,
+      "source_version": "Arcade Japan 1985",
+      "evidenceLevel": "SUPPORTED_MECHANIC",
+      "evidenceUrl": "https://yuugikyo-rerise.net/gradius_stage1-4/",
+      "source_id": "SRC_RULES_03",
+      "launchAnchorX": null,
+      "launchAnchorY": null,
+      "inventoryStatus": "CLASS_ONLY_NO_INSTANCE_COUNT"
+    },
+    {
+      "id": "DUCKER_UNRESOLVED",
+      "type": "TERRAIN_ROBOT",
+      "existingSystem": "WavesManager",
+      "coordinate_space": "SOURCE_MAP_PIXEL",
+      "original_x": null,
+      "original_y": null,
+      "direction": null,
+      "source_version": "Arcade Japan 1985",
+      "evidenceLevel": "SUPPORTED_MECHANIC",
+      "evidenceUrl": "https://strategywiki.org/wiki/Gradius/Stage_1",
+      "source_id": "SRC_RULES_03",
+      "inventoryStatus": "CLASS_ONLY_NO_INSTANCE_COUNT"
+    },
+    {
+      "id": "JUMPER_UNRESOLVED",
+      "type": "JUMPING_ROBOT",
+      "existingSystem": "WavesManager",
+      "coordinate_space": "SOURCE_MAP_PIXEL",
+      "original_x": null,
+      "original_y": null,
+      "direction": null,
+      "source_version": "Arcade Japan 1985",
+      "evidenceLevel": "SUPPORTED_MECHANIC",
+      "evidenceUrl": "https://yuugikyo-rerise.net/gradius_stage1-4/",
+      "source_id": "SRC_RULES_03",
+      "inventoryStatus": "CLASS_ONLY_NO_INSTANCE_COUNT"
+    },
+    {
+      "id": "FLOATING_ROCK_SINGLE",
+      "type": "ARMED_FLOATING_ROCK",
+      "existingSystem": "SpriteShape",
+      "coordinate_space": "SOURCE_MAP_PIXEL",
+      "original_x": null,
+      "original_y": null,
+      "direction": null,
+      "source_version": "Arcade Japan 1985",
+      "evidenceLevel": "SUPPORTED_MECHANIC",
+      "evidenceUrl": "https://ameblo.jp/dbh-washi/entry-12781896346.html",
+      "source_id": "SRC_RULES_03",
+      "firingPortCountReported": 5,
+      "portPositions": [],
+      "videoEvidence": {
+        "source_id": "SRC_VIDEO_01",
+        "url": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=100s",
+        "nominalPreviewTimeS": 100,
+        "frameEvidenceType": "YOUTUBE_STORYBOARD_320x180",
+        "exactFrameTimeVerified": false
+      }
+    },
+    {
+      "id": "VOLCANO_LEFT",
+      "type": "VOLCANO",
+      "existingSystem": "MLB_Gravitation",
+      "coordinate_space": "SOURCE_MAP_PIXEL",
+      "original_x": null,
+      "original_y": null,
+      "direction": null,
+      "source_version": "Arcade Japan 1985",
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g",
+      "source_id": "SRC_RULES_03",
+      "videoEvidence": {
+        "source_id": "SRC_VIDEO_01",
+        "url": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=120s",
+        "nominalPreviewTimeS": 120,
+        "frameEvidenceType": "YOUTUBE_STORYBOARD_320x180",
+        "exactFrameTimeVerified": false
+      },
+      "peakPosition": null,
+      "originalCraterPixel": null,
+      "notes": "Left peak among two visible eruption sources, exact local anchor unmeasured."
+    },
+    {
+      "id": "VOLCANO_RIGHT",
+      "type": "VOLCANO",
+      "existingSystem": "MLB_Gravitation",
+      "coordinate_space": "SOURCE_MAP_PIXEL",
+      "original_x": null,
+      "original_y": null,
+      "direction": null,
+      "source_version": "Arcade Japan 1985",
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g",
+      "source_id": "SRC_RULES_03",
+      "videoEvidence": {
+        "source_id": "SRC_VIDEO_01",
+        "url": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=120s",
+        "nominalPreviewTimeS": 120,
+        "frameEvidenceType": "YOUTUBE_STORYBOARD_320x180",
+        "exactFrameTimeVerified": false
+      },
+      "peakPosition": null,
+      "originalCraterPixel": null,
+      "notes": "Right peak among two visible eruption sources, exact local anchor unmeasured."
+    }
+  ],
+  "verifiedPositionCount": 0,
+  "missing": "Full turret/hatch count, per-instance anchor, floating rock ports and eruption origin coordinates."
+}

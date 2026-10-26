@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "projectId": "level-gradius-volcano-stage1-1985",
+  "sourceVersion": "Gradius Arcade Japan 1985 Stage 1",
+  "measurementPolicy": "Null denotes unmeasured. YouTube storyboard thumbnails are 320x180 previews sampled at nominal 10-second intervals, NOT pixel-perfect arcade frames or exact transition times.",
+  "coordinateSystem": {
+    "map": {
+      "space": "SOURCE_MAP_PIXEL",
+      "origin": "top-left",
+      "units": "px",
+      "reportedDimensions": {
+        "width": 2304,
+        "height": 256
+      },
+      "imageVerified": false
+    },
+    "video": {
+      "space": "VIDEO_STORYBOARD_PREVIEW_PIXEL",
+      "origin": "top-left",
+      "units": "px",
+      "width": 320,
+      "height": 180,
+      "nominalSamplingPeriodS": 10,
+      "fullVideoFrameVerified": false
+    },
+    "world": {
+      "cameraOffsetPx": null,
+      "scrollPxPerSecond": null,
+      "calibrated": false
+    }
+  },
+  "schema": "GRADIUS_ARCADE_STAGE1_ROUTES_V1",
+  "routes": [],
+  "enemyClasses": [
+    {
+      "id": "AIR_FORMATIONS_UNRESOLVED",
+      "type": "AIR_SQUADRONS",
+      "system": "Reverse Wave Authoring",
+      "spawnCount": null,
+      "spawnPoint": null,
+      "path": [],
+      "evidenceLevel": "SUPPORTED_MECHANIC",
+      "evidenceUrl": "https://strategywiki.org/wiki/Gradius/Stage_1"
+    },
+    {
+      "id": "HATCH_LAUNCHED_UNRESOLVED",
+      "type": "HATCH_SHIPS",
+      "system": "TOWER_SHIP_SPAWNER_WHITE",
+      "spawnCount": null,
+      "spawnPoint": null,
+      "path": [],
+      "evidenceLevel": "SUPPORTED_MECHANIC",
+      "evidenceUrl": "https://yuugikyo-rerise.net/gradius_stage1-4/"
+    },
+    {
+      "id": "DUCKER_PATH_UNRESOLVED",
+      "type": "SURFACE_FOLLOWER",
+      "system": "WavesManager",
+      "spawnCount": null,
+      "path": [],
+      "evidenceLevel": "SUPPORTED_MECHANIC",
+      "evidenceUrl": "https://yuugikyo-rerise.net/gradius_stage1-4/"
+    },
+    {
+      "id": "VOLCANO_ROCKS_UNRESOLVED",
+      "type": "VOLCANO_PROJECTILE",
+      "system": "MLB_Gravitation",
+      "spawnCount": null,
+      "emitterCount": 2,
+      "path": [],
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidence": {
+        "source_id": "SRC_VIDEO_01",
+        "url": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=120s",
+        "nominalPreviewTimeS": 120,
+        "frameEvidenceType": "YOUTUBE_STORYBOARD_320x180",
+        "exactFrameTimeVerified": false
+      }
+    }
+  ],
+  "cameraCalibration": {
+    "anchorPairs": [],
+    "pixelsPerSecond": null,
+    "frameOffset": null,
+    "worldKMConversion": null
+  },
+  "verifiedSpawnRouteCount": 0
+}
