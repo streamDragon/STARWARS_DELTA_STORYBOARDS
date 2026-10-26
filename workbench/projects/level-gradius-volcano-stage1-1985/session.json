@@ -4,11 +4,11 @@
   "id": "level-gradius-volcano-stage1-1985",
   "kind": "level",
   "title": "GRADIUS 1985 | Stage 1 Volcano",
-  "revision": 1,
+  "revision": 2,
   "stage": "ASSETS",
-  "status": "SOURCE_RESEARCH_SPATIAL_MAPPING_PENDING",
-  "updatedUtc": "2026-10-25T19:05:00Z",
-  "originalBrief": "Recreate the simplest original 1985 Gradius Stage 1 (Volcano) as a repeatable test of our existing Level Builder. First a human-guided game-asset agent audits and finishes existing artwork, SpriteShape profiles, prefabs, spawners, volcano projectile mechanics and the right Big Core boss in Unity. Only AFTER assets are complete and accepted, the automatic Level Builder creates Layer0 v6 JSON for a NEW scene. Then Reverse Wave Authoring creates/validates enemy waves, followed by Play QA. Create a separate visible level dossier on our automatic level site. Do not redo existing art or overwrite GRAD1.",
+  "status": "SOURCE_MAPPING_LAB_PUBLISHED_SPATIAL_RESEARCH_OPEN",
+  "updatedUtc": "2026-10-26T01:10:00Z",
+  "originalBrief": "Reconstruct the gameplay of Gradius Arcade 1985 Stage 1 through the end of the twin-volcano sequence, preserving verified original terrain, turret/hatch anchors, wave timing, routes and mechanics. Produce original upgraded art and sprite animations. Do not use original graphics. End before original Big Core; user-approved alternative: stationary two-peak mountain as one boss with two MLB_Gravitation emitters. Build only after exact source-coordinate measurements. Use existing Level Builder V6, Reverse Wave Authoring and Play QA.",
   "approvedTargetRevision": 0,
   "targetArtifacts": [],
   "storyboard": [],
@@ -46,11 +46,6 @@
       "description": "Verify existing volcano crater system can eject timed destructible rocks."
     },
     {
-      "id": "boss-correctness",
-      "status": "OPEN",
-      "description": "Build or verify true Big Core shield/core/laser behavior; no generic boss proxy."
-    },
-    {
       "id": "hatches",
       "status": "OPEN",
       "description": "Verify two launcher types and prefab-relative launch origin."
@@ -59,6 +54,21 @@
       "id": "editor-busy",
       "status": "BLOCKED",
       "description": "Unity has an unsaved SCENE_Cutscene_Workshop modal. Do not dismiss or overwrite other scene."
+    },
+    {
+      "id": "source-map-spatial",
+      "status": "OPEN",
+      "description": "Exact original arcade map and turret/hatch coordinates have not been measured; map metadata only."
+    },
+    {
+      "id": "source-video-frames",
+      "status": "OPEN",
+      "description": "Enemy wave spawn timestamps and paths require frame-by-frame measurement."
+    },
+    {
+      "id": "mountain-boss",
+      "status": "OPEN",
+      "description": "Build single stationary two-peak mountain boss with two MLB_Gravitation emitters; original Big Core is not required."
     }
   ],
   "decisions": [
@@ -71,8 +81,8 @@
   ],
   "runs": [],
   "history": [],
-  "lastCompletedAction": "Published Arcade Stage 1 original reference dossier: verified stage identity, sources and documented all spatial/timing evidence gaps.",
-  "nextAction": "Measure source Arcade Stage1 map and video frames to get exact tower coordinates, enemy spawn times and trajectories, volcano stop-scroll and projectile mechanics BEFORE any LevelBuilder import.",
+  "lastCompletedAction": "Published Arcade source mapping JSON, standalone source-map annotation UI and Gradius-only link in Level Studio. No source coordinate measurement or Unity QA yet.",
+  "nextAction": "Acquire/display original Arcade Stage 1 map, annotate true turret/hatch/terrain pixel positions, cross-check original video frame timings, then design original animations and authorize Level Builder.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -92,6 +102,18 @@
       "kind": "report",
       "label": "מחקר המקור: Gradius Arcade 1985, Stage 1, מפת שטח, אויבים והצלבת מקורות",
       "evidenceStatus": "SOURCE_RESEARCH_SPATIAL_TIMING_PENDING"
+    },
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/ARCADE_STAGE1_SOURCE_MAPPING_V1.json",
+      "kind": "dataset",
+      "label": "מיפוי Stage 1: תשעה אירועי מקור, מיקומים ממתינים למדידה",
+      "evidenceStatus": "RESEARCH_DATA_UNMEASURED"
+    },
+    {
+      "path": "gradius-source-map.html",
+      "kind": "tool",
+      "label": "מעבדת מקור GRADIUS: טעינת תמונה, סימון פיקסלים, ציר אירועים וייצוא",
+      "evidenceStatus": "PUBLISHED_BROWSER_UI_NOT_UNITY"
     }
   ],
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
@@ -106,28 +128,28 @@
   },
   "workStatus": {
     "scene": "GRADIUS_VOLCANO_01",
-    "source": "Remote read-only art inventory; asset QA pending",
-    "summary": "גרפיקת גרדיוס קיימת בכמות משמעותית. קודם מאמתים ומשלימים פרופילים, מפלצות, הרי געש, משגרי חלליות ובוס Big Core. ה־Level Builder נעול עד שכל חומרי המשחק מוכנים.",
+    "source": "Verified source research dossier and published annotation tool; no Unity play proof.",
+    "summary": "מחקר המשחק המקורי פורסם יחד עם מעבדת מיפוי פיקסלים ותיעוד אירועים. הארט יהיה מקורי והגיימפליי יימדד מן הארקייד. אין עדיין מדידות מאומתות, סצנה או QA. בוס Big Core המקורי מחוץ להיקף.",
     "tasks": [
       {
-        "title": "סוכן נכסי המשחק",
-        "detail": "לבדוק SpriteShape, אנימציות, אויבים, משגרים, הר געש ובוס ב־Unity; לתקן רק מה שחסר, לא לייצר מחדש.",
-        "acceptance": "Prefab/Controller/Collider + Play checks documented, current catalog asset IDs and explicit ASSETS_READY receipt."
+        "title": "מדידת מפת המקור",
+        "detail": "לטעון את מפת Arcade Stage1 המקורית למעבדת המיפוי, לסמן נקודות X/Y של תותחים, משגרים וגבולות שטח עם אסמכתאות.",
+        "acceptance": "קואורדינטות מדודות מתמונה שנבדקה וחושבו גם מול פריימי הסרט."
       },
       {
-        "title": "בוס והר געש",
-        "detail": "להבטיח Big Core עם מגינים וליבה פגיעה וגלי סלעים משני לועות הרי געש.",
-        "acceptance": "Evidence from actual gameplay, not proxy."
+        "title": "מדידת אירועי הסרט",
+        "detail": "לחלץ זמני הופעת טייסות, צורת המסלולים, עצירת הגלילה וההתפרצות לשחזור אחד לאחד.",
+        "acceptance": "כל גל או איום עם מסגרת וידאו מזוהה, זמן מקור ורמת ודאות."
       },
       {
-        "title": "סוכן Level Builder",
-        "detail": "רק אחרי ASSETS_READY, ליצור scene חדשה ו־Layer0 V6 עם CURRENT catalog.",
-        "acceptance": "Official importer success and real Layer0 screenshot."
+        "title": "אנימציות ונכסים מקוריים",
+        "detail": "TOWER_MISSILES_CUTE: idle/open/fire/recoil. TOWER_SHIP_SPAWNER_WHITE: closed/opening/launch/closing. בוס ההר: שתי פסגות ושני MLB_Gravitation, נייח.",
+        "acceptance": "בדיקת Prefab, Animator, Collider וירי בפועל ב־Unity; ASSETS_READY אמיתי."
       },
       {
-        "title": "WavesManager + QA",
-        "detail": "לייצא COPY AI מן הסצנה, לייצר גלים דרך Reverse ולבדוק עד סוף.",
-        "acceptance": "Waves import and continuous gameplay proof."
+        "title": "Level Builder ולאחריו Waves",
+        "detail": "לבנות את GRADIUS_VOLCANO_01 רק לאחר מדידת המקור, ליצור Layer0 V6 עם CURRENT, ואז Reverse Wave Authoring עם Spawn מדוד.",
+        "acceptance": "Unity importer PASS, משחק רציף עד סוף הרי הגעש, צילומי QA ופרסום דרך RunSmartPublish."
       }
     ]
   }
