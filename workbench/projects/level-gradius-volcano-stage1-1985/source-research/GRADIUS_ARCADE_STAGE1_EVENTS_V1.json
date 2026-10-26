@@ -406,5 +406,12 @@
       "Do not infer source map X, source map Y or Unity KM from this measurement.",
       "5 fps limits precise pause onset; bracket is an alignment fit, not a frame-perfect scroll controller trace."
     ]
+  },
+  "multiFrameVerification": {
+    "method": "OpenCV normalized template match on 5 Hz sampled 640x360 video with camera-offset correction",
+    "videoUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g",
+    "verifiedTrackedVideoRelativeAnchors": 8,
+    "rejectedTrackedAnchors": 1,
+    "exactSpawnFrameTimesVerified": 0
   }
 }

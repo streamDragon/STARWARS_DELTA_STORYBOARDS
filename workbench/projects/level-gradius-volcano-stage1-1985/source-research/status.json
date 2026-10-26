@@ -1,9 +1,9 @@
 {
   "schema": "GRADIUS_STAGE1_RESEARCH_AGENT_STATUS_V1",
-  "revision": 7,
+  "revision": 8,
   "updatedUtc": "2026-10-26T04:54:00+02:00",
   "owner": "source-research-agent",
-  "researchState": "VIDEO_RELATIVE_COORDINATE_CANDIDATES_CREATED_NOT_SOURCE_MAP_VERIFIED",
+  "researchState": "MULTIFRAME_VIDEO_RELATIVE_TERRAIN_AND_OBJECT_TRACKS_AVAILABLE_MAP_ABSOLUTE_UNKNOWN",
   "sourceMapObtained": false,
   "videoFrameSamplingDone": true,
   "measuredObjectCount": 0,
@@ -27,7 +27,8 @@
     "Original world-map anchors and comprehensive turret/hatch deduplicated census are NOT verified.",
     "Scroll speed in px/sec has ambiguous peaks due to repeated terrain; cannot transform video X into source map X.",
     "Conversion from video display pixels to arcade native map and stable absolute camera source X is unverified.",
-    "Relative video-frame position candidates use aggregate camera scroll rate and ±75px floor; they have NOT been validated as stable distinct object source-map anchors."
+    "Relative video-frame position candidates use aggregate camera scroll rate and ±75px floor; they have NOT been validated as stable distinct object source-map anchors.",
+    "Repeated-frame video coordinates validated, but conversion to absolute original arcade map coordinates not established."
   ],
   "lastCommit": null,
   "screenshotAnnotatedHatches": 2,
@@ -48,5 +49,9 @@
     110.4,
     111.2
   ],
-  "videoRelativeCandidateCount": 9
+  "videoRelativeCandidateCount": 9,
+  "frameTrackedVideoRelativeObjects": 8,
+  "videoTerrainCeilingExtractedPoints": 564,
+  "videoTerrainFloorExtractedPoints": 562,
+  "videoTerrainFramesFused": 72
 }

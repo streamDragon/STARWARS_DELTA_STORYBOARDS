@@ -82,3 +82,22 @@ At t≈110.0..112.0s, sequential matching shifts from ~10px/sample to 0px/sample
 Using the previously measured aggregate scroll rate of 50.2 display px/s, observations with manually annotated 640x360 video bounding boxes were projected into a reference coordinate frame at video t=40s: `X_relative = bbox.centerX + 50.2*(t-40)`. This is a deterministic **candidate projection** for locating objects in a preliminary stitched timeline; uncertain video timestamps (±1s), approximate ROI centers, repeated terrain, and lack of independent feature tracks prevent promoting these coordinates to `VERIFIED_MAP_PIXEL`. Each candidate retains `original_x=null` and `original_y=null`, explicit error floor 75 video px and the source time/link. The source viewport 640×360 is scaled/cropped from the native arcade; conversion to arcade pixels is still unverified.
 
 Measured-video scroll calibration can support draft placement assistance, but candidates are not canonical coordinates. The central agent should only put them on an editable guide layer and independently validate the exact instance with video-frame matching before placing final tower prefabs.
+
+
+## Phase 8 — Repeat-frame tracked positions and border-connected terrain trace (2026-10-26)
+
+OpenCV template matching was run against 625 frames sampled at 5 Hz from the original-recording interval 00:20–02:25. Each anchor was searched in a scroll-predicted neighborhood and accepted only when at least 7 independently sampled video frames matched at normalized correlation ≥0.78 and the median absolute deviation of camera-corrected X was ≤2 video pixels. This yielded **8 repeat-frame verified VIDEO-relative objects**, not map-pixel objects. One early ground fixture candidate failed the cross-frame stability gate; it remains pending.
+
+| Track | Candidate class | Matched frames | Median relative X (video px at t=40 reference) | MAD video px |
+|---|---|---:|---:|---:|
+| F40_GROUND | ground_hatch_or_turret | 5 | 465.5 | 7 |
+| F50_CEILING | ceiling_hatch | 17 | 748 | 2 |
+| F50_FLOOR | floor_hatch_or_turret | 9 | 872.5 | 0 |
+| F65_FLOOR | floor_hatch | 15 | 1572 | 1 |
+| F92_CEILING | ceiling_hatch | 11 | 2986 | 1 |
+| F92_FLOOR | floor_hatch | 7 | 2985 | 0 |
+| F97_ROCK | floating_rock | 14 | 3193.5 | 1 |
+| F110_LEFT_MOUNTAIN | volcano_orange | 23 | 3584.5 | 1 |
+| F110_RIGHT_MOUNTAIN | volcano_orange | 23 | 3764.5 | 1 |
+
+A separate border-connected terrain color mask aligned 72 one-second video frames to a relative pixel grid and produced 564 ceiling and 562 floor preliminary polyline points, downsampled in the published JSON. Native-viewport conversion assumes gameplay occupies crop x=114..525 of 640x360 and scales to 256x224. This is a working model, not a verified original-map stitch and **must not be mistaken for exact Arcade source-map absolute X**. Vegetation, rocks, pipes, and hatch caps are not SpriteShape collision surfaces and remain separate. Measurements are useful as an editable guide for the central agent, not an automatic final placement authority.

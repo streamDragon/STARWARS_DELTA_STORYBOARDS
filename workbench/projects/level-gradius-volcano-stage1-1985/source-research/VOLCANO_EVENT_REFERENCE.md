@@ -26,3 +26,8 @@ Downloaded original opening clip (00:00–00:21, 30fps), and the previously obta
 ## Measured video scrolling at 5 Hz
 
 A color-mask terrain overlap pass on the primary 640x360 capture (625 frames, 5 fps, t=20..145s) measured repeated shifts of ~10 video pixels per 0.2s from the cave region through 110s, i.e. ~50 video pixels/s. The terrain image becomes stationary near 110.4–111.2s (bracket from coarse 5fps comparison) and remains stationary across the eruption and Big Core preview. **These units are video pixels, not original arcade pixels or Unity world units.** Video evidence: https://www.youtube.com/watch?v=WJu9xSRh02g&t=110s . Exact stop time, eruption first particle and rock ballistics remain unmeasured.
+
+
+## Frame-to-frame peak alignment
+
+Two orange peak shapes are individually tracked over 23 sampled frames each around t≈107.6–112.4 seconds. Their camera-compensated median relative X values in the t=40 video reference are 3584.5 and 3764.5 video pixels, respectively; approximate separation is 180 **video** pixels (not source map pixels). This tracks the orange mountain shapes before the color transition to red; red-peak video frame re-identification is still pending. No new emitter crater or rock trajectory counts are asserted.

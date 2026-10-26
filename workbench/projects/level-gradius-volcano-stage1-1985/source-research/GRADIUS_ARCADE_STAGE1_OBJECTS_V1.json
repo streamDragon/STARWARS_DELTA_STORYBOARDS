@@ -634,5 +634,433 @@
       "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=112s",
       "notes": "Candidate screen-to-relative-world projection; not arcade source pixels or independently tracked world anchor. Do not use for final placements."
     }
-  ]
+  ],
+  "frameTrackedInstances": [
+    {
+      "id": "TRACKED_F50_CEILING",
+      "source_id": "SRC_VIDEO_01",
+      "sourceVersion": "1985 Arcade identified video recording; region exact ROM unverified",
+      "typeCandidate": "ceiling_hatch",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "videoWorldXPx": 748,
+      "videoScreenYCenterPx": 35,
+      "referenceVideoS": 50,
+      "referenceBBoxVideoPx": [
+        375,
+        24,
+        397,
+        46
+      ],
+      "observedVideoTimeIntervalS": [
+        48,
+        52
+      ],
+      "matchedFrameCount": 17,
+      "attemptedFrameCount": 21,
+      "templateCorrelationThreshold": 0.78,
+      "medianAbsDeviationVideoPx": 2,
+      "firstMatchedFrame": {
+        "videoS": 48,
+        "box": [
+          473,
+          24,
+          495,
+          46
+        ],
+        "matchScore": 0.9893,
+        "worldXVideoPx": 745
+      },
+      "lastMatchedFrame": {
+        "videoS": 52,
+        "box": [
+          277,
+          24,
+          299,
+          46
+        ],
+        "matchScore": 0.9863,
+        "worldXVideoPx": 751
+      },
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "original_x": null,
+      "original_y": null,
+      "positionStatus": "MULTIFRAME_VERIFIED_VIDEO_RELATIVE_NOT_VERIFIED_SOURCE_MAP_PIXEL",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=50s",
+      "validationCaveat": "template matching around predicted camera path; native viewport transform and absolute arcade level-map origin not validated. A hatch-like unit may be another fixture type. Do not treat as final prefab placement."
+    },
+    {
+      "id": "TRACKED_F50_FLOOR",
+      "source_id": "SRC_VIDEO_01",
+      "sourceVersion": "1985 Arcade identified video recording; region exact ROM unverified",
+      "typeCandidate": "floor_hatch_or_turret",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "videoWorldXPx": 872.5,
+      "videoScreenYCenterPx": 320,
+      "referenceVideoS": 50,
+      "referenceBBoxVideoPx": [
+        496,
+        304,
+        525,
+        336
+      ],
+      "observedVideoTimeIntervalS": [
+        50,
+        51.6
+      ],
+      "matchedFrameCount": 9,
+      "attemptedFrameCount": 12,
+      "templateCorrelationThreshold": 0.78,
+      "medianAbsDeviationVideoPx": 0,
+      "firstMatchedFrame": {
+        "videoS": 50,
+        "box": [
+          496,
+          304,
+          525,
+          336
+        ],
+        "matchScore": 1,
+        "worldXVideoPx": 872.5
+      },
+      "lastMatchedFrame": {
+        "videoS": 51.6,
+        "box": [
+          418,
+          304,
+          447,
+          336
+        ],
+        "matchScore": 0.8168,
+        "worldXVideoPx": 874.5
+      },
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "original_x": null,
+      "original_y": null,
+      "positionStatus": "MULTIFRAME_VERIFIED_VIDEO_RELATIVE_NOT_VERIFIED_SOURCE_MAP_PIXEL",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=50s",
+      "validationCaveat": "template matching around predicted camera path; native viewport transform and absolute arcade level-map origin not validated. A hatch-like unit may be another fixture type. Do not treat as final prefab placement."
+    },
+    {
+      "id": "TRACKED_F65_FLOOR",
+      "source_id": "SRC_VIDEO_01",
+      "sourceVersion": "1985 Arcade identified video recording; region exact ROM unverified",
+      "typeCandidate": "floor_hatch",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "videoWorldXPx": 1572,
+      "videoScreenYCenterPx": 325,
+      "referenceVideoS": 65,
+      "referenceBBoxVideoPx": [
+        430,
+        308,
+        478,
+        342
+      ],
+      "observedVideoTimeIntervalS": [
+        64.2,
+        67
+      ],
+      "matchedFrameCount": 15,
+      "attemptedFrameCount": 16,
+      "templateCorrelationThreshold": 0.78,
+      "medianAbsDeviationVideoPx": 1,
+      "firstMatchedFrame": {
+        "videoS": 64.2,
+        "box": [
+          470,
+          308,
+          518,
+          342
+        ],
+        "matchScore": 0.9902,
+        "worldXVideoPx": 1570
+      },
+      "lastMatchedFrame": {
+        "videoS": 67,
+        "box": [
+          334,
+          308,
+          382,
+          342
+        ],
+        "matchScore": 0.9749,
+        "worldXVideoPx": 1575
+      },
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "original_x": null,
+      "original_y": null,
+      "positionStatus": "MULTIFRAME_VERIFIED_VIDEO_RELATIVE_NOT_VERIFIED_SOURCE_MAP_PIXEL",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=65s",
+      "validationCaveat": "template matching around predicted camera path; native viewport transform and absolute arcade level-map origin not validated. A hatch-like unit may be another fixture type. Do not treat as final prefab placement."
+    },
+    {
+      "id": "TRACKED_F92_CEILING",
+      "source_id": "SRC_VIDEO_01",
+      "sourceVersion": "1985 Arcade identified video recording; region exact ROM unverified",
+      "typeCandidate": "ceiling_hatch",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "videoWorldXPx": 2986,
+      "videoScreenYCenterPx": 34.5,
+      "referenceVideoS": 92,
+      "referenceBBoxVideoPx": [
+        496,
+        17,
+        524,
+        52
+      ],
+      "observedVideoTimeIntervalS": [
+        92,
+        94
+      ],
+      "matchedFrameCount": 11,
+      "attemptedFrameCount": 12,
+      "templateCorrelationThreshold": 0.78,
+      "medianAbsDeviationVideoPx": 1,
+      "firstMatchedFrame": {
+        "videoS": 92,
+        "box": [
+          496,
+          17,
+          524,
+          52
+        ],
+        "matchScore": 1,
+        "worldXVideoPx": 2985
+      },
+      "lastMatchedFrame": {
+        "videoS": 94,
+        "box": [
+          399,
+          17,
+          427,
+          52
+        ],
+        "matchScore": 0.8459,
+        "worldXVideoPx": 2988
+      },
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "original_x": null,
+      "original_y": null,
+      "positionStatus": "MULTIFRAME_VERIFIED_VIDEO_RELATIVE_NOT_VERIFIED_SOURCE_MAP_PIXEL",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=92s",
+      "validationCaveat": "template matching around predicted camera path; native viewport transform and absolute arcade level-map origin not validated. A hatch-like unit may be another fixture type. Do not treat as final prefab placement."
+    },
+    {
+      "id": "TRACKED_F92_FLOOR",
+      "source_id": "SRC_VIDEO_01",
+      "sourceVersion": "1985 Arcade identified video recording; region exact ROM unverified",
+      "typeCandidate": "floor_hatch",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "videoWorldXPx": 2985,
+      "videoScreenYCenterPx": 324,
+      "referenceVideoS": 92,
+      "referenceBBoxVideoPx": [
+        494,
+        306,
+        524,
+        342
+      ],
+      "observedVideoTimeIntervalS": [
+        92,
+        93.2
+      ],
+      "matchedFrameCount": 7,
+      "attemptedFrameCount": 10,
+      "templateCorrelationThreshold": 0.78,
+      "medianAbsDeviationVideoPx": 0,
+      "firstMatchedFrame": {
+        "videoS": 92,
+        "box": [
+          494,
+          306,
+          524,
+          342
+        ],
+        "matchScore": 1,
+        "worldXVideoPx": 2984
+      },
+      "lastMatchedFrame": {
+        "videoS": 93.2,
+        "box": [
+          435,
+          306,
+          465,
+          342
+        ],
+        "matchScore": 0.8505,
+        "worldXVideoPx": 2985
+      },
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "original_x": null,
+      "original_y": null,
+      "positionStatus": "MULTIFRAME_VERIFIED_VIDEO_RELATIVE_NOT_VERIFIED_SOURCE_MAP_PIXEL",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=92s",
+      "validationCaveat": "template matching around predicted camera path; native viewport transform and absolute arcade level-map origin not validated. A hatch-like unit may be another fixture type. Do not treat as final prefab placement."
+    },
+    {
+      "id": "TRACKED_F97_ROCK",
+      "source_id": "SRC_VIDEO_01",
+      "sourceVersion": "1985 Arcade identified video recording; region exact ROM unverified",
+      "typeCandidate": "floating_rock",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "videoWorldXPx": 3193.5,
+      "videoScreenYCenterPx": 128.5,
+      "referenceVideoS": 97,
+      "referenceBBoxVideoPx": [
+        445,
+        100,
+        488,
+        157
+      ],
+      "observedVideoTimeIntervalS": [
+        96.2,
+        98.8
+      ],
+      "matchedFrameCount": 14,
+      "attemptedFrameCount": 15,
+      "templateCorrelationThreshold": 0.78,
+      "medianAbsDeviationVideoPx": 1,
+      "firstMatchedFrame": {
+        "videoS": 96.2,
+        "box": [
+          483,
+          100,
+          526,
+          157
+        ],
+        "matchScore": 0.9793,
+        "worldXVideoPx": 3190.5
+      },
+      "lastMatchedFrame": {
+        "videoS": 98.8,
+        "box": [
+          357,
+          100,
+          400,
+          157
+        ],
+        "matchScore": 0.9891,
+        "worldXVideoPx": 3195.5
+      },
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "original_x": null,
+      "original_y": null,
+      "positionStatus": "MULTIFRAME_VERIFIED_VIDEO_RELATIVE_NOT_VERIFIED_SOURCE_MAP_PIXEL",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=97s",
+      "validationCaveat": "template matching around predicted camera path; native viewport transform and absolute arcade level-map origin not validated. A hatch-like unit may be another fixture type. Do not treat as final prefab placement."
+    },
+    {
+      "id": "TRACKED_F110_LEFT_MOUNTAIN",
+      "source_id": "SRC_VIDEO_01",
+      "sourceVersion": "1985 Arcade identified video recording; region exact ROM unverified",
+      "typeCandidate": "volcano_orange",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "videoWorldXPx": 3584.5,
+      "videoScreenYCenterPx": 273,
+      "referenceVideoS": 110,
+      "referenceBBoxVideoPx": [
+        178,
+        248,
+        233,
+        298
+      ],
+      "observedVideoTimeIntervalS": [
+        107.6,
+        112.4
+      ],
+      "matchedFrameCount": 23,
+      "attemptedFrameCount": 25,
+      "templateCorrelationThreshold": 0.78,
+      "medianAbsDeviationVideoPx": 1,
+      "firstMatchedFrame": {
+        "videoS": 107.6,
+        "box": [
+          295,
+          248,
+          350,
+          298
+        ],
+        "matchScore": 0.9893,
+        "worldXVideoPx": 3581.5
+      },
+      "lastMatchedFrame": {
+        "videoS": 112.4,
+        "box": [
+          146,
+          248,
+          201,
+          298
+        ],
+        "matchScore": 0.8584,
+        "worldXVideoPx": 3586.5
+      },
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "original_x": null,
+      "original_y": null,
+      "positionStatus": "MULTIFRAME_VERIFIED_VIDEO_RELATIVE_NOT_VERIFIED_SOURCE_MAP_PIXEL",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=110s",
+      "validationCaveat": "template matching around predicted camera path; native viewport transform and absolute arcade level-map origin not validated. A hatch-like unit may be another fixture type. Do not treat as final prefab placement."
+    },
+    {
+      "id": "TRACKED_F110_RIGHT_MOUNTAIN",
+      "source_id": "SRC_VIDEO_01",
+      "sourceVersion": "1985 Arcade identified video recording; region exact ROM unverified",
+      "typeCandidate": "volcano_orange",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "videoWorldXPx": 3764.5,
+      "videoScreenYCenterPx": 273,
+      "referenceVideoS": 110,
+      "referenceBBoxVideoPx": [
+        358,
+        248,
+        413,
+        298
+      ],
+      "observedVideoTimeIntervalS": [
+        107.6,
+        112.4
+      ],
+      "matchedFrameCount": 23,
+      "attemptedFrameCount": 25,
+      "templateCorrelationThreshold": 0.78,
+      "medianAbsDeviationVideoPx": 1,
+      "firstMatchedFrame": {
+        "videoS": 107.6,
+        "box": [
+          471,
+          254,
+          526,
+          304
+        ],
+        "matchScore": 0.8618,
+        "worldXVideoPx": 3757.5
+      },
+      "lastMatchedFrame": {
+        "videoS": 112.4,
+        "box": [
+          325,
+          250,
+          380,
+          300
+        ],
+        "matchScore": 0.8288,
+        "worldXVideoPx": 3765.5
+      },
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "original_x": null,
+      "original_y": null,
+      "positionStatus": "MULTIFRAME_VERIFIED_VIDEO_RELATIVE_NOT_VERIFIED_SOURCE_MAP_PIXEL",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=110s",
+      "validationCaveat": "template matching around predicted camera path; native viewport transform and absolute arcade level-map origin not validated. A hatch-like unit may be another fixture type. Do not treat as final prefab placement."
+    }
+  ],
+  "rejectedTrackingCandidates": [
+    {
+      "id": "F40_GROUND",
+      "frames": 5,
+      "MAD": 7,
+      "reason": "FAILED_MIN_7_CORRELATED_FRAMES_MAX_2_PX_MAD"
+    }
+  ],
+  "frameTrackedVideoRelativeCount": 8,
+  "legacyCandidateSupersession": "videoRelativePlacementCandidates are older unverified single-frame candidates; prefer frameTrackedInstances, while keeping original map X/Y null."
 }
