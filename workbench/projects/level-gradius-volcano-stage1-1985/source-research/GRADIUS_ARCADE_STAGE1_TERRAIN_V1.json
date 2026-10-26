@@ -170,5 +170,14 @@
       "Do not infer source map X, source map Y or Unity KM from this measurement.",
       "5 fps limits precise pause onset; bracket is an alignment fit, not a frame-perfect scroll controller trace."
     ]
+  },
+  "videoRelativeCoordinateFramework": {
+    "name": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+    "units": "VIDEO_CAPTURE_PIXEL",
+    "origin": "video screen x=0 at recording t=40s",
+    "cameraOffsetVideoPxPerS": 50.2,
+    "originWorldOffsetNativePx": null,
+    "mapAlignConfirmed": false,
+    "uncertaintyNotice": "extrapolation based on aggregate scroll rate, not a fully chained multi-frame verified feature track"
   }
 }

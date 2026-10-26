@@ -75,3 +75,10 @@ Unresolved: complete physical turret census, stable identities across all scroll
 At t≈110.0..112.0s, sequential matching shifts from ~10px/sample to 0px/sample, and from 112s onward the top/bottom terrain compares at stable zero-shift across many samples. **Stop onset bracket around 110.4..111.2s** from 5fps matching, pending exact direct frame/time verification. The precise stop time field remains null because the derived range has not been matched back against 30fps camera motion.
 
 **Important:** screenshot-derived object ROIs in 640×360 video remain preliminary; deduplication, object counts and a verified physical source-map offset still require review. Source-map x/y not assigned.
+
+
+## Phase 7 — projected relative video coordinates, NOT placement-certified
+
+Using the previously measured aggregate scroll rate of 50.2 display px/s, observations with manually annotated 640x360 video bounding boxes were projected into a reference coordinate frame at video t=40s: `X_relative = bbox.centerX + 50.2*(t-40)`. This is a deterministic **candidate projection** for locating objects in a preliminary stitched timeline; uncertain video timestamps (±1s), approximate ROI centers, repeated terrain, and lack of independent feature tracks prevent promoting these coordinates to `VERIFIED_MAP_PIXEL`. Each candidate retains `original_x=null` and `original_y=null`, explicit error floor 75 video px and the source time/link. The source viewport 640×360 is scaled/cropped from the native arcade; conversion to arcade pixels is still unverified.
+
+Measured-video scroll calibration can support draft placement assistance, but candidates are not canonical coordinates. The central agent should only put them on an editable guide layer and independently validate the exact instance with video-frame matching before placing final tower prefabs.

@@ -443,5 +443,196 @@
       "original_y": null
     }
   ],
-  "screenAnnotationPolicy": "Screen-space boxes are approximate visual ROI and are not validated original object instance world map placements. Similar-looking hatch frames at distinct times may represent different physical objects or repeated appearance. Do not total them."
+  "screenAnnotationPolicy": "Screen-space boxes are approximate visual ROI and are not validated original object instance world map placements. Similar-looking hatch frames at distinct times may represent different physical objects or repeated appearance. Do not total them.",
+  "videoRelativePlacementCandidates": [
+    {
+      "id": "VIDEO_F40_FLOOR_TURRET_CANDIDATE",
+      "source_id": "SRC_VIDEO_01",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "referenceVideoS": 40,
+      "observationTimeS": 40,
+      "observedVideoCenterPx": [
+        466.5,
+        332
+      ],
+      "relativeWorldXVideoPx": 466.5,
+      "relativeWorldYVideoPx": 332,
+      "videoScrollPxPerSecondAssumed": 50.2,
+      "original_x": null,
+      "original_y": null,
+      "uncertaintySource": "MANUAL_ROI_PLUS_1SEC_FRAME_TIME_AND_SCROLL_ESTIMATE",
+      "minimumEstimatedUncertaintyPx": 75,
+      "evidenceLevel": "USER_ANNOTATION_PENDING",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=40s",
+      "notes": "Candidate screen-to-relative-world projection; not arcade source pixels or independently tracked world anchor. Do not use for final placements."
+    },
+    {
+      "id": "VIDEO_F50_CEILING_HATCH",
+      "source_id": "SRC_VIDEO_01",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "referenceVideoS": 40,
+      "observationTimeS": 50,
+      "observedVideoCenterPx": [
+        387,
+        32
+      ],
+      "relativeWorldXVideoPx": 889,
+      "relativeWorldYVideoPx": 32,
+      "videoScrollPxPerSecondAssumed": 50.2,
+      "original_x": null,
+      "original_y": null,
+      "uncertaintySource": "MANUAL_ROI_PLUS_1SEC_FRAME_TIME_AND_SCROLL_ESTIMATE",
+      "minimumEstimatedUncertaintyPx": 75,
+      "evidenceLevel": "USER_ANNOTATION_PENDING",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=50s",
+      "notes": "Candidate screen-to-relative-world projection; not arcade source pixels or independently tracked world anchor. Do not use for final placements."
+    },
+    {
+      "id": "VIDEO_F50_FLOOR_HATCH",
+      "source_id": "SRC_VIDEO_01",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "referenceVideoS": 40,
+      "observationTimeS": 50,
+      "observedVideoCenterPx": [
+        508.5,
+        319.5
+      ],
+      "relativeWorldXVideoPx": 1010.5,
+      "relativeWorldYVideoPx": 319.5,
+      "videoScrollPxPerSecondAssumed": 50.2,
+      "original_x": null,
+      "original_y": null,
+      "uncertaintySource": "MANUAL_ROI_PLUS_1SEC_FRAME_TIME_AND_SCROLL_ESTIMATE",
+      "minimumEstimatedUncertaintyPx": 75,
+      "evidenceLevel": "USER_ANNOTATION_PENDING",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=50s",
+      "notes": "Candidate screen-to-relative-world projection; not arcade source pixels or independently tracked world anchor. Do not use for final placements."
+    },
+    {
+      "id": "VIDEO_F65_FLOOR_HATCH",
+      "source_id": "SRC_VIDEO_01",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "referenceVideoS": 40,
+      "observationTimeS": 65,
+      "observedVideoCenterPx": [
+        452,
+        312
+      ],
+      "relativeWorldXVideoPx": 1707,
+      "relativeWorldYVideoPx": 312,
+      "videoScrollPxPerSecondAssumed": 50.2,
+      "original_x": null,
+      "original_y": null,
+      "uncertaintySource": "MANUAL_ROI_PLUS_1SEC_FRAME_TIME_AND_SCROLL_ESTIMATE",
+      "minimumEstimatedUncertaintyPx": 75,
+      "evidenceLevel": "USER_ANNOTATION_PENDING",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=65s",
+      "notes": "Candidate screen-to-relative-world projection; not arcade source pixels or independently tracked world anchor. Do not use for final placements."
+    },
+    {
+      "id": "VIDEO_F92_CEILING_HATCH",
+      "source_id": "SRC_VIDEO_01",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "referenceVideoS": 40,
+      "observationTimeS": 92,
+      "observedVideoCenterPx": [
+        504,
+        38.5
+      ],
+      "relativeWorldXVideoPx": 3114.4,
+      "relativeWorldYVideoPx": 38.5,
+      "videoScrollPxPerSecondAssumed": 50.2,
+      "original_x": null,
+      "original_y": null,
+      "uncertaintySource": "MANUAL_ROI_PLUS_1SEC_FRAME_TIME_AND_SCROLL_ESTIMATE",
+      "minimumEstimatedUncertaintyPx": 75,
+      "evidenceLevel": "USER_ANNOTATION_PENDING",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=92s",
+      "notes": "Candidate screen-to-relative-world projection; not arcade source pixels or independently tracked world anchor. Do not use for final placements."
+    },
+    {
+      "id": "VIDEO_F92_FLOOR_HATCH",
+      "source_id": "SRC_VIDEO_01",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "referenceVideoS": 40,
+      "observationTimeS": 92,
+      "observedVideoCenterPx": [
+        504.5,
+        310
+      ],
+      "relativeWorldXVideoPx": 3114.9,
+      "relativeWorldYVideoPx": 310,
+      "videoScrollPxPerSecondAssumed": 50.2,
+      "original_x": null,
+      "original_y": null,
+      "uncertaintySource": "MANUAL_ROI_PLUS_1SEC_FRAME_TIME_AND_SCROLL_ESTIMATE",
+      "minimumEstimatedUncertaintyPx": 75,
+      "evidenceLevel": "USER_ANNOTATION_PENDING",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=92s",
+      "notes": "Candidate screen-to-relative-world projection; not arcade source pixels or independently tracked world anchor. Do not use for final placements."
+    },
+    {
+      "id": "VIDEO_F97_ARMED_ROCK",
+      "source_id": "SRC_VIDEO_01",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "referenceVideoS": 40,
+      "observationTimeS": 97,
+      "observedVideoCenterPx": [
+        461,
+        138.5
+      ],
+      "relativeWorldXVideoPx": 3322.4,
+      "relativeWorldYVideoPx": 138.5,
+      "videoScrollPxPerSecondAssumed": 50.2,
+      "original_x": null,
+      "original_y": null,
+      "uncertaintySource": "MANUAL_ROI_PLUS_1SEC_FRAME_TIME_AND_SCROLL_ESTIMATE",
+      "minimumEstimatedUncertaintyPx": 75,
+      "evidenceLevel": "USER_ANNOTATION_PENDING",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=97s",
+      "notes": "Candidate screen-to-relative-world projection; not arcade source pixels or independently tracked world anchor. Do not use for final placements."
+    },
+    {
+      "id": "VIDEO_F112_LEFT_VOLCANO",
+      "source_id": "SRC_VIDEO_01",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "referenceVideoS": 40,
+      "observationTimeS": 112,
+      "observedVideoCenterPx": [
+        186.5,
+        291
+      ],
+      "relativeWorldXVideoPx": 3800.9,
+      "relativeWorldYVideoPx": 291,
+      "videoScrollPxPerSecondAssumed": 50.2,
+      "original_x": null,
+      "original_y": null,
+      "uncertaintySource": "MANUAL_ROI_PLUS_1SEC_FRAME_TIME_AND_SCROLL_ESTIMATE",
+      "minimumEstimatedUncertaintyPx": 75,
+      "evidenceLevel": "USER_ANNOTATION_PENDING",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=112s",
+      "notes": "Candidate screen-to-relative-world projection; not arcade source pixels or independently tracked world anchor. Do not use for final placements."
+    },
+    {
+      "id": "VIDEO_F112_RIGHT_VOLCANO",
+      "source_id": "SRC_VIDEO_01",
+      "coordinate_space": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+      "referenceVideoS": 40,
+      "observationTimeS": 112,
+      "observedVideoCenterPx": [
+        368.5,
+        291.5
+      ],
+      "relativeWorldXVideoPx": 3982.9,
+      "relativeWorldYVideoPx": 291.5,
+      "videoScrollPxPerSecondAssumed": 50.2,
+      "original_x": null,
+      "original_y": null,
+      "uncertaintySource": "MANUAL_ROI_PLUS_1SEC_FRAME_TIME_AND_SCROLL_ESTIMATE",
+      "minimumEstimatedUncertaintyPx": 75,
+      "evidenceLevel": "USER_ANNOTATION_PENDING",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=112s",
+      "notes": "Candidate screen-to-relative-world projection; not arcade source pixels or independently tracked world anchor. Do not use for final placements."
+    }
+  ]
 }

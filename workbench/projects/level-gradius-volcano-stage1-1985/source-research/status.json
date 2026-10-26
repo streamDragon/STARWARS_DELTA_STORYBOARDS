@@ -1,9 +1,9 @@
 {
   "schema": "GRADIUS_STAGE1_RESEARCH_AGENT_STATUS_V1",
-  "revision": 6,
+  "revision": 7,
   "updatedUtc": "2026-10-26T04:54:00+02:00",
   "owner": "source-research-agent",
-  "researchState": "PHASE5_VIDEO_SCROLL_RATE_MEASURED_WORLD_ANCHORS_PENDING",
+  "researchState": "VIDEO_RELATIVE_COORDINATE_CANDIDATES_CREATED_NOT_SOURCE_MAP_VERIFIED",
   "sourceMapObtained": false,
   "videoFrameSamplingDone": true,
   "measuredObjectCount": 0,
@@ -26,7 +26,8 @@
     "Video 640x360 scaled capture needs pixel scroll calibration and 1-frame object census before accurate world positions.",
     "Original world-map anchors and comprehensive turret/hatch deduplicated census are NOT verified.",
     "Scroll speed in px/sec has ambiguous peaks due to repeated terrain; cannot transform video X into source map X.",
-    "Conversion from video display pixels to arcade native map and stable absolute camera source X is unverified."
+    "Conversion from video display pixels to arcade native map and stable absolute camera source X is unverified.",
+    "Relative video-frame position candidates use aggregate camera scroll rate and ±75px floor; they have NOT been validated as stable distinct object source-map anchors."
   ],
   "lastCommit": null,
   "screenshotAnnotatedHatches": 2,
@@ -46,5 +47,6 @@
   "videoScrollStopBracketS": [
     110.4,
     111.2
-  ]
+  ],
+  "videoRelativeCandidateCount": 9
 }
