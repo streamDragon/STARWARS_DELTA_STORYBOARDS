@@ -1,1 +1,22 @@
-Help with my film or level request in STARWARS_DELTA_STORYBOARDS. Freshly load workbench/AGENT_PROTOCOL.md and workbench/index.json using GitHub tools in streamDragon/STARWARS_DELTA_STORYBOARDS (main), or https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/main/workbench/AGENT_PROTOCOL.md and https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/main/workbench/index.json. For a new movie or level request, create a NEW dossier with a new stable ID and preserve my stated intent; never select activeByKind to replace a new idea. Continue a dossier only for an explicit existing-project or resume request. Resolve the requested ID, using activeByKind only for an explicit resume without an ID; clarify only genuinely ambiguous existing identity. Do not ask again for already specified intent. Read its sessionPath and immutable revision history, original brief, approved target, source identities, inFlightAction and nextAction before acting. Resume the exact recorded stage and nextAction; inspect submitted/UNKNOWN actions read-only before any new mutation. Film: use CURRENT sealed V1 with Anime Emotion, Dialogue, MOVES and Cinematic Director. Level: use existing Level Builder JSON, then Reverse waves. With Remote, follow canonical MAIN and AGENTS.md; without Remote, plan/author/update repository and mark actual Unity operations PENDING_REMOTE. Never claim built without evidence. Persist through the documented optimistic atomic update; no write access means export an unsynced JSON proposal.
+# START HERE — STARWARS_DELTA workbench
+
+This workbench is the durable record and copyable handoff for film and level work. It does not run Unity or manage live ChatGPT conversations. For the full rules, load `workbench/AGENT_PROTOCOL.md`.
+
+## Choose the right record
+
+1. Fetch `workbench/index.json` from GitHub `main`, then read the selected `sessionPath` and its immutable revision history. Read the index and session from one resolved commit.
+2. Treat the index as a catalogue of current and historical dossiers, not a list of running agents. For a new idea, create a new stable ID. Resume an existing dossier only when the user asks; use `activeByKind` only when they ask to resume but provide no ID.
+3. Read the original brief, approved target, source identity, latest run, `inFlightAction`, `lastCompletedAction`, and `nextAction`. Inspect an unresolved tool operation before sending it again.
+
+## Choose one workflow
+
+- **Film:** use the freshly verified sealed CURRENT V1 contract through the existing Studio route. Read `workbench/CINEMATIC_PIPELINE.md`; use the Director guide for story, shot purpose, camera, rhythm, and edits.
+- **Unity level or waves:** read canonical Plastic MAIN's `AGENTS.md` and follow its skill selector. For Level Builder, Layer0, level QA, art intake, or Reverse wave JSON, `.agents/skills/level-builder-workflow/SKILL.md` is required. Follow the order: build level, inspect matching Level QA, author waves with Reverse JSON, then verify gameplay.
+- **Other Unity defect:** read canonical `AGENTS.md` and only the narrow skill it selects. Do not load the entire skills directory.
+- **No Remote access:** prepare and update the dossier, mark Unity work `PENDING_REMOTE`, and never claim it was built or tested.
+
+## Continue and close work
+
+A dossier records a handoff; it does not wake, restart, or monitor another ChatGPT conversation. `inFlightAction` describes an external tool operation, not a live agent. To resume a specific agent conversation, open that conversation and give it the dossier's current `nextAction`. The retired STARWARS_DELTA_Workflow, scheduler, and mailbox stay retired.
+
+At each action boundary, record the exact result and one concrete next action. Keep source, build, capture, technical QA, visual review, runtime behavior, and user acceptance separate. Mark a film or level complete only after its evidence and the user's explicit acceptance are recorded. If an update cannot be published atomically, return it as an **UNSYNCED** proposal.
