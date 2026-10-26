@@ -81,8 +81,8 @@
   ],
   "runs": [],
   "history": [],
-  "lastCompletedAction": "Published source-agent ownership contract and separate status ledger; primary agent retains session, site and Unity ownership.",
-  "nextAction": "Research agent measures Arcade map and video frames in source-research/. Primary agent integrates validated evidence into the Gradius dossier and then builds level with Level Builder V6 / Reverse Wave Authoring / Play QA.",
+  "lastCompletedAction": "Created and inspected new stationary two-peak Gradius volcano boss prefab, 2 autotrigger gravitation weapons, Plastic MAIN cs9526, no Play QA yet.",
+  "nextAction": "Run isolated Play Mode check of GRADIUS_VOLCANO_MOUNTAIN_BOSS, test actual gravity projectiles and health; separately finish CUTE/HATCH animation QA. Integrate source agent coordinates only once measured.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -126,6 +126,12 @@
       "kind": "tool",
       "label": "מעבדת מדידת פיקסלים ומיקומי מגדלים",
       "evidenceStatus": "PUBLISHED_BROWSER_UI_NOT_UNITY"
+    },
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/artifacts/MOUNTAIN_BOSS_UNITY_PREFAB_20261026.md",
+      "kind": "report",
+      "label": "בוס הר שתי פסגות: Prefab חדש ביוניטי, Plastic MAIN 9526, בדיקת מבנה",
+      "evidenceStatus": "UNITY_PREFAB_VERIFIED_PLAY_PENDING"
     }
   ],
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
@@ -141,7 +147,7 @@
   "workStatus": {
     "scene": "GRADIUS_VOLCANO_01",
     "source": "Verified source research dossier and published annotation tool; no Unity play proof.",
-    "summary": "מחקר המשחק המקורי פורסם יחד עם מעבדת מיפוי פיקסלים ותיעוד אירועים. הארט יהיה מקורי והגיימפליי יימדד מן הארקייד. אין עדיין מדידות מאומתות, סצנה או QA. בוס Big Core המקורי מחוץ להיקף.",
+    "summary": "בוס הר שתי פסגות נוצר, אומת במבנה Unity ונשמר ל־Plastic MAIN cs:9526; ירי ופגיעה בפועל טרם נבדקו. מעבדת מקור פעילה והסוכן השני מודד מיקומים. הסצנה המלאה אינה בנויה.",
     "tasks": [
       {
         "title": "מדידת מפת המקור",
@@ -155,7 +161,7 @@
       },
       {
         "title": "אנימציות ונכסים מקוריים",
-        "detail": "TOWER_MISSILES_CUTE: idle/open/fire/recoil. TOWER_SHIP_SPAWNER_WHITE: closed/opening/launch/closing. בוס ההר: שתי פסגות ושני MLB_Gravitation, נייח.",
+        "detail": "בוס ההר נוצר. יש לבדוק ירי, פגיעה, פיצוץ ועצירה ב־Play Mode, ולאמת CUTE ומגדל משגר בפעולה; בלי שינוי ב־Prefabs המקוריים.",
         "acceptance": "בדיקת Prefab, Animator, Collider וירי בפועל ב־Unity; ASSETS_READY אמיתי."
       },
       {
