@@ -1,9 +1,9 @@
 {
   "schema": "GRADIUS_STAGE1_RESEARCH_AGENT_STATUS_V1",
-  "revision": 9,
+  "revision": 10,
   "updatedUtc": "2026-10-26T04:54:00+02:00",
   "owner": "source-research-agent",
-  "researchState": "PHASE9_VISUAL_CENSUS_RECLASSIFICATION_SNAPSHOT_COUNTS_NOT_WORLD_COUNTS",
+  "researchState": "PHASE10_VIDEO_PANORAMA_CREATED_FINAL_TWO_PEAKS_SEGMENTED",
   "sourceMapObtained": false,
   "videoFrameSamplingDone": true,
   "measuredObjectCount": 0,
@@ -29,7 +29,8 @@
     "Conversion from video display pixels to arcade native map and stable absolute camera source X is unverified.",
     "Relative video-frame position candidates use aggregate camera scroll rate and ±75px floor; they have NOT been validated as stable distinct object source-map anchors.",
     "Repeated-frame video coordinates validated, but conversion to absolute original arcade map coordinates not established.",
-    "Per-screen turret counts are not deduplicated along the stage, and domed launchers may be co-located with gun fixtures."
+    "Per-screen turret counts are not deduplicated along the stage, and domed launchers may be co-located with gun fixtures.",
+    "Video-derived panorama remains unhosted local evidence and is not independently verified original map pixels."
   ],
   "lastCommit": null,
   "screenshotAnnotatedHatches": 2,
@@ -56,5 +57,22 @@
   "videoTerrainFloorExtractedPoints": 562,
   "videoTerrainFramesFused": 72,
   "concurrentCountsChecked": 7,
-  "worldSpaceDistinctTurretCount": null
+  "worldSpaceDistinctTurretCount": null,
+  "videoPanoramaWidthPx": 3970,
+  "videoPanoramaHeightPx": 360,
+  "videoPanoramaRangeS": [
+    40,
+    110.8
+  ],
+  "finalPeakVideoRelativeTopPx": [
+    [
+      3604,
+      248
+    ],
+    [
+      3789,
+      248
+    ]
+  ],
+  "finalPeakVideoSeparationPx": 185
 }

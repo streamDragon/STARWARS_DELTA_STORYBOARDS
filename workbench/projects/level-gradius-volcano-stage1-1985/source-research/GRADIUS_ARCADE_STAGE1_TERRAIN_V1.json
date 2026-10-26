@@ -1902,5 +1902,101 @@
       }
     ],
     "notes": "Border-connected terrain color segmentation; median over at least two observed frames. Excludes mountain protrusions and hatch/robot geometry. Validate images before collision use."
-  }
+  },
+  "videoPanorama": {
+    "source": "https://www.youtube.com/watch?v=WJu9xSRh02g",
+    "coordinateSpace": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40",
+    "startVideoS": 40,
+    "endVideoS": 110.8,
+    "cropVideoPx": [
+      114,
+      0,
+      526,
+      360
+    ],
+    "panoramaSizeVideoPx": [
+      3970,
+      360
+    ],
+    "scrollModelVideoPxPerS": 50.2,
+    "method": "sampled 5Hz; earliest newly exposed video columns",
+    "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+    "absoluteArcadeMapOrigin": null,
+    "videoMosaicLocalPath": "C:\\Users\\nlpis\\AppData\\Local\\Temp\\GRADIUS_STAGE1_SOURCE_RESEARCH_20261026\\panorama_video_t40_110.png",
+    "notes": "Local evidence panorama is not an original arcade map; moving sprites and repeated terrain can appear as streaks. Use for guide only."
+  },
+  "videoMountainSegments": [
+    {
+      "id": "VIDEO_MOUNTAIN_A",
+      "bboxVideoRelativePx": [
+        574,
+        248,
+        669,
+        320
+      ],
+      "role": "EARLY_MOUNTAIN_NOT_VOLCANO_BOSS"
+    },
+    {
+      "id": "VIDEO_MOUNTAIN_B",
+      "bboxVideoRelativePx": [
+        1107,
+        209,
+        1171,
+        256
+      ],
+      "role": "EARLY_FLOATING_TERRAIN"
+    },
+    {
+      "id": "VIDEO_MOUNTAIN_C",
+      "bboxVideoRelativePx": [
+        1781,
+        194,
+        2025,
+        321
+      ],
+      "role": "LARGE_EARLY_MOUNTAIN"
+    },
+    {
+      "id": "VIDEO_MOUNTAIN_D",
+      "bboxVideoRelativePx": [
+        3179,
+        85,
+        3310,
+        262
+      ],
+      "role": "OVERHANG_OR_FLOATING_ROCK_NOT_BOSS"
+    },
+    {
+      "id": "VOLCANO_01_LEFT",
+      "bbox": [
+        3556,
+        248,
+        3649,
+        324
+      ],
+      "top": [
+        3604,
+        248
+      ],
+      "role": "FINAL_TWO_VOLCANO_PEAKS",
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "coordinateSpace": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40"
+    },
+    {
+      "id": "VOLCANO_02_RIGHT",
+      "bbox": [
+        3741,
+        248,
+        3837,
+        322
+      ],
+      "top": [
+        3789,
+        248
+      ],
+      "role": "FINAL_TWO_VOLCANO_PEAKS",
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "coordinateSpace": "VIDEO_RELATIVE_SCROLL_PX_FROM_T40"
+    }
+  ]
 }
