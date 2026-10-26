@@ -1,0 +1,182 @@
+{
+  "schema": "STARWARS_DELTA_GRADIUS_SOURCE_MAPPING",
+  "schemaVersion": 1,
+  "revision": 1,
+  "stage": "SOURCE_RESEARCH",
+  "purpose": "Research evidence and annotation ledger. NOT a Level Builder V6 recipe and NOT Reverse Wave Authoring output.",
+  "scope": {
+    "referenceGame": "Gradius (Konami 1985)",
+    "platform": "Arcade Japan",
+    "level": "Stage 1 - Volcano",
+    "start": "opening air encounters",
+    "end": "end of twin-volcano eruption",
+    "afterEnd": "Original Big Core intentionally excluded from requested recreation",
+    "graphics": "Original art inspired by mechanics and spatial arrangement; never republish protected game sprite sheets"
+  },
+  "sourceMap": {
+    "id": "SRC_ARCADE_STAGE1_MAP",
+    "url": "https://www.spriters-resource.com/arcade/gradius/asset/615475/",
+    "reportedWidth": 2304,
+    "reportedHeight": 256,
+    "readStatus": "METADATA_ONLY_MAP_IMAGE_NOT_VERIFIED",
+    "pixelOrigin": "top-left",
+    "coordinateSpace": "SOURCE_MAP_PIXEL",
+    "remarks": "Dimensions are reported by third-party source; map file was blocked and map pixels have not been reviewed. Do not infer object locations from dimensions."
+  },
+  "referenceVideo": {
+    "id": "SRC_VICIOGAME_20261025",
+    "url": "https://www.youtube.com/watch?v=WJu9xSRh02g",
+    "observations": [
+      {
+        "event": "TWIN_VOLCANO_VISIBLE",
+        "timestampSeconds": 113,
+        "kind": "USER_SUPPLIED_YOUTUBE_SCREENSHOT",
+        "coordinateSpace": "VIDEO_FRAME_PIXEL",
+        "x": null,
+        "y": null,
+        "meaning": "At this instant two volcanoes and flying rocks are visibly active; this is not eruption start time."
+      }
+    ]
+  },
+  "externalRefs": [
+    {
+      "id": "MAP_ARCADE",
+      "title": "Stage 1 - Gradius Arcade map metadata",
+      "url": "https://www.spriters-resource.com/arcade/gradius/asset/615475/",
+      "evidence": "MAP_METADATA_ONLY"
+    },
+    {
+      "id": "VIDEO_PRIMARY",
+      "title": "VICIOGAME Gradius Arcade complete run",
+      "url": "https://www.youtube.com/watch?v=WJu9xSRh02g",
+      "evidence": "USER_SCREENSHOT_AT_01_53"
+    },
+    {
+      "id": "WALKTHROUGH",
+      "title": "StrategyWiki Gradius Stage 1",
+      "url": "https://strategywiki.org/wiki/Gradius/Stage_1",
+      "evidence": "MECHANICS_TEXT"
+    },
+    {
+      "id": "JAPANESE_GUIDE",
+      "title": "Japanese arcade stage walkthrough",
+      "url": "https://yuugikyo-rerise.net/gradius_stage1-4/",
+      "evidence": "MECHANICS_TEXT"
+    },
+    {
+      "id": "REPLAY_CROSSCHECK",
+      "title": "Replay Burners stage chapters, different recording",
+      "url": "https://replayburners.blog.jp/archives/26763820.html",
+      "evidence": "INDEPENDENT_VERSION_AND_SEQUENCE"
+    }
+  ],
+  "sequence": [
+    {
+      "id": "PRE_STAGE",
+      "order": 1,
+      "nameHe": "חלל פתוח",
+      "mechanic": "Fighter formations and power-up capsules",
+      "mapX": null,
+      "videoTime": null,
+      "confidence": "MECHANIC_ONLY"
+    },
+    {
+      "id": "TERRAIN_ENTRY",
+      "order": 2,
+      "nameHe": "כניסה למעבר ההררי",
+      "mechanic": "Upper and lower terrain enter camera",
+      "mapX": null,
+      "videoTime": null,
+      "confidence": "MECHANIC_ONLY"
+    },
+    {
+      "id": "STATIC_TURRETS",
+      "order": 3,
+      "nameHe": "תותחים על קרקע ותקרה",
+      "mechanic": "Fixed upper/lower turrets; count and anchor positions require video/map measurements",
+      "mapX": null,
+      "videoTime": null,
+      "confidence": "MECHANIC_ONLY"
+    },
+    {
+      "id": "HATCHES",
+      "order": 4,
+      "nameHe": "משגרי חלליות",
+      "mechanic": "Location-bound hatches with launch and flight path",
+      "mapX": null,
+      "videoTime": null,
+      "confidence": "MECHANIC_ONLY"
+    },
+    {
+      "id": "GROUND_ENEMIES",
+      "order": 5,
+      "nameHe": "רובוטים וקופצים",
+      "mechanic": "Terrain-following and leaping enemies",
+      "mapX": null,
+      "videoTime": null,
+      "confidence": "MECHANIC_ONLY"
+    },
+    {
+      "id": "FLOATING_ROCK",
+      "order": 6,
+      "nameHe": "מכשול סלע חמוש",
+      "mechanic": "Floating armed rock; firing port coordinates to be measured",
+      "mapX": null,
+      "videoTime": null,
+      "confidence": "MECHANIC_ONLY"
+    },
+    {
+      "id": "SCROLL_STOP",
+      "order": 7,
+      "nameHe": "עצירת גלילה",
+      "mechanic": "End-of-mountain scroll pause, must be confirmed on arcade recording",
+      "mapX": null,
+      "videoTime": null,
+      "confidence": "MECHANIC_ONLY"
+    },
+    {
+      "id": "TWIN_VOLCANO",
+      "order": 8,
+      "nameHe": "התפרצות שתי פסגות",
+      "mechanic": "Twin peaks launching destructible projectiles",
+      "mapX": null,
+      "videoTime": 113,
+      "confidence": "OBSERVED_ACTIVE_AT_TIMESTAMP_NOT_START"
+    },
+    {
+      "id": "VOLCANO_END",
+      "order": 9,
+      "nameHe": "סיום מקטע ההרים",
+      "mechanic": "Requested end of replica, without original Big Core",
+      "mapX": null,
+      "videoTime": null,
+      "confidence": "PROJECT_SCOPE"
+    }
+  ],
+  "localMappings": [
+    {
+      "role": "STATIC_TURRET",
+      "prefab": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_TURRET_ENEMY/TOWER_MISSILES_CUTE.prefab",
+      "animation": "idle/open/fire/recoil",
+      "qa": "NOT_TESTED"
+    },
+    {
+      "role": "SHIP_LAUNCHER",
+      "prefab": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_TURRET_ENEMY/TOWER_SHIP_SPAWNER_WHITE.prefab",
+      "animation": "closed/opening/launch/closing",
+      "qa": "NOT_TESTED"
+    },
+    {
+      "role": "VOLCANO_PROJECTILE",
+      "prefab": "Assets/_Game/MY_Prefabs/My_Preset_Origin/ML_Origin/MLB_Gravitation.prefab",
+      "qa": "NOT_TESTED"
+    },
+    {
+      "role": "VOLCANO_VISUAL",
+      "prefab": "Assets/_Game/MY_Core/MY_Art/VOLCANO/fire_volacno.prefab",
+      "qa": "NOT_TESTED"
+    }
+  ],
+  "measurements": [],
+  "confidenceRule": "Only measured coordinates with an inspectable source frame/map and version may be promoted from USER_ANNOTATION_PENDING. No invented map X,Y, timed waves or 125/210 KM segments."
+}
