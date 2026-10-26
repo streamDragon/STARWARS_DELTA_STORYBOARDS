@@ -78,6 +78,7 @@ function authoringErrors(o){
   if(b.locationHandle&&!handle(b.locationHandle,'Layer'))out.push(`beat.${b.id} Layer handle unresolved: ${b.locationHandle}`);
   for(const v of b.visible||[])if(!handle(v.handle))out.push(`beat.${b.id}.${v.id} handle unresolved: ${v.handle}`);
   for(const a of b.actions||[])if(a.animationHandle&&!handle(a.animationHandle,'Animation'))out.push(`beat.${b.id} animationHandle unresolved: ${a.animationHandle}`);
+  for(const a of b.actions||[])if(a.motionIntent==='path_loop'&&a.pathShape!=='waypoints')out.push(`beat.${b.id} PREVIEW_MOTION_UNSUPPORTED: ${a.pathShape} is shown as a Hold here; the authored path is preserved for Unity.`);
   for(const a of b.audio||[])if(!handle(a.handle,'Audio'))out.push(`beat.${b.id} Audio handle unresolved: ${a.handle}`);
   for(const d of b.dialogue||[]){
    for(const role of ['speaker','listener']){
@@ -113,7 +114,7 @@ function addVisible(v){
    el=im;
   }
   el.dataset.subject=E(v.id);el.dataset.baseX=String(baseX+dx);el.dataset.baseY=String(baseY+dy);
-  el.style.left=((baseX+dx)*100)+'%';el.style.top=((baseY+dy)*100)+'%';el.style.zIndex=String(depthZ(v.depth));stage.appendChild(el);
+  el.style.left=((baseX+dx)*100)+'%';el.style.top=((1-baseY-dy)*100)+'%';el.style.zIndex=String(depthZ(v.depth));stage.appendChild(el);
  }
 }
 function fmtTime(s){s=Math.max(0,Number(s)||0);const m=Math.floor(s/60),sec=(s-m*60).toFixed(1).padStart(4,'0');return String(m).padStart(2,'0')+':'+sec}
@@ -123,10 +124,30 @@ function updateActiveBeat(){[...timeline.children].forEach((el,i)=>el.classList.
 function updateTransport(){scrub.max=String(state.totalDuration||0);scrub.value=String(Math.min(state.currentTime,state.totalDuration));secondsInput.max=String(state.totalDuration||0);if(!state.secondsEditing)secondsInput.value=Number(state.currentTime||0).toFixed(1);timecode.textContent=fmtTime(state.currentTime)+' / '+fmtTime(state.totalDuration);const label=state.playing?'❚❚ השהה':'▶ נגן';play.textContent=state.playing?'השהה':'נגן';play2.textContent=label;updateActiveBeat()}
 function updateMotion(localTime){
  const b=state.beats[state.index];if(!b)return;
- for(const el of stage.querySelectorAll('.visual')){el.style.left=(Number(el.dataset.baseX)*100)+'%';el.style.transform='translate(-50%,-50%)';}
+ for(const el of stage.querySelectorAll('.visual')){el.style.left=(Number(el.dataset.baseX)*100)+'%';el.style.top=((1-Number(el.dataset.baseY))*100)+'%';el.style.transform='translate(-50%,-50%)';}
  for(const a of b.actions||[]){
-  const start=Number(a.startOffset)||0,dur=Math.max(.05,Number(a.duration)||.1),p=(localTime-start)/dur;if(p<0||p>1)continue;
+  const start=Number(a.startOffset)||0,dur=Math.max(.05,Number(a.duration)||.1),p=(localTime-start)/dur;if(p<0)continue;
   const els=[...stage.querySelectorAll('.visual')].filter(el=>el.dataset.subject===E(a.subject));
+  if(a.type==='move'&&L(a.motionIntent)==='path_loop'){
+   // Preview only the normalized paths we understand. Do not turn an authored
+   // path into a generic flyby or alter its source JSON to make it render.
+   if(L(a.pathShape)!=='waypoints'||!Array.isArray(a.pathPoints)||a.pathPoints.length<2)continue;
+   const period=Number(a.periodSeconds)>0?Number(a.periodSeconds):dur;
+   const elapsed=Math.min(Math.max(0,localTime-start),dur);
+   let t=a.loop===true?(elapsed/period+Number(a.phase||0))%1:Math.min(1,elapsed/period);
+   if(a.clockwise===false)t=1-t;
+   const easing=L(a.pathEasing);
+   if(easing==='ease_in')t=t*t;
+   else if(easing==='ease_out')t=1-(1-t)*(1-t);
+   else if(easing==='ease_in_out')t=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+   else if(easing==='smooth_step')t=t*t*(3-2*t);
+   const points=a.pathPoints,position=t*(points.length-1),i=Math.min(points.length-2,Math.floor(position)),u=position-i;
+   const x=Number(points[i].x)+(Number(points[i+1].x)-Number(points[i].x))*u;
+   const y=Number(points[i].y)+(Number(points[i+1].y)-Number(points[i].y))*u;
+   for(const el of els){const dx=Number(el.dataset.baseX)-Number(points[0].x),dy=Number(el.dataset.baseY)-Number(points[0].y);el.style.left=((x+dx)*100)+'%';el.style.top=((1-y-dy)*100)+'%';}
+   continue;
+  }
+  if(p>1)continue;
   if(a.type==='move'){
    const rtl=L(a.travelDirection)==='right_to_left',fly=L(a.motionIntent)==='flyby';
    const from=rtl?(fly?1.12:1.02):(fly?-.12:-.02),to=rtl?(fly?-.12:-.02):(fly?1.12:1.02);
@@ -189,3 +210,4 @@ file.onchange=e=>e.target.files[0]&&read(e.target.files[0]);for(const ev of ['dr
 </script>
 </body>
 </html>
+
