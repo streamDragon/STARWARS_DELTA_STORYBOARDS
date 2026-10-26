@@ -81,8 +81,8 @@
   ],
   "runs": [],
   "history": [],
-  "lastCompletedAction": "Reviewed source agent revision 5 (146 sampled video frames from 0 to 145s, nine screen notes, zero calibrated world placements); verified 3 Unity gameplay prefabs and current 90-frame CUTE missile cadence; blocked obsolete 210KM Big Core generator to prevent wrong import; published full-stage implementation handoff.",
-  "nextAction": "Keep Unity work isolated from busy Cutscene Workshop; complete structural and Play QA on SILO clearance, CUTE live missiles, dual-gravitation boss, then import measured Stage 1 terrain and placements through canonical Level Builder V6 and Reverse Wave Authoring once source camera calibration is ready.",
+  "lastCompletedAction": "Bootstrapped separate GRADIUS_VOLCANO_01.unity using canonical Level Builder scene workflow, created plan and blueprint assets; verified serialized Layer0 roots and checked in six files to Plastic MAIN cs9533.",
+  "nextAction": "Build editable floor and ceiling SpriteShapes with colliders and robot traversal capability; then place existing Gradius CUTE/SILO boss variants, test gameplay. Do not touch source research coordinates or old draft generator.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -144,6 +144,12 @@
       "kind": "dataset",
       "label": "תוכנית אינטגרציה מלאה Stage 1: פתיחה, שטח, משגרים, סלע חמוש ושני הרי געש",
       "evidenceStatus": "TIMELINE_BRACKETS_VERIFIED_WORLD_PLACEMENTS_PENDING"
+    },
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/artifacts/GRADIUS_UNITY_SCENE_BOOTSTRAP_20261026.md",
+      "kind": "report",
+      "label": "סצנת Unity GRADIUS חדשה + תשתית Level Builder, Plastic MAIN cs9533",
+      "evidenceStatus": "BOOTSTRAP_CHECKED_IN_GEOMETRY_PENDING"
     }
   ],
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
@@ -159,7 +165,7 @@
   "workStatus": {
     "scene": "GRADIUS_VOLCANO_01",
     "source": "Verified source research dossier and published annotation tool; no Unity play proof.",
-    "summary": "Stage 1 כעת מתועד מהפתיחה עד הרי הגעש (146 דגימות מקור) אך 0 נקודות עולם מדודות. מגדלי GRADIUS והבוס בנויים, נדרש Play QA. מחולל הטיוטה הישן נחסם כדי למנוע ייבוא שגוי.",
+    "summary": "סצנת GRADIUS_VOLCANO_01 נוצרה ושמורה ב־Plastic MAIN cs9533 עם תשתיות Level Builder. עדיין אין SpriteShapes, רובוטים או בדיקת Play.",
     "tasks": [
       {
         "title": "מדידת מפת המקור",
