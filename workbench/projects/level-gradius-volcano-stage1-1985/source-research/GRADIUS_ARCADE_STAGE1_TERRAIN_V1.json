@@ -114,5 +114,16 @@
       "evidenceLevel": "VERIFIED_VIDEO_FRAME",
       "url": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=112s"
     }
-  ]
+  ],
+  "videoAlignmentAttempt": {
+    "clip": "00:20 to 02:25",
+    "sampleRateFPS": 1,
+    "terrainComparisonRegion": "uncalibrated repeated top and bottom strips",
+    "searchRangePxPerSecond": [
+      -6,
+      104
+    ],
+    "result": "REJECTED_FOR_PRESTOP_SCROLL_SPEED_UNIQUE_POSITION_MATCHING",
+    "note": "Repeating terrain texture and mostly black frames yield ambiguous 0px vs 48px shift correlations; do not accumulate to world coordinates."
+  }
 }

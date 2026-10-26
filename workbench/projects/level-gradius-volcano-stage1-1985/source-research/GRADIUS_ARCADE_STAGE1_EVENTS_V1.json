@@ -311,5 +311,55 @@
     136,
     140
   ],
-  "fullFrameVideoAvailableForAnalysis": true
+  "fullFrameVideoAvailableForAnalysis": true,
+  "openingVideoSource": {
+    "originalVideoStartS": 0,
+    "originalVideoEndS": 21,
+    "downloaded": true,
+    "frameImagesExtracted": 21,
+    "sourceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g",
+    "observationStatus": "VIDEO_OBTAINED_SEQUENTIAL_FRAME_CENSUS_PENDING"
+  },
+  "measuredScrollStopEvidence": {
+    "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+    "frameWindowApproxS": [
+      110,
+      113
+    ],
+    "sampleRateFPS": 1,
+    "plateauEvidence": "Repeated static terrain edge correlation 112-133 approx has best shift 0 with normalized scores 0.88..1.00; eruption colors change but terrain edge stable.",
+    "scrollStartWorldX": null,
+    "exactScrollStopS": null,
+    "videoUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=112s",
+    "confidence": "FRAME_VISIBLE_SCROLL_PAUSE_APPROXIMATE_ONSET_ONLY"
+  },
+  "volcanoVisualSamples": [
+    {
+      "recordingTimeEstimateS": 112,
+      "frameTimeErrorS": 1,
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "url": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=112s",
+      "twoMountainPeaksVisible": true,
+      "rockParticlesPresent": true,
+      "scrollCameraMode": "VISUALLY_STATIONARY_AFTER_CHANGE"
+    },
+    {
+      "recordingTimeEstimateS": 118,
+      "frameTimeErrorS": 1,
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "url": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=118s",
+      "twoMountainPeaksVisible": true,
+      "rockParticlesPresent": true,
+      "scrollCameraMode": "VISUALLY_STATIONARY_AFTER_CHANGE"
+    },
+    {
+      "recordingTimeEstimateS": 123,
+      "frameTimeErrorS": 1,
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "url": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=123s",
+      "twoMountainPeaksVisible": true,
+      "rockParticlesPresent": true,
+      "scrollCameraMode": "VISUALLY_STATIONARY_AFTER_CHANGE"
+    }
+  ]
 }

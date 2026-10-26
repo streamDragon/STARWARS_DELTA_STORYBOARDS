@@ -57,3 +57,12 @@ The primary full motion source was retrieved as a 640x360 30fps video-only file,
 | 124–128 | first observed Big Core between samples; not in recreation scope |
 
 Main gains: initial aerial phase, terrain entry, terrain encounters, launcher corridor, armed rock, both volcanoes and out-of-scope Big Core are all now covered by contiguous extracted video. 640x360 capture is scaled/padded and **not** the original world coordinate system. Full-game object-count and placement mapping still require per-frame matching, and no invented turret inventory or wave counts have been inserted.
+
+
+## Phase 4 full-clip follow-through
+
+The missing opening interval 00:00–00:21 was obtained as 640×360/30fps and 21 one-second frames were extracted. The existing 00:20–02:25 clip yielded 125 sequential one-second samples. This establishes media availability for the **whole defined interval** but is not the same as verifying every wave and turret instance. Review of source frames approximately 40, 50, 65, 70, 80, 88, 92, 97, 104, 112, 118 and 123 seconds added nine stable-ID screen-space visual annotations to OBJECTS. These are approximate ROI boxes, not original map placement measurements.
+
+Two terrain edge-strip correlation passes were attempted. Earlier than 110s, repeating textures and video framing give ambiguous 0px and ~48px motions; those pixel-scroll rates have been **rejected**. Around ~112 to ~133s a strong zero-shift match of terrain edges supports a paused volcano interval, with precise start still UNKNOWN; scroll-pause onset bracket currently 110–113s subject to closer visual proof. Frame evidence: https://www.youtube.com/watch?v=WJu9xSRh02g&t=112s .
+
+Unresolved: complete physical turret census, stable identities across all scrolling frames, reconstruction of all spawns and routes, exact scroll scale/camera map, full 2304×256 source map access. Original source-map spatial positions remain zero VERIFIED_MAP_PIXEL.

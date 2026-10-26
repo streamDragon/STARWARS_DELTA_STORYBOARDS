@@ -1,9 +1,9 @@
 {
   "schema": "GRADIUS_STAGE1_RESEARCH_AGENT_STATUS_V1",
-  "revision": 4,
-  "updatedUtc": "2026-10-26T03:11:00+02:00",
+  "revision": 5,
+  "updatedUtc": "2026-10-26T04:54:00+02:00",
   "owner": "source-research-agent",
-  "researchState": "PHASE3_CONTINUOUS_STAGE1_VIDEO_OBTAINED_VIDEO_CHRONOLOGY_COVERED_SPATIAL_RECONSTRUCTION_OPEN",
+  "researchState": "VIDEO_COVERS_STAGE1_OPENING_THROUGH_VOLCANO_PARTIAL_FRAME_MAPPING_SCROLL_STOP_SUPPORTED",
   "sourceMapObtained": false,
   "videoFrameSamplingDone": false,
   "measuredObjectCount": 0,
@@ -23,8 +23,9 @@
     "Full original arcade Stage1 map file returns HTTP 403; no pixel geometry.",
     "Video storyboard samples are spaced 10s apart and are not original-resolution frames; exact entry/spawn, door, scrolling and rock rates unmeasured.",
     "Needs original 1985 Japanese Arcade version confirmation beyond source labels and visual consistency.",
-    "Full 0-20 s opening not yet in locally extracted clip; movie storyboard samples still show first 20 s.",
-    "Video 640x360 scaled capture needs pixel scroll calibration and 1-frame object census before accurate world positions."
+    "Video 640x360 scaled capture needs pixel scroll calibration and 1-frame object census before accurate world positions.",
+    "Original world-map anchors and comprehensive turret/hatch deduplicated census are NOT verified.",
+    "Scroll speed in px/sec has ambiguous peaks due to repeated terrain; cannot transform video X into source map X."
   ],
   "lastCommit": null,
   "screenshotAnnotatedHatches": 2,
@@ -34,5 +35,9 @@
     145
   ],
   "continuousVideoFrameRate": 30,
-  "continuousVideoSamplesInspected": 31
+  "continuousVideoSamplesInspected": 31,
+  "openingClipObtained": true,
+  "openingFramesExtracted": 21,
+  "continuousVideoSamplesExtracted1FPS": 125,
+  "previewScreenAnnotations": 9
 }

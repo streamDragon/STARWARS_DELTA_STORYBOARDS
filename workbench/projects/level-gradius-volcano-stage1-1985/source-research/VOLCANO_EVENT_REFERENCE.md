@@ -16,3 +16,8 @@ Evidence: https://www.youtube.com/watch?v=WJu9xSRh02g (nominal 110s two peaks; n
 Rocks are described as destructible by shooting in the Japanese guide https://yuugikyo-rerise.net/gradius_stage1-4/ (SUPPORTED_MECHANIC). End the game's adapted boss when emissions cease and active hazards resolve is a **DESIGN_TARGET**, not verified Arcade timing. Original Big Core is out of scope.
 
 Use existing MLB_Gravitation and WavesManager; no additional gameplay tool authorized.
+
+
+## Primary sequential frames: phase 4
+
+Downloaded original opening clip (00:00–00:21, 30fps), and the previously obtained primary clip (00:20–02:25, 30fps). For the second clip, 125 frames were extracted at 1fps (on top of the earlier 31 four-second samples). Terrain-edge correlation in frame coordinates indicates a stable scroll-free eruption section from approximately 112 to 133 recording seconds, but multiple earlier matches are ambiguous because terrain pattern repeats. The stop window is therefore approximate 110–113s and **not a verified frame-accurate timestamp**. No gravity constant, simultaneous release interval, number of rocks launched or fire cadence can be computed reliably from these observations. Source: https://www.youtube.com/watch?v=WJu9xSRh02g&t=112s .
