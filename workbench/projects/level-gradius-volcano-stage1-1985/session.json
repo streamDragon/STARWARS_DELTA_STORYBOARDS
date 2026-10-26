@@ -81,8 +81,8 @@
   ],
   "runs": [],
   "history": [],
-  "lastCompletedAction": "Created and inspected new stationary two-peak Gradius volcano boss prefab, 2 autotrigger gravitation weapons, Plastic MAIN cs9526, no Play QA yet.",
-  "nextAction": "Run isolated Play Mode check of GRADIUS_VOLCANO_MOUNTAIN_BOSS, test actual gravity projectiles and health; separately finish CUTE/HATCH animation QA. Integrate source agent coordinates only once measured.",
+  "lastCompletedAction": "Validated real Unity tower-variant source inheritance and silo launcher prerequisites; reviewed research agent revision 3, confirmed 0 measured world placements; published integration audit.",
+  "nextAction": "Run isolated Play Mode acceptance on tower variants and volcano boss without touching open Cutscene Workshop; align runtime animation to fire event; await measured source anchors for Level Builder.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -132,6 +132,12 @@
       "kind": "report",
       "label": "בוס הר שתי פסגות: Prefab חדש ביוניטי, Plastic MAIN 9526, בדיקת מבנה",
       "evidenceStatus": "UNITY_PREFAB_VERIFIED_PLAY_PENDING"
+    },
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/artifacts/GRADIUS_MAIN_INTEGRATION_AUDIT_20261026.md",
+      "kind": "report",
+      "label": "בדיקת אינטגרציה: מגדל CUTE, משגר SILO, בוס ההר וחסימות Play",
+      "evidenceStatus": "UNITY_STRUCTURAL_AUDIT_PLAY_PENDING"
     }
   ],
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
@@ -147,7 +153,7 @@
   "workStatus": {
     "scene": "GRADIUS_VOLCANO_01",
     "source": "Verified source research dossier and published annotation tool; no Unity play proof.",
-    "summary": "בוס הר שתי פסגות נוצר, אומת במבנה Unity ונשמר ל־Plastic MAIN cs:9526; ירי ופגיעה בפועל טרם נבדקו. מעבדת מקור פעילה והסוכן השני מודד מיקומים. הסצנה המלאה אינה בנויה.",
+    "summary": "שני Variants ובוס הר קיימים; נבדקו רכיבי השיגור וקובצי מחקר Stage 1, אך אין Play QA ומיקומי מקור טרם נמדדו. דווח אינטגרציה חדש באתר.",
     "tasks": [
       {
         "title": "מדידת מפת המקור",
