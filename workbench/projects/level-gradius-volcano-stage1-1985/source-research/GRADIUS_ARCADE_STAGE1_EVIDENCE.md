@@ -38,3 +38,22 @@ Turrets → TOWER_MISSILES_CUTE; hatches → TOWER_SHIP_SPAWNER_WHITE; volcano r
 | https://stat.ameba.jp/user_images/20221231/10/dbh-washi/ef/23/p/o1320098615223422835.png?caw=800 | Two volcano peaks and numerous orange flying rocks | Velocity / onset / gravity cannot be deduced from one still |
 
 No camera-offset calibration or overlapping-frame stitching established. The three-local-hatch claim (one top, two bottom) in Japanese walkthrough https://yuugikyo-rerise.net/gradius_stage1-4/ is a supported **section description**, not a count of all stage hatches. Full original map still unavailable; all source map X/Y remain null.
+
+
+## Phase 3 — continuous primary video (opening to volcano)
+
+The primary full motion source was retrieved as a 640x360 30fps video-only file, original recording interval 00:20–02:25 (125 seconds). Sampled frames at original video seconds 20, 24, ..., 140; each image was visually inspected. Original movie URL: https://www.youtube.com/watch?v=WJu9xSRh02g. A segment sample gives only a *time bracket*, never an exact onset unless higher-frequency transition frames are verified. Japanese-arcade ROM identity still requires provenance cross-check.
+
+| Original recording seconds | Direct observation |
+|---|---|
+| 20–36 | space-only, several aerial enemies, no terrain in 4-second samples |
+| 36–40 | upper and lower geometry first visible between sampled frames |
+| 40–68 | fixed defensive objects at both upper and lower surfaces, multiple aerial formations |
+| 68–88 | terrain corridor, upper mounted objects and lower ground enemies; distinct turret count not yet reliable |
+| 88–96 | ceiling and floor hatch-like fixtures visible at successive samples |
+| 96–104 | large floating armed rock and horizontal laser beams |
+| 104–112 | two mounds come into view, scene background changes red near eruption |
+| 112–124 | twin red peaks, flying orange rock hazards |
+| 124–128 | first observed Big Core between samples; not in recreation scope |
+
+Main gains: initial aerial phase, terrain entry, terrain encounters, launcher corridor, armed rock, both volcanoes and out-of-scope Big Core are all now covered by contiguous extracted video. 640x360 capture is scaled/padded and **not** the original world coordinate system. Full-game object-count and placement mapping still require per-frame matching, and no invented turret inventory or wave counts have been inserted.
