@@ -81,8 +81,8 @@
   ],
   "runs": [],
   "history": [],
-  "lastCompletedAction": "Published Arcade source mapping JSON, standalone source-map annotation UI and Gradius-only link in Level Studio. No source coordinate measurement or Unity QA yet.",
-  "nextAction": "Acquire/display original Arcade Stage 1 map, annotate true turret/hatch/terrain pixel positions, cross-check original video frame timings, then design original animations and authorize Level Builder.",
+  "lastCompletedAction": "Published source-agent ownership contract and separate status ledger; primary agent retains session, site and Unity ownership.",
+  "nextAction": "Research agent measures Arcade map and video frames in source-research/. Primary agent integrates validated evidence into the Gradius dossier and then builds level with Level Builder V6 / Reverse Wave Authoring / Play QA.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -110,9 +110,21 @@
       "evidenceStatus": "RESEARCH_DATA_UNMEASURED"
     },
     {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/AGENT_WORK_SPLIT_20261026.md",
+      "kind": "report",
+      "label": "תיאום סוכנים: מחקר מקור מול Unity ו־Level Builder",
+      "evidenceStatus": "CONTRACT_PUBLISHED"
+    },
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/source-research/status.json",
+      "kind": "dataset",
+      "label": "מדידות סוכן מקור: סטטוס מחקר חי מתוך GitHub",
+      "evidenceStatus": "AWAITING_SOURCE_AGENT"
+    },
+    {
       "path": "gradius-source-map.html",
       "kind": "tool",
-      "label": "מעבדת מקור GRADIUS: טעינת תמונה, סימון פיקסלים, ציר אירועים וייצוא",
+      "label": "מעבדת מדידת פיקסלים ומיקומי מגדלים",
       "evidenceStatus": "PUBLISHED_BROWSER_UI_NOT_UNITY"
     }
   ],
