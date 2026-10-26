@@ -81,8 +81,8 @@
   ],
   "runs": [],
   "history": [],
-  "lastCompletedAction": "Accepted user's design rule: CUTE animation loops continuously independent of actual MLB shots; this is intended, not a bug. Validate both behaviors separately in Play Mode.",
-  "nextAction": "Run isolated Play Mode acceptance on the CUTE Variant (independent looping animation + real shots), SILO roof + authoritative ship launch, and volcano boss; do not change the unsaved Cutscene Workshop scene. Await measured source coordinates before exact Level Builder mapping.",
+  "lastCompletedAction": "Reviewed source agent revision 5 (146 sampled video frames from 0 to 145s, nine screen notes, zero calibrated world placements); verified 3 Unity gameplay prefabs and current 90-frame CUTE missile cadence; blocked obsolete 210KM Big Core generator to prevent wrong import; published full-stage implementation handoff.",
+  "nextAction": "Keep Unity work isolated from busy Cutscene Workshop; complete structural and Play QA on SILO clearance, CUTE live missiles, dual-gravitation boss, then import measured Stage 1 terrain and placements through canonical Level Builder V6 and Reverse Wave Authoring once source camera calibration is ready.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -138,6 +138,12 @@
       "kind": "report",
       "label": "בדיקת אינטגרציה: מגדל CUTE, משגר SILO, בוס ההר וחסימות Play",
       "evidenceStatus": "UNITY_STRUCTURAL_AUDIT_PLAY_PENDING"
+    },
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/artifacts/GRADIUS_MAIN_STAGE1_IMPLEMENTATION_HANDOFF_V1.json",
+      "kind": "dataset",
+      "label": "תוכנית אינטגרציה מלאה Stage 1: פתיחה, שטח, משגרים, סלע חמוש ושני הרי געש",
+      "evidenceStatus": "TIMELINE_BRACKETS_VERIFIED_WORLD_PLACEMENTS_PENDING"
     }
   ],
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
@@ -153,7 +159,7 @@
   "workStatus": {
     "scene": "GRADIUS_VOLCANO_01",
     "source": "Verified source research dossier and published annotation tool; no Unity play proof.",
-    "summary": "שני Variants ובוס הר קיימים; נבדקו רכיבי השיגור וקובצי מחקר Stage 1, אך אין Play QA ומיקומי מקור טרם נמדדו. דווח אינטגרציה חדש באתר.",
+    "summary": "Stage 1 כעת מתועד מהפתיחה עד הרי הגעש (146 דגימות מקור) אך 0 נקודות עולם מדודות. מגדלי GRADIUS והבוס בנויים, נדרש Play QA. מחולל הטיוטה הישן נחסם כדי למנוע ייבוא שגוי.",
     "tasks": [
       {
         "title": "מדידת מפת המקור",
