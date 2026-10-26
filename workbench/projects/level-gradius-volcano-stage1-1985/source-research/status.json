@@ -1,11 +1,11 @@
 {
   "schema": "GRADIUS_STAGE1_RESEARCH_AGENT_STATUS_V1",
-  "revision": 5,
+  "revision": 6,
   "updatedUtc": "2026-10-26T04:54:00+02:00",
   "owner": "source-research-agent",
-  "researchState": "VIDEO_COVERS_STAGE1_OPENING_THROUGH_VOLCANO_PARTIAL_FRAME_MAPPING_SCROLL_STOP_SUPPORTED",
+  "researchState": "PHASE5_VIDEO_SCROLL_RATE_MEASURED_WORLD_ANCHORS_PENDING",
   "sourceMapObtained": false,
-  "videoFrameSamplingDone": false,
+  "videoFrameSamplingDone": true,
   "measuredObjectCount": 0,
   "measuredEventCount": 0,
   "measuredRouteCount": 0,
@@ -25,7 +25,8 @@
     "Needs original 1985 Japanese Arcade version confirmation beyond source labels and visual consistency.",
     "Video 640x360 scaled capture needs pixel scroll calibration and 1-frame object census before accurate world positions.",
     "Original world-map anchors and comprehensive turret/hatch deduplicated census are NOT verified.",
-    "Scroll speed in px/sec has ambiguous peaks due to repeated terrain; cannot transform video X into source map X."
+    "Scroll speed in px/sec has ambiguous peaks due to repeated terrain; cannot transform video X into source map X.",
+    "Conversion from video display pixels to arcade native map and stable absolute camera source X is unverified."
   ],
   "lastCommit": null,
   "screenshotAnnotatedHatches": 2,
@@ -39,5 +40,11 @@
   "openingClipObtained": true,
   "openingFramesExtracted": 21,
   "continuousVideoSamplesExtracted1FPS": 125,
-  "previewScreenAnnotations": 9
+  "previewScreenAnnotations": 9,
+  "videoScrollFramePairsAnalyzed": 624,
+  "videoScrollRateVideoPxPerSApprox": 50.2,
+  "videoScrollStopBracketS": [
+    110.4,
+    111.2
+  ]
 }

@@ -125,5 +125,50 @@
     ],
     "result": "REJECTED_FOR_PRESTOP_SCROLL_SPEED_UNIQUE_POSITION_MATCHING",
     "note": "Repeating terrain texture and mostly black frames yield ambiguous 0px vs 48px shift correlations; do not accumulate to world coordinates."
+  },
+  "cameraVideoCalibrationV2": {
+    "method": "terrain-color horizontal overlap matching across consecutive 5 fps samples",
+    "sourceVideo": "https://www.youtube.com/watch?v=WJu9xSRh02g",
+    "videoRecordingRangeS": [
+      20,
+      145
+    ],
+    "sampleRateHz": 5,
+    "frameCount": 625,
+    "crop": {
+      "videoFrameWidth": 640,
+      "videoFrameHeight": 360,
+      "xBegin": 114,
+      "xEnd": 526,
+      "upperRows": [
+        15,
+        37
+      ],
+      "lowerRows": [
+        308,
+        342
+      ]
+    },
+    "measuredImageUnits": "VIDEO_CAPTURE_PIXEL",
+    "scrollDirection": "right camera translates through terrain; scene shifts left",
+    "rollingPreStopPxPerSApproximately": 50.2,
+    "observedSubframeShiftPxPer200MsTypical": 10,
+    "analysisRangeS": [
+      44,
+      110
+    ],
+    "cameraScrollStopTransitionBracketS": [
+      110.4,
+      111.2
+    ],
+    "scrolledVideoPixelsUntilStopFrom40s": null,
+    "arcadeSourcePxPerS": null,
+    "sourceMapOriginX": null,
+    "calibrationLevel": "VIDEO_FRAME_MATCHING_ONLY_NOT_ARCADE_NATIVE_PX",
+    "caveats": [
+      "The matching mask uses brown/orange/green terrain; animation and scenery changes raise match error.",
+      "Do not infer source map X, source map Y or Unity KM from this measurement.",
+      "5 fps limits precise pause onset; bracket is an alignment fit, not a frame-perfect scroll controller trace."
+    ]
   }
 }

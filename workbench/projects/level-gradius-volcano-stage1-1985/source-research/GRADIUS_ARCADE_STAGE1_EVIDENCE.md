@@ -66,3 +66,12 @@ The missing opening interval 00:00–00:21 was obtained as 640×360/30fps and 21
 Two terrain edge-strip correlation passes were attempted. Earlier than 110s, repeating textures and video framing give ambiguous 0px and ~48px motions; those pixel-scroll rates have been **rejected**. Around ~112 to ~133s a strong zero-shift match of terrain edges supports a paused volcano interval, with precise start still UNKNOWN; scroll-pause onset bracket currently 110–113s subject to closer visual proof. Frame evidence: https://www.youtube.com/watch?v=WJu9xSRh02g&t=112s .
 
 Unresolved: complete physical turret census, stable identities across all scrolling frames, reconstruction of all spawns and routes, exact scroll scale/camera map, full 2304×256 source map access. Original source-map spatial positions remain zero VERIFIED_MAP_PIXEL.
+
+
+## Phase 5 — 5fps horizontal camera shift calibration (2026-10-26)
+
+**Measured locally** from contiguous primary arcade-labeled run: `https://www.youtube.com/watch?v=WJu9xSRh02g`, video capture at 640×360, sub-region x=114..525. Sampled 625 images at 5Hz for t=20..145s, applying a terrain color mask and horizontally shifting the preceding frame against the next. Typical displacement: **10 video-display pixels per 0.2 seconds**, equivalent to **approximately 50 video pixels/s** while terrain scrolls (especially t=44..110s). Repeated terrain transitions and particle effects degrade local matching, so record this as observed video camera-space rate, **not** native arcade pixel rate, not exact world X.
+
+At t≈110.0..112.0s, sequential matching shifts from ~10px/sample to 0px/sample, and from 112s onward the top/bottom terrain compares at stable zero-shift across many samples. **Stop onset bracket around 110.4..111.2s** from 5fps matching, pending exact direct frame/time verification. The precise stop time field remains null because the derived range has not been matched back against 30fps camera motion.
+
+**Important:** screenshot-derived object ROIs in 640×360 video remain preliminary; deduplication, object counts and a verified physical source-map offset still require review. Source-map x/y not assigned.
