@@ -1,5 +1,3 @@
-[Reading 38 lines from start (total: 38 lines, 0 remaining)]
-
 <!doctype html>
 <html lang="he" dir="rtl">
 <head>
@@ -21,10 +19,13 @@
     <div class="eyebrow">DESIGNER AI / CURRENT</div>
     <h1>דבורה המלכה</h1>
     <p>מכאן מתחילים יצירת סרט חדש עם ChatGPT באמצעות ה־CURRENT הסגור. התהליך בכוונה קצר: מעתיקים את הוראת הפתיחה, מדביקים בצ'אט, ואז מתארים את הסרט בשפה רגילה.</p>
+    <p>אין צורך בתוסף GitHub כאשר ה־GPT מסוגל לקרוא את קובצי CURRENT דרך הקישורים הציבוריים. רשימת ההתחלה היא דוגמה קצרה בלבד; לפני בחירת חללית יש לבדוק את כל הנכסים החוקיים ואת מקור האנימציה.</p>
     <div class="page-actions">
       <button id="copyDevora" class="button">העתקה ל־ChatGPT</button>
       <a class="button secondary" href="film-qa.html">Film QA - PDF</a>
       <a class="button secondary" href="catalog.html">פתיחת הקטלוג</a>
+      <a class="button secondary" href="designer-ai/open-current/CHATGPT_AUTHORING_INDEX.json">מפתח נכסים CURRENT</a>
+      <a class="button secondary" href="designer-ai/my-art-policy.txt">מדיניות בחירת נכסים</a>
       <a class="button secondary" href="catalog.html#visualBrowserGrid">דפדפן חזותי</a>
     </div>
     <div id="devoraStatus" class="hub-note">בודק CURRENT…</div>
@@ -33,10 +34,8 @@
 <a class="floating-home" href="./">⌂ בית</a>
 <footer>STARWARS_DELTA — דבורה המלכה</footer>
 <script>
-const copyText='Use only the sealed STARWARS_DELTA CURRENT at https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/CHATGPT_START.txt and verify https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/OPEN_CURRENT.json. For visual choices, follow https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/my-art-policy.txt : prioritize verified MY_Art sources within the sealed CURRENT catalog, and use the matching CURRENT CHATGPT_AUTHORING_INDEX previewUrl when present; never guess appearance from names or invent handles. For a NEW movie, author exactly one CUTSCENE_SCRIPT_V1 from my natural-language request. Do NOT ask me for a Request Report/COPY REQUEST, do NOT hand-author V3/V5, raw Actor IDs or raw Animation IDs. V3/V5 are backend only. Use REPAIR only after Unity rejects a specific candidate and supplies diagnostics. Return the movie as a real downloadable .json file.';
+const copyText="Create exactly one complete STARWARS_DELTA CUTSCENE_SCRIPT_V1 .json file from my movie request. Begin at sealed verified CURRENT: https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/OPEN_CURRENT.json ; fetch same-transaction CHATGPT_START.txt, CHATGPT_AUTHORING_INDEX.json, exact schema, AUTHORING_HANDLES.json and relevant categoryChunks. Public Pages or the corresponding raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/main/ paths work without a GitHub plugin; if you cannot access CURRENT, state that and never invent handles. Follow https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/my-art-policy.txt . Select art by requested role, real preview pixels and legal CURRENT handle, not by starter-list order or MY_Art-first bias. For animated spacecraft, compare available Playniax Space Shooter Art Pack 01 and 02 against other CURRENT alternatives before Nautolan. A route=Actor PNG/frame is STATIC; only a legal route=Animation animationHandle is playable. If installed art is not exposed in CURRENT, report CURRENT_COVERAGE_GAP rather than inventing an AnimationClip. Preserve exact film content and report any unresolved assets or intended stand-ins explicitly; never claim zero placeholders or a successful Unity import without the actual importer result. Never hand-author V3/V5 or runtime IDs; return a downloadable V1 .json.";
 document.getElementById('copyDevora').onclick=async()=>{const b=document.getElementById('copyDevora');try{await navigator.clipboard.writeText(copyText);b.textContent='הועתק';setTimeout(()=>b.textContent='העתקה ל־ChatGPT',1500)}catch(_){window.prompt('העתק את הטקסט ל־ChatGPT:',copyText)}};
 (async()=>{try{const r=await fetch('designer-ai/open-current/OPEN_CURRENT.json?ts='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);const m=await r.json();document.getElementById('devoraStatus').textContent='CURRENT: '+(m.status||'CURRENT')+' · '+(m.publishTransactionId||'');}catch(e){document.getElementById('devoraStatus').textContent='לא ניתן לקרוא כרגע את CURRENT';}})();
 </script>
 </body></html>
-
-[executed on device: DESKTOP-5J7HT7C (cb4890df-61d0-40b8-8570-f8b80f3dec3a)]
