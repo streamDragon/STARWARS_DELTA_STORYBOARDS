@@ -1,9 +1,9 @@
 {
   "schema": "GRADIUS_STAGE1_RESEARCH_AGENT_STATUS_V1",
-  "revision": 8,
+  "revision": 9,
   "updatedUtc": "2026-10-26T04:54:00+02:00",
   "owner": "source-research-agent",
-  "researchState": "MULTIFRAME_VIDEO_RELATIVE_TERRAIN_AND_OBJECT_TRACKS_AVAILABLE_MAP_ABSOLUTE_UNKNOWN",
+  "researchState": "PHASE9_VISUAL_CENSUS_RECLASSIFICATION_SNAPSHOT_COUNTS_NOT_WORLD_COUNTS",
   "sourceMapObtained": false,
   "videoFrameSamplingDone": true,
   "measuredObjectCount": 0,
@@ -28,7 +28,8 @@
     "Scroll speed in px/sec has ambiguous peaks due to repeated terrain; cannot transform video X into source map X.",
     "Conversion from video display pixels to arcade native map and stable absolute camera source X is unverified.",
     "Relative video-frame position candidates use aggregate camera scroll rate and ±75px floor; they have NOT been validated as stable distinct object source-map anchors.",
-    "Repeated-frame video coordinates validated, but conversion to absolute original arcade map coordinates not established."
+    "Repeated-frame video coordinates validated, but conversion to absolute original arcade map coordinates not established.",
+    "Per-screen turret counts are not deduplicated along the stage, and domed launchers may be co-located with gun fixtures."
   ],
   "lastCommit": null,
   "screenshotAnnotatedHatches": 2,
@@ -53,5 +54,7 @@
   "frameTrackedVideoRelativeObjects": 8,
   "videoTerrainCeilingExtractedPoints": 564,
   "videoTerrainFloorExtractedPoints": 562,
-  "videoTerrainFramesFused": 72
+  "videoTerrainFramesFused": 72,
+  "concurrentCountsChecked": 7,
+  "worldSpaceDistinctTurretCount": null
 }

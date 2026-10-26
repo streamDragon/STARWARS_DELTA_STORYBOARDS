@@ -1062,5 +1062,64 @@
     }
   ],
   "frameTrackedVideoRelativeCount": 8,
-  "legacyCandidateSupersession": "videoRelativePlacementCandidates are older unverified single-frame candidates; prefer frameTrackedInstances, while keeping original map X/Y null."
+  "legacyCandidateSupersession": "videoRelativePlacementCandidates are older unverified single-frame candidates; prefer frameTrackedInstances, while keeping original map X/Y null.",
+  "visualCensusCorrections": [
+    {
+      "timeVideoS": 45,
+      "category": "CEILING_MOUNTED",
+      "countVisible": 1,
+      "description": "one green white hanging fixture; function uncertain",
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=45s"
+    },
+    {
+      "timeVideoS": 50,
+      "category": "FLOOR_TURRET_PAIR",
+      "countVisible": 2,
+      "description": "two angled turrets adjacent to a floor dome/hatch at right; earlier F50_FLOOR_HATCH grouping includes mixed fixture and turret, NOT single pure spawner instance",
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=50s"
+    },
+    {
+      "timeVideoS": 65,
+      "category": "FLOOR_TURRET_PAIR",
+      "countVisible": 2,
+      "description": "two angled floor guns left of a domed launcher; additional ground-facing unit on left",
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=65s"
+    },
+    {
+      "timeVideoS": 70,
+      "category": "FLOOR_TURRET",
+      "countVisible": 1,
+      "description": "one angled gun left of a domed unit; another ground robot at right may occlude a gun",
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=70s"
+    },
+    {
+      "timeVideoS": 90,
+      "category": "FLOOR_TURRET_CLUSTER",
+      "countVisible": 3,
+      "description": "three adjacent angled guns at bottom-right before/near domed unit",
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=90s"
+    },
+    {
+      "timeVideoS": 92,
+      "category": "CEILING_TURRET_PAIR",
+      "countVisible": 2,
+      "description": "two ceiling-facing turrets adjacent to dome/hatch right",
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=92s"
+    },
+    {
+      "timeVideoS": 96,
+      "category": "HATCH_CEILING_AND_FLOOR",
+      "countVisible": 2,
+      "description": "large upper hatch/dome and smaller lower dome visible; not firing cadence evidence",
+      "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+      "evidenceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g&t=96s"
+    }
+  ],
+  "visualCensusWarning": "Snapshot counts are NOT distinct stage-wide counts; repeated instances across times may overlap. Prior template category fields are hypothesis labels: some templates cover mixed turret/hatch fixtures."
 }

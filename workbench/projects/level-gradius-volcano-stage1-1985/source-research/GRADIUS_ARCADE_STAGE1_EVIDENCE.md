@@ -101,3 +101,10 @@ OpenCV template matching was run against 625 frames sampled at 5 Hz from the ori
 | F110_RIGHT_MOUNTAIN | volcano_orange | 23 | 3764.5 | 1 |
 
 A separate border-connected terrain color mask aligned 72 one-second video frames to a relative pixel grid and produced 564 ceiling and 562 floor preliminary polyline points, downsampled in the published JSON. Native-viewport conversion assumes gameplay occupies crop x=114..525 of 640x360 and scales to 256x224. This is a working model, not a verified original-map stitch and **must not be mistaken for exact Arcade source-map absolute X**. Vegetation, rocks, pipes, and hatch caps are not SpriteShape collision surfaces and remain separate. Measurements are useful as an editable guide for the central agent, not an automatic final placement authority.
+
+
+## Phase 9: visual turret census corrections
+
+Direct visual inspection of enlarged top/bottom strips of sampled frames at t=45,50,65,70,90,92,96s shows multiple angled floor/ceiling gun fixtures in the vicinity of hatch domes. **Do not classify every dome-plus-gun template as a ship spawner.** At video ~50s two angled floor guns are visible beside a dome; ~65s two angled floor guns; ~90s three floor guns; ~92s two ceiling guns. These are **per-screen concurrent minimums**, NOT the level's distinct turret counts because the camera scrolls. Evidence: https://www.youtube.com/watch?v=WJu9xSRh02g . The previous class assignment in `frameTrackedInstances` may include turret+dome regions and is flagged as mixed, pending per-frame segmentation.
+
+The high-resolution Unity build is not constrained by the original game's small resolution. Only scale proportions, timing and relative alignment derive from arcade pixels; art and SpriteShape contours should be rendered at project quality.
