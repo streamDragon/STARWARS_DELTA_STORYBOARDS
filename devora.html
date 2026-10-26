@@ -29,6 +29,7 @@
       <a class="button secondary" href="catalog.html#visualBrowserGrid">דפדפן חזותי</a>
     </div>
     <div id="devoraStatus" class="hub-note">בודק CURRENT…</div>
+    <div id="devoraCoverage" class="hub-note" aria-live="polite">בודק כיסוי Playniax באנימציות ה־CURRENT…</div>
   </section>
 </main>
 <a class="floating-home" href="./">⌂ בית</a>
@@ -37,5 +38,24 @@
 const copyText="Create exactly one complete STARWARS_DELTA CUTSCENE_SCRIPT_V1 .json file from my movie request. Begin at sealed verified CURRENT: https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/open-current/OPEN_CURRENT.json ; fetch same-transaction CHATGPT_START.txt, CHATGPT_AUTHORING_INDEX.json, exact schema, AUTHORING_HANDLES.json and relevant categoryChunks. Public Pages or the corresponding raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/main/ paths work without a GitHub plugin; if you cannot access CURRENT, state that and never invent handles. Follow https://streamDragon.github.io/STARWARS_DELTA_STORYBOARDS/designer-ai/my-art-policy.txt . Select art by requested role, real preview pixels and legal CURRENT handle, not by starter-list order or MY_Art-first bias. For animated spacecraft, compare available Playniax Space Shooter Art Pack 01 and 02 against other CURRENT alternatives before Nautolan. A route=Actor PNG/frame is STATIC; only a legal route=Animation animationHandle is playable. If installed art is not exposed in CURRENT, report CURRENT_COVERAGE_GAP rather than inventing an AnimationClip. Preserve exact film content and report any unresolved assets or intended stand-ins explicitly; never claim zero placeholders or a successful Unity import without the actual importer result. Never hand-author V3/V5 or runtime IDs; return a downloadable V1 .json.";
 document.getElementById('copyDevora').onclick=async()=>{const b=document.getElementById('copyDevora');try{await navigator.clipboard.writeText(copyText);b.textContent='הועתק';setTimeout(()=>b.textContent='העתקה ל־ChatGPT',1500)}catch(_){window.prompt('העתק את הטקסט ל־ChatGPT:',copyText)}};
 (async()=>{try{const r=await fetch('designer-ai/open-current/OPEN_CURRENT.json?ts='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);const m=await r.json();document.getElementById('devoraStatus').textContent='CURRENT: '+(m.status||'CURRENT')+' · '+(m.publishTransactionId||'');}catch(e){document.getElementById('devoraStatus').textContent='לא ניתן לקרוא כרגע את CURRENT';}})();
+(async()=>{
+  const out=document.getElementById('devoraCoverage');
+  try {
+    const root='designer-ai/open-current/';
+    const [ar,ir]=await Promise.all([
+      fetch(root+'simple-authoring/ANIMATION_RETRIEVAL_INDEX.json?ts='+Date.now(),{cache:'no-store'}),
+      fetch(root+'CHATGPT_AUTHORING_INDEX.json?ts='+Date.now(),{cache:'no-store'})
+    ]);
+    if(!ar.ok||!ir.ok)throw Error('CURRENT HTTP '+ar.status+'/'+ir.status);
+    const a=await ar.json(),idx=await ir.json();
+    if(a.publishTransactionId!==idx.publishTransactionId)throw Error('CURRENT transaction mismatch');
+    const animations=Object.values(a.directMaterials||{});
+    const from=(n)=>animations.filter(v=>(v.sourcePath||'').toLowerCase().includes('/playniax/space shooter art pack '+n+'/')).length;
+    const p1=from('01'),p2=from('02');
+    const nautolan=(idx.actors||[]).filter(v=>/nautolan/i.test(v.displayName||'')).length;
+    out.textContent='לפי CURRENT המפורסם: אנימציות Playniax חוקיות | Art Pack 01: '+p1+' | Art Pack 02: '+p2+'; דוגמאות Nautolan ברשימת 32 הנכסים הראשית: '+nautolan+'. '+(p1+p2===0?'קיים פער חשיפה: קובצי AnimationClip במחשב אינם בהכרח נכסים ש־GPT רשאי לבחור עד סריקה ו־Smart Publish.':'יש לבדוק את האנימציות והפריימים בפועל לפני הבחירה.');
+  }catch(e){out.textContent='אין כעת בדיקת כיסוי מלאה ל־CURRENT: '+e.message;}
+})();
 </script>
 </body></html>
+
