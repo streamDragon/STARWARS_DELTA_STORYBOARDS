@@ -1,0 +1,918 @@
+{
+  "version": "FILM_QA_3_CINEMATIC_AUDIT_V1",
+  "movie": "THE GOLDEN PASSAGE | Director 4 Retake 3 Framing Lock",
+  "projectId": "88b77b92beb34b57af24c2da94240e5b",
+  "captureMode": "EDITOR_TIMELINE_EVALUATION",
+  "status": {
+    "capture": "COMPLETED",
+    "technical": "PASS",
+    "cinematic": "REVIEW_REQUIRED",
+    "runtime": "NOT_TESTED"
+  },
+  "statusReasons": {
+    "capture": "Capture result from scanner only",
+    "technical": "No sampled black frames outside detected transitions; this is not full technical clearance",
+    "cinematic": "Composition, scale, narrative clarity and emotion require image and staging review",
+    "runtime": "Editor timeline evaluation is not a runtime test"
+  },
+  "metrics": {
+    "frames": 103,
+    "blackFrames": 0,
+    "handoffBoundaryBlanks": 0,
+    "edgeClipping": 0,
+    "actorOverlap": 0,
+    "actorOversized": 0,
+    "meanBrightness": 0.2609710228963963,
+    "originalFlags": 0,
+    "events": 48,
+    "eventCaptured": 16,
+    "eventObserved": 0
+  },
+  "eventProof": [
+    {
+      "id": "SIMPLE_s07_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s07_shot_hero_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 26.299999237060547,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s07_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s07_shot_hero_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 26.299999237060547,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s07_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s07_shot_hero_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 26.299999237060547,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0026.300s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_s07_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s07_shot_hero_WEAPON_0 - 01 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 26.3799991607666,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s07_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s07_shot_hero_WEAPON_0 - 01 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 26.3799991607666,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s07_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s07_shot_hero_WEAPON_0 - 01 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 26.3799991607666,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0026.380s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_s07_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s07_shot_hero_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 27.799999237060547,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s07_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s07_shot_hero_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 27.799999237060547,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s07_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s07_shot_hero_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 27.799999237060547,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0027.800s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_s07_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s07_shot_hero_WEAPON_0 - 01 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 27.8799991607666,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s07_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s07_shot_hero_WEAPON_0 - 01 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 27.8799991607666,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s07_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s07_shot_hero_WEAPON_0 - 01 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 27.8799991607666,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0027.880s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_s09_shot_red_WEAPON_0|PROJECTILE - SIMPLE_s09_shot_red_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 34.45000076293945,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "red",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s09_shot_red_WEAPON_0|PROJECTILE - SIMPLE_s09_shot_red_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 34.45000076293945,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "red",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s09_shot_red_WEAPON_0|PROJECTILE - SIMPLE_s09_shot_red_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 34.45000076293945,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "red",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0034.450s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_s09_shot_red_WEAPON_0|PROJECTILE - SIMPLE_s09_shot_red_WEAPON_0 - 01 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 34.53000259399414,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "red",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s09_shot_red_WEAPON_0|PROJECTILE - SIMPLE_s09_shot_red_WEAPON_0 - 01 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 34.53000259399414,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "red",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s09_shot_red_WEAPON_0|PROJECTILE - SIMPLE_s09_shot_red_WEAPON_0 - 01 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 34.53000259399414,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "red",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0034.530s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_s09_shot_red_WEAPON_0|PROJECTILE - SIMPLE_s09_shot_red_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 36.05000078678131,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "red",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s09_shot_red_WEAPON_0|PROJECTILE - SIMPLE_s09_shot_red_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 36.05000078678131,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "red",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s09_shot_red_WEAPON_0|PROJECTILE - SIMPLE_s09_shot_red_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 36.05000078678131,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "red",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0036.050s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_s09_shot_red_WEAPON_0|PROJECTILE - SIMPLE_s09_shot_red_WEAPON_0 - 01 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 36.130002617836,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "red",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s09_shot_red_WEAPON_0|PROJECTILE - SIMPLE_s09_shot_red_WEAPON_0 - 01 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 36.130002617836,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "red",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s09_shot_red_WEAPON_0|PROJECTILE - SIMPLE_s09_shot_red_WEAPON_0 - 01 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 36.130002617836,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "red",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0036.130s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 64.19999694824219,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 64.19999694824219,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 00 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 64.19999694824219,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0064.200s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 01 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 64.27999877929688,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 01 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 64.27999877929688,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 01 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 64.27999877929688,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0064.280s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 02 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 64.36000061035156,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 02 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 64.36000061035156,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 02 TRAJECTORY|clip0|LAUNCH",
+      "kind": "PROJECTILE_LAUNCH",
+      "timeSeconds": 64.36000061035156,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0064.360s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 65.74999690055847,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 65.74999690055847,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 00 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 65.74999690055847,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0065.750s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 01 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 65.82999873161316,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 01 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 65.82999873161316,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 01 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 65.82999873161316,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0065.830s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 02 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 65.91000056266785,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 02 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 65.91000056266785,
+      "director": "NESTED",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s16_shot_hero_WEAPON_0|PROJECTILE - SIMPLE_s16_shot_hero_WEAPON_0 - 02 TRAJECTORY|clip0|END",
+      "kind": "PROJECTILE_END",
+      "timeSeconds": 65.91000056266785,
+      "director": "MAIN",
+      "source": "PROJECTILE_TIMELINE_TRACK",
+      "actor": "hero",
+      "target": "Projectile",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0065.910s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "SIMPLE_s16_shot_red_IMPACT_1",
+      "kind": "VisualCue",
+      "timeSeconds": 66.5,
+      "director": "NESTED",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s16_shot_red_IMPACT_1",
+      "kind": "VisualCue",
+      "timeSeconds": 66.5,
+      "director": "NESTED",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "SIMPLE_s16_shot_red_IMPACT_1",
+      "kind": "VisualCue",
+      "timeSeconds": 66.5,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0066.500s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    },
+    {
+      "id": "handoff_simple_THE_GOLDEN_PASSAGE___The_Pilot_and_the_Red_Interceptor",
+      "kind": "HandoffRequested",
+      "timeSeconds": 86,
+      "director": "NESTED",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "handoff_simple_THE_GOLDEN_PASSAGE___Cinematic_Retake_2",
+      "kind": "HandoffRequested",
+      "timeSeconds": 86,
+      "director": "NESTED",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "UNVERIFIED",
+      "images": [],
+      "confidence": "LOW",
+      "note": "No mapped image or clock"
+    },
+    {
+      "id": "handoff_simple_THE_GOLDEN_PASSAGE___Director_4_Retake_3_Framing_Lock",
+      "kind": "HandoffRequested",
+      "timeSeconds": 86,
+      "director": "MAIN",
+      "source": "TIMELINE_MARKER",
+      "actor": "",
+      "target": "",
+      "state": "CAPTURED",
+      "images": [
+        "frame_0086.000s.png"
+      ],
+      "confidence": "HIGH",
+      "note": "Image exists; visual action still unverified"
+    }
+  ],
+  "issues": [
+    {
+      "code": "EVENT_PROOF_MISSING",
+      "domain": "CAUSAL_ACTION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "timeSeconds": 26.299999237060547,
+      "imageFile": "",
+      "expected": "Visual proof of the authored event",
+      "observed": "No event-linked image",
+      "recommendation": "Map director time and capture before/at/after cue",
+      "owner": "FILM_QA"
+    },
+    {
+      "code": "EVENT_PROOF_MISSING",
+      "domain": "CAUSAL_ACTION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "timeSeconds": 26.299999237060547,
+      "imageFile": "",
+      "expected": "Visual proof of the authored event",
+      "observed": "No event-linked image",
+      "recommendation": "Map director time and capture before/at/after cue",
+      "owner": "FILM_QA"
+    },
+    {
+      "code": "EVENT_PROOF_MISSING",
+      "domain": "CAUSAL_ACTION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "timeSeconds": 26.3799991607666,
+      "imageFile": "",
+      "expected": "Visual proof of the authored event",
+      "observed": "No event-linked image",
+      "recommendation": "Map director time and capture before/at/after cue",
+      "owner": "FILM_QA"
+    },
+    {
+      "code": "EVENT_PROOF_MISSING",
+      "domain": "CAUSAL_ACTION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "timeSeconds": 26.3799991607666,
+      "imageFile": "",
+      "expected": "Visual proof of the authored event",
+      "observed": "No event-linked image",
+      "recommendation": "Map director time and capture before/at/after cue",
+      "owner": "FILM_QA"
+    },
+    {
+      "code": "EVENT_PROOF_MISSING",
+      "domain": "CAUSAL_ACTION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "timeSeconds": 34.45000076293945,
+      "imageFile": "",
+      "expected": "Visual proof of the authored event",
+      "observed": "No event-linked image",
+      "recommendation": "Map director time and capture before/at/after cue",
+      "owner": "FILM_QA"
+    },
+    {
+      "code": "EVENT_PROOF_MISSING",
+      "domain": "CAUSAL_ACTION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "timeSeconds": 34.45000076293945,
+      "imageFile": "",
+      "expected": "Visual proof of the authored event",
+      "observed": "No event-linked image",
+      "recommendation": "Map director time and capture before/at/after cue",
+      "owner": "FILM_QA"
+    },
+    {
+      "code": "EVENT_PROOF_MISSING",
+      "domain": "CAUSAL_ACTION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "timeSeconds": 34.53000259399414,
+      "imageFile": "",
+      "expected": "Visual proof of the authored event",
+      "observed": "No event-linked image",
+      "recommendation": "Map director time and capture before/at/after cue",
+      "owner": "FILM_QA"
+    },
+    {
+      "code": "EVENT_PROOF_MISSING",
+      "domain": "CAUSAL_ACTION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "timeSeconds": 34.53000259399414,
+      "imageFile": "",
+      "expected": "Visual proof of the authored event",
+      "observed": "No event-linked image",
+      "recommendation": "Map director time and capture before/at/after cue",
+      "owner": "FILM_QA"
+    },
+    {
+      "code": "EVENT_PROOF_MISSING",
+      "domain": "CAUSAL_ACTION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "timeSeconds": 64.19999694824219,
+      "imageFile": "",
+      "expected": "Visual proof of the authored event",
+      "observed": "No event-linked image",
+      "recommendation": "Map director time and capture before/at/after cue",
+      "owner": "FILM_QA"
+    },
+    {
+      "code": "EVENT_PROOF_MISSING",
+      "domain": "CAUSAL_ACTION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "timeSeconds": 64.19999694824219,
+      "imageFile": "",
+      "expected": "Visual proof of the authored event",
+      "observed": "No event-linked image",
+      "recommendation": "Map director time and capture before/at/after cue",
+      "owner": "FILM_QA"
+    },
+    {
+      "code": "EVENT_PROOF_MISSING",
+      "domain": "CAUSAL_ACTION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "timeSeconds": 64.27999877929688,
+      "imageFile": "",
+      "expected": "Visual proof of the authored event",
+      "observed": "No event-linked image",
+      "recommendation": "Map director time and capture before/at/after cue",
+      "owner": "FILM_QA"
+    },
+    {
+      "code": "EVENT_PROOF_MISSING",
+      "domain": "CAUSAL_ACTION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "timeSeconds": 64.27999877929688,
+      "imageFile": "",
+      "expected": "Visual proof of the authored event",
+      "observed": "No event-linked image",
+      "recommendation": "Map director time and capture before/at/after cue",
+      "owner": "FILM_QA"
+    },
+    {
+      "code": "EVENT_PROOF_MISSING",
+      "domain": "CAUSAL_ACTION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "timeSeconds": 64.36000061035156,
+      "imageFile": "",
+      "expected": "Visual proof of the authored event",
+      "observed": "No event-linked image",
+      "recommendation": "Map director time and capture before/at/after cue",
+      "owner": "FILM_QA"
+    },
+    {
+      "code": "EVENT_PROOF_MISSING",
+      "domain": "CAUSAL_ACTION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "timeSeconds": 64.36000061035156,
+      "imageFile": "",
+      "expected": "Visual proof of the authored event",
+      "observed": "No event-linked image",
+      "recommendation": "Map director time and capture before/at/after cue",
+      "owner": "FILM_QA"
+    },
+    {
+      "code": "EVENT_PROOF_MISSING",
+      "domain": "CAUSAL_ACTION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "timeSeconds": 66.5,
+      "imageFile": "",
+      "expected": "Visual proof of the authored event",
+      "observed": "No event-linked image",
+      "recommendation": "Map director time and capture before/at/after cue",
+      "owner": "FILM_QA"
+    },
+    {
+      "code": "EVENT_PROOF_MISSING",
+      "domain": "CAUSAL_ACTION",
+      "severity": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "timeSeconds": 66.5,
+      "imageFile": "",
+      "expected": "Visual proof of the authored event",
+      "observed": "No event-linked image",
+      "recommendation": "Map director time and capture before/at/after cue",
+      "owner": "FILM_QA"
+    }
+  ],
+  "keyframes": [
+    {
+      "timeSeconds": 0,
+      "fileName": "frame_0000.000s.png"
+    },
+    {
+      "timeSeconds": 24,
+      "fileName": "frame_0024.000s.png"
+    },
+    {
+      "timeSeconds": 30.15,
+      "fileName": "frame_0030.150s.png"
+    },
+    {
+      "timeSeconds": 36.25,
+      "fileName": "frame_0036.250s.png"
+    },
+    {
+      "timeSeconds": 56,
+      "fileName": "frame_0056.000s.png"
+    },
+    {
+      "timeSeconds": 64.48,
+      "fileName": "frame_0064.480s.png"
+    },
+    {
+      "timeSeconds": 70,
+      "fileName": "frame_0070.000s.png"
+    },
+    {
+      "timeSeconds": 86,
+      "fileName": "frame_0086.000s.png"
+    }
+  ],
+  "note": "No VISUALLY_OBSERVED claim without independent evidence review."
+}
