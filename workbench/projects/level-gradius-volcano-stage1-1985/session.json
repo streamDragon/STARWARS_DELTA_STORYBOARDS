@@ -81,8 +81,8 @@
   ],
   "runs": [],
   "history": [],
-  "lastCompletedAction": "Audited GRADIUS scene in Unity 6000.7.0b6 and existing Play6 logs; verified 4 CUTE + 2 SILO + volcano boss scene objects, successful partial ship launch, working boss death. Published QA audit commit c0dd0e3; remaining boss emitter binding and full Play QA open.",
-  "nextAction": "Fix missing MY_ShotBase on some boss shot emitters, prove both SILOs launch (including ceiling), test robot SpriteShape traversal and continuous full-level Play; finish only after all gates PASS.",
+  "lastCompletedAction": "Inspected saved GRADIUS mountain boss and shared MLB Gravitation in Unity: boss 6/6 and shared MLB 40/40 projectile references valid; runtime cached emitter diagnosis remains open. Published asset QA report.",
+  "nextAction": "Inspect runtime emitter cache/pooling, run Play test on ceiling SILO and robot SpriteShape traversal; preserve unrelated scene and only check in proven fixes.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -156,6 +156,12 @@
       "kind": "report",
       "label": "דוח QA מרכזי 27.10: מגדלים, SILO, בוס ההר ותקלות שנותרו",
       "evidenceStatus": "PLAY_EVIDENCE_PARTIAL_NOT_FINAL"
+    },
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/artifacts/GRADIUS_BOSS_EMITTER_BINDINGS_20261027.md",
+      "kind": "report",
+      "label": "בדיקת חיבורי נשק ההר: 6/6 נקודות תקינות, חשד לתקלת Cache בזמן משחק",
+      "evidenceStatus": "SERIALIZED_REFERENCES_PASS_RUNTIME_CACHE_PENDING"
     }
   ],
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
