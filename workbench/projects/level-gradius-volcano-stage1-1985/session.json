@@ -81,8 +81,8 @@
   ],
   "runs": [],
   "history": [],
-  "lastCompletedAction": "Unity MCP structural acceptance PASS on GRADIUS_VOLCANO_01: 3 SpriteShapes, 4 CUTE, 2 SILO with correctly oriented anchors, 3 robot markers and 21 video guide markers. Source agent now has second independent 1080p60 recording.",
-  "nextAction": "Perform runtime ceiling silo release + ship clearance and robot terrain movement test in isolated GRADIUS Play mode, then whole-level full-run QA; maintain source coordinate caveats.",
+  "lastCompletedAction": "Started isolated Unity GRADIUS Play session, confirmed WavesManager progress 0 to 6.89 km in 10.79s, network host listening, both roof silos active and closed before visible; restored prior Play start and Workshop scene clean after Play was interrupted.",
+  "nextAction": "Run uninterrupted full Gradius Play QA for ceiling silo, terrain robot movement and boss; coordinate single-editor Play slot to avoid external interruption.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -186,6 +186,12 @@
       "kind": "report",
       "label": "דוח שער קבלה: קומפילציית Unity חוסמת QA, בדיקת המבנה מוכנה",
       "evidenceStatus": "BLOCKED_EDITOR_COMPILING"
+    },
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/artifacts/GRADIUS_PLAY_SMOKE_TEST_20261027.md",
+      "kind": "report",
+      "label": "בדיקת Play אמיתית ב־GRADIUS: פתיחה, גלילה, רשת ושחזור הגדרות העורך",
+      "evidenceStatus": "OPENING_RUNTIME_PASS_FULL_STAGE_PENDING"
     }
   ],
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
@@ -201,7 +207,7 @@
   "workStatus": {
     "scene": "GRADIUS_VOLCANO_01",
     "source": "Verified source research dossier and published annotation tool; no Unity play proof.",
-    "summary": "STRUCTURE_PASS_PLAY_PENDING ביוניטי: שני SILO תקינים מבנית ובכיווני שיגור, ארבעה CUTE, שלושה SpriteShapes ו־21 סמני מחקר. נדרשת הוכחת Play מלאה.",
+    "summary": "בוצעה בדיקת Play מבודדת ב־GRADIUS: גלילה 6.89 ק״מ ב־10.79 שניות, רשת פעילה ושני SILO טעונים; Play נעצר לפני השיגור. הגדרות העורך שוחזרו. בדיקת הרמה המלאה נשארה פתוחה.",
     "tasks": [
       {
         "title": "מדידת מפת המקור",
