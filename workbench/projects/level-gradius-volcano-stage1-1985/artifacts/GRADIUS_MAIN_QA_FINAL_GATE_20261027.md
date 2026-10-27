@@ -28,3 +28,11 @@
 **NOT COMPLETED.** No new scene or Prefab changes. No Plastic check-in, no claim of final acceptance. This report is an honest end-of-session gate record, not proof that runtime checks passed.
 
 The original user target remains: complete Gradius Stage 1 opening through end of two-volcano event, with original upgraded graphics, accurate mechanics and editable terrain.
+
+## Latest Unity structural acceptance, October 27, 2026
+
+Unity Editor compile lock cleared. Executed read-only `verify_gradius_structure_20261027.eval.cs` through Unity MCP against the GRADIUS scene additively; previous scene `SCENE_Cutscene_Workshop` remained clean and unchanged.
+
+Result: **STRUCTURE_PASS_PLAY_PENDING**. Counts: three SpriteShape controllers, four CUTE instances, two SILOs, three robot spawn markers, 21 research markers. Both SILOs have five spline knots, three polygon collider paths and a valid launch anchor. Floor silo launch direction is up (0,1,0) and ceiling silo launch direction is down (0,-1,0).
+
+This is structure QA only. The runtime ceiling launch, robot traversal and full-stage Play acceptance remain OPEN. Source agent separately delivered a second 1080p60 independent reference clip; does not establish absolute world positions.
