@@ -40,3 +40,8 @@ Source: https://www.youtube.com/watch?v=WJu9xSRh02g
 A source-derived panorama is now accessible at [video panorama](https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/blob/main/workbench/projects/level-gradius-volcano-stage1-1985/source-research/evidence/PANORAMA_VIDEO_T40_T110.png), and exact selected volcano comparison frames at [contact sheet](https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/blob/main/workbench/projects/level-gradius-volcano-stage1-1985/source-research/evidence/VOLCANO_30FPS_CONTACT.png). Independent 30fps inspection detected red eruption-state visual transition between **110.8333 and 110.8667 recording seconds**, after a separate camera-scroll pause at **110.6-110.8s**. This distinction is ready for the central agent's event authoring.
 
 **Delivery state:** bounded source-research evidence and visual atlas delivered. Full original Arcade-map source-pixel placement, complete turret census and complete enemy-route timing still cannot be certified. Do not invent values. High-resolution Unity graphics are separate from historical measurement resolution. Original Big Core remains excluded.
+
+
+## Phase 13: candidate fixtures
+
+The visual 3970px panorama yielded 11 gun-like regions, 5 hatch-like regions, and 5 unresolved regions, published in GRADIUS_PANORAMA_FIXTURE_CANDIDATES.json. These are relative video-pixel intervals, not certified arcade-world positions. Counts must not be interpreted as authoritative distinct stage instances. The panorama source is the previous published evidence asset. No gameplay prefab, script, or Unity scene was changed.
