@@ -81,8 +81,8 @@
   ],
   "runs": [],
   "history": [],
-  "lastCompletedAction": "Started isolated Unity GRADIUS Play session, confirmed WavesManager progress 0 to 6.89 km in 10.79s, network host listening, both roof silos active and closed before visible; restored prior Play start and Workshop scene clean after Play was interrupted.",
-  "nextAction": "Run uninterrupted full Gradius Play QA for ceiling silo, terrain robot movement and boss; coordinate single-editor Play slot to avoid external interruption.",
+  "lastCompletedAction": "Compared original reference screenshots and Unity QA; repaired 16 stale explicit Spawn paths, imported and saved 19 waves into GRADIUS Unity through canonical importer; Plastic MAIN cs9587. Public static QA run level-GRADIUS_VOLCANO_01-20261027191129096 published. Full Play proof pending.",
+  "nextAction": "Manually review published Level QA, visually reshape Stage 1 terrain/volcano to source reference, verify ceiling SILO and 3 robot track waves in continuous Play, then capture and approve final review.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -192,6 +192,18 @@
       "kind": "report",
       "label": "בדיקת Play אמיתית ב־GRADIUS: פתיחה, גלילה, רשת ושחזור הגדרות העורך",
       "evidenceStatus": "OPENING_RUNTIME_PASS_FULL_STAGE_PENDING"
+    },
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/artifacts/GRADIUS_STAGE1_SOURCE_INSPIRED_WAVES_V2.json",
+      "kind": "dataset",
+      "label": "19 גלים פעילים ביוניטי דרך Reverse Wave Authoring, Plastic MAIN cs9587",
+      "evidenceStatus": "UNITY_IMPORT_PASS_SOURCE_TIMINGS_PROVISIONAL"
+    },
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/artifacts/GRADIUS_ARCADE_COMPARISON_AND_WAVES_V2_20261027.md",
+      "kind": "report",
+      "label": "השוואה חזותית למקור, תיקון הגלים והוראות QA ידני",
+      "evidenceStatus": "PARTIAL_ACCEPTANCE"
     }
   ],
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
@@ -201,13 +213,13 @@
     "artReady": false,
     "levelJsonAllowed": false,
     "levelBuild": "PROVISIONAL_LAYER0_BUILT",
-    "waves": "PROVISIONAL_MECHANICS_WAVES_PLAYED",
+    "waves": "19_SOURCE_INSPIRED_PROVISIONAL_UNITY_IMPORTED",
     "play": "PARTIAL_QA_PASS"
   },
   "workStatus": {
     "scene": "GRADIUS_VOLCANO_01",
     "source": "Verified source research dossier and published annotation tool; no Unity play proof.",
-    "summary": "בוצעה בדיקת Play מבודדת ב־GRADIUS: גלילה 6.89 ק״מ ב־10.79 שניות, רשת פעילה ושני SILO טעונים; Play נעצר לפני השיגור. הגדרות העורך שוחזרו. בדיקת הרמה המלאה נשארה פתוחה.",
+    "summary": "סצנת GRADIUS מעודכנת עם 19 גלים (13+6), ייבוא אוטומטי עבר ושמור ב־Plastic cs9587. צילום QA ציבורי מסומן NOT_REVIEWED. השטח והאירוע הגעשי עדיין אינם דומים מספיק למקור; QA משחקי מלא חסר.",
     "tasks": [
       {
         "title": "מדידת מפת המקור",
