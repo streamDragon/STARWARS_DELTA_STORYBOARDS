@@ -38,3 +38,10 @@ Workspace observed on /main cs:9555. No new Plastic check-in is claimed in this 
 ## Reporting
 
 This is a QA audit, **not** a final completion certificate.
+
+## 2026-10-27 CONT addendum
+
+- Re-verified in Unity editor: GRADIUS mountain boss has 6/6 valid B_Gravitational Shot references; shared MLB Gravitation 40/40 valid.
+- Attempt to inspect GRADIUS scene via additive OpenScene was rejected because Editor was currently **playing SCENE_Cutscene_Workshop**. Confirmed editor isPlaying=true, active=SCENE_Cutscene_Workshop, one loaded scene.
+- Did **not** interrupt another agent's Play Mode session, change scenes, mutate prefabs, or check in unverified changes.
+- Runtime cache cause, ceiling silo behavior, robot traversal and continuous GRADIUS Play completion remain OPEN.
