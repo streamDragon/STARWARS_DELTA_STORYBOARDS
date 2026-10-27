@@ -1,5 +1,10 @@
 # STARWARS_DELTA Film Authoring Guide CURRENT
 
+
+CREATION CONTINUES WITH PLACEHOLDERS - USER POLICY 2026-10-20
+Create and deliver an editable movie even when content or the catalog is incomplete. Author exact known CURRENT values. Lint, Import and Build use one recovery policy: preserve the original V1 source, continue with visible orange placeholders, static poses or timed Holds, and retain the requested value, source path and timing in Copy to ChatGPT diagnostics. Only unreadable/non-movie input or an inability to create/save even a basic movie may stop creation.
+The generated scene, Prefab and Timeline remain editable. Replace a placeholder manually without attachment, reconciliation, regeneration or overwriting the manual replacement. A movie with placeholders is a valid editable result whose exact content fidelity still needs review.
+
 This is the filmmaking layer for Devora / Designer AI authoring. It complements the canonical Simple V1 CURRENT surface. It does not create a second contract and it does not replace Unity runtime validation.
 
 ## Authority
@@ -56,7 +61,7 @@ Long duration creates a content obligation. It is not permission to leave a shot
 
 Production authoring uses exact published asset handles and their actual preview pixels.
 
-The default kit is a curated selection: CINEMATIC_MAIN, or Cutscene Ready before MAIN is configured. Animation frames remain technical dependencies. Request additional exact assets on demand. Optional Atlas/PDF exports are available only when the published entry supplies their URL. Every CUTSCENE_SCRIPT_V1 import or revalidation requires the exact current schemaHash and authoringRuleRegistryRevision, resolvable authored assets and supported MOVES. Stale or missing fingerprints block validation.
+The default kit is a curated selection: CINEMATIC_MAIN, or Cutscene Ready before MAIN is configured. Animation frames remain technical dependencies. Request additional exact assets on demand. Optional Atlas/PDF exports are available only when the published entry supplies their URL. Author exact current schemaHash and authoringRuleRegistryRevision, known assets and supported MOVES. Import or revalidation reports mismatches and unresolved content without blocking editable creation.
 
 Do not redraw, restyle, invent an unseen angle, infer a missing object or select an asset because the filename sounds useful.
 
@@ -97,7 +102,11 @@ Destination capability beats resemblance:
 - Ui -> interface/dialogue presentation
 - Audio -> sound
 
-Raw Animation identities remain backend compatibility data. Simple V1 authors animation semantically.
+Direct simple Sprite AnimationClip handles are authorable in V1 only when the exact matching CURRENT ANIMATION_RETRIEVAL_INDEX.json publishes route=Animation with directMovieMaterial.authorable=true; other raw animation metadata and backend IDs are not authoring handles. A route=Actor static PNG/frame, even from a sprite animation family, does not constitute a playable AnimationClip.
+
+### Cross-pack discovery and representation fairness
+
+The 32 featured Actors are a small navigational sample, not a whitelist or preference score. Before selecting important spacecraft, compare the legal Playniax Space Shooter Art Pack 01/02 families (when published) with other CURRENT families including Nautolan using exact previews and capabilities. Do not default to MY_Art, Nautolan, alphabetical starters, or a sample movie. Search all route categoryChunks and the complete AUTHORING_HANDLES.json; inspect sourcePackCoverage and ANIMATION_RETRIEVAL_INDEX for available playable clips. If the Unity project contains animations absent from CURRENT, mark CURRENT_COVERAGE_GAP and require normal catalog scan + Smart Publish, never an invented handle. An editable film with visible placeholders is not the same as a zero-placeholder asset-fidelity PASS.
 
 Raw Catalog IDs are not normal authoring handles.
 
@@ -178,13 +187,13 @@ Simple V1 supports:
 - `actions[].startOffset`
 - `actions[].duration`
 
-Use them for legal staggering and concurrency. An explicit `startOffset` is measured from the containing beat's start and must be finite, nonnegative and earlier than `beats[].durationSeconds`. An explicit `duration` must be finite, positive and fit inside the beat after the effective start. Unity preserves valid authored values; it does not pad short durations, shorten long durations or shift explicit starts. Invalid timing blocks ordinary Lint and Studio Import at the exact authored field.
+Use them for legal staggering and concurrency. An explicit `startOffset` is measured from the containing beat's start and must be finite, nonnegative and earlier than `beats[].durationSeconds`. An explicit `duration` must be finite, positive and fit inside the beat after the effective start. Unity preserves valid authored values; it does not pad short durations, shorten long durations or shift explicit starts. Invalid timing is reported at the exact authored field; a bounded execution default keeps Lint and Studio Import usable.
 
-The current native AnimationClip backend requires adjacent generated, varying Transform keys to be at least **0.0001 seconds (100 microseconds)** apart. This is a semantic support check on the generated motion, not a minimum for every action duration. A two-key path can use 0.0001 seconds; an ordinary 1 ms move with eight intervals has 125 microseconds per interval. Recoil samples first change at 5% of the action duration, so a 1 ms reaction requires an unsupported 50 microsecond interval, while a 3.2 ms reaction has a supported 160 microsecond first interval. Geometric paths are checked using their actual generated corner/sample times, including phase offsets. Finer varying intervals produce `CUTSCENE_NATIVE_TRANSFORM_INTERVAL_UNSUPPORTED` with the original action path, adjacent key times and required limit in Lint, Import and Build. No timing, values or choreography are remapped to pass this check. Constant staging/hold keys, constant scale assignments, activation timing and fixed impact-effect tails keep their separate semantics.
+The current native AnimationClip backend requires adjacent generated, varying Transform keys to be at least **0.0001 seconds (100 microseconds)** apart. This is a semantic support check on the generated motion, not a minimum for every action duration. A two-key path can use 0.0001 seconds; an ordinary 1 ms move with eight intervals has 125 microseconds per interval. Recoil samples first change at 5% of the action duration, so a 1 ms reaction requires an unsupported 50 microsecond interval, while a 3.2 ms reaction has a supported 160 microsecond first interval. Geometric paths are checked using their actual generated corner/sample times, including phase offsets. Finer varying intervals produce `CUTSCENE_NATIVE_TRANSFORM_INTERVAL_UNSUPPORTED` with the original action path, adjacent key times and required limit in Lint, Import and Build. Any execution fallback is explicitly diagnosed and the original timing, values and choreography remain available for repair. Constant staging/hold keys, constant scale assignments, activation timing and fixed impact-effect tails keep their separate semantics.
 
 When `startOffset` is omitted, the existing start is `0.36 * beat duration` for `fire`, `0.55 * beat duration` for `impact`, `0.72 * beat duration` for `destroy`, and zero for other actions. These defaults apply only when the field is absent.
 
-For `fire`, `duration` is the flight time of **each projectile**. `count` defaults to one. Projectile `i` (starting at zero) launches at `effective startOffset + i * interval`, using the CURRENT Cutscene Projectile Library interval of 0.08 seconds. `interval` is not an authorable V1 property. The full burst must satisfy `effective startOffset + (count - 1) * interval + duration <= beat duration`. Unity rejects an overflowing burst; it does not stretch flight time or shift launches to fit. A fixed impact VFX lifetime is a separate effect lifetime and does not extend the projectile's authored flight.
+For `fire`, `duration` is the flight time of **each projectile**. `count` defaults to one. Projectile `i` (starting at zero) launches at `effective startOffset + i * interval`, using the CURRENT Cutscene Projectile Library interval of 0.08 seconds. `interval` is not an authorable V1 property. The full burst must satisfy `effective startOffset + (count - 1) * interval + duration <= beat duration`. Unity reports an overflowing burst and uses a bounded visible recovery while retaining the authored burst for repair. A fixed impact VFX lifetime is a separate effect lifetime and does not extend the projectile's authored flight.
 
 `actions[]` array order is never hidden sequencing.
 
@@ -196,7 +205,7 @@ Use adjacent beats for distinct semantic locomotion phases unless one precise co
 
 Each move references consecutive `beatIds` in film order. The number of referenced beats must exactly match the published phase count for that move. Author the beats themselves with legal V1 camera, action, visible, lighting, dialogue, audio and effect fields so the named move is visibly realized.
 
-The backend move profile publishes `requiredRoles` for every move. In the referenced beats, author each required participant as a `visible[]` entry with the exact matching `role` and a stable actor `id`. Repeat a role across distinct IDs when the move requires multiple participants; use `count` only when one visible entry intentionally represents multiple same-role instances. The importer rejects a tagged move when its required role count is missing. Role labels must describe the depicted participants, not scenery or a placeholder actor.
+The backend move profile publishes `requiredRoles` for every move. In the referenced beats, author each required participant as a `visible[]` entry with the exact matching `role` and a stable actor `id`. Repeat a role across distinct IDs when the move requires multiple participants; use `count` only when one visible entry intentionally represents multiple same-role instances. The importer reports missing roles in a tagged move and creates a visible timed placeholder for the unsupported action. Role labels must describe the depicted participants, not scenery or a placeholder actor.
 
 The 53 move IDs are first-class authoring data. V2 compiles and validates them; V3 owns Unity implementation details. Backend primitive names are not additional authoring moves.
 
@@ -213,7 +222,7 @@ Target-dependent camera, valid structure:
 }
 ```
 
-Invalid structure: `camera.subject` is omitted, names an id not present in the beat's `visible[]`, or points to an implied/duplicate performer. Both Lint and Studio import reject this input without inferring a replacement.
+Invalid structure: `camera.subject` is omitted, names an id not present in the beat's `visible[]`, or points to an implied/duplicate performer. Both Lint and Studio report the exact unresolved reference, preserve the original input and continue with a labeled editable camera Hold; neither silently invents a target.
 
 Targeted action, valid structure:
 
@@ -231,7 +240,7 @@ Invalid structure: `subject`/`target` use a different alias, or the required phy
 
 MOVE structure, valid rule: `moves[].beatIds` are consecutive and their count exactly equals the matching CURRENT phase count. A MOVE is not a decorative label; each phase beat must contain the published role/action/motion evidence for that phase.
 
-Single-contract rule: Lint and Preview use the same canonical CURRENT validation and do not repair authoring input. If strict authoring integrity passes and later Unity import/materialization fails, preserve the exact V1 source and repair the backend against it rather than rewriting valid authored intent.
+Single-contract rule: Lint and Preview use the same editable creation policy. Preserve the exact V1 source, recover on a detached execution copy, and visibly mark incomplete content. Backend materialization failures produce placeholders for affected items while later valid content continues.
 
 ### Precise paths
 
@@ -281,9 +290,9 @@ For an in/out move, use `camera.movement=zoom_in_out`. `zoomHoldSeconds` optiona
 ### Follow / Track
 When target-dependent runtime support exists, the camera must react to the authored legal subject through time. Merely activating a different CinemachineCamera is not enough.
 
-For delivery-valid Simple V1, every target-dependent camera movement (`follow`, `track`, `push`, `pull` when subject-driven) must resolve `camera.subject` to one uniquely visible physical Actor in that beat. Do not rely on Preview to recover an omitted/aliased subject or silently fall back to `hold`. If there is no uniquely visible physical subject, author a legal non-target-dependent camera movement instead.
+For exact authored camera behavior, every target-dependent camera movement (`follow`, `track`, `push`, `pull` when subject-driven) must resolve `camera.subject` to one uniquely visible physical Actor in that beat. Do not rely on Preview to recover an omitted/aliased subject or silently fall back to `hold`. If there is no uniquely visible physical subject, author a legal non-target-dependent camera movement instead.
 
-The same delivery rule applies to targeted actions: `fire`, `attack`, `react`, `impact`, and `destroy` may not depend on Preview guessing a source/target, dropping a target, or skipping an unresolved action. Stage the intended physical Actors visibly and reference their stable ids directly.
+The same authoring accuracy rule applies to targeted actions: `fire`, `attack`, `react`, `impact`, and `destroy` may not depend on Preview guessing a source/target, dropping a target, or skipping an unresolved action. Stage the intended physical Actors visibly and reference their stable ids directly.
 
 ### Drift
 Visible 2D frame-relative displacement.
@@ -316,7 +325,7 @@ FullFrame fitting is Unity-owned and should be renderer-specific and idempotent.
 
 For independent environmental travel, place `backgroundMotion` directly on the beat that owns an exact CURRENT `locationHandle`: `"backgroundMotion":{"direction":"left","speed":0.6,"loop":true}`. This moves the background image on screen while actors keep their own paths and animation; it does not require camera movement and does not belong inside `camera`, `visible[]`, or `actions[]`.
 
-`direction` is required and allows exactly `left`, `right`, `up`, `down`, `up_left`, `up_right`, `down_left`, or `down_right`. `speed` is 0..5 cinematic world units per second (default 0.6); `loop` is a boolean (default true). For a person walking right through a city, a left-moving background usually creates the expected travel illusion. Repeat this beat field where travel should continue; the wrapper applies to its owning beat. Unity uses repeat/wrap only where the rendered layer supports it, so inspect frame coverage and seams over the full interval. A missing `locationHandle` or locked dialogue blocks import with a precise diagnostic. Keep locked dialogue stable and put environmental movement in an adjacent non-dialogue beat with an explicit `locationHandle`.
+`direction` is required and allows exactly `left`, `right`, `up`, `down`, `up_left`, `up_right`, `down_left`, or `down_right`. `speed` is 0..5 cinematic world units per second (default 0.6); `loop` is a boolean (default true). For a person walking right through a city, a left-moving background usually creates the expected travel illusion. Repeat this beat field where travel should continue; the wrapper applies to its owning beat. Unity uses repeat/wrap only where the rendered layer supports it, so inspect frame coverage and seams over the full interval. A missing `locationHandle` or incomplete locked dialogue produces a precise nonblocking diagnostic and a visible editable fallback. Keep locked dialogue stable and put environmental movement in an adjacent non-dialogue beat with an explicit `locationHandle`.
 
 ## Mandatory proof before authoring a named MOVE
 
@@ -327,7 +336,7 @@ MOVE IMPLEMENTATION CHECK - MANDATORY BEFORE EXPORT
 - Keep a participant on the same cast ID / visible ID / action subject across phases; preserve the endpoint-to-startpoint continuity, direction, geography, effect causality, scale and legibility.
 - For every selected move check consecutive beatIds and exact phase count; verify requiredRoles and the exact phase and wholeMoveRequirement before delivery. Do not mass-fill 53 generic templates and call that a 53-MOVE film.
 - Compute cumulative absolute beat intervals. Root animeEmotion inserts must NEVER overlap any beat referenced by moves[].beatIds or any beat with dialogue; MOVES and Dialogue presentation must also use separate beats. Use dedicated untagged dialogue-free anime beats.
-- Validate the exact final V1 JSON against CURRENT schema and canonical Unity STRICT Candidate Lint before delivering when Unity is available; require PASS with zero blockers and zero authoring repairs. For SIMPLE_MOVE_ROLE_REQUIREMENT and SIMPLE_MOVE_RELATIONSHIP / MOVE_CINEMATIC_SIGNATURE failures fix actual roles, motions, trajectories, spacing, subject/target continuity and camera behavior, NOT the MOVE labels. Rerun lint after edits.
+- Validate the final V1 JSON with Candidate Lint when Unity is available, deliver recoverable diagnostics, and retain exact original source alongside the editable placeholder result. For SIMPLE_MOVE_ROLE_REQUIREMENT and SIMPLE_MOVE_RELATIONSHIP / MOVE_CINEMATIC_SIGNATURE failures fix actual roles, motions, trajectories, spacing, subject/target continuity and camera behavior, NOT the MOVE labels. Rerun lint after edits.
 - Report distinct evidence for schema PASS, Strict Lint PASS, Build PASS, runtime PASS and rendered visual QA PASS. Never claim the film works because it parses or because its captions name all 53 moves.
 
 ## Three independent film systems: MOVES / ANIME_EMOTION / DIALOGUE
@@ -336,7 +345,7 @@ MOVES are world animation, camera, actions, shooting and physical ship hit effec
 
 Authoritative art folder (and ONLY art source for this system): `Assets/_Game/MY_Core/MY_Art/ANIME_EMOTION/STARWARS_DELTA_ANIME_EMOTIONS_V1/`. The art and Sprite slicing are owned by another agent: never alter their PNG files, texture importers, sprite rectangles or `.meta` files here. Each separately sliced face/expression is its own catalog entry; a PNG sheet's different expressions must NOT be played in sequence as animation frames. Select only an actual Sprite subasset, never a guessed sheet filename or a dialogue portrait. Its stable identity is Unity asset GUID plus sprite local file ID.
 
-Editor preview setup: `STARWARS DELTA/Cinematics/ANIME_EMOTION/Open Library` lets a director select a generated cutscene root, a real sliced expression, and an exact start time/duration; `Show Catalog` lists the available entries. The visual layer is `MY_AnimeReactionCutaway`, independent of dialogue, MOVES, hit damage and authoring scene geometry. V1 source supports optional root `animeEmotion[]` in the matching updated schema only. Each item uses exact `characterId`, uppercase `expression`, `startSeconds`, optional `durationSeconds` (default 4s, legal 0.1..6s), optional `layout`, framing/zoom/angle/offset/background fields, and optional anime-only `motionStyle` + `motionAmount`. Layout is manifest-gated: BODY_ONLY/BODY_PLUS_SMALL_PORTRAIT require `safeToAssemble=true`; the current four V1 characters are portrait-only and HAND/TORSO are unavailable until safe modular art is published. Example: `{"characterId":"ANIME_SPACE_PILOT_01","expression":"SHOCKED","framing":"CLOSE","layout":"PORTRAIT_ONLY","startSeconds":4.1,"durationSeconds":4.2,"motionStyle":"IMPACT_SHAKE"}`. This is silent and does not require dialogue or change MOVES. Use exact names from the same published ANIME_EMOTION catalog; invented, missing, ambiguous or overlapping expressions are blocking errors. Unity maps the selected sprite to its stable GUID:localFileId before building the candidate. The layer is materialized before candidate validation. Do not call anime complete until actual rendered frames at start/middle/end of every insert pass visual QA.
+Editor preview setup: `STARWARS DELTA/Cinematics/ANIME_EMOTION/Open Library` lets a director select a generated cutscene root, a real sliced expression, and an exact start time/duration; `Show Catalog` lists the available entries. The visual layer is `MY_AnimeReactionCutaway`, independent of dialogue, MOVES, hit damage and authoring scene geometry. V1 source supports optional root `animeEmotion[]` in the matching updated schema only. Each item uses exact `characterId`, uppercase `expression`, `startSeconds`, optional `durationSeconds` (default 4s, legal 0.1..6s), optional `layout`, framing/zoom/angle/offset/background fields, and optional anime-only `motionStyle` + `motionAmount`. Layout is manifest-gated: BODY_ONLY/BODY_PLUS_SMALL_PORTRAIT require `safeToAssemble=true`; the current four V1 characters are portrait-only and HAND/TORSO are unavailable until safe modular art is published. Example: `{"characterId":"ANIME_SPACE_PILOT_01","expression":"SHOCKED","framing":"CLOSE","layout":"PORTRAIT_ONLY","startSeconds":4.1,"durationSeconds":4.2,"motionStyle":"IMPACT_SHAKE"}`. This is silent and does not require dialogue or change MOVES. Use exact names from the same published ANIME_EMOTION catalog; invented, missing, ambiguous or overlapping expressions are nonblocking diagnostics with a visible static/timed fallback. Unity maps the selected sprite to its stable GUID:localFileId before building the candidate. The layer is materialized before candidate validation. Do not call anime complete until actual rendered frames at start/middle/end of every insert pass visual QA.
 
 ## Dialogue
 

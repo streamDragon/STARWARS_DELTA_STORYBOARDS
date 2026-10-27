@@ -1,65 +1,515 @@
 {
   "schema": "STARWARS_DELTA_ANIMATION_COVERAGE",
   "schemaVersion": 1,
-  "publishTransactionId": "20261020-040324592-9f3fa147",
+  "publishTransactionId": "20261027-120203466-8f8bdfa9",
   "selectionScope": "COMPACT_AUTHORING",
-  "sourceCount": 120,
-  "accountedCount": 120,
-  "directAuthorableAnimationCount": 79,
+  "sourceCount": 490,
+  "accountedCount": 490,
+  "directAuthorableAnimationCount": 292,
   "directTechnicalStatusCounts": {
-    "SIMPLE_ROOT_SPRITE_SEQUENCE": 79,
-    "COMPLEX_OR_UNSUPPORTED": 41
+    "SIMPLE_ROOT_SPRITE_SEQUENCE": 292,
+    "COMPLEX_OR_UNSUPPORTED": 198
   },
   "directAuthoringPolicy": "Direct simple-Sprite Animation materials are authorable independently of Actor ownership when the catalog routes them to Animation. Unsafe/sample-only records remain excluded. Preview and semantic facets describe selection quality, not ownership permission.",
   "visualStatusCounts": {
-    "VISUALIZATION_FAILED": 119,
-    "VISUALIZED": 1
+    "NON_VISUAL_BY_DESIGN": 105,
+    "VISUALIZATION_FAILED": 83,
+    "VISUALIZED": 302
   },
   "semanticStatusCounts": {
-    "FACETS_ONLY": 31,
-    "SEMANTIC_PROVEN": 83,
-    "SEMANTIC_UNRESOLVED": 6
+    "FACETS_ONLY": 259,
+    "SEMANTIC_PROVEN": 134,
+    "SEMANTIC_UNRESOLVED": 97
   },
   "gaps": [
     {
-      "assetId": "fad559c80d123a147a954696ecc58eea:7400000",
-      "displayName": "enemy animation",
-      "path": "Assets/1MyAnimations/enemy-animation.anim",
+      "assetId": "463813f98877c0346847256dd8a1f61b:7400000",
+      "displayName": "FLASH TEXT ANIM",
+      "path": "Assets/1MyAnimations/FLASH_TEXT_ANIM.anim",
       "codes": [
-        "PREVIEW_RENDER_FAILED"
+        "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "f96d7a090ce2a9247a4f946660ebbaff:7400000",
+      "displayName": "New Animation",
+      "path": "Assets/1MyAnimations/New Animation.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
       "assetId": "46027a2cf373b1742b628fa68f5e7036:7400000",
       "displayName": "Player Animation",
       "path": "Assets/1MyAnimations/Player-Animation.anim",
       "codes": [
-        "PREVIEW_RENDER_FAILED",
         "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
-      "assetId": "8e9df5a2c7901d140bbc9e98c0557138:7400000",
-      "displayName": "PlayerIdle",
-      "path": "Assets/PhysicsExamples2D-2022/Assets/Animations/PlayerIdle.anim",
+      "assetId": "bad722694ee99cf4cb314ce969095c47:7400000",
+      "displayName": "IdleDown",
+      "path": "Assets/1MyAnimations/PlayerAnimations/Player/IdleDown.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "3255531c9255a204bb0c78705b3b68fe:7400000",
+      "displayName": "IdleLeft",
+      "path": "Assets/1MyAnimations/PlayerAnimations/Player/IdleLeft.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "8f7928594d9dbe74ab7849fd2737317a:7400000",
+      "displayName": "IdleUp",
+      "path": "Assets/1MyAnimations/PlayerAnimations/Player/IdleUp.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "403bf5bb078ae454db625465bf4f1025:7400000",
+      "displayName": "WalkingDown",
+      "path": "Assets/1MyAnimations/PlayerAnimations/Player/WalkingDown.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "af6ae03ccbe2c0d4d9ec642e80659975:7400000",
+      "displayName": "WalkingLeft",
+      "path": "Assets/1MyAnimations/PlayerAnimations/Player/WalkingLeft.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "2e63b5d4df4562046a56191c7c0b342b:7400000",
+      "displayName": "WalkingRight",
+      "path": "Assets/1MyAnimations/PlayerAnimations/Player/WalkingRight.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "73a978eababf7eb43bbdc0d7be660f7d:7400000",
+      "displayName": "WalkingUp",
+      "path": "Assets/1MyAnimations/PlayerAnimations/Player/WalkingUp.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "26b0a5d5fcb7aa94d97c40259f136fb8:7400000",
+      "displayName": "shield",
+      "path": "Assets/1MyAnimations/shield.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "88faa751eed0c034383860f691f52d15:7400000",
+      "displayName": "Shot Animation",
+      "path": "Assets/1MyAnimations/Shot-Animation.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "089a777cd2a4d4c45a8f37f136f3ee89:7400000",
+      "displayName": "spaceship1",
+      "path": "Assets/1MyAnimations/spaceship1.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "8c816be0e23d26c4ba1eb8014259c841:7400000",
+      "displayName": "spaceship2",
+      "path": "Assets/1MyAnimations/spaceship2.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "94c7bb094078f4b4f81809d7b66b96f7:7400000",
+      "displayName": "spaceship3",
+      "path": "Assets/1MyAnimations/spaceship3.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "0688deb38188fe441951f0f90773b97c:7400000",
+      "displayName": "spaceship4",
+      "path": "Assets/1MyAnimations/spaceship4.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "c263774f785f7de46a5a905192a87524:7400000",
+      "displayName": "spaceship5",
+      "path": "Assets/1MyAnimations/spaceship5.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "f3ac88a53086a2b449859d46a2c0693c:7400000",
+      "displayName": "spaceship6",
+      "path": "Assets/1MyAnimations/spaceship6.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "6df5be591ec7925428e5608c4c7924e2:7400000",
+      "displayName": "spaceship7",
+      "path": "Assets/1MyAnimations/spaceship7.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "c6ee35abbcdcbad428e44a80f4c54591:7400000",
+      "displayName": "spaceship8",
+      "path": "Assets/1MyAnimations/spaceship8.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "19453a901234f3740a8acac5502c5ba8:7400000",
+      "displayName": "PressAnyKeyAnim",
+      "path": "Assets/1MyAnimations/UI_ANIMS/PressAnyKeyAnim.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "c18b00d659cf0794aabe7420579dc266:7400000",
+      "displayName": "BulletAnim",
+      "path": "Assets/Animations/BulletAnim.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "553aa9740f2fcce5395b77360163f228:7400000",
+      "displayName": "down",
+      "path": "Assets/Animations/PlayerShip/down.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "d949d94ee88cf9ea1b1b04362a3919a6:7400000",
+      "displayName": "up",
+      "path": "Assets/Animations/PlayerShip/up.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "6a6618885c3ef7b498aa677754a2e752:7400000",
+      "displayName": "WarningAnim",
+      "path": "Assets/Animations/WarningAnim.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "3de728f5ac5ae0e429dfffd15a2beee7:7400000",
+      "displayName": "dangersighn",
+      "path": "Assets/dangersighn.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "1a75f6d217acfc44d8d2c683f7239300:7400000",
+      "displayName": "AnimClip NumberDisplay Sequence",
+      "path": "Assets/FX/NumberDisplay/Animation/AnimClip_NumberDisplay_Sequence.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "c5667a58aeddeb64b92537173886fc86:7400000",
+      "displayName": "Shake",
+      "path": "Assets/Hovl Studio/HSFiles/Animations/Shake.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "55cde45656077aa49a744ac54372a169:7400000",
+      "displayName": "tip hi",
+      "path": "Assets/tip_hi.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "ee7104d2ffb92f84a9d1ac3411c1c12f:7400000",
+      "displayName": "Closed",
+      "path": "Assets/Unity UI Samples/Animation/MainMenu/Closed.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "e18126576915f8146af49e3910b4809f:7400000",
+      "displayName": "Closed",
+      "path": "Assets/Unity UI Samples/Animation/Panel/Closed.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "e7b4b73a0b041314f856b13bf63f0b84:7400000",
+      "displayName": "Closing",
+      "path": "Assets/Unity UI Samples/Animation/Panel/Closing.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "13d48294147f7454e9ca4e4d075bcd04:7400000",
+      "displayName": "Rotation",
+      "path": "Assets/Unity UI Samples/Animation/Rotation.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "80ddf32a802416047aba2ba7b4872768:7400000",
+      "displayName": "Closed",
+      "path": "Assets/Unity UI Samples/Animation/Settings/Closed.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "1dd721783079b8a42b7070a7351c0f3b:7400000",
+      "displayName": "ChangeColor BULLET CLIP",
+      "path": "Assets/_Game/MY_Core/MY_Animations/ChangeColor_BULLET_CLIP.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "06e616e784bb4534eb3ac4237d86fdaa:7400000",
+      "displayName": "HiBlast",
+      "path": "Assets/_Game/MY_Core/MY_Animations/Lasers/HiBlast.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "3800b13b9c048df46a3f91e624254c3b:7400000",
+      "displayName": "HiMain",
+      "path": "Assets/_Game/MY_Core/MY_Animations/Lasers/HiMain.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "867e4e1ad8ed1b54189b8046e1ef4d7b:7400000",
+      "displayName": "HiStart",
+      "path": "Assets/_Game/MY_Core/MY_Animations/Lasers/HiStart.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "c00ce20d50614ca45843fb9b9c37da3d:7400000",
+      "displayName": "HiTip",
+      "path": "Assets/_Game/MY_Core/MY_Animations/Lasers/HiTip.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "7153f60c93266364ea443e1de810dcc7:7400000",
+      "displayName": "LoBlast",
+      "path": "Assets/_Game/MY_Core/MY_Animations/Lasers/LoBlast.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "69999f4d9039bb349ba43e14d9e63e73:7400000",
+      "displayName": "LoMain",
+      "path": "Assets/_Game/MY_Core/MY_Animations/Lasers/LoMain.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "d0f1f588a6548d44889ac8fa39db1c0d:7400000",
+      "displayName": "LoStart",
+      "path": "Assets/_Game/MY_Core/MY_Animations/Lasers/LoStart.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "732cee827638d0b4981e0f453bcca47b:7400000",
+      "displayName": "LoTip",
+      "path": "Assets/_Game/MY_Core/MY_Animations/Lasers/LoTip.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "f8e3c21bffdada140b82d70ffb16b546:7400000",
+      "displayName": "WarningAnim 1",
+      "path": "Assets/_Game/MY_Core/MY_Animations/New Folder/WarningAnim 1.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "5cfe78df96223084489879b925237aff:7400000",
+      "displayName": "WarningAnim",
+      "path": "Assets/_Game/MY_Core/MY_Animations/New Folder/WarningAnim.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "0ccb59fd9c884204fba0ed91c6dd68e4:7400000",
+      "displayName": "FlyingUp",
+      "path": "Assets/_Game/MY_Core/MY_Animations/Player/FlyingUp.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
     },
     {
-      "assetId": "7d5d9ccf46478824fa66e58e364cecd5:7400000",
-      "displayName": "Player Flying down",
-      "path": "Assets/_Game/MY_Core/MY_Animations/Player/Player_Flying_down.anim",
+      "assetId": "7e9304ca4c06e37458d4d92752ac1c23:7400000",
+      "displayName": "IdleDown",
+      "path": "Assets/_Game/MY_Core/MY_Animations/Player/IdleDown.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
+    },
+    {
+      "assetId": "febfa859bf5911d4eb908b75fdf0583d:7400000",
+      "displayName": "IdleLeft",
+      "path": "Assets/_Game/MY_Core/MY_Animations/Player/IdleLeft.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
+    },
+    {
+      "assetId": "477271c9808cb0c40b040148c838d528:7400000",
+      "displayName": "IdleRight",
+      "path": "Assets/_Game/MY_Core/MY_Animations/Player/IdleRight.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
     },
     {
@@ -74,14 +524,267 @@
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
-      "assetId": "4b945d31c5bcf624cba9936a2edb57cd:7400000",
-      "displayName": "satelite anim",
-      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/satelite_anim.anim",
+      "assetId": "865a76f65b8753e488a6c1d0a76f0b65:7400000",
+      "displayName": "TURRET 2",
+      "path": "Assets/_Game/MY_Core/MY_Art/3D_TURRET/TURRET_2.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED",
         "SEMANTIC_UNRESOLVED"
       ],
       "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "0a76c1a4cabfbb441b52cafb67fee934:7400000",
+      "displayName": "TURRET CHATGPT BUILDING LOOP",
+      "path": "Assets/_Game/MY_Core/MY_Art/3D_TURRET/TURRET_CHATGPT_BUILDING_LOOP.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED",
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "b6614033b7fbd13438a082f8db4b260c:7400000",
+      "displayName": "ROBOT2 BOUNCE",
+      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/ANIM_DGR/ROBOT2_BOUNCE.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "d5d4826c867dbcf45b62af2c15b82810:7400000",
+      "displayName": "SAUCER3",
+      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/ANIM_DGR/SAUCER3.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "c396ea1a0035dcb4a9ff434fbebd06fa:7400000",
+      "displayName": "SAUCER 2",
+      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/ANIM_DGR/SAUCER_2.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "c19bdb7a1e8261f42abded6e6417dc7e:7400000",
+      "displayName": "blob anim",
+      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/blob_anim.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "a53ad55b12911e14a8a5b6a118a48d01:7400000",
+      "displayName": "Bot Anim",
+      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/Bot_Anim.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "d2177e221d382a840bba1e872bf78687:7400000",
+      "displayName": "bomb2 anim",
+      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/D_EXPLOSIONS/bomb2 anim.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "0f5a075447d64e04c98fbb41aa2e2ed3:7400000",
+      "displayName": "explsbullet anim",
+      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/explsbullet anim.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "43feb5c6bc26f0646af3d6821f1f7915:7400000",
+      "displayName": "flameBG anim",
+      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/flameBG_anim.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "786dfab25f238de4d8c41303a54ccb5a:7400000",
+      "displayName": "gold fish  Animation",
+      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/gold fish  Animation.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "f5d0113f3ce8d374f84c83a9bb7b9633:7400000",
+      "displayName": "round turret",
+      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/round_turret.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "4b945d31c5bcf624cba9936a2edb57cd:7400000",
+      "displayName": "satelite anim",
+      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/satelite_anim.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "d80c6552c70f5c04a90416eeb7ff3644:7400000",
+      "displayName": "small spaceship anim",
+      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/small spaceship anim.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "aecb40aeb6e4f444aa5f9b46ac17d97c:7400000",
+      "displayName": "small spaceship anim",
+      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/small_spaceship anim.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED",
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "568a9b2bc243e9f4f9bae2c09a771a74:7400000",
+      "displayName": "turret2 anim",
+      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/turret2 anim.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED",
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "3b399f87f5608cd4e9b2871064487e74:7400000",
+      "displayName": "turret 3ANIM",
+      "path": "Assets/_Game/MY_Core/MY_Art/DGraphics/turret_3ANIM.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "ba5d6068834d3e74187d43e21256fc14:7400000",
+      "displayName": "Start Walking Blue Robot",
+      "path": "Assets/_Game/MY_Core/MY_Art/Gradious/Start_Walking_Blue_Robot.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "2a5598fafdf18c24eacdf82f354c1612:7400000",
+      "displayName": "Tank gradious 1",
+      "path": "Assets/_Game/MY_Core/MY_Art/Gradious/Tank_gradious_1.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "cc53c6f9f18a2404bb4bbdd7b1649faa:7400000",
+      "displayName": "Walking Blue Robot",
+      "path": "Assets/_Game/MY_Core/MY_Art/Gradious/Walking_Blue_Robot.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "b28f63dcb5d642d9a9a4f7b34ba351d7:7400000",
+      "displayName": "DanteFighter Climb",
+      "path": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D/Animations/DanteFighter_Climb.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "cf96ca0f2fd04355b3e88c25b474c5f8:7400000",
+      "displayName": "DanteFighter Dive",
+      "path": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D/Animations/DanteFighter_Dive.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "e6239244132b4762a1c97a66d2e1864b:7400000",
+      "displayName": "DanteFighter SpecialActions",
+      "path": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D/Animations/DanteFighter_SpecialActions.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "b5d77b013dd9c1740ab26f792e348b3c:7400000",
+      "displayName": "DanteFighter Climb",
+      "path": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D_dst/Animations/DanteFighter_Climb.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "dd99ad0ffb0a452478e880ebbd4e740d:7400000",
+      "displayName": "DanteFighter Dive",
+      "path": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D_dst/Animations/DanteFighter_Dive.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "04a1629a47f83ac499300fcd4b332b72:7400000",
+      "displayName": "DanteFighter SpecialActions",
+      "path": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D_dst/Animations/DanteFighter_SpecialActions.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
@@ -89,10 +792,9 @@
       "displayName": "StarSparrow18 DanteRuntimeLoop",
       "path": "Assets/_Game/MY_Core/MY_Art/Ships/StarSparrow_Baked2D/Animations/StarSparrow18_DanteRuntimeLoop.anim",
       "codes": [
-        "PREVIEW_RENDER_FAILED",
         "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
@@ -100,1121 +802,880 @@
       "displayName": "StarSparrow7 DanteRuntimeLoop",
       "path": "Assets/_Game/MY_Core/MY_Art/Ships/StarSparrow_Baked2D/Animations/StarSparrow7_DanteRuntimeLoop.anim",
       "codes": [
-        "PREVIEW_RENDER_FAILED",
         "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
-      "assetId": "d8f1e6fe6798fa64ba89b6591b4ef66b:7400000",
-      "displayName": "Die",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_01/Die.anim",
+      "assetId": "0e4f6ced35eec00499df8f939b56bec4:7400000",
+      "displayName": "VHICLE2",
+      "path": "Assets/_Game/MY_Core/MY_Art/sprites/vehicle 2/frames/VHICLE2.anim",
       "codes": [
-        "PREVIEW_RENDER_FAILED"
+        "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
-      "assetId": "20d4be6775b86dd4f8bc76246e4843ca:7400000",
-      "displayName": "Hit",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_01/Hit.anim",
+      "assetId": "3b2209dc0002be84587b8a764540e327:7400000",
+      "displayName": "vehicle 3",
+      "path": "Assets/_Game/MY_Core/MY_Art/sprites/vehicle 3/vehicle-3.anim",
       "codes": [
-        "PREVIEW_RENDER_FAILED"
+        "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
-      "assetId": "db800050894f8c840b1ed53c9ed59583:7400000",
-      "displayName": "Idle",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_01/Idle.anim",
+      "assetId": "1e7b96c7fe08d7d4389b3acd0b2198ba:7400000",
+      "displayName": "ANIM CameraPush",
+      "path": "Assets/_Game/MY_Core/MY_Cutscenes/CutsceneLab/Generated/ANIM_CameraPush.anim",
       "codes": [
-        "PREVIEW_RENDER_FAILED"
+        "SEMANTIC_UNRESOLVED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
-      "assetId": "b17fd7651e2d9f149b7d038a92e09e5a:7400000",
-      "displayName": "Interacting",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_01/Interacting.anim",
+      "assetId": "fe0f625c8adda5d44abe18e0b4914d8d:7400000",
+      "displayName": "ANIM Camera Action",
+      "path": "Assets/_Game/MY_Core/MY_Cutscenes/CutsceneLab/Generated/ANIM_Camera_Action.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "14e5761e1b9cb6e4bb64aa09747579aa:7400000",
+      "displayName": "ANIM Camera Handoff",
+      "path": "Assets/_Game/MY_Core/MY_Cutscenes/CutsceneLab/Generated/ANIM_Camera_Handoff.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "4ecbcd5728104464a953d11a1b1adab8:7400000",
+      "displayName": "ANIM Camera Shake",
+      "path": "Assets/_Game/MY_Core/MY_Cutscenes/CutsceneLab/Generated/ANIM_Camera_Shake.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "efcbc843a898b90429acc3614add66d5:7400000",
+      "displayName": "ANIM Enemy Crossing",
+      "path": "Assets/_Game/MY_Core/MY_Cutscenes/CutsceneLab/Generated/ANIM_Enemy_Crossing.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "a7ab5ced18c88db4883e401c915592c1:7400000",
+      "displayName": "ANIM EscortShip",
+      "path": "Assets/_Game/MY_Core/MY_Cutscenes/CutsceneLab/Generated/ANIM_EscortShip.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "62ddd5cb83abc554b9833665951281d2:7400000",
+      "displayName": "ANIM EvacuationShip",
+      "path": "Assets/_Game/MY_Core/MY_Cutscenes/CutsceneLab/Generated/ANIM_EvacuationShip.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "1c87a1c8edf7fd54489f8b57afa2f3dc:7400000",
+      "displayName": "ANIM FadeIn",
+      "path": "Assets/_Game/MY_Core/MY_Cutscenes/CutsceneLab/Generated/ANIM_FadeIn.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "5162e96ba7972e2438a1ce8aa20c4237:7400000",
+      "displayName": "ANIM Mission",
+      "path": "Assets/_Game/MY_Core/MY_Cutscenes/CutsceneLab/Generated/ANIM_Mission.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "01fb71eef61c1524f84cf0e1124614b1:7400000",
+      "displayName": "ANIM Parallax City",
+      "path": "Assets/_Game/MY_Core/MY_Cutscenes/CutsceneLab/Generated/ANIM_Parallax_City.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "6fa31b58152a75748823d3072917db15:7400000",
+      "displayName": "ANIM Parallax Sky",
+      "path": "Assets/_Game/MY_Core/MY_Cutscenes/CutsceneLab/Generated/ANIM_Parallax_Sky.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "72d21ae3b604c434dabdf31f535b34b0:7400000",
+      "displayName": "ANIM Population",
+      "path": "Assets/_Game/MY_Core/MY_Cutscenes/CutsceneLab/Generated/ANIM_Population.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "0b0941c72978c784e8d412a09aaff98a:7400000",
+      "displayName": "ANIM Radio UI",
+      "path": "Assets/_Game/MY_Core/MY_Cutscenes/CutsceneLab/Generated/ANIM_Radio_UI.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "dc99e6d64512e9e43874530dfff8a4b3:7400000",
+      "displayName": "ANIM Title",
+      "path": "Assets/_Game/MY_Core/MY_Cutscenes/CutsceneLab/Generated/ANIM_Title.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "0721ee214f88da54eac022f80238cbbe:7400000",
+      "displayName": "Bubble Bubble 16 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Bubble_Bubble_16_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "69453569fa917af409cd18d34846fa79:7400000",
-      "displayName": "Jump",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_01/Jump.anim",
+      "assetId": "9f19492cf8e1cd1409d64db19803fb8a:7400000",
+      "displayName": "color Arrow Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Arrow_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "9c20392149f169947a1ee95c60a57f48:7400000",
-      "displayName": "Run",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_01/Run.anim",
+      "assetId": "cdc2f962a08f3b44f9f9a15872e66e4f:7400000",
+      "displayName": "color Axe Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Axe_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "14fd4d89f0a230b40868ef3a6b8530f1:7400000",
-      "displayName": "Walk",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_01/Walk.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "1bad9f84d8109a74dbb24672b987a846:7400000",
-      "displayName": "Death",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_02/Death.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "658bbf7b8e67950449fe9ebe59dea74c:7400000",
-      "displayName": "Hit",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_02/Hit.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "051fb95f883116343b501ebb76524eec:7400000",
-      "displayName": "Idle",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_02/Idle.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "1efc83532cbf74248bac6ac6d1199786:7400000",
-      "displayName": "Interacting",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_02/Interacting.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "df7d17c025e99214fbbd1ec7ac2ebc66:7400000",
-      "displayName": "Jump",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_02/Jump.anim",
+      "assetId": "76a17aee46775d84fb7b7f79db07b871:7400000",
+      "displayName": "color Boomerang Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Boomerang_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "6e0a5480cc4ac6240afa1eed1bfbe9d0:7400000",
-      "displayName": "Run",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_02/Run.anim",
+      "assetId": "f95c11c118554dc478e7431cca8c248f:7400000",
+      "displayName": "color Cluster Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Cluster_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "36f41380e06ad764cad7acffdec10c20:7400000",
-      "displayName": "Walk",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_02/Walk.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "f9767c050b9412b4d9e23a5dd7a5014b:7400000",
-      "displayName": "Death",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_03/Death.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "0bf9e03eb92073845a88e037a6e0b272:7400000",
-      "displayName": "Hit",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_03/Hit.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "2ecce89aa7b6d6c42b1bae4f10e66aa6:7400000",
-      "displayName": "Idle",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_03/Idle.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "0d0b78255b1f44e4b9bf10ead016e7f4:7400000",
-      "displayName": "Interacting",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_03/Interacting.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "aea7936c507971f45af2d1485d60f613:7400000",
-      "displayName": "Jump",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_03/Jump.anim",
+      "assetId": "646bd8c0ae1e36241ab50f7b175d034f:7400000",
+      "displayName": "color Comet Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Comet_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "d669d8de6dcf4b1439f7c7ac8f1e1ffe:7400000",
-      "displayName": "Run",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_03/Run.anim",
+      "assetId": "0ffc7a189717391459568c75fc36450f:7400000",
+      "displayName": "color Cross Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Cross_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "a0337d34febd1064abd69c182acfd08c:7400000",
-      "displayName": "Walk",
-      "path": "Assets/Doctor_Pack02/Animation/Doctor_03/Walk.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "86ad0f89df16740b6af8896f4620cde7:7400000",
-      "displayName": "enemy animation",
-      "path": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/enemy/enemy-animation.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "2a4809e6345f943788fc569a7723f6b2:7400000",
-      "displayName": "Player Animation",
-      "path": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/player/Player-Animation.anim",
+      "assetId": "e1b1f4e4b0519ab42b2972a7d2b771c2:7400000",
+      "displayName": "color Diamond Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Diamond_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "f279de512eae9fe4b9bab7c725631a18:7400000",
-      "displayName": "Player Flying down",
-      "path": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/player/Player_Flying_down.anim",
+      "assetId": "a85d837e5d38f2e4995cf1b77bbf3b5b:7400000",
+      "displayName": "color Donut Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Donut_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "c8f47d52273b84748b2b0f95855475cc:7400000",
-      "displayName": "SpaceRobot01 Damage",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Damage.anim",
+      "assetId": "45471c862658a534eb1d73be57137c9d:7400000",
+      "displayName": "color Flame Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Flame_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
       "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "f845510b253ef724e8f9e09366013735:7400000",
-      "displayName": "SpaceRobot01 Deactivation",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Deactivation.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "9d771ed1b2c3ce040ba41e876ca602ef:7400000",
-      "displayName": "SpaceRobot01 Launch",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Launch.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "a1a492fcbc7256c4fb9efbe0519f0b90:7400000",
-      "displayName": "SpaceRobot01 Shield Stance",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Shield_Stance.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "1be2504c8872c9c409d220b6afba1704:7400000",
-      "displayName": "SpaceRobot01 Shield Stance End",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Shield_Stance_End.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "5299599cecd75a04a9d924c697b8d1e6:7400000",
-      "displayName": "SpaceRobot01 Shield Stance Shoot",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Shield_Stance_Shoot.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "4d1d147c2bc1e9b47bf477dee2c7066d:7400000",
-      "displayName": "SpaceRobot01 Shoot Hands End",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Shoot_Hands_End.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "45e9444f683f69f43a93ba5a943ead78:7400000",
-      "displayName": "SpaceRobot01 Shoot Hands Loop",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Shoot_Hands_Loop.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "a1d9fab0961fa7c4ba525b4c2c99bfef:7400000",
-      "displayName": "SpaceRobot01 Shoot Hands Start",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Shoot_Hands_Start.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "2bc4738881a3d2e4b9899052c88fdaa2:7400000",
-      "displayName": "SpaceRobot01 Shoot Rockets",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Shoot_Rockets.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "ac2e13b55f1b0f04c9a953c15eb51335:7400000",
-      "displayName": "SpaceRobot01 Walk End",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Walk_End.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "bafb826466c710c4c98f45d390b30842:7400000",
-      "displayName": "SpaceRobot01 Walk Loop",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Walk_Loop.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "09298d15f9b6c814387a688c1fbdd55d:7400000",
-      "displayName": "SpaceRobot01 Walk Start",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Walk_Start.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "bce876d84ec93414a993c28285a338d4:7400000",
-      "displayName": "SpaceRobot02 Damage",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Damage.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "4dcea73569ad2e348950899ead7c81a2:7400000",
-      "displayName": "SpaceRobot02 Deactivation",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Deactivation.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "e17fe68a9bed8634d81eda06f6f9b865:7400000",
-      "displayName": "SpaceRobot02 Launch",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Launch.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "4cfc150d41279704c8f64dab03d7f8a2:7400000",
-      "displayName": "SpaceRobot02 Shield Stance",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Shield_Stance.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "eb96c7251303aa44898a1f0ff233e7b9:7400000",
-      "displayName": "SpaceRobot02 Shield Stance End",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Shield_Stance_End.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "99970fe6265d9d54fb068a79177e65f0:7400000",
-      "displayName": "SpaceRobot02 Shoot Hands End",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Shoot_Hands_End.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "26e1aa42222e53141b80e4f1c933adc9:7400000",
-      "displayName": "SpaceRobot02 Shoot Hands Loop",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Shoot_Hands_Loop.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "04d3c115b07218a4d8022abbfc7badf3:7400000",
-      "displayName": "SpaceRobot02 Shoot Hands Start",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Shoot_Hands_Start.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "7032965321dc4ad48a1c8a393a80c01b:7400000",
-      "displayName": "SpaceRobot02 Walk End",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Walk_End.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "6e34eb8fdef5c8c4c83ea56017ce4af9:7400000",
-      "displayName": "SpaceRobot02 Walk Loop",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Walk_Loop.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "657bcde71c34c2746bf5652c0bc1749b:7400000",
-      "displayName": "SpaceRobot02 Walk Start",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Walk_Start.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "7a9b381cc44b98048a4eecd4c6b8b96c:7400000",
-      "displayName": "SpaceRobot03 Damage",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Damage.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "079a45b79a92b894895407ddf5d6cf42:7400000",
-      "displayName": "SpaceRobot03 Deactivation",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Deactivation.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "14d85607da1148341993cd941f655829:7400000",
-      "displayName": "SpaceRobot03 Launch",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Launch.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "af2dff9bd80e6044492019ff5793c9a4:7400000",
-      "displayName": "SpaceRobot03 Shield Stance",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Shield_Stance.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "b8550947653b31a438d0d074b0f96121:7400000",
-      "displayName": "SpaceRobot03 Shield Stance End",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Shield_Stance_End.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "9c5f173c6700cf74b97881286f0fc8dd:7400000",
-      "displayName": "SpaceRobot03 Shoot Hands End",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Shoot_Hands_End.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "2771667b4b7a0ca4eb71e6c0d41e04b8:7400000",
-      "displayName": "SpaceRobot03 Shoot Hands Loop",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Shoot_Hands_Loop.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "e104d5c6dde7ac64db95ced9de3fcc5b:7400000",
-      "displayName": "SpaceRobot03 Shoot Hands Start",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Shoot_Hands_Start.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "2d57f0499b5f4984297a8b9e77989e3d:7400000",
-      "displayName": "SpaceRobot03 Walk End",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Walk_End.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "66f3e66b9347e1941a0f4fad217bf346:7400000",
-      "displayName": "SpaceRobot03 Walk Loop",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Walk_Loop.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "621099c29f2becb4d8492e0e915c4747:7400000",
-      "displayName": "SpaceRobot03 Walk Start",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Walk_Start.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "1d8143c8bcc2d924c92e20d3b1883496:7400000",
-      "displayName": "SpaceRobot04 Damage",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Damage.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "547c83d4ac101bd4fa58f56418eef090:7400000",
-      "displayName": "SpaceRobot04 Deactivation",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Deactivation.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "b407d45d137f3174b9a89fe28949ee38:7400000",
-      "displayName": "SpaceRobot04 Launch",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Launch.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "d87c6dbd785d2534796a6a85225c9046:7400000",
-      "displayName": "SpaceRobot04 Shield Stance",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Shield_Stance.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "2ca3c2b19eb570e42aa493d10f801256:7400000",
-      "displayName": "SpaceRobot04 Shield Stance End",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Shield_Stance_End.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "134d349790a924141915eae135352860:7400000",
-      "displayName": "SpaceRobot04 Shoot Hands End",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Shoot_Hands_End.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "8ee1113ba81db3a49b468033514a8f23:7400000",
-      "displayName": "SpaceRobot04 Shoot Hands Loop",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Shoot_Hands_Loop.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "871a0b4efb81359428a09b33e45f8b92:7400000",
-      "displayName": "SpaceRobot04 Shoot Hands Start",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Shoot_Hands_Start.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "5925eb45077cd284cbe6174e101d061b:7400000",
-      "displayName": "SpaceRobot04 Walk End",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Walk_End.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "144f4d89ab521a6478845ab70a6f614f:7400000",
-      "displayName": "SpaceRobot04 Walk Loop",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Walk_Loop.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "4c3cf1868041f92458acdb87d36a939c:7400000",
-      "displayName": "SpaceRobot04 Walk Start",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Walk_Start.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "9bd072d9efded804f95589e0f51b98a8:7400000",
-      "displayName": "SpaceRobot05 Damage",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Damage.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "53f47c2534856dc4eb08d799207a8aa1:7400000",
-      "displayName": "SpaceRobot05 Deactivation",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Deactivation.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "0e4312cd67327bd4c8f58cd45193fc4e:7400000",
-      "displayName": "SpaceRobot05 Launch",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Launch.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "975d4b07131758d469fb493d0194d36c:7400000",
-      "displayName": "SpaceRobot05 Shield Stance",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shield_Stance.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "90f89f5c3e8f1ac419f8088b2082df12:7400000",
-      "displayName": "SpaceRobot05 Shield Stance End",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shield_Stance_End.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "bf86379257defb442925eaf66e7838e8:7400000",
-      "displayName": "SpaceRobot05 Shield Stance Shoot",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shield_Stance_Shoot.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "05a45364c2d99044bb8c9315beefa6c8:7400000",
-      "displayName": "SpaceRobot05 Shoot Hands End",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shoot_Hands_End.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "10308be73b7232641a6d42336ce08ba6:7400000",
-      "displayName": "SpaceRobot05 Shoot Hands Loop",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shoot_Hands_Loop.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "b3e8295de44f5f34896cde471252aeea:7400000",
-      "displayName": "SpaceRobot05 Shoot Hands Start",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shoot_Hands_Start.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "b8bce8dd8912a914598f75941f9a3975:7400000",
-      "displayName": "SpaceRobot05 Shoot Rockets",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Shoot_Rockets.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "4ba0d301940c3ef419a246f22aaf82fd:7400000",
-      "displayName": "SpaceRobot05 Walk End",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Walk_End.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "aa264875079af9d44834072a14bec422:7400000",
-      "displayName": "SpaceRobot05 Walk Loop",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Walk_Loop.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "535fe5a03b09052409c0ed91875b6f01:7400000",
-      "displayName": "SpaceRobot05 Walk Start",
-      "path": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Walk_Start.anim",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "d7ec835bc6925f74ea69d17ec3bf0119:-4730479466204472988",
-      "displayName": "Nautolan Ship   Battlecruiser Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/Aseprite/Nautolan Ship - Battlecruiser.aseprite",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "a061c417c7bd7ae4096b3354de05cfa7:-7131467842445305060",
-      "displayName": "Nautolan Ship   Bomber Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/Aseprite/Nautolan Ship - Bomber.aseprite",
+      "assetId": "e77c0a70d3e01c04cb2fd844f7ab1ee0:7400000",
+      "displayName": "color Flower Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Flower_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "d9bf78198f4f08049827a917d758aba9:1699345327761842024",
-      "displayName": "Nautolan Ship   Dreadnought Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/Aseprite/Nautolan Ship - Dreadnought.aseprite",
+      "assetId": "1f5263c73c5fdd345b9660673bc85736:7400000",
+      "displayName": "color Homing Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Homing_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "24a29d7aefd035b4dba1cdce1de88c06:973500001444083961",
-      "displayName": "Nautolan Ship   Fighter Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/Aseprite/Nautolan Ship - Fighter.aseprite",
+      "assetId": "0fb322c7abc8abd429b255b178ccdb93:7400000",
+      "displayName": "color Missile Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Missile_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "15d88be265474984393c6cbedc0dc642:4958091945749414629",
-      "displayName": "Nautolan Ship   Frigate Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/Aseprite/Nautolan Ship - Frigate.aseprite",
+      "assetId": "a1c4be30cb6b66e4aa9d0836deee6056:7400000",
+      "displayName": "color Octo Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Octo_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "4de0bc4beb6afdd439823432bee52257:-5459544787293971440",
-      "displayName": "Nautolan Ship   Scout Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/Aseprite/Nautolan Ship - Scout.aseprite",
+      "assetId": "7e7cbd16e13cb4547b63af125c5d39fb:7400000",
+      "displayName": "color Rail Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Rail_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "8e667a1454c831744bf929f52b2a0b45:8968304776707366589",
-      "displayName": "Nautolan Ship   Support Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/Aseprite/Nautolan Ship - Support.aseprite",
+      "assetId": "4b7fab8eedab9a845872ee4b8bee7f7a:7400000",
+      "displayName": "color Sickle Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Sickle_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "436d36e11caf13e4bb79355609e64f4d:856863630656513830",
-      "displayName": "Nautolan Ship   Torpedo Ship Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/Aseprite/Nautolan Ship - Torpedo Ship.aseprite",
+      "assetId": "0510464789b96b641b003e47124cc0c1:7400000",
+      "displayName": "color Sphere Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Sphere_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "519864aeaf477e049b631cc997e49aff:-5728174786386324976",
-      "displayName": "Nautolan Ship   Battlecruiser   Shield Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Battlecruiser - Shield.aseprite",
+      "assetId": "0240c7a6c150241489e294b3c2bd9318:7400000",
+      "displayName": "color StarBurst Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_StarBurst_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "ba485a25e1ff80940a3e23d4ce535cc1:633930132312202297",
-      "displayName": "Nautolan Ship   Bomber   Shield Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Bomber - Shield.aseprite",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "49037eaa6ae80ac449a613d98f9ea6d9:-671197839612582281",
-      "displayName": "Nautolan Ship   Dreadnought   Shield Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Dreadnought - Shield.aseprite",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "b79aa9c1bd197b2439affa793ab62681:3325289048018035101",
-      "displayName": "Nautolan Ship   Fighter   Shield Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Fighter - Shield.aseprite",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "d6ce2079df3c37c4b88c432cf2ef0f08:5162767186412572890",
-      "displayName": "Nautolan Ship   Frigate   Shield Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Frigate - Shield.aseprite",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "f69d7725d66bf8e498ef38ea03095652:-450284675636174923",
-      "displayName": "Nautolan Ship   Scout   Shield Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Scout - Shield.aseprite",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "31f4f5ac7805fc244997072014c6e73f:-284317974779316769",
-      "displayName": "Nautolan Ship   Torpedo Ship   Shield Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Torpedo Ship - Shield.aseprite",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
-      "semanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract."
-    },
-    {
-      "assetId": "1560ea936d7437141ae7d442fed88240:6712057059061845136",
-      "displayName": "Nautolan   Bomb Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Bomb.aseprite",
-      "codes": [
-        "PREVIEW_RENDER_FAILED"
-      ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "316ef3490a0455745982d5e6da211f81:-3556338021302022173",
-      "displayName": "Nautolan   Bullet Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Bullet.aseprite",
+      "assetId": "e3a3c1d6509ffbb4ab5238530d1f83e5:7400000",
+      "displayName": "color Star Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Star_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "53a6affd7e15a424da2604860c469cbf:-1074739700028658783",
-      "displayName": "Nautolan   Ray Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Ray.aseprite",
+      "assetId": "08785cea609e03d40865400aa40af8b5:7400000",
+      "displayName": "FireBall FireBall 32 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/FireBall_FireBall_32_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "7abf2bb443260284a8e431d8fede3beb:5001470675742164109",
-      "displayName": "Nautolan   Rocket Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Rocket.aseprite",
+      "assetId": "0b112421f1ef8444292b2ddb55b480bb:7400000",
+      "displayName": "grey Arrow Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Arrow_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "ab3982fb65d467f4993bfcaef9d9c202:6903600050961212432",
-      "displayName": "Nautolan   Spinning Bullet Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Spinning Bullet.aseprite",
+      "assetId": "1b1f19e267bdcfd4592a0ae376b9373b:7400000",
+      "displayName": "grey Axe Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Axe_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "c7d52c929c431ea459801beb60b4fa36:-7405274750417203283",
-      "displayName": "Nautolan   Wave Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Wave.aseprite",
+      "assetId": "24c2a781d465a38478a79f028976b1ea:7400000",
+      "displayName": "grey Boomerang Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Boomerang_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "14999e8745e5bd547a501b2044e6de70:-7975412309047416314",
-      "displayName": "Nautolan Ship   Battlecruiser   Weapons Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Battlecruiser - Weapons.aseprite",
+      "assetId": "7c095ac666a37944eb7d9f0707b4e2ec:7400000",
+      "displayName": "grey Cluster Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Cluster_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "d777fb452f2183a45b6cc31f492b81f2:785357716729361929",
-      "displayName": "Nautolan Ship   Dreadnought   Weapons Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Dreadnought - Weapons.aseprite",
+      "assetId": "0de63eede53faaf44a38d47e505a5bd5:7400000",
+      "displayName": "grey Comet Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Comet_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "7c84241963b98b94bad55664c49f0a94:284976500027296151",
-      "displayName": "Nautolan Ship   Fighter   Weapons Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Fighter - Weapons.aseprite",
+      "assetId": "22d1215bf7be1284da5f72755288ec72:7400000",
+      "displayName": "grey Cross Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Cross_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "2dc0c9277773e35479970ebabcd17f62:6385852548208323621",
-      "displayName": "Nautolan Ship   Frigate   Weapons Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Frigate - Weapons.aseprite",
+      "assetId": "b697e54a7e537e54bbb58f3e1bd40c0f:7400000",
+      "displayName": "grey Diamond Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Diamond_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "bde165a34b66def42ae843f224329d6a:1886723993829068709",
-      "displayName": "Nautolan Ship   Scout   Weapons Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Scout - Weapons.aseprite",
+      "assetId": "295847d54963768469aecd36dfc582bc:7400000",
+      "displayName": "grey Donut Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Donut_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "2045744723e86c745a14534eaf363c75:8323557825059234084",
-      "displayName": "Nautolan Ship   Torpedo Ship   Weapons Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Torpedo Ship - Weapons.aseprite",
+      "assetId": "ce202f016e2d13247a9a384ce1ab37ee:7400000",
+      "displayName": "grey Flame Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Flame_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
     },
     {
-      "assetId": "d3047a91c5d64b547a2c468cc06a309d:-5555771835393788929",
-      "displayName": "Nautolan   Ships Preview Clip",
-      "path": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/_Previews/Nautolan/Nautolan - Ships Preview.aseprite",
+      "assetId": "3d72330b31aee2e4db81735e422ac5ef:7400000",
+      "displayName": "grey Flower Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Flower_Loop.anim",
       "codes": [
         "PREVIEW_RENDER_FAILED"
       ],
-      "visualDiagnostic": "Sprite animation has frame samples but no usable preview.",
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
       "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "0125dac60888d92409997f605eb8effd:7400000",
+      "displayName": "grey Homing Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Homing_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "de37b4fc46c7f3848af15ed288a87ea6:7400000",
+      "displayName": "grey Missile Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Missile_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "0d7501cb101308a428f1f69dd0c32227:7400000",
+      "displayName": "grey Octo Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Octo_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "1a6fab5cc23469a42bdab536daaca5d9:7400000",
+      "displayName": "grey Rail Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Rail_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "f29e101b3797f394fbad560eb50bc8e6:7400000",
+      "displayName": "grey Sickle Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Sickle_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "8f32877d63541274db17a9520f116724:7400000",
+      "displayName": "grey Sphere Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Sphere_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "9513bc8b37b850541baf270e593683f0:7400000",
+      "displayName": "grey StarBurst Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_StarBurst_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "7df1f13c210502d439fa3ee3ca1fdc27:7400000",
+      "displayName": "grey Star Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/grey_Star_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "00eef1e50dde30d4dbbc2026b14cb746:7400000",
+      "displayName": "Mutating Mutate1 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Mutating_Mutate1_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "e7146bf2c5086744da48ae5369d57532:7400000",
+      "displayName": "Mutating Mutate2 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Mutating_Mutate2_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "f1760643375b6fe438be72addb4452a9:7400000",
+      "displayName": "Mutating Mutate3 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Mutating_Mutate3_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "07def840e92d4ce4b9313c2b6966b841:7400000",
+      "displayName": "Mutating MutateBloom Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Mutating_MutateBloom_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "4c7222d7327c6c34dbcb404d04257a01:7400000",
+      "displayName": "Pod Pod1 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pod_Pod1_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "6334ec3841d7b9245a79c8218102b384:7400000",
+      "displayName": "Pod Pod2 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pod_Pod2_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "8cccdf03b88133c4bbf6e1fda5e144dc:7400000",
+      "displayName": "Pod Pod3 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pod_Pod3_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "5f77c4dc3580b3c48a2a5c41314f9150:7400000",
+      "displayName": "Pod Pod4 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pod_Pod4_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "fe893b53bbb7fed498eb5fe96e1a0b20:7400000",
+      "displayName": "Pod Pod5 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pod_Pod5_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "82816dacb53e1c544baa26eb259e3b84:7400000",
+      "displayName": "Pod Pod6 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pod_Pod6_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "c6d49c0e7f0f0c64d9998fe0a3777965:7400000",
+      "displayName": "Pyramid Pyramid1 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pyramid_Pyramid1_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "d07ea0b822cb0164790febaf2803d8f5:7400000",
+      "displayName": "Pyramid Pyramid2 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pyramid_Pyramid2_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "d4dbd1c55d0bc2c43966fc2fee69895e:7400000",
+      "displayName": "Pyramid Pyramid3 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pyramid_Pyramid3_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "e97d8ac9d7e4bcb439b434156945e39a:7400000",
+      "displayName": "Pyramid Pyramid4 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pyramid_Pyramid4_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "3d524bc1bddd1b144aa84243b1c48fe7:7400000",
+      "displayName": "Pyramid Pyramid5 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pyramid_Pyramid5_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "5f6577844b4c89041b609997071450b7:7400000",
+      "displayName": "Pyramid Pyramid6 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Pyramid_Pyramid6_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "5c24db269d4205741967bb4a51491329:7400000",
+      "displayName": "SphereFlash Sphere Flash 128 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/SphereFlash_Sphere_Flash_128_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "c6b603c6d1209544591e8bff9ad96c77:7400000",
+      "displayName": "SphereFlash Sphere Flash 64 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/SphereFlash_Sphere_Flash_64_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "28194b468fea45342ade9454e5b2c780:7400000",
+      "displayName": "Torch TorchFlame 32 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Torch_TorchFlame_32_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "56715812c4f0ab149a001fd6f8e7709c:7400000",
+      "displayName": "Torch TorchFlame 64 Loop",
+      "path": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Torch_TorchFlame_64_Loop.anim",
+      "codes": [
+        "PREVIEW_RENDER_FAILED"
+      ],
+      "visualDiagnostic": "Sprite animation has no deterministic frame samples for preview.",
+      "semanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring."
+    },
+    {
+      "assetId": "6f1376463613b0d45ad49193e73fc33e:7400000",
+      "displayName": "Camera1",
+      "path": "Assets/_PKG/PKG_Free_2D_Handcrafted_Art/Animation/Camera1.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "c938ae8ace543254d8923913b17d703c:7400000",
+      "displayName": "Surface1",
+      "path": "Assets/_PKG/PKG_Free_2D_Handcrafted_Art/Animation/Surface1.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "3ac5c5e9918728443b58cfd41d6e1888:4098064819552006931",
+      "displayName": "Recorded (1)",
+      "path": "Assets/Carrier_PrefabTimeline.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "c454080d636f840038dc8f37941751b3:7400006",
+      "displayName": "Disabled",
+      "path": "Assets/Unity UI Samples/Animation/SF Button.controller",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "c454080d636f840038dc8f37941751b3:7400002",
+      "displayName": "Highlighted",
+      "path": "Assets/Unity UI Samples/Animation/SF Button.controller",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "c454080d636f840038dc8f37941751b3:7400000",
+      "displayName": "Normal",
+      "path": "Assets/Unity UI Samples/Animation/SF Button.controller",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "c454080d636f840038dc8f37941751b3:7400004",
+      "displayName": "Pressed",
+      "path": "Assets/Unity UI Samples/Animation/SF Button.controller",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "a54ca464e7207bc498e1cf7bbeb4d4a8:7400000",
+      "displayName": "robot anim1",
+      "path": "Assets/_PKG/PKG_Robot_Shooting_Game/Robot/robot_anim1.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "431b7648232c1f240a41af5b5060860f:-5160044070397597258",
+      "displayName": "Recorded",
+      "path": "Assets/Carrier_In.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "431b7648232c1f240a41af5b5060860f:-5838257003527045971",
+      "displayName": "Recorded (1)",
+      "path": "Assets/Carrier_In.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "431b7648232c1f240a41af5b5060860f:-1765431375666645717",
+      "displayName": "Recorded (2)",
+      "path": "Assets/Carrier_In.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "3ac5c5e9918728443b58cfd41d6e1888:-201204620238927631",
+      "displayName": "Recorded",
+      "path": "Assets/Carrier_PrefabTimeline.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "e40563e15c68bba4c93e7479bc3ea0d1:-7063072544341339390",
+      "displayName": "Recorded",
+      "path": "Assets/Timelines/FX/LevelUpFXTimeline.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Animation has no independently visual Sprite, Transform, or color/alpha curve.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     },
     {
       "assetId": "d33a391db2efded438c75c814bc2163e:-6773456445667827830",
@@ -1225,14 +1686,104 @@
       ],
       "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
       "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "7a2a381cf4744da4b9e36d63b1428e11:7400000",
+      "displayName": "VHICLE2 INTERCEPT",
+      "path": "Assets/_Game/MY_Core/MY_Art/sprites/vehicle 2/frames/VHICLE2_INTERCEPT.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "ef0de012cd7af4143a757aea2a2b1936:-836048281668846606",
+      "displayName": "Recorded",
+      "path": "Assets/TLTimeline.playable",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Property/transform animation requires a host visual and has no independent Sprite preview source.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "6dc077e6b58d73d4a99b15bdff53c8ef:7400000",
+      "displayName": "TOWER SHIP SPAWNER DOOR Closed",
+      "path": "Assets/_Game/MY_Art/Turrets/ShipSpawner/TOWER_SHIP_SPAWNER_DOOR_Closed.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "5d9ed7d255d2e6a4982c97f595b77beb:7400000",
+      "displayName": "TOWER SHIP SPAWNER DOOR Closing",
+      "path": "Assets/_Game/MY_Art/Turrets/ShipSpawner/TOWER_SHIP_SPAWNER_DOOR_Closing.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "956bd67bb15e0394b9dee9afac6e3f04:7400000",
+      "displayName": "TOWER SHIP SPAWNER DOOR Opening",
+      "path": "Assets/_Game/MY_Art/Turrets/ShipSpawner/TOWER_SHIP_SPAWNER_DOOR_Opening.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "b3c38748ecc73294e9966d50b4c4755c:7400000",
+      "displayName": "WHITE HANGAR Closed",
+      "path": "Assets/_Game/MY_Art/Turrets/ShipSpawner/WhiteHangar/WHITE_HANGAR_Closed.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "52fc3fdbacfe71941990e7c1ac0d7341:7400000",
+      "displayName": "WHITE HANGAR Closing",
+      "path": "Assets/_Game/MY_Art/Turrets/ShipSpawner/WhiteHangar/WHITE_HANGAR_Closing.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "9795c231071238a44aa3102530240452:7400000",
+      "displayName": "WHITE HANGAR Opening",
+      "path": "Assets/_Game/MY_Art/Turrets/ShipSpawner/WhiteHangar/WHITE_HANGAR_Opening.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
+    },
+    {
+      "assetId": "841690561447b034095b090132462a2b:7400000",
+      "displayName": "PLAYNIAX BLADE DISPLAY",
+      "path": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/PlayniaxDemo20261026/PLAYNIAX_BLADE_DISPLAY.anim",
+      "codes": [
+        "SEMANTIC_UNRESOLVED"
+      ],
+      "visualDiagnostic": "Sprite animation has deterministic frame samples and a usable preview.",
+      "semanticDiagnostic": "No proven semantic intent or descriptive search facet."
     }
   ],
   "status": "CURRENT_VERIFIED",
   "requiredCurrent": {
-    "catalogRevision": "7622005875596124303",
-    "contractRevision": "95EC8B374D696481937DF48E2C15BBD9EF9545B5E2108BA2CE0AC4C2EBA7E3F0",
+    "catalogRevision": "7621333667636349547",
+    "contractRevision": "95376DF60D51CAE3357F3CDB3C1C6BA8A4AC92C6E845CB2B282E76C0EE838101",
     "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
-    "snapshotContentHash": "366D4C432E5337729400971C17B2C1620626FCB3BB4061B2E018188186BC8D9D",
-    "authoringRuleRegistryRevision": "E315C26FC5A7968D619512AA71D772703E0DD43F75CEB28BF6EC922752BB025A"
+    "snapshotContentHash": "1D6F8679DD9A4CBFA3FB3B23CD81DAB785EBF72BBE7BFE0E34E654C19561AEEB",
+    "authoringRuleRegistryRevision": "DD86C108076E923DD28F7B9444B8EA5F389CE8A492B5E9012C74BDB72D7A8F54"
   }
 }

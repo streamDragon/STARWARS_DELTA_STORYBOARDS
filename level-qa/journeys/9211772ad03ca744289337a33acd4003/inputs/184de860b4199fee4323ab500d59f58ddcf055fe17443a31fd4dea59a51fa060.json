@@ -1,0 +1,472 @@
+{
+    "schema":  "STARWARS_DELTA_LEVEL_BUILD",
+    "schemaVersion":  6,
+    "requestId":  "083225d757b14bc396581742065256df",
+    "sceneId":  "9211772ad03ca744289337a33acd4003",
+    "sceneName":  "GRADIUS_VOLCANO_01",
+    "scenePath":  "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
+    "sceneFingerprint":  "5f2dfb688f9735e66fe7f39058e5ea28",
+    "planId":  "2f15877bb15846fab62aeabf92e91d60",
+    "basePlanRevision":  2,
+    "blueprintId":  "107f5fb55acd458eb14b298155fab51d",
+    "baseBlueprintRevision":  2,
+    "catalogRevision":  7621326173829890281,
+    "seed":  0,
+    "applicationMode":  "patch",
+    "runtimeWorldScrollVelocityX":  -1.2,
+    "designSummary":  "Continue cs9536: merge only ten Builder-owned floor/ceiling pieces into two continuous native SpriteShapes, keep floating rock, attach four CUTE guns and two SILO test positions. Provisional mechanics layout, not source-certified reconstruction.",
+    "resolvedPlanRevision":  0,
+    "previewPlanRevision":  0,
+    "intentRequirements":  [
+
+                           ],
+    "assetResolutions":  [
+
+                         ],
+    "segments":  [
+
+                 ],
+    "geometryOperations":  [
+                               {
+                                   "operation":  "delete",
+                                   "elementId":  "GRADIUS_ENTRY_FLOOR"
+                               },
+                               {
+                                   "operation":  "delete",
+                                   "elementId":  "GRADIUS_ENTRY_CEILING"
+                               },
+                               {
+                                   "operation":  "delete",
+                                   "elementId":  "GRADIUS_CANNONS_FLOOR"
+                               },
+                               {
+                                   "operation":  "delete",
+                                   "elementId":  "GRADIUS_CANNONS_CEILING"
+                               },
+                               {
+                                   "operation":  "delete",
+                                   "elementId":  "GRADIUS_SILOS_FLOOR"
+                               },
+                               {
+                                   "operation":  "delete",
+                                   "elementId":  "GRADIUS_SILOS_CEILING"
+                               },
+                               {
+                                   "operation":  "delete",
+                                   "elementId":  "GRADIUS_ROCK_FLOOR"
+                               },
+                               {
+                                   "operation":  "delete",
+                                   "elementId":  "GRADIUS_ROCK_CEILING"
+                               },
+                               {
+                                   "operation":  "delete",
+                                   "elementId":  "GRADIUS_VOLCANO_FLOOR"
+                               },
+                               {
+                                   "operation":  "delete",
+                                   "elementId":  "GRADIUS_VOLCANO_CEILING"
+                               },
+                               {
+                                   "colliderCorner":  "Round",
+                                   "role":  "Floor",
+                                   "smooth":  false,
+                                   "kmStart":  25,
+                                   "closed":  true,
+                                   "colliderMode":  "NativeSpline",
+                                   "colliderDetail":  8,
+                                   "notes":  "MECHANICS_LAYOUT_PROVISIONAL. Continuous surface replaces segment seams; source world coordinates unverified. Final volcano floor flattened for existing mountain boss.",
+                                   "tint":  {
+                                                "g":  0.48,
+                                                "r":  0.62,
+                                                "b":  0.46,
+                                                "a":  1
+                                            },
+                                   "shapeProfilePath":  "Assets/_Game/MY_Core/MY_Data/LevelAuthoring/SpriteShapeProfiles/SSP_FIRE_RICH.asset",
+                                   "segmentId":  "",
+                                   "operation":  "upsert",
+                                   "elementId":  "GRADIUS_CONTINUOUS_FLOOR",
+                                   "points":  [
+                                                  {
+                                                      "y":  -9.199999809265137,
+                                                      "x":  -65.75
+                                                  },
+                                                  {
+                                                      "y":  -9.199999809265137,
+                                                      "x":  -78.9000015258789
+                                                  },
+                                                  {
+                                                      "y":  -7.800000190734863,
+                                                      "x":  -94.68000793457031
+                                                  },
+                                                  {
+                                                      "y":  -8.5,
+                                                      "x":  -107.83000183105469
+                                                  },
+                                                  {
+                                                      "y":  -9.0,
+                                                      "x":  -123.6100082397461
+                                                  },
+                                                  {
+                                                      "y":  -8.5,
+                                                      "x":  -139.38999938964844
+                                                  },
+                                                  {
+                                                      "y":  -6.300000190734863,
+                                                      "x":  -152.54000854492188
+                                                  },
+                                                  {
+                                                      "y":  -7.199999809265137,
+                                                      "x":  -168.32000732421875
+                                                  },
+                                                  {
+                                                      "y":  -8.800000190734863,
+                                                      "x":  -184.10000610351563
+                                                  },
+                                                  {
+                                                      "y":  -8.800000190734863,
+                                                      "x":  -202.510009765625
+                                                  },
+                                                  {
+                                                      "y":  -7.199999809265137,
+                                                      "x":  -215.66000366210938
+                                                  },
+                                                  {
+                                                      "y":  -9.399999618530273,
+                                                      "x":  -231.44000244140625
+                                                  },
+                                                  {
+                                                      "y":  -7.099999904632568,
+                                                      "x":  -247.2200164794922
+                                                  },
+                                                  {
+                                                      "y":  -9.100000381469727,
+                                                      "x":  -263.0
+                                                  },
+                                                  {
+                                                      "y":  -9.0,
+                                                      "x":  -270.8900146484375
+                                                  },
+                                                  {
+                                                      "y":  -8.199999809265137,
+                                                      "x":  -289.3000183105469
+                                                  },
+                                                  {
+                                                      "y":  -9.2,
+                                                      "x":  -302.45001220703125
+                                                  },
+                                                  {
+                                                      "y":  -9.2,
+                                                      "x":  -312.9700012207031
+                                                  },
+                                                  {
+                                                      "y":  -9.2,
+                                                      "x":  -320.8600158691406
+                                                  },
+                                                  {
+                                                      "y":  -9.2,
+                                                      "x":  -328.75
+                                                  },
+                                                  {
+                                                      "y":  -9.2,
+                                                      "x":  -334.010009765625
+                                                  },
+                                                  {
+                                                      "y":  -9.2,
+                                                      "x":  -341.9000244140625
+                                                  },
+                                                  {
+                                                      "y":  -15,
+                                                      "x":  -341.9000244140625
+                                                  },
+                                                  {
+                                                      "y":  -15,
+                                                      "x":  -65.75
+                                                  }
+                                              ],
+                                   "kmEnd":  130,
+                                   "colliderOffset":  0
+                               },
+                               {
+                                   "colliderCorner":  "Round",
+                                   "role":  "Ceiling",
+                                   "smooth":  false,
+                                   "kmStart":  25,
+                                   "closed":  true,
+                                   "colliderMode":  "NativeSpline",
+                                   "colliderDetail":  8,
+                                   "notes":  "MECHANICS_LAYOUT_PROVISIONAL. Continuous surface replaces segment seams; source world coordinates unverified. Final volcano floor flattened for existing mountain boss.",
+                                   "tint":  {
+                                                "g":  0.48,
+                                                "r":  0.62,
+                                                "b":  0.46,
+                                                "a":  1
+                                            },
+                                   "shapeProfilePath":  "Assets/_Game/MY_Core/MY_Data/LevelAuthoring/SpriteShapeProfiles/SSP_FIRE_RICH.asset",
+                                   "segmentId":  "",
+                                   "operation":  "upsert",
+                                   "elementId":  "GRADIUS_CONTINUOUS_CEILING",
+                                   "points":  [
+                                                  {
+                                                      "y":  9.300000190734863,
+                                                      "x":  -65.75
+                                                  },
+                                                  {
+                                                      "y":  9.300000190734863,
+                                                      "x":  -78.9000015258789
+                                                  },
+                                                  {
+                                                      "y":  8.699999809265137,
+                                                      "x":  -94.68000793457031
+                                                  },
+                                                  {
+                                                      "y":  7.599999904632568,
+                                                      "x":  -107.83000183105469
+                                                  },
+                                                  {
+                                                      "y":  9.0,
+                                                      "x":  -123.6100082397461
+                                                  },
+                                                  {
+                                                      "y":  9.300000190734863,
+                                                      "x":  -139.38999938964844
+                                                  },
+                                                  {
+                                                      "y":  8.300000190734863,
+                                                      "x":  -152.54000854492188
+                                                  },
+                                                  {
+                                                      "y":  8.800000190734863,
+                                                      "x":  -168.32000732421875
+                                                  },
+                                                  {
+                                                      "y":  6.5,
+                                                      "x":  -184.10000610351563
+                                                  },
+                                                  {
+                                                      "y":  8.5,
+                                                      "x":  -202.510009765625
+                                                  },
+                                                  {
+                                                      "y":  8.199999809265137,
+                                                      "x":  -215.66000366210938
+                                                  },
+                                                  {
+                                                      "y":  6.599999904632568,
+                                                      "x":  -231.44000244140625
+                                                  },
+                                                  {
+                                                      "y":  7.800000190734863,
+                                                      "x":  -247.2200164794922
+                                                  },
+                                                  {
+                                                      "y":  8.800000190734863,
+                                                      "x":  -263.0
+                                                  },
+                                                  {
+                                                      "y":  8.800000190734863,
+                                                      "x":  -270.8900146484375
+                                                  },
+                                                  {
+                                                      "y":  9.0,
+                                                      "x":  -289.3000183105469
+                                                  },
+                                                  {
+                                                      "y":  9.0,
+                                                      "x":  -302.45001220703125
+                                                  },
+                                                  {
+                                                      "y":  9.199999809265137,
+                                                      "x":  -328.75
+                                                  },
+                                                  {
+                                                      "y":  9.199999809265137,
+                                                      "x":  -341.9000244140625
+                                                  },
+                                                  {
+                                                      "y":  18,
+                                                      "x":  -341.9000244140625
+                                                  },
+                                                  {
+                                                      "y":  18,
+                                                      "x":  -65.75
+                                                  }
+                                              ],
+                                   "kmEnd":  130,
+                                   "colliderOffset":  0
+                               }
+                           ],
+    "visualPlacements":  [
+                             {
+                                 "scale":  {
+                                               "y":  1,
+                                               "x":  1
+                                           },
+                                 "position":  {
+                                                  "y":  0,
+                                                  "z":  0,
+                                                  "x":  0
+                                              },
+                                 "shapeElementId":  "GRADIUS_CONTINUOUS_FLOOR",
+                                 "operation":  "upsert",
+                                 "shapeEndPoint":  21,
+                                 "runtimeBindingRole":  "Tower",
+                                 "assetId":  "fb923e922bc7238479d4b5b00b3ff53f:4943051542880285685",
+                                 "rotation":  0,
+                                 "role":  "Tower",
+                                 "segmentId":  "",
+                                 "runtimeBindingId":  "GRADIUS_CUTE_FLOOR_01",
+                                 "shapeOffset":  1,
+                                 "shapeRatio":  0.15,
+                                 "notes":  "PROVISIONAL_MECHANICS_TEST_POSITION; NOT_ARCADE_SOURCE_COORDINATE. Existing prefab linkage retained.",
+                                 "placementId":  "GRADIUS_CUTE_FLOOR_01",
+                                 "alignToShapeNormal":  false,
+                                 "shapeStartPoint":  0
+                             },
+                             {
+                                 "scale":  {
+                                               "y":  1,
+                                               "x":  1
+                                           },
+                                 "position":  {
+                                                  "y":  0,
+                                                  "z":  0,
+                                                  "x":  0
+                                              },
+                                 "shapeElementId":  "GRADIUS_CONTINUOUS_CEILING",
+                                 "operation":  "upsert",
+                                 "shapeEndPoint":  18,
+                                 "runtimeBindingRole":  "Tower",
+                                 "assetId":  "fb923e922bc7238479d4b5b00b3ff53f:4943051542880285685",
+                                 "rotation":  180,
+                                 "role":  "Tower",
+                                 "segmentId":  "",
+                                 "runtimeBindingId":  "GRADIUS_CUTE_CEILING_01",
+                                 "shapeOffset":  -1,
+                                 "shapeRatio":  0.27,
+                                 "notes":  "PROVISIONAL_MECHANICS_TEST_POSITION; NOT_ARCADE_SOURCE_COORDINATE. Existing prefab linkage retained.",
+                                 "placementId":  "GRADIUS_CUTE_CEILING_01",
+                                 "alignToShapeNormal":  false,
+                                 "shapeStartPoint":  0
+                             },
+                             {
+                                 "scale":  {
+                                               "y":  1,
+                                               "x":  1
+                                           },
+                                 "position":  {
+                                                  "y":  0,
+                                                  "z":  0,
+                                                  "x":  0
+                                              },
+                                 "shapeElementId":  "GRADIUS_CONTINUOUS_FLOOR",
+                                 "operation":  "upsert",
+                                 "shapeEndPoint":  21,
+                                 "runtimeBindingRole":  "Tower",
+                                 "assetId":  "fb923e922bc7238479d4b5b00b3ff53f:4943051542880285685",
+                                 "rotation":  0,
+                                 "role":  "Tower",
+                                 "segmentId":  "",
+                                 "runtimeBindingId":  "GRADIUS_CUTE_FLOOR_02",
+                                 "shapeOffset":  1,
+                                 "shapeRatio":  0.4,
+                                 "notes":  "PROVISIONAL_MECHANICS_TEST_POSITION; NOT_ARCADE_SOURCE_COORDINATE. Existing prefab linkage retained.",
+                                 "placementId":  "GRADIUS_CUTE_FLOOR_02",
+                                 "alignToShapeNormal":  false,
+                                 "shapeStartPoint":  0
+                             },
+                             {
+                                 "scale":  {
+                                               "y":  1,
+                                               "x":  1
+                                           },
+                                 "position":  {
+                                                  "y":  0,
+                                                  "z":  0,
+                                                  "x":  0
+                                              },
+                                 "shapeElementId":  "GRADIUS_CONTINUOUS_CEILING",
+                                 "operation":  "upsert",
+                                 "shapeEndPoint":  18,
+                                 "runtimeBindingRole":  "Tower",
+                                 "assetId":  "fb923e922bc7238479d4b5b00b3ff53f:4943051542880285685",
+                                 "rotation":  180,
+                                 "role":  "Tower",
+                                 "segmentId":  "",
+                                 "runtimeBindingId":  "GRADIUS_CUTE_CEILING_02",
+                                 "shapeOffset":  -1,
+                                 "shapeRatio":  0.55,
+                                 "notes":  "PROVISIONAL_MECHANICS_TEST_POSITION; NOT_ARCADE_SOURCE_COORDINATE. Existing prefab linkage retained.",
+                                 "placementId":  "GRADIUS_CUTE_CEILING_02",
+                                 "alignToShapeNormal":  false,
+                                 "shapeStartPoint":  0
+                             },
+                             {
+                                 "scale":  {
+                                               "y":  1.8,
+                                               "x":  1.8
+                                           },
+                                 "position":  {
+                                                  "y":  0,
+                                                  "z":  0,
+                                                  "x":  0
+                                              },
+                                 "shapeElementId":  "GRADIUS_CONTINUOUS_FLOOR",
+                                 "operation":  "upsert",
+                                 "shapeEndPoint":  21,
+                                 "runtimeBindingRole":  "Tower",
+                                 "assetId":  "b4f4472e0e8ba1243ae59863a89431f1:2909959690201674825",
+                                 "rotation":  0,
+                                 "role":  "Tower",
+                                 "segmentId":  "",
+                                 "runtimeBindingId":  "GRADIUS_SILO_FLOOR_01",
+                                 "shapeOffset":  3.6,
+                                 "shapeRatio":  0.6,
+                                 "notes":  "PROVISIONAL_MECHANICS_TEST_POSITION; NOT_ARCADE_SOURCE_COORDINATE. Existing prefab linkage retained.",
+                                 "placementId":  "GRADIUS_SILO_FLOOR_01",
+                                 "alignToShapeNormal":  false,
+                                 "shapeStartPoint":  0
+                             },
+                             {
+                                 "scale":  {
+                                               "y":  1.8,
+                                               "x":  1.8
+                                           },
+                                 "position":  {
+                                                  "y":  0,
+                                                  "z":  0,
+                                                  "x":  0
+                                              },
+                                 "shapeElementId":  "GRADIUS_CONTINUOUS_CEILING",
+                                 "operation":  "upsert",
+                                 "shapeEndPoint":  18,
+                                 "runtimeBindingRole":  "Tower",
+                                 "assetId":  "b4f4472e0e8ba1243ae59863a89431f1:2909959690201674825",
+                                 "rotation":  180,
+                                 "role":  "Tower",
+                                 "segmentId":  "",
+                                 "runtimeBindingId":  "GRADIUS_SILO_CEILING_01",
+                                 "shapeOffset":  -3.6,
+                                 "shapeRatio":  0.68,
+                                 "notes":  "PROVISIONAL_MECHANICS_TEST_POSITION; NOT_ARCADE_SOURCE_COORDINATE. Existing prefab linkage retained.",
+                                 "placementId":  "GRADIUS_SILO_CEILING_01",
+                                 "alignToShapeNormal":  false,
+                                 "shapeStartPoint":  0
+                             }
+                         ],
+    "backgroundLayers":  [
+
+                         ],
+    "hazardPlacements":  [
+
+                         ],
+    "markers":  [
+
+                ],
+    "waveAuthoringBrief":  "After static QA, use fresh Reverse JSON: CUTE firing, floor/ceiling SILO doors and relative multi-ship launch, existing two-peak mountain boss, robot surface traversal. Timings and positions provisional until source calibration.",
+    "warnings":  [
+                     "Source world coordinates unverified; provisional mechanics layout.",
+                     "No Play proof yet.",
+                     "Floating rock has no five-laser gameplay yet."
+                 ]
+}
