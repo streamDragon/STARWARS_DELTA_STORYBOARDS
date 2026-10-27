@@ -36,3 +36,8 @@ Two orange peak shapes are individually tracked over 23 sampled frames each arou
 ## Video panorama final two peak geometry
 
 Using a 5fps 3970x360 stitched video-space panorama from t=40..110.8s, final two volcanoes are independently segmented as bounding boxes [3556,248,3649,324] and [3741,248,3837,322], with top coordinates (3604,248) and (3789,248). **Separation: 185 VIDEO pixels**, not original map or Unity units. The earlier larger mountain at x=1781..2025 and orange overhang at x=3179..3310 are not the final two emitters. The two peak craters and firing times still need frame-level review. Source: https://www.youtube.com/watch?v=WJu9xSRh02g&t=110s .
+
+
+## Color activity probe, 105–130 seconds (2026-10-27)
+
+One frame per second was tested with an HSV orange connected-component mask in the gameplay region (excluding bottom terrain and HUD). Candidate particle counts rise from 2 at 111s to 12 at 112s and 113s; other counts fluctuate between 4 and 17 thereafter. **This is not a verified count of volcano rocks or eruption start**, because the mask also sees other orange sprites. The result is a candidate time window for manual frame-by-frame adjudication, not a gameplay trigger. The underlying raw diagnostic is saved locally as `volcano_color_activity_probe.json`, not publicly hosted. Source: https://www.youtube.com/watch?v=WJu9xSRh02g .

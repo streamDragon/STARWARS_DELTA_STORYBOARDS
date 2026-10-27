@@ -120,3 +120,8 @@ An orange-terrain connected-component pass found six major shapes in relative vi
 ## Phase 11 — measured scroll-stop transition from existing 5Hz frame-pair dataset
 
 Re-examined `scroll_5fps.json` (624 adjacent 0.2s pairs). Measured static-terrain shifts: **110.4–110.6s: +10 video px**; **110.6–110.8s: +3 video px**; **110.8–111.0s and five subsequent pairs through 112.0s: 0 video px**. This brackets the video-capture camera stop in **110.6–110.8s**, sharper than the prior 110.4–111.2s interval. This is a `VERIFIED_VIDEO_FRAME` derived video-time bracket, not an exact native arcade game frame or Unity trigger. Source: https://www.youtube.com/watch?v=WJu9xSRh02g&t=110s . No enemy spawn/volcano rock rates are promoted by this measurement.
+
+
+## Phase 12 — 1Hz volcano activity mask probe
+
+Automated orange-particle detection was performed on video seconds 105–130. It detected 2 candidate regions at 111s and 12 at 112s, but classification was not specific to rocks. Consequently eruption onset, launch count, ballistic velocity and end trigger remain `UNKNOWN`; no unverified event has been promoted. The locally retained JSON is `volcano_color_activity_probe.json`. See https://www.youtube.com/watch?v=WJu9xSRh02g .

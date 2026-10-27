@@ -466,5 +466,47 @@
     ],
     "evidenceLevel": "VERIFIED_VIDEO_FRAME",
     "confidenceCaveat": "Video sample resolution 0.2s; 3px transitional shift may be slowdown, frame cadence or interpolation. Native arcade tick unknown."
+  },
+  "volcanoActivityColorProbe": {
+    "source": "https://www.youtube.com/watch?v=WJu9xSRh02g",
+    "videoRecordingRangeS": [
+      105,
+      130
+    ],
+    "sampleRateHz": 1,
+    "method": "HSV orange connected components in gameplay crop; exclude bottom terrain and top HUD",
+    "evidenceLevel": "UNKNOWN",
+    "particleIdentityVerified": false,
+    "rockCountVerified": false,
+    "observedCandidateCounts": [
+      7,
+      2,
+      2,
+      3,
+      3,
+      2,
+      2,
+      12,
+      12,
+      4,
+      6,
+      10,
+      8,
+      7,
+      10,
+      12,
+      11,
+      11,
+      11,
+      17,
+      11,
+      15,
+      10,
+      6,
+      6,
+      11
+    ],
+    "interpretation": "Potential eruption onset rise at t112 but not proof: fire, enemy projectiles and other orange elements contaminate the mask.",
+    "onsetTimeS": null
   }
 }
