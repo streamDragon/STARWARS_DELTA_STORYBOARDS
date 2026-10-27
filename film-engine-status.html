@@ -1,1 +1,24 @@
-<!doctype html><html lang="he" dir="rtl"><meta charset="utf-8"><title>STARWARS DELTA Film Engine</title><main><h1>מנוע הסרטים</h1><p>Build ו־Film QA דורשים חיבור מאומת ל־Unity. אין עדיין חיבור פעיל מהאתר הציבורי.</p><a href="film-qa.html">בדיקות סרטים</a></main></html>
+<!doctype html>
+<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>מנוע הסרטים | STARWARS DELTA</title><link rel="stylesheet" href="assets/site.css">
+<style>body{background:#091522;color:#eaf6ff;font:16px/1.6 system-ui}main{max-width:1050px;padding:26px;margin:auto}h1{font-size:clamp(28px,5vw,46px)}section{background:#112338;border:1px solid #32506c;border-radius:14px;padding:20px;margin:17px 0}button,select,.action{background:#244e70;border:1px solid #507993;color:white;border-radius:8px;padding:11px 14px;font:inherit}a{color:#9ee6f5}.action{display:inline-block;text-decoration:none;margin:4px}.muted{color:#bdd1e1}.notice{border-right:4px solid #e4aa52;padding:9px 13px;background:#302a28}.qa-run{background:#1b354a;padding:12px;border-radius:9px;margin:11px 0}.qa-run small{display:block;color:#bdd1e1}.shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}.shots img{width:100%;aspect-ratio:16/9;object-fit:contain;background:#04090e;border-radius:7px}nav{display:flex;gap:15px;flex-wrap:wrap;padding:14px}label{display:block;margin-bottom:8px}select{width:min(100%,600px)}</style></head>
+<body><nav><a href="./">ראשי</a><a href="devora.html">דבורה</a><a href="workbench.html">מרכז הסרטים</a><a href="film-qa.html">כל בדיקות הסרטים</a></nav>
+<main><p class="muted">STARWARS_DELTA / FILM ENGINE</p><h1>מנוע הסרטים</h1><p>מזהים את הסרט, צופים בבנייה ובצילומי Unity האמיתיים, ומפרידים בין גרסאות ובין QA לבין הוכחת Runtime.</p>
+<section><h2>בחירת סרט</h2><label for="project">פרויקט Unity</label><select id="project"><option value="88b77b92beb34b57af24c2da94240e5b">THE GOLDEN PASSAGE · 86 שניות</option><option value="641c071218d943e9b3b515dc5e5ca3c6">THE GOLDEN PASSAGE · 98 שניות</option><option value="d26a93fee0144ee582281eda48654e60">THE GOLDEN PASSAGE · 96 שניות</option></select><p id="identity" class="muted"></p><button id="refresh">רענון</button></section>
+<section><h2>יצירה ובנייה</h2><a class="action" href="devora.html">יצירת JSON עם דבורה</a><a class="action" href="designer-ai/simple-preview.html">תצוגת JSON</a><p class="notice">חיבור Build מרחוק ל־Unity עדיין לא אומת ולכן אינו מוצג ככפתור פעיל. סרטים נבנים כרגע במנוע Cutscene Studio הקיים. לאחר צילום ופרסום ב־RunSmartPublish אפשר לצפות בראיות כאן.</p></section>
+<section><h2>Film QA של הסרט הנבחר</h2><p id="status" aria-live="polite">טוען...</p><div id="runs"></div><h3>תמונות מהסריקה האחרונה שפורסמה</h3><div class="shots" id="shots"></div></section>
+</main><script>
+const $=x=>document.getElementById(x);
+const label={88:'86 שניות'};
+function validPath(v){return typeof v==='string'&&/^film-qa\/[a-z0-9_./-]+$/i.test(v)&&!v.includes('..')?v:null}
+function link(label,path){const a=document.createElement('a');a.className='action';a.textContent=label;a.href=path;a.target='_blank';a.rel='noopener';return a}
+async function load(){const id=$('project').value;$('identity').textContent='Project ID: '+id;$('status').textContent='קורא את ארכיון QA...';$('runs').replaceChildren();$('shots').replaceChildren();
+try{const res=await fetch('film-qa/index.json?t='+Date.now(),{cache:'no-store'});if(!res.ok)throw Error('HTTP '+res.status);const data=await res.json();
+const runs=(data.runs||[]).filter(x=>x.projectId===id).sort((a,b)=>String(b.generatedUtc||'').localeCompare(String(a.generatedUtc||'')));
+if(!runs.length){$('status').textContent='אין צילום QA מפורסם של הגרסה הזאת. לא מציגים במקומו גרסה אחרת.';return}
+$('status').textContent=runs.length+' ריצות שמורות באתר, כולן בעלות אותו Project ID.';
+runs.slice(0,10).forEach(x=>{const block=document.createElement('div');block.className='qa-run';const head=document.createElement('strong');head.textContent=(x.sceneName||'סרט')+' · '+(x.result||'UNKNOWN');const meta=document.createElement('small');meta.textContent=(x.generatedUtc||'')+' · '+(x.durationSeconds||'?')+' שניות · '+(x.frameCount||0)+' פריימים · קולנועי: '+(x.cinematicQa||'REVIEW_REQUIRED');block.append(head,meta);[['PDF',x.pdf],['גלריה',x.contactSheet],['דוח',x.report]].forEach(([title,p])=>{const url=validPath(p);if(url)block.append(link(title,url))});$('runs').append(block)});
+const newest=runs[0];(newest.files||[]).filter(p=>validPath(p)&&/frame_[0-9.]+s\.png$/i.test(p)).slice(0,24).forEach(p=>{const a=link('',p),img=document.createElement('img');img.loading='lazy';img.alt='תמונת Unity QA';img.src=p;a.append(img);$('shots').append(a)});
+if(!$('shots').children.length)$('shots').textContent='אין תמונות יחידות באינדקס הזה. השתמש בגלריה או ב־PDF.';
+}catch(e){$('status').textContent='שגיאה בטעינה: '+e.message}}
+$('project').addEventListener('change',load);$('refresh').addEventListener('click',load);load();
+</script></body></html>
