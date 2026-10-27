@@ -19,3 +19,11 @@
 - Previous Play6 evidence establishes floor silo released 3 ships, player fire, boss death and 0 compilation errors in that QA session; this is not 1:1 arcade fidelity proof.
 
 No Plastic SCM check-in was necessary or performed in this read-only inspection. GitHub dossier updated to reflect sceneExists=true, levelBuild as built provisional, and partial Play evidence instead of the stale false/NOT_RUN values.
+
+
+## Continuation, 2026-10-27 17:08 IDT
+- Live Windows workstation reachable; Plastic /main observed at cs:9564.
+- Existing project Unity window showed GRAD11 open (not GRADIUS). Unity MCP read-only editor state probe timed out at tools/call after ~40 seconds; no session state or gameplay scene was modified.
+- Located robot prefabs and existing robot subsystem including MY_Robot_BasicWalker, SurfaceWalker and MY_BouncingRobot. Three GRADIUS robot locations remain authoring spawn anchors, not proven traversal.
+- Prior direct GRADIUS inspection proved floor and ceiling SILO placement with launch anchors and spline knots. Ceiling silo has 180-degree rotation and downward launch direction; runtime clearance/actual ship release remains unverified.
+- No new code changes, Unity QA passes or Plastic check-in in this continuation. Do not claim completion until live tests pass.
