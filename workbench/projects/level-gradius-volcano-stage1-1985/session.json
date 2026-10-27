@@ -81,8 +81,8 @@
   ],
   "runs": [],
   "history": [],
-  "lastCompletedAction": "Validated Unity scene 4 CUTE, 2 SILO floor/ceiling, 2 continuous SpriteShapes and 3 robot spawn markers; source research handoff reviewed. Scene inspected read-only.",
-  "nextAction": "Integrate source evidence guide, complete ceiling silo Play launch and robot SpriteShape traversal, then full continuous QA; do not call provisional layout one-to-one.",
+  "lastCompletedAction": "Prepared editor placement queue from 21 source-research candidates, marked 9 overlapping ranges and retained unverified Unity coordinates as null. Current Unity editor shows GRAD11, so did not disturb the active scene.",
+  "nextAction": "Verify overlaps against source video and convert validated candidates into editable markers under GRADIUS scene Layer0; Play test floor/ceiling SILOs and robots. Do not silently create or overwrite gameplay towers from candidates.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -168,6 +168,12 @@
       "kind": "report",
       "label": "בדיקת Unity: ארבעה CUTE, שני SILO, SpriteShape ועוגני רובוט",
       "evidenceStatus": "UNITY_SCENE_STRUCTURAL_PASS_PLAY_PARTIAL"
+    },
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/artifacts/GRADIUS_EDITOR_PLACEMENT_QUEUE_V1.json",
+      "kind": "dataset",
+      "label": "21 מועמדי מתקנים לפי פנורמה, 9 זוגות חופפים, הצבה ממתינה לאימות",
+      "evidenceStatus": "CANDIDATES_NOT_WORLD_PLACEMENTS"
     }
   ],
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
@@ -183,7 +189,7 @@
   "workStatus": {
     "scene": "GRADIUS_VOLCANO_01",
     "source": "Verified source research dossier and published annotation tool; no Unity play proof.",
-    "summary": "GRADIUS_VOLCANO_01 קיימת וכוללת רצפה ותקרה SpriteShape, ארבעה CUTE, שני SILO, שלושה עוגני רובוט ובוס הר. בדיקות Play חלקיות עברו בעבר; עדיין אין אימות מלא למשגר התקרה ולתנועת הרובוטים.",
+    "summary": "קובץ הצבה ל־21 מועמדים נוצר ופורסם. 9 זוגות טווחים חופפים טעונים בדיקה. סצנת Unity GRADIUS נשארה ללא שינוי בסבב הזה; בדיקות Play עדיין פתוחות.",
     "tasks": [
       {
         "title": "מדידת מפת המקור",
