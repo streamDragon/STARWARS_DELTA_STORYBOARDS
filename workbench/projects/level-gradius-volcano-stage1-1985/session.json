@@ -81,8 +81,8 @@
   ],
   "runs": [],
   "history": [],
-  "lastCompletedAction": "Unity editor created 21 EditorOnly annotated video panorama marker objects in GRADIUS scene, split into 11 CUTE candidates, 5 SILO candidates and 5 unknowns; SaveScene PASS. Check-in attempted but Plastic said workspace clean; cs9565 attribution unverified.",
-  "nextAction": "Verify editor marker persistence and source-only changeset identity; complete floor/ceiling SILO and robot path Play QA. No unverified world placement import.",
+  "lastCompletedAction": "Authored read-only Gradius structural acceptance test; Unity editor compiling and native MCP timed out, runtime tests not run. Recorded acceptance gate limitations.",
+  "nextAction": "Once Unity editor stops compiling, execute verify_gradius_structure_20261027.eval.cs and focused ceiling SILO/robot Play tests, followed by continuous run; preserve other workstreams.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -180,6 +180,12 @@
       "kind": "report",
       "label": "21 סימוני מועמדים הוכנסו ל־Unity ב־Layer0 כ־EditorOnly; ללא מגדלים נוספים",
       "evidenceStatus": "UNITY_EDITOR_PASS_PLASTIC_CHECKIN_UNATTRIBUTED"
+    },
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/artifacts/GRADIUS_MAIN_QA_FINAL_GATE_20261027.md",
+      "kind": "report",
+      "label": "דוח שער קבלה: קומפילציית Unity חוסמת QA, בדיקת המבנה מוכנה",
+      "evidenceStatus": "BLOCKED_EDITOR_COMPILING"
     }
   ],
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
@@ -195,7 +201,7 @@
   "workStatus": {
     "scene": "GRADIUS_VOLCANO_01",
     "source": "Verified source research dossier and published annotation tool; no Unity play proof.",
-    "summary": "קובץ הצבה ל־21 מועמדים נוצר ופורסם. 9 זוגות טווחים חופפים טעונים בדיקה. סצנת Unity GRADIUS נשארה ללא שינוי בסבב הזה; בדיקות Play עדיין פתוחות.",
+    "summary": "נבדקו ראיות קודמות ל־CUTE, SILO, SpriteShape ולבוס; נכתב סקריפט בדיקה חדש. Unity תקוע בקומפילציה והבדיקה הנוכחית הסתיימה ב־timeout. אין PASS סופי או צ'ק־אין חדש.",
     "tasks": [
       {
         "title": "מדידת מפת המקור",
