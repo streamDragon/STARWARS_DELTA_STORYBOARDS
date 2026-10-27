@@ -50,3 +50,8 @@ The visual 3970px panorama yielded 11 gun-like regions, 5 hatch-like regions, an
 ## Phase 14 candidate verification audit
 
 Added four inspectable five-frame contact sheets for all 21 fixture candidates. X predictions were back-projected through the measured display-space camera scroll (approximately 50.2 px/s). The user and main agent can inspect nearby shots and distinguish fixed terrain-mounted units from projectiles and moving enemies. Current **11 gun-like / 5 dome-like / 5 unresolved** counts remain *candidate visual classes*, and **none** is automatically promoted to a unique verified world-map placement or a certified final prefab count. No source map X/Y, emit timing, or route was fabricated.
+
+
+## Phase 15 independent Arcade recording, 1080p/60fps (2026-10-27)
+
+Source: https://www.youtube.com/watch?v=29-e_tFKVUc . A 107-second 1920x1080, 60fps segment was successfully downloaded from **recording time 01:08 to 02:55**, and a 25-panel contact sheet produced at 4-second intervals. The sheet visibly includes the game's Stage 1 title, open-space waves, corridor entry, ground/ceiling terrain, gun fixtures and a floating golden rock in the late sample. The independent recording is DIFFERENT from the primary source in elapsed time and player actions, so its seconds cannot be equated to primary timestamps. The contact sheet does not reach the final twin volcano eruption. It can corroborate **sequence of terrain features and enemy kinds**, but not a certified source-map world origin or exact gun census. High-resolution footage is a **research source**; Unity art remains newly authored HD.
