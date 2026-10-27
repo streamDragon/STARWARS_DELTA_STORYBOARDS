@@ -81,8 +81,8 @@
   ],
   "runs": [],
   "history": [],
-  "lastCompletedAction": "Inspected saved GRADIUS mountain boss and shared MLB Gravitation in Unity: boss 6/6 and shared MLB 40/40 projectile references valid; runtime cached emitter diagnosis remains open. Published asset QA report.",
-  "nextAction": "Inspect runtime emitter cache/pooling, run Play test on ceiling SILO and robot SpriteShape traversal; preserve unrelated scene and only check in proven fixes.",
+  "lastCompletedAction": "Validated Unity scene 4 CUTE, 2 SILO floor/ceiling, 2 continuous SpriteShapes and 3 robot spawn markers; source research handoff reviewed. Scene inspected read-only.",
+  "nextAction": "Integrate source evidence guide, complete ceiling silo Play launch and robot SpriteShape traversal, then full continuous QA; do not call provisional layout one-to-one.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -162,22 +162,28 @@
       "kind": "report",
       "label": "בדיקת חיבורי נשק ההר: 6/6 נקודות תקינות, חשד לתקלת Cache בזמן משחק",
       "evidenceStatus": "SERIALIZED_REFERENCES_PASS_RUNTIME_CACHE_PENDING"
+    },
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/artifacts/GRADIUS_CENTRAL_SCENE_INSPECTION_20261027.md",
+      "kind": "report",
+      "label": "בדיקת Unity: ארבעה CUTE, שני SILO, SpriteShape ועוגני רובוט",
+      "evidenceStatus": "UNITY_SCENE_STRUCTURAL_PASS_PLAY_PARTIAL"
     }
   ],
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
   "currentIdentity": {
     "primaryScenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
-    "sceneExists": false,
+    "sceneExists": true,
     "artReady": false,
     "levelJsonAllowed": false,
-    "levelBuild": "NOT_RUN",
-    "waves": "DRAFT_LOCAL_ONLY",
-    "play": "NOT_TESTED"
+    "levelBuild": "PROVISIONAL_LAYER0_BUILT",
+    "waves": "PROVISIONAL_MECHANICS_WAVES_PLAYED",
+    "play": "PARTIAL_QA_PASS"
   },
   "workStatus": {
     "scene": "GRADIUS_VOLCANO_01",
     "source": "Verified source research dossier and published annotation tool; no Unity play proof.",
-    "summary": "הסצנה מכילה 4 מגדלי CUTE, שני SILO ובוס הר. ב־Play קיים שיגור 3 חלליות ודלת פתוחה, וראיית השמדת בוס. בחלק מלועי הבוס חסר MY_ShotBase ולכן QA הסופי עדיין פתוח.",
+    "summary": "GRADIUS_VOLCANO_01 קיימת וכוללת רצפה ותקרה SpriteShape, ארבעה CUTE, שני SILO, שלושה עוגני רובוט ובוס הר. בדיקות Play חלקיות עברו בעבר; עדיין אין אימות מלא למשגר התקרה ולתנועת הרובוטים.",
     "tasks": [
       {
         "title": "מדידת מפת המקור",
