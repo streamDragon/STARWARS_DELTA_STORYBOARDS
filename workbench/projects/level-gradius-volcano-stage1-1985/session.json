@@ -81,8 +81,8 @@
   ],
   "runs": [],
   "history": [],
-  "lastCompletedAction": "Bootstrapped separate GRADIUS_VOLCANO_01.unity using canonical Level Builder scene workflow, created plan and blueprint assets; verified serialized Layer0 roots and checked in six files to Plastic MAIN cs9533.",
-  "nextAction": "Build editable floor and ceiling SpriteShapes with colliders and robot traversal capability; then place existing Gradius CUTE/SILO boss variants, test gameplay. Do not touch source research coordinates or old draft generator.",
+  "lastCompletedAction": "Audited GRADIUS scene in Unity 6000.7.0b6 and existing Play6 logs; verified 4 CUTE + 2 SILO + volcano boss scene objects, successful partial ship launch, working boss death. Published QA audit commit c0dd0e3; remaining boss emitter binding and full Play QA open.",
+  "nextAction": "Fix missing MY_ShotBase on some boss shot emitters, prove both SILOs launch (including ceiling), test robot SpriteShape traversal and continuous full-level Play; finish only after all gates PASS.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -150,6 +150,12 @@
       "kind": "report",
       "label": "סצנת Unity GRADIUS חדשה + תשתית Level Builder, Plastic MAIN cs9533",
       "evidenceStatus": "BOOTSTRAP_CHECKED_IN_GEOMETRY_PENDING"
+    },
+    {
+      "path": "workbench/projects/level-gradius-volcano-stage1-1985/artifacts/GRADIUS_CENTRAL_QA_AUDIT_20261027.md",
+      "kind": "report",
+      "label": "דוח QA מרכזי 27.10: מגדלים, SILO, בוס ההר ותקלות שנותרו",
+      "evidenceStatus": "PLAY_EVIDENCE_PARTIAL_NOT_FINAL"
     }
   ],
   "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
@@ -165,7 +171,7 @@
   "workStatus": {
     "scene": "GRADIUS_VOLCANO_01",
     "source": "Verified source research dossier and published annotation tool; no Unity play proof.",
-    "summary": "סצנת GRADIUS_VOLCANO_01 נוצרה ושמורה ב־Plastic MAIN cs9533 עם תשתיות Level Builder. עדיין אין SpriteShapes, רובוטים או בדיקת Play.",
+    "summary": "הסצנה מכילה 4 מגדלי CUTE, שני SILO ובוס הר. ב־Play קיים שיגור 3 חלליות ודלת פתוחה, וראיית השמדת בוס. בחלק מלועי הבוס חסר MY_ShotBase ולכן QA הסופי עדיין פתוח.",
     "tasks": [
       {
         "title": "מדידת מפת המקור",
