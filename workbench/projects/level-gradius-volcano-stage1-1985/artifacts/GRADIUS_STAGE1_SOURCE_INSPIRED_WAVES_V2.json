@@ -1,0 +1,329 @@
+{
+  "planTitle": "GRADIUS Stage 1 source-informed playable wave revision V2, provisional (NOT pixel-perfect measured arcade waves)",
+  "waves": [
+    {
+      "id": "GRADIUS_MECH_1",
+      "displayName": "Provisional fighter encounter 1",
+      "stageIndex": 0,
+      "kmStart": 1,
+      "count": 4,
+      "healthOfEnemy": 1,
+      "spawn": {
+        "intervalSeconds": 0.75
+      },
+      "speed": 6.8,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawnTeleportType": "None",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GRADIUS_V2_FORMATION_007",
+      "displayName": "V2 provisional arcade-style incoming formation at 7km",
+      "stageIndex": 0,
+      "kmStart": 7,
+      "count": 5,
+      "healthOfEnemy": 1,
+      "spawn": {
+        "intervalSeconds": 0.72
+      },
+      "speed": 6.8,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawnTeleportType": "None",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GRADIUS_MECH_11",
+      "displayName": "Provisional fighter encounter 11",
+      "stageIndex": 0,
+      "kmStart": 11,
+      "count": 4,
+      "healthOfEnemy": 1,
+      "spawn": {
+        "intervalSeconds": 0.75
+      },
+      "speed": 6.8,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawnTeleportType": "None",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GRADIUS_V2_FORMATION_017",
+      "displayName": "V2 provisional arcade-style incoming formation at 17km",
+      "stageIndex": 0,
+      "kmStart": 17,
+      "count": 5,
+      "healthOfEnemy": 1,
+      "spawn": {
+        "intervalSeconds": 0.8
+      },
+      "speed": 6.8,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawnTeleportType": "None",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GRADIUS_MECH_23",
+      "displayName": "Provisional fighter encounter 23",
+      "stageIndex": 0,
+      "kmStart": 23,
+      "count": 4,
+      "healthOfEnemy": 1,
+      "spawn": {
+        "intervalSeconds": 0.75
+      },
+      "speed": 6.8,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawnTeleportType": "None",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GRADIUS_V2_FORMATION_029",
+      "displayName": "V2 provisional arcade-style incoming formation at 29km",
+      "stageIndex": 0,
+      "kmStart": 29,
+      "count": 5,
+      "healthOfEnemy": 1,
+      "spawn": {
+        "intervalSeconds": 0.75
+      },
+      "speed": 6.8,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawnTeleportType": "None",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GRADIUS_MECH_34",
+      "displayName": "Provisional fighter encounter 34",
+      "stageIndex": 0,
+      "kmStart": 34,
+      "count": 4,
+      "healthOfEnemy": 2,
+      "spawn": {
+        "intervalSeconds": 0.75
+      },
+      "speed": 6.8,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/FIRE_BIRD_enemy.prefab",
+      "spawnTeleportType": "None",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GRADIUS_MECH_ROBOT_45",
+      "displayName": "Provisional robot surface traverse 45",
+      "stageIndex": 0,
+      "kmStart": 45,
+      "count": 2,
+      "healthOfEnemy": 8,
+      "spawn": {
+        "intervalSeconds": 1.2
+      },
+      "speed": 2.4,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/SurfaceWalker/MY_Robot_RollingWheel.prefab",
+      "trackRoadId": "GRADIUS_CONTINUOUS_FLOOR",
+      "trackBehavior": "ReverseOnBlock",
+      "trackInitialDirection": -1,
+      "trackStartPointIndex": 0,
+      "trackMaxAttachDistance": 4,
+      "trackBlockCheckDistance": 0.35,
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/מיקומים יחסיים/GENERATED_WAVE_ANCHORS/REL_REQUEST_GRADIUS_MECH_ROBOT_45",
+      "trackEndPointIndex": 21
+    },
+    {
+      "id": "GRADIUS_MECH_54",
+      "displayName": "Provisional fighter encounter 54",
+      "stageIndex": 0,
+      "kmStart": 54,
+      "count": 4,
+      "healthOfEnemy": 1,
+      "spawn": {
+        "intervalSeconds": 0.95
+      },
+      "speed": 6.8,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawnTeleportType": "None",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GRADIUS_V2_FORMATION_059",
+      "displayName": "V2 provisional arcade-style incoming formation at 59km",
+      "stageIndex": 0,
+      "kmStart": 59,
+      "count": 4,
+      "healthOfEnemy": 1,
+      "spawn": {
+        "intervalSeconds": 0.9
+      },
+      "speed": 6.8,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawnTeleportType": "None",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GRADIUS_MECH_ROBOT_63",
+      "displayName": "Provisional robot surface traverse 63",
+      "stageIndex": 0,
+      "kmStart": 63,
+      "count": 2,
+      "healthOfEnemy": 8,
+      "spawn": {
+        "intervalSeconds": 1.2
+      },
+      "speed": 2.4,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/SurfaceWalker/MY_Robot_RollingWheel.prefab",
+      "trackRoadId": "GRADIUS_CONTINUOUS_CEILING",
+      "trackBehavior": "ReverseOnBlock",
+      "trackInitialDirection": -1,
+      "trackStartPointIndex": 0,
+      "trackMaxAttachDistance": 4,
+      "trackBlockCheckDistance": 0.35,
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/מיקומים יחסיים/GENERATED_WAVE_ANCHORS/REL_REQUEST_GRADIUS_MECH_ROBOT_63",
+      "trackEndPointIndex": 18
+    },
+    {
+      "id": "GRADIUS_MECH_72",
+      "displayName": "Provisional fighter encounter 72",
+      "stageIndex": 0,
+      "kmStart": 72,
+      "count": 4,
+      "healthOfEnemy": 2,
+      "spawn": {
+        "intervalSeconds": 0.95
+      },
+      "speed": 6.8,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/FIRE_BIRD_enemy.prefab",
+      "spawnTeleportType": "None",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GRADIUS_V2_FORMATION_078",
+      "displayName": "V2 provisional arcade-style incoming formation at 78km",
+      "stageIndex": 0,
+      "kmStart": 78,
+      "count": 4,
+      "healthOfEnemy": 1,
+      "spawn": {
+        "intervalSeconds": 0.85
+      },
+      "speed": 6.8,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawnTeleportType": "None",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GRADIUS_MECH_83",
+      "displayName": "Provisional fighter encounter 83",
+      "stageIndex": 0,
+      "kmStart": 83,
+      "count": 4,
+      "healthOfEnemy": 1,
+      "spawn": {
+        "intervalSeconds": 0.95
+      },
+      "speed": 6.8,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawnTeleportType": "None",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GRADIUS_MECH_94",
+      "displayName": "Provisional fighter encounter 94",
+      "stageIndex": 0,
+      "kmStart": 94,
+      "count": 4,
+      "healthOfEnemy": 1,
+      "spawn": {
+        "intervalSeconds": 0.95
+      },
+      "speed": 6.8,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawnTeleportType": "None",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GRADIUS_V2_FORMATION_099",
+      "displayName": "V2 provisional arcade-style incoming formation at 99km",
+      "stageIndex": 0,
+      "kmStart": 99,
+      "count": 4,
+      "healthOfEnemy": 1,
+      "spawn": {
+        "intervalSeconds": 0.8
+      },
+      "speed": 6.8,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawnTeleportType": "None",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GRADIUS_MECH_ROBOT_102",
+      "displayName": "Provisional robot surface traverse 102",
+      "stageIndex": 0,
+      "kmStart": 102,
+      "count": 2,
+      "healthOfEnemy": 8,
+      "spawn": {
+        "intervalSeconds": 1.2
+      },
+      "speed": 2.4,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/SurfaceWalker/MY_Robot_RollingWheel.prefab",
+      "trackRoadId": "GRADIUS_CONTINUOUS_FLOOR",
+      "trackBehavior": "ReverseOnBlock",
+      "trackInitialDirection": -1,
+      "trackStartPointIndex": 0,
+      "trackMaxAttachDistance": 4,
+      "trackBlockCheckDistance": 0.35,
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/מיקומים יחסיים/GENERATED_WAVE_ANCHORS/REL_REQUEST_GRADIUS_MECH_ROBOT_102",
+      "trackEndPointIndex": 21
+    },
+    {
+      "id": "GRADIUS_MECH_109",
+      "displayName": "Provisional fighter encounter 109",
+      "stageIndex": 0,
+      "kmStart": 109,
+      "count": 3,
+      "healthOfEnemy": 1,
+      "spawn": {
+        "intervalSeconds": 0.95
+      },
+      "speed": 6.8,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawnTeleportType": "None",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GRADIUS_MECH_VOLCANO_BOSS",
+      "displayName": "Provisional twin-peak volcano boss mechanics",
+      "stageIndex": 0,
+      "kmStart": 116,
+      "count": 1,
+      "healthOfEnemy": 30,
+      "spawn": {
+        "intervalSeconds": 1
+      },
+      "speed": 0,
+      "spawnType": "Auto",
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_BOSS_LIBRARY/GRADIUS_VOLCANO_MOUNTAIN_BOSS.prefab",
+      "spawnTeleportType": "None"
+    }
+  ]
+}
