@@ -36,6 +36,7 @@ function buildCard(item){
  details.append(el("summary","","נתיב הקובץ בפרויקט"),el("code","scene-path",item.scene));
  proof.append(details);body.append(proof);
  if(item.link){const a=el("a","card-link","פתח את החלק שבנינו באתר ↗");a.href="./"+item.link;body.append(a);}
+ if(item.qaLink){const a=el("a","card-link","צפו במסע המשחק וב־7 צילומי Unity ↗");a.href="./"+item.qaLink;body.append(a);}
  article.append(body);
  return article;
 }
