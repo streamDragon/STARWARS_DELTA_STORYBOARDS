@@ -1,9 +1,9 @@
 {
   "schema": "GRADIUS_STAGE1_RESEARCH_AGENT_STATUS_V1",
-  "revision": 14,
+  "revision": 15,
   "updatedUtc": "2026-10-27T04:53:00Z",
   "owner": "source-research-agent",
-  "researchState": "PHASE13_VIDEO_FIXTURE_CANDIDATES_RECORDED",
+  "researchState": "PHASE14_FIVE_FRAME_CONTACT_AUDIT_PUBLISHED",
   "sourceMapObtained": false,
   "videoFrameSamplingDone": true,
   "measuredObjectCount": 0,
@@ -21,7 +21,11 @@
     "workbench/projects/level-gradius-volcano-stage1-1985/source-research/GRADIUS_STAGE1_RESEARCH_HANDOFF_20261026.md",
     "workbench/projects/level-gradius-volcano-stage1-1985/source-research/evidence/PANORAMA_VIDEO_T40_T110.png",
     "workbench/projects/level-gradius-volcano-stage1-1985/source-research/evidence/VOLCANO_30FPS_CONTACT.png",
-    "workbench/projects/level-gradius-volcano-stage1-1985/source-research/GRADIUS_PANORAMA_FIXTURE_CANDIDATES.json"
+    "workbench/projects/level-gradius-volcano-stage1-1985/source-research/GRADIUS_PANORAMA_FIXTURE_CANDIDATES.json",
+    "workbench/projects/level-gradius-volcano-stage1-1985/source-research/evidence/FIXTURE_FIVE_FRAME_AUDIT_00.png",
+    "workbench/projects/level-gradius-volcano-stage1-1985/source-research/evidence/FIXTURE_FIVE_FRAME_AUDIT_01.png",
+    "workbench/projects/level-gradius-volcano-stage1-1985/source-research/evidence/FIXTURE_FIVE_FRAME_AUDIT_02.png",
+    "workbench/projects/level-gradius-volcano-stage1-1985/source-research/evidence/FIXTURE_FIVE_FRAME_AUDIT_03.png"
   ],
   "blockingIssues": [
     "Full original arcade Stage1 map file returns HTTP 403; no pixel geometry.",
@@ -34,7 +38,8 @@
     "Relative video-frame position candidates use aggregate camera scroll rate and ±75px floor; they have NOT been validated as stable distinct object source-map anchors.",
     "Repeated-frame video coordinates validated, but conversion to absolute original arcade map coordinates not established.",
     "Per-screen turret counts are not deduplicated along the stage, and domed launchers may be co-located with gun fixtures.",
-    "Video-derived panorama remains unhosted local evidence and is not independently verified original map pixels."
+    "Video-derived panorama remains unhosted local evidence and is not independently verified original map pixels.",
+    "Candidate five-frame cropping does not prove identical static sprite after scrolling; separate source-map overlap/instance validation is still required."
   ],
   "lastCommit": null,
   "screenshotAnnotatedHatches": 2,
@@ -101,5 +106,7 @@
     "evidence/PANORAMA_VIDEO_T40_T110.png",
     "evidence/VOLCANO_30FPS_CONTACT.png"
   ],
-  "panoramaFixtureCandidates": 21
+  "panoramaFixtureCandidates": 21,
+  "fiveFrameAuditCount": 21,
+  "publishedFixtureAuditSheets": 4
 }

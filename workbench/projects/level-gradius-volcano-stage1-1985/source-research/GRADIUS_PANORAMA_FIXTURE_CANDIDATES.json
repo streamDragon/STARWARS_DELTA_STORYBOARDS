@@ -94,5 +94,257 @@
       3172
     ]
   ],
-  "caveat": "Video mosaic ranges are preliminary. Exact original arcade positions and counts are not verified."
+  "caveat": "Video mosaic ranges are preliminary. Exact original arcade positions and counts are not verified.",
+  "fiveFrameAudit": {
+    "method": "5 frames centered at candidate predicted screen crossing, separation 0.5s, each with original game video crop and marker; visual review needed for deduplication",
+    "screenshots": [
+      "evidence/FIXTURE_FIVE_FRAME_AUDIT_00.png",
+      "evidence/FIXTURE_FIVE_FRAME_AUDIT_01.png",
+      "evidence/FIXTURE_FIVE_FRAME_AUDIT_02.png",
+      "evidence/FIXTURE_FIVE_FRAME_AUDIT_03.png"
+    ],
+    "sampleRateHz": 2,
+    "observedPreviewClasses": {
+      "gunLike": 11,
+      "hatchLike": 5,
+      "unresolved": 5
+    },
+    "categoryConfidence": "VISUAL_CANDIDATE_NOT_CONFIRMED_ORIGINAL_INSTANCE",
+    "deduplicatedCount": null,
+    "sourceWorldXCalibrated": false,
+    "important": "A moving enemy, shot or explosion may appear in same frame; markers show camera-predicted X and do not prove stationary object identification.",
+    "videoURL": "https://www.youtube.com/watch?v=WJu9xSRh02g"
+  },
+  "gunCandidateMetadata": [
+    {
+      "id": "GUN_01",
+      "range": [
+        800,
+        831
+      ],
+      "firstPassClass": "gun-like",
+      "acceptAsFinalTower": false,
+      "evidenceContactIndex": 0,
+      "trackingRequired": true
+    },
+    {
+      "id": "GUN_02",
+      "range": [
+        849,
+        880
+      ],
+      "firstPassClass": "gun-like",
+      "acceptAsFinalTower": false,
+      "evidenceContactIndex": 0,
+      "trackingRequired": true
+    },
+    {
+      "id": "GUN_03",
+      "range": [
+        1545,
+        1577
+      ],
+      "firstPassClass": "gun-like",
+      "acceptAsFinalTower": false,
+      "evidenceContactIndex": 0,
+      "trackingRequired": true
+    },
+    {
+      "id": "GUN_04",
+      "range": [
+        1594,
+        1622
+      ],
+      "firstPassClass": "gun-like",
+      "acceptAsFinalTower": false,
+      "evidenceContactIndex": 0,
+      "trackingRequired": true
+    },
+    {
+      "id": "GUN_05",
+      "range": [
+        2800,
+        2830
+      ],
+      "firstPassClass": "gun-like",
+      "acceptAsFinalTower": false,
+      "evidenceContactIndex": 0,
+      "trackingRequired": true
+    },
+    {
+      "id": "GUN_06",
+      "range": [
+        2843,
+        2880
+      ],
+      "firstPassClass": "gun-like",
+      "acceptAsFinalTower": false,
+      "evidenceContactIndex": 0,
+      "trackingRequired": true
+    },
+    {
+      "id": "GUN_07",
+      "range": [
+        2890,
+        2921
+      ],
+      "firstPassClass": "gun-like",
+      "acceptAsFinalTower": false,
+      "evidenceContactIndex": 1,
+      "trackingRequired": true
+    },
+    {
+      "id": "GUN_08",
+      "range": [
+        3021,
+        3051
+      ],
+      "firstPassClass": "gun-like",
+      "acceptAsFinalTower": false,
+      "evidenceContactIndex": 1,
+      "trackingRequired": true
+    },
+    {
+      "id": "GUN_09",
+      "range": [
+        3067,
+        3102
+      ],
+      "firstPassClass": "gun-like",
+      "acceptAsFinalTower": false,
+      "evidenceContactIndex": 1,
+      "trackingRequired": true
+    },
+    {
+      "id": "GUN_10",
+      "range": [
+        2850,
+        2888
+      ],
+      "firstPassClass": "gun-like",
+      "acceptAsFinalTower": false,
+      "evidenceContactIndex": 1,
+      "trackingRequired": true
+    },
+    {
+      "id": "GUN_11",
+      "range": [
+        2899,
+        2931
+      ],
+      "firstPassClass": "gun-like",
+      "acceptAsFinalTower": false,
+      "evidenceContactIndex": 1,
+      "trackingRequired": true
+    }
+  ],
+  "hatchCandidateMetadata": [
+    {
+      "id": "HATCH_01",
+      "range": [
+        896,
+        951
+      ],
+      "firstPassClass": "dome-like",
+      "acceptAsFinalSpawner": false,
+      "evidenceContactIndex": 1,
+      "trackingRequired": true
+    },
+    {
+      "id": "HATCH_02",
+      "range": [
+        1610,
+        1678
+      ],
+      "firstPassClass": "dome-like",
+      "acceptAsFinalSpawner": false,
+      "evidenceContactIndex": 2,
+      "trackingRequired": true
+    },
+    {
+      "id": "HATCH_03",
+      "range": [
+        2926,
+        2989
+      ],
+      "firstPassClass": "dome-like",
+      "acceptAsFinalSpawner": false,
+      "evidenceContactIndex": 2,
+      "trackingRequired": true
+    },
+    {
+      "id": "HATCH_04",
+      "range": [
+        3098,
+        3172
+      ],
+      "firstPassClass": "dome-like",
+      "acceptAsFinalSpawner": false,
+      "evidenceContactIndex": 2,
+      "trackingRequired": true
+    },
+    {
+      "id": "HATCH_05",
+      "range": [
+        2971,
+        3049
+      ],
+      "firstPassClass": "dome-like",
+      "acceptAsFinalSpawner": false,
+      "evidenceContactIndex": 2,
+      "trackingRequired": true
+    }
+  ],
+  "unclassifiedCandidateMetadata": [
+    {
+      "id": "UNKNOWN_01",
+      "range": [
+        591,
+        611
+      ],
+      "firstPassClass": "unresolved",
+      "acceptAsFinalTower": false,
+      "evidenceContactIndex": 2
+    },
+    {
+      "id": "UNKNOWN_02",
+      "range": [
+        678,
+        697
+      ],
+      "firstPassClass": "unresolved",
+      "acceptAsFinalTower": false,
+      "evidenceContactIndex": 2
+    },
+    {
+      "id": "UNKNOWN_03",
+      "range": [
+        795,
+        811
+      ],
+      "firstPassClass": "unresolved",
+      "acceptAsFinalTower": false,
+      "evidenceContactIndex": 3
+    },
+    {
+      "id": "UNKNOWN_04",
+      "range": [
+        1978,
+        1998
+      ],
+      "firstPassClass": "unresolved",
+      "acceptAsFinalTower": false,
+      "evidenceContactIndex": 3
+    },
+    {
+      "id": "UNKNOWN_05",
+      "range": [
+        3149,
+        3172
+      ],
+      "firstPassClass": "unresolved",
+      "acceptAsFinalTower": false,
+      "evidenceContactIndex": 3
+    }
+  ]
 }

@@ -136,3 +136,8 @@ A visual contact sheet of selected frames extracted from 30fps footage is publis
 Source sheet: https://www.spriters-resource.com/arcade/gradius/asset/615475/ reports arcade 1985 Stage 1 asset size 2304x256 (uploaded October 4, 2026), but sheet pixels remain inaccessible. No NES replacement was used.
 
 Unknowns: full distinct turret and launcher counts, absolute source-map anchors, full enemy routes, projectile velocities, damage states, exact emission cadence and event-clear condition. These are explicitly NOT CERTIFIED.
+
+
+## Phase 14 | Five-frame verification sheet for all 21 candidate fixtures
+
+Generated four contact sheets; each tests the video-screen region predicted from a candidate relative-X position at five video moments separated by 0.5s. The cyan line is the predicted center of a *stationary* object after compensating for 50.2 video px/s scrolling, not an observed weapon muzzle. Five-frame view shows nearby moving ships, enemy bullets and particle effects, so previous automatic categorization as a gun/spawner requires visual cross-check. **No change in certified source-map object count**. Review: [sheet 00](evidence/FIXTURE_FIVE_FRAME_AUDIT_00.png), [sheet 01](evidence/FIXTURE_FIVE_FRAME_AUDIT_01.png), [sheet 02](evidence/FIXTURE_FIVE_FRAME_AUDIT_02.png), [sheet 03](evidence/FIXTURE_FIVE_FRAME_AUDIT_03.png). Note the contact sheet layout uses video source frames, not an original arcade ROM sprite sheet.

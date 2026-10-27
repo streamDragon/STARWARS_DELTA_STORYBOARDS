@@ -45,3 +45,8 @@ A source-derived panorama is now accessible at [video panorama](https://github.c
 ## Phase 13: candidate fixtures
 
 The visual 3970px panorama yielded 11 gun-like regions, 5 hatch-like regions, and 5 unresolved regions, published in GRADIUS_PANORAMA_FIXTURE_CANDIDATES.json. These are relative video-pixel intervals, not certified arcade-world positions. Counts must not be interpreted as authoritative distinct stage instances. The panorama source is the previous published evidence asset. No gameplay prefab, script, or Unity scene was changed.
+
+
+## Phase 14 candidate verification audit
+
+Added four inspectable five-frame contact sheets for all 21 fixture candidates. X predictions were back-projected through the measured display-space camera scroll (approximately 50.2 px/s). The user and main agent can inspect nearby shots and distinguish fixed terrain-mounted units from projectiles and moving enemies. Current **11 gun-like / 5 dome-like / 5 unresolved** counts remain *candidate visual classes*, and **none** is automatically promoted to a unique verified world-map placement or a certified final prefab count. No source map X/Y, emit timing, or route was fabricated.
