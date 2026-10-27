@@ -81,8 +81,8 @@
   ],
   "runs": [],
   "history": [],
-  "lastCompletedAction": "Authored read-only Gradius structural acceptance test; Unity editor compiling and native MCP timed out, runtime tests not run. Recorded acceptance gate limitations.",
-  "nextAction": "Once Unity editor stops compiling, execute verify_gradius_structure_20261027.eval.cs and focused ceiling SILO/robot Play tests, followed by continuous run; preserve other workstreams.",
+  "lastCompletedAction": "Unity MCP structural acceptance PASS on GRADIUS_VOLCANO_01: 3 SpriteShapes, 4 CUTE, 2 SILO with correctly oriented anchors, 3 robot markers and 21 video guide markers. Source agent now has second independent 1080p60 recording.",
+  "nextAction": "Perform runtime ceiling silo release + ship clearance and robot terrain movement test in isolated GRADIUS Play mode, then whole-level full-run QA; maintain source coordinate caveats.",
   "inFlightAction": null,
   "sourceArtifacts": [
     {
@@ -201,7 +201,7 @@
   "workStatus": {
     "scene": "GRADIUS_VOLCANO_01",
     "source": "Verified source research dossier and published annotation tool; no Unity play proof.",
-    "summary": "נבדקו ראיות קודמות ל־CUTE, SILO, SpriteShape ולבוס; נכתב סקריפט בדיקה חדש. Unity תקוע בקומפילציה והבדיקה הנוכחית הסתיימה ב־timeout. אין PASS סופי או צ'ק־אין חדש.",
+    "summary": "STRUCTURE_PASS_PLAY_PENDING ביוניטי: שני SILO תקינים מבנית ובכיווני שיגור, ארבעה CUTE, שלושה SpriteShapes ו־21 סמני מחקר. נדרשת הוכחת Play מלאה.",
     "tasks": [
       {
         "title": "מדידת מפת המקור",
