@@ -508,5 +508,33 @@
     ],
     "interpretation": "Potential eruption onset rise at t112 but not proof: fire, enemy projectiles and other orange elements contaminate the mask.",
     "onsetTimeS": null
+  },
+  "video30FpsVolcanoFinding": {
+    "sourceUrl": "https://www.youtube.com/watch?v=WJu9xSRh02g",
+    "analyzedFrameCount": 810,
+    "analysisSeconds": [
+      108,
+      135
+    ],
+    "fps": 30,
+    "method": "lower volcano-region saturated-red pixel count on decoded video frames",
+    "lastPretransitionSampleS": 110.8333,
+    "firstStrongRedSampleS": 110.8667,
+    "redPixelsBefore": 356,
+    "redPixelsAfter": 2346,
+    "redPaletteOnsetWindowS": [
+      110.8333,
+      110.8667
+    ],
+    "scrollStopWindowS": [
+      110.6,
+      110.8
+    ],
+    "evidenceLevel": "VERIFIED_VIDEO_FRAME",
+    "meaning": "visible eruption/palette-state transition, not verified first rock emission",
+    "hazardsPerSecond": null,
+    "rockGravity": null,
+    "rockSpawnRate": null,
+    "stageClearTimestampS": null
   }
 }

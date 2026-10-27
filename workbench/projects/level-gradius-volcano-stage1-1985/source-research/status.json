@@ -1,9 +1,9 @@
 {
   "schema": "GRADIUS_STAGE1_RESEARCH_AGENT_STATUS_V1",
-  "revision": 12,
-  "updatedUtc": "2026-10-27T03:00:00Z",
+  "revision": 13,
+  "updatedUtc": "2026-10-27T04:53:00Z",
   "owner": "source-research-agent",
-  "researchState": "PHASE12_VOLCANO_COLOR_ACTIVITY_PROBE_UNCLASSIFIED",
+  "researchState": "EVIDENCE_ATLAS_PUBLISHED_30FPS_VOLCANO_VISUAL_TRANSITION_MEASURED",
   "sourceMapObtained": false,
   "videoFrameSamplingDone": true,
   "measuredObjectCount": 0,
@@ -17,7 +17,10 @@
     "workbench/projects/level-gradius-volcano-stage1-1985/source-research/GRADIUS_ARCADE_STAGE1_ROUTES_V1.json",
     "workbench/projects/level-gradius-volcano-stage1-1985/source-research/GRADIUS_ARCADE_STAGE1_EVIDENCE.md",
     "workbench/projects/level-gradius-volcano-stage1-1985/source-research/TOWER_ANIMATION_REFERENCE.md",
-    "workbench/projects/level-gradius-volcano-stage1-1985/source-research/VOLCANO_EVENT_REFERENCE.md"
+    "workbench/projects/level-gradius-volcano-stage1-1985/source-research/VOLCANO_EVENT_REFERENCE.md",
+    "workbench/projects/level-gradius-volcano-stage1-1985/source-research/GRADIUS_STAGE1_RESEARCH_HANDOFF_20261026.md",
+    "workbench/projects/level-gradius-volcano-stage1-1985/source-research/evidence/PANORAMA_VIDEO_T40_T110.png",
+    "workbench/projects/level-gradius-volcano-stage1-1985/source-research/evidence/VOLCANO_30FPS_CONTACT.png"
   ],
   "blockingIssues": [
     "Full original arcade Stage1 map file returns HTTP 403; no pixel geometry.",
@@ -87,5 +90,14 @@
     ],
     "onsetVerified": false,
     "rockCountVerified": false
-  }
+  },
+  "volcanoFramesAnalyzedAt30FPS": 810,
+  "volcanoRedVisualTransitionWindowS": [
+    110.8333,
+    110.8667
+  ],
+  "publishedVisualEvidence": [
+    "evidence/PANORAMA_VIDEO_T40_T110.png",
+    "evidence/VOLCANO_30FPS_CONTACT.png"
+  ]
 }

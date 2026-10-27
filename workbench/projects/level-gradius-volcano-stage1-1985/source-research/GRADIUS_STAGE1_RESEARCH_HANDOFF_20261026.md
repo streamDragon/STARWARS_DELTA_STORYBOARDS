@@ -33,3 +33,10 @@ Use measured video-relative anchors and the terrain polylines as EDITABLE refere
 Research handoff published, **not complete one-to-one reconstruction**. Research publication is not Unity Play QA. The user requested the report in the project research directory; this file is the final handoff summary for the main agent.
 
 Source: https://www.youtube.com/watch?v=WJu9xSRh02g
+
+
+## Handoff closeout, October 27, 2026
+
+A source-derived panorama is now accessible at [video panorama](https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/blob/main/workbench/projects/level-gradius-volcano-stage1-1985/source-research/evidence/PANORAMA_VIDEO_T40_T110.png), and exact selected volcano comparison frames at [contact sheet](https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/blob/main/workbench/projects/level-gradius-volcano-stage1-1985/source-research/evidence/VOLCANO_30FPS_CONTACT.png). Independent 30fps inspection detected red eruption-state visual transition between **110.8333 and 110.8667 recording seconds**, after a separate camera-scroll pause at **110.6-110.8s**. This distinction is ready for the central agent's event authoring.
+
+**Delivery state:** bounded source-research evidence and visual atlas delivered. Full original Arcade-map source-pixel placement, complete turret census and complete enemy-route timing still cannot be certified. Do not invent values. High-resolution Unity graphics are separate from historical measurement resolution. Original Big Core remains excluded.

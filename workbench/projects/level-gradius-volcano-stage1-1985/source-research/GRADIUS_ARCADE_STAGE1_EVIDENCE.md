@@ -125,3 +125,14 @@ Re-examined `scroll_5fps.json` (624 adjacent 0.2s pairs). Measured static-terrai
 ## Phase 12 — 1Hz volcano activity mask probe
 
 Automated orange-particle detection was performed on video seconds 105–130. It detected 2 candidate regions at 111s and 12 at 112s, but classification was not specific to rocks. Consequently eruption onset, launch count, ballistic velocity and end trigger remain `UNKNOWN`; no unverified event has been promoted. The locally retained JSON is `volcano_color_activity_probe.json`. See https://www.youtube.com/watch?v=WJu9xSRh02g .
+
+
+## Phase 12 | Published measurement evidence (2026-10-27)
+
+The connected research environment produced a video-space panorama 3970x360 pixels spanning t=40 to 110.8 seconds, now published as [PANORAMA_VIDEO_T40_T110.png](https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/blob/main/workbench/projects/level-gradius-volcano-stage1-1985/source-research/evidence/PANORAMA_VIDEO_T40_T110.png). This is a derived VIDEO panorama, NOT a verified native arcade map and not a direct Unity collider import.
+
+A visual contact sheet of selected frames extracted from 30fps footage is published as [VOLCANO_30FPS_CONTACT.png](https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/blob/main/workbench/projects/level-gradius-volcano-stage1-1985/source-research/evidence/VOLCANO_30FPS_CONTACT.png). Across 810 decoded frames (t=108 through 135s), the red-colored mountain area increases from 356 mask pixels at t=110.8333 to 2346 mask pixels at 110.8667s. This establishes the observed red/palette transition bracket [110.8333,110.8667] seconds, independent of the terrain scroll stop in [110.6,110.8] seconds. The color change is NOT proof of the first rock spawn. Rock counts remain unverified because orange connected-component detections include projectiles and false positives.
+
+Source sheet: https://www.spriters-resource.com/arcade/gradius/asset/615475/ reports arcade 1985 Stage 1 asset size 2304x256 (uploaded October 4, 2026), but sheet pixels remain inaccessible. No NES replacement was used.
+
+Unknowns: full distinct turret and launcher counts, absolute source-map anchors, full enemy routes, projectile velocities, damage states, exact emission cadence and event-clear condition. These are explicitly NOT CERTIFIED.

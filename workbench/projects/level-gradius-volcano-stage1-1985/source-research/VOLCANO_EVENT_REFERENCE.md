@@ -41,3 +41,8 @@ Using a 5fps 3970x360 stitched video-space panorama from t=40..110.8s, final two
 ## Color activity probe, 105–130 seconds (2026-10-27)
 
 One frame per second was tested with an HSV orange connected-component mask in the gameplay region (excluding bottom terrain and HUD). Candidate particle counts rise from 2 at 111s to 12 at 112s and 113s; other counts fluctuate between 4 and 17 thereafter. **This is not a verified count of volcano rocks or eruption start**, because the mask also sees other orange sprites. The result is a candidate time window for manual frame-by-frame adjudication, not a gameplay trigger. The underlying raw diagnostic is saved locally as `volcano_color_activity_probe.json`, not publicly hosted. Source: https://www.youtube.com/watch?v=WJu9xSRh02g .
+
+
+## Phase 12 precise visible transition
+
+The reference video has a marked red-body eruption/palette transition between recording t=110.8333 and t=110.8667 seconds (30fps analysis). Camera scroll stopped around 110.6-110.8s. Visible color transition is not proven identical to first projectile emission. Source: https://www.youtube.com/watch?v=WJu9xSRh02g; [contact frames](https://github.com/streamDragon/STARWARS_DELTA_STORYBOARDS/blob/main/workbench/projects/level-gradius-volcano-stage1-1985/source-research/evidence/VOLCANO_30FPS_CONTACT.png).
