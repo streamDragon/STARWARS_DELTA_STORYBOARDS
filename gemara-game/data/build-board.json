@@ -8,8 +8,8 @@
   "indicators": [
     {
       "label": "סצנות Unity שנוצרו",
-      "value": "12",
-      "note": "קובצי סצנה בתיקיית Generated; לא כולם עברו PlayMode"
+      "value": "14",
+      "note": "Scene files, not all PlayMode verified"
     },
     {
       "label": "תחנות לימוד בכפר",
@@ -59,10 +59,10 @@
         "שלוש תחנות לימוד עם משוב וניקוד",
         "ממשק מגע וניווט בין אזורים"
       ],
-      "proof": "PlayMode PASS, 25.10.2026: הסצנה נטענה לאחר דיר הבכורות, נמצא בקר המשחק, והמעבר למשכן הצליח. לא נבדקו כל המשימות בכפר.",
+      "proof": "Unity PlayMode PASS, 27.10.2026: חזרה מדיר הבכורות עם שמירת ההתקדמות, טעינת הכפר ומעבר למשכן. שאר משימות הכפר לא נבדקו במסע זה.",
       "next": "לבדוק כל משימה בנפרד ולצמצם חסימות בין חלוניות ממשק וסביבת המשחק.",
-      "image": "screenshots/ATLAS_VILLAGE_GAME_VIEW.png",
-      "imageLabel": "צילום אמיתי מ־PlayMode: הכפר בעת המסע, 25.10.2026"
+      "image": "screenshots/ATLAS_QA_20261027_03_VILLAGE.png",
+      "imageLabel": "Unity PlayMode 27.10.2026: הכפר, צילום Game View"
     },
     {
       "id": "beit",
@@ -77,10 +77,10 @@
         "חומרי תצוגה שנוצרו לבית מדרש",
         "נקודת חיבור אפשרית לכפר"
       ],
-      "proof": "PlayMode PASS, 25.10.2026: המסע התחיל בסצנת בית המדרש וחזר אליה דרך דיר הבכורות, הכפר והמשכן. צילום החזרה לבית המדרש אומת; צילום הפתיחה היה שגוי ולכן אינו מוצג כראיה.",
+      "proof": "Unity PlayMode PASS, 27.10.2026: כניסה דרך בית המדרש, מפת עולמות פעילה וחזרה אחרי השלמת דיר הבכורות 3/3. תצלום Game View מציג גם תרגול סוכה, ללא ביקורת הלכתית מלאה.",
       "next": "לשפר מצלמה, ספסלים ודמויות לומדים ולבדוק ממשק בטלפון אמיתי.",
-      "image": "screenshots/ATLAS_BEIT_GAME_VIEW.png",
-      "imageLabel": "צילום אמיתי מ־PlayMode: חזרה לבית המדרש, 25.10.2026"
+      "image": "screenshots/ATLAS_QA_20261027_01_BEIT.png",
+      "imageLabel": "Unity PlayMode 27.10.2026: בית המדרש ותצוגת התרגול, 390×844"
     },
     {
       "id": "birds",
@@ -141,7 +141,7 @@
       "name": "ברכות מ״א | מי קודם ומה פוטר?",
       "group": "built",
       "stage": "verified",
-      "stageLabel": "Unity PlayMode נבדק",
+      "stageLabel": "הושלם עד 100% ב־Unity",
       "short": "דוגמה לדף קשה: שבעת המינים, עיקר וטפל, שני מופעי ׳ארץ׳ וברכות בתוך הסעודה. התוכן טיוטה ולא פסיקת הלכה.",
       "scene": "Assets/GemaraGame/Generated/Berakhot41Demo.unity",
       "features": [
@@ -149,10 +149,10 @@
         "12 טענות למיון ציפורים ו־12 אתגרים",
         "11 שלבים לשחזור הסוגיה ושמירת התקדמות"
       ],
-      "proof": "בדיקות Unity EditMode ‏2/2 ו־PlayMode ‏1/1 עברו. צילום Game View קיים. APK פיתוח 85,846,154 בתים עבר בדיקת מבנה וחתימת v2; לא נבדק במכשיר.",
-      "next": "APK פיתוח נבנה ונבדק מבנית וחתימה; בדיקת התקנה במכשיר פיזי ופרסום ההורדה עדיין פתוחים.",
-      "image": "screenshots/BERAKHOT41_DONE_GAME_VIEW.jpg",
-      "imageLabel": "צילום Unity Game View, סיום שיעור ברכות מ״א, 390×844. צילום מקומי מ־25.10.2026."
+      "proof": "PlayMode עבר: 6 מעבדות, 13 מצבים, 12 טענות, 12 אתגרים, 11 שלבי שחזור, שגיאות והפעלה מחדש. צילום סיום נבדק.",
+      "next": "בדיקת טלפון וביקורת תוכן.",
+      "image": "screenshots/BERAKHOT41_DONE_GAME_VIEW.png",
+      "imageLabel": "Unity PlayMode, 390×844, 25.10.2026"
     },
     {
       "id": "shooter",
@@ -177,7 +177,7 @@
       "name": "מפת עולמות הגמרא",
       "group": "work",
       "stage": "verified",
-      "stageLabel": "מסע ארבע סצנות עבר",
+      "stageLabel": "מסע עולמות מלא עבר ב־PlayMode",
       "short": "מפת נושאים ויעדי סצנות מחוברת ל־Unity. נבדק מסלול בית המדרש–עדר–כפר; עולמות מתוכננים עדיין אינם שלבים גמורים.",
       "scene": "Assets/GemaraGame/Runtime/WorldAtlasMapController.cs",
       "features": [
@@ -185,11 +185,12 @@
         "יעד הסצנה נקרא מקובץ המפה",
         "מסלול בית המדרש–עדר–כפר עבר ב־PlayMode"
       ],
-      "proof": "PlayMode PASS, 25.10.2026: בית מדרש ← דיר הבכורות (תשובה נכונה ושמירת התקדמות) ← כפר ← משכן ומזבח ← חזרה לבית המדרש. דו״ח qa/atlas-journey-20261025-1652/qa-result.txt. צילום הפתיחה לא תקין; צילום החזרה תקין.",
-      "next": "לשפר צילום פתיחה, לבדוק כניסה לשאר העולמות ולבצע בדיקות Android.",
-      "image": "screenshots/ATLAS_HERD_ANSWER_GAME_VIEW.png",
-      "imageLabel": "צילום אמיתי מ־PlayMode: משימת בכורות עם תשובה נכונה, 25.10.2026",
-      "link": "world-atlas.html"
+      "proof": "Unity 6000.7.0b6, 27.10.2026: המסע עבר מבית המדרש לדיר, לכפר ולמשכן וחזרה. נבדקו 3/3 מקרים, מניעת ניקוד על שגיאה ושמירת התקדמות. 7 צילומי Game View אומתו.",
+      "next": "בדיקת Android במכשיר פיזי, ליטוש תצוגה וחוויית משתמש, ואימות שאר עולמות הגמרא.",
+      "image": "screenshots/ATLAS_QA_20261027_06_MAP.png",
+      "imageLabel": "Unity PlayMode 27.10.2026: מפת העולמות, תצוגת טלפון 390×844",
+      "link": "world-atlas.html",
+      "qaLink": "atlas-journey.html"
     },
     {
       "id": "sanctuary",
@@ -204,10 +205,10 @@
         "חצר לימוד נפרדת",
         "מעבר מתוך מפת הסוגיות"
       ],
-      "proof": "PlayMode PASS, 25.10.2026: כניסה למשכן, אימות מצלמה ומזבח מיובא, וחזרה לבית המדרש. משחקיות הקרבנות לא נבדקה.",
+      "proof": "Unity PlayMode PASS, 27.10.2026: כניסה למשכן מתוך מפת העולמות, אימות מזבח מיובא, חזרה לבית המדרש. משחקיות הקרבנות ואמיתות הייצוג ההיסטורי טרם אומתו.",
       "next": "להעשיר את הסביבה, להוסיף משחקיות לימודית ולבצע ביקורת תורנית.",
-      "image": "screenshots/ATLAS_SANCTUARY_GAME_VIEW.png",
-      "imageLabel": "צילום אמיתי מ־PlayMode: המשכן והמזבח, 25.10.2026"
+      "image": "screenshots/ATLAS_QA_20261027_04_SANCTUARY.png",
+      "imageLabel": "Unity PlayMode 27.10.2026: עולם המשכן והמזבח, צילום Game View"
     }
   ],
   "nextTasks": [
