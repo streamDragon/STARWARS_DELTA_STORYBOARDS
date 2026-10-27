@@ -2,197 +2,234 @@
   "schema": "STARWARS_DELTA_SIMPLE_V1_AUTHORING_RULES_CURRENT",
   "schemaVersion": 3,
   "requiredCurrent": {
-    "catalogRevision": "7622005875596124303",
-    "contractRevision": "95EC8B374D696481937DF48E2C15BBD9EF9545B5E2108BA2CE0AC4C2EBA7E3F0",
+    "catalogRevision": "7621333667636349547",
+    "contractRevision": "95376DF60D51CAE3357F3CDB3C1C6BA8A4AC92C6E845CB2B282E76C0EE838101",
     "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
-    "snapshotContentHash": "366D4C432E5337729400971C17B2C1620626FCB3BB4061B2E018188186BC8D9D",
-    "authoringRuleRegistryRevision": "E315C26FC5A7968D619512AA71D772703E0DD43F75CEB28BF6EC922752BB025A"
+    "snapshotContentHash": "1D6F8679DD9A4CBFA3FB3B23CD81DAB785EBF72BBE7BFE0E34E654C19561AEEB",
+    "authoringRuleRegistryRevision": "DD86C108076E923DD28F7B9444B8EA5F389CE8A492B5E9012C74BDB72D7A8F54"
   },
   "purpose": "Author-facing rules for CUTSCENE_SCRIPT_V1 only. Backend/internal rules are intentionally omitted.",
   "rules": [
     {
       "id": "CURRENT_ONLY",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "Use only values published in this CURRENT. Absence from CURRENT means unavailable; never infer a handle or identity."
     },
     {
       "id": "HANDLE_ONLY",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "For locationHandle, visible.handle, effectHandle and audio.handle use an exact CURRENT Simple V1 authoring handle. Never serialize a raw Catalog asset ID."
     },
     {
       "id": "ANIMATION_DIRECT_MATERIAL",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "Animation authoring uses exactly one CURRENT actions[].animationHandle chosen from published directAnimationMaterials/ANIMATION_RETRIEVAL_INDEX using preview and semantic facets. Actor identity does not grant or restrict a direct simple-Sprite animation material. Do not infer animation from Actor name, role, movement or prose, and never serialize raw Animation asset IDs."
     },
     {
       "id": "ANIMATION_EXPLICIT_SELECTOR",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "A visible Sprite animation begins only from an explicit actions[].animationHandle. Once selected for a cast subject, that exact animation remains the subject's active visible animation state across later consecutive beats in which the same subject remains visible, until another explicit animationHandle replaces it. This carry-forward never selects a new animation and never infers from movement, fire, performanceIntent, Actor identity or prose. Movement, fire and camera motion may still run concurrently; Unity owns collision-free backend action IDs."
     },
     {
       "id": "MOTION_ANIMATION_FIELD_SEPARATION",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "Movement semantics and animation semantics are separate fields. Use motionIntent only for spatial movement and choose an exact CURRENT animationHandle for the visible Sprite animation when needed. Never copy walk, idle, run, look, shoot or another animation meaning into motionIntent, and do not derive animation selection from Actor identity."
     },
     {
       "id": "CLOSED_ENUM_LITERAL_CHECK",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "Before returning JSON, compare every closed-enum value literally against CUTSCENE_SCRIPT_V1.schema.json. In particular camera.intensity is exactly subtle, medium or strong; do not use low/high there even though other fields may use those words. Do not transfer vocabulary between different enum fields merely because the words sound semantically related."
     },
     {
       "id": "CANDIDATE_LINT_BEFORE_DELIVERY",
-      "blocks": true,
-      "instruction": "Author a complete CUTSCENE_SCRIPT_V1 candidate from the exact current contract. Lint and every Studio import use the same validation. Final file delivery requires canonical Candidate Lint PASS with zero blockers and zero authoring repairs. Quality warnings may remain advisory. Runtime proof requires building and reopening the saved Editable Preview."
+      "blocks": false,
+      "exactAuthoringRequired": true,
+      "instruction": "Author a complete CUTSCENE_SCRIPT_V1 candidate from the exact current contract. Lint and every Studio import use the same validation. Deliver the complete candidate even when lint reports recoverable warnings. Studio creates labeled editable placeholders and continues; retain every diagnostic for manual repair or Copy to ChatGPT. Runtime proof requires building and reopening the saved Editable Preview."
     },
     {
       "id": "REPAIR_ONLY_AFTER_UNITY_REJECTION",
-      "blocks": true,
-      "instruction": "Unity rejection must identify the exact input path and reason. Correct an invalid authoring value explicitly; the import never rewrites it. If valid V1 reaches a backend failure, fix the backend against the same frozen source instead of replacing its assets, timing or cinematic intent. Warnings do not authorize source rewrite."
+      "blocks": false,
+      "exactAuthoringRequired": true,
+      "instruction": "Use the exact paths and original values from Copy to ChatGPT when a human requests repair of warnings or placeholders. Unity preserves the original V1 and applies only explicit, reported recovery to the detached execution copy. Do not invent an asset identity or silently change the story."
     },
     {
       "id": "VALIDATION_STAGE_SEPARATION",
-      "blocks": true,
-      "instruction": "Lint and Studio import validate one current V1 contract. Lint PASS proves input and resolved preflight validity. Build PASS requires a generated Timeline; runtime PASS requires actual execution of the final saved and reopened Editable Preview. Never claim a later stage from an earlier result."
+      "blocks": false,
+      "exactAuthoringRequired": true,
+      "instruction": "Lint and Studio import validate one current V1 contract. Lint PASS means the input can proceed through editable creation; inspect diagnostics to distinguish exact content from recoverable substitutions. Build PASS requires a generated Timeline; runtime PASS requires actual execution of the final saved and reopened Editable Preview. Never claim a later stage from an earlier result."
     },
     {
       "id": "DIALOGUE_CLOSED_WORLD",
-      "blocks": true,
-      "instruction": "Every dialogue speaker/listener must reference an existing cast[].id exactly. Resolve that local cast id first, then validate its cast[].identityHandle against the authoringReady Emotional Dialogue repertoire. Unknown aliases and typos are errors; never fuzzy-match or reinterpret them as direct identity handles."
+      "blocks": false,
+      "exactAuthoringRequired": true,
+      "instruction": "Every dialogue speaker/listener must reference an existing cast[].id exactly. Resolve that local cast id first, then validate its cast[].identityHandle against the authoringReady Emotional Dialogue repertoire. Unknown aliases and typos produce orange diagnostics and labeled editable placeholders; never fuzzy-match or reinterpret them as direct identity handles."
     },
     {
       "id": "DIALOGUE_IDENTITY",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "After resolving dialogue through cast[].id, the resolved cast[].identityHandle must exactly equal a supported published Emotional Dialogue identityHandle. The Emotional Dialogue identity repertoire is a separate closed authoring domain and does not need to appear in the ordinary Actor-handle route. cast[].id is only a local script reference and need not equal actorId or identityHandle; presentation and animation handles never redefine identity."
     },
     {
       "id": "DIALOGUE_EXPRESSION",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "expressionIntent is opt-in, not a per-line default. Omit it for ordinary dialogue so the exact CharacterPack published defaultExpression is used. Only author expressionIntent for a deliberate visible acting beat. Before doing so, resolve the dialogue speaker local cast id to cast[].identityHandle, find that exact authoringReady dialogue character in CURRENT, and require the requested token to exist literally in that character supportedExpressions set. Never auto-generate Determined, Concerned, Urgent, Relieved, Shocked, Neutral or any other expression from prose, mood, delivery or role. If the deliberate desired expression is absent, omit expressionIntent; never substitute Neutral or another unsupported expression."
     },
     {
       "id": "DIALOGUE_LOCKED_STAGING",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "Do not combine locked portrait dialogue with explicit world movement for the same participant in the same beat. Put world movement in a separate beat when needed."
     },
     {
       "id": "DIALOGUE_LOCKED_CAMERA",
-      "blocks": true,
-      "instruction": "Any beat containing dialogue that resolves to locked portrait/monitor/radio coverage must use camera.movement=hold or camera.movement=cut (cut-based Snap). Do not author push, pull, follow, track, pan, drift, shake or impact_shake in that beat. Put cinematic camera motion in an adjacent non-dialogue beat. This is a blocking authoring rule and must be validated before V3 lowering."
+      "blocks": false,
+      "exactAuthoringRequired": true,
+      "instruction": "Any beat containing dialogue that resolves to locked portrait/monitor/radio coverage must use camera.movement=hold or camera.movement=cut (cut-based Snap). Do not author push, pull, follow, track, pan, drift, shake or impact_shake in that beat. Put cinematic camera motion in an adjacent non-dialogue beat. Unsupported locked-camera movement produces an orange warning and an editable Hold placeholder; it does not stop the movie."
     },
     {
       "id": "PRESENTATION_MODE_ISOLATION",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "Dialogue Mode, ANIME_EMOTION and MOVES/action presentation are three distinct screen modes. A dialogue beat must not also be referenced by moves[]. Root animeEmotion[] intervals must not overlap any dialogue beat interval or any moves[] beat interval. Dialogue Mode owns character conversation UI and uses a compact speaker-linked bubble; ANIME_EMOTION owns full-screen emotional inserts; MOVES/action owns clean action presentation with no dialogue UI. Put transitions between modes on adjacent, non-overlapping time ranges."
     },
     {
       "id": "ONE_PRESENTATION_SOURCE",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "A cast participant has one narrative identity and at most one optional presentationHandle. CharacterPack default presentation is backend-owned and must not be copied into V1. Author presentationHandle only as an explicit override using a legal CURRENT handle compatible with that identity. presentationHandle never creates or changes identity."
     },
     {
       "id": "DIALOGUE_VOICE_PROFILE_OWNERSHIP",
-      "blocks": true,
-      "instruction": "Generated dialogue voice identity and base voice profile come from the selected authoring-ready CharacterPack. Omit voiceName and voiceSpeed in normal authoring; backend timing may deterministically raise effective speech speed up to 2.0x to fit the authored window, otherwise import fails with measured duration, budget and required-speed diagnostics."
+      "blocks": false,
+      "exactAuthoringRequired": true,
+      "instruction": "Generated dialogue voice identity and base voice profile come from the selected authoring-ready CharacterPack. Omit voiceName and voiceSpeed in normal authoring; backend timing may deterministically raise effective speech speed up to 2.0x to fit the authored window, otherwise keep the timed dialogue and report an orange speech warning with the measured budget."
     },
     {
       "id": "CAST_IDENTITY_OWNERSHIP",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "Never duplicate the same identityHandle under multiple cast ids as if they were distinct Actors. If multiple cast entries intentionally represent clones or repeated instances of one canonical Actor Identity, declare one root cast member and set every additional instance's sameIdentityAs to that root (or to a valid chain ending at that root). Movie-local materialHandle performers do not own persistent Actor identity and may reuse the same visual material without sameIdentityAs. If persistent characters are actually distinct, choose a distinct identityHandle for each one from CURRENT."
     },
     {
       "id": "VISUAL_EVIDENCE",
       "blocks": false,
+      "exactAuthoringRequired": false,
       "instruction": "Before selecting an important visual handle, inspect real published pixels. Prefer the matching CURRENT previewUrl when present; Atlas page/slot is secondary browsing evidence. If no pixel evidence is available, treat appearance as unverified and never infer it from filename, displayName or folder metadata."
     },
     {
       "id": "BACKEND_FIELDS_OMITTED",
       "blocks": false,
+      "exactAuthoringRequired": false,
       "instruction": "Do not author V3/V5 bookkeeping such as lifetime ownership, mechanical IDs, fixed Dialogue Stage mechanics, project font defaults, deterministic scale defaults or raw presentation modes. Those remain backend-owned unless represented by a Simple V1 field."
     },
     {
       "id": "SEMANTIC_CAMERA_SUBJECT",
       "blocks": false,
+      "exactAuthoringRequired": false,
       "instruction": "camera.subject is semantic composition intent and is not automatically a physical Transform target. DialoguePortrait participants do not become WorldActors merely to satisfy camera targeting."
     },
     {
       "id": "CAMERA_TARGET_RESOLUTION",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "Push, Pull, Follow and Track each require one resolvable visible WorldActor target. Author camera.subject explicitly for every such beat; the cast.id must resolve to exactly one visible physical Actor in that beat. Never rely on Preview inference or fallback and never author backend targetEntityId."
     },
     {
       "id": "ACTOR_ORBIT_FIXED_CENTER_ONLY",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "Actor motionIntent=orbit uses current V5 fixed-center Orbit. The center/target actor must remain stationary for the Orbit interval. Moving-center Orbit is not supported."
     },
     {
       "id": "NO_UNTIMED_MULTI_PHASE_LOCOMOTION",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "Simple V1 action objects may use explicit startOffset/duration, but actions[] array order is never a sequencing language. Use legal explicit intervals for staggering or concurrency. Distinct semantic locomotion phases such as approach/pass/bank/exit should use adjacent beats unless one continuous precise path represents them unambiguously; one primary locomotion phase may coexist with compatible timed fire/impact/reveal events."
     },
     {
       "id": "SEMANTIC_SPEED_ONLY",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "Use semantic speed values slow, medium, fast or burst. Do not author numeric runtime speed values."
     },
     {
       "id": "PATH_POINTS_CANONICAL",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "Every actions[].pathPoints[] item is exactly an object with numeric x and y fields, for example {\"x\": 0.1, \"y\": 0.3}. Array/tuple points such as [x,y] are forbidden."
     },
     {
       "id": "MOVE_LIBRARY",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "CUTSCENE_SCRIPT_V1 has one first-class moves[] vocabulary with exactly 53 legal moves. Each move has an exact CURRENT id and references consecutive beatIds in film order. The number of beatIds must equal that move's published phase count. Every referenced beat must visibly satisfy the published cinematicSignature and that phase's machine-readable phaseRequirements, and the full move must satisfy any published wholeMoveConstraints. Within phaseRequirements, every allOf entry must pass and anyOf means at least one listed V1 predicate must be authored. wholeMoveConstraints are cross-phase identity, co-presence, intent and shared-direction requirements from the same canonical validator, not optional prose. Use existing V1 motionIntent, camera, visible composition, action and path fields to satisfy those predicates and make the signature observable; a move id is not a decorative label. moves[] is the only move field. Do not author backend implementation fields or raw runtime IDs. Current repertoire: 1. CROSSING_FLYBY [enter -> pass_camera -> exit] signature={Traveler must visibly traverse the frame in one direction: enter may be an explicit enter action or an authored path from outside to inside frame; pass uses flyby/pass_camera motion; exit may be an explicit exit action or an authored path from inside to outside frame.}; 2. HERO_SWEEP [flyby -> foreground_arc -> bank_away -> exit] signature={Hero performs a readable flyby or foreground arc, then banks away and exits with a clear change of direction.}; 3. ATTACK_RUN [approach -> fire_during_pass -> pass_camera -> bank_away] signature={Attacker approaches target, fires during the pass, crosses camera/target space, then banks away.}; 4. BOOM_AND_BREAK [attack -> impact -> formation_break -> clear_blast] signature={Attack produces a visible impact/explosion and the formation visibly breaks away from the blast.}; 5. DOUBLE_INTERCEPT [separate_defenders -> converge -> hold_intercept_lane] signature={Two distinct interceptors converge on one target from separate lanes and finish in a readable intercept geometry.}; 6. FLANK_LEFT [peel_left -> arc_intercept -> hold_target_readability] signature={Left flanker peels to a left-side lane, curves toward the target, then holds a readable flanking relation.}; 7. FLANK_RIGHT [peel_right -> arc_intercept -> hold_target_readability] signature={Right flanker peels to a right-side lane, curves toward the target, then holds a readable flanking relation.}; 8. PURSUIT_LANES [establish_depth_lanes -> parallel_pursuit -> closing_gap] signature={Pursuer and pursued occupy distinct lanes/depths while moving in the same travel direction and the gap visibly closes.}; 9. CHASE_THROUGH_FRAME [target_crosses -> chasers_enter -> same_direction_exit] signature={Pursued crosses first; pursuer enters after it and both leave in the same screen direction.}; 10. ESCORT_COLUMN [principal_leads -> escorts_hold_spacing -> shared_travel] signature={Principal leads while escorts maintain distinct spacing and share one travel direction.}; 11. ESCORT_PEEL_OFF [escort -> peel_off -> bank_away -> exit] signature={Escort formation is established, at least one escort peels away, banks, and exits while protected subject remains readable.}; 12. FORMATION_SPREAD [stable_formation -> open_spacing -> hold] signature={At least three formation members begin grouped, increase separation, then hold the wider formation.}; 13. FORMATION_CONVERGE [separate_entries -> converge_to_slots -> hold] signature={At least three members enter from separated positions, converge toward formation slots, then hold.}; 14. BANK_AND_EXIT [bank_away -> accelerate -> exit] signature={Traveler performs a bank-away curve, accelerates, and leaves the frame.}; 15. FORMATION_RETREAT [formation_break -> retreat_lanes -> exit] signature={Formation breaks under threat, members retreat in readable lanes, then exit in a shared retreat direction.}; 16. DAMAGED_WITHDRAWAL [impact_or_react -> brief_hold -> crippled_drift -> escape] signature={Damage/impact reaction is followed by a brief readable hold, impaired drift, then escape.}; 17. TAKEOFF_ESCORT [takeoff -> escort_join -> shared_travel] signature={Takeoff actor visibly launches, escort joins, and both continue in shared travel.}; 18. LAUNCH_WAVE [staggered_takeoffs -> clear_launch_area] signature={Multiple launched actors take off with staggered timing and clear the launch area.}; 19. LANDING_APPROACH [approach -> landing -> settle_hold] signature={Lander approaches, performs landing motion, then settles into a hold.}; 20. LAND_THEN_GUARD_ORBIT [landing -> center_stops -> guards_orbit] signature={Center lands and becomes stationary while at least two guards orbit that fixed center.}; 21. STATIC_CENTER_ORBIT_REVEAL [static_center -> guard_orbit -> pull_reveal -> hold] signature={Center remains static while orbiters circle it; camera pulls to reveal the full scale/context.}; 22. ORBIT_THEN_BREAK [orbit -> break -> bank_away] signature={Orbit is visibly established before orbiters break formation and bank away.}; 23. RESCUE_PASS [rescue_approach -> visible_meet -> escort_escape] signature={Rescuer approaches rescued subject, they visibly meet/share frame, then the same rescuer and rescued subject both escape with authored displacement in a shared direction.}; 24. CONVOY_ESCAPE [convoy_travel -> threat_pressure -> escape_same_direction] signature={Leader/protected/escort travel as convoy under threat and escape in a shared direction.}; 25. THREAT_REVEAL_PASS [foreground_pass -> threat_revealed -> pull_scale_context] signature={Foreground passer crosses/occludes, revealing a threat behind it; camera pull establishes threat scale/context.}; 26. VICTORY_FLYBY [formation_flyby -> celebratory_break -> exit] signature={Multiple ships perform a readable formation flyby, celebratory break, then exit.}; 27. QUIET_DRIFT_OUT [slow_drift -> quiet_exit] signature={Retreating actor uses slow drift with restrained camera and exits without impact-shake/combat punctuation.}; 28. SCREEN_CROSS_REVEAL [foreground_occlusion -> cross_frame -> target_revealed] signature={Foreground occluder crosses the frame and genuinely hides then reveals the hidden subject.}; 29. CROSS_TRAFFIC [lane_a_cross -> lane_b_cross_other_depth -> clear_readable_flow] signature={Two traffic groups cross in distinct lanes/depths and directions while remaining visually separable.}; 30. HOLD_THEN_BURST [hold -> burst_acceleration -> travel_payoff] signature={Traveler begins in a genuine hold, then switches to burst-speed displacement with a clear travel payoff.}; 31. ARRIVE_SETTLE_HOLD [arrive -> decelerate_settle -> hold] signature={Same arriving actor approaches, slows, and the authored settle path ends at the position used by the following held beat; the final composition remains static there.}; 32. TARGET_LOCK [attacker_establish -> target_cut -> attacker_push_in -> fire] signature={Attacker establish -> target cut -> tighter attacker push/track -> explicit fire.}; 33. LOOK_REVEAL_REACTION [looking_face -> seen_subject -> reaction_push_in] signature={Looker is shown looking, observed subject is revealed, then reaction returns to the looker with tighter emphasis.}; 34. THREAT_APPROACH [subject -> distant_threat -> subject_return -> closer_threat -> reaction_closeup] signature={Alternating subject/threat shots show the threat materially closer on its second appearance, ending on subject reaction.}; 35. FALSE_DIRECTION_ATTACK [attacker_exits -> target_hold -> offscreen_attack_from_implied_direction -> impact] signature={Attacker exits, target holds, attack returns from the implied offscreen direction, then impact lands.}; 36. PASS_BY_REVEAL [foreground_pass -> brief_occlusion -> new_subject_reveal -> hold_reveal] signature={Foreground passer crosses and briefly occludes, a new subject is revealed, then reveal is held long enough to read.}; 37. REACTION_BEFORE_CAUSE [reaction_first -> turn_or_look -> cause_reveal] signature={Reaction is shown before the cause; only after a look/turn does the cause become visible.}; 38. FORMATION_BREAK [formation_wide -> single_ship_emphasis -> break_accelerate -> wide_split] signature={Wide formation is established, one member is emphasized, members accelerate apart, then wide shot proves the split.}; 39. CHAIN_REACTION [projectile_or_shot -> first_impact -> first_explosion -> secondary_reaction -> second_explosion] signature={Source action causes first impact/explosion, which visibly triggers a secondary reaction and second explosion.}; 40. HIDDEN_PURSUER [traveler_exits -> camera_lingers -> pursuer_enters -> unaware_hero] signature={Traveler exits, camera lingers on empty/readable space, pursuer enters later, traveler remains unaware.}; 41. SCALE_REVEAL [close_ship -> pull_out -> giant_subject_reveal -> hold_scale_contrast] signature={Small subject establishes scale; pull/reveal introduces a materially larger giant subject and holds the contrast.}; 42. LOOK_TARGET_LOOK [looker -> looked_at_target -> looker_return] signature={Looker -> looked-at target -> same looker return, preserving eyeline relation.}; 43. AIM_TARGET_CONFIRM [armed_subject -> target -> armed_subject_confirm] signature={Armed/aimer subject -> target -> same aimer return with confirmed aim/intent.}; 44. SHIP_TARGET_ATTACK_INTENT [ship -> target -> ship_push_in] signature={Ship -> target -> tighter/pushed ship shot that strengthens attack intent without requiring fire.}; 45. THREAT_REACTION_THREAT [threat -> reaction -> closer_threat] signature={Threat -> reactor -> materially tighter/closer threat.}; 46. DISCOVERY_REVEAL_REACTION [searching_subject -> discovery_reveal -> reaction] signature={Searcher looks/searches, discovery is revealed, then reaction returns to searcher.}; 47. CAUSE_EFFECT_REACTION [cause_action -> effect -> actor_reaction] signature={Cause action -> visible effect on effect_target -> separate actor reaction.}; 48. WATCHER_SUBJECT_WATCHER [watcher -> observed_subject -> watcher_return] signature={Watcher -> observed subject -> same watcher return, preserving screen relation.}; 49. WEAPON_TARGET_FIRE [weapon -> target -> weapon_fire] signature={Weapon is established, target is shown, then the same weapon explicitly fires.}; 50. MISSILE_TARGET_IMPACT [missile -> target -> impact] signature={Missile is established in motion, target is shown separately, then target receives explicit impact.}; 51. ENEMY_HERO_STANDOFF [enemy -> hero -> enemy_tighter] signature={Enemy -> hero -> tighter enemy shot, preserving opposing screen sides and escalating tension.}; 52. OBJECT_MEMORY_FACE [meaningful_object -> face -> object_return] signature={Meaningful object detail -> face reaction/association -> same object return; no unrelated combat boilerplate.}; 53. LOOK_OFFSCREEN_REVEAL [offscreen_look -> seen_reveal -> relation_confirm] signature={Looker visibly looks offscreen, revealed subject appears in implied direction, then relation is confirmed.}"
     },
     {
       "id": "CINEMATIC_DRAMATIC_COVERAGE",
       "blocks": false,
+      "exactAuthoringRequired": false,
       "instruction": "Do not build a narrative movie from locomotion/choreography MOVES alone when the story contains discovery, threat, reaction, target acquisition, reveal, standoff, memory or cause/effect. Use the existing dramaticEditorial and associativeEditorial MOVE families where they express the intended story. Preserve motivated multi-phase shot grammar: establish geography, isolate the important subject/target, then return, push, reveal or react for payoff. Repeated wide/hold coverage of one centered actor is appropriate only when restraint is the intended signature."
     },
     {
       "id": "ANIME_EMOTION_EXACT_VOCABULARY",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "Every animeEmotion[].characterId must be one exact published ANIME_EMOTION character ID and every animeEmotion[].expression must be one exact UPPERCASE expression token published for that character. Never reuse dialogue-expression casing or invent prose synonyms."
     },
     {
       "id": "ANIME_EMOTION_RICH_COMPOSITION",
       "blocks": false,
+      "exactAuthoringRequired": false,
       "instruction": "Root-level animeEmotion[] creates a complete emotional composition, not a face-only fallback. characterId + expression + startSeconds are sufficient: Unity supplies that character's default anime background, a real available half-body/body layer, the expression portrait, emotion-matched FX and a short default caption when those optional fields are omitted. Authors may override backgroundId, effectId, caption and captionKind=narrator|title|impact. framing still controls the focus detail; it does not disable the rich composition except EYES, where the eye detail may stand alone. Do not invent raw asset IDs or assemble arbitrary head/body pieces outside the canonical ANIME_EMOTION library."
     },
     {
       "id": "CINEMATIC_TEXT_AUTHORING",
       "blocks": false,
+      "exactAuthoringRequired": false,
       "instruction": "Use beats[].captions[] for short on-screen narrative text independent of spoken dialogue and MOVES. Each caption contains text (1..120 characters), optional kind=narrator|title|impact, placement=top|center|bottom, startOffset and durationSeconds within its beat. Impact captions must be <=32 characters. Use a few meaningful captions at plot turns, not one on every shot; narrator does not require a dialogue speaker or stop playback."
     },
     {
       "id": "BACKGROUND_MOTION",
-      "blocks": true,
-      "instruction": "Use beats[].backgroundMotion only with an explicit locationHandle background and without locked dialogue staging. direction is the background image direction, speed defaults to 0.6 and loop defaults to true where the schema permits omission. Missing location or conflicting locked staging blocks import; no motion request is silently ignored and no background is inferred."
+      "blocks": false,
+      "exactAuthoringRequired": true,
+      "instruction": "Use beats[].backgroundMotion only with an explicit locationHandle background and without locked dialogue staging. direction is the background image direction, speed defaults to 0.6 and loop defaults to true where the schema permits omission. Missing location or conflicting locked staging produces a labeled placeholder or Hold plus an orange diagnostic; continue building."
     },
     {
       "id": "LIGHTING_AUTHORING",
       "blocks": false,
+      "exactAuthoringRequired": false,
       "instruction": "Optional beat.lighting is authoring intent, not a catalog asset. Omit lighting to inherit the current state. Use target=scene for the generated global URP 2D light, or target=subject with subject=<cast id> for targeted lighting. mode is hold, fade, blackout or reveal. color is #RRGGBB or #RRGGBBAA; intensity is 0..8; blendSeconds is non-negative. materialEmission (0..4) and materialTintStrength (0..1) affect only generated cutscene renderers through property blocks. The same beat.lighting contract may be used inside any of the 53 legal moves[]; lighting does not create a separate move vocabulary."
     },
     {
       "id": "WARNING_FIRST",
       "blocks": false,
-      "instruction": "Cinematic quality suggestions may be advisory. Schema, fingerprint, identity, required MOVE evidence, asset availability, unsupported capabilities, invalid timing and package-generation errors block import and build. A warning never changes source values or removes an authored instruction."
+      "exactAuthoringRequired": false,
+      "instruction": "Create the movie even when content, CURRENT fingerprints, handles, animations, MOVE requirements, timing or the catalog are incomplete. Preserve the original V1; use explicit orange placeholders, static poses or timed Holds in the execution copy, retain exact diagnostics, and continue. Only unreadable input or a fundamental inability to create/save a movie can stop creation."
     },
     {
       "id": "SINGLE_AUTHORING_CONTRACT",
-      "blocks": true,
-      "instruction": "Lint and every Studio import reject unsupported input without automatic repair. Require exact current fingerprints, literal schema fields, explicit required timing and resolvable handles. Never rebind stale input, infer missing subjects or targets, substitute assets, discard requested effects, shorten bursts or turn a locked camera move into Hold."
+      "blocks": false,
+      "exactAuthoringRequired": true,
+      "instruction": "Use one V1 creation path for lint and Studio. Authors should select exact CURRENT values. Missing or incompatible content uses the same documented, visible recovery in both paths; keep original source and timing intent in the repair report. The generated scene and Timeline are ordinary editable Unity assets without later reconciliation or automatic overwrite."
     },
     {
       "id": "DIRECT_SPRITE_ASSET_COMPLETENESS",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "A direct Sprite animation is authorable only when its exact clip identity loads and every authored Sprite frame and texture is available. Null or broken frames are unsupported; never skip a broken first frame or replace it with a later one. Do not use missing Sprite references as visibility control."
     },
     {
       "id": "SCHEMA_ONLY",
-      "blocks": true,
+      "blocks": false,
+      "exactAuthoringRequired": true,
       "instruction": "Serialize only fields defined by CUTSCENE_SCRIPT_V1.schema.json. Do not invent noncanonical fields."
     }
   ]
