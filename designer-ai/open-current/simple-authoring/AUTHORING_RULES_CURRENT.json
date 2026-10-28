@@ -2,11 +2,11 @@
   "schema": "STARWARS_DELTA_SIMPLE_V1_AUTHORING_RULES_CURRENT",
   "schemaVersion": 3,
   "requiredCurrent": {
-    "catalogRevision": "7621333667636349547",
+    "catalogRevision": "7621370563188834931",
     "contractRevision": "95376DF60D51CAE3357F3CDB3C1C6BA8A4AC92C6E845CB2B282E76C0EE838101",
-    "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
-    "snapshotContentHash": "1D6F8679DD9A4CBFA3FB3B23CD81DAB785EBF72BBE7BFE0E34E654C19561AEEB",
-    "authoringRuleRegistryRevision": "DD86C108076E923DD28F7B9444B8EA5F389CE8A492B5E9012C74BDB72D7A8F54"
+    "schemaHash": "9A7BAD7DAC4DF634BC50B6E5A2C2B8681BBE3C3B63DB903F4CDFC2E6CF5B7103",
+    "snapshotContentHash": "49289490D3A5873178B102BF61FA88AB9AA0B5231F1B5D561997325AF8F94A09",
+    "authoringRuleRegistryRevision": "54DDFDD1A94A855E3C21069DA8E70EACC1C222A3B121F97E0ABACB924BECDB84"
   },
   "purpose": "Author-facing rules for CUTSCENE_SCRIPT_V1 only. Backend/internal rules are intentionally omitted.",
   "rules": [
@@ -201,6 +201,12 @@
       "blocks": false,
       "exactAuthoringRequired": true,
       "instruction": "Use beats[].backgroundMotion only with an explicit locationHandle background and without locked dialogue staging. direction is the background image direction, speed defaults to 0.6 and loop defaults to true where the schema permits omission. Missing location or conflicting locked staging produces a labeled placeholder or Hold plus an orange diagnostic; continue building."
+    },
+    {
+      "id": "IDENTITY_CUES_SYSTEM5",
+      "blocks": false,
+      "exactAuthoringRequired": false,
+      "instruction": "When matching sealed CURRENT exposes cast[].alignment, use exactly good, evil or neutral; never infer morality from handles. Omitted is unspecified, not neutral. Optional cast[].identityLevel=1|2|3 overrides identityCues.level root default 2 per performer: level 1 = rotating shield/skull/scales sprite emblem, level 2 = sprite plus soft orbital aura, level 3 = more energy and a short pulse ONLY for explicitly authored V1 action. identityCues.enabled=false or strength=0 disables it. Same sprite can depict opposing roles. Native animated SpriteRenderers follow Timeline and do not edit source art, moves, camera or story. No badge handles, alternate JSON, new build buttons or manual film repairs."
     },
     {
       "id": "LIGHTING_AUTHORING",

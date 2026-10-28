@@ -1,9 +1,9 @@
 # STARWARS_DELTA Film Authoring Guide CURRENT
 
 
-CREATION CONTINUES WITH PLACEHOLDERS - USER POLICY 2026-10-20
-Create and deliver an editable movie even when content or the catalog is incomplete. Author exact known CURRENT values. Lint, Import and Build use one recovery policy: preserve the original V1 source, continue with visible orange placeholders, static poses or timed Holds, and retain the requested value, source path and timing in Copy to ChatGPT diagnostics. Only unreadable/non-movie input or an inability to create/save even a basic movie may stop creation.
-The generated scene, Prefab and Timeline remain editable. Replace a placeholder manually without attachment, reconciliation, regeneration or overwriting the manual replacement. A movie with placeholders is a valid editable result whose exact content fidelity still needs review.
+LOCAL PLACEHOLDERS, SINGLE PIPELINE - USER POLICY 2026-10-28
+Use one CUTSCENE_SCRIPT_V1 authoring contract and CURRENT assets. Failed local content must produce exactly one conspicuous native editable substitute at the owning creation step, preserving the original id, requested handle, JSON path, timing and reason. Independent authored content must continue building. Do not turn every warning into a placeholder; only actual missing/unbuildable content receives one.
+Lint, Studio, and automation must share semantic compilation rules. The existing Studio/Copy to ChatGPT report owns diagnostics, which are data rather than extra scene objects. Never generate additional placeholders from a postbuild diagnostic sweep, and never repair camera or Timeline from diagnostics. Editable drafts with substitutes are valid incomplete outputs, not FINISHED_FILM_VERIFIED; runtime and visual QA are still required.
 
 This is the filmmaking layer for Devora / Designer AI authoring. It complements the canonical Simple V1 CURRENT surface. It does not create a second contract and it does not replace Unity runtime validation.
 
@@ -480,3 +480,56 @@ FIRST-PASS PRESENTATION-TIMELINE CHECK (MANDATORY BEFORE DELIVERING NEW V1):
 Compute absolute beat boundaries from 0 by summing beats[].durationSeconds. For EVERY root animeEmotion[] interval [startSeconds, startSeconds + durationSeconds), compare it to EVERY beat referenced by moves[].beatIds and EVERY beat that has dialogue. If max(start1,start2) < min(end1,end2), there is forbidden presentation overlap. Keep anime inserts in dedicated, non-dialogue, non-MOVE beats. Check overlap with MOVES as well as dialogue. Held-out 150-second film failed Unity STRICT_QA with animeEmotion overlaps on b02, b05, b10, b14 even though its JSON syntax was valid. A correct example schedules an emotional close-up in an untagged, dialogue-free beat whose full time interval does not intersect any MOVES beat. Schema-only validation does not detect this.
 RADIO DIALOGUE: Prefer a matching CURRENT beats[].locationHandle inspected using actual preview pixels. The author must NOT invent backend fields stage.backgroundAssetId or reaction.actorId, which do not exist in Simple V1. Unity backend owns deterministic radio presentation background selection when locationHandle is absent. To stage a visible reaction, use a separate adjacent action beat with visible[] and legal actions[]; that is not the internal dialogue reaction cue. A backend warning on such internal fields is not proof the author violated V1. STRICT_QA passing only proves lint: separately verify import, save, reopen, playback and actual frame captures.
 
+
+
+## System 5: animated role emblems, 3 levels (local until CURRENT published)
+
+This guide describes the local Studio implementation. Dvora must use only the
+matching published sealed CURRENT schema. Do not mix new local identityCues fields with
+an older public transaction. Publisher remains blocked until System 6 acceptance.
+
+The existing CUTSCENE_SCRIPT_V1 contract is still the only movie authoring path.
+Actors may optionally set cast[].alignment to exactly good, evil or neutral.
+Do not infer moral roles from sprite colors, asset names, team or weapon. Omission
+means unknown or intentionally concealed, not neutral. sameIdentityAs inherits
+the root actor role. One sprite can depict opposite roles in separate cast entries.
+
+ANIMATED IDENTITY OVERLAYS, not text or vector outlines:
+- good = 12-frame 3D-turning golden-blue shield sprite
+- evil = 12-frame spinning crimson-violet skull sprite
+- neutral = 12-frame luminous silver-gold scales sprite
+
+The original sprite, material, movement and camera are not altered. The emblem
+is positioned above the VisualAnimationRoot; generated Timeline samples from
+its movie time and supports repeatable seeking, pause, saving and reopening.
+
+THREE INTENSITY LEVELS:
+1. identityLevel: 1 = simple continuously animated emblem above the actor.
+2. identityLevel: 2 = emblem plus soft orbital aura and light motion (default).
+3. identityLevel: 3 = emblem with strong energy orbit and sparks, and brief
+   additional pulse only at a real authored action event. Unity does not
+   invent protection, threat, attack or sacrifice.
+
+Root identityCues supports enabled (default true), strength (0..1, default .65),
+level (1..3, default 2). cast[].identityLevel (1..3) overrides the root
+level for the specific performer, so GPT can select different levels for
+enemy/friend/neutral roles in the same film. No new movie contract.
+
+Illustration: 
+{ "identityCues": { "enabled": true, "strength": 0.85, "level": 2 },
+  "cast": [
+    { "id": "rescue_ship", "identityHandle": "EXACT_CURRENT_HANDLE", "alignment": "good", "identityLevel": 3 },
+    { "id": "pirate_ship", "identityHandle": "EXACT_CURRENT_HANDLE", "alignment": "evil", "identityLevel": 2 },
+    { "id": "civilian_ship", "identityHandle": "EXACT_CURRENT_HANDLE", "alignment": "neutral", "identityLevel": 1 }
+  ]
+}
+
+For an actual movie include all mandatory V1 fields, matching sealed CURRENT
+fingerprints, published handles, legal beats and real actions. Illustration
+above is NOT a standalone valid movie. Badge sprites are generated by Studio
+from bundled System5 SpriteRenderer frames; do not author badge handles.
+No extra Dvora buttons or post-build film repairs. If assets are missing,
+warn and keep the movie editable.
+
+QA: normal Studio V1 build, native Film QA scanner, inspect captured frames.
+Passing Timeline tests alone is not proof of cinematic meaning.

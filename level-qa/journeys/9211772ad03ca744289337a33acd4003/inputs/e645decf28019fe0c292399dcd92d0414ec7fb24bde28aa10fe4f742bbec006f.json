@@ -1,0 +1,1575 @@
+{
+    "schema": "STARWARS_DELTA_LEVEL_BUILD",
+    "schemaVersion": 6,
+    "requestId": "083225d757b14bc396581742065256df",
+    "sceneId": "9211772ad03ca744289337a33acd4003",
+    "sceneName": "GRADIUS_VOLCANO_01",
+    "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
+    "sceneFingerprint": "442c82a868a643c8d6705abc72be6037",
+    "planId": "2f15877bb15846fab62aeabf92e91d60",
+    "basePlanRevision": 3,
+    "blueprintId": "107f5fb55acd458eb14b298155fab51d",
+    "baseBlueprintRevision": 4,
+    "catalogRevision": 7621375294679461005,
+    "seed": 0,
+    "applicationMode": "replace",
+    "runtimeWorldScrollVelocityX": -1.2000000476837158,
+    "designSummary": "GRADIUS 1985 STAGE 1 REBUILD, 4-player wide camera adaptation: authentic open-space entrance, organic upper/lower canyon silhouettes, jagged caverns, free-floating rock battery, two broad volcanic mountains with actual silhouette craters, 12 conspicuous turrets (CUTE, SILO, volcano), and 6 mechanical hazards. Replace ALL prior Layer0 geometry/visual/hazard content. Waves and GameSceneLayers gameplay foundations remain external and unchanged.",
+    "resolvedPlanRevision": 0,
+    "previewPlanRevision": 0,
+    "intentRequirements": [],
+    "assetResolutions": [],
+    "segments": [],
+    "geometryOperations": [
+        {
+            "operation": "upsert",
+            "elementId": "GRADIUS_NEW_CANYON_FLOOR",
+            "segmentId": "",
+            "role": "Floor",
+            "shapeProfilePath": "Assets/_Game/MY_Core/MY_Data/LevelAuthoring/SpriteShapeProfiles/SSP_GRADIUS_MAGMA_ROCK.asset",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": true,
+            "smooth": false,
+            "colliderMode": "NativeSpline",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 0.9100000262260437,
+                "g": 0.5899999737739563,
+                "b": 0.5199999809265137,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [
+                {
+                    "x": -50.0,
+                    "y": -12.199999809265137
+                },
+                {
+                    "x": -57.0,
+                    "y": -11.600000381469727
+                },
+                {
+                    "x": -64.0,
+                    "y": -10.699999809265137
+                },
+                {
+                    "x": -71.0,
+                    "y": -10.199999809265137
+                },
+                {
+                    "x": -77.0,
+                    "y": -11.100000381469727
+                },
+                {
+                    "x": -84.0,
+                    "y": -8.899999618530273
+                },
+                {
+                    "x": -90.0,
+                    "y": -9.600000381469727
+                },
+                {
+                    "x": -98.0,
+                    "y": -7.300000190734863
+                },
+                {
+                    "x": -105.0,
+                    "y": -8.800000190734863
+                },
+                {
+                    "x": -111.0,
+                    "y": -6.400000095367432
+                },
+                {
+                    "x": -119.0,
+                    "y": -8.600000381469727
+                },
+                {
+                    "x": -126.0,
+                    "y": -8.899999618530273
+                },
+                {
+                    "x": -134.0,
+                    "y": -7.199999809265137
+                },
+                {
+                    "x": -142.0,
+                    "y": -9.600000381469727
+                },
+                {
+                    "x": -151.0,
+                    "y": -9.899999618530273
+                },
+                {
+                    "x": -159.0,
+                    "y": -7.0
+                },
+                {
+                    "x": -166.0,
+                    "y": -8.5
+                },
+                {
+                    "x": -172.0,
+                    "y": -9.399999618530273
+                },
+                {
+                    "x": -179.0,
+                    "y": -7.199999809265137
+                },
+                {
+                    "x": -186.0,
+                    "y": -9.100000381469727
+                },
+                {
+                    "x": -193.0,
+                    "y": -6.599999904632568
+                },
+                {
+                    "x": -201.0,
+                    "y": -8.899999618530273
+                },
+                {
+                    "x": -208.0,
+                    "y": -9.899999618530273
+                },
+                {
+                    "x": -217.0,
+                    "y": -11.300000190734863
+                },
+                {
+                    "x": -225.0,
+                    "y": -9.800000190734863
+                },
+                {
+                    "x": -233.0,
+                    "y": -10.399999618530273
+                },
+                {
+                    "x": -242.0,
+                    "y": -11.300000190734863
+                },
+                {
+                    "x": -251.0,
+                    "y": -10.100000381469727
+                },
+                {
+                    "x": -260.0,
+                    "y": -11.899999618530273
+                },
+                {
+                    "x": -270.0,
+                    "y": -11.800000190734863
+                },
+                {
+                    "x": -278.0,
+                    "y": -12.0
+                },
+                {
+                    "x": -286.0,
+                    "y": -11.699999809265137
+                },
+                {
+                    "x": -297.0,
+                    "y": -12.399999618530273
+                },
+                {
+                    "x": -308.0,
+                    "y": -12.699999809265137
+                },
+                {
+                    "x": -319.0,
+                    "y": -12.399999618530273
+                },
+                {
+                    "x": -331.0,
+                    "y": -11.800000190734863
+                },
+                {
+                    "x": -342.0,
+                    "y": -12.100000381469727
+                },
+                {
+                    "x": -342.0,
+                    "y": -16.399999618530273
+                },
+                {
+                    "x": -50.0,
+                    "y": -16.399999618530273
+                }
+            ],
+            "kmStart": 19.0,
+            "kmEnd": 130.0,
+            "designerLocked": false,
+            "notes": "Original 1985 Stage1 inspired organic silhouette scaled for a 4-player 27-unit-tall battlefield, not an orange strip. Replace-mode is authoritative; no waves generated."
+        },
+        {
+            "operation": "upsert",
+            "elementId": "GRADIUS_NEW_CAVERN_CEILING",
+            "segmentId": "",
+            "role": "Ceiling",
+            "shapeProfilePath": "Assets/_Game/MY_Core/MY_Data/LevelAuthoring/SpriteShapeProfiles/SSP_GRADIUS_DARK_MECHANICAL.asset",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": true,
+            "smooth": false,
+            "colliderMode": "NativeSpline",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 0.5600000023841858,
+                "g": 0.5199999809265137,
+                "b": 0.5199999809265137,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [
+                {
+                    "x": -76.0,
+                    "y": 15.899999618530273
+                },
+                {
+                    "x": -76.0,
+                    "y": 11.5
+                },
+                {
+                    "x": -82.0,
+                    "y": 10.300000190734863
+                },
+                {
+                    "x": -89.0,
+                    "y": 9.699999809265137
+                },
+                {
+                    "x": -95.0,
+                    "y": 11.0
+                },
+                {
+                    "x": -102.0,
+                    "y": 8.300000190734863
+                },
+                {
+                    "x": -109.0,
+                    "y": 7.400000095367432
+                },
+                {
+                    "x": -115.0,
+                    "y": 8.899999618530273
+                },
+                {
+                    "x": -124.0,
+                    "y": 6.800000190734863
+                },
+                {
+                    "x": -132.0,
+                    "y": 8.100000381469727
+                },
+                {
+                    "x": -140.0,
+                    "y": 7.599999904632568
+                },
+                {
+                    "x": -147.0,
+                    "y": 9.800000190734863
+                },
+                {
+                    "x": -156.0,
+                    "y": 8.399999618530273
+                },
+                {
+                    "x": -166.0,
+                    "y": 6.800000190734863
+                },
+                {
+                    "x": -173.0,
+                    "y": 8.600000381469727
+                },
+                {
+                    "x": -182.0,
+                    "y": 7.900000095367432
+                },
+                {
+                    "x": -191.0,
+                    "y": 9.399999618530273
+                },
+                {
+                    "x": -200.0,
+                    "y": 10.699999809265137
+                },
+                {
+                    "x": -204.0,
+                    "y": 12.899999618530273
+                },
+                {
+                    "x": -204.0,
+                    "y": 18.799999237060547
+                },
+                {
+                    "x": -76.0,
+                    "y": 18.799999237060547
+                }
+            ],
+            "kmStart": 29.0,
+            "kmEnd": 78.0,
+            "designerLocked": false,
+            "notes": "Original 1985 Stage1 inspired organic silhouette scaled for a 4-player 27-unit-tall battlefield, not an orange strip. Replace-mode is authoritative; no waves generated."
+        },
+        {
+            "operation": "upsert",
+            "elementId": "GRADIUS_NEW_OVERHANG",
+            "segmentId": "",
+            "role": "Ceiling",
+            "shapeProfilePath": "Assets/_Game/MY_Core/MY_Data/LevelAuthoring/SpriteShapeProfiles/SSP_GRADIUS_DARK_MECHANICAL.asset",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": true,
+            "smooth": false,
+            "colliderMode": "NativeSpline",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 0.6399999856948853,
+                "g": 0.5600000023841858,
+                "b": 0.5799999833106995,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [
+                {
+                    "x": -210.0,
+                    "y": 17.899999618530273
+                },
+                {
+                    "x": -210.0,
+                    "y": 10.899999618530273
+                },
+                {
+                    "x": -217.0,
+                    "y": 9.600000381469727
+                },
+                {
+                    "x": -226.0,
+                    "y": 9.899999618530273
+                },
+                {
+                    "x": -231.0,
+                    "y": 7.800000190734863
+                },
+                {
+                    "x": -239.0,
+                    "y": 9.5
+                },
+                {
+                    "x": -247.0,
+                    "y": 12.399999618530273
+                },
+                {
+                    "x": -247.0,
+                    "y": 18.200000762939453
+                },
+                {
+                    "x": -210.0,
+                    "y": 18.200000762939453
+                }
+            ],
+            "kmStart": 80.0,
+            "kmEnd": 94.0,
+            "designerLocked": false,
+            "notes": "Original 1985 Stage1 inspired organic silhouette scaled for a 4-player 27-unit-tall battlefield, not an orange strip. Replace-mode is authoritative; no waves generated."
+        },
+        {
+            "operation": "upsert",
+            "elementId": "GRADIUS_NEW_CLIFF_A",
+            "segmentId": "",
+            "role": "Wall",
+            "shapeProfilePath": "Assets/_Game/MY_Core/MY_Data/LevelAuthoring/SpriteShapeProfiles/SSP_GRADIUS_MAGMA_ROCK.asset",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": true,
+            "smooth": false,
+            "colliderMode": "NativeSpline",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 0.8299999833106995,
+                "g": 0.4099999964237213,
+                "b": 0.38999998569488525,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [
+                {
+                    "x": -117.0,
+                    "y": -16.399999618530273
+                },
+                {
+                    "x": -117.0,
+                    "y": -8.399999618530273
+                },
+                {
+                    "x": -122.0,
+                    "y": -7.0
+                },
+                {
+                    "x": -124.0,
+                    "y": -4.800000190734863
+                },
+                {
+                    "x": -126.0,
+                    "y": -6.0
+                },
+                {
+                    "x": -131.0,
+                    "y": -4.400000095367432
+                },
+                {
+                    "x": -134.0,
+                    "y": -7.199999809265137
+                },
+                {
+                    "x": -141.0,
+                    "y": -9.300000190734863
+                },
+                {
+                    "x": -149.0,
+                    "y": -12.0
+                },
+                {
+                    "x": -149.0,
+                    "y": -16.399999618530273
+                }
+            ],
+            "kmStart": 44.0,
+            "kmEnd": 57.0,
+            "designerLocked": false,
+            "notes": "Original 1985 Stage1 inspired organic silhouette scaled for a 4-player 27-unit-tall battlefield, not an orange strip. Replace-mode is authoritative; no waves generated."
+        },
+        {
+            "operation": "upsert",
+            "elementId": "GRADIUS_NEW_CLIFF_B",
+            "segmentId": "",
+            "role": "Wall",
+            "shapeProfilePath": "Assets/_Game/MY_Core/MY_Data/LevelAuthoring/SpriteShapeProfiles/SSP_GRADIUS_MAGMA_ROCK.asset",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": true,
+            "smooth": false,
+            "colliderMode": "NativeSpline",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 0.8999999761581421,
+                "g": 0.4399999976158142,
+                "b": 0.3799999952316284,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [
+                {
+                    "x": -179.0,
+                    "y": -16.399999618530273
+                },
+                {
+                    "x": -179.0,
+                    "y": -7.800000190734863
+                },
+                {
+                    "x": -184.0,
+                    "y": -6.099999904632568
+                },
+                {
+                    "x": -187.0,
+                    "y": -5.099999904632568
+                },
+                {
+                    "x": -190.0,
+                    "y": -6.199999809265137
+                },
+                {
+                    "x": -194.0,
+                    "y": -3.9000000953674316
+                },
+                {
+                    "x": -198.0,
+                    "y": -7.400000095367432
+                },
+                {
+                    "x": -205.0,
+                    "y": -9.300000190734863
+                },
+                {
+                    "x": -205.0,
+                    "y": -16.399999618530273
+                }
+            ],
+            "kmStart": 68.0,
+            "kmEnd": 78.0,
+            "designerLocked": false,
+            "notes": "Original 1985 Stage1 inspired organic silhouette scaled for a 4-player 27-unit-tall battlefield, not an orange strip. Replace-mode is authoritative; no waves generated."
+        },
+        {
+            "operation": "upsert",
+            "elementId": "GRADIUS_NEW_FLOATING_ROCK",
+            "segmentId": "",
+            "role": "Wall",
+            "shapeProfilePath": "Assets/_Game/MY_Core/MY_Data/LevelAuthoring/SpriteShapeProfiles/SSP_GRADIUS_MAGMA_ROCK.asset",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": true,
+            "smooth": false,
+            "colliderMode": "NativeSpline",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 0.699999988079071,
+                "g": 0.5,
+                "b": 0.44999998807907104,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [
+                {
+                    "x": -218.0,
+                    "y": 2.200000047683716
+                },
+                {
+                    "x": -223.0,
+                    "y": 4.699999809265137
+                },
+                {
+                    "x": -228.0,
+                    "y": 5.699999809265137
+                },
+                {
+                    "x": -235.0,
+                    "y": 5.099999904632568
+                },
+                {
+                    "x": -242.0,
+                    "y": 3.799999952316284
+                },
+                {
+                    "x": -251.0,
+                    "y": 4.300000190734863
+                },
+                {
+                    "x": -258.0,
+                    "y": 1.399999976158142
+                },
+                {
+                    "x": -252.0,
+                    "y": -1.5
+                },
+                {
+                    "x": -245.0,
+                    "y": -3.5
+                },
+                {
+                    "x": -238.0,
+                    "y": -4.099999904632568
+                },
+                {
+                    "x": -230.0,
+                    "y": -2.5999999046325684
+                },
+                {
+                    "x": -222.0,
+                    "y": -2.0
+                }
+            ],
+            "kmStart": 83.0,
+            "kmEnd": 98.0,
+            "designerLocked": false,
+            "notes": "Original 1985 Stage1 inspired organic silhouette scaled for a 4-player 27-unit-tall battlefield, not an orange strip. Replace-mode is authoritative; no waves generated."
+        },
+        {
+            "operation": "upsert",
+            "elementId": "GRADIUS_NEW_VOLCANO_A",
+            "segmentId": "",
+            "role": "Floor",
+            "shapeProfilePath": "Assets/_Game/MY_Core/MY_Data/LevelAuthoring/SpriteShapeProfiles/SSP_GRADIUS_MAGMA_ROCK.asset",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": true,
+            "smooth": false,
+            "colliderMode": "NativeSpline",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 0.9900000095367432,
+                "g": 0.3199999928474426,
+                "b": 0.3400000035762787,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [
+                {
+                    "x": -271.0,
+                    "y": -16.399999618530273
+                },
+                {
+                    "x": -275.0,
+                    "y": -10.199999809265137
+                },
+                {
+                    "x": -279.0,
+                    "y": -7.900000095367432
+                },
+                {
+                    "x": -283.0,
+                    "y": -4.5
+                },
+                {
+                    "x": -287.0,
+                    "y": -2.299999952316284
+                },
+                {
+                    "x": -290.0,
+                    "y": 0.8999999761581421
+                },
+                {
+                    "x": -292.0,
+                    "y": 2.5
+                },
+                {
+                    "x": -294.0,
+                    "y": 1.899999976158142
+                },
+                {
+                    "x": -296.0,
+                    "y": 0.4000000059604645
+                },
+                {
+                    "x": -298.0,
+                    "y": 1.7000000476837158
+                },
+                {
+                    "x": -301.0,
+                    "y": -0.800000011920929
+                },
+                {
+                    "x": -304.0,
+                    "y": -4.5
+                },
+                {
+                    "x": -308.0,
+                    "y": -8.600000381469727
+                },
+                {
+                    "x": -312.0,
+                    "y": -16.399999618530273
+                }
+            ],
+            "kmStart": 103.0,
+            "kmEnd": 119.0,
+            "designerLocked": false,
+            "notes": "Original 1985 Stage1 inspired organic silhouette scaled for a 4-player 27-unit-tall battlefield, not an orange strip. Replace-mode is authoritative; no waves generated."
+        },
+        {
+            "operation": "upsert",
+            "elementId": "GRADIUS_NEW_VOLCANO_B",
+            "segmentId": "",
+            "role": "Floor",
+            "shapeProfilePath": "Assets/_Game/MY_Core/MY_Data/LevelAuthoring/SpriteShapeProfiles/SSP_GRADIUS_MAGMA_ROCK.asset",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": true,
+            "smooth": false,
+            "colliderMode": "NativeSpline",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 0.9900000095367432,
+                "g": 0.27000001072883606,
+                "b": 0.33000001311302185,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [
+                {
+                    "x": -303.0,
+                    "y": -16.399999618530273
+                },
+                {
+                    "x": -309.0,
+                    "y": -9.399999618530273
+                },
+                {
+                    "x": -312.0,
+                    "y": -6.400000095367432
+                },
+                {
+                    "x": -316.0,
+                    "y": -2.200000047683716
+                },
+                {
+                    "x": -319.0,
+                    "y": 0.800000011920929
+                },
+                {
+                    "x": -321.0,
+                    "y": 3.200000047683716
+                },
+                {
+                    "x": -323.0,
+                    "y": 3.5999999046325684
+                },
+                {
+                    "x": -325.0,
+                    "y": 1.600000023841858
+                },
+                {
+                    "x": -327.0,
+                    "y": 2.5
+                },
+                {
+                    "x": -330.0,
+                    "y": 0.699999988079071
+                },
+                {
+                    "x": -332.0,
+                    "y": -3.5999999046325684
+                },
+                {
+                    "x": -336.0,
+                    "y": -8.100000381469727
+                },
+                {
+                    "x": -342.0,
+                    "y": -13.399999618530273
+                },
+                {
+                    "x": -342.0,
+                    "y": -16.399999618530273
+                }
+            ],
+            "kmStart": 115.0,
+            "kmEnd": 130.0,
+            "designerLocked": false,
+            "notes": "Original 1985 Stage1 inspired organic silhouette scaled for a 4-player 27-unit-tall battlefield, not an orange strip. Replace-mode is authoritative; no waves generated."
+        }
+    ],
+    "visualPlacements": [
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_TURRET_GROUND_01",
+            "requirementId": "",
+            "assetId": "37f7cbcfa703fa54190f39b85f2f1385:665669311567416003",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_NEW_CANYON_FLOOR",
+            "shapeStartPoint": 5,
+            "shapeEndPoint": 6,
+            "shapeRatio": 0.6346944570541382,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.6499999761581421,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_CUTE_FLOOR_01",
+            "position": {
+                "x": -87.80816650390625,
+                "y": -9.34428596496582,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.600000023841858,
+                "y": 1.600000023841858
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation. Snapped to existing authored terrain surface GRADIUS_NEW_CANYON_FLOOR"
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_TURRET_ROOF_01",
+            "requirementId": "",
+            "assetId": "37f7cbcfa703fa54190f39b85f2f1385:665669311567416003",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_NEW_CAVERN_CEILING",
+            "shapeStartPoint": 5,
+            "shapeEndPoint": 6,
+            "shapeRatio": 0.3081710636615753,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.6499999761581421,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_CUTE_FLOOR_01",
+            "position": {
+                "x": -104.15719604492188,
+                "y": 8.022645950317383,
+                "z": 0.0
+            },
+            "rotation": 180.0,
+            "scale": {
+                "x": 1.600000023841858,
+                "y": 1.600000023841858
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation. Snapped to existing authored terrain surface GRADIUS_NEW_CAVERN_CEILING"
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_TURRET_GROUND_02",
+            "requirementId": "",
+            "assetId": "37f7cbcfa703fa54190f39b85f2f1385:665669311567416003",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_NEW_CANYON_FLOOR",
+            "shapeStartPoint": 11,
+            "shapeEndPoint": 12,
+            "shapeRatio": 0.7938406467437744,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.6499999761581421,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_CUTE_FLOOR_01",
+            "position": {
+                "x": -132.35072326660156,
+                "y": -7.55047082901001,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.600000023841858,
+                "y": 1.600000023841858
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation. Snapped to existing authored terrain surface GRADIUS_NEW_CANYON_FLOOR"
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_TURRET_ROOF_02",
+            "requirementId": "",
+            "assetId": "37f7cbcfa703fa54190f39b85f2f1385:665669311567416003",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_NEW_CAVERN_CEILING",
+            "shapeStartPoint": 11,
+            "shapeEndPoint": 12,
+            "shapeRatio": 0.13886210322380066,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.6499999761581421,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_CUTE_FLOOR_01",
+            "position": {
+                "x": -148.249755859375,
+                "y": 9.605592727661133,
+                "z": 0.0
+            },
+            "rotation": 180.0,
+            "scale": {
+                "x": 1.600000023841858,
+                "y": 1.600000023841858
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation. Snapped to existing authored terrain surface GRADIUS_NEW_CAVERN_CEILING"
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_SILO_GROUND",
+            "requirementId": "",
+            "assetId": "b4f4472e0e8ba1243ae59863a89431f1:2909959690201674825",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_NEW_CANYON_FLOOR",
+            "shapeStartPoint": 14,
+            "shapeEndPoint": 15,
+            "shapeRatio": 1.0,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.6499999761581421,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_SILO_FLOOR_01",
+            "position": {
+                "x": -159.0,
+                "y": -7.0,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.649999976158142,
+                "y": 1.649999976158142
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation. Snapped to existing authored terrain surface GRADIUS_NEW_CANYON_FLOOR"
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_SILO_ROOF",
+            "requirementId": "",
+            "assetId": "b4f4472e0e8ba1243ae59863a89431f1:2909959690201674825",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_NEW_CAVERN_CEILING",
+            "shapeStartPoint": 14,
+            "shapeEndPoint": 15,
+            "shapeRatio": 0.13277703523635864,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.6499999761581421,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_SILO_FLOOR_01",
+            "position": {
+                "x": -174.1949920654297,
+                "y": 8.50705623626709,
+                "z": 0.0
+            },
+            "rotation": 180.0,
+            "scale": {
+                "x": 1.649999976158142,
+                "y": 1.649999976158142
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation. Snapped to existing authored terrain surface GRADIUS_NEW_CAVERN_CEILING"
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_TURRET_GROUND_03",
+            "requirementId": "",
+            "assetId": "37f7cbcfa703fa54190f39b85f2f1385:665669311567416003",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_NEW_CANYON_FLOOR",
+            "shapeStartPoint": 19,
+            "shapeEndPoint": 20,
+            "shapeRatio": 0.8054298758506775,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.6499999761581421,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_CUTE_FLOOR_01",
+            "position": {
+                "x": -191.6380157470703,
+                "y": -7.086425304412842,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.600000023841858,
+                "y": 1.600000023841858
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation. Snapped to existing authored terrain surface GRADIUS_NEW_CANYON_FLOOR"
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_TURRET_ROOF_03",
+            "requirementId": "",
+            "assetId": "37f7cbcfa703fa54190f39b85f2f1385:665669311567416003",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_NEW_OVERHANG",
+            "shapeStartPoint": 3,
+            "shapeEndPoint": 4,
+            "shapeRatio": 0.43284597992897034,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.6499999761581421,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_CUTE_FLOOR_01",
+            "position": {
+                "x": -228.1642303466797,
+                "y": 8.991023063659668,
+                "z": 0.0
+            },
+            "rotation": 180.0,
+            "scale": {
+                "x": 1.600000023841858,
+                "y": 1.600000023841858
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation. Snapped to existing authored terrain surface GRADIUS_NEW_OVERHANG"
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_TURRET_ISLAND_TOP",
+            "requirementId": "",
+            "assetId": "37f7cbcfa703fa54190f39b85f2f1385:665669311567416003",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_NEW_OVERHANG",
+            "shapeStartPoint": 4,
+            "shapeEndPoint": 5,
+            "shapeRatio": 0.3232172131538391,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.6499999761581421,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_CUTE_FLOOR_01",
+            "position": {
+                "x": -233.5857391357422,
+                "y": 8.349469184875488,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.5,
+                "y": 1.5
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation. Snapped to existing authored terrain surface GRADIUS_NEW_OVERHANG"
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_TURRET_ISLAND_BOTTOM",
+            "requirementId": "",
+            "assetId": "37f7cbcfa703fa54190f39b85f2f1385:665669311567416003",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_NEW_CANYON_FLOOR",
+            "shapeStartPoint": 26,
+            "shapeEndPoint": 27,
+            "shapeRatio": 0.41484716534614563,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.6499999761581421,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_CUTE_FLOOR_01",
+            "position": {
+                "x": -245.73362731933594,
+                "y": -10.802183151245117,
+                "z": 0.0
+            },
+            "rotation": 180.0,
+            "scale": {
+                "x": 1.5,
+                "y": 1.5
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation. Snapped to existing authored terrain surface GRADIUS_NEW_CANYON_FLOOR"
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_VOLCANO_TOWER_A",
+            "requirementId": "",
+            "assetId": "4e2f512e1c8c0e24093602337a901cac:4305245140684169387",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_NEW_VOLCANO_A",
+            "shapeStartPoint": 6,
+            "shapeEndPoint": 7,
+            "shapeRatio": 0.38990825414657593,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.6499999761581421,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_VOLCANO_TOWER_A_LAYER0",
+            "position": {
+                "x": -292.7798156738281,
+                "y": 2.266055107116699,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.7999999523162842,
+                "y": 1.7999999523162842
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation. Snapped to existing authored terrain surface GRADIUS_NEW_VOLCANO_A"
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_VOLCANO_TOWER_B",
+            "requirementId": "",
+            "assetId": "ad59d038aa38d4245aed7ee7e30d154b:1495353419303506300",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_NEW_VOLCANO_B",
+            "shapeStartPoint": 5,
+            "shapeEndPoint": 6,
+            "shapeRatio": 1.0,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.6499999761581421,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_VOLCANO_TOWER_B_LAYER0",
+            "position": {
+                "x": -323.0,
+                "y": 3.5999999046325684,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.7999999523162842,
+                "y": 1.7999999523162842
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation. Snapped to existing authored terrain surface GRADIUS_NEW_VOLCANO_B"
+        }
+    ],
+    "backgroundLayers": [],
+    "hazardPlacements": [
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_TENTACLE_FLOOR_A",
+            "requirementId": "",
+            "assetId": "22f544b7117707441ba0f27174f1e42b:7237387145892800434",
+            "role": "Tentacle",
+            "segmentId": "",
+            "shapeElementId": "",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 0,
+            "shapeRatio": 0.0,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.0,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "VfxAnchor",
+            "runtimeBindingId": "GRADIUS_MECH_TENTACLE_FLOOR_A",
+            "position": {
+                "x": -112.0,
+                "y": -5.199999809265137,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.2999999523162842,
+                "y": 1.2999999523162842
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation."
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_TENTACLE_ROOF_A",
+            "requirementId": "",
+            "assetId": "144162ba921ffc74ead14b65d6453689:380967592993557110",
+            "role": "Tentacle",
+            "segmentId": "",
+            "shapeElementId": "",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 0,
+            "shapeRatio": 0.0,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.0,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "VfxAnchor",
+            "runtimeBindingId": "GRADIUS_MECH_TENTACLE_CEIL_A",
+            "position": {
+                "x": -128.0,
+                "y": 5.5,
+                "z": 0.0
+            },
+            "rotation": 180.0,
+            "scale": {
+                "x": 1.2000000476837158,
+                "y": 1.2000000476837158
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation."
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_TENTACLE_FLOOR_B",
+            "requirementId": "",
+            "assetId": "144162ba921ffc74ead14b65d6453689:380967592993557110",
+            "role": "Tentacle",
+            "segmentId": "",
+            "shapeElementId": "",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 0,
+            "shapeRatio": 0.0,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.0,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "VfxAnchor",
+            "runtimeBindingId": "GRADIUS_MECH_TENTACLE_FLOOR_B",
+            "position": {
+                "x": -182.0,
+                "y": -5.599999904632568,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.350000023841858,
+                "y": 1.350000023841858
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation."
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_TENTACLE_ROOF_B",
+            "requirementId": "",
+            "assetId": "22f544b7117707441ba0f27174f1e42b:7237387145892800434",
+            "role": "Tentacle",
+            "segmentId": "",
+            "shapeElementId": "",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 0,
+            "shapeRatio": 0.0,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.0,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "VfxAnchor",
+            "runtimeBindingId": "GRADIUS_MECH_TENTACLE_CEIL_B",
+            "position": {
+                "x": -218.0,
+                "y": 8.0,
+                "z": 0.0
+            },
+            "rotation": 180.0,
+            "scale": {
+                "x": 1.2999999523162842,
+                "y": 1.2999999523162842
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation."
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_TENTACLE_ISLAND_A",
+            "requirementId": "",
+            "assetId": "22f544b7117707441ba0f27174f1e42b:7237387145892800434",
+            "role": "Tentacle",
+            "segmentId": "",
+            "shapeElementId": "",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 0,
+            "shapeRatio": 0.0,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.0,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "VfxAnchor",
+            "runtimeBindingId": "GRADIUS_MECH_TENTACLE_FLOOR_A",
+            "position": {
+                "x": -252.0,
+                "y": -4.699999809265137,
+                "z": 0.0
+            },
+            "rotation": 180.0,
+            "scale": {
+                "x": 1.25,
+                "y": 1.25
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation."
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_NEW_TENTACLE_VOLCANO_ENTRY",
+            "requirementId": "",
+            "assetId": "144162ba921ffc74ead14b65d6453689:380967592993557110",
+            "role": "Tentacle",
+            "segmentId": "",
+            "shapeElementId": "",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 0,
+            "shapeRatio": 0.0,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.0,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "VfxAnchor",
+            "runtimeBindingId": "GRADIUS_MECH_TENTACLE_FLOOR_B",
+            "position": {
+                "x": -265.0,
+                "y": -10.0,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.25,
+                "y": 1.25
+            },
+            "notes": "Visible 1985 Gradius-inspired tower positioned on actual ground/roof/crater in wide 4-player Stage1 recreation."
+        }
+    ],
+    "markers": [],
+    "waveAuthoringBrief": "Keep the previously authored 19 reverse-authored waves untouched. No wave creation or WaveManager modification in Layer0.",
+    "warnings": [
+        "Original arcade fixture positions remain provisional pending source agent certification.",
+        "Mechanical tentacle and mountain runtime behavior must be reviewed separately after static Layer0 QA.",
+        "No wave changes authorized; prior waves preserved."
+    ]
+}

@@ -1,0 +1,1251 @@
+{
+    "schema": "STARWARS_DELTA_LEVEL_BUILD",
+    "schemaVersion": 6,
+    "requestId": "083225d757b14bc396581742065256df",
+    "sceneId": "9211772ad03ca744289337a33acd4003",
+    "sceneName": "GRADIUS_VOLCANO_01",
+    "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRADIUS_VOLCANO_01.unity",
+    "sceneFingerprint": "f8afa33740811b97eb8ae020df29ff76",
+    "planId": "2f15877bb15846fab62aeabf92e91d60",
+    "basePlanRevision": 2,
+    "blueprintId": "107f5fb55acd458eb14b298155fab51d",
+    "baseBlueprintRevision": 3,
+    "catalogRevision": 7621402635325785442,
+    "seed": 0,
+    "applicationMode": "patch",
+    "runtimeWorldScrollVelocityX": -1.2000000476837158,
+    "designSummary": "Stage1 static Layer0 ONLY: continuous volcanic SpriteShape collision terrain with magma and mechanical basalt profiles, two volcano-tower variants with gravity cannons, basalt Cute turrets, SILOs, and mechanical tentacle hazards. No waves, no new spawn points.",
+    "resolvedPlanRevision": 0,
+    "previewPlanRevision": 0,
+    "intentRequirements": [],
+    "assetResolutions": [],
+    "segments": [],
+    "geometryOperations": [
+        {
+            "operation": "delete",
+            "elementId": "GRADIUS_ENTRY_FLOOR",
+            "segmentId": "",
+            "role": "",
+            "shapeProfilePath": "",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": false,
+            "smooth": false,
+            "colliderMode": "",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [],
+            "kmStart": 0.0,
+            "kmEnd": 0.0,
+            "designerLocked": false,
+            "notes": ""
+        },
+        {
+            "operation": "delete",
+            "elementId": "GRADIUS_ENTRY_CEILING",
+            "segmentId": "",
+            "role": "",
+            "shapeProfilePath": "",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": false,
+            "smooth": false,
+            "colliderMode": "",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [],
+            "kmStart": 0.0,
+            "kmEnd": 0.0,
+            "designerLocked": false,
+            "notes": ""
+        },
+        {
+            "operation": "delete",
+            "elementId": "GRADIUS_CANNONS_FLOOR",
+            "segmentId": "",
+            "role": "",
+            "shapeProfilePath": "",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": false,
+            "smooth": false,
+            "colliderMode": "",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [],
+            "kmStart": 0.0,
+            "kmEnd": 0.0,
+            "designerLocked": false,
+            "notes": ""
+        },
+        {
+            "operation": "delete",
+            "elementId": "GRADIUS_CANNONS_CEILING",
+            "segmentId": "",
+            "role": "",
+            "shapeProfilePath": "",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": false,
+            "smooth": false,
+            "colliderMode": "",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [],
+            "kmStart": 0.0,
+            "kmEnd": 0.0,
+            "designerLocked": false,
+            "notes": ""
+        },
+        {
+            "operation": "delete",
+            "elementId": "GRADIUS_SILOS_FLOOR",
+            "segmentId": "",
+            "role": "",
+            "shapeProfilePath": "",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": false,
+            "smooth": false,
+            "colliderMode": "",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [],
+            "kmStart": 0.0,
+            "kmEnd": 0.0,
+            "designerLocked": false,
+            "notes": ""
+        },
+        {
+            "operation": "delete",
+            "elementId": "GRADIUS_SILOS_CEILING",
+            "segmentId": "",
+            "role": "",
+            "shapeProfilePath": "",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": false,
+            "smooth": false,
+            "colliderMode": "",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [],
+            "kmStart": 0.0,
+            "kmEnd": 0.0,
+            "designerLocked": false,
+            "notes": ""
+        },
+        {
+            "operation": "delete",
+            "elementId": "GRADIUS_ROCK_FLOOR",
+            "segmentId": "",
+            "role": "",
+            "shapeProfilePath": "",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": false,
+            "smooth": false,
+            "colliderMode": "",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [],
+            "kmStart": 0.0,
+            "kmEnd": 0.0,
+            "designerLocked": false,
+            "notes": ""
+        },
+        {
+            "operation": "delete",
+            "elementId": "GRADIUS_ROCK_CEILING",
+            "segmentId": "",
+            "role": "",
+            "shapeProfilePath": "",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": false,
+            "smooth": false,
+            "colliderMode": "",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [],
+            "kmStart": 0.0,
+            "kmEnd": 0.0,
+            "designerLocked": false,
+            "notes": ""
+        },
+        {
+            "operation": "delete",
+            "elementId": "GRADIUS_VOLCANO_FLOOR",
+            "segmentId": "",
+            "role": "",
+            "shapeProfilePath": "",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": false,
+            "smooth": false,
+            "colliderMode": "",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [],
+            "kmStart": 0.0,
+            "kmEnd": 0.0,
+            "designerLocked": false,
+            "notes": ""
+        },
+        {
+            "operation": "delete",
+            "elementId": "GRADIUS_VOLCANO_CEILING",
+            "segmentId": "",
+            "role": "",
+            "shapeProfilePath": "",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": false,
+            "smooth": false,
+            "colliderMode": "",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [],
+            "kmStart": 0.0,
+            "kmEnd": 0.0,
+            "designerLocked": false,
+            "notes": ""
+        },
+        {
+            "operation": "upsert",
+            "elementId": "GRADIUS_CONTINUOUS_FLOOR",
+            "segmentId": "",
+            "role": "Floor",
+            "shapeProfilePath": "Assets/_Game/MY_Core/MY_Data/LevelAuthoring/SpriteShapeProfiles/SSP_GRADIUS_MAGMA_ROCK.asset",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": true,
+            "smooth": false,
+            "colliderMode": "NativeSpline",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [
+                {
+                    "x": -65.75,
+                    "y": -9.199999809265137
+                },
+                {
+                    "x": -78.9000015258789,
+                    "y": -9.199999809265137
+                },
+                {
+                    "x": -94.68000793457031,
+                    "y": -7.800000190734863
+                },
+                {
+                    "x": -107.83000183105469,
+                    "y": -8.5
+                },
+                {
+                    "x": -123.6100082397461,
+                    "y": -9.0
+                },
+                {
+                    "x": -139.38999938964844,
+                    "y": -8.5
+                },
+                {
+                    "x": -152.54000854492188,
+                    "y": -6.300000190734863
+                },
+                {
+                    "x": -168.32000732421875,
+                    "y": -7.199999809265137
+                },
+                {
+                    "x": -184.10000610351563,
+                    "y": -8.800000190734863
+                },
+                {
+                    "x": -202.510009765625,
+                    "y": -8.800000190734863
+                },
+                {
+                    "x": -215.66000366210938,
+                    "y": -7.199999809265137
+                },
+                {
+                    "x": -231.44000244140625,
+                    "y": -9.399999618530273
+                },
+                {
+                    "x": -247.2200164794922,
+                    "y": -7.099999904632568
+                },
+                {
+                    "x": -263.0,
+                    "y": -9.100000381469727
+                },
+                {
+                    "x": -270.8900146484375,
+                    "y": -9.0
+                },
+                {
+                    "x": -289.3000183105469,
+                    "y": -8.199999809265137
+                },
+                {
+                    "x": -302.45001220703125,
+                    "y": -9.199999809265137
+                },
+                {
+                    "x": -312.9700012207031,
+                    "y": -9.199999809265137
+                },
+                {
+                    "x": -320.8600158691406,
+                    "y": -9.199999809265137
+                },
+                {
+                    "x": -328.75,
+                    "y": -9.199999809265137
+                },
+                {
+                    "x": -334.010009765625,
+                    "y": -9.199999809265137
+                },
+                {
+                    "x": -341.9000244140625,
+                    "y": -9.199999809265137
+                },
+                {
+                    "x": -341.9000244140625,
+                    "y": -15.0
+                },
+                {
+                    "x": -65.75,
+                    "y": -15.0
+                }
+            ],
+            "kmStart": 25.0,
+            "kmEnd": 130.0,
+            "designerLocked": false,
+            "notes": "Layer0 only. Original cutscene/wave systems untouched. Existing volcanic environment art from MY_Art; full physical collider via NativeSpline."
+        },
+        {
+            "operation": "upsert",
+            "elementId": "GRADIUS_CONTINUOUS_CEILING",
+            "segmentId": "",
+            "role": "Ceiling",
+            "shapeProfilePath": "Assets/_Game/MY_Core/MY_Data/LevelAuthoring/SpriteShapeProfiles/SSP_GRADIUS_DARK_MECHANICAL.asset",
+            "profile": {
+                "mode": "existing",
+                "profileId": "",
+                "angleRanges": [],
+                "corners": [],
+                "fillAssetId": "",
+                "fillOffset": 0.0,
+                "useSpriteBorders": true
+            },
+            "closed": true,
+            "smooth": false,
+            "colliderMode": "NativeSpline",
+            "colliderCorner": "Round",
+            "colliderOffset": 0.0,
+            "colliderDetail": 8,
+            "surfaceLook": "",
+            "materialPath": "",
+            "tint": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "flowSpeed": 0.0,
+            "pulseAmount": 0.0,
+            "pulseRate": 1.0,
+            "noiseStrength": 0.0,
+            "useGradient": false,
+            "gradientStart": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "gradientEnd": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "visualLayers": [],
+            "points": [
+                {
+                    "x": -65.75,
+                    "y": 9.300000190734863
+                },
+                {
+                    "x": -78.9000015258789,
+                    "y": 9.300000190734863
+                },
+                {
+                    "x": -94.68000793457031,
+                    "y": 8.699999809265137
+                },
+                {
+                    "x": -107.83000183105469,
+                    "y": 7.599999904632568
+                },
+                {
+                    "x": -123.6100082397461,
+                    "y": 9.0
+                },
+                {
+                    "x": -139.38999938964844,
+                    "y": 9.300000190734863
+                },
+                {
+                    "x": -152.54000854492188,
+                    "y": 8.300000190734863
+                },
+                {
+                    "x": -168.32000732421875,
+                    "y": 8.800000190734863
+                },
+                {
+                    "x": -184.10000610351563,
+                    "y": 6.5
+                },
+                {
+                    "x": -202.510009765625,
+                    "y": 8.5
+                },
+                {
+                    "x": -215.66000366210938,
+                    "y": 8.199999809265137
+                },
+                {
+                    "x": -231.44000244140625,
+                    "y": 6.599999904632568
+                },
+                {
+                    "x": -247.2200164794922,
+                    "y": 7.800000190734863
+                },
+                {
+                    "x": -263.0,
+                    "y": 8.800000190734863
+                },
+                {
+                    "x": -270.8900146484375,
+                    "y": 8.800000190734863
+                },
+                {
+                    "x": -289.3000183105469,
+                    "y": 9.0
+                },
+                {
+                    "x": -302.45001220703125,
+                    "y": 9.0
+                },
+                {
+                    "x": -328.75,
+                    "y": 9.199999809265137
+                },
+                {
+                    "x": -341.9000244140625,
+                    "y": 9.199999809265137
+                },
+                {
+                    "x": -341.9000244140625,
+                    "y": 18.0
+                },
+                {
+                    "x": -65.75,
+                    "y": 18.0
+                }
+            ],
+            "kmStart": 25.0,
+            "kmEnd": 130.0,
+            "designerLocked": false,
+            "notes": "Layer0 only. Original cutscene/wave systems untouched. Existing volcanic environment art from MY_Art; full physical collider via NativeSpline."
+        }
+    ],
+    "visualPlacements": [
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_CUTE_FLOOR_01",
+            "requirementId": "",
+            "assetId": "37f7cbcfa703fa54190f39b85f2f1385:665669311567416003",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_CONTINUOUS_FLOOR",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 21,
+            "shapeRatio": 0.15000000596046448,
+            "alignToShapeNormal": false,
+            "shapeOffset": 1.0,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_CUTE_FLOOR_01",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "notes": "Basalt CUTE variant; parent profile and collider retained."
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_CUTE_CEILING_01",
+            "requirementId": "",
+            "assetId": "37f7cbcfa703fa54190f39b85f2f1385:665669311567416003",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_CONTINUOUS_CEILING",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 18,
+            "shapeRatio": 0.27000001072883606,
+            "alignToShapeNormal": false,
+            "shapeOffset": -1.0,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_CUTE_CEILING_01",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": 180.0,
+            "scale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "notes": "Basalt CUTE variant; parent profile and collider retained."
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_CUTE_FLOOR_02",
+            "requirementId": "",
+            "assetId": "37f7cbcfa703fa54190f39b85f2f1385:665669311567416003",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_CONTINUOUS_FLOOR",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 21,
+            "shapeRatio": 0.4000000059604645,
+            "alignToShapeNormal": false,
+            "shapeOffset": 1.0,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_CUTE_FLOOR_02",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "notes": "Basalt CUTE variant; parent profile and collider retained."
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_CUTE_CEILING_02",
+            "requirementId": "",
+            "assetId": "37f7cbcfa703fa54190f39b85f2f1385:665669311567416003",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_CONTINUOUS_CEILING",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 18,
+            "shapeRatio": 0.550000011920929,
+            "alignToShapeNormal": false,
+            "shapeOffset": -1.0,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_CUTE_CEILING_02",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": 180.0,
+            "scale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "notes": "Basalt CUTE variant; parent profile and collider retained."
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_SILO_FLOOR_01",
+            "requirementId": "",
+            "assetId": "b4f4472e0e8ba1243ae59863a89431f1:2909959690201674825",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_CONTINUOUS_FLOOR",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 21,
+            "shapeRatio": 0.6000000238418579,
+            "alignToShapeNormal": false,
+            "shapeOffset": 3.5999999046325684,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_SILO_FLOOR_01",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.7999999523162842,
+                "y": 1.7999999523162842
+            },
+            "notes": "Original SILO top opening tower, linked to base prefab."
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_SILO_CEILING_01",
+            "requirementId": "",
+            "assetId": "b4f4472e0e8ba1243ae59863a89431f1:2909959690201674825",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_CONTINUOUS_CEILING",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 18,
+            "shapeRatio": 0.6800000071525574,
+            "alignToShapeNormal": false,
+            "shapeOffset": -3.5999999046325684,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_SILO_CEILING_01",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": 180.0,
+            "scale": {
+                "x": 1.7999999523162842,
+                "y": 1.7999999523162842
+            },
+            "notes": "Original SILO top opening tower, linked to base prefab."
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_VOLCANO_TOWER_A_LAYER0",
+            "requirementId": "",
+            "assetId": "4e2f512e1c8c0e24093602337a901cac:4305245140684169387",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_CONTINUOUS_FLOOR",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 21,
+            "shapeRatio": 0.8199999928474426,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.800000011920929,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_VOLCANO_TOWER_A_LAYER0",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.2999999523162842,
+                "y": 1.2999999523162842
+            },
+            "notes": "Layer0 fixture; no wave spawn point, no Reverse Wave Authoring work."
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_VOLCANO_TOWER_B_LAYER0",
+            "requirementId": "",
+            "assetId": "ad59d038aa38d4245aed7ee7e30d154b:1495353419303506300",
+            "role": "Tower",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_CONTINUOUS_FLOOR",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 21,
+            "shapeRatio": 0.9200000166893005,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.800000011920929,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "Tower",
+            "runtimeBindingId": "GRADIUS_VOLCANO_TOWER_B_LAYER0",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.2999999523162842,
+                "y": 1.2999999523162842
+            },
+            "notes": "Layer0 fixture; no wave spawn point, no Reverse Wave Authoring work."
+        }
+    ],
+    "backgroundLayers": [],
+    "hazardPlacements": [
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_MECH_TENTACLE_FLOOR_A",
+            "requirementId": "",
+            "assetId": "22f544b7117707441ba0f27174f1e42b:7237387145892800434",
+            "role": "Tentacle",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_CONTINUOUS_FLOOR",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 21,
+            "shapeRatio": 0.30000001192092896,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.3499999940395355,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "VfxAnchor",
+            "runtimeBindingId": "GRADIUS_MECH_TENTACLE_FLOOR_A",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "notes": "Layer0 fixture; no wave spawn point, no Reverse Wave Authoring work."
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_MECH_TENTACLE_CEIL_A",
+            "requirementId": "",
+            "assetId": "144162ba921ffc74ead14b65d6453689:380967592993557110",
+            "role": "Tentacle",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_CONTINUOUS_CEILING",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 18,
+            "shapeRatio": 0.4300000071525574,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.3499999940395355,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "VfxAnchor",
+            "runtimeBindingId": "GRADIUS_MECH_TENTACLE_CEIL_A",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": 180.0,
+            "scale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "notes": "Layer0 fixture; no wave spawn point, no Reverse Wave Authoring work."
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_MECH_TENTACLE_FLOOR_B",
+            "requirementId": "",
+            "assetId": "144162ba921ffc74ead14b65d6453689:380967592993557110",
+            "role": "Tentacle",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_CONTINUOUS_FLOOR",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 21,
+            "shapeRatio": 0.5699999928474426,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.4000000059604645,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "VfxAnchor",
+            "runtimeBindingId": "GRADIUS_MECH_TENTACLE_FLOOR_B",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": 0.0,
+            "scale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "notes": "Layer0 fixture; no wave spawn point, no Reverse Wave Authoring work."
+        },
+        {
+            "operation": "upsert",
+            "placementId": "GRADIUS_MECH_TENTACLE_CEIL_B",
+            "requirementId": "",
+            "assetId": "22f544b7117707441ba0f27174f1e42b:7237387145892800434",
+            "role": "Tentacle",
+            "segmentId": "",
+            "shapeElementId": "GRADIUS_CONTINUOUS_CEILING",
+            "shapeStartPoint": 0,
+            "shapeEndPoint": 18,
+            "shapeRatio": 0.7200000286102295,
+            "alignToShapeNormal": false,
+            "shapeOffset": 0.4000000059604645,
+            "distributionCount": 1,
+            "distributionSeed": 0,
+            "distributionStartRatio": 0.0,
+            "distributionEndRatio": 1.0,
+            "distributionJitter": 0.0,
+            "distributionRole": "",
+            "runtimeBindingRole": "VfxAnchor",
+            "runtimeBindingId": "GRADIUS_MECH_TENTACLE_CEIL_B",
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": 180.0,
+            "scale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "notes": "Layer0 fixture; no wave spawn point, no Reverse Wave Authoring work."
+        }
+    ],
+    "markers": [],
+    "waveAuthoringBrief": "DO NOT AUTHOR WAVES UNTIL LAYER0 IS APPROVED. Later use fresh Reverse Wave Authoring COPY FOR AI and map-relative SpawnRelative positions.",
+    "warnings": [
+        "Original arcade fixture positions remain provisional pending source agent certification.",
+        "Mechanical tentacle and mountain runtime behavior must be reviewed separately after static Layer0 QA.",
+        "No wave changes authorized; prior waves preserved."
+    ]
+}
