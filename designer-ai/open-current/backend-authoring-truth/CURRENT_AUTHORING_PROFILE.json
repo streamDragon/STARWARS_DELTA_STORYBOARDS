@@ -1,11 +1,11 @@
 {
   "schema": "STARWARS_DELTA_CURRENT_AUTHORING_PROFILE",
   "profileSchemaVersion": 2,
-  "publishTransactionId": "20261027-120203466-8f8bdfa9",
+  "publishTransactionId": "20261028-151713457-161c2977",
   "contractRevision": "95376DF60D51CAE3357F3CDB3C1C6BA8A4AC92C6E845CB2B282E76C0EE838101",
   "authoringContractRevision": "95376DF60D51CAE3357F3CDB3C1C6BA8A4AC92C6E845CB2B282E76C0EE838101",
-  "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
-  "catalogRevision": "7621333667636349547",
+  "schemaHash": "9A7BAD7DAC4DF634BC50B6E5A2C2B8681BBE3C3B63DB903F4CDFC2E6CF5B7103",
+  "catalogRevision": "7621370563188834931",
   "schemaVersion": 5,
   "packageSchema": "STARWARS_DELTA_CUTSCENE_PACKAGE",
   "serializer": {
@@ -10129,7 +10129,7 @@
     }
   ],
   "authoringRuleRegistry": {
-    "revision": "DD86C108076E923DD28F7B9444B8EA5F389CE8A492B5E9012C74BDB72D7A8F54",
+    "revision": "54DDFDD1A94A855E3C21069DA8E70EACC1C222A3B121F97E0ABACB924BECDB84",
     "rules": [
       {
         "ruleId": "ACTOR_ORBIT_FIXED_CENTER_ONLY",
@@ -10458,6 +10458,21 @@
         "authoringRequirement": "AUTHOR_ACCURATELY",
         "description": "For locationHandle, visible.handle, effectHandle and audio.handle use an exact CURRENT Simple V1 authoring handle. Never serialize a raw Catalog asset ID.",
         "chatInstruction": "For locationHandle, visible.handle, effectHandle and audio.handle use an exact CURRENT Simple V1 authoring handle. Never serialize a raw Catalog asset ID.",
+        "normalizationPolicy": "Preserve original source; recover only a detached execution copy.",
+        "autoRepairPolicy": "Visible editable placeholders with exact nonblocking repair diagnostics."
+      },
+      {
+        "ruleId": "IDENTITY_CUES_SYSTEM5",
+        "category": "CUTSCENE_SCRIPT_V1",
+        "severity": "Advisory",
+        "blocksCompilation": false,
+        "blocksEditablePreview": false,
+        "blocksFinalReadiness": false,
+        "statusColor": "Yellow",
+        "owner": "AUTHORING",
+        "authoringRequirement": "OPTIONAL",
+        "description": "When matching sealed CURRENT exposes cast[].alignment, use exactly good, evil or neutral; never infer morality from handles. Omitted is unspecified, not neutral. Optional cast[].identityLevel=1|2|3 overrides identityCues.level root default 2 per performer: level 1 = rotating shield/skull/scales sprite emblem, level 2 = sprite plus soft orbital aura, level 3 = more energy and a short pulse ONLY for explicitly authored V1 action. identityCues.enabled=false or strength=0 disables it. Same sprite can depict opposing roles. Native animated SpriteRenderers follow Timeline and do not edit source art, moves, camera or story. No badge handles, alternate JSON, new build buttons or manual film repairs.",
+        "chatInstruction": "When matching sealed CURRENT exposes cast[].alignment, use exactly good, evil or neutral; never infer morality from handles. Omitted is unspecified, not neutral. Optional cast[].identityLevel=1|2|3 overrides identityCues.level root default 2 per performer: level 1 = rotating shield/skull/scales sprite emblem, level 2 = sprite plus soft orbital aura, level 3 = more energy and a short pulse ONLY for explicitly authored V1 action. identityCues.enabled=false or strength=0 disables it. Same sprite can depict opposing roles. Native animated SpriteRenderers follow Timeline and do not edit source art, moves, camera or story. No badge handles, alternate JSON, new build buttons or manual film repairs.",
         "normalizationPolicy": "Preserve original source; recover only a detached execution copy.",
         "autoRepairPolicy": "Visible editable placeholders with exact nonblocking repair diagnostics."
       },
@@ -10796,9 +10811,9 @@
     "title": "STARWARS_DELTA Cutscene Runtime Package",
     "description": "Machine-readable shape generated from the current Unity runtime DTO. Semantic rules are in the companion contract files.",
     "x-enumContractRevision": "95376DF60D51CAE3357F3CDB3C1C6BA8A4AC92C6E845CB2B282E76C0EE838101",
-    "x-authoringRuleRegistryRevision": "DD86C108076E923DD28F7B9444B8EA5F389CE8A492B5E9012C74BDB72D7A8F54",
+    "x-authoringRuleRegistryRevision": "54DDFDD1A94A855E3C21069DA8E70EACC1C222A3B121F97E0ABACB924BECDB84",
     "x-authoringRuleRegistry": {
-      "revision": "DD86C108076E923DD28F7B9444B8EA5F389CE8A492B5E9012C74BDB72D7A8F54",
+      "revision": "54DDFDD1A94A855E3C21069DA8E70EACC1C222A3B121F97E0ABACB924BECDB84",
       "rules": [
         {
           "ruleId": "ACTOR_ORBIT_FIXED_CENTER_ONLY",
@@ -11127,6 +11142,21 @@
           "authoringRequirement": "AUTHOR_ACCURATELY",
           "description": "For locationHandle, visible.handle, effectHandle and audio.handle use an exact CURRENT Simple V1 authoring handle. Never serialize a raw Catalog asset ID.",
           "chatInstruction": "For locationHandle, visible.handle, effectHandle and audio.handle use an exact CURRENT Simple V1 authoring handle. Never serialize a raw Catalog asset ID.",
+          "normalizationPolicy": "Preserve original source; recover only a detached execution copy.",
+          "autoRepairPolicy": "Visible editable placeholders with exact nonblocking repair diagnostics."
+        },
+        {
+          "ruleId": "IDENTITY_CUES_SYSTEM5",
+          "category": "CUTSCENE_SCRIPT_V1",
+          "severity": "Advisory",
+          "blocksCompilation": false,
+          "blocksEditablePreview": false,
+          "blocksFinalReadiness": false,
+          "statusColor": "Yellow",
+          "owner": "AUTHORING",
+          "authoringRequirement": "OPTIONAL",
+          "description": "When matching sealed CURRENT exposes cast[].alignment, use exactly good, evil or neutral; never infer morality from handles. Omitted is unspecified, not neutral. Optional cast[].identityLevel=1|2|3 overrides identityCues.level root default 2 per performer: level 1 = rotating shield/skull/scales sprite emblem, level 2 = sprite plus soft orbital aura, level 3 = more energy and a short pulse ONLY for explicitly authored V1 action. identityCues.enabled=false or strength=0 disables it. Same sprite can depict opposing roles. Native animated SpriteRenderers follow Timeline and do not edit source art, moves, camera or story. No badge handles, alternate JSON, new build buttons or manual film repairs.",
+          "chatInstruction": "When matching sealed CURRENT exposes cast[].alignment, use exactly good, evil or neutral; never infer morality from handles. Omitted is unspecified, not neutral. Optional cast[].identityLevel=1|2|3 overrides identityCues.level root default 2 per performer: level 1 = rotating shield/skull/scales sprite emblem, level 2 = sprite plus soft orbital aura, level 3 = more energy and a short pulse ONLY for explicitly authored V1 action. identityCues.enabled=false or strength=0 disables it. Same sprite can depict opposing roles. Native animated SpriteRenderers follow Timeline and do not edit source art, moves, camera or story. No badge handles, alternate JSON, new build buttons or manual film repairs.",
           "normalizationPolicy": "Preserve original source; recover only a detached execution copy.",
           "autoRepairPolicy": "Visible editable placeholders with exact nonblocking repair diagnostics."
         },
@@ -13128,9 +13158,9 @@
   "authoringContract": {
     "schema": "STARWARS_DELTA_CUTSCENE_AUTHORING_CONTRACT",
     "contractRevision": "95376DF60D51CAE3357F3CDB3C1C6BA8A4AC92C6E845CB2B282E76C0EE838101",
-    "authoringRuleRegistryRevision": "DD86C108076E923DD28F7B9444B8EA5F389CE8A492B5E9012C74BDB72D7A8F54",
+    "authoringRuleRegistryRevision": "54DDFDD1A94A855E3C21069DA8E70EACC1C222A3B121F97E0ABACB924BECDB84",
     "authoringRuleRegistry": {
-      "revision": "DD86C108076E923DD28F7B9444B8EA5F389CE8A492B5E9012C74BDB72D7A8F54",
+      "revision": "54DDFDD1A94A855E3C21069DA8E70EACC1C222A3B121F97E0ABACB924BECDB84",
       "rules": [
         {
           "ruleId": "ACTOR_ORBIT_FIXED_CENTER_ONLY",
@@ -13463,6 +13493,21 @@
           "autoRepairPolicy": "Visible editable placeholders with exact nonblocking repair diagnostics."
         },
         {
+          "ruleId": "IDENTITY_CUES_SYSTEM5",
+          "category": "CUTSCENE_SCRIPT_V1",
+          "severity": "Advisory",
+          "blocksCompilation": false,
+          "blocksEditablePreview": false,
+          "blocksFinalReadiness": false,
+          "statusColor": "Yellow",
+          "owner": "AUTHORING",
+          "authoringRequirement": "OPTIONAL",
+          "description": "When matching sealed CURRENT exposes cast[].alignment, use exactly good, evil or neutral; never infer morality from handles. Omitted is unspecified, not neutral. Optional cast[].identityLevel=1|2|3 overrides identityCues.level root default 2 per performer: level 1 = rotating shield/skull/scales sprite emblem, level 2 = sprite plus soft orbital aura, level 3 = more energy and a short pulse ONLY for explicitly authored V1 action. identityCues.enabled=false or strength=0 disables it. Same sprite can depict opposing roles. Native animated SpriteRenderers follow Timeline and do not edit source art, moves, camera or story. No badge handles, alternate JSON, new build buttons or manual film repairs.",
+          "chatInstruction": "When matching sealed CURRENT exposes cast[].alignment, use exactly good, evil or neutral; never infer morality from handles. Omitted is unspecified, not neutral. Optional cast[].identityLevel=1|2|3 overrides identityCues.level root default 2 per performer: level 1 = rotating shield/skull/scales sprite emblem, level 2 = sprite plus soft orbital aura, level 3 = more energy and a short pulse ONLY for explicitly authored V1 action. identityCues.enabled=false or strength=0 disables it. Same sprite can depict opposing roles. Native animated SpriteRenderers follow Timeline and do not edit source art, moves, camera or story. No badge handles, alternate JSON, new build buttons or manual film repairs.",
+          "normalizationPolicy": "Preserve original source; recover only a detached execution copy.",
+          "autoRepairPolicy": "Visible editable placeholders with exact nonblocking repair diagnostics."
+        },
+        {
           "ruleId": "LIGHTING_AUTHORING",
           "category": "CUTSCENE_SCRIPT_V1",
           "severity": "Advisory",
@@ -13689,7 +13734,7 @@
         }
       ]
     },
-    "schemaHash": "20BC45812997959895409B091BDD24AB388964776C265D6E6C5A1718AF2028DA",
+    "schemaHash": "828E2F8E9B7C1E675BF1857F40081B786941A315457E423DCF53474C248147EA",
     "packageVersion": 5,
     "fieldDefinitions": [
       {
@@ -25252,9 +25297,9 @@
     "schemaVersion": 5,
     "contextVersion": 3,
     "contractRevision": "95376DF60D51CAE3357F3CDB3C1C6BA8A4AC92C6E845CB2B282E76C0EE838101",
-    "schemaHash": "20BC45812997959895409B091BDD24AB388964776C265D6E6C5A1718AF2028DA",
+    "schemaHash": "828E2F8E9B7C1E675BF1857F40081B786941A315457E423DCF53474C248147EA",
     "contextId": "NEW_CUTSCENE_CONTEXT",
-    "catalogRevision": "7621333667636349547",
+    "catalogRevision": "7621370563188834931",
     "projectId": "",
     "planId": "plan_example_minimal",
     "baseRevision": 0,

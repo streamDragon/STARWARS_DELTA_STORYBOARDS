@@ -3,17 +3,66 @@
   "schemaVersion": 1,
   "projectionRevision": "ANIMATION_RETRIEVAL_V9_20261003_PREVIEW_SEMANTICS",
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20261027-120203466-8f8bdfa9",
+  "publishTransactionId": "20261028-151713457-161c2977",
   "requiredCurrent": {
-    "catalogRevision": "7621333667636349547",
+    "catalogRevision": "7621370563188834931",
     "contractRevision": "95376DF60D51CAE3357F3CDB3C1C6BA8A4AC92C6E845CB2B282E76C0EE838101",
-    "schemaHash": "904238DCD0C4227B0D3D6D9D409D2E8DE629140E7ADFE424793241E39925690F",
-    "snapshotContentHash": "1D6F8679DD9A4CBFA3FB3B23CD81DAB785EBF72BBE7BFE0E34E654C19561AEEB",
-    "authoringRuleRegistryRevision": "DD86C108076E923DD28F7B9444B8EA5F389CE8A492B5E9012C74BDB72D7A8F54"
+    "schemaHash": "9A7BAD7DAC4DF634BC50B6E5A2C2B8681BBE3C3B63DB903F4CDFC2E6CF5B7103",
+    "snapshotContentHash": "49289490D3A5873178B102BF61FA88AB9AA0B5231F1B5D561997325AF8F94A09",
+    "authoringRuleRegistryRevision": "54DDFDD1A94A855E3C21069DA8E70EACC1C222A3B121F97E0ABACB924BECDB84"
   },
   "purpose": "On-demand direct animation materials. Animation is authored from published Animation handles themselves; Actor ownership and Actor animation repertoires are not part of this authoring surface.",
-  "directMaterialCount": 292,
+  "directMaterialCount": 342,
   "directMaterials": {
+    "animation__00c30fab": {
+      "displayName": "red delta ship",
+      "sourcePath": "Assets/Playniax/Pyro/Extensions/Radar System/Animation Clips/Spaceships/red delta ship.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 2,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "loop",
+        "ship"
+      ],
+      "searchTerms": [
+        "Loop",
+        "Other",
+        "red delta ship",
+        "ship",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "bb02fc2b11879f9f9665ce18a33a5a076c56378f832e6a62075735004d82e111",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.0833333358,
+          "sampleTime": 0.0833333358,
+          "spriteAssetId": "2ad700ec5df5c3c4cbaccfe0081c99a2:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_c0a3bb453a5fb50c9911/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__02616b9e": {
       "displayName": "Interacting",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_02/Interacting.anim",
@@ -446,18 +495,22 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Blast",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "damage",
+        "explosion",
         "loop"
       ],
       "searchTerms": [
         "Blast",
+        "damage",
+        "explosion",
         "LoBlast",
         "Loop",
         "SpriteFrame"
@@ -474,6 +527,101 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_0afcbb6a60cc1a520e1b/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__09af89cc": {
+      "displayName": "GUN HEAVY TWIN ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Cannons/GUN_HEAVY_TWIN/GUN_HEAVY_TWIN_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "GUN_HEAVY_TWIN_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "GUN HEAVY TWIN ANIM",
+        "GUN_HEAVY_TWIN_ANIM",
+        "Loop",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "aa2e0795f4c0443aefff29f5590589df0993c0782930e42693ec9e2490d5417e",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "7eff29a9846bda245993456d6efc8d1b:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_48d43974aa32561969cb/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__0a21f4a3": {
+      "displayName": "GUN PARTICLE LANCE ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Cannons/GUN_PARTICLE_LANCE/GUN_PARTICLE_LANCE_ANIM.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "GUN_PARTICLE_LANCE_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "GUN PARTICLE LANCE ANIM",
+        "GUN_PARTICLE_LANCE_ANIM",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "603ba7ef87a37a81c71fa9c5d715f2626cda8edf1db27595f36ce29feca96b14",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.3333333,
+          "sampleTime": 0.333333343,
+          "spriteAssetId": "95e87394f218c8443aeac79ca67cbb5a:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_28a45eb7e431323cc8aa/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -718,10 +866,12 @@
       "animationState": "MY_FireworksBrain_Idle_100PPU",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "charge",
         "idle",
         "loop"
       ],
       "searchTerms": [
+        "charge",
         "idle",
         "Loop",
         "MY FireworksBrain Idle 100PPU",
@@ -846,6 +996,57 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__0eee61c3": {
+      "displayName": "REACTOR SHIELD COIL ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Energy/REACTOR_SHIELD_COIL/REACTOR_SHIELD_COIL_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "shield",
+      "animationSemanticActions": [
+        "shield"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "REACTOR_SHIELD_COIL_ANIM",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "loop",
+        "shield"
+      ],
+      "searchTerms": [
+        "Loop",
+        "REACTOR SHIELD COIL ANIM",
+        "REACTOR_SHIELD_COIL_ANIM",
+        "shield",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "5b8fecf86b8795403a9129f068341038a1882e3a604c66e14dda7cbccc67a95d",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "9fd62a07483be5947be5f32c9a36f9b0:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_fd1b984e42b626ad10e4/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__0f3d2978": {
       "displayName": "Die",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_01/Die.anim",
@@ -873,12 +1074,14 @@
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
         "character_animation",
+        "death",
         "die",
         "loop"
       ],
       "searchTerms": [
         "character_animation",
         "deactivate",
+        "death",
         "Die",
         "Loop",
         "SpriteFrame"
@@ -895,6 +1098,58 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_bfc4312fb01adb4a4cf0/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__10334c22": {
+      "displayName": "Bubble Bubble 16 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Bubble_Bubble_16_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 3,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Loop",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "Bubble Bubble 16 Loop",
+        "generated_shot_visual",
+        "Loop",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "c2bc6c65b603fe668a05a2d8d1276e34599859a2831a9e59e8ae3c668ddb0e2a",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.125,
+          "sampleTime": 0.0833333358,
+          "spriteAssetId": "cfc7b53461fbd1349a2d335a41458092:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_4306964d9524ad51d2fd/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -1053,6 +1308,60 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_891a7a1cb72d1a4b7984/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__1467c178": {
+      "displayName": "MY SpaceRobot02 Shoot Start",
+      "sourcePath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/_Animation/SpaceRobot/MY_SpaceRobot02_Shoot_Start.anim",
+      "phase": "start",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "shoot",
+      "animationSemanticActions": [
+        "shoot"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "Shoot_Start",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "enemy",
+        "one_shot",
+        "shoot"
+      ],
+      "searchTerms": [
+        "enemy",
+        "MY SpaceRobot02 Shoot Start",
+        "OneShot",
+        "one_shot",
+        "shoot",
+        "Shoot_Start",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "2a3171360c54a70a713e9ccb28133cebb2a756549f521b8886384ec0ea7d093b",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.266666681,
+          "sampleTime": 0.266666681,
+          "spriteAssetId": "db8f80d9c01f20b48a4231cc409c6b56:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_b9d1fb3e68df24abf531/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -1376,55 +1685,6 @@
       "atlasPage": null,
       "atlasSlot": null
     },
-    "animation__16769e39": {
-      "displayName": "reactor core pulse",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Environment/GRAD11_AsteroidForge_V2/Clips/reactor_core_pulse.anim",
-      "phase": "loop",
-      "directMovieMaterial": {
-        "authorable": true,
-        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
-        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
-        "bindingPath": "",
-        "keyCount": 16,
-        "semanticRequired": false,
-        "actorOwnerRequired": false
-      },
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "FacetsOnly",
-      "animationSemanticAction": "",
-      "animationSemanticActions": [],
-      "animationMotionType": "SpriteFrame",
-      "animationPhase": "Loop",
-      "animationState": "Other",
-      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
-      "semanticFacets": [
-        "environment_animation",
-        "loop"
-      ],
-      "searchTerms": [
-        "environment_animation",
-        "Loop",
-        "Other",
-        "reactor core pulse",
-        "SpriteFrame"
-      ],
-      "selectionScope": "UNSPECIFIED",
-      "previewStatus": "AVAILABLE",
-      "previewContentHash": "2b79cdd1f2dd79c3c894d83283623fefdadc56de422e341660009e820a4be841",
-      "sampleStrip": [
-        {
-          "fraction": 0.5,
-          "targetTime": 0.6666667,
-          "sampleTime": 0.6666667,
-          "spriteAssetId": "adca75d4116b425faa0ab2a0c020d911:21300000"
-        }
-      ],
-      "pageImageUrl": "visual-library/assets/asset_5404f78bffd862d305c7/preview.png",
-      "atlasPage": null,
-      "atlasSlot": null
-    },
     "animation__1768cbfb": {
       "displayName": "Run",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_02/Run.anim",
@@ -1523,6 +1783,153 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__18805005": {
+      "displayName": "DOOR HANGAR ARMORED ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Doors/DOOR_HANGAR_ARMORED/DOOR_HANGAR_ARMORED_ANIM.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "DOOR_HANGAR_ARMORED_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "DOOR HANGAR ARMORED ANIM",
+        "DOOR_HANGAR_ARMORED_ANIM",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "886207eee24ed0f701fa7ce6c1e363fdceedbfa36afe5069b4f070d0f57a8cd7",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.3333333,
+          "sampleTime": 0.333333343,
+          "spriteAssetId": "0c1d6acc2dde63c49997eb7bfddc14f2:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_31315f62c85d7717699f/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__18cffed4": {
+      "displayName": "ENGINE VENTRAL DRIVE ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Engines/ENGINE_VENTRAL_DRIVE/ENGINE_VENTRAL_DRIVE_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "ENGINE_VENTRAL_DRIVE_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "ENGINE VENTRAL DRIVE ANIM",
+        "ENGINE_VENTRAL_DRIVE_ANIM",
+        "Loop",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "e8075889cf531fab3e33bf187c012ac57a71c8c5979718e656c321bad4f128ba",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "796f45376b81b274185c1cc525b6034b:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_0b31de620c755e2bcc67/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__18d679d0": {
+      "displayName": "color Sphere Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Sphere_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Loop",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Sphere Loop",
+        "generated_shot_visual",
+        "Loop",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "3facf64d5af6ef30c187c8d7405ca5d90b2210b6f26cc50529d2466aeccf7d67",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "b686ee6a396ffb84bba1d876d0053ece:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_ecfb70b2d7ff08e38da2/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__1a4b0e39": {
       "displayName": "satelite",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies/satelite.anim",
@@ -1596,7 +2003,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
       "animationSemanticActions": [
@@ -1629,6 +2036,53 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_e9fe7532f240ad9f259e/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__1b03fd4f": {
+      "displayName": "GUN BROADSIDE ARRAY ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Cannons/GUN_BROADSIDE_ARRAY/GUN_BROADSIDE_ARRAY_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "GUN_BROADSIDE_ARRAY_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "GUN BROADSIDE ARRAY ANIM",
+        "GUN_BROADSIDE_ARRAY_ANIM",
+        "Loop",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "aba2699e2da8bcfa9c442f9a534226d788acaffe62cca89d3b8e87cbb2c160ce",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "53464a638791ac943a290f25d74e6293:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_d0464974a2ea4587255c/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -1846,55 +2300,51 @@
       "atlasPage": null,
       "atlasSlot": null
     },
-    "animation__20453b9e": {
-      "displayName": "white hangar close 10",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Environment/GRAD11_AsteroidForge_V2/Clips/white_hangar_close_10.anim",
+    "animation__1f3c7748": {
+      "displayName": "DOOR SHUTTLE BAY ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Doors/DOOR_SHUTTLE_BAY/DOOR_SHUTTLE_BAY_ANIM.anim",
       "phase": "one_shot",
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 10,
+        "keyCount": 8,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "FacetsOnly",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "OneShot",
-      "animationState": "Other",
-      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "animationState": "DOOR_SHUTTLE_BAY_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
       "semanticFacets": [
-        "close",
-        "environment_animation",
         "one_shot"
       ],
       "searchTerms": [
-        "close",
-        "environment_animation",
+        "DOOR SHUTTLE BAY ANIM",
+        "DOOR_SHUTTLE_BAY_ANIM",
         "OneShot",
         "one_shot",
-        "Other",
-        "SpriteFrame",
-        "white hangar close 10"
+        "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
-      "previewContentHash": "91f361db340719ba07e08add091bbadd1c040a0681ad1341b4081fd06033fa58",
+      "previewContentHash": "e2dfc871a5a6ad0bfdc00bb7922691a3e92bb638052fece2ad0fad55a8145d66",
       "sampleStrip": [
         {
           "fraction": 0.5,
-          "targetTime": 0.416666657,
-          "sampleTime": 0.416666657,
-          "spriteAssetId": "3b21cab8529a4392bd3e5d6514cbc383:21300000"
+          "targetTime": 0.3333333,
+          "sampleTime": 0.333333343,
+          "spriteAssetId": "c28ced71ac2295843977bab032ba704f:21300000"
         }
       ],
-      "pageImageUrl": "visual-library/assets/asset_8b34576f24c919df858a/preview.png",
+      "pageImageUrl": "visual-library/assets/asset_e08c2630e1039fa26dc3/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -2046,6 +2496,53 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_bbc1a59115614e658c52/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__22f581b0": {
+      "displayName": "BAY SERVICE ARM ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Hangar/BAY_SERVICE_ARM/BAY_SERVICE_ARM_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "BAY_SERVICE_ARM_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "BAY SERVICE ARM ANIM",
+        "BAY_SERVICE_ARM_ANIM",
+        "Loop",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "8d542ec002aa14c085d51aa34cd8d7cefc663ab688e5e9181d8a78d6a330fe5a",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "f691ca83d98116f459fc96de3902fe3f:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_e4bc39106a429d104f72/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -2322,18 +2819,20 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "StarSparrow18_DanteRuntime",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "projectile"
       ],
       "searchTerms": [
         "Loop",
+        "projectile",
         "SpriteFrame",
         "StarSparrow18 DanteRuntimeLoop",
         "StarSparrow18_DanteRuntime"
@@ -2368,7 +2867,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
       "animationSemanticActions": [
@@ -2561,6 +3060,54 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__2c731af0": {
+      "displayName": "DOOR AIRLOCK RING ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Doors/DOOR_AIRLOCK_RING/DOOR_AIRLOCK_RING_ANIM.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "DOOR_AIRLOCK_RING_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "DOOR AIRLOCK RING ANIM",
+        "DOOR_AIRLOCK_RING_ANIM",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "12f5717ed00def76eb49a8e64ae6eea3bb41487940e4477c9b61e849bc8c0a01",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.3333333,
+          "sampleTime": 0.333333343,
+          "spriteAssetId": "73da85fc5c3ebd3499300bb83241df27:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_100c32d94c35f4bfa944/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__2cc6e89f": {
       "displayName": "enemy animation",
       "sourcePath": "Assets/_PKG/PKG_Space_Shooter_Assets/Artwork/enemy/enemy-animation.anim",
@@ -2610,6 +3157,54 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__2dccf63a": {
+      "displayName": "star",
+      "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Spaceships/star.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 16,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "star",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "loop",
+        "ship"
+      ],
+      "searchTerms": [
+        "Loop",
+        "ship",
+        "SpriteFrame",
+        "star"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "e95fa98eae5360d37610a34054b95d66a0bbfb26fd054a9e6e63299bd8e02ded",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.6666667,
+          "sampleTime": 0.6666667,
+          "spriteAssetId": "a792fe166bffccd469098c0ab34b4158:21300016"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_c589af0cca332ea9f9c2/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__2e1a3d36": {
       "displayName": "BombExplode",
       "sourcePath": "Assets/_Game/MY_Core/MY_Animations/Lasers/BombExplode.anim",
@@ -2634,12 +3229,16 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "damage",
         "explode",
+        "explosion",
         "loop"
       ],
       "searchTerms": [
         "BombExplode",
+        "damage",
         "explode",
+        "explosion",
         "Loop",
         "Other",
         "SpriteFrame"
@@ -2788,18 +3387,20 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "StarSparrow7_DanteRuntime",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "projectile"
       ],
       "searchTerms": [
         "Loop",
+        "projectile",
         "SpriteFrame",
         "StarSparrow7 DanteRuntimeLoop",
         "StarSparrow7_DanteRuntime"
@@ -3048,20 +3649,22 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "shoot"
       ],
       "searchTerms": [
         "Loop",
         "Other",
         "robot anim1",
+        "shoot",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
@@ -3076,6 +3679,101 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_c831ac99edc8ae6a2da1/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__361ef1d5": {
+      "displayName": "BAY DOCK CLAMPS ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Hangar/BAY_DOCK_CLAMPS/BAY_DOCK_CLAMPS_ANIM.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "BAY_DOCK_CLAMPS_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "BAY DOCK CLAMPS ANIM",
+        "BAY_DOCK_CLAMPS_ANIM",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "470b4f6bc6ee8129dee1d2c7ce3b43c7a2e721a5434273764069cc15e866d19f",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.3333333,
+          "sampleTime": 0.333333343,
+          "spriteAssetId": "6a793e41eeab19547ad2db2eefa8abd4:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_619164abfb33b640abd1/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__367aee11": {
+      "displayName": "Green beam",
+      "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Energy Beam/Green beam.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 4,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "beam",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "beam",
+        "Green beam",
+        "Loop",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "fa8a61c4342c50979a2a1c3439b8c89add821c0ba30a4964cf37f3561d6d7e8e",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.166666672,
+          "sampleTime": 0.166666672,
+          "spriteAssetId": "1455d67bfa7a8a34ead48bf41303daac:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_d63870a37e6cec3a6ad0/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -3242,19 +3940,21 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "loop"
+        "loop",
+        "projectile"
       ],
       "searchTerms": [
         "Loop",
         "Other",
+        "projectile",
         "Shot Animation",
         "SpriteFrame"
       ],
@@ -3270,6 +3970,53 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_36bf705a61183cfc4fbe/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__39ed4d05": {
+      "displayName": "GUN TRIPLE BATTERY ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Cannons/GUN_TRIPLE_BATTERY/GUN_TRIPLE_BATTERY_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "GUN_TRIPLE_BATTERY_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "GUN TRIPLE BATTERY ANIM",
+        "GUN_TRIPLE_BATTERY_ANIM",
+        "Loop",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "d8bfc5762ae595a37a821b4835e934a1ef860c5cc2447ab9b23f99c51ed60219",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "3b69fb878ae1abb44b5c0cd16d5af347:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_91db62ec7b9afd56c8bd/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -3428,6 +4175,54 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_bd4551c1b06a4fb3ea1a/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__3c482cc3": {
+      "displayName": "Rocket",
+      "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Rocket/Rocket.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 11,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Rocket",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "launch",
+        "loop"
+      ],
+      "searchTerms": [
+        "launch",
+        "Loop",
+        "Rocket",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "4317dac7e29743b77080e1ce39d6b3d046eb35836a3a9e6867559afa9112a623",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4583333,
+          "sampleTime": 0.416666657,
+          "spriteAssetId": "908725419f7f4b69b0046c86ec002397:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_9e5677a5fb5a19e18634/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -3622,55 +4417,6 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_09e8c79e82b2df348167/preview.png",
-      "atlasPage": null,
-      "atlasSlot": null
-    },
-    "animation__3ec89741": {
-      "displayName": "reactor heat and smoke",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Environment/GRAD11_AsteroidForge_V2/Clips/reactor_heat_and_smoke.anim",
-      "phase": "loop",
-      "directMovieMaterial": {
-        "authorable": true,
-        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
-        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
-        "bindingPath": "",
-        "keyCount": 8,
-        "semanticRequired": false,
-        "actorOwnerRequired": false
-      },
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "FacetsOnly",
-      "animationSemanticAction": "",
-      "animationSemanticActions": [],
-      "animationMotionType": "SpriteFrame",
-      "animationPhase": "Loop",
-      "animationState": "Other",
-      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
-      "semanticFacets": [
-        "environment_animation",
-        "loop"
-      ],
-      "searchTerms": [
-        "environment_animation",
-        "Loop",
-        "Other",
-        "reactor heat and smoke",
-        "SpriteFrame"
-      ],
-      "selectionScope": "UNSPECIFIED",
-      "previewStatus": "AVAILABLE",
-      "previewContentHash": "34a929d221ba067df91ff01b35e7ba4eedc21748814f0338f1e9e9a153978da7",
-      "sampleStrip": [
-        {
-          "fraction": 0.5,
-          "targetTime": 0.5,
-          "sampleTime": 0.5,
-          "spriteAssetId": "bc08065920e64aa3a560a356390a6c52:21300000"
-        }
-      ],
-      "pageImageUrl": "visual-library/assets/asset_c9371ec6fdd46c5be483/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -3991,6 +4737,53 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__439ba70c": {
+      "displayName": "REACTOR PULSE CHAMBER ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Energy/REACTOR_PULSE_CHAMBER/REACTOR_PULSE_CHAMBER_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "REACTOR_PULSE_CHAMBER_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "Loop",
+        "REACTOR PULSE CHAMBER ANIM",
+        "REACTOR_PULSE_CHAMBER_ANIM",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "fa69c0e0239329c3bb0ac3331e972c9de117b3324042853a566ca6e722c832a2",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "ca9ce75d494ee8241b6b846883803dba:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_ad939b8afcbec4d587d2/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__43fcdcb9": {
       "displayName": "SpaceRobot03 Shield Stance",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot03/SpaceRobot03_Shield_Stance.anim",
@@ -4042,6 +4835,63 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__44c09880": {
+      "displayName": "Radar",
+      "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Launcher/Radar/Radar.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 25,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Radar",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "enemy_component",
+        "loop",
+        "playniax",
+        "radar",
+        "rotating",
+        "scan",
+        "space_shooter_art_pack_02"
+      ],
+      "searchTerms": [
+        "enemy_component",
+        "Loop",
+        "playniax",
+        "Radar",
+        "rotating",
+        "scan",
+        "space_shooter_art_pack_02",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "5021ff111981adfc2173640162908f9e64d5d642422e4d647f524d688cfb2a7d",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 1.04166663,
+          "sampleTime": 1.0,
+          "spriteAssetId": "a39ace25c7b04790936a7daf89b410c4:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_ec2201c2fb1e763879d5/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__473115bd": {
       "displayName": "SpaceRobot04 Shoot Hands Start",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot04/SpaceRobot04_Shoot_Hands_Start.anim",
@@ -4057,7 +4907,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
       "animationSemanticActions": [
@@ -4146,58 +4996,6 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_103921673e7203537ab7/preview.png",
-      "atlasPage": null,
-      "atlasSlot": null
-    },
-    "animation__47f9e137": {
-      "displayName": "white hangar open 10",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Environment/GRAD11_AsteroidForge_V2/Clips/white_hangar_open_10.anim",
-      "phase": "one_shot",
-      "directMovieMaterial": {
-        "authorable": true,
-        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
-        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
-        "bindingPath": "",
-        "keyCount": 10,
-        "semanticRequired": false,
-        "actorOwnerRequired": false
-      },
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "FacetsOnly",
-      "animationSemanticAction": "",
-      "animationSemanticActions": [],
-      "animationMotionType": "SpriteFrame",
-      "animationPhase": "OneShot",
-      "animationState": "Other",
-      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
-      "semanticFacets": [
-        "environment_animation",
-        "one_shot",
-        "open"
-      ],
-      "searchTerms": [
-        "environment_animation",
-        "OneShot",
-        "one_shot",
-        "open",
-        "Other",
-        "SpriteFrame",
-        "white hangar open 10"
-      ],
-      "selectionScope": "UNSPECIFIED",
-      "previewStatus": "AVAILABLE",
-      "previewContentHash": "c2533af3986515a3e6380a23896a774b1bc58ff98d6f41a9ab61f9329c78069e",
-      "sampleStrip": [
-        {
-          "fraction": 0.5,
-          "targetTime": 0.416666657,
-          "sampleTime": 0.416666657,
-          "spriteAssetId": "933bd062aafd43f69ea442e20ff5356e:21300000"
-        }
-      ],
-      "pageImageUrl": "visual-library/assets/asset_02722112a7f467ae9c28/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -4304,52 +5102,57 @@
       "atlasPage": null,
       "atlasSlot": null
     },
-    "animation__4a5daf12": {
-      "displayName": "factory piston cycle",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Environment/GRAD11_AsteroidForge_V2/Clips/factory_piston_cycle.anim",
-      "phase": "loop",
+    "animation__49de8526": {
+      "displayName": "MY SpaceRobot01 Shoot Start",
+      "sourcePath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/_Animation/SpaceRobot/MY_SpaceRobot01_Shoot_Start.anim",
+      "phase": "start",
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 12,
+        "keyCount": 8,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "FacetsOnly",
-      "animationSemanticAction": "",
-      "animationSemanticActions": [],
+      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "shoot",
+      "animationSemanticActions": [
+        "shoot"
+      ],
       "animationMotionType": "SpriteFrame",
-      "animationPhase": "Loop",
-      "animationState": "Other",
-      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "animationPhase": "OneShot",
+      "animationState": "Shoot_Start",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
-        "environment_animation",
-        "loop"
+        "enemy",
+        "one_shot",
+        "shoot"
       ],
       "searchTerms": [
-        "environment_animation",
-        "factory piston cycle",
-        "Loop",
-        "Other",
+        "enemy",
+        "MY SpaceRobot01 Shoot Start",
+        "OneShot",
+        "one_shot",
+        "shoot",
+        "Shoot_Start",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
-      "previewContentHash": "89506a23ecaefa61ca6bd53ef99aedf7f5fd34a19691b607692f3f78c02f001b",
+      "previewContentHash": "6016c76fd46bb411a6647317391df303320c3f09d47439b7fd82896f3659b259",
       "sampleStrip": [
         {
           "fraction": 0.5,
-          "targetTime": 0.6,
-          "sampleTime": 0.6,
-          "spriteAssetId": "ff917c6af2c246c18fabcd964c81b15a:21300000"
+          "targetTime": 0.266666681,
+          "sampleTime": 0.266666681,
+          "spriteAssetId": "dae73e51b96c89d46b0cb812224f1551:21300000"
         }
       ],
-      "pageImageUrl": "visual-library/assets/asset_c8043634ebeecab2fe6d/preview.png",
+      "pageImageUrl": "visual-library/assets/asset_c105a746042da64a172d/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -4725,6 +5528,112 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__4dfce448": {
+      "displayName": "color Rail Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Rail_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Loop",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Rail Loop",
+        "generated_shot_visual",
+        "Loop",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "89d65abc8b97f275ec77317a71cce6a78d123aaceddcd688d1c944e324004fc9",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "8264864fd1264864ea54991010f9af92:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_80459eb21330a297f08c/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__4e01381b": {
+      "displayName": "FireBall FireBall 32 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/FireBall_FireBall_32_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Loop",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "fire",
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "fire",
+        "FireBall FireBall 32 Loop",
+        "generated_shot_visual",
+        "Loop",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "25eef6d60d8e0bb9037bf727cc726c0ed33a03ddfa4f6c8e0500121ef117a673",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "6ef423e0eb1c26a43aca0ede77acae93:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_778a467ffc876f1e7c1b/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__4eb0fc26": {
       "displayName": "player ship",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Player/sp 1 player ship.anim",
@@ -5018,11 +5927,13 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "damage",
         "explosion",
         "loop",
         "vfx"
       ],
       "searchTerms": [
+        "damage",
         "explosion",
         "explosion animation",
         "Loop",
@@ -5399,6 +6310,71 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__5ab39516": {
+      "displayName": "Brain boss attack",
+      "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies (Bosses)/Brain/Attack/Brain_boss_attack.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 16,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "attack",
+      "animationSemanticActions": [
+        "attack"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "attack",
+        "attack_animation",
+        "boss",
+        "brain_boss",
+        "enemy_boss",
+        "loop",
+        "organic_boss",
+        "playniax",
+        "space_shooter_art_pack_01"
+      ],
+      "searchTerms": [
+        "attack",
+        "attack_animation",
+        "boss",
+        "Brain boss attack",
+        "brain_boss",
+        "enemy_boss",
+        "Loop",
+        "organic_boss",
+        "Other",
+        "playniax",
+        "space_shooter_art_pack_01",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "dc9dcf35e0d0ff0bd70734edb9cac9078af84552809e0e9b5a8b4fb42a14d88f",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.320000023,
+          "sampleTime": 0.32,
+          "spriteAssetId": "d93e344afeeb6495f86c0a06bf7e96d7:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_0e398ed28ca2a721ac66/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__5c2bf6cc": {
       "displayName": "Player Flying down",
       "sourcePath": "Assets/_Game/MY_Core/MY_Animations/Player/Player_Flying_down.anim",
@@ -5524,7 +6500,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
       "animationSemanticActions": [
@@ -5557,6 +6533,71 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_25c61e5f6d95f3f2f631/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__5d6a851b": {
+      "displayName": "buzz saw boss idle",
+      "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies (Bosses)/Buzz Saw/Idle/buzz_saw_boss_idle.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 16,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "idle",
+      "animationSemanticActions": [
+        "idle"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "boss",
+        "enemy_boss",
+        "idle",
+        "idle_animation",
+        "loop",
+        "playniax",
+        "saw_boss",
+        "space_shooter_art_pack_01",
+        "spinning_blade"
+      ],
+      "searchTerms": [
+        "boss",
+        "buzz saw boss idle",
+        "enemy_boss",
+        "idle",
+        "idle_animation",
+        "Loop",
+        "Other",
+        "playniax",
+        "saw_boss",
+        "space_shooter_art_pack_01",
+        "spinning_blade",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "2191976c65f6b170626a1e15b5126087d4091c2ae18fb32a6583993dbe4bea3f",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.320000023,
+          "sampleTime": 0.32,
+          "spriteAssetId": "94e3f4df8ed3f4bd5bd88719e29a5577:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_30ffd1b74c9df94625ff/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -5655,55 +6696,6 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_e05203beb8093aae631e/preview.png",
-      "atlasPage": null,
-      "atlasSlot": null
-    },
-    "animation__5fc73934": {
-      "displayName": "crystal blue flow",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Environment/GRAD11_AsteroidForge_V2/Clips/crystal_blue_flow.anim",
-      "phase": "loop",
-      "directMovieMaterial": {
-        "authorable": true,
-        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
-        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
-        "bindingPath": "",
-        "keyCount": 8,
-        "semanticRequired": false,
-        "actorOwnerRequired": false
-      },
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "FacetsOnly",
-      "animationSemanticAction": "",
-      "animationSemanticActions": [],
-      "animationMotionType": "SpriteFrame",
-      "animationPhase": "Loop",
-      "animationState": "Other",
-      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
-      "semanticFacets": [
-        "environment_animation",
-        "loop"
-      ],
-      "searchTerms": [
-        "crystal blue flow",
-        "environment_animation",
-        "Loop",
-        "Other",
-        "SpriteFrame"
-      ],
-      "selectionScope": "UNSPECIFIED",
-      "previewStatus": "AVAILABLE",
-      "previewContentHash": "389b3ddc6705464601355cd79d24b88481a9b78497158cf1f21e31dd0392a615",
-      "sampleStrip": [
-        {
-          "fraction": 0.5,
-          "targetTime": 0.5,
-          "sampleTime": 0.5,
-          "spriteAssetId": "3bcb8e987c134539a0c7c159505d7b00:21300000"
-        }
-      ],
-      "pageImageUrl": "visual-library/assets/asset_dd20a05ae9ba9f204b5f/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -5867,6 +6859,58 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__633c0694": {
+      "displayName": "color Missile Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Missile_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Loop",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Missile Loop",
+        "generated_shot_visual",
+        "Loop",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "4d7e3e0d5394a23dd67f348478af9cb6ad61a50dd9f0fee26a1bf0ebb9a72fed",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "a60ad0bf6cc6b5346b1f81b6772a0fb1:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_645b0b42db9d5697943a/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__65732881": {
       "displayName": "SpaceRobot05 Walk End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot05/SpaceRobot05_Walk_End.anim",
@@ -5915,6 +6959,53 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_6e2fb1df131f7f8317f3/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__667d6267": {
+      "displayName": "ENGINE QUAD NOZZLE ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Engines/ENGINE_QUAD_NOZZLE/ENGINE_QUAD_NOZZLE_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "ENGINE_QUAD_NOZZLE_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "ENGINE QUAD NOZZLE ANIM",
+        "ENGINE_QUAD_NOZZLE_ANIM",
+        "Loop",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "ee19b605fc749955f0edb6863cd3467c8d39d194af603561baa74afff59058a6",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "fbf989189db276a4fb9c8af5fd31a2ef:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_a97b6a4fbbfd88775aed/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -6116,6 +7207,57 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__6882898f": {
+      "displayName": "TOWER CROSS IDLE",
+      "sourcePath": "Assets/_Game/MY_Art/Turrets/CrossCannonIdle/TOWER_CROSS_IDLE.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "idle",
+      "animationSemanticActions": [
+        "idle"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "TOWER_CROSS_IDLE",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "idle",
+        "loop"
+      ],
+      "searchTerms": [
+        "idle",
+        "Loop",
+        "SpriteFrame",
+        "TOWER CROSS IDLE",
+        "TOWER_CROSS_IDLE"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "29448fe3c2fd8a268e93ec4b46dbb5217a443477dc47b586f35d9febcfd652c9",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.5,
+          "sampleTime": 0.5,
+          "spriteAssetId": "660e85cbf09f52f4eb8f823ba9d5780c:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_079cda29f85f73d07a69/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__68f37772": {
       "displayName": "sawcer",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sawcer/sawcer.anim",
@@ -6277,22 +7419,22 @@
       "atlasPage": null,
       "atlasSlot": null
     },
-    "animation__6a555c4a": {
-      "displayName": "reactor turbine rotation",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Environment/GRAD11_AsteroidForge_V2/Clips/reactor_turbine_rotation.anim",
+    "animation__6acc5657": {
+      "displayName": "blue delta ship",
+      "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Spaceships/blue delta ship.anim",
       "phase": "loop",
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 16,
+        "keyCount": 2,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "NoOwner",
+      "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -6301,28 +7443,28 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
-        "environment_animation",
-        "loop"
+        "loop",
+        "ship"
       ],
       "searchTerms": [
-        "environment_animation",
+        "blue delta ship",
         "Loop",
         "Other",
-        "reactor turbine rotation",
+        "ship",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
-      "previewContentHash": "dc5ada3b2098457ea3f0480cc66e019d4b01a232bf99fb33f953d6bd252b54e7",
+      "previewContentHash": "2cb755519df6fb5f808636e3c07ca817f70cef4525b07d3717a73094e4f976ac",
       "sampleStrip": [
         {
           "fraction": 0.5,
-          "targetTime": 0.6666667,
-          "sampleTime": 0.6666667,
-          "spriteAssetId": "3a7e8deb875d41c4991495ae3de1689b:21300000"
+          "targetTime": 0.0833333358,
+          "sampleTime": 0.0833333358,
+          "spriteAssetId": "7e09b8ea7643e56469dc98574bdd9786:21300000"
         }
       ],
-      "pageImageUrl": "visual-library/assets/asset_4db0c22eeece1c1b6625/preview.png",
+      "pageImageUrl": "visual-library/assets/asset_74070cb91f0a10c5c09c/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -6373,6 +7515,54 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_c46be3e0c10fafe14da0/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__6c635d96": {
+      "displayName": "slicer",
+      "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Spaceships/slicer.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 16,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "slicer",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "loop",
+        "ship"
+      ],
+      "searchTerms": [
+        "Loop",
+        "ship",
+        "slicer",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "3a58396b0285f355791c990de5c4fab7505bf5f52f9bb6b55ed3dbaace89987b",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.6666667,
+          "sampleTime": 0.6666667,
+          "spriteAssetId": "4bf22a03ae55deb4ba41c1857e7947d4:21300016"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_8fae4537e4c2c0119621/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -6748,56 +7938,6 @@
       "atlasPage": null,
       "atlasSlot": null
     },
-    "animation__70b4b7e1": {
-      "displayName": "tunnel rock break",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Environment/GRAD11_AsteroidForge_V2/Clips/tunnel_rock_break.anim",
-      "phase": "one_shot",
-      "directMovieMaterial": {
-        "authorable": true,
-        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
-        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
-        "bindingPath": "",
-        "keyCount": 8,
-        "semanticRequired": false,
-        "actorOwnerRequired": false
-      },
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "FacetsOnly",
-      "animationSemanticAction": "",
-      "animationSemanticActions": [],
-      "animationMotionType": "SpriteFrame",
-      "animationPhase": "OneShot",
-      "animationState": "Other",
-      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
-      "semanticFacets": [
-        "environment_animation",
-        "one_shot"
-      ],
-      "searchTerms": [
-        "environment_animation",
-        "OneShot",
-        "one_shot",
-        "Other",
-        "SpriteFrame",
-        "tunnel rock break"
-      ],
-      "selectionScope": "UNSPECIFIED",
-      "previewStatus": "AVAILABLE",
-      "previewContentHash": "6824451d0ae99a1f82a3291c146b906af5eedcccfbb0ec09cbac10b943a371a7",
-      "sampleStrip": [
-        {
-          "fraction": 0.5,
-          "targetTime": 0.333333343,
-          "sampleTime": 0.333333343,
-          "spriteAssetId": "d5d399385fa94a2ea7b6c99beb33043e:21300000"
-        }
-      ],
-      "pageImageUrl": "visual-library/assets/asset_f93d54649021428fe320/preview.png",
-      "atlasPage": null,
-      "atlasSlot": null
-    },
     "animation__72d595c8": {
       "displayName": "Nautolan   Bomb Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Bomb.aseprite",
@@ -6949,6 +8089,53 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_482169815e1934f84c25/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__741ed404": {
+      "displayName": "REACTOR GLOW APERTURE ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Energy/REACTOR_GLOW_APERTURE/REACTOR_GLOW_APERTURE_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "REACTOR_GLOW_APERTURE_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "Loop",
+        "REACTOR GLOW APERTURE ANIM",
+        "REACTOR_GLOW_APERTURE_ANIM",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "f322639cdb569dcd556cfa48314fc6dc88c2657005211e367e8b267a9088803f",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "0763be1d5cacb6c42a0d4a152323bcce:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_df87b374b31773276769/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -7259,6 +8446,105 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__77c50206": {
+      "displayName": "Torch TorchFlame 32 Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/Torch_TorchFlame_32_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Loop",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "generated_shot_visual",
+        "Loop",
+        "projectile",
+        "SpriteFrame",
+        "Torch TorchFlame 32 Loop",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "7e5faa403742c1ca3b61e7b16f0dff73da4bab8e8918bbae0d12d9a7d37e7047",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "8ab6d9f0353f7384fbca766b82853cd3:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_89d9587c1d3281e25742/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__79a88ed4": {
+      "displayName": "GUN ANTIAIR TOWER ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Cannons/GUN_ANTIAIR_TOWER/GUN_ANTIAIR_TOWER_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "GUN_ANTIAIR_TOWER_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "GUN ANTIAIR TOWER ANIM",
+        "GUN_ANTIAIR_TOWER_ANIM",
+        "Loop",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "24abf1b54e1400279e31e33679673306eb86accc0041b25d83bab8847811adb5",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "f700bc9763d4aa44a96f4166069210ce:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_7fea1ba89159c54bac1b/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__7b417331": {
       "displayName": "dangersighn",
       "sourcePath": "Assets/dangersighn.anim",
@@ -7378,18 +8664,20 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "explosion",
         "loop"
       ],
       "searchTerms": [
         "bomb2 anim",
+        "explosion",
         "Loop",
         "Other",
         "SpriteFrame"
@@ -7629,17 +8917,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "VHICLE2_INTERCEPT",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "launch",
         "loop"
       ],
       "searchTerms": [
+        "launch",
         "Loop",
         "SpriteFrame",
         "VHICLE2 INTERCEPT",
@@ -7883,6 +9173,67 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__80e6878a": {
+      "displayName": "Bottom Gun",
+      "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies (Bosses)/Mini Boss 2/Bottom Gun/Bottom Gun.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 25,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "boss",
+        "boss_weapon",
+        "enemy_boss",
+        "loop",
+        "playniax",
+        "rotating",
+        "space_shooter_art_pack_02",
+        "turret_component"
+      ],
+      "searchTerms": [
+        "boss",
+        "boss_weapon",
+        "Bottom Gun",
+        "enemy_boss",
+        "Loop",
+        "Other",
+        "playniax",
+        "rotating",
+        "space_shooter_art_pack_02",
+        "SpriteFrame",
+        "turret_component"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "92c0f397d4f0475f7cb5efd9488fa30c574f12ddfcbfd6da95c6ae05fe510adc",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 1.04166663,
+          "sampleTime": 1.0,
+          "spriteAssetId": "0e4a4a1d637e4d8989b1f5b05f0416f9:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_94a2947f0400b092dab1/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__815e4f87": {
       "displayName": "MY FireworksBrain Attack 100PPU",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/FireworksBrain100PPU/MY_FireworksBrain_Attack_100PPU.anim",
@@ -8090,6 +9441,53 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__82f0b1dc": {
+      "displayName": "TURRET 2",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/MY_05_WEAPONS_EFFECTS/3D_TURRET/TURRET_2.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 4,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "Loop",
+        "Other",
+        "SpriteFrame",
+        "TURRET 2"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "0a90d02c6d5ac4d27476c0b65871ed444cf4726e6d9e0462f59bc0614bc61d38",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 2.0,
+          "sampleTime": 2.0,
+          "spriteAssetId": "761681d51c27e984bbd1ef2f900f7c23:-1011504252"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_3d2fd5badd76b969ffdd/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__83e84399": {
       "displayName": "tip hi",
       "sourcePath": "Assets/tip_hi.anim",
@@ -8190,55 +9588,6 @@
       "atlasPage": null,
       "atlasSlot": null
     },
-    "animation__84427182": {
-      "displayName": "factory gear rotate",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Environment/GRAD11_AsteroidForge_V2/Clips/factory_gear_rotate.anim",
-      "phase": "loop",
-      "directMovieMaterial": {
-        "authorable": true,
-        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
-        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
-        "bindingPath": "",
-        "keyCount": 12,
-        "semanticRequired": false,
-        "actorOwnerRequired": false
-      },
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "FacetsOnly",
-      "animationSemanticAction": "",
-      "animationSemanticActions": [],
-      "animationMotionType": "SpriteFrame",
-      "animationPhase": "Loop",
-      "animationState": "Other",
-      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
-      "semanticFacets": [
-        "environment_animation",
-        "loop"
-      ],
-      "searchTerms": [
-        "environment_animation",
-        "factory gear rotate",
-        "Loop",
-        "Other",
-        "SpriteFrame"
-      ],
-      "selectionScope": "UNSPECIFIED",
-      "previewStatus": "AVAILABLE",
-      "previewContentHash": "952ab1e641a05e80f8b181810f213dd0bc7d84c86a44bc2250ef95477f2d4ccc",
-      "sampleStrip": [
-        {
-          "fraction": 0.5,
-          "targetTime": 0.5,
-          "sampleTime": 0.5,
-          "spriteAssetId": "5842959d7361419880705d1a8819a028:21300000"
-        }
-      ],
-      "pageImageUrl": "visual-library/assets/asset_65a16a00179143d54069/preview.png",
-      "atlasPage": null,
-      "atlasSlot": null
-    },
     "animation__84f9c995": {
       "displayName": "explsbullet anim",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/explsbullet anim.anim",
@@ -8255,17 +9604,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "explosion",
         "loop"
       ],
       "searchTerms": [
+        "explosion",
         "explsbullet anim",
         "Loop",
         "Other",
@@ -8438,6 +9789,53 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__861d08f7": {
+      "displayName": "TURRET 1",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/MY_05_WEAPONS_EFFECTS/3D_TURRET/TURRET_1.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 4,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "TURRET_1",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "Loop",
+        "SpriteFrame",
+        "TURRET 1",
+        "TURRET_1"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "a205ff4b575ae57d11c71a3b45115b10cc9302f15ccae560d2dfd18174c388ae",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.3125,
+          "sampleTime": 0.25,
+          "spriteAssetId": "4635185e1b4e194429baad70da3b08af:211363324"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_4f29eac953bcd4065f79/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__86abb658": {
       "displayName": "Cube",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Cube/Cube.anim",
@@ -8593,56 +9991,6 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_d5060a5f61bea19d8bd0/preview.png",
-      "atlasPage": null,
-      "atlasSlot": null
-    },
-    "animation__88a0d44f": {
-      "displayName": "tunnel metal break",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Environment/GRAD11_AsteroidForge_V2/Clips/tunnel_metal_break.anim",
-      "phase": "one_shot",
-      "directMovieMaterial": {
-        "authorable": true,
-        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
-        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
-        "bindingPath": "",
-        "keyCount": 8,
-        "semanticRequired": false,
-        "actorOwnerRequired": false
-      },
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "FacetsOnly",
-      "animationSemanticAction": "",
-      "animationSemanticActions": [],
-      "animationMotionType": "SpriteFrame",
-      "animationPhase": "OneShot",
-      "animationState": "Other",
-      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
-      "semanticFacets": [
-        "environment_animation",
-        "one_shot"
-      ],
-      "searchTerms": [
-        "environment_animation",
-        "OneShot",
-        "one_shot",
-        "Other",
-        "SpriteFrame",
-        "tunnel metal break"
-      ],
-      "selectionScope": "UNSPECIFIED",
-      "previewStatus": "AVAILABLE",
-      "previewContentHash": "73b69aad46a911e8956390da48d94ae00217b91297234f9875727327941b09d1",
-      "sampleStrip": [
-        {
-          "fraction": 0.5,
-          "targetTime": 0.333333343,
-          "sampleTime": 0.333333343,
-          "spriteAssetId": "a4739b03d086472190becf11d39e3716:21300000"
-        }
-      ],
-      "pageImageUrl": "visual-library/assets/asset_1eb325034c4c20ed6982/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -9012,6 +10360,54 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__8c1e62bd": {
+      "displayName": "DOOR IRIS REINFORCED ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Doors/DOOR_IRIS_REINFORCED/DOOR_IRIS_REINFORCED_ANIM.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "DOOR_IRIS_REINFORCED_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "DOOR IRIS REINFORCED ANIM",
+        "DOOR_IRIS_REINFORCED_ANIM",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "4027ada5bbf6932bcf919b9a0946504ca0afdb01bc419c35ca880e0570124752",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.3333333,
+          "sampleTime": 0.333333343,
+          "spriteAssetId": "61122cda23ca8bb4bb85950d58c94aab:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_2cd3d7f065c19489a335/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__8dc99863": {
       "displayName": "player ship topview",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Player/player ship topview.anim",
@@ -9041,7 +10437,8 @@
         "player_ship",
         "playniax",
         "ship",
-        "space_shooter_art_pack_02"
+        "space_shooter_art_pack_02",
+        "thrust"
       ],
       "searchTerms": [
         "flight_idle",
@@ -9051,7 +10448,8 @@
         "playniax",
         "ship",
         "space_shooter_art_pack_02",
-        "SpriteFrame"
+        "SpriteFrame",
+        "thrust"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
@@ -9294,17 +10692,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "explosion",
         "loop"
       ],
       "searchTerms": [
+        "explosion",
         "flameBG anim",
         "Loop",
         "Other",
@@ -9542,6 +10942,58 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__937e3a2b": {
+      "displayName": "color Axe Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Axe_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Loop",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Axe Loop",
+        "generated_shot_visual",
+        "Loop",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "ac731dbbba17e2005c96728a42f852c4cc1de4f3ed612bec6b322954080e8c1f",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "6e5c6892637c5f8479bc03274d207abd:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_93e254f891794c045290/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__9427418e": {
       "displayName": "gunner",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies/gunner.anim",
@@ -9614,7 +11066,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "damage",
       "animationSemanticActions": [
@@ -9818,7 +11270,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "damage",
       "animationSemanticActions": [
@@ -9851,6 +11303,57 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_4d80368ff83e69c3dbca/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__99092a7c": {
+      "displayName": "DAMAGE HULL BREACH ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Damage/DAMAGE_HULL_BREACH/DAMAGE_HULL_BREACH_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "damage",
+      "animationSemanticActions": [
+        "damage"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "DAMAGE_HULL_BREACH_ANIM",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "damage",
+        "loop"
+      ],
+      "searchTerms": [
+        "damage",
+        "DAMAGE HULL BREACH ANIM",
+        "DAMAGE_HULL_BREACH_ANIM",
+        "Loop",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "0362c800e94856ee8366616ed5a1a03b5b32f7dbfe63fb51ddc44df86e22974d",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "cba8bae7e6ffc6e45946134dea4405e7:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_5ff4074d15d1dc9f3d75/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -10178,7 +11681,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
       "animationSemanticActions": [
@@ -10240,10 +11743,12 @@
       "animationState": "SpaceRobot03_Shoot_Hands_End",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "attack",
         "loop",
         "shoot"
       ],
       "searchTerms": [
+        "attack",
         "Loop",
         "shoot",
         "SpaceRobot03 Shoot Hands End",
@@ -10377,6 +11882,67 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__9ef3cdf3": {
+      "displayName": "Top Gun",
+      "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies (Bosses)/Mini Boss 2/Top Gun/Top Gun.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 25,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "boss",
+        "boss_weapon",
+        "enemy_boss",
+        "loop",
+        "playniax",
+        "rotating",
+        "space_shooter_art_pack_02",
+        "turret_component"
+      ],
+      "searchTerms": [
+        "boss",
+        "boss_weapon",
+        "enemy_boss",
+        "Loop",
+        "Other",
+        "playniax",
+        "rotating",
+        "space_shooter_art_pack_02",
+        "SpriteFrame",
+        "Top Gun",
+        "turret_component"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "3b4c52e83ff58bfbd49f6a1b6e01d91e326fedab54eb88f604be0203e212af15",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 1.04166663,
+          "sampleTime": 1.0,
+          "spriteAssetId": "718dcc6c85404d1b8ab1f5c92cfd405d:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_5bcc0834dd3803d34978/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__a239b6e2": {
       "displayName": "SpaceRobot02 Shoot Hands End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Shoot_Hands_End.anim",
@@ -10403,10 +11969,12 @@
       "animationState": "SpaceRobot02_Shoot_Hands_End",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "attack",
         "loop",
         "shoot"
       ],
       "searchTerms": [
+        "attack",
         "Loop",
         "shoot",
         "SpaceRobot02 Shoot Hands End",
@@ -10428,53 +11996,68 @@
       "atlasPage": null,
       "atlasSlot": null
     },
-    "animation__a2690aaa": {
-      "displayName": "crystal shards burst",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Environment/GRAD11_AsteroidForge_V2/Clips/crystal_shards_burst.anim",
-      "phase": "one_shot",
+    "animation__a2625489": {
+      "displayName": "Brain boss idle",
+      "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies (Bosses)/Brain/Idle/Brain_boss_idle.anim",
+      "phase": "loop",
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 8,
+        "keyCount": 16,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "FacetsOnly",
-      "animationSemanticAction": "",
-      "animationSemanticActions": [],
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "idle",
+      "animationSemanticActions": [
+        "idle"
+      ],
       "animationMotionType": "SpriteFrame",
-      "animationPhase": "OneShot",
+      "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
-        "environment_animation",
-        "one_shot"
+        "boss",
+        "brain_boss",
+        "enemy_boss",
+        "idle",
+        "idle_animation",
+        "loop",
+        "organic_boss",
+        "playniax",
+        "space_shooter_art_pack_01"
       ],
       "searchTerms": [
-        "crystal shards burst",
-        "environment_animation",
-        "OneShot",
-        "one_shot",
+        "boss",
+        "Brain boss idle",
+        "brain_boss",
+        "enemy_boss",
+        "idle",
+        "idle_animation",
+        "Loop",
+        "organic_boss",
         "Other",
+        "playniax",
+        "space_shooter_art_pack_01",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
-      "previewContentHash": "a85a0888202c77e01d31a3a9f7b1735b18469ec51752ab0b52bbb3b4a82bda4f",
+      "previewContentHash": "fe0dc62f11e2955ef74d20ffb2f193b032e30d13ca5796ad4fbce452eaec49cc",
       "sampleStrip": [
         {
           "fraction": 0.5,
-          "targetTime": 0.333333343,
-          "sampleTime": 0.333333343,
-          "spriteAssetId": "d51096276ee84dc19cfed2592f9a9dcb:21300000"
+          "targetTime": 0.320000023,
+          "sampleTime": 0.32,
+          "spriteAssetId": "2a63b2dcfc5ed4dd38dcc3c60263cfc8:21300000"
         }
       ],
-      "pageImageUrl": "visual-library/assets/asset_f8a99abe1fa4fd07017b/preview.png",
+      "pageImageUrl": "visual-library/assets/asset_b23b136eab58b05358ab/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -10629,6 +12212,105 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__a53f4645": {
+      "displayName": "ENGINE MAIN THRUSTER ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Engines/ENGINE_MAIN_THRUSTER/ENGINE_MAIN_THRUSTER_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "ENGINE_MAIN_THRUSTER_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "ENGINE MAIN THRUSTER ANIM",
+        "ENGINE_MAIN_THRUSTER_ANIM",
+        "Loop",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "e6561de492cb7027ea663ad42f926837bf06082281ecf2500b4d3f702e077c3a",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "735791334162ccb4281c9818eac5d77c:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_13d087d0b5dfc83f83ae/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__a56bc953": {
+      "displayName": "color Cross Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Cross_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Loop",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Cross Loop",
+        "generated_shot_visual",
+        "Loop",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "80a846f0bad974b49cba1ee450dae99efc04ee89b28237c65ed55ed85fe909c2",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "3a3eefcd1f2f5f842a1cb74730b7c622:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_e45ba038a25237651cbb/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__a588b5ba": {
       "displayName": "SpaceRobot01 Launch",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Launch.anim",
@@ -10676,6 +12358,58 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_6ca96f3a212bff41fd91/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__a59e086b": {
+      "displayName": "BAY LAUNCH TRACK ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Hangar/BAY_LAUNCH_TRACK/BAY_LAUNCH_TRACK_ANIM.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "launch",
+      "animationSemanticActions": [
+        "launch"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "BAY_LAUNCH_TRACK_ANIM",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "launch",
+        "one_shot"
+      ],
+      "searchTerms": [
+        "BAY LAUNCH TRACK ANIM",
+        "BAY_LAUNCH_TRACK_ANIM",
+        "launch",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "ecc761b1c5f46bc397119ad1ab848d880b7687b8e5bcb3f4ca2fd75fb6f905b9",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.3333333,
+          "sampleTime": 0.333333343,
+          "spriteAssetId": "1c2a221286db52b41a2a2a16a56d13f1:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_b3d1eccb10ace49da695/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -10949,55 +12683,6 @@
       "atlasPage": null,
       "atlasSlot": null
     },
-    "animation__a96c1464": {
-      "displayName": "factory steam vent",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Environment/GRAD11_AsteroidForge_V2/Clips/factory_steam_vent.anim",
-      "phase": "loop",
-      "directMovieMaterial": {
-        "authorable": true,
-        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
-        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
-        "bindingPath": "",
-        "keyCount": 8,
-        "semanticRequired": false,
-        "actorOwnerRequired": false
-      },
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "FacetsOnly",
-      "animationSemanticAction": "",
-      "animationSemanticActions": [],
-      "animationMotionType": "SpriteFrame",
-      "animationPhase": "Loop",
-      "animationState": "Other",
-      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
-      "semanticFacets": [
-        "environment_animation",
-        "loop"
-      ],
-      "searchTerms": [
-        "environment_animation",
-        "factory steam vent",
-        "Loop",
-        "Other",
-        "SpriteFrame"
-      ],
-      "selectionScope": "UNSPECIFIED",
-      "previewStatus": "AVAILABLE",
-      "previewContentHash": "e3fe643d9d6b936ccfce047c4e6b50d3853b72df7549337e2158e0fdfa3598f0",
-      "sampleStrip": [
-        {
-          "fraction": 0.5,
-          "targetTime": 0.4,
-          "sampleTime": 0.4,
-          "spriteAssetId": "c713e618efef4c60adf14e916c4f54ca:21300000"
-        }
-      ],
-      "pageImageUrl": "visual-library/assets/asset_bd5edaabee65a97f59e1/preview.png",
-      "atlasPage": null,
-      "atlasSlot": null
-    },
     "animation__a9a5b238": {
       "displayName": "Nautolan Ship   Battlecruiser   Engine Effect Clip",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Battlecruiser - Engine Effect.aseprite",
@@ -11048,6 +12733,160 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_c2c858d8a38d139e9731/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__aa7c8e90": {
+      "displayName": "DOOR MAINTENANCE ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Doors/DOOR_MAINTENANCE/DOOR_MAINTENANCE_ANIM.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "DOOR_MAINTENANCE_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "DOOR MAINTENANCE ANIM",
+        "DOOR_MAINTENANCE_ANIM",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "9b7cdeebe99e01a12f0952193abeabed5df842e475c1a356b45de802bac5ca16",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.3333333,
+          "sampleTime": 0.333333343,
+          "spriteAssetId": "a9d82d6124d558048addd15e340077d5:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_9f4d76c299ad388c62ed/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__ab42e7d6": {
+      "displayName": "DOOR SLIDING BLAST ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Doors/DOOR_SLIDING_BLAST/DOOR_SLIDING_BLAST_ANIM.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "DOOR_SLIDING_BLAST_ANIM",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "damage",
+        "explosion",
+        "one_shot"
+      ],
+      "searchTerms": [
+        "damage",
+        "DOOR SLIDING BLAST ANIM",
+        "DOOR_SLIDING_BLAST_ANIM",
+        "explosion",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "e6bfbac8cef9e545ebc165c34c0043c98df640d6d413c52dce19fcf7b35da1e3",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.3333333,
+          "sampleTime": 0.333333343,
+          "spriteAssetId": "172b2f2c121337c42b5eb345871bae74:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_f893fb2155505b3a41b9/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__ab99b84f": {
+      "displayName": "MY SpaceRobot03 Shoot Start",
+      "sourcePath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/_Animation/SpaceRobot/MY_SpaceRobot03_Shoot_Start.anim",
+      "phase": "start",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "shoot",
+      "animationSemanticActions": [
+        "shoot"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "enemy",
+        "one_shot",
+        "shoot"
+      ],
+      "searchTerms": [
+        "enemy",
+        "MY SpaceRobot03 Shoot Start",
+        "OneShot",
+        "one_shot",
+        "Other",
+        "shoot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "47c887b6bc2913ce13ec4d4e03f1760e6e594a98b415cd2b1679de2946295583",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.266666681,
+          "sampleTime": 0.266666681,
+          "spriteAssetId": "83337d3725d07e045a32d161eb84dabc:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_cee8727dcba2f3e5f768/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -11200,6 +13039,54 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_35e87ec100e5a277fd4a/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__ad5a5adf": {
+      "displayName": "GUN FLANK EMITTER ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Cannons/GUN_FLANK_EMITTER/GUN_FLANK_EMITTER_ANIM.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "GUN_FLANK_EMITTER_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "GUN FLANK EMITTER ANIM",
+        "GUN_FLANK_EMITTER_ANIM",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "c07dee352e5fc520d4e3aa78d6dae1317dd46c5dee97991a1a511e2f4aab1b8c",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.3333333,
+          "sampleTime": 0.333333343,
+          "spriteAssetId": "af887a223f902e841be36ffab51a702a:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_2b7dbfa8b9d99bf4cdc2/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -11380,17 +13267,19 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "MultipleActorOwners",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "VHICLE2",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "launch",
         "loop"
       ],
       "searchTerms": [
+        "launch",
         "Loop",
         "SpriteFrame",
         "VHICLE2"
@@ -11722,6 +13611,53 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__b82daed7": {
+      "displayName": "ENGINE ION BOOSTER ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Engines/ENGINE_ION_BOOSTER/ENGINE_ION_BOOSTER_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "ENGINE_ION_BOOSTER_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "ENGINE ION BOOSTER ANIM",
+        "ENGINE_ION_BOOSTER_ANIM",
+        "Loop",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "75b4606e07a176344ce73886d42e451d4bdf135d973fbb6736664f2189bd42bc",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "a1db63b56ebf2b34eb921d228a03722a:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_f3e042e03fd505759677/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__b8431d2b": {
       "displayName": "gold fish  Animation",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/gold fish  Animation.anim",
@@ -11794,10 +13730,12 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "environment_animation",
+        "fire",
         "loop"
       ],
       "searchTerms": [
         "environment_animation",
+        "fire",
         "flame anim",
         "Loop",
         "Other",
@@ -11818,6 +13756,55 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__b958758a": {
+      "displayName": "red delta ship",
+      "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Spaceships/red delta ship.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 2,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "player",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "loop",
+        "ship"
+      ],
+      "searchTerms": [
+        "Loop",
+        "player",
+        "red delta ship",
+        "ship",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "bb02fc2b11879f9f9665ce18a33a5a076c56378f832e6a62075735004d82e111",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.0833333358,
+          "sampleTime": 0.0833333358,
+          "spriteAssetId": "3b5fe4d557324514b96959db3afbca7c:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_2414002b69b8f058d635/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__baa93d43": {
       "displayName": "HiBlast",
       "sourcePath": "Assets/_Game/MY_Core/MY_Animations/Lasers/HiBlast.anim",
@@ -11834,17 +13821,21 @@
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
       "animationState": "Other",
-      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "damage",
+        "explosion",
         "loop"
       ],
       "searchTerms": [
+        "damage",
+        "explosion",
         "HiBlast",
         "Loop",
         "Other",
@@ -11911,6 +13902,101 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_b3d129e25dfedd8ae7a6/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__bec1b90a": {
+      "displayName": "REACTOR CAPACITOR BANK ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Energy/REACTOR_CAPACITOR_BANK/REACTOR_CAPACITOR_BANK_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "REACTOR_CAPACITOR_BANK_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "Loop",
+        "REACTOR CAPACITOR BANK ANIM",
+        "REACTOR_CAPACITOR_BANK_ANIM",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "841a6a28f22475e665d3cdf0406c71216d6e1d40042856b62dae2e9d2f5a11a8",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "161be8fd5c9f4d9439494c971fd2fe81:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_7954d7f82d9334f8828e/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__bee35ad8": {
+      "displayName": "GUN NAVAL TURRET ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Cannons/GUN_NAVAL_TURRET/GUN_NAVAL_TURRET_ANIM.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "GUN_NAVAL_TURRET_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "GUN NAVAL TURRET ANIM",
+        "GUN_NAVAL_TURRET_ANIM",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "63f6bbed68e5d4a6acd25e6b88026cb272aedc184c9102fae8943db3b8c3b7ee",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.3333333,
+          "sampleTime": 0.333333343,
+          "spriteAssetId": "f94ddbb71016e38488c874cbfcec521e:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_23b0cbd229d8fe3c08d7/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -12049,11 +14135,15 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "damage",
+        "explosion",
         "loop",
         "projectile",
         "weapon_visual"
       ],
       "searchTerms": [
+        "damage",
+        "explosion",
         "Loop",
         "Other",
         "projectile",
@@ -12138,7 +14228,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
       "animationSemanticActions": [
@@ -12171,6 +14261,63 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_6ebb45a8421bb6964b78/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__c61baa9b": {
+      "displayName": "Sphere",
+      "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Body/Sphere.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 36,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Sphere",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "enemy_ship",
+        "energy_core",
+        "loop",
+        "playniax",
+        "rotating",
+        "space_shooter_art_pack_02",
+        "sphere"
+      ],
+      "searchTerms": [
+        "enemy_ship",
+        "energy_core",
+        "Loop",
+        "playniax",
+        "rotating",
+        "space_shooter_art_pack_02",
+        "Sphere",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "7e7814e23211a2a0bd9069f6acf66211b2ba2281746d4852465697bd748c97c6",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 1.5,
+          "sampleTime": 1.5,
+          "spriteAssetId": "f7acdb505a6740a784084510de71a506:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_d9ccf72407a2cda43b53/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -12237,7 +14384,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "deactivate",
       "animationSemanticActions": [
@@ -12269,6 +14416,58 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_f6f33553b80058bca4ff/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__c8503cce": {
+      "displayName": "color Homing Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Homing_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Loop",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Homing Loop",
+        "generated_shot_visual",
+        "Loop",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "f90a5f5c7fd7a890006503258f6a245a2927aab9c394ee1186c45bde436d4480",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "8bd48646a0db64d4b9c1d1ab95280d66:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_dc95de01c8ee4d2357d3/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -12413,11 +14612,13 @@
       "animationState": "Other",
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
+        "damage",
         "explosion",
         "loop",
         "vfx"
       ],
       "searchTerms": [
+        "damage",
         "explosion",
         "explosion animation",
         "Loop",
@@ -12607,7 +14808,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
       "animationSemanticActions": [
@@ -12618,10 +14819,12 @@
       "animationState": "SpaceRobot04_Shoot_Hands_End",
       "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
       "semanticFacets": [
+        "attack",
         "loop",
         "shoot"
       ],
       "searchTerms": [
+        "attack",
         "Loop",
         "shoot",
         "SpaceRobot04 Shoot Hands End",
@@ -12668,11 +14871,13 @@
       "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
       "semanticFacets": [
         "loop",
+        "projectile",
         "shoot"
       ],
       "searchTerms": [
         "Loop",
         "Other",
+        "projectile",
         "shoot",
         "Shot Animation",
         "SpriteFrame"
@@ -12960,56 +15165,6 @@
       "atlasPage": null,
       "atlasSlot": null
     },
-    "animation__d4179cd0": {
-      "displayName": "reactor energy burst",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Environment/GRAD11_AsteroidForge_V2/Clips/reactor_energy_burst.anim",
-      "phase": "one_shot",
-      "directMovieMaterial": {
-        "authorable": true,
-        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
-        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
-        "bindingPath": "",
-        "keyCount": 12,
-        "semanticRequired": false,
-        "actorOwnerRequired": false
-      },
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "FacetsOnly",
-      "animationSemanticAction": "",
-      "animationSemanticActions": [],
-      "animationMotionType": "SpriteFrame",
-      "animationPhase": "OneShot",
-      "animationState": "Other",
-      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
-      "semanticFacets": [
-        "environment_animation",
-        "one_shot"
-      ],
-      "searchTerms": [
-        "environment_animation",
-        "OneShot",
-        "one_shot",
-        "Other",
-        "reactor energy burst",
-        "SpriteFrame"
-      ],
-      "selectionScope": "UNSPECIFIED",
-      "previewStatus": "AVAILABLE",
-      "previewContentHash": "8f0fb3fb66f95c99606f44848c6c06888191f2e1b1b2d2c6edcb6c4fb810542e",
-      "sampleStrip": [
-        {
-          "fraction": 0.5,
-          "targetTime": 0.375,
-          "sampleTime": 0.375,
-          "spriteAssetId": "d4f3883bfc5449ba8b2e561f928baa2e:21300000"
-        }
-      ],
-      "pageImageUrl": "visual-library/assets/asset_838e573b91d67e58dd6e/preview.png",
-      "atlasPage": null,
-      "atlasSlot": null
-    },
     "animation__d54240f5": {
       "displayName": "SpaceRobot01 Shield Stance End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Shield_Stance_End.anim",
@@ -13112,52 +15267,50 @@
       "atlasPage": null,
       "atlasSlot": null
     },
-    "animation__d91aeac0": {
-      "displayName": "factory warning light",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Environment/GRAD11_AsteroidForge_V2/Clips/factory_warning_light.anim",
+    "animation__d6ebd7d9": {
+      "displayName": "Gem",
+      "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Gem/Gem.anim",
       "phase": "loop",
       "directMovieMaterial": {
         "authorable": true,
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 8,
+        "keyCount": 17,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
       "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
-      "animationState": "Other",
-      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "animationState": "diamond",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
       "semanticFacets": [
-        "environment_animation",
         "loop"
       ],
       "searchTerms": [
-        "environment_animation",
-        "factory warning light",
+        "diamond",
+        "Gem",
         "Loop",
-        "Other",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
-      "previewContentHash": "f39a0f551065a20f1c9a0ed6b24b8a90c636ed273f3638a0835d0741057426a8",
+      "previewContentHash": "70c5dcd87b50b1f0f3e01d44d13fb87f910f505263ed6f4072829d632ffe790e",
       "sampleStrip": [
         {
           "fraction": 0.5,
-          "targetTime": 0.5,
-          "sampleTime": 0.5,
-          "spriteAssetId": "933a3cb5cc2b4ece8b84651e4975f503:21300000"
+          "targetTime": 0.7083334,
+          "sampleTime": 0.75,
+          "spriteAssetId": "8b0d0675e6244ff1ae9d288c2bfac8aa:21300000"
         }
       ],
-      "pageImageUrl": "visual-library/assets/asset_913ada50f4165dd4ac00/preview.png",
+      "pageImageUrl": "visual-library/assets/asset_6a472c7aa506123800f7/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -13218,56 +15371,6 @@
       "atlasPage": null,
       "atlasSlot": null
     },
-    "animation__d9a9dd31": {
-      "displayName": "destruction dust debris",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Environment/GRAD11_AsteroidForge_V2/Clips/destruction_dust_debris.anim",
-      "phase": "one_shot",
-      "directMovieMaterial": {
-        "authorable": true,
-        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
-        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
-        "bindingPath": "",
-        "keyCount": 8,
-        "semanticRequired": false,
-        "actorOwnerRequired": false
-      },
-      "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "FacetsOnly",
-      "animationSemanticAction": "",
-      "animationSemanticActions": [],
-      "animationMotionType": "SpriteFrame",
-      "animationPhase": "OneShot",
-      "animationState": "Other",
-      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
-      "semanticFacets": [
-        "environment_animation",
-        "one_shot"
-      ],
-      "searchTerms": [
-        "destruction dust debris",
-        "environment_animation",
-        "OneShot",
-        "one_shot",
-        "Other",
-        "SpriteFrame"
-      ],
-      "selectionScope": "UNSPECIFIED",
-      "previewStatus": "AVAILABLE",
-      "previewContentHash": "5128631dbbd9977ea4cf593a523093fd7addccb7c0e6cf92e37d7777d072bbe5",
-      "sampleStrip": [
-        {
-          "fraction": 0.5,
-          "targetTime": 0.333333343,
-          "sampleTime": 0.333333343,
-          "spriteAssetId": "9378f51ee5b74090bba286788659536d:21300000"
-        }
-      ],
-      "pageImageUrl": "visual-library/assets/asset_17f4b07f7b1c3ce61cba/preview.png",
-      "atlasPage": null,
-      "atlasSlot": null
-    },
     "animation__dae38383": {
       "displayName": "DanteFighter Dive",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D/Animations/DanteFighter_Dive.anim",
@@ -13312,6 +15415,54 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_e0ec5239b77f8a7f550d/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__dc4045f9": {
+      "displayName": "atom",
+      "sourcePath": "Assets/Playniax/Pyro/Modules/Essentials/Animation Clips/Spaceships/atom.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 24,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "atom",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "loop",
+        "ship"
+      ],
+      "searchTerms": [
+        "atom",
+        "Loop",
+        "ship",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "56d1556ffb2b5d4e3ec561db5fbe9be1835b0721751e391906b9f85ea7a072b3",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 1.0,
+          "sampleTime": 1.0,
+          "spriteAssetId": "fe8e81921ed555e4385890100b08f373:21300024"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_7c6b7494939ae9050bb1/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -13633,6 +15784,108 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__e10c93ec": {
+      "displayName": "DAMAGE ENGINE FIRE ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Damage/DAMAGE_ENGINE_FIRE/DAMAGE_ENGINE_FIRE_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [
+        "damage",
+        "shoot"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "DAMAGE_ENGINE_FIRE_ANIM",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "damage",
+        "fire",
+        "loop"
+      ],
+      "searchTerms": [
+        "damage",
+        "DAMAGE ENGINE FIRE ANIM",
+        "DAMAGE_ENGINE_FIRE_ANIM",
+        "fire",
+        "Loop",
+        "shoot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "0cc6c7fcab2a1fbe3387074e1ee56aa52119bc54e4909693727a5469dd9812e1",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "ba873855ab4e6c841ad83542fffa5bf8:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_7fff497e1229280dd046/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__e140e603": {
+      "displayName": "TURRET CHATGPT BUILDING LOOP",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/MY_05_WEAPONS_EFFECTS/3D_TURRET/TURRET_CHATGPT_BUILDING_LOOP.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 16,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "Loop",
+        "Other",
+        "SpriteFrame",
+        "TURRET CHATGPT BUILDING LOOP"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "9d4a61ad93f71906bc4b6397a4765076d7ab74d4bc09ffeb82e84afafa9c4ff6",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.6666667,
+          "sampleTime": 0.6666667,
+          "spriteAssetId": "6bec9f4c1242bb04f9cdb8c6c44b972a:119332429"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_676675555917eaf05a00/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__e19d918f": {
       "displayName": "LITTLE KID LOOKUP",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_LITTLE_KID/LITTLE_KID_LOOKUP.anim",
@@ -13729,6 +15982,54 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__e44fe427": {
+      "displayName": "GUN CHARGED RAIL ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Cannons/GUN_CHARGED_RAIL/GUN_CHARGED_RAIL_ANIM.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "GUN_CHARGED_RAIL_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "GUN CHARGED RAIL ANIM",
+        "GUN_CHARGED_RAIL_ANIM",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "96ee3e97701d19d760d4776106d822984b7c2a91105258c7c296a576d40cc5a0",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.3333333,
+          "sampleTime": 0.333333343,
+          "spriteAssetId": "635dff0d3bbbc644190426ecc2fc3713:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_87ec131652baf40a519a/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__e5497bba": {
       "displayName": "photon shielded",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Pickups/photon_shielded.anim",
@@ -13783,6 +16084,53 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_5e251bc2c52054443e4a/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__e6dd9ea8": {
+      "displayName": "REACTOR POWER ROUTER ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Energy/REACTOR_POWER_ROUTER/REACTOR_POWER_ROUTER_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "REACTOR_POWER_ROUTER_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "Loop",
+        "REACTOR POWER ROUTER ANIM",
+        "REACTOR_POWER_ROUTER_ANIM",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "8905e3beeec0c98dc1eca2ba4fc07354b8521365b9ac5962836270d511adfe99",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "33edaab8d10f3a046af600612f3927ad:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_56f4eacd8123bcdb0883/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -14217,7 +16565,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
       "animationSemanticActions": [
@@ -14411,6 +16759,60 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__ee2f3ab4": {
+      "displayName": "MY SpaceRobot04 Shoot Start",
+      "sourcePath": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_Robots/_Animation/SpaceRobot/MY_SpaceRobot04_Shoot_Start.anim",
+      "phase": "start",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "shoot",
+      "animationSemanticActions": [
+        "shoot"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "enemy",
+        "one_shot",
+        "shoot"
+      ],
+      "searchTerms": [
+        "enemy",
+        "MY SpaceRobot04 Shoot Start",
+        "OneShot",
+        "one_shot",
+        "Other",
+        "shoot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "f13f38d7b3a5207458ce6895326eb13496b56ea140e19c390009301ff718629e",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.266666681,
+          "sampleTime": 0.266666681,
+          "spriteAssetId": "726301577b8c63341b1312625ee3e694:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_ee74cde255edf1dad3c8/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__eec0015e": {
       "displayName": "ROBOT2 BOUNCE",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/ANIM_DGR/ROBOT2_BOUNCE.anim",
@@ -14473,7 +16875,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "launch",
       "animationSemanticActions": [
@@ -14506,6 +16908,58 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_24c68ffab833b05c7ea4/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__efb46a21": {
+      "displayName": "color Boomerang Loop",
+      "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Boomerang_Loop.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 6,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Loop",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "generated_shot_visual",
+        "loop",
+        "projectile",
+        "weapon_visual"
+      ],
+      "searchTerms": [
+        "color Boomerang Loop",
+        "generated_shot_visual",
+        "Loop",
+        "projectile",
+        "SpriteFrame",
+        "weapon_visual"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "004fb5ac5e4aac7d4fcd539c19a6cfddf4086f00d4a8810cadb793447000f318",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.25,
+          "sampleTime": 0.25,
+          "spriteAssetId": "16bfd2db0ce7bce4fb7a8dda791b3e26:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_14c015b8bd10b32c271d/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -14616,9 +17070,9 @@
       "atlasPage": null,
       "atlasSlot": null
     },
-    "animation__f14dc274": {
-      "displayName": "crystal sparkle",
-      "sourcePath": "Assets/_Game/MY_Core/MY_Art/Environment/GRAD11_AsteroidForge_V2/Clips/crystal_sparkle.anim",
+    "animation__f0c31204": {
+      "displayName": "ENGINE SIDE THRUSTER ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Engines/ENGINE_SIDE_THRUSTER/ENGINE_SIDE_THRUSTER_ANIM.anim",
       "phase": "loop",
       "directMovieMaterial": {
         "authorable": true,
@@ -14631,37 +17085,35 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "NoOwner",
-      "animationSemanticStatus": "FacetsOnly",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
       "animationMotionType": "SpriteFrame",
       "animationPhase": "Loop",
-      "animationState": "Other",
-      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "animationState": "ENGINE_SIDE_THRUSTER_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
       "semanticFacets": [
-        "environment_animation",
         "loop"
       ],
       "searchTerms": [
-        "crystal sparkle",
-        "environment_animation",
+        "ENGINE SIDE THRUSTER ANIM",
+        "ENGINE_SIDE_THRUSTER_ANIM",
         "Loop",
-        "Other",
         "SpriteFrame"
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
-      "previewContentHash": "34cb5a05af10988db1e60659a911629a75352545d4ae8902a1d347ebe846a6df",
+      "previewContentHash": "90e87b078bdc0e130ca0f48df200c6d8988ef15ec6362196cea3192223c25807",
       "sampleStrip": [
         {
           "fraction": 0.5,
           "targetTime": 0.4,
           "sampleTime": 0.4,
-          "spriteAssetId": "9fb4cc6e1a2f4d3a86c7ed8d7f4380f9:21300000"
+          "spriteAssetId": "a58919b26b672574c936db9c1e8f0fce:21300000"
         }
       ],
-      "pageImageUrl": "visual-library/assets/asset_25ec86aea6326e92f245/preview.png",
+      "pageImageUrl": "visual-library/assets/asset_b5207ad50224e39dc9c8/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -14826,6 +17278,66 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__f32ecd4f": {
+      "displayName": "endbossbottomdish",
+      "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies (Bosses)/Final/Disc (Bottom)/endbossbottomdish.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 25,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "endbossbottomdish",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "boss",
+        "boss_component",
+        "disc",
+        "enemy_boss",
+        "loop",
+        "playniax",
+        "rotating",
+        "space_shooter_art_pack_02"
+      ],
+      "searchTerms": [
+        "boss",
+        "boss_component",
+        "disc",
+        "endbossbottomdish",
+        "enemy_boss",
+        "Loop",
+        "playniax",
+        "rotating",
+        "space_shooter_art_pack_02",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "f0930c6ae8f7e1924a282367ded4b888ecead305573016b15559a9bc1a1d411d",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 1.04166663,
+          "sampleTime": 1.0,
+          "spriteAssetId": "96444a80ad48dc8489fb610766c7c81c:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_09bd4e8d485642a5d7eb/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__f47b2384": {
       "displayName": "SpaceRobot02 Deactivation",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Deactivation.anim",
@@ -14921,6 +17433,66 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_957157f357431a79fd2e/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__f6055e6c": {
+      "displayName": "endbosstopdish",
+      "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies (Bosses)/Final/Disc (Top)/endbosstopdish.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 75,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "endbosstopdish",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "boss",
+        "boss_component",
+        "disc",
+        "enemy_boss",
+        "loop",
+        "playniax",
+        "rotating",
+        "space_shooter_art_pack_02"
+      ],
+      "searchTerms": [
+        "boss",
+        "boss_component",
+        "disc",
+        "endbosstopdish",
+        "enemy_boss",
+        "Loop",
+        "playniax",
+        "rotating",
+        "space_shooter_art_pack_02",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "1f626278d259693a0cfabf7d370a66efc17a6af586ecb874c40f35c2fadd70db",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 3.125,
+          "sampleTime": 3.08333325,
+          "spriteAssetId": "585cdf21c6cf9c0438a692cceccbf0b4:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_150ca49c3f6e81880ca4/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -15127,6 +17699,53 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_e1b89831f09eb531af48/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__fe10ce8b": {
+      "displayName": "ENGINE TURBINE CORE ANIM",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Engines/ENGINE_TURBINE_CORE/ENGINE_TURBINE_CORE_ANIM.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "ENGINE_TURBINE_CORE_ANIM",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "ENGINE TURBINE CORE ANIM",
+        "ENGINE_TURBINE_CORE_ANIM",
+        "Loop",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "609347c0863515648bd9a10b5599a23b2a0741b5809e933e96081a86fdc0dfe8",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.4,
+          "sampleTime": 0.4,
+          "spriteAssetId": "3493cf590e3d43e41a3d72792fb4c8d9:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_47e0dc2b2a1e8b030243/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     }

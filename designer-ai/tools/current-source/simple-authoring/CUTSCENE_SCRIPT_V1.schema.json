@@ -37,6 +37,17 @@
                                                "exclusiveMinimum":  0,
                                                "default":  3
                                            },
+                       "identityCues": {
+                           "type": "object",
+                           "additionalProperties": false,
+                           "description": "System 5: optional color and shape cues on explicitly aligned local cast actors. Does not alter art, motion, camera or dialogue.",
+                           "properties": {
+                               "enabled": { "type": "boolean", "default": true },
+                               "strength": { "type": "number", "minimum": 0, "maximum": 1, "default": 0.65 },
+                               "level": { "type": "integer", "minimum": 1, "maximum": 3, "default": 2,
+                                          "description": "1 = meaning icon only, 2 = icon and restrained identity presence, 3 = additionally emphasize explicitly authored dramatic actions." }
+                           }
+                       },
                        "creativeIntent":  {
                                               "type":  "string"
                                           },
@@ -229,6 +240,16 @@
                                                                      "displayName":  {
                                                                                          "type":  "string"
                                                                                      },
+                                                                     "alignment": {
+                                                                         "enum": ["good", "evil", "neutral"],
+                                                                         "description": "Movie-local audience-facing identity, not an asset property. Omit for unspecified or deliberately concealed identity. sameIdentityAs inherits its root alignment; conflicts warn."
+                                                                     },
+                                                                     "identityLevel": {
+                                                                         "type": "integer",
+                                                                         "minimum": 1,
+                                                                         "maximum": 3,
+                                                                         "description": "System 5 cinematic badge intensity for this actor. 1=animated emblem, 2=animated orbital aura, 3=dramatic energy with authored action pulses; overrides movie identityCues.level."
+                                                                     },
                                                                      "semanticRole":  {
                                                                                           "type":  "string",
                                                                                           "minLength":  1
