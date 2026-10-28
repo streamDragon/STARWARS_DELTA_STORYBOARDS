@@ -1,0 +1,687 @@
+{
+  "planTitle": "GRADIUS_VOLCANO_01 | Stage 0 | 37 waves, 7 diagram patterns | 2026-10-28",
+  "levelName": "GRADIUS_VOLCANO_01",
+  "stageKmStart": 0,
+  "stageKmEnd": 120,
+  "defaultPauseBetweenWaves": 0.85,
+  "defaultDelayBetweenShips": 0.7,
+  "waves": [
+    {
+      "id": "GV_VOLCANO_W01",
+      "displayName": "01 | First contact | R04",
+      "stageIndex": 0,
+      "kmStart": 1,
+      "count": 4,
+      "healthOfEnemy": 1,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.74
+      },
+      "speed": 5.8,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R04_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W02",
+      "displayName": "02 | High orbit formation | R02",
+      "stageIndex": 0,
+      "kmStart": 5,
+      "count": 5,
+      "healthOfEnemy": 1,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.74
+      },
+      "speed": 5.8,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R02_C08",
+      "splineName": "Assets/_Game/MY_Splines/01_Straights_And_Gentle_Waves/SP_RTL_ShallowRipple_MidToMid_F5S0_01.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W03",
+      "displayName": "03 | Low corridor sweep | R06",
+      "stageIndex": 0,
+      "kmStart": 9,
+      "count": 4,
+      "healthOfEnemy": 1,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.74
+      },
+      "speed": 5.8,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R06_C08",
+      "splineName": "Assets/_Game/MY_Splines/01_Straights_And_Gentle_Waves/SP_LTR_SoftArc_MidToMid_AUTH0_01.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W04",
+      "displayName": "04 | Skyline flank | R01",
+      "stageIndex": 0,
+      "kmStart": 13,
+      "count": 5,
+      "healthOfEnemy": 1,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.74
+      },
+      "speed": 5.8,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R01_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_M15_Low_Sweep.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W05",
+      "displayName": "05 | Lower orbit climb | R05",
+      "stageIndex": 0,
+      "kmStart": 17,
+      "count": 5,
+      "healthOfEnemy": 2,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.74
+      },
+      "speed": 5.8,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R05_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A15_Rising_S.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W06",
+      "displayName": "06 | Center zigzag | R03",
+      "stageIndex": 0,
+      "kmStart": 21,
+      "count": 5,
+      "healthOfEnemy": 2,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.74
+      },
+      "speed": 5.8,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R03_C08",
+      "splineName": "Assets/_Game/MY_Splines/01_Straights_And_Gentle_Waves/SP_RTL_GentleWave_MidToMid_F5S0_01.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W07",
+      "displayName": "07 | Fire birds overhead | R02",
+      "stageIndex": 0,
+      "kmStart": 25,
+      "count": 4,
+      "healthOfEnemy": 2,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/FIRE_BIRD_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.7
+      },
+      "speed": 6.2,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R02_C08",
+      "splineName": "Assets/_Game/MY_Splines/02_Horizontal_Waves_And_Arcs/SP_RTL_BroadWave_MidToMid_F5S0_01.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W08",
+      "displayName": "08 | Corridor interception | R04",
+      "stageIndex": 0,
+      "kmStart": 29,
+      "count": 5,
+      "healthOfEnemy": 2,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/atom_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.7
+      },
+      "speed": 6.2,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R04_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A45_Cross_Wave.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W09",
+      "displayName": "09 | Low orbit regroup | R06",
+      "stageIndex": 0,
+      "kmStart": 33,
+      "count": 5,
+      "healthOfEnemy": 2,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.7
+      },
+      "speed": 6.2,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R06_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A15_Rising_S.prefab"
+    },
+    {
+      "id": "GV_DIAGRAM_A1_UPPER_RETURN",
+      "displayName": "D1 upper knee and return | missile formation",
+      "stageIndex": 0,
+      "kmStart": 36.2,
+      "count": 4,
+      "healthOfEnemy": 3,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.7
+      },
+      "speed": 6.2,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R02_C08",
+      "splineName": "Assets/_Game/MY_Splines/GRAD/SP_GRAD_Upper_LeftKnee_ReturnRight.prefab",
+      "weaponMode": 1,
+      "primaryWeaponPath": "Assets/_Game/MY_Prefabs/My_Preset_Origin/ML_Origin/MLB_missile.prefab",
+      "tags": [
+        "GRAD_DIAGRAM_7",
+        "stage0",
+        "pair-knee"
+      ]
+    },
+    {
+      "id": "GV_VOLCANO_W10",
+      "displayName": "10 | High guard formation | R01",
+      "stageIndex": 0,
+      "kmStart": 37,
+      "count": 6,
+      "healthOfEnemy": 2,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.7
+      },
+      "speed": 6.2,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R01_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GV_DIAGRAM_A2_LOWER_RETURN",
+      "displayName": "D2 lower knee and return | missile formation",
+      "stageIndex": 0,
+      "kmStart": 38.7,
+      "count": 4,
+      "healthOfEnemy": 3,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.7
+      },
+      "speed": 6.2,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R05_C08",
+      "splineName": "Assets/_Game/MY_Splines/GRAD/SP_GRAD_Lower_RightKnee_ReturnRight.prefab",
+      "weaponMode": 1,
+      "primaryWeaponPath": "Assets/_Game/MY_Prefabs/My_Preset_Origin/ML_Origin/MLB_missile.prefab",
+      "tags": [
+        "GRAD_DIAGRAM_7",
+        "stage0",
+        "pair-knee"
+      ]
+    },
+    {
+      "id": "GV_VOLCANO_W11",
+      "displayName": "11 | Center gunner escort | R03",
+      "stageIndex": 0,
+      "kmStart": 41,
+      "count": 4,
+      "healthOfEnemy": 3,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/gunner_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.7
+      },
+      "speed": 6.2,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R03_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A30_High_Arch.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W12",
+      "displayName": "12 | Lower corridor wave | R05",
+      "stageIndex": 0,
+      "kmStart": 45,
+      "count": 6,
+      "healthOfEnemy": 2,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.7
+      },
+      "speed": 6.2,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R05_C08",
+      "splineName": "Assets/_Game/MY_Splines/01_Straights_And_Gentle_Waves/SP_RTL_ShallowRipple_MidToMid_F5S0_01.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W13",
+      "displayName": "13 | Rocket screen breaker | R03",
+      "stageIndex": 0,
+      "kmStart": 49,
+      "count": 5,
+      "healthOfEnemy": 3,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/rocket_enemY.prefab",
+      "spawn": {
+        "intervalSeconds": 0.65
+      },
+      "speed": 6.6,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R03_C08",
+      "splineName": "Assets/_Game/MY_Splines/02_Horizontal_Waves_And_Arcs/SP_RTL_BroadWave_MidToMid_F5S0_01.prefab"
+    },
+    {
+      "id": "GV_DIAGRAM_B3_HIGH_DIAGONAL",
+      "displayName": "D3 high diagonal convergence | rockets",
+      "stageIndex": 0,
+      "kmStart": 50.7,
+      "count": 5,
+      "healthOfEnemy": 4,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/rocket_enemY.prefab",
+      "spawn": {
+        "intervalSeconds": 0.62
+      },
+      "speed": 6.9,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R01_C08",
+      "splineName": "Assets/_Game/MY_Splines/03_CrossScreen_And_Diagonals/SP_RTL_MultiTurnCross_HighToMid_F3S0_01.prefab",
+      "weaponMode": 1,
+      "primaryWeaponPath": "Assets/_Game/MY_Prefabs/My_Preset_Origin/ML_Origin/MLB_missile.prefab",
+      "tags": [
+        "GRAD_DIAGRAM_7",
+        "stage0",
+        "synchronized-cross"
+      ]
+    },
+    {
+      "id": "GV_DIAGRAM_B4_LOW_DIAGONAL",
+      "displayName": "D4 low diagonal convergence | rockets",
+      "stageIndex": 0,
+      "kmStart": 50.72,
+      "count": 5,
+      "healthOfEnemy": 4,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/rocket_enemY.prefab",
+      "spawn": {
+        "intervalSeconds": 0.62
+      },
+      "speed": 6.9,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R06_C08",
+      "splineName": "Assets/_Game/MY_Splines/03_CrossScreen_And_Diagonals/SP_RTL_ArcCross_LowToHigh_F6STAGE2_01.prefab",
+      "weaponMode": 1,
+      "primaryWeaponPath": "Assets/_Game/MY_Prefabs/My_Preset_Origin/ML_Origin/MLB_missile.prefab",
+      "tags": [
+        "GRAD_DIAGRAM_7",
+        "stage0",
+        "synchronized-cross"
+      ]
+    },
+    {
+      "id": "GV_VOLCANO_W14",
+      "displayName": "14 | Floating rock approach | R06",
+      "stageIndex": 0,
+      "kmStart": 53,
+      "count": 4,
+      "healthOfEnemy": 3,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/PowerdRock_Enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.65
+      },
+      "speed": 6.6,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R06_C08",
+      "splineName": "Assets/_Game/MY_Splines/01_Straights_And_Gentle_Waves/SP_LTR_SoftArc_MidToMid_AUTH0_01.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W15",
+      "displayName": "15 | Upper missile crossing | R02",
+      "stageIndex": 0,
+      "kmStart": 57,
+      "count": 6,
+      "healthOfEnemy": 2,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.65
+      },
+      "speed": 6.6,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R02_C08",
+      "splineName": "Assets/_Game/MY_Splines/01_Straights_And_Gentle_Waves/SP_RTL_GentleWave_MidToMid_F5S0_01.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W16",
+      "displayName": "16 | Narrow channel rockets | R04",
+      "stageIndex": 0,
+      "kmStart": 61,
+      "count": 5,
+      "healthOfEnemy": 3,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/rocket_enemY.prefab",
+      "spawn": {
+        "intervalSeconds": 0.65
+      },
+      "speed": 6.6,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R04_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GV_DIAGRAM_C5_UPPER",
+      "displayName": "D5 upper of three parallel spline missile ships",
+      "stageIndex": 0,
+      "kmStart": 64.3,
+      "count": 4,
+      "healthOfEnemy": 4,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/gunner_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.6
+      },
+      "speed": 7,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R02_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A15_Rising_S.prefab",
+      "weaponMode": 1,
+      "primaryWeaponPath": "Assets/_Game/MY_Prefabs/My_Preset_Origin/ML_Origin/MLB_missile.prefab",
+      "tags": [
+        "GRAD_DIAGRAM_7",
+        "stage0",
+        "triple-stack"
+      ]
+    },
+    {
+      "id": "GV_DIAGRAM_C6_MID",
+      "displayName": "D6 middle of three parallel spline missile ships",
+      "stageIndex": 0,
+      "kmStart": 64.32,
+      "count": 4,
+      "healthOfEnemy": 4,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/gunner_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.6
+      },
+      "speed": 7,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R03_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab",
+      "weaponMode": 1,
+      "primaryWeaponPath": "Assets/_Game/MY_Prefabs/My_Preset_Origin/ML_Origin/MLB_missile.prefab",
+      "tags": [
+        "GRAD_DIAGRAM_7",
+        "stage0",
+        "triple-stack"
+      ]
+    },
+    {
+      "id": "GV_DIAGRAM_C7_LOWER",
+      "displayName": "D7 lower of three parallel spline missile ships",
+      "stageIndex": 0,
+      "kmStart": 64.34,
+      "count": 4,
+      "healthOfEnemy": 4,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/gunner_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.6
+      },
+      "speed": 7,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R04_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_M15_Low_Sweep.prefab",
+      "weaponMode": 1,
+      "primaryWeaponPath": "Assets/_Game/MY_Prefabs/My_Preset_Origin/ML_Origin/MLB_missile.prefab",
+      "tags": [
+        "GRAD_DIAGRAM_7",
+        "stage0",
+        "triple-stack"
+      ]
+    },
+    {
+      "id": "GV_VOLCANO_W17",
+      "displayName": "17 | High sector gunner dive | R01",
+      "stageIndex": 0,
+      "kmStart": 65,
+      "count": 4,
+      "healthOfEnemy": 3,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/gunner_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.65
+      },
+      "speed": 6.6,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R01_C08",
+      "splineName": "Assets/_Game/MY_Splines/03_CrossScreen_And_Diagonals/SP_RTL_MultiTurnCross_HighToMid_F3S0_01.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W18",
+      "displayName": "18 | Low asteroid escort | R05",
+      "stageIndex": 0,
+      "kmStart": 69,
+      "count": 6,
+      "healthOfEnemy": 3,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/atom_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.65
+      },
+      "speed": 6.6,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R05_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A15_Rising_S.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W19",
+      "displayName": "19 | Volcano fire bird swarm | R01",
+      "stageIndex": 0,
+      "kmStart": 73,
+      "count": 6,
+      "healthOfEnemy": 3,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/FIRE_BIRD_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.65
+      },
+      "speed": 6.6,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R01_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_M15_Low_Sweep.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W20",
+      "displayName": "20 | Magma channel formation | R04",
+      "stageIndex": 0,
+      "kmStart": 77,
+      "count": 6,
+      "healthOfEnemy": 3,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.59
+      },
+      "speed": 7,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R04_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A45_Cross_Wave.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W21",
+      "displayName": "21 | Volcanic gunner sweep | R03",
+      "stageIndex": 0,
+      "kmStart": 81,
+      "count": 5,
+      "healthOfEnemy": 4,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/gunner_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.59
+      },
+      "speed": 7,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R03_C08",
+      "splineName": "Assets/_Game/MY_Splines/02_Horizontal_Waves_And_Arcs/SP_RTL_BroadWave_MidToMid_F5S0_01.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W22",
+      "displayName": "22 | Upper eruption birds | R02",
+      "stageIndex": 0,
+      "kmStart": 85,
+      "count": 6,
+      "healthOfEnemy": 3,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/FIRE_BIRD_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.59
+      },
+      "speed": 7,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R02_C08",
+      "splineName": "Assets/_Game/MY_Splines/01_Straights_And_Gentle_Waves/SP_RTL_GentleWave_MidToMid_F5S0_01.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W23",
+      "displayName": "23 | Rock debris ambush | R05",
+      "stageIndex": 0,
+      "kmStart": 89,
+      "count": 5,
+      "healthOfEnemy": 4,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/PowerdRock_Enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.59
+      },
+      "speed": 7,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R05_C08",
+      "splineName": "Assets/_Game/MY_Splines/01_Straights_And_Gentle_Waves/SP_RTL_ShallowRipple_MidToMid_F5S0_01.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W24",
+      "displayName": "24 | Vertical volcano crossing | R06",
+      "stageIndex": 0,
+      "kmStart": 93,
+      "count": 5,
+      "healthOfEnemy": 4,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.59
+      },
+      "speed": 7,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R06_C08",
+      "splineName": "Assets/_Game/MY_Splines/03_CrossScreen_And_Diagonals/SP_RTL_ArcCross_LowToHigh_F6STAGE2_01.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W25",
+      "displayName": "25 | Twin tower approach rockets | R05",
+      "stageIndex": 0,
+      "kmStart": 97,
+      "count": 6,
+      "healthOfEnemy": 4,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/rocket_enemY.prefab",
+      "spawn": {
+        "intervalSeconds": 0.59
+      },
+      "speed": 7,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R05_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A15_Rising_S.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W26",
+      "displayName": "26 | Cinder cloud interceptor | R03",
+      "stageIndex": 0,
+      "kmStart": 101,
+      "count": 6,
+      "healthOfEnemy": 4,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/atom_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.59
+      },
+      "speed": 7,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R03_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A45_Cross_Wave.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W27",
+      "displayName": "27 | Lower eruption birds | R06",
+      "stageIndex": 0,
+      "kmStart": 105,
+      "count": 6,
+      "healthOfEnemy": 4,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/FIRE_BIRD_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.59
+      },
+      "speed": 7,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R06_C08",
+      "splineName": "Assets/_Game/MY_Splines/01_Straights_And_Gentle_Waves/SP_LTR_SoftArc_MidToMid_AUTH0_01.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W28",
+      "displayName": "28 | High tower gunner break | R01",
+      "stageIndex": 0,
+      "kmStart": 109,
+      "count": 5,
+      "healthOfEnemy": 5,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/gunner_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.59
+      },
+      "speed": 7,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R01_C08",
+      "splineName": "Assets/_Game/MY_Splines/03_CrossScreen_And_Diagonals/SP_RTL_MultiTurnCross_HighToMid_F3S0_01.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W29",
+      "displayName": "29 | Final guard formation | R02",
+      "stageIndex": 0,
+      "kmStart": 113,
+      "count": 7,
+      "healthOfEnemy": 5,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/ENEMY_SHIPS/Gradius_enemy.prefab",
+      "spawn": {
+        "intervalSeconds": 0.59
+      },
+      "speed": 7,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R02_C08",
+      "splineName": "Assets/_Game/MY_Splines/07_New_Distinct_Trajectories/SP_ORIGIN_RTL_A00_Straight.prefab"
+    },
+    {
+      "id": "GV_VOLCANO_W30_BOSS",
+      "displayName": "30 | Gradius Volcano Mountain Boss | R05",
+      "stageIndex": 0,
+      "kmStart": 116,
+      "count": 1,
+      "healthOfEnemy": 65,
+      "enemyPrefabName": "Assets/_Game/MY_Prefabs/EnemyPrefabs/MY_BOSS_LIBRARY/GRADIUS_VOLCANO_MOUNTAIN_BOSS.prefab",
+      "spawn": {
+        "intervalSeconds": 1
+      },
+      "speed": 0.9,
+      "spawnType": "Auto",
+      "spawnTeleportType": "None",
+      "spawnPoint": "GameSceneLayers/Layer0/04_WAVE_SPAWN_GRID/SPAWN_GRID_8X6/SPAWN_R05_C08"
+    }
+  ]
+}
