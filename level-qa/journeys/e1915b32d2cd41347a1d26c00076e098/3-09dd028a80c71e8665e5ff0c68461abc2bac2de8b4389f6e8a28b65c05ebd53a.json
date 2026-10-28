@@ -1,0 +1,139 @@
+{
+  "schema": "STARWARS_DELTA_LEVEL_JOURNEY",
+  "schemaVersion": 1,
+  "levelId": "e1915b32d2cd41347a1d26c00076e098",
+  "scenePath": "Assets/_Game/MY_Core/MY_Scenes/HAGGAI_STUFF/GRAD_9.unity",
+  "displayName": "GRAD_9",
+  "revision": 3,
+  "originalGoal": "Build GRAD9 from the approved concept using only existing project assets. Fire above and below, burning suns as roads, Scorpions orbiting suns, NAV Jellies, Fire Birds, Solar Towers, Flame Tentacles, recovery windows and SERPENT_FIRE_BOSS.",
+  "catalogRevision": "",
+  "currentAttemptId": "e4f6621268f746729a406b4d77c3562d",
+  "stage": "VisualQa",
+  "lastVerifiedStep": "VisualQa:Capture",
+  "nextAction": "Inspect actual captured frames; visual review is still pending",
+  "updatedUtc": "2026-10-25T23:29:58.4540068Z",
+  "publicationStatus": "PUBLISHED",
+  "basePublishedIndexBlobSha": "",
+  "basePublishedRevision": 0,
+  "publishedSnapshotPath": "",
+  "relatedLevelIds": [],
+  "requirements": [],
+  "assets": [],
+  "references": [
+    {
+      "kind": "DOCUMENT",
+      "label": "Original input",
+      "repositoryPath": "level-qa/journeys/e1915b32d2cd41347a1d26c00076e098/inputs/d9e05c8ef3aa94cb812666e1715c55a867e0a0801aa4e4c18210cead568b4649.json",
+      "localPath": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\runtime\\levelbuilder\\journeys\\e1915b32d2cd41347a1d26c00076e098\\inputs\\d9e05c8ef3aa94cb812666e1715c55a867e0a0801aa4e4c18210cead568b4649.json",
+      "sha256": "d9e05c8ef3aa94cb812666e1715c55a867e0a0801aa4e4c18210cead568b4649",
+      "runId": "",
+      "attemptId": "e4f6621268f746729a406b4d77c3562d",
+      "source": "Capture"
+    },
+    {
+      "kind": "UNITY_CAPTURE",
+      "label": "Capture result",
+      "repositoryPath": "",
+      "localPath": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\runtime\\visualqa\\outputs\\capture-slot-4\\level-GRAD_9-20261025232943939\\manifest.json",
+      "sha256": "47a12a6ef1b973d16eec66c42283f4d314b663831e7347b8d3218eef91b4b0cf",
+      "runId": "level-GRAD_9-20261025232943939",
+      "attemptId": "e4f6621268f746729a406b4d77c3562d",
+      "source": "Unity"
+    }
+  ],
+  "attempts": [
+    {
+      "attemptId": "e4f6621268f746729a406b4d77c3562d",
+      "parentAttemptId": "",
+      "subjectHash": "",
+      "stage": "VisualQa",
+      "outcome": "SUCCEEDED",
+      "captureStatus": "COMPLETED",
+      "visualReview": "NOT_REVIEWED",
+      "gameplayVerification": "NOT_VERIFIED",
+      "acceptanceStatus": "PENDING"
+    }
+  ],
+  "events": [
+    {
+      "eventId": "019beb0573ac4e53afbfc00412f31f78",
+      "attemptId": "e4f6621268f746729a406b4d77c3562d",
+      "parentAttemptId": "",
+      "stage": "Goal",
+      "kind": "GoalDefined",
+      "actor": "editor",
+      "sourceReference": "LevelAuthoringSession.LevelIdea",
+      "utc": "2026-10-25T23:29:49.2263777Z",
+      "subjectHash": "",
+      "operationId": "",
+      "outcome": "NOT_VERIFIED",
+      "note": "Build GRAD9 from the approved concept using only existing project assets. Fire above and below, burning suns as roads, Scorpions orbiting suns, NAV Jellies, Fire Birds, Solar Towers, Flame Tentacles, recovery windows and SERPENT_FIRE_BOSS.",
+      "nextAction": "Review the goal and choose real catalog assets",
+      "catalogRevision": "",
+      "assets": [],
+      "references": [],
+      "decision": null
+    },
+    {
+      "eventId": "level-GRAD_9-20261025232943939:start",
+      "attemptId": "e4f6621268f746729a406b4d77c3562d",
+      "parentAttemptId": "",
+      "stage": "VisualQa",
+      "kind": "Capture",
+      "actor": "agent",
+      "sourceReference": "Unity Level Builder",
+      "utc": "2026-10-25T23:29:49.2263777Z",
+      "subjectHash": "",
+      "operationId": "level-GRAD_9-20261025232943939",
+      "outcome": "RUNNING",
+      "note": "Operation started; outcome is not yet verified",
+      "nextAction": "Inspect operation level-GRAD_9-20261025232943939 before any retry",
+      "catalogRevision": "",
+      "assets": [],
+      "references": [
+        {
+          "kind": "DOCUMENT",
+          "label": "Original input",
+          "repositoryPath": "",
+          "localPath": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\runtime\\levelbuilder\\journeys\\e1915b32d2cd41347a1d26c00076e098\\inputs\\d9e05c8ef3aa94cb812666e1715c55a867e0a0801aa4e4c18210cead568b4649.json",
+          "sha256": "d9e05c8ef3aa94cb812666e1715c55a867e0a0801aa4e4c18210cead568b4649",
+          "runId": "",
+          "attemptId": "e4f6621268f746729a406b4d77c3562d",
+          "source": "Capture"
+        }
+      ],
+      "decision": null
+    },
+    {
+      "eventId": "level-GRAD_9-20261025232943939:result",
+      "attemptId": "e4f6621268f746729a406b4d77c3562d",
+      "parentAttemptId": "",
+      "stage": "VisualQa",
+      "kind": "Capture",
+      "actor": "agent",
+      "sourceReference": "Unity Level Builder result",
+      "utc": "2026-10-25T23:29:58.4540068Z",
+      "subjectHash": "",
+      "operationId": "level-GRAD_9-20261025232943939",
+      "outcome": "SUCCEEDED",
+      "note": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\runtime\\visualqa\\outputs\\capture-slot-4\\level-GRAD_9-20261025232943939\\manifest.json",
+      "nextAction": "Inspect actual captured frames; visual review is still pending",
+      "catalogRevision": "",
+      "assets": [],
+      "references": [
+        {
+          "kind": "UNITY_CAPTURE",
+          "label": "Capture result",
+          "repositoryPath": "",
+          "localPath": "C:\\Users\\nlpis\\wkspaces\\STARWARS_DELTA_WORK\\runtime\\visualqa\\outputs\\capture-slot-4\\level-GRAD_9-20261025232943939\\manifest.json",
+          "sha256": "47a12a6ef1b973d16eec66c42283f4d314b663831e7347b8d3218eef91b4b0cf",
+          "runId": "level-GRAD_9-20261025232943939",
+          "attemptId": "e4f6621268f746729a406b4d77c3562d",
+          "source": "Unity"
+        }
+      ],
+      "decision": null
+    }
+  ],
+  "decisions": []
+}
