@@ -58,6 +58,19 @@ function render(){
   const head=document.createElement('div');head.className='review-head';const info=document.createElement('div'),h=document.createElement('h2'),when=document.createElement('p');h.textContent=run.sceneName||key;h.dir='auto';when.className='review-date';when.textContent=run.generatedUtc?'צילום מתאריך '+date(run.generatedUtc)+' · שעון ישראל':'טרם פורסם צילום של הרמה';info.append(h,when);
   if(run.reviewStatus||run.acceptanceStatus){const s=document.createElement('p');s.className='review-status';s.textContent=run.reviewStatus==='REVIEWED'?'נבדקה חזותית':'ממתינה לסקירה חזותית';if(run.acceptanceStatus==='APPROVED')s.textContent+=' · אושרה';else if(run.acceptanceStatus==='REJECTED'||run.acceptanceStatus==='NEEDS_WORK'){s.textContent+=' · נדרשים תיקונים';s.classList.add('issue');}info.append(s);}
   head.append(info);
+  if(key.includes('GRADIUS_VOLCANO_01')){
+    const planBox=document.createElement('section');planBox.className='journey';planBox.setAttribute('aria-label','נתוני Stage 0 המעודכנים');
+    const heading=document.createElement('h3');heading.textContent='Stage 0 · נתוני 37 הגלים המעודכנים';
+    const details=document.createElement('p');details.className='timeline-note';details.textContent='הנתונים העדכניים נפרדים מצילומי QA ישנים. מפת הגלים הישנה באתר היא צילום היסטורי, ולא אישור למסלולי הגלים החדשים.';
+    const link=document.createElement('a');link.href='level-qa/gradius-volcano-stage0-37.json';link.textContent='פתיחת JSON מלא של 37 הגלים';link.target='_blank';link.rel='noopener';
+    const items=document.createElement('div');items.className='timeline-waves';items.textContent='טוען את הגלים המעודכנים…';
+    planBox.append(heading,details,link,items);head.append(planBox);
+    fetch('level-qa/gradius-volcano-stage0-37.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();}).then(plan=>{
+      if(!planBox.isConnected)return;items.replaceChildren();
+      const waves=Array.isArray(plan.waves)?plan.waves:[];details.textContent='37 גלים ב־Stage 0 · 7 גלים חדשים עם ספליינים וטילים · הבוס אחרון. תצוגות QA מצולמות ישנות אינן משקפות בהכרח את 37 הגלים.';
+      for(const w of waves){const item=document.createElement('button');item.type='button';item.style.textAlign='left';item.style.direction='ltr';item.textContent=(w.id.startsWith('GV_DIAGRAM_')?'★ ':'')+w.id+' · km '+w.kmStart+' · '+w.count+' ships';item.title=(w.splineName||'Boss')+' | '+(w.spawnPoint||'');item.addEventListener('click',()=>{details.textContent=w.displayName+' · '+(w.splineName||'Boss')+' · '+(w.spawnPoint||'');});items.append(item);}
+    }).catch(e=>{items.textContent='נתוני Stage 0 לא נטענו: '+e.message;});
+  }
   if(runs.length>1){const label=document.createElement('label');label.className='run-picker';label.textContent='מועד הסקירה';const select=document.createElement('select');select.setAttribute('aria-label','מועד הסקירה');for(const [i,r] of runs.entries()){const option=document.createElement('option');option.value=r.runId;option.textContent=date(r.generatedUtc)+(i===0?' — אחרונה':'');option.selected=r.runId===run.runId;select.append(option);}select.addEventListener('change',()=>{location.hash=linkFor(key,select.value);});label.append(select);head.append(label);}
   review.append(head);
   if(entry){const journal=document.createElement('section');journal.className='journey';journal.textContent='טוען יומן רמה…';review.append(journal);window.mountLevelJourney(journal,entry,runs).catch(error=>{if(error.name!=='AbortError'&&journal.isConnected){journal.textContent='יומן הרמה לא נטען: '+error.message;}});if(runs.length){const note=document.createElement('p');note.className='journey-history-label';note.textContent='הסקירות המצולמות להלן הן היסטוריית QA לפי מועד הצילום. מצב הניסיון העדכני והפעולה הבאה מופיעים ביומן.';review.append(note);}}
