@@ -57,6 +57,17 @@ function render(){
   review.replaceChildren();
   const head=document.createElement('div');head.className='review-head';const info=document.createElement('div'),h=document.createElement('h2'),when=document.createElement('p');h.textContent=run.sceneName||key;h.dir='auto';when.className='review-date';when.textContent=run.generatedUtc?'צילום מתאריך '+date(run.generatedUtc)+' · שעון ישראל':'טרם פורסם צילום של הרמה';info.append(h,when);
   if(run.reviewStatus||run.acceptanceStatus){const s=document.createElement('p');s.className='review-status';s.textContent=run.reviewStatus==='REVIEWED'?'נבדקה חזותית':'ממתינה לסקירה חזותית';if(run.acceptanceStatus==='APPROVED')s.textContent+=' · אושרה';else if(run.acceptanceStatus==='REJECTED'||run.acceptanceStatus==='NEEDS_WORK'){s.textContent+=' · נדרשים תיקונים';s.classList.add('issue');}info.append(s);}
+  const isNewest=run.runId===runs[0]?.runId;
+  const freshness=document.createElement('p');freshness.className='review-status';
+  freshness.textContent=isNewest?'הצילום האחרון שפורסם באתר לרמה הזאת':'צילום היסטורי: קיימת סקירה חדשה יותר לרמה הזאת';
+  if(!isNewest)freshness.classList.add('issue');
+  info.append(freshness);
+  const dates=document.createElement('p');dates.className='review-date';
+  dates.textContent='שמירת הסצנה: '+(run.sceneSavedUtc?date(run.sceneSavedUtc):'לא תועדה בפרסום הישן')+
+    ' | צילום: '+(run.generatedUtc?date(run.generatedUtc):'לא זמין')+
+    ' | פרסום באתר: '+(run.publishedUtc?date(run.publishedUtc):'לא תועד בפרסום הישן');
+  info.append(dates);
+  const reload=document.createElement('button');reload.type='button';reload.textContent='בדיקת עדכונים באתר';reload.addEventListener('click',()=>location.reload());head.append(reload);
   head.append(info);
   if(key.includes('GRADIUS_VOLCANO_01')){
     const planBox=document.createElement('section');planBox.className='journey';planBox.setAttribute('aria-label','נתוני Stage 0 המעודכנים');
