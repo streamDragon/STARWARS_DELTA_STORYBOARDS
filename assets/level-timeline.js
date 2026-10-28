@@ -38,7 +38,7 @@ root.mountLevelTimeline=async function(host,url){
  play.type=reset.type='button';range.type='range';range.min=0;range.step='0.1';range.value=0;range.setAttribute('aria-label','זמן והתקדמות הרמה');
  const end=Math.max(1,...d.waves.map(w=>w.at+Math.max(0,w.count-1)*Math.max(0,w.interval)+(w.teleportDelay||0)+15));range.max=end;const first=d.waves.find(w=>w.spawn);if(first)range.value=first.at+(first.teleportDelay||0);
  const rate=el('select');rate.setAttribute('aria-label','מהירות הניגון');for(const n of [1,2,5,10]){const opt=el('option','×'+n);opt.value=n;rate.append(opt);}rate.value=5;
- const showAll=el('input');showAll.type='checkbox';const label=el('label','כל נקודות ההופעה והמסלולים');label.prepend(showAll);
+ const showAll=el('input');showAll.type='checkbox';showAll.checked=true;const label=el('label','כל נקודות ההופעה והמסלולים');label.prepend(showAll);
  const showRoads=el('input');showRoads.type='checkbox';const roadsLabel=el('label','דרכי SpriteShape (לא מסלולי אויב)');roadsLabel.prepend(showRoads);
  controls.append(play,reset,range,readout,rate,label,roadsLabel);
  const legend=el('p','מסגרת צהובה קבועה: מצלמת המשחק · הרקע והסלעים גוללים שמאלה · זהב: חלליות וגלים · קו מקווקו: מסלול מתוכנן','timeline-note');
