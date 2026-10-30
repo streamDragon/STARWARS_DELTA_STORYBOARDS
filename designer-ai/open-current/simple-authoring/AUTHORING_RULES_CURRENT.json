@@ -2,11 +2,11 @@
   "schema": "STARWARS_DELTA_SIMPLE_V1_AUTHORING_RULES_CURRENT",
   "schemaVersion": 3,
   "requiredCurrent": {
-    "catalogRevision": "7621370563188834931",
-    "contractRevision": "95376DF60D51CAE3357F3CDB3C1C6BA8A4AC92C6E845CB2B282E76C0EE838101",
-    "schemaHash": "9A7BAD7DAC4DF634BC50B6E5A2C2B8681BBE3C3B63DB903F4CDFC2E6CF5B7103",
-    "snapshotContentHash": "49289490D3A5873178B102BF61FA88AB9AA0B5231F1B5D561997325AF8F94A09",
-    "authoringRuleRegistryRevision": "54DDFDD1A94A855E3C21069DA8E70EACC1C222A3B121F97E0ABACB924BECDB84"
+    "catalogRevision": "7620992462438051302",
+    "contractRevision": "EFC51A7DBFB457FE75658195152581D6843C54052729AD45869C35083B7A08C5",
+    "schemaHash": "B82C1FCCF57D88379EC774C8177FA852DA9736400E23318E3660BB09A9FF7D5E",
+    "snapshotContentHash": "0C791A6098DBF0C3EBB782048DFCFEF793DE8C58E2931A8475001DE0C9500F77",
+    "authoringRuleRegistryRevision": "33B46655D1A37CEE92633E98FDC66FEB93EEED850A553E6029755B6AB15FFB40"
   },
   "purpose": "Author-facing rules for CUTSCENE_SCRIPT_V1 only. Backend/internal rules are intentionally omitted.",
   "rules": [
@@ -33,6 +33,18 @@
       "blocks": false,
       "exactAuthoringRequired": true,
       "instruction": "A visible Sprite animation begins only from an explicit actions[].animationHandle. Once selected for a cast subject, that exact animation remains the subject's active visible animation state across later consecutive beats in which the same subject remains visible, until another explicit animationHandle replaces it. This carry-forward never selects a new animation and never infers from movement, fire, performanceIntent, Actor identity or prose. Movement, fire and camera motion may still run concurrently; Unity owns collision-free backend action IDs."
+    },
+    {
+      "id": "ANIMATION_PLAYBACK_CONTROL",
+      "blocks": false,
+      "exactAuthoringRequired": true,
+      "instruction": "actions[].animationLoop controls only the selected animation: false plays once and holds the final pose for the authored action interval; true repeats. It is independent of actions[].loop, which controls geometric path traversal. For doors, hatches and weapon events choose a real opening/closing/recoil clip and a deliberate interval; lighting pulses do not establish mechanical motion."
+    },
+    {
+      "id": "LAYERED_LOCAL_MATERIAL",
+      "blocks": false,
+      "exactAuthoringRequired": true,
+      "instruction": "A movie-local mechanical assembly may use materialHandle with an exact CURRENT Catalog-approved visual Prefab, preserving its renderers, named child transforms and related compatible animationHandle. A Kit contract is not a visual Prefab contract. Establish the owning ship or bay before a large readable detail; do not present a detached engine or door as an unrelated small ship. Inspect real animation phases before claiming that a mechanism opens or fires."
     },
     {
       "id": "MOTION_ANIMATION_FIELD_SEPARATION",
@@ -159,6 +171,12 @@
       "blocks": false,
       "exactAuthoringRequired": true,
       "instruction": "Use semantic speed values slow, medium, fast or burst. Do not author numeric runtime speed values."
+    },
+    {
+      "id": "STUDIO_FAST_PACING_DEFAULT",
+      "blocks": false,
+      "exactAuthoringRequired": false,
+      "instruction": "For NEW movies, author a brisk cinematic tempo by default, not prolonged wide shots or motionless holds. Most MOVES/action beats should last roughly 1.4 to 2.8 seconds, fast impacts 0.5 to 1.2 seconds, and establishing/reveal shots 2.0 to 3.5 seconds only when comprehension needs them. A 90-second action film usually needs about 25 to 35 meaningful visible developments, not a handful of stretched shots. Use actions[].speed=fast for ship travel and burst for chase/flyby/escape when appropriate, with enough screen displacement for motion to read. Use short readable captions for roughly 0.9 to 1.8 seconds, concurrent compatible visual and sound actions, and motivated cuts instead of empty pauses. Let spoken dialogue finish naturally; use deliberate emotional holds and intentionally slow moments where the story requires them. To honor a requested total runtime, add meaningful events instead of stretching movements. Preserve explicitly chosen timing when repairing an existing movie. Author no new JSON fields."
     },
     {
       "id": "PATH_POINTS_CANONICAL",

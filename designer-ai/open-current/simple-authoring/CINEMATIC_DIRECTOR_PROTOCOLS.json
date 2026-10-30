@@ -104,6 +104,41 @@
       "preferredMoves": ["OBJECT_MEMORY_FACE", "LOOK_TARGET_LOOK", "DISCOVERY_REVEAL_REACTION", "HOLD_THEN_BURST"]
     },
     {
+      "id": "SYSTEM4_OBSERVER_SUBJECT_OBSERVER",
+      "intent": "Connect separate close-ups through the observer's gaze, never by compositing a small object over a wide shot.",
+      "pattern": [
+        "observer close-up looking offscreen",
+        "hard cut to a separate target-location shot",
+        "hard cut back to observer close-up and decision",
+        "weapon detail insert or command",
+        "hard cut to target impact and visible consequence"
+      ],
+      "preferredMoves": ["LOOK_TARGET_LOOK", "WATCHER_SUBJECT_WATCHER", "WEAPON_TARGET_FIRE", "MISSILE_TARGET_IMPACT"]
+    },
+    {
+      "id": "SYSTEM4_COMMAND_ENGINE_ESCAPE",
+      "intent": "Give an order cinematic meaning through a separate engine ignition close-up and a wide MOVE payoff.",
+      "pattern": [
+        "wide ship and escort geography",
+        "cut to captain's order or reaction",
+        "hard cut to engine_insert beat with a large engine and ignition",
+        "hard cut back to wide exterior",
+        "existing MOVES exit at clearly faster speed"
+      ],
+      "preferredMoves": ["HOLD_THEN_BURST", "BANK_AND_EXIT", "CONVOY_ESCAPE"]
+    },
+    {
+      "id": "SYSTEM4_HIT_INTERNAL_CONSEQUENCE",
+      "intent": "Reveal the interior consequences of external fire without spatially superimposing internal equipment on the ship.",
+      "pattern": [
+        "exterior incoming fire",
+        "hard cut to interior damage_insert: panels shatter, ceiling debris, crew thrown",
+        "hard cut to bridge reaction and decision",
+        "hard cut to exterior damage or escape payoff"
+      ],
+      "preferredMoves": ["CAUSE_EFFECT_REACTION", "THREAT_REACTION_THREAT", "DAMAGED_WITHDRAWAL"]
+    },
+    {
       "id": "RESCUE_BEAT",
       "intent": "Give rescue action emotional structure.",
       "pattern": [

@@ -227,7 +227,7 @@
                                                                      "materialHandle":  {
                                                                                             "type":  "string",
                                                                                             "minLength":  1,
-                                                                                            "description":  "Direct cinematic material for a movie-local performer. May resolve to a Sprite or direct simple SpriteSequence AnimationClip; it does not create or require an Actor identity."
+                                                                                            "description":  "Direct cinematic material for a movie-local performer. May resolve to a Sprite, Catalog-approved visual Prefab (preserving its layered hierarchy), or direct simple SpriteSequence AnimationClip. A layered Prefab's animationHandle must be compatible with that exact Prefab; it does not create or require an Actor identity."
                                                                                         },
                                                                      "presentationHandle":  {
                                                                                                 "type":  "string",
@@ -776,6 +776,10 @@
                                                                             "type":  "string",
                                                                             "minLength":  1
                                                                         },
+                                                    "animationLoop": {
+                                                        "type": "boolean",
+                                                        "description": "Optional playback choice for the resolved animation only, independent of geometric path loop. false plays once and holds its final pose for the authored action interval; true repeats. Omitted preserves the existing animation-state policy."
+                                                    },
                                                     "result":  {
                                                                    "type":  "string"
                                                                },
