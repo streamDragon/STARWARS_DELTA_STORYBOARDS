@@ -7,6 +7,22 @@ Lint, Studio, and automation must share semantic compilation rules. The existing
 
 This is the filmmaking layer for Devora / Designer AI authoring. It complements the canonical Simple V1 CURRENT surface. It does not create a second contract and it does not replace Unity runtime validation.
 
+## First minute: direct a film, not a software system
+
+Dvora does not need to know numbered systems. Translate normal requests into the **one existing V1 movie contract** and the published CURRENT, without inventing extra controls:
+
+| Director asks for | Existing authoring route | What must be visible |
+| --- | --- | --- |
+| Ships chase, approach, escort, bank, escape; camera cuts | Published MOVES phases, legal `actions[]`, visible world actors and `camera` | Changed positions, readable motion, intended shot framing |
+| Guns fire, missiles hit, gate opens, engines flare | System 4 native mechanism where a legal CURRENT animation/effect and Studio binding exist; legal `actions[]`, `animationHandle`, V1 `projectileId` | Source, correct emitter, moving machinery, projectile, impact, reaction |
+| Good, evil or neutral ship is identified | System 5 `cast[].alignment`, `identityLevel`, optional root `identityCues` | Animated role emblem AND separately colored glow on the actor body, verified in native frames |
+| World has drifting rock, gas, stars, haze | System 6 automatic atmosphere inferred from scene/background; exact `beats[].locationHandle` and optional `backgroundMotion` | Readable environmental motion/depth without covering actors |
+| Captain speaks, reacts emotionally, or a title appears | Legal `dialogue`, `animeEmotion`, `captions`, `audio` | Audible speech when available, correct expression, readable text and timing |
+
+Before naming a specific capability, confirm it is in the selected public transaction, not merely in Unity. If a local mechanism is absent from CURRENT or does not bind to a public V1 action, state the exact gap, keep the requested film editable and never claim that the mechanical effect is complete.
+
+**Director delivery:** first supply the complete legal V1 and a short shot-by-shot account of visible evidence. After Unity verification, separately report schema, strict lint, build, runtime and native frame-visual results. Do not ask Dvora to configure Unity internals.
+
 ## Authority
 
 Use only the matching CURRENT:
@@ -56,6 +72,18 @@ Define:
 - what the audience should understand or feel.
 
 Long duration creates a content obligation. It is not permission to leave a shot visually inert.
+
+## Cinema pacing: make normal 1x playback feel alive
+
+A frequent user report is that ships, text and the action feel too slow unless the viewer plays the movie at 2x. Fix the shot plan before adding arbitrary speed or another runtime route. At normal 1x playback, each beat should change the audience's information: meaningful movement, an attack and reaction, a dramatic cut, a discovery, a readable dialogue/emotion hold, or an environment reveal. Repeated wide/hold coverage and undirected drifting without new information are not substitutes for a film.
+
+Use ONLY legal fields from the matching schema: `beats[].durationSeconds` controls shot budget, `actions[].speed` allows exact `slow|medium|fast|burst`, `actions[].startOffset` and `duration` control actor events, `captions[].startOffset` and `durationSeconds` control text cues, `camera` shapes composition, and `beats[].backgroundMotion` moves a compatible published background. Fit all authored events inside their owning beats. `actions[].duration` on fire is **each projectile's flight duration**, not the total time occupied by all volleys; include the published interval between launches when validating the last shot.
+
+Storyboard fast sequences with clear cause and effect: establish positions briefly; show the attacker/fire origin; let the projectile visibly travel; show target impact/reaction; cut to the resulting escape, explosion or changed formation. Fast action is not random cuts or universal camera shake. Emotion and speech still require readable holds; shortened subtitles, animated text-speed changes and voice timing are not the same thing.
+
+**Runtime ownership:** if ships consistently move too slowly, dialogue types on screen too slowly, or cuts persist past their authored beats, treat it as a shared Studio playback/defaults defect to reproduce against the same V1 source. Do not invent `globalSpeed`, `scrollingText`, `system6Density`, or a second Timeline owner in the public contract. The current V1 `captions` support static title/narrator/impact cues, not an upward-scrolling opening crawl.
+
+**Pacing QA:** review native footage at 1x, with timestamps that show change within shots, readable text, actual voice playback and clear actor displacement. Distinguish a deliberate quiet shot from unintentional dead air. If native QA exposes incorrect default pacing across films, fix the shared Studio setting, not every film individually.
 
 ## Real assets, not concept art
 
@@ -482,11 +510,41 @@ RADIO DIALOGUE: Prefer a matching CURRENT beats[].locationHandle inspected using
 
 
 
-## System 5: animated role emblems, 3 levels (local until CURRENT published)
+## System 4: native moving mechanisms and physical VFX
 
-This guide describes the local Studio implementation. Dvora must use only the
-matching published sealed CURRENT schema. Do not mix new local identityCues fields with
-an older public transaction. Publisher remains blocked until System 6 acceptance.
+System 4 is the existing Unity-owned action-kit and native film-mechanism layer. It covers physical guns and turrets, visible firing, engine exhaust, animated doors/gates, hangar mechanisms, damage and explosions. Distinguish it from camera choreography, MOVES, System 5 actor identity and System 6 environmental atmosphere. Dvora should describe the intended physical action; she need not request the numbered system.
+
+Author only exact published CURRENT handles and legal CUTSCENE_SCRIPT_V1 cast/visible/actions/animationHandle/camera/timing fields. There is no new System 4 selector to add to V1. Newly built local System 4 prefabs and animations are not automatically available to Dvora until the existing catalog scan, sealed publish and exact legal handle verification succeed. Never guess direct prefab IDs or expose Unity editor internals as V1 fields.
+
+**Plain-language shot translation (illustrative, not a complete V1 document):**
+
+- "The turret fires at the pursuer": keep attacker and target as uniquely visible cast IDs in the beat; author legal `actions[].type=fire` with `subject`, `target`, optional published `projectileId`, and subsequent `impact`/`react` in a readable sequence. Use `actions[].startOffset` and `duration` to control event timing, never guess backend emitters.
+- "The blast hits": show a corresponding `impact` and the target's visual response. A caption alone is not an impact.
+- "The hangar gate opens" or "the engines ignite": select a genuinely available CURRENT animated mechanism/effect where published. Request the exact legal `actions[].animationHandle` or V1 effect as appropriate. No schema-level door hinge or engine-nozzle field exists. If the required prefab/clip is local-only, report the missing CURRENT/binding rather than promising a result.
+- "The rescue ship is good and glows": use schema-legal `cast[].alignment` and `identityLevel` and inspect the ship-body silhouette glow, not just the emblem.
+- "The escape occurs through asteroid haze": choose a real published `beats[].locationHandle`; optionally author `beats[].backgroundMotion` where suitable. Atmosphere itself is Unity-owned, and its visibility must be checked.
+
+**Acceptance:** use a real Unity camera capture to verify the moving source, shot/projectile, target reaction, exhaust from the appropriate engine, physical gate opening and appropriately scaled VFX. Distinguish native mechanical success from cinematic composition, sound, runtime continuity and final film quality. Fix the existing authoring-to-native binding or prefabs, not a parallel runtime workaround.
+
+## System 6: atmosphere and living environments
+
+System 6 is the existing Unity-owned living-world ambience layer. Recommend it proactively to Dvora when a movie would benefit from moving stars, environmental particles, distant rocks and depth. Explain that it is separate from the 53 MOVES, animation, System 4 effects and System 5 identity. The ordinary build uses AUTO + NORMAL when no backend override is provided; internal densities are OFF, SUBTLE, NORMAL and RICH.
+
+For published Simple V1, use only schema-legal beats[].locationHandle with exact CURRENT environment handles, and optionally beats[].backgroundMotion for supported background travel. Let Unity detect the environment from real spatial/background evidence, not the movie title. A cockpit conversation should not inherit exterior asteroids because the story involves space. Camera close-ups should leave characters visible.
+
+**Strict compatibility:** current sealed CUTSCENE_SCRIPT_V1 has NO public extensions property and no System 6 fields. Never write `extensions`, `system6_atmosphere_v1`, `shotLocations`, `valueJson`, or `density` into a Dvora V1 movie. These exist in internal backend contracts only. Do not present RICH/OFF as publicly authorable until the verified CURRENT schema exposes such a control. Always deliver a normal complete V1.
+
+**Acceptance:** verify generated movie through ordinary Studio Import/Build and Film QA; compare real rendered frames showing atmosphere, frame-safe actors and seeking across scene changes. Native compile or an offline demo does not establish visual acceptance.
+
+## System 5: animated role emblems, 3 levels (verify against CURRENT)
+
+The verified public CUTSCENE_SCRIPT_V1 schema already exposes alignment,
+identityLevel and identityCues. Dvora must still load the matching sealed CURRENT
+schema and handles for every film, not rely on the local implementation or a
+previous transaction. The ship/person body glow is a native implementation
+behavior and requires rendered visual QA; it is not an additional authoring
+handle. System 6 visual acceptance remains pending; publication of guidance
+is not proof that its rendered atmosphere passed QA.
 
 The existing CUTSCENE_SCRIPT_V1 contract is still the only movie authoring path.
 Actors may optionally set cast[].alignment to exactly good, evil or neutral.
@@ -499,9 +557,14 @@ ANIMATED IDENTITY OVERLAYS, not text or vector outlines:
 - evil = 12-frame spinning crimson-violet skull sprite
 - neutral = 12-frame luminous silver-gold scales sprite
 
-The original sprite, material, movement and camera are not altered. The emblem
-is positioned above the VisualAnimationRoot; generated Timeline samples from
-its movie time and supports repeatable seeking, pause, saving and reopening.
+The original actor SpriteRenderer and its movement/camera track remain native.
+In addition to the role emblem, Unity creates a separate alignment-colored
+silhouette glow on the ship/person body itself, via System5ActorHullGlow and
+the existing supported glow material when available. This body glow must not
+be confused with the emblem's halo: visually inspect the performer in Film QA.
+The emblem remains positioned above the VisualAnimationRoot; generated
+Timeline samples from movie time and must support repeatable seeking, pause,
+saving and reopening.
 
 THREE INTENSITY LEVELS:
 1. identityLevel: 1 = simple continuously animated emblem above the actor.

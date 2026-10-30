@@ -2,18 +2,18 @@
   "schema": "STARWARS_DELTA_AUTHORING_HANDLES",
   "schemaVersion": 8,
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20261028-151713457-161c2977",
+  "publishTransactionId": "20261030-192907914-1567a95b",
   "purpose": "Minimal CUTSCENE_SCRIPT_V1 authoring surface. Actors expose identity/preview only; Animation handles are selected directly from their own preview, movie-material and semantic facets. Actor-animation ownership and semantic intent repertoires are intentionally omitted.",
   "requiredCurrent": {
-    "catalogRevision": "7621370563188834931",
-    "contractRevision": "95376DF60D51CAE3357F3CDB3C1C6BA8A4AC92C6E845CB2B282E76C0EE838101",
-    "schemaHash": "9A7BAD7DAC4DF634BC50B6E5A2C2B8681BBE3C3B63DB903F4CDFC2E6CF5B7103",
-    "snapshotContentHash": "49289490D3A5873178B102BF61FA88AB9AA0B5231F1B5D561997325AF8F94A09",
-    "authoringRuleRegistryRevision": "54DDFDD1A94A855E3C21069DA8E70EACC1C222A3B121F97E0ABACB924BECDB84"
+    "catalogRevision": "7620992462438051302",
+    "contractRevision": "EFC51A7DBFB457FE75658195152581D6843C54052729AD45869C35083B7A08C5",
+    "schemaHash": "B82C1FCCF57D88379EC774C8177FA852DA9736400E23318E3660BB09A9FF7D5E",
+    "snapshotContentHash": "0C791A6098DBF0C3EBB782048DFCFEF793DE8C58E2931A8475001DE0C9500F77",
+    "authoringRuleRegistryRevision": "33B46655D1A37CEE92633E98FDC66FEB93EEED850A553E6029755B6AB15FFB40"
   },
-  "count": 1218,
+  "count": 1224,
   "countsByRoute": {
-    "Actor": 173,
+    "Actor": 179,
     "Animation": 342,
     "Audio": 87,
     "Effect": 160,
@@ -22,7 +22,7 @@
   },
   "warnings": [],
   "backendCompatibilityCounts": {
-    "Animation": 517
+    "Animation": 563
   },
   "agent6Selection": {
     "schema": "STARWARS_DELTA_AGENT6_SELECTION_INTEGRATION",
@@ -2187,6 +2187,204 @@
       "atlasPage": null,
       "atlasSlot": null,
       "pageImageUrl": "visual-library/assets/asset_c8da292f318b382d68f5/preview.png",
+      "atlasPdfUrl": null,
+      "selectedByAgent6": false,
+      "selectionBatch": "AGENT6_BATCH_001",
+      "agent6Category": null,
+      "agent6SupportStatus": null
+    },
+    {
+      "handle": "gun_aa_deck_battery__d5de50f4",
+      "displayName": "GUN AA DECK BATTERY",
+      "route": "Actor",
+      "category": "Actor",
+      "roles": [],
+      "semanticFacets": [],
+      "collections": [],
+      "manualTags": [],
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4Cinematic22_20261029/Prefabs/GUN_AA_DECK_BATTERY.prefab",
+      "description": "System 4 cinematic mechanical prefab: visually layered battlecruiser cannon / giant opening door / corridor / engine, native trigger ACTION; curated for a cl...",
+      "descriptionSource": "VISUAL_EVIDENCE",
+      "authoringFamilyId": "",
+      "backgroundCoverage": "Decoration",
+      "locationType": "Corridor",
+      "recommendedLayerRoles": [],
+      "visualRuntimeForm": "Prefab",
+      "previewContentHash": "",
+      "previewMode": "DIRECT_SOURCE",
+      "evidenceStatus": "NeedsReview",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED",
+      "recommendationStatus": "PIXEL_COMPLETION_REQUIRED",
+      "selectionScope": "UNSPECIFIED",
+      "visualReferenceId": "visual_c795ed7e7ff946c60729",
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": "",
+      "atlasPdfUrl": null,
+      "selectedByAgent6": false,
+      "selectionBatch": "AGENT6_BATCH_001",
+      "agent6Category": null,
+      "agent6SupportStatus": null
+    },
+    {
+      "handle": "gun_flagship_twin_turret__f36b5a27",
+      "displayName": "GUN FLAGSHIP TWIN TURRET",
+      "route": "Actor",
+      "category": "Actor",
+      "roles": [],
+      "semanticFacets": [],
+      "collections": [],
+      "manualTags": [],
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4Cinematic22_20261029/Prefabs/GUN_FLAGSHIP_TWIN_TURRET.prefab",
+      "description": "System 4 cinematic mechanical prefab: visually layered battlecruiser cannon / giant opening door / corridor / engine, native trigger ACTION; curated for a cl...",
+      "descriptionSource": "VISUAL_EVIDENCE",
+      "authoringFamilyId": "",
+      "backgroundCoverage": "Decoration",
+      "locationType": "Corridor",
+      "recommendedLayerRoles": [],
+      "visualRuntimeForm": "Prefab",
+      "previewContentHash": "",
+      "previewMode": "DIRECT_SOURCE",
+      "evidenceStatus": "NeedsReview",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED",
+      "recommendationStatus": "PIXEL_COMPLETION_REQUIRED",
+      "selectionScope": "UNSPECIFIED",
+      "visualReferenceId": "visual_77fb158f8e638c84116c",
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": "",
+      "atlasPdfUrl": null,
+      "selectedByAgent6": false,
+      "selectionBatch": "AGENT6_BATCH_001",
+      "agent6Category": null,
+      "agent6SupportStatus": null
+    },
+    {
+      "handle": "gun_heavy_fortress_port__98405715",
+      "displayName": "GUN HEAVY FORTRESS PORT",
+      "route": "Actor",
+      "category": "Actor",
+      "roles": [],
+      "semanticFacets": [],
+      "collections": [],
+      "manualTags": [],
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4Cinematic22_20261029/Prefabs/GUN_HEAVY_FORTRESS_PORT.prefab",
+      "description": "System 4 cinematic mechanical prefab: visually layered battlecruiser cannon / giant opening door / corridor / engine, native trigger ACTION; curated for a cl...",
+      "descriptionSource": "VISUAL_EVIDENCE",
+      "authoringFamilyId": "",
+      "backgroundCoverage": "Decoration",
+      "locationType": "Corridor",
+      "recommendedLayerRoles": [],
+      "visualRuntimeForm": "Prefab",
+      "previewContentHash": "",
+      "previewMode": "DIRECT_SOURCE",
+      "evidenceStatus": "NeedsReview",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED",
+      "recommendationStatus": "PIXEL_COMPLETION_REQUIRED",
+      "selectionScope": "UNSPECIFIED",
+      "visualReferenceId": "visual_fa0f49b5caf6ed114401",
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": "",
+      "atlasPdfUrl": null,
+      "selectedByAgent6": false,
+      "selectionBatch": "AGENT6_BATCH_001",
+      "agent6Category": null,
+      "agent6SupportStatus": null
+    },
+    {
+      "handle": "gun_ion_siege_emplacement__03571590",
+      "displayName": "GUN ION SIEGE EMPLACEMENT",
+      "route": "Actor",
+      "category": "Actor",
+      "roles": [],
+      "semanticFacets": [],
+      "collections": [],
+      "manualTags": [],
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4Cinematic22_20261029/Prefabs/GUN_ION_SIEGE_EMPLACEMENT.prefab",
+      "description": "System 4 cinematic mechanical prefab: visually layered battlecruiser cannon / giant opening door / corridor / engine, native trigger ACTION; curated for a cl...",
+      "descriptionSource": "VISUAL_EVIDENCE",
+      "authoringFamilyId": "",
+      "backgroundCoverage": "Decoration",
+      "locationType": "Corridor",
+      "recommendedLayerRoles": [],
+      "visualRuntimeForm": "Prefab",
+      "previewContentHash": "",
+      "previewMode": "DIRECT_SOURCE",
+      "evidenceStatus": "NeedsReview",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED",
+      "recommendationStatus": "PIXEL_COMPLETION_REQUIRED",
+      "selectionScope": "UNSPECIFIED",
+      "visualReferenceId": "visual_bfba4da14e03e0afd7a5",
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": "",
+      "atlasPdfUrl": null,
+      "selectedByAgent6": false,
+      "selectionBatch": "AGENT6_BATCH_001",
+      "agent6Category": null,
+      "agent6SupportStatus": null
+    },
+    {
+      "handle": "gun_missile_superstructure__39ccbc66",
+      "displayName": "GUN MISSILE SUPERSTRUCTURE",
+      "route": "Actor",
+      "category": "Actor",
+      "roles": [],
+      "semanticFacets": [],
+      "collections": [],
+      "manualTags": [],
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4Cinematic22_20261029/Prefabs/GUN_MISSILE_SUPERSTRUCTURE.prefab",
+      "description": "System 4 cinematic mechanical prefab: visually layered battlecruiser cannon / giant opening door / corridor / engine, native trigger ACTION; curated for a cl...",
+      "descriptionSource": "VISUAL_EVIDENCE",
+      "authoringFamilyId": "",
+      "backgroundCoverage": "Decoration",
+      "locationType": "Corridor",
+      "recommendedLayerRoles": [],
+      "visualRuntimeForm": "Prefab",
+      "previewContentHash": "",
+      "previewMode": "DIRECT_SOURCE",
+      "evidenceStatus": "NeedsReview",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED",
+      "recommendationStatus": "PIXEL_COMPLETION_REQUIRED",
+      "selectionScope": "UNSPECIFIED",
+      "visualReferenceId": "visual_b694c889b2be1a46df79",
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": "",
+      "atlasPdfUrl": null,
+      "selectedByAgent6": false,
+      "selectionBatch": "AGENT6_BATCH_001",
+      "agent6Category": null,
+      "agent6SupportStatus": null
+    },
+    {
+      "handle": "gun_super_battleship_dorsal__ec198633",
+      "displayName": "GUN SUPER BATTLESHIP DORSAL",
+      "route": "Actor",
+      "category": "Actor",
+      "roles": [],
+      "semanticFacets": [],
+      "collections": [],
+      "manualTags": [],
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4Cinematic22_20261029/Prefabs/GUN_SUPER_BATTLESHIP_DORSAL.prefab",
+      "description": "System 4 cinematic mechanical prefab: visually layered battlecruiser cannon / giant opening door / corridor / engine, native trigger ACTION; curated for a cl...",
+      "descriptionSource": "VISUAL_EVIDENCE",
+      "authoringFamilyId": "",
+      "backgroundCoverage": "Decoration",
+      "locationType": "Corridor",
+      "recommendedLayerRoles": [],
+      "visualRuntimeForm": "Prefab",
+      "previewContentHash": "",
+      "previewMode": "DIRECT_SOURCE",
+      "evidenceStatus": "NeedsReview",
+      "selectionStatus": "PIXEL_COMPLETION_REQUIRED",
+      "recommendationStatus": "PIXEL_COMPLETION_REQUIRED",
+      "selectionScope": "UNSPECIFIED",
+      "visualReferenceId": "visual_7dc25becf5c6ca1b8cac",
+      "atlasPage": null,
+      "atlasSlot": null,
+      "pageImageUrl": "",
       "atlasPdfUrl": null,
       "selectedByAgent6": false,
       "selectionBatch": "AGENT6_BATCH_001",
@@ -6626,7 +6824,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -6689,7 +6887,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -6757,7 +6955,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -6820,7 +7018,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -6888,7 +7086,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -6950,7 +7148,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -7013,7 +7211,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -7083,7 +7281,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -7145,7 +7343,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -7209,7 +7407,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -7271,7 +7469,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -7333,7 +7531,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -7401,7 +7599,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -7470,7 +7668,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -7534,7 +7732,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "deactivate",
@@ -7600,7 +7798,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "damage",
@@ -7666,7 +7864,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "idle",
@@ -7734,7 +7932,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -7801,7 +7999,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -7864,7 +8062,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -7931,7 +8129,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "deactivate",
@@ -7998,7 +8196,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -8065,7 +8263,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -8128,7 +8326,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -8192,7 +8390,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "",
@@ -8259,7 +8457,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -8325,7 +8523,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "look",
@@ -8390,7 +8588,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -8461,7 +8659,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -8524,7 +8722,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -8590,7 +8788,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "idle",
@@ -8655,7 +8853,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -8719,7 +8917,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "run",
@@ -8783,7 +8981,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -8845,7 +9043,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -8907,7 +9105,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -8972,7 +9170,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -9040,7 +9238,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -9103,7 +9301,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -9167,7 +9365,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -9231,7 +9429,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "idle",
@@ -9301,7 +9499,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -9370,7 +9568,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -9434,7 +9632,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "",
@@ -9499,7 +9697,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -9566,7 +9764,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -9628,7 +9826,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -9690,7 +9888,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -9752,7 +9950,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -9820,7 +10018,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -9891,7 +10089,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -9953,7 +10151,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -10018,7 +10216,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -10083,7 +10281,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -10146,7 +10344,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -10209,7 +10407,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -10275,7 +10473,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -10345,7 +10543,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -10410,7 +10608,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "launch",
@@ -10474,7 +10672,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -10537,7 +10735,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -10600,7 +10798,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -10665,7 +10863,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -10734,7 +10932,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -10802,7 +11000,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -10867,7 +11065,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -10935,7 +11133,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -10998,7 +11196,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -11068,7 +11266,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -11131,7 +11329,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -11196,7 +11394,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -11258,7 +11456,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -11320,7 +11518,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -11384,7 +11582,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "run",
@@ -11448,7 +11646,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -11510,7 +11708,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -11573,7 +11771,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -11635,7 +11833,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -11703,7 +11901,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -11765,7 +11963,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -11829,7 +12027,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "idle",
@@ -11894,7 +12092,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -11956,7 +12154,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -12019,7 +12217,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -12081,7 +12279,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -12145,7 +12343,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "run",
@@ -12214,7 +12412,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -12277,7 +12475,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -12342,7 +12540,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -12410,7 +12608,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -12472,7 +12670,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -12540,7 +12738,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -12602,7 +12800,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -12665,7 +12863,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -12735,7 +12933,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -12798,7 +12996,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -12867,7 +13065,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -12929,7 +13127,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -12996,7 +13194,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -13060,7 +13258,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -13129,7 +13327,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -13198,7 +13396,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -13261,7 +13459,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "damage",
@@ -13330,7 +13528,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -13398,7 +13596,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -13461,7 +13659,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -13527,7 +13725,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -13594,7 +13792,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -13660,7 +13858,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -13728,7 +13926,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -13795,7 +13993,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -13864,7 +14062,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -13927,7 +14125,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -13992,7 +14190,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "idle",
@@ -14059,7 +14257,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -14127,7 +14325,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -14194,7 +14392,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -14257,7 +14455,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -14319,7 +14517,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -14383,7 +14581,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "deactivate",
@@ -14449,7 +14647,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "idle",
@@ -14514,7 +14712,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -14584,7 +14782,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "attack",
@@ -14649,7 +14847,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "fly",
@@ -14719,7 +14917,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -14782,7 +14980,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -14854,7 +15052,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "idle",
@@ -14919,7 +15117,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -14983,7 +15181,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -15046,7 +15244,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -15116,7 +15314,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -15180,7 +15378,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -15245,7 +15443,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -15308,7 +15506,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -15372,7 +15570,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -15434,7 +15632,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -15496,7 +15694,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -15560,7 +15758,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -15626,7 +15824,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "deactivate",
@@ -15691,7 +15889,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "idle",
@@ -15761,7 +15959,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -15823,7 +16021,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -15890,7 +16088,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -15953,7 +16151,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -16016,7 +16214,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "damage",
@@ -16081,7 +16279,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -16145,7 +16343,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -16208,7 +16406,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -16274,7 +16472,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -16341,7 +16539,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -16409,7 +16607,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -16478,7 +16676,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -16541,7 +16739,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -16609,7 +16807,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -16673,7 +16871,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "damage",
@@ -16738,7 +16936,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -16802,7 +17000,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -16865,7 +17063,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -16928,7 +17126,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -16994,7 +17192,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -17058,7 +17256,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "idle",
@@ -17124,7 +17322,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "look",
@@ -17193,7 +17391,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -17258,7 +17456,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -17320,7 +17518,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -17382,7 +17580,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -17449,7 +17647,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -17512,7 +17710,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -17575,7 +17773,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -17644,7 +17842,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -17707,7 +17905,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -17772,7 +17970,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -17837,7 +18035,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -17905,7 +18103,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -17969,7 +18167,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -18041,7 +18239,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -18105,7 +18303,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "run",
@@ -18176,7 +18374,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -18239,7 +18437,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -18302,7 +18500,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -18366,7 +18564,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -18434,7 +18632,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -18496,7 +18694,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -18558,7 +18756,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -18626,7 +18824,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -18691,7 +18889,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -18755,7 +18953,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -18819,7 +19017,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -18883,7 +19081,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -18947,7 +19145,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -19015,7 +19213,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -19079,7 +19277,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -19142,7 +19340,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -19209,7 +19407,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -19271,7 +19469,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "deactivate",
@@ -19336,7 +19534,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "damage",
@@ -19405,7 +19603,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -19468,7 +19666,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -19538,7 +19736,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -19602,7 +19800,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "idle",
@@ -19666,7 +19864,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -19734,7 +19932,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -19801,7 +19999,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -19866,7 +20064,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -19931,7 +20129,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -19994,7 +20192,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -20057,7 +20255,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -20122,7 +20320,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -20188,7 +20386,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "",
@@ -20260,7 +20458,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -20324,7 +20522,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "look",
@@ -20391,7 +20589,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -20459,7 +20657,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -20522,7 +20720,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "damage",
@@ -20587,7 +20785,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -20653,7 +20851,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -20716,7 +20914,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "launch",
@@ -20781,7 +20979,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "damage",
@@ -20846,7 +21044,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "damage",
@@ -20916,7 +21114,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -20982,7 +21180,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -21045,7 +21243,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -21110,7 +21308,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -21174,7 +21372,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -21236,7 +21434,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -21299,7 +21497,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -21365,7 +21563,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -21437,7 +21635,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -21504,7 +21702,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -21573,7 +21771,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -21637,7 +21835,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -21709,7 +21907,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "idle",
@@ -21774,7 +21972,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -21840,7 +22038,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "idle",
@@ -21905,7 +22103,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -21967,7 +22165,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -22032,7 +22230,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -22095,7 +22293,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "launch",
@@ -22160,7 +22358,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "launch",
@@ -22231,7 +22429,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "damage",
@@ -22296,7 +22494,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -22362,7 +22560,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "look",
@@ -22430,7 +22628,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -22497,7 +22695,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -22566,7 +22764,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -22628,7 +22826,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -22692,7 +22890,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -22756,7 +22954,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -22822,7 +23020,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "deactivate",
@@ -22892,7 +23090,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -22954,7 +23152,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -23016,7 +23214,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -23079,7 +23277,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -23149,7 +23347,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -23212,7 +23410,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "fly",
@@ -23277,7 +23475,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -23339,7 +23537,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -23408,7 +23606,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -23476,7 +23674,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -23543,7 +23741,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -23607,7 +23805,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -23677,7 +23875,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -23741,7 +23939,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -23803,7 +24001,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -23867,7 +24065,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -23930,7 +24128,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -23994,7 +24192,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -24061,7 +24259,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -24123,7 +24321,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -24185,7 +24383,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -24253,7 +24451,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -24321,7 +24519,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -24389,7 +24587,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -24451,7 +24649,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -24514,7 +24712,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -24584,7 +24782,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -24647,7 +24845,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -24709,7 +24907,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "deactivate",
@@ -24776,7 +24974,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -24840,7 +25038,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "",
@@ -24913,7 +25111,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -24978,7 +25176,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -25040,7 +25238,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -25104,7 +25302,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "damage",
@@ -25174,7 +25372,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -25240,7 +25438,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -25306,7 +25504,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -25373,7 +25571,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -25435,7 +25633,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -25498,7 +25696,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -25568,7 +25766,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -25635,7 +25833,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -25698,7 +25896,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -25763,7 +25961,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -25827,7 +26025,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -25895,7 +26093,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -25957,7 +26155,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -26020,7 +26218,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -26084,7 +26282,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -26154,7 +26352,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -26216,7 +26414,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -26285,7 +26483,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -26354,7 +26552,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -26423,7 +26621,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -26487,7 +26685,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "",
@@ -26552,7 +26750,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -26615,7 +26813,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -26679,7 +26877,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -26741,7 +26939,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -26808,7 +27006,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -26870,7 +27068,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -26933,7 +27131,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -27000,7 +27198,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -27068,7 +27266,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -27131,7 +27329,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -27196,7 +27394,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -27259,7 +27457,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -27323,7 +27521,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -27392,7 +27590,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -27455,7 +27653,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
@@ -27520,7 +27718,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -27590,7 +27788,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -27653,7 +27851,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -27717,7 +27915,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -27781,7 +27979,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -27844,7 +28042,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "launch",
@@ -27911,7 +28109,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -27974,7 +28172,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -28041,7 +28239,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shoot",
@@ -28105,7 +28303,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -28169,7 +28367,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "walk",
@@ -28234,7 +28432,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -28303,7 +28501,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -28372,7 +28570,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -28434,7 +28632,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "deactivate",
@@ -28499,7 +28697,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -28568,7 +28766,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -28636,7 +28834,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -28698,7 +28896,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -28760,7 +28958,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
@@ -28829,7 +29027,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
@@ -28891,7 +29089,7 @@
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
-      "animationVisualStatus": "Unclassified",
+      "animationVisualStatus": "Visualized",
       "animationOwnershipStatus": "ActorOwnerProven",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
