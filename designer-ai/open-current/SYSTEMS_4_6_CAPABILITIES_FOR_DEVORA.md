@@ -64,3 +64,14 @@ This text is operational authoring guidance, not a claim that the 2026-11-01 loc
 - The last ruins foreground cable was active and sorted correctly but placed below the camera's useful crop. Its authored placement was corrected, and a targeted NUnit test now requires foreground sorting and a sufficiently high source UV. Film QA frame 24s now visibly includes cables in the left skyline.
 - Exact local QA receipt in Plastic MAIN: `Docs/SYSTEM6_NINE_RICH_WORLDS_90S_RETAKE8_QA_20261101.md`; latest native capture `SYSTEM_6_-_NINE_RICH_LIVING_WORLDS_90S_RETAKE_8_20261101_071131`.
 - **Not a release approval:** `technicalVisualQa=WARNINGS`, `cinematicQa=REVIEW_REQUIRED`, `runtimeQa=NOT_TESTED`. No Smart Publish of a sealed CURRENT was claimed. Dvora must continue using verified public CURRENT handles and the existing V1 Import/Build flow, not local filenames or an invented schema. Unpublished optional art must not block the rest of a film; retain placeholders/fallbacks.
+
+## System 6 Retake 10: Native volcanic richness proof (2026-11-01)
+
+- Project: `SYSTEM 6 - NINE RICH LIVING WORLDS 90S RETAKE 10`, ID `2774739650d84a568c50d7e43ccfdfd2`, on Plastic MAIN changeset `cs:9739`.
+- 90 s, 18 V1 beats, nine exact environments, 62 S6 set pieces. Native **22/22 EditMode PASS**, zero errors. Two new passive lava ember sprite layers, scene-bound to `volcano22_0`, with deterministic thermal convection at absolute Timeline time.
+- r2 native Film QA: 47 frames, completed. Volcano static-shot flags improved from 3 (Retake 9 at seconds 72, 74, 78) to 1 (Retake 10 at second 78). The visible ember layers initially clustered upper-right. r3 repositions anchors towards center/left and lower lava; r3 visual capture still pending because Unity Film QA was busy and the attempted capture timed out.
+- r3 build PASS with **seven persisted Timeline root tracks**. This does NOT mean visual QA passed. Native Film QA remains `REVIEW_REQUIRED`, Runtime `NOT_TESTED`; no release or Smart Publish is claimed.
+- Dvora authoring remains `CUTSCENE_SCRIPT_V1`, public sealed CURRENT handles, simple Copy for AI -> Import -> Build. Do not reference unpublished local Unity sprite paths in Dvora JSON. If an optional ambient asset is missing, preserve the story and add a non-blocking placeholder/ledger warning.
+- **Boundary:** System 6 animates environment richness (rock, ash, winds, embers, consoles, scenery); System 4 controls camera framing and mechanical inserts; MOVES controls action/actor motion. Do not ask System 6 to direct a cut, fire a weapon or move an actor.
+- Unity repeatedly produced an initial revision whose saved .playable had zero root tracks while a nominal Build PASS was reported. A valid persisted root-track check and Film QA are mandatory before declaring a film finished. Retake 10 r2/r3 have seven roots in the build receipt.
+- Native QA handoff: `Docs/SYSTEM6_NINE_RICH_WORLDS_90S_RETAKE10_QA_20261101.md`.
