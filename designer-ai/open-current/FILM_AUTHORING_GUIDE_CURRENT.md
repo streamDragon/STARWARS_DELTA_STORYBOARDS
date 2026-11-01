@@ -1,8 +1,5 @@
 # STARWARS_DELTA Film Authoring Guide CURRENT
 
-> **2026-11-01 System 4 vs System 6 operational update:** Read [Systems 4+6 capabilities for Dvora](SYSTEMS_4_6_CAPABILITIES_FOR_DEVORA.md) before selecting narrative inserts or location enrichments. System 4 chooses directed full-frame editorial action shots; MOVES moves actors; System 6 adds environment-specific set dressing and low-motion UI passively. Newly created local props are **not** CURRENT handles. Always check the sealed matching CURRENT before making promises.
-
-
 
 LOCAL PLACEHOLDERS, SINGLE PIPELINE - USER POLICY 2026-10-28
 Use one CUTSCENE_SCRIPT_V1 authoring contract and CURRENT assets. Failed local content must produce exactly one conspicuous native editable substitute at the owning creation step, preserving the original id, requested handle, JSON path, timing and reason. Independent authored content must continue building. Do not turn every warning into a placeholder; only actual missing/unbuildable content receives one.
