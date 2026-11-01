@@ -1,0 +1,41 @@
+# STARWARS_DELTA: Systems 4 and 6 for Dvora's ChatGPT
+Updated 2026-11-01. This is **guidance, not another JSON schema or a list of legal asset handles**. Always read the fresh `OPEN_CURRENT.json`, `CHATGPT_AUTHORING_INDEX.json`, matching `CUTSCENE_SCRIPT_V1.schema.json`, `AUTHORING_HANDLES.json`, `AUTHORING_RULES_CURRENT.json` and matching preview images first. The GitHub public CURRENT is the **only** source of authorable handles; Unity/Plastic is the source of runtime code and proof. Newly created local pieces are **not** automatically available in this CURRENT.
+
+## The important separation
+| Layer | Responsible for | NOT responsible for |
+| --- | --- | --- |
+| MOVES | Movement of ships/characters, flight, pursuit, running/choreography where the MOVES library and actors support it | Atmospheric props or independent insert framing |
+| **System 4: DIRECTING / STORY EVENT** | Deciding an editorial cut to an independent *full-frame* insert, framing door/engine/gun/damage detail in native Cinemachine; visible loading/firing/damage/repair/crew emergency as **story actions** when supported by a real CURRENT material and legal V1 actions | Random scenery, decorative radar screens, auto-spawning people |
+| **System 6: AUTOMATIC VISUAL ENVIRONMENT** | Background-matched atmosphere and static/low-motion set dressing: stars, rocks, clouds, dust, screens, radar scan/contacts, blink LEDs, hangar guide lights, equipment lockers, crane hook, service prop, streetside bikes/bollards/planters | Choosing camera cuts, causing an explosion, moving actors, staging a battle, operating a weapon |
+| System 5 | Good/evil/neutral identity signals where the matching V1 schema and CURRENT support them | Scene action or background clutter |
+| Anime Emotion / dialogue | Emotion and speech, distinct from MOVES | Global camera or System 4/6 implementation |
+
+**Do not confuse a detail prop with an action.** A radar sweeping automatically is System 6. A radar detecting an incoming missile and cutting to the shocked operator is a director/System 4 story moment. A hangar crane simply hanging is System 6; a crane swinging to save someone is a directed System 4 action and requires a verified material. Soldiers *running* to battle stations, guns loading/firing, technicians repairing, and a command bridge shaking/exploding are **not ambient System 6**. They need legal MOVES/animations and a System 4 cinematic plan with exact CURRENT support.
+
+## What actually exists in Unity (availability != CURRENT eligibility)
+Runtime/Editor route: `MY_CutsceneSystem6SetDressingBuilder` attaches to exact recognized `BACKGROUND_FULLFRAME_*` backdrop sprites and uses `MY_CutsceneSystem6SetDressing.EvaluateAtTime()`. The original six environment profiles are space, planet, interior/corridor, cockpit, command room and hangar; additional named ruined-city/volcano/cloud conditions exist internally. Recent locally authored artwork in `Assets/_Game/MY_Core/MY_Art/CinematicAssets/System6AmbientProps/` includes:
+- RADAR: a transparent rotating sweep, independently twinkling blips and status indicators over **existing** panel artwork, not a duplicate oversized HUD.
+- HANGAR: 8-frame loop of aisle guide lights; equipment lockers, small overhead crane hook, service-drone-like prop; greenery only near the exterior garden edge where plausible.
+- INHABITED EARTH CITY: parked bicycle, street bollard, planter; **not** on an abandoned desert planet or in space.
+- Existing earlier System 6: asteroid/rock foreground, environmental particles, interior warnings/keypad, command instrumentation, service displays, hangar warnings, desert rover/brush/rubble, etc.
+
+These are local Unity implementation details. Check native compile, EditMode/PlayMode tests and visual frames **of the actual rebuilt film** before claiming visual acceptance. A successful Unity compile or presence in the Hierarchy is not proof the feature is in the film. Film QA must show the added detail at audience-viewing scale. Keep props clear of faces, stage center and ship action; no free-floating oversized squares.
+
+System 4 already has editorial insert routing in the native V1/Cinemachine backend, including full-frame hangar gate frames and generic mechanisms. Existing 2026-10-31 r12 30s acceptance fixture verified the hangar gate camera cut and opening but **did not pass entire-film visual QA**: turret and return-to-MOVES composition still need work and some materialization warnings remain. Other proposed soldier-run, cannon-loading, ship repair, bridge explosions are **scenarios to implement/verify**, not claims of publicly available CURRENT actions.
+
+## How ChatGPT should author for Dvora
+1. Listen to an ordinary Hebrew story brief. **Do not ask Dvora to configure Systems 4 or 6.** Propose concrete visual evidence: who moves, what happens, what foreground/action insert proves the cause, and what background ambiance makes each world feel lived-in.
+2. Fetch the exact current `OPEN_CURRENT.json` and its **matching** sealed V1/handle/animation indices; search **all relevant** category chunks, not only featured cards. Inspect actual preview pixels. Select only exact legal `locationHandle`, `animationHandle`, `cast[].id`, legal `actions[]`, `camera` and timing according to the matching schema.
+3. **System 4:** independently framed door/gun/engine/damage inserts must truly occupy the cinematic frame and visibly change. Story cause -> action -> visible consequence -> reaction. Use only the available V1 fields. Do not smuggle in an invented `system4` field or a new camera route. MOVES never becomes System 4.
+4. **System 6:** it runs automatically from valid location/background evidence in normal Unity builds. Use a published legal location handle and optional `backgroundMotion` only where appropriate. **Do not** write `system6`, `density`, `shotLocations`, `extensions`, `valueJson` or internal generator parameters into the closed Simple V1 schema.
+5. If a **specific requested** machine/action/asset is absent from CURRENT, label it `CURRENT_COVERAGE_GAP` with the requested action, exact missing material, affected beat and possible local editable placeholder. Continue with the other valid scenes. **Never invent a handle or claim a local prefab is published.**
+6. Deliver **one** complete `CUTSCENE_SCRIPT_V1` movie through the normal Studio -> Lint -> Import -> Build path. Follow native Film QA. Report separately `SCHEMA`, `CURRENT_ELIGIBILITY`, `BUILD`, `RUNTIME`, `VISUAL_QA`. A partial editable draft is not `FINISHED_FILM_VERIFIED`.
+7. The Copy for AI button should copy the current prompt, a pointer to this guide and the matching CURRENT URLs/identity; if data cannot be fetched, explicitly note missing context. Do not silently fall back to stale cached instructions.
+
+## Plain-language examples
+- "Two soldiers hear an alarm, run through a corridor, the gun loads, and the camera **cuts** to the enormous barrel before firing." MOVES/director/System 4 for the purposeful action; System 6 supplies wall signage, alarm lamps, cables and ambient dashboard screens. Only author exact CURRENT actors and actions.
+- "The ship arrives at an inhabited planet city, then reaches the hangar." System 6 adds bikes, bollards and gardens only to inhabited city backdrops, and lockers/crane/guide-lights only to matching hangars. These props are not autonomous actors.
+- "The captain sees three radar contacts approaching." System 6 may sweep the existing radar and pulse contacts; the **dramatic reveal, reaction close-up and timing** belong to the director.
+
+## Status and proof
+This text is operational authoring guidance, not a claim that the 2026-11-01 local additions have already been check-in'd to Plastic, sealed into CURRENT, visually accepted in Film QA or Smart Published. Before upgrading a status, obtain the exact native Unity test result, latest publication transaction, and filmed frame evidence. Do not overwrite Dvora's films.
