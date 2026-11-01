@@ -1,5 +1,8 @@
 # STARWARS DELTA authoring continuity protocol · version 1
 
+> **Current filming capability guide:** For all film sessions, load [Systems 4 and 6 for Dvora](https://raw.githubusercontent.com/streamDragon/STARWARS_DELTA_STORYBOARDS/main/designer-ai/open-current/SYSTEMS_4_6_CAPABILITIES_FOR_DEVORA.md) alongside the live `designer-ai/open-current/OPEN_CURRENT.json` and V1 source/handle rules. The guide distinguishes local Unity implementation from publicly authorable CURRENT; never invent handles. System 4 directs shots and story event consequences; MOVES owns running/choreography; System 6 enriches the surrounding visual world, including ambient radar/guide-lights, without triggering battles or camera cuts.
+
+
 The repository is the durable editorial record. The website is a reader and copy entrypoint, not a Unity executor or an authenticated editor. Never store credentials on the website. Use the same `START_HERE.txt` for every bootstrap; project progress belongs in records, not in the bootstrap.
 
 ## Open or resume
