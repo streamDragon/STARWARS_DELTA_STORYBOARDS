@@ -1,6 +1,14 @@
 # STARWARS_DELTA: Systems 4 and 6 for Dvora's ChatGPT
 Updated 2026-11-01. This is **guidance, not another JSON schema or a list of legal asset handles**. Always read the fresh `OPEN_CURRENT.json`, `CHATGPT_AUTHORING_INDEX.json`, matching `CUTSCENE_SCRIPT_V1.schema.json`, `AUTHORING_HANDLES.json`, `AUTHORING_RULES_CURRENT.json` and matching preview images first. The GitHub public CURRENT is the **only** source of authorable handles; Unity/Plastic is the source of runtime code and proof. Newly created local pieces are **not** automatically available in this CURRENT.
 
+## On-screen title, evacuation, and alert text (local Unity update 2026-11-02)
+
+Use the **existing V1** `beats[].captions[]` field for cinematic typography. Allowed `kind` values are only `narrator`, `title`, and `impact`, with `placement` top/center/bottom and legal `startOffset` / `durationSeconds`. In the local Cutscene Studio presenter these kinds now animate as readable type-on, restrained title pulse, and short impact shake respectively, evaluated from Timeline time so they can be scrubbed. Hebrew/RTL is kept fully revealed under fade to avoid reversed partial text. No new authoring field, second Timeline, System 4/6 overlay, or separate visual system is permitted.
+
+Example within a legal beat's `captions` array (not a complete movie): `{"text":"EVACUATE NOW","kind":"impact","placement":"center","startOffset":3.0,"durationSeconds":0.9}`. Text may **describe** a hull breach, but it is not evidence of a physical breach; actually stage the effect and camera if CURRENT supports it. Real character dialogue and sound remain in their existing channels. Avoid overlapping caption windows, excessive shaking, or covering faces.
+
+The optional **Procedural Text Animator LITE** Unity Asset Store package 353178 has been requested by the user but was not found installed locally on 2026-11-02. Do **not** claim vendor animation/API usage until imported and checked. These native effects are locally implemented, not proof of compile/test/Film QA, and not a new sealed CURRENT capability.
+
 ## The important separation
 | Layer | Responsible for | NOT responsible for |
 | --- | --- | --- |
