@@ -596,3 +596,17 @@ warn and keep the movie editable.
 
 QA: normal Studio V1 build, native Film QA scanner, inspect captured frames.
 Passing Timeline tests alone is not proof of cinematic meaning.
+
+## SYSTEM4_3D_45S_STUDIO_REFERENCE_20261102
+System 4 has a real 45-second, seven-camera Unity 3D reference called S4_EXTRACTION_45S_V7_SOUNDTRACK (3D ship, 8 animated crew, native Timeline sound). Open STAR WARS DELTA > Cinematics > Open Cutscene Studio and choose CREATE EDITABLE 45s 3D SCENE to create an independently editable native scene and copy of its Timeline. The same action is available from STAR WARS DELTA > Cinematics > System 4 > Create Editable 45s 3D Reference. The create shortcut has passed native Unity compilation and copy-integrity QA (27/27 Timeline bindings, 7 cameras, 8 humanoids, 3 audio tracks, 3D URP Lit ship); full cinematic quality and canonical V1 JSON-to-3D compiler integration remain pending. See SYSTEM4_3D_45S_DVORA_START_HERE.md in the same guide folder.
+DO NOT describe this shortcut as a normal JSON-to-3D compiler or a published CURRENT asset. It edits a new standalone native Unity scene and does not create a MY_CutsceneProject. All new canonical films must still use the exact CUTSCENE_SCRIPT_V1 authoring contract and ordinary Studio LOAD JSON & VALIDATE / BUILD MOVIE. Local-only StarSparrow/CityPeople paths are NOT published V1 handles. Never invent handles, extend V1 schema or use an alternate JSON generator.
+For a 45-second game transition, author seven meaningful linked beats: 0-6 approach, 6-12 crew run, 12-18 face reaction, 18-24 ship reveal, 24-31 engine power/boarding, 31-39 departure, 39-45 destination handoff. MOVES controls characters; System 4 directs inserts/mechanics; System 6 enriches atmosphere. Verify every cut and limb motion in real Play Mode; EditMode Timeline still capture alone is insufficient.
+
+## MARS: THE FIRST FORTRESS (System 7 native 3D, added 2026-11-06)
+- Verified source scene: Assets/_Game/MY_Core/MY_Cutscenes/System7/Scenes/MARS_FIRST_FORTRESS_60S/MARS_FIRST_FORTRESS_60S.unity
+- Editable native Timeline: Assets/_Game/MY_Core/MY_Cutscenes/System7/Scenes/MARS_FIRST_FORTRESS_60S/MARS_FIRST_FORTRESS_60S.playable
+- Film is 60 seconds with eight cameras, 19 Timeline tracks, nine characters, 60 3D prefab instances, English radio dialogue/subtitles, and two HOVL battle rigs planning 264 + 220 events.
+- Narrative: refugee convoy reaches Mars, lands, evacuates families, erects shelters and shield tower, defends the perimeter against raiders, shields the final transport, then raises a protective dome.
+- To inspect: in Unity open STAR WARS DELTA > Cinematics > 3D Scene Library (or System 7 in Cutscene Studio), refresh and select MARS FIRST FORTRESS 60S. This is a Unity Scene/Timeline, not an MP4.
+- Workshop hybrid target: MARS_FIRST_FORTRESS_WORKSHOP_FULL_86S, combining anime intro and epilogue with the 60s 3D scene. Only advertise this as playable when its Workshop project/preview and master timeline have passed validation. Do not mistake the existing Unity scene for a verified Workshop connection or a published website.
+- Keep source HOVL assets and 2D gameplay systems unchanged. No old film variants should be overwritten.
