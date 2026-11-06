@@ -3,16 +3,16 @@
   "schemaVersion": 1,
   "projectionRevision": "ANIMATION_RETRIEVAL_V9_20261003_PREVIEW_SEMANTICS",
   "status": "CURRENT_VERIFIED",
-  "publishTransactionId": "20261031-181447375-bc201d8c",
+  "publishTransactionId": "20261106-205018534-41319da9",
   "requiredCurrent": {
-    "catalogRevision": "7620937187268536756",
-    "contractRevision": "EFC51A7DBFB457FE75658195152581D6843C54052729AD45869C35083B7A08C5",
-    "schemaHash": "B82C1FCCF57D88379EC774C8177FA852DA9736400E23318E3660BB09A9FF7D5E",
-    "snapshotContentHash": "064FBFE46B703B807546A44FBD1D34C733B06AF2A703DC366EBA88EFB9160B4C",
-    "authoringRuleRegistryRevision": "33B46655D1A37CEE92633E98FDC66FEB93EEED850A553E6029755B6AB15FFB40"
+    "catalogRevision": "7620839894298153528",
+    "contractRevision": "06813ADF09103381E2C2BB7EF56ECFDB04576CC472F45D775BF8E5891977C408",
+    "schemaHash": "C0EFEB78612A3ED867DACE26B2930CB3C6AED36776F0E8D797FF95990EC17469",
+    "snapshotContentHash": "3B5E916667F6219A5F347F06BFEF92B6E834285B101586BE7A801FB3D4380577",
+    "authoringRuleRegistryRevision": "80399DACAB7ADEC81ADC0215417942638DFA9A2F2F53105541CADF1A5533E6FF"
   },
   "purpose": "On-demand direct animation materials. Animation is authored from published Animation handles themselves; Actor ownership and Actor animation repertoires are not part of this authoring surface.",
-  "directMaterialCount": 359,
+  "directMaterialCount": 381,
   "directMaterials": {
     "animation__00c30fab": {
       "displayName": "red delta ship",
@@ -29,7 +29,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -217,6 +217,54 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_c3eb59a010a3e012b22d/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__03c55d53": {
+      "displayName": "GVD ROBOT BUNKER Closing",
+      "sourcePath": "Assets/_Game/MY_Art/Turrets/GradiusVolcanoDefense20261028/GVD_ROBOT_BUNKER/GVD_ROBOT_BUNKER_Closing.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 7,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "Closing",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "Closing",
+        "GVD ROBOT BUNKER Closing",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "d3e774eea3258434f06245251c6d14d5668790daf7061ac3a0e2ebd8e17fe2ac",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.291666657,
+          "sampleTime": 0.25,
+          "spriteAssetId": "1490b2df3cee7524bacea3e31e350acc:-6828570169428959056"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_cb615e0c70d31d63bc0b/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -539,13 +587,13 @@
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 8,
+        "keyCount": 12,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -564,13 +612,13 @@
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
-      "previewContentHash": "aa2e0795f4c0443aefff29f5590589df0993c0782930e42693ec9e2490d5417e",
+      "previewContentHash": "0a7c1ec96107a79ca3bf90e7a73f3ca52598365bc1675b4db22ddf04434ccbaf",
       "sampleStrip": [
         {
           "fraction": 0.5,
-          "targetTime": 0.4,
-          "sampleTime": 0.4,
-          "spriteAssetId": "7eff29a9846bda245993456d6efc8d1b:21300000"
+          "targetTime": 0.75,
+          "sampleTime": 0.75,
+          "spriteAssetId": "c964016edadf67e41a956833df94a897:21300000"
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_48d43974aa32561969cb/preview.png",
@@ -592,7 +640,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -733,6 +781,54 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_0e8883a6f253046f477e/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__0a550719": {
+      "displayName": "GVD ROBOT BUNKER Closed",
+      "sourcePath": "Assets/_Game/MY_Art/Turrets/GradiusVolcanoDefense20261028/GVD_ROBOT_BUNKER/GVD_ROBOT_BUNKER_Closed.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 1,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "Closed",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "Closed",
+        "GVD ROBOT BUNKER Closed",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "b051d0c193b275387c4c49abc03a39f1b7ece2b8e623e452edab1bfa5b4a2718",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.0416666679,
+          "sampleTime": 0.0,
+          "spriteAssetId": "b1970c2ce190eed4988f1cbfa58af769:6017878373554743380"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_d984e1f690c0fad594a0/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -996,6 +1092,54 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__0d5f6f85": {
+      "displayName": "GVD SHIP SILO Opened",
+      "sourcePath": "Assets/_Game/MY_Art/Turrets/GradiusVolcanoDefense20261028/GVD_SHIP_SILO/GVD_SHIP_SILO_Opened.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 1,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "Opened",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "GVD SHIP SILO Opened",
+        "OneShot",
+        "one_shot",
+        "Opened",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "414caf72b3767b5b8d01132ec3a4dadde333a979534dab3a704f06da98e17fcf",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.0416666679,
+          "sampleTime": 0.0,
+          "spriteAssetId": "e84be07e1c9b18746be15eedb4c761fb:-9035798432448278659"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_e6ee8680b4b8b9871319/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__0eee61c3": {
       "displayName": "REACTOR SHIELD COIL ANIM",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4PremiumExpansion20261028/Energy/REACTOR_SHIELD_COIL/REACTOR_SHIELD_COIL_ANIM.anim",
@@ -1005,13 +1149,13 @@
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 8,
+        "keyCount": 12,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "shield",
       "animationSemanticActions": [
@@ -1034,13 +1178,13 @@
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
-      "previewContentHash": "5b8fecf86b8795403a9129f068341038a1882e3a604c66e14dda7cbccc67a95d",
+      "previewContentHash": "c219469595f88209cc0b8be456a6020eee3628d77f6707c4ac8afaae77f5f08f",
       "sampleStrip": [
         {
           "fraction": 0.5,
-          "targetTime": 0.4,
-          "sampleTime": 0.4,
-          "spriteAssetId": "9fd62a07483be5947be5f32c9a36f9b0:21300000"
+          "targetTime": 0.75,
+          "sampleTime": 0.75,
+          "spriteAssetId": "3a65d7e232a636f4b92ead8054fa0d39:21300000"
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_fd1b984e42b626ad10e4/preview.png",
@@ -1685,6 +1829,54 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__16060cc8": {
+      "displayName": "GVD SHIP SILO Closed",
+      "sourcePath": "Assets/_Game/MY_Art/Turrets/GradiusVolcanoDefense20261028/GVD_SHIP_SILO/GVD_SHIP_SILO_Closed.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 1,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "Closed",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "Closed",
+        "GVD SHIP SILO Closed",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "fb0bb8bf69756f270dccf430e0aa03aa40bad662b59dd5857e2d90b972aa2de1",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.0416666679,
+          "sampleTime": 0.0,
+          "spriteAssetId": "befa5b66b122d2748b0c0caa2313b4b9:-4384731604366014450"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_d731bef57e2cf1639c92/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__1768cbfb": {
       "displayName": "Run",
       "sourcePath": "Assets/Doctor_Pack02/Animation/Doctor_02/Run.anim",
@@ -1792,13 +1984,13 @@
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 8,
+        "keyCount": 12,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -1818,13 +2010,13 @@
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
-      "previewContentHash": "886207eee24ed0f701fa7ce6c1e363fdceedbfa36afe5069b4f070d0f57a8cd7",
+      "previewContentHash": "e4e137542e003c95041c975979d61e2beefe28efcf088005db163cdbd50c14c0",
       "sampleStrip": [
         {
           "fraction": 0.5,
-          "targetTime": 0.3333333,
-          "sampleTime": 0.333333343,
-          "spriteAssetId": "0c1d6acc2dde63c49997eb7bfddc14f2:21300000"
+          "targetTime": 1.5,
+          "sampleTime": 1.5,
+          "spriteAssetId": "c36ceb06d3bd5c64c961a8d90971de77:21300000"
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_31315f62c85d7717699f/preview.png",
@@ -1846,7 +2038,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -2054,7 +2246,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -2247,6 +2439,59 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__1d4a6ca5": {
+      "displayName": "CIV BOY SCHOOL 01 WALK LEFT",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_BOY_SCHOOL_01/WALK_LEFT/Generated/CIV_BOY_SCHOOL_01_WALK_LEFT.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 20,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "walk",
+      "animationSemanticActions": [
+        "walk"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "character_animation",
+        "loop",
+        "walk"
+      ],
+      "searchTerms": [
+        "character_animation",
+        "CIV BOY SCHOOL 01 WALK LEFT",
+        "Loop",
+        "Other",
+        "SpriteFrame",
+        "walk"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "89a86d6123d31c43aebf9c98e24cf939015f889027cd0dd3bb9cded39aa9ffb1",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.5,
+          "sampleTime": 0.5,
+          "spriteAssetId": "60cddde049cda844c9fea7bf17f389ad:245595832"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_cb9757987f20ad83b715/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__1d8326d8": {
       "displayName": "SpaceRobot01 Walk Loop",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot01/SpaceRobot01_Walk_Loop.anim",
@@ -2315,7 +2560,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -2453,6 +2698,59 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__215900c2": {
+      "displayName": "CIV ORTHODOX ELDER 01 WALK LEFT",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_ORTHODOX_ELDER_01/WALK_LEFT/Generated/CIV_ORTHODOX_ELDER_01_WALK_LEFT.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 20,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "walk",
+      "animationSemanticActions": [
+        "walk"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "character_animation",
+        "loop",
+        "walk"
+      ],
+      "searchTerms": [
+        "character_animation",
+        "CIV ORTHODOX ELDER 01 WALK LEFT",
+        "Loop",
+        "Other",
+        "SpriteFrame",
+        "walk"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "a24109ab3bb353042ea27fac2e8cb4e92f0cc7f41f860ec85e84a2448c8a7069",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.5,
+          "sampleTime": 0.5,
+          "spriteAssetId": "5ad3e4fe18c9aba4193f9c52a4313222:1546076617"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_6780bde1da925b6ea614/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__22ae7943": {
       "displayName": "round turret",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/DGraphics/round_turret.anim",
@@ -2562,7 +2860,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -3165,13 +3463,13 @@
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 8,
+        "keyCount": 12,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -3191,13 +3489,13 @@
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
-      "previewContentHash": "12f5717ed00def76eb49a8e64ae6eea3bb41487940e4477c9b61e849bc8c0a01",
+      "previewContentHash": "c288a123de7facbe596e3911ed060b1ab97d9ede85dc9853d461f417947569b4",
       "sampleStrip": [
         {
           "fraction": 0.5,
-          "targetTime": 0.3333333,
-          "sampleTime": 0.333333343,
-          "spriteAssetId": "73da85fc5c3ebd3499300bb83241df27:21300000"
+          "targetTime": 1.5,
+          "sampleTime": 1.5,
+          "spriteAssetId": "53e3959602e8e81448a8fd0a0f8793c5:21300000"
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_100c32d94c35f4bfa944/preview.png",
@@ -3841,7 +4139,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -3921,6 +4219,53 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__36d78d43": {
+      "displayName": "SYSTEM5 EVIL LOOP 12FPS",
+      "sourcePath": "Assets/WISDOM/CutsceneStudio/Resources/System5/Animations/SimpleClips/SYSTEM5_EVIL_LOOP_12FPS.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 12,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "SYSTEM5_EVIL_LOOP_12FPS",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "Loop",
+        "SpriteFrame",
+        "SYSTEM5 EVIL LOOP 12FPS",
+        "SYSTEM5_EVIL_LOOP_12FPS"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "4ffa123237a8ba6fbe2fb68eb2a7a672951237c1091dd4dd7414b9800e1c010e",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.5,
+          "sampleTime": 0.5,
+          "spriteAssetId": "1f62e7c11270cc047bb9e0a49ee35983:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_b852d9324539dc2a6c7e/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__37befdef": {
       "displayName": "S4 REACTOR CASCADE ACTION",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4ScenarioExpansion20261030/Clips/S4_REACTOR_CASCADE_ACTION.anim",
@@ -3966,6 +4311,53 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_7a8e01c7333f2289e0a5/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__37f2b938": {
+      "displayName": "SYSTEM5 NEUTRAL LOOP 12FPS",
+      "sourcePath": "Assets/WISDOM/CutsceneStudio/Resources/System5/Animations/SimpleClips/SYSTEM5_NEUTRAL_LOOP_12FPS.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 12,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "SYSTEM5_NEUTRAL_LOOP_12FPS",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "Loop",
+        "SpriteFrame",
+        "SYSTEM5 NEUTRAL LOOP 12FPS",
+        "SYSTEM5_NEUTRAL_LOOP_12FPS"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "8915c60fac35eb9e8a0186094d20f3e9de773b45a8d7c561f0f75f70f3d7276b",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.5,
+          "sampleTime": 0.5,
+          "spriteAssetId": "cce4e2b5e548b5b478c6358633df53a3:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_32254672671592e1c93c/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -4180,7 +4572,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -4627,7 +5019,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -4986,13 +5378,13 @@
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 8,
+        "keyCount": 12,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -5011,13 +5403,13 @@
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
-      "previewContentHash": "fa69c0e0239329c3bb0ac3331e972c9de117b3324042853a566ca6e722c832a2",
+      "previewContentHash": "bab5e22c212410a1773aeaa33f516ea05b728baced4a99a2507f55e68368b7e5",
       "sampleStrip": [
         {
           "fraction": 0.5,
-          "targetTime": 0.4,
-          "sampleTime": 0.4,
-          "spriteAssetId": "ca9ce75d494ee8241b6b846883803dba:21300000"
+          "targetTime": 0.75,
+          "sampleTime": 0.75,
+          "spriteAssetId": "a7777d2e37d3537468aa3fcf70e5b72c:21300000"
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_ad939b8afcbec4d587d2/preview.png",
@@ -5393,6 +5785,54 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_c105a746042da64a172d/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__4a4246ee": {
+      "displayName": "GVD ROBOT BUNKER Opened",
+      "sourcePath": "Assets/_Game/MY_Art/Turrets/GradiusVolcanoDefense20261028/GVD_ROBOT_BUNKER/GVD_ROBOT_BUNKER_Opened.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 1,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "Opened",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "GVD ROBOT BUNKER Opened",
+        "OneShot",
+        "one_shot",
+        "Opened",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "575eee91ca667b2b7b50390e544e57ad8fd6795564ab10356b29168c596e5951",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.0416666679,
+          "sampleTime": 0.0,
+          "spriteAssetId": "48398a8ceb6607449af43d6cc580fd9c:3143644997037972962"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_0ed5dd829a9cfb51639e/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -7261,13 +7701,13 @@
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 8,
+        "keyCount": 12,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -7286,13 +7726,13 @@
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
-      "previewContentHash": "ee19b605fc749955f0edb6863cd3467c8d39d194af603561baa74afff59058a6",
+      "previewContentHash": "a1f2fbce71f75202a4a470ce7c8c31ca7412cd57990206ed86db4ba7496dc938",
       "sampleStrip": [
         {
           "fraction": 0.5,
-          "targetTime": 0.4,
-          "sampleTime": 0.4,
-          "spriteAssetId": "fbf989189db276a4fb9c8af5fd31a2ef:21300000"
+          "targetTime": 0.75,
+          "sampleTime": 0.75,
+          "spriteAssetId": "84b44a6c02f80834f8c0f9359f69b40e:21300000"
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_a97b6a4fbbfd88775aed/preview.png",
@@ -8104,6 +8544,54 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_e72119da9b5e6a4decd1/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__6e771d7c": {
+      "displayName": "GVD ROBOT BUNKER Opening",
+      "sourcePath": "Assets/_Game/MY_Art/Turrets/GradiusVolcanoDefense20261028/GVD_ROBOT_BUNKER/GVD_ROBOT_BUNKER_Opening.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 7,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "Opening",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "GVD ROBOT BUNKER Opening",
+        "OneShot",
+        "one_shot",
+        "Opening",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "d3e774eea3258434f06245251c6d14d5668790daf7061ac3a0e2ebd8e17fe2ac",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.291666657,
+          "sampleTime": 0.25,
+          "spriteAssetId": "1490b2df3cee7524bacea3e31e350acc:-6828570169428959056"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_4dae3e516ad88a6635b0/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -8947,7 +9435,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -10857,7 +11345,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -10905,7 +11393,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "MultipleActorOwners",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -11892,13 +12380,13 @@
         "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
         "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
         "bindingPath": "",
-        "keyCount": 8,
+        "keyCount": 12,
         "semanticRequired": false,
         "actorOwnerRequired": false
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "damage",
       "animationSemanticActions": [
@@ -11921,13 +12409,13 @@
       ],
       "selectionScope": "UNSPECIFIED",
       "previewStatus": "AVAILABLE",
-      "previewContentHash": "0362c800e94856ee8366616ed5a1a03b5b32f7dbfe63fb51ddc44df86e22974d",
+      "previewContentHash": "84ee65adb075fbb9a5b7a8c9091fd697fe121aa9834b9bef86cfa02d23a6ecb4",
       "sampleStrip": [
         {
           "fraction": 0.5,
-          "targetTime": 0.4,
-          "sampleTime": 0.4,
-          "spriteAssetId": "cba8bae7e6ffc6e45946134dea4405e7:21300000"
+          "targetTime": 0.75,
+          "sampleTime": 0.75,
+          "spriteAssetId": "53c32b68620ec6940919c11ac360b6e4:21300000"
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_5ff4074d15d1dc9f3d75/preview.png",
@@ -12520,6 +13008,54 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__a17e58b0": {
+      "displayName": "GVD MAGMA FORTRESS Closing",
+      "sourcePath": "Assets/_Game/MY_Art/Turrets/GradiusVolcanoDefense20261028/GVD_MAGMA_FORTRESS/GVD_MAGMA_FORTRESS_Closing.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 7,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "Closing",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "Closing",
+        "GVD MAGMA FORTRESS Closing",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "aea1fa50d13253697d5bb5883478eb067a7413f627018e0474ca6747976d1f71",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.291666657,
+          "sampleTime": 0.25,
+          "spriteAssetId": "cf927958a2be02643bdafd289c229610:5462305387447551178"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_c29a91e455cbe44a1be3/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__a239b6e2": {
       "displayName": "SpaceRobot02 Shoot Hands End",
       "sourcePath": "Assets/_PKG/PKG_SpritesSpaceRobot/Animations/SpaceRobot02/SpaceRobot02_Shoot_Hands_End.anim",
@@ -12755,7 +13291,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "FacetsOnly",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -12804,7 +13340,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -12953,7 +13489,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticProven",
       "animationSemanticAction": "launch",
       "animationSemanticActions": [
@@ -13376,7 +13912,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -13682,7 +14218,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -13712,6 +14248,67 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_2b7dbfa8b9d99bf4cdc2/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__ae13a0d7": {
+      "displayName": "Blade Boss",
+      "sourcePath": "Assets/Playniax/Space Shooter Art Pack 01/Animation Clips/Enemies (Bosses)/Blade/Blade Boss.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 16,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "Mixed",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteAndTransform",
+      "animationPhase": "Loop",
+      "animationState": "New Animation",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "animated_idle",
+        "blade_boss",
+        "boss",
+        "boss_ship",
+        "enemy_boss",
+        "loop",
+        "playniax",
+        "space_shooter_art_pack_01"
+      ],
+      "searchTerms": [
+        "animated_idle",
+        "Blade Boss",
+        "blade_boss",
+        "boss",
+        "boss_ship",
+        "enemy_boss",
+        "Loop",
+        "New Animation",
+        "playniax",
+        "space_shooter_art_pack_01",
+        "SpriteAndTransform"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "2004b18a9d9106eb02e2e2eb14cf3bcd21de92653e3f65a3f806d4011597dbcc",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 2.66666675,
+          "sampleTime": 1.25,
+          "spriteAssetId": "4174f335f7cda4841b525c2e672a6058:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_e3dade4f6d367ab61790/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -13873,6 +14470,59 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_c1a039a7d39c4a94a090/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__b1fba9db": {
+      "displayName": "CIV MAN CASUAL 01 WALK LEFT",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_MAN_CASUAL_01/WALK_LEFT/Generated/CIV_MAN_CASUAL_01_WALK_LEFT.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 20,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "walk",
+      "animationSemanticActions": [
+        "walk"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "character_animation",
+        "loop",
+        "walk"
+      ],
+      "searchTerms": [
+        "character_animation",
+        "CIV MAN CASUAL 01 WALK LEFT",
+        "Loop",
+        "Other",
+        "SpriteFrame",
+        "walk"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "67b0e751f77383517a49435b319eaa8c0fb6e046fd375031f7fd1ec88c43fc71",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.5,
+          "sampleTime": 0.5,
+          "spriteAssetId": "58945a8baad99604fb80d6f17a3b8893:-2065995720"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_9554a1efff6039bc4924/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -14251,7 +14901,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -14595,7 +15245,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -14642,7 +15292,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -16142,6 +16792,54 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__d9ff493f": {
+      "displayName": "GVD MAGMA FORTRESS Opening",
+      "sourcePath": "Assets/_Game/MY_Art/Turrets/GradiusVolcanoDefense20261028/GVD_MAGMA_FORTRESS/GVD_MAGMA_FORTRESS_Opening.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 7,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "Opening",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "GVD MAGMA FORTRESS Opening",
+        "OneShot",
+        "one_shot",
+        "Opening",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "aea1fa50d13253697d5bb5883478eb067a7413f627018e0474ca6747976d1f71",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.291666657,
+          "sampleTime": 0.25,
+          "spriteAssetId": "cf927958a2be02643bdafd289c229610:5462305387447551178"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_00eebf0e016cbdbd733b/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__dae38383": {
       "displayName": "DanteFighter Dive",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/Ships/DanteFighter2D/Animations/DanteFighter_Dive.anim",
@@ -16186,6 +16884,107 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_e0ec5239b77f8a7f550d/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__db3e3b38": {
+      "displayName": "CIV WOMAN SHOPPING 01 WALK LEFT",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicAssets/CharacterAnimations/Civilians/StoryboardSupport/CIV_WOMAN_SHOPPING_01/WALK_LEFT/Generated/CIV_WOMAN_SHOPPING_01_WALK_LEFT.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 20,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticProven",
+      "animationSemanticAction": "walk",
+      "animationSemanticActions": [
+        "walk"
+      ],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Other",
+      "animationSemanticDiagnostic": "Canonical intent is backed by ControllerState, explicit semantic action metadata, or a single unambiguous structural animation name/folder contract.",
+      "semanticFacets": [
+        "character_animation",
+        "loop",
+        "walk"
+      ],
+      "searchTerms": [
+        "character_animation",
+        "CIV WOMAN SHOPPING 01 WALK LEFT",
+        "Loop",
+        "Other",
+        "SpriteFrame",
+        "walk"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "d2606ae073e09661f00a935d682d4eacade9172f36699820e41bd07de03138b0",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.5,
+          "sampleTime": 0.5,
+          "spriteAssetId": "a83508838d590c5459bc59cd70d26410:-1317514201"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_086563b978fe71288db5/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__dc2df2f9": {
+      "displayName": "GVD SHIP SILO Closing",
+      "sourcePath": "Assets/_Game/MY_Art/Turrets/GradiusVolcanoDefense20261028/GVD_SHIP_SILO/GVD_SHIP_SILO_Closing.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 7,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "Closing",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "Closing",
+        "GVD SHIP SILO Closing",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "d1c37b496d441341ebc5b2868bad5c211437aac6e6410c52f0ab93c727674771",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.291666657,
+          "sampleTime": 0.25,
+          "spriteAssetId": "0aa77e62a4cf50b43a465b353a525377:-1523786399853853639"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_af19f389e6b22912c914/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -16287,6 +17086,54 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_4a015d741292618f1903/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__dd7bfb11": {
+      "displayName": "GVD MAGMA FORTRESS Closed",
+      "sourcePath": "Assets/_Game/MY_Art/Turrets/GradiusVolcanoDefense20261028/GVD_MAGMA_FORTRESS/GVD_MAGMA_FORTRESS_Closed.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 1,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "Closed",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "Closed",
+        "GVD MAGMA FORTRESS Closed",
+        "OneShot",
+        "one_shot",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "9ac97e72bb26bc682fd27f82de3236cc2dfa1e34fe9daeffa0e77af8d13a8346",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.0416666679,
+          "sampleTime": 0.0,
+          "spriteAssetId": "8cca2680c798d234b9703961999d56c6:8680417951197176219"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_706a8abe046038848195/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -16610,6 +17457,53 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__e10f2cf7": {
+      "displayName": "SYSTEM5 GOOD LOOP 12FPS",
+      "sourcePath": "Assets/WISDOM/CutsceneStudio/Resources/System5/Animations/SimpleClips/SYSTEM5_GOOD_LOOP_12FPS.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 12,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "SYSTEM5_GOOD_LOOP_12FPS",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "loop"
+      ],
+      "searchTerms": [
+        "Loop",
+        "SpriteFrame",
+        "SYSTEM5 GOOD LOOP 12FPS",
+        "SYSTEM5_GOOD_LOOP_12FPS"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "1adc9c4c114f676fc4be6b80b1cbcf77c27fbd04380bd25ee4ec17bd47122eac",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.5,
+          "sampleTime": 0.5,
+          "spriteAssetId": "d8f718666773074418cde5f305c421f7:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_b25592a2c48a48a2e68b/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__e140e603": {
       "displayName": "TURRET CHATGPT BUILDING LOOP",
       "sourcePath": "Assets/_Game/MY_Core/MY_Art/MY_05_WEAPONS_EFFECTS/3D_TURRET/TURRET_CHATGPT_BUILDING_LOOP.anim",
@@ -16768,7 +17662,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -17066,6 +17960,64 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_90b1ba0c183aceeb197f/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__e8e8c321": {
+      "displayName": "Sphere Ring",
+      "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Sphere/Ring/Sphere Ring.anim",
+      "phase": "loop",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 37,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "FacetsOnly",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "Loop",
+      "animationState": "Sphere Ring",
+      "animationSemanticDiagnostic": "Search facets exist, but canonical intent evidence is not strong enough for authoring.",
+      "semanticFacets": [
+        "enemy_component",
+        "energy_ring",
+        "loop",
+        "playniax",
+        "ring",
+        "rotating",
+        "space_shooter_art_pack_02"
+      ],
+      "searchTerms": [
+        "enemy_component",
+        "energy_ring",
+        "Loop",
+        "playniax",
+        "ring",
+        "rotating",
+        "space_shooter_art_pack_02",
+        "Sphere Ring",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "7ecf641f7a8d7340329ef162b345f409264ce060ee3730c335cfbaea1a7c535c",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 1.54166663,
+          "sampleTime": 1.5,
+          "spriteAssetId": "74ab203e929c4e6b84c7033c10d5f86e:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_fe0e253bb5573ff3c768/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -17369,6 +18321,54 @@
         }
       ],
       "pageImageUrl": "visual-library/assets/asset_e31390a744bd5bd9a720/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
+    "animation__ebc27770": {
+      "displayName": "S4 TURRET CINEMATIC ACTION",
+      "sourcePath": "Assets/_Game/MY_Core/MY_Art/CinematicInserts/System4FullFrameCutaways20261031/Turret/S4_TURRET_CINEMATIC_ACTION.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 8,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "Action",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "Action",
+        "OneShot",
+        "one_shot",
+        "S4 TURRET CINEMATIC ACTION",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "240b008f4344021ca3faf93ed5be6d5b0cfa9c8d4a8145f6264721658c65aace",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 1.0,
+          "sampleTime": 1.0,
+          "spriteAssetId": "88078a256f11e7f43bff8fbc9f8ed9ce:21300000"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_211d7da30a7607577f83/preview.png",
       "atlasPage": null,
       "atlasSlot": null
     },
@@ -17682,6 +18682,54 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__efb2b9e1": {
+      "displayName": "GVD MAGMA FORTRESS Opened",
+      "sourcePath": "Assets/_Game/MY_Art/Turrets/GradiusVolcanoDefense20261028/GVD_MAGMA_FORTRESS/GVD_MAGMA_FORTRESS_Opened.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 1,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "NoOwner",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "Opened",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "GVD MAGMA FORTRESS Opened",
+        "OneShot",
+        "one_shot",
+        "Opened",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "aea1fa50d13253697d5bb5883478eb067a7413f627018e0474ca6747976d1f71",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.0416666679,
+          "sampleTime": 0.0,
+          "spriteAssetId": "d87b26c7e0f78664ba136a78e776b88d:4855360207163386714"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_f5f0c328ee45c9864af3/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__efb46a21": {
       "displayName": "color Boomerang Loop",
       "sourcePath": "Assets/_Game/MY_Prefabs/MyShot/_GENERATED_VariaShotVisuals/Clips/color_Boomerang_Loop.anim",
@@ -17856,7 +18904,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
@@ -18317,6 +19365,54 @@
       "atlasPage": null,
       "atlasSlot": null
     },
+    "animation__f6f83cdb": {
+      "displayName": "GVD SHIP SILO Opening",
+      "sourcePath": "Assets/_Game/MY_Art/Turrets/GradiusVolcanoDefense20261028/GVD_SHIP_SILO/GVD_SHIP_SILO_Opening.anim",
+      "phase": "one_shot",
+      "directMovieMaterial": {
+        "authorable": true,
+        "profile": "SIMPLE_ROOT_SPRITE_SEQUENCE",
+        "reason": "DIRECT_SIMPLE_SPRITE_CLIP",
+        "bindingPath": "",
+        "keyCount": 7,
+        "semanticRequired": false,
+        "actorOwnerRequired": false
+      },
+      "animationTechnicalType": "SpriteSequence",
+      "animationVisualStatus": "Unclassified",
+      "animationOwnershipStatus": "MultipleActorOwners",
+      "animationSemanticStatus": "SemanticUnresolved",
+      "animationSemanticAction": "",
+      "animationSemanticActions": [],
+      "animationMotionType": "SpriteFrame",
+      "animationPhase": "OneShot",
+      "animationState": "Opening",
+      "animationSemanticDiagnostic": "No proven semantic intent or descriptive search facet.",
+      "semanticFacets": [
+        "one_shot"
+      ],
+      "searchTerms": [
+        "GVD SHIP SILO Opening",
+        "OneShot",
+        "one_shot",
+        "Opening",
+        "SpriteFrame"
+      ],
+      "selectionScope": "UNSPECIFIED",
+      "previewStatus": "AVAILABLE",
+      "previewContentHash": "d1c37b496d441341ebc5b2868bad5c211437aac6e6410c52f0ab93c727674771",
+      "sampleStrip": [
+        {
+          "fraction": 0.5,
+          "targetTime": 0.291666657,
+          "sampleTime": 0.25,
+          "spriteAssetId": "0aa77e62a4cf50b43a465b353a525377:-1523786399853853639"
+        }
+      ],
+      "pageImageUrl": "visual-library/assets/asset_a146dc2d85b8c28c9740/preview.png",
+      "atlasPage": null,
+      "atlasSlot": null
+    },
     "animation__fa91d1de": {
       "displayName": "Star",
       "sourcePath": "Assets/Playniax/Space Shooter Art Pack 02/Textures/Enemies/Star/Star.anim",
@@ -18538,7 +19634,7 @@
       },
       "animationTechnicalType": "SpriteSequence",
       "animationVisualStatus": "Unclassified",
-      "animationOwnershipStatus": "ActorOwnerProven",
+      "animationOwnershipStatus": "NoOwner",
       "animationSemanticStatus": "SemanticUnresolved",
       "animationSemanticAction": "",
       "animationSemanticActions": [],
