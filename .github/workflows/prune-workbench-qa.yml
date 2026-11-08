@@ -1,0 +1,23 @@
+name: Prune QA not in Workbench
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 2 * * *"
+permissions:
+  contents: write
+concurrency:
+  group: workbench-qa-prune
+  cancel-in-progress: false
+jobs:
+  cleanup:
+    if: github.repository == 'streamDragon/STARWARS_DELTA_STORYBOARDS'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Clean untracked film QA and old level QA
+        run: node tools/prune-workbench-qa.mjs --apply
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
