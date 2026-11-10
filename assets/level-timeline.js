@@ -10,6 +10,15 @@ function viewport(p,d,t){
  return {x:(Number(p.x)-cameraX)/width*1000+500,
          y:((Number(camera.y)||0)-Number(p.y))/height*562.5+281.25};
 }
+function nextScheduledWave(waves,km){
+ if(!Array.isArray(waves))return null;
+ return waves.filter(w=>Number.isFinite(Number(w.at))&&Number(w.at)>km+0.00001)
+  .sort((a,b)=>Number(a.at)-Number(b.at))[0]||null;
+}
+function waveViewport(p,d,t,w){
+ // Camera-constrained Layer0 spawn anchors do not scroll with the scenery.
+ return viewport(p,d,w&&w.layerAttached===false?0:t);
+}
 function position(w,t,d){
  let p=w.spawn;if(!p)return null;
  let x=p.x,y=p.y;
@@ -61,7 +70,7 @@ function activeShips(w,t){
  }
  return result;
 }
-root.LevelTimeline={project,viewport,position,activeShips};
+root.LevelTimeline={project,viewport,waveViewport,nextScheduledWave,position,activeShips};
 if(typeof document==='undefined')return;
 root.mountLevelTimeline=async function(host,url){
  const controller=new AbortController();host._dispose=()=>{controller.abort();cancelAnimationFrame(raf);};let raf=0;
@@ -83,13 +92,17 @@ root.mountLevelTimeline=async function(host,url){
  const legend=el('p','מסגרת צהובה קבועה: מצלמת המשחק · הרקע גולל שמאלה · חלליות נעות לפי ה־Spline ויוצאות מהמסך · מסלולי QA לפי בחירה','timeline-note');
  const list=el('div',null,'timeline-waves');const buttons=[];
  const roads=(Array.isArray(d.roads)?d.roads:[]).filter(r=>Array.isArray(r.points)&&r.points.length>1).map(r=>({id:r.id,coords:r.points.filter((v,i)=>i%Math.max(1,Math.ceil(r.points.length/180))===0||i===r.points.length-1).map(v=>project(v,d.bounds)).filter(v=>Number.isFinite(v.x)&&Number.isFinite(v.y))}));
- for(const w of d.waves){const b=el('button',w.id+'. '+w.name+' ×'+w.count+' · '+w.at+' שנ׳');b.type='button';b.title=w.note||'מסלול משוער';b.onclick=()=>{stop();range.value=w.at+(w.teleportDelay||0);draw();};list.append(b);buttons.push([w,b]);}
+ for(const w of d.waves){const b=el('button',w.id+'. '+w.name+' ×'+w.count+' · ק״מ '+w.at);b.type='button';b.title=w.note||'מסלול משוער';b.onclick=()=>{stop();range.value=w.at+(w.teleportDelay||0);draw();};list.append(b);buttons.push([w,b]);}
  host.append(title,note,stage,controls,legend,list);let playing=false,last=0;
  function stop(){playing=false;play.textContent='▶ נגן';cancelAnimationFrame(raf);}
  function S(tag,attrs){const node=document.createElementNS(svg.namespaceURI,tag);for(const [k,v]of Object.entries(attrs))node.setAttribute(k,v);svg.append(node);return node;}
  function xy(p,t){return viewport(p,d,t);}
+ function xyWave(p,t,w){return waveViewport(p,d,t,w);}
  function draw(){
-  const t=Number(range.value);readout.textContent=t.toFixed(1)+' שניות / ק״מ משוערים';svg.replaceChildren();
+  const t=Number(range.value);
+  const next=nextScheduledWave(d.waves,t);
+  readout.textContent='ק״מ '+t.toFixed(1)+' · זמן גלילה משוער '+t.toFixed(1)+' שנ׳ · '+(next?'הגל המתוכנן הבא: '+next.id+' בק״מ '+next.at:'אין גלים מתוכננים נוספים');
+  svg.replaceChildren();
   // Overview image is a world-space map. Move it behind the stationary yellow camera frame.
   const left=xy({x:d.bounds.minX,y:d.bounds.maxY},t),right=xy({x:d.bounds.maxX,y:d.bounds.minY},t);
   S('image',{href:asset(playbackImage),x:left.x,y:left.y,width:right.x-left.x,height:right.y-left.y,preserveAspectRatio:'none'});
@@ -101,12 +114,12 @@ root.mountLevelTimeline=async function(host,url){
    b.classList.toggle('current',active);b.setAttribute('aria-pressed',String(active));
    if(!w.spawn){unresolved++;continue;}
    if(showAll.checked&&w.path?.length>1){
-    const points=w.path.map(v=>xy(v,t)).map(q=>q.x+','+q.y).join(' ');
+    const points=w.path.map(v=>xyWave(v,t,w)).map(q=>q.x+','+q.y).join(' ');
     S('polyline',{points,fill:'none',stroke:'#ffd166','stroke-width':1.5,'stroke-dasharray':'5 4',opacity:active?0.65:0.18});
    }
    const ships=activeShips(w,t);
    for(const ship of ships){
-    const p=xy(ship.position,t);
+    const p=xyWave(ship.position,t,w);
     if(p.x<-25||p.x>1025||p.y<-25||p.y>587.5)continue;
     const g=S('g',{opacity:1});
     const dot=document.createElementNS(svg.namespaceURI,'circle');
