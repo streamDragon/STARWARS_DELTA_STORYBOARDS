@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b202a">
+<meta name="description" content="מוקאפ אינטראקטיבי: משחק החוליה החסרה בגמרא גיים. משלימים מחלוקת, שורש ונפקא מינה בכל כיוון.">
+<title>החוליה החסרה • חדר החקירות • גמרא גיים</title>
+<style>
+:root{font-family:"Arial","Noto Sans Hebrew",sans-serif;color:#f9efd5;background:#0b202a;--gold:#ffd790;--aqua:#92d6d2;--rose:#f3b5a1;--light:#f0e6d2}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#2a4852 0%,#142d36 45%,#0c1e27 100%);min-height:100dvh}
+button,a{font:inherit}button{cursor:pointer;-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible{outline:3px solid #fff4ba;outline-offset:3px}
+main{max-width:470px;margin:auto;min-height:100dvh;padding:calc(14px + env(safe-area-inset-top,0px)) 16px calc(18px + env(safe-area-inset-bottom,0px));}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px}.logo{font-size:13px;font-weight:bold;color:#fbe9c6}.logo i{display:inline-flex;width:32px;height:32px;align-items:center;justify-content:center;border:1px solid #fcd98a75;border-radius:12px;background:#162d34;font-size:21px;color:var(--gold);font-style:normal;margin-left:7px}.back{font-size:11px;color:#b2c5c5;text-decoration:none;border-bottom:1px solid #7c999560;padding-bottom:2px}
+.kicker{text-align:center;font-size:12px;font-weight:900;color:var(--gold);letter-spacing:.3px;margin:20px 0 4px}.title{text-align:center;font-size:clamp(26px,6.7vw,33px);line-height:1.08;margin:0;font-weight:900}.subtitle{text-align:center;font-size:13px;color:#c3d4d0;margin:8px 0 16px;line-height:1.38}
+.sugya{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.sugya button{font-size:13px;min-width:88px;padding:10px 14px;background:#344c5266;color:#b9c9c6;border:1px solid #aac3be55;border-radius:28px;font-weight:800}.sugya button.on{color:#223239;background:var(--gold);border-color:#ffe8b0;box-shadow:0 3px 15px #ffd79044}
+.scene-title{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:15px 2px 10px}.scene-title strong{font-size:16px}.scene-title small{font-size:11px;color:#b2c7c6}
+.selector{background:#09232a99;border:1px solid #8babb052;border-radius:17px;padding:9px;display:flex;gap:6px;justify-content:space-between}
+.selector button{flex:1;min-width:0;background:#25414a;border:1px solid #66818a40;border-radius:12px;color:#d8e5df;font-size:12px;font-weight:bold;padding:11px 3px}
+.selector button.active{background:#765d3c;border-color:#f7c976;color:#ffdf9c;box-shadow:inset 0 1px #ffffff32}
+.road{position:relative;margin-top:12px;padding:9px 5px 4px;background:radial-gradient(circle at center,#2b4d52b3 0,#10283144 70%);border-radius:30px;min-height:316px}
+.road::before{content:"";position:absolute;z-index:0;top:35px;bottom:30px;left:calc(100% - 35px);border-left:2px dashed #bdcbbb55}
+.station{position:relative;display:grid;grid-template-columns:50px 1fr;align-items:center;gap:12px;min-height:91px;padding:6px 7px 6px 0}
+.station .orb{grid-column:1;width:49px;height:49px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 30% 30%,#fff0c8,#e7bc71 70%,#977449);color:#26343a;border:3px solid #e7debd79;box-shadow:0 0 0 6px #324a4b,0 6px 16px #0005;font-size:23px;z-index:2}
+.station:nth-child(2) .orb{background:radial-gradient(circle at 25% 25%,#d5f6ef,#69b4ba 70%,#2b767e)}.station:nth-child(3) .orb{background:radial-gradient(circle at 25% 25%,#ffe4d6,#dd9f94 70%,#935852)}
+.station .plate{grid-column:2;min-height:81px;padding:10px 13px;background:linear-gradient(130deg,#2d4850eb,#1b343de0);border-radius:16px 6px 16px 16px;border:1px solid #7ea7a760;box-shadow:0 5px 10px #0002}
+.plate .kind{font-size:12px;font-weight:900;color:#9fd2ce;letter-spacing:.15px}.plate .description{font-size:14px;line-height:1.37;margin-top:4px;white-space:pre-line;font-weight:700}
+.station.missing .orb{background:#16313a;border:2px dashed #ffdd93;color:#ffda91;font-size:26px;box-shadow:0 0 0 6px #384138,0 0 25px #f5c46b55}
+.station.missing .plate{border:2px dashed #eabb70;background:#54462b91;display:flex;flex-direction:column;justify-content:center}
+.station.missing .plate .kind{color:#ffdf9b}.station.missing .plate .description{color:#ffe6b6;letter-spacing:1px;font-size:21px}
+.station.complete .plate{border-color:#d4d788;background:#43513a}.station.complete .orb{box-shadow:0 0 0 6px #365547,0 0 22px #e6cb7d9c}
+.station .stripe{position:absolute;right:29px;top:83px;z-index:1;opacity:.7;font-size:20px;color:#e9cf9f}.station:last-child .stripe{display:none}
+.challenge{margin-top:13px;display:flex;align-items:center;justify-content:space-between;gap:7px}
+.challenge h2{font-size:16px;margin:0;color:var(--gold)}.score{font-size:12px;font-weight:900;border:1px solid #e5bd8066;border-radius:15px;padding:5px 10px;color:#fbe2a8;background:#8c65351c;white-space:nowrap}
+.prompt{font-size:13px;line-height:1.35;color:#dce7dc;margin:7px 0 9px;min-height:18px}
+.options{display:grid;gap:8px}.option{background:linear-gradient(165deg,#36525d,#263d49);border:1px solid #719ca08b;color:#f6f7ee;border-radius:13px;min-height:50px;padding:10px 14px;font-size:14px;font-weight:700;text-align:right;display:flex;align-items:center;gap:10px;line-height:1.33}
+.option .circle{width:25px;height:25px;flex:none;border:1px solid #bcd5cc89;border-radius:50%;display:grid;place-items:center;font-size:12px;color:#fff1ce}
+.option:hover{filter:brightness(1.12)}.option:active{transform:scale(.99)}.option[disabled]{opacity:.72;cursor:default}.option.correct{background:#35583b;border:1px solid #bcd58b}.option.wrong{background:#604541;border:1px solid #b58779}
+.feedback{min-height:25px;font-size:13px;line-height:1.42;color:#ffdca2;margin:8px 2px}
+.explain{margin-top:9px;background:#2e423e;border-right:3px solid #e8c483;border-radius:10px;padding:11px 12px;line-height:1.38;font-size:13px;color:#f6edcf}.explain strong{color:#ffe5a4}.advance{width:100%;border-radius:14px;background:linear-gradient(180deg,#ffdf9e,#edbb6d);color:#322c24;border:0;min-height:49px;font-weight:900;font-size:15px;margin-top:9px;box-shadow:0 3px 0 #8f6835}
+.source{font-size:11px;color:#b9ccc6;margin:12px 0 3px;line-height:1.5}.source a{color:#fbd18c}.fineprint{font-size:10px;color:#859f9e;line-height:1.4;margin:5px 0}
+@media(min-width:550px){main{border-left:1px solid #ffffff10;border-right:1px solid #ffffff10;background:#04121b35}}
+@media(max-height:740px){.kicker{margin-top:10px}.subtitle{margin-bottom:10px}.scene-title{margin-top:8px}.road{min-height:270px}.station{min-height:81px}.station .plate{min-height:72px}.station .stripe{top:72px}.challenge{margin-top:7px}.option{min-height:42px;padding:7px 12px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<header class="top"><span class="logo"><i>ג</i> גמרא גיים · חדר החקירות</span><a href="./cheftza-gavra-mockup.html" class="back">המוקאפ הקודם ←</a></header>
+<p class="kicker">לומדים קדימה · חוקרים אחורה</p>
+<h1 class="title">החוליה החסרה</h1>
+<p class="subtitle">שתי חוליות גלויות. השלישית מחכה שתגלו אותה.</p>
+<div class="sugya" aria-label="בחרו סוגיה">
+<button type="button" data-case="pesach" class="on">🔥 חמץ</button>
+<button type="button" data-case="tzitzit">🧵 ציצית</button>
+<button type="button" data-case="home">🏠 מהחיים</button>
+</div>
+<div class="scene-title"><strong id="caseTitle">חמץ · פסחים כ״א</strong><small id="modeDescription">מה יקרה במקרה חדש?</small></div>
+<div class="selector" role="group" aria-label="בחרו איזו חוליה מסתירים">
+<button type="button" data-missing="nafk" class="active">חסרה נפקא מינה</button>
+<button type="button" data-missing="root">חסר שורש</button>
+<button type="button" data-missing="dispute">חסרה מחלוקת</button>
+</div>
+<div class="road" id="road" aria-label="שלוש החוליות">
+<div class="station" data-id="dispute"><div class="orb">⚖</div><div class="plate"><div class="kind">המחלוקת</div><div class="description"></div></div><span class="stripe">↓</span></div>
+<div class="station" data-id="root"><div class="orb">✦</div><div class="plate"><div class="kind">שורש / סברה</div><div class="description"></div></div><span class="stripe">↓</span></div>
+<div class="station" data-id="nafk"><div class="orb">↗</div><div class="plate"><div class="kind">נפקא מינה</div><div class="description"></div></div></div>
+</div>
+<section aria-label="פתרון החוליה" id="quiz">
+<div class="challenge"><h2 id="quizLabel">מה החוליה החסרה?</h2><div class="score" id="score">✦ 0 נק׳</div></div>
+<p class="prompt" id="prompt"></p>
+<div class="options" id="options"></div>
+<div class="feedback" id="feedback" aria-live="polite"></div>
+<div class="explain" id="explain" hidden></div>
+<button id="advance" type="button" class="advance" hidden>הסתירו חוליה אחרת ↶</button>
+</section>
+<div id="sources" class="source"></div>
+<div id="disclaimer" class="fineprint"></div>
+</main>
+<script>
+(function(){
+"use strict";
+const data={
+pesach:{
+ title:"חמץ · פסחים כ״א ע״א",tag:"חפצא / גברא",
+ dispute:"ר׳ יהודה: שריפה דווקא\nחכמים: גם פירור לרוח או זריקה לים",
+ root:"לפי ביאור ר׳ חיים:\nמעשה בגוף החמץ ↔ חובת האדם להשביתו",
+ nafk:"פירר את החמץ והשליכו לים:\nלחכמים מועיל, ולר׳ יהודה נדרשת שריפה",
+ questions:{
+ nafk:{prompt:"החמץ נזרק לים בלי להישרף. מה נובע משתי הסברות?",choices:["לחכמים זו דרך ביעור; לר׳ יהודה נדרשת שריפה","לר׳ יהודה זו דרך ביעור; לחכמים נדרשת שריפה","שניהם מחייבים דווקא אש"],correct:0},
+ root:{prompt:"איזה הסבר למדני יכול לעמוד מאחורי העמדות?",choices:["חיוב במעשה שריפה בחמץ מול חובת האדם להשביתו","המחלוקת היא רק על מספר חתיכות החמץ","המחלוקת היא רק מי יכול להחזיק את החמץ"],correct:0},
+ dispute:{prompt:"איזו מחלוקת מתאימה לשורש ולמקרה שנגלו?",choices:["האם צריך לשרוף או שאפשר להשבית בדרכים נוספות","האם חמץ מותר לאכילה לאחר הפסח","האם מחפשים חמץ ביום או בלילה"],correct:0}
+ },
+ explain:"המשנה מביאה את ההכרעה המעשית. ר׳ חיים מציע להסביר אותה דרך חפצא וגברא. זו קריאה למדנית, לא ניסוח מפורש במשנה; בסוגיה יש גם דיון על זמן הביעור.",
+ sources:[["משנה פסחים ב׳, א׳","https://he.wikisource.org/wiki/משנה_פסחים_ב_א"],["ביאור ר׳ חיים (סקירה)","https://mechonhadar.org.il/בית-מדרש-וירטואלי/דברי-תורה/ביעור-חמץ-על-שום-מה/"]],
+ disclaimer:"דוגמה לפי פשט המשנה; גבולות שיטת ר׳ יהודה תלויים גם בזמן הביעור ובביאורי הסוגיה. לפני שימוש לתלמידים נדרשת ביקורת תורנית."
+},
+tzitzit:{
+ title:"ציצית · מנחות מ״ב ע״ב",tag:"חובת טלית / גברא",
+ dispute:"מחלוקת בהבנת ברכת עשיית הציצית:\nהאם העשייה עצמה מסיימת את המצווה?",
+ root:"חובת הטלית ↔ חובת האדם הלובש\nהאם העשייה כבר השלימה את המצווה?",
+ nafk:"לפי ההלכה: טלית בארון פטורה;\nמברכים על הלבישה ולא על העשייה",
+ questions:{
+ nafk:{prompt:"לפי ההכרעה שציצית חובת גברא, מה הדין בטלית שבארון?",choices:["אין חיוב ציצית כל עוד אינה נלבשת","חובה לברך בזמן הכנת הציציות","החיוב חל על כל בגד גם בלי לבישה"],correct:0},
+ root:{prompt:"איזה שורש מסביר ברכה על עשייה לעומת ברכה בלבישה?",choices:["חובת הבגד לעומת חובת האדם הלובש","השאלה היא רק מה צבע הבגד","השאלה היא רק כמה זמן לוקח לקשור"],correct:0},
+ dispute:{prompt:"איזו שאלה מתאימה לשורש ולמקרה?",choices:["האם עשיית הציצית היא כבר גמר המצווה?","מי רשאי למכור טלית?","כמה ימים מותר לשמור טלית?"],correct:0}
+ },
+ explain:"במנחות מ״ב ע״ב הגמרא תולה מחלוקת בברכה על עשיית הציצית בשאלה אם ציצית היא חובת טלית או גברא. להלכה נפסק שחובת גברא היא.",
+ sources:[["מנחות מ״ב ע״ב","https://he.wikisource.org/wiki/מנחות_מב_ב"],["שולחן ערוך או״ח י״ט, א׳","https://he.wikisource.org/wiki/שולחן_ערוך_אורח_חיים_יט_א"]],
+ disclaimer:"הניסוח מפשט את הדיון בגמרא לצורך הדגמה. תרגיל לימודי, לא פסיקת הלכה."
+},
+home:{
+ title:"מהחיים · הבית הנקי",tag:"מעשה / תוצאה",
+ dispute:"שני ניסוחים:\n״אני חייב לנקות״ ↔ ״הבית צריך להיות נקי״",
+ root:"חובה לבצע פעולה ↔ יעד של תוצאה\nמי פועל לעומת מה צריך להתקיים",
+ nafk:"מישהו אחר ניקה:\nהתוצאה הושגה, גם בלי שאני ניקיתי",
+ questions:{
+ nafk:{prompt:"אם המטרה היא בית נקי ומישהו אחר ניקה, מה קרה?",choices:["היעד הושג אף שאינני זה שניקה","היעד לא הושג כי לא אני ניקיתי","אי אפשר לדעת אם הבית נקי ממי שביצע"],correct:0},
+ root:{prompt:"מה ההבדל המושגי בין שני הניסוחים?",choices:["חובת פעולה אישית לעומת יעד של תוצאה","ניקיון בבוקר לעומת ניקיון בערב","בית גדול לעומת בית קטן"],correct:0},
+ dispute:{prompt:"איזו שאלה משתקפת בתוצאה ובשורש?",choices:["האם אני חייב לנקות, או שהבית צריך להיות נקי?","באיזה צבע כדאי לצבוע את החדר?","האם הבית נבנה לפני שנים?"],correct:0}
+ },
+ explain:"זו אנלוגיה מחיי היומיום בלבד: הבדל בין לעשות פעולה לבין לדאוג למצב. מכאן לא נובע שאין אחריות אישית; כדי לקבוע חובה צריך לדעת מי הטיל אותה ומה בדיוק נדרש.",
+ sources:[],
+ disclaimer:"תרגיל חשיבה מחיי היומיום. אין כאן מחלוקת הלכתית או מקור תלמודי."
+}
+};
+const modes=["nafk","root","dispute"];
+const modeText={nafk:"מה יקרה במקרה חדש?",root:"מה ההסבר שמתחת לדין?",dispute:"מה בדיוק המחלוקת?"};
+let which="pesach",missing="nafk",score=0,attempts=0,completed=false;
+const id=(x)=>document.getElementById(x);
+function el(tag,cl,text){const e=document.createElement(tag);if(cl)e.className=cl;if(text!==undefined)e.textContent=text;return e;}
+function chooseCase(next){which=next;attempts=0;completed=false;update();}
+function chooseMode(next){missing=next;attempts=0;completed=false;update();}
+function renderSources(c){const slot=id("sources");slot.replaceChildren();if(c.sources.length){slot.append("לעיון במקור: ");c.sources.forEach(([name,url],i)=>{if(i)slot.append(" · ");const a=el("a","",name);a.href=url;a.target="_blank";a.rel="noopener";slot.append(a);});}id("disclaimer").textContent=c.disclaimer;}
+function update(){
+ const c=data[which];const q=c.questions[missing];
+ id("caseTitle").textContent=c.title;
+ id("modeDescription").textContent=modeText[missing];
+ id("prompt").textContent=completed?"החוליה הושלמה. אפשר לבדוק כיוון נוסף.":q.prompt;
+ id("score").textContent="✦ "+score+" נק׳";
+ document.querySelectorAll("[data-case]").forEach(b=>{const active=b.dataset.case===which;b.classList.toggle("on",active);b.setAttribute("aria-pressed",String(active));});
+ document.querySelectorAll("[data-missing]").forEach(b=>{const active=b.dataset.missing===missing;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));});
+ document.querySelectorAll(".station").forEach(node=>{
+ const key=node.dataset.id;node.classList.toggle("missing",key===missing&&!completed);node.classList.toggle("complete",key===missing&&completed);
+ const desc=node.querySelector(".description");const orb=node.querySelector(".orb");
+ desc.textContent=key===missing&&!completed?" ? ":c[key];
+ orb.textContent=key===missing&&!completed?"?":{dispute:"⚖",root:"✦",nafk:"↗"}[key];
+ });
+ const options=id("options");options.replaceChildren();
+ q.choices.forEach((choice,index)=>{
+ const button=el("button","option");button.type="button";button.disabled=completed;
+ button.appendChild(el("span","circle",String(index+1)));button.appendChild(el("span","",choice));
+ if(completed&&index===q.correct)button.classList.add("correct");
+ button.addEventListener("click",()=>answer(index,button));options.appendChild(button);
+ });
+ id("quizLabel").textContent=completed?"✓ מצאתם את החוליה":"בחרו את החוליה החסרה";
+ const explanation=id("explain");explanation.hidden=!completed;explanation.replaceChildren();
+ if(completed){explanation.appendChild(el("strong","",which==="home"?"מה למדנו?":"ההסבר והמקור"));explanation.appendChild(document.createTextNode(" "+c.explain));}
+ const next=id("advance");next.hidden=!completed;
+ id("feedback").textContent="";
+ renderSources(c);
+}
+function answer(index,button){
+ if(completed)return;
+ const c=data[which];const q=c.questions[missing];
+ attempts++;
+ if(index!==q.correct){
+  button.classList.add("wrong");id("feedback").textContent="עוד לא מסתדר עם שתי החוליות. חפשו מה שתיהן באמת מסבירות.";
+  return;
+ }
+ completed=true;
+ score+=attempts===1?10:5;
+ update();id("feedback").textContent=attempts===1?"+10 נקודות! ההיגיון מתחבר.":"+5 נקודות! הגעתם לחוליה דרך ניסיון נוסף.";
+}
+document.querySelectorAll("[data-case]").forEach(b=>b.addEventListener("click",()=>chooseCase(b.dataset.case)));
+document.querySelectorAll("[data-missing]").forEach(b=>b.addEventListener("click",()=>chooseMode(b.dataset.missing)));
+id("advance").addEventListener("click",()=>chooseMode(modes[(modes.indexOf(missing)+1)%modes.length]));
+update();
+})();
+</script>
+</body>
+</html>
