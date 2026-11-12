@@ -3,210 +3,145 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#10242b">
-<title>חדר החקירות | מוקאפ אינטראקטיבי | גמרא גיים</title>
+<meta name="theme-color" content="#142932">
+<title>חפצא וגברא | הדילמה של יוסי | גמרא גיים</title>
 <style>
-:root{font-family:Arial,"Noto Sans Hebrew",sans-serif;color:#f8f0da;background:#101f28;--gold:#f4c97c;--aqua:#80d4dc;--red:#eead9e;--panel:#172c35}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0%,#294451 0%,#142731 43%,#0b1820 100%);min-height:100vh}
-button,a{font:inherit}button{cursor:pointer;-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible{outline:3px solid #ffdf8b;outline-offset:3px}
-.shell{width:min(100%,430px);margin:0 auto;min-height:100dvh;display:flex;flex-direction:column;padding:calc(14px + env(safe-area-inset-top,0px)) 18px calc(10px + env(safe-area-inset-bottom,0px));background:linear-gradient(180deg,rgba(6,19,27,.16),rgba(9,18,22,.34))}
-.head{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:.1px}
-.brand-mark{width:37px;height:37px;display:grid;place-items:center;border:1.5px solid rgba(244,201,124,.65);border-radius:12px;background:linear-gradient(150deg,#314651,#13242d);font:800 23px Georgia;color:var(--gold);box-shadow:0 3px 10px #0004}
-.preview{font-size:10px;letter-spacing:.2px;border:1px solid #8fa3a566;background:#dce6e71a;padding:7px 9px;border-radius:20px;color:#e1e9e5;white-space:nowrap}
-.topline{display:flex;justify-content:space-between;align-items:center;margin-top:15px;font-size:12px;color:#cbd7d1}
-.little-dots{display:flex;gap:6px;align-items:center;direction:ltr}.little-dots i{width:22px;height:5px;border-radius:9px;background:#56707a;display:block}.little-dots i.done{background:var(--gold)}
-.title-block{text-align:center;padding:5px 0 7px}
-.title-block .eyebrow{font-weight:800;color:var(--gold);font-size:12px;letter-spacing:.5px}
-.title-block h1{font-size:clamp(23px,6vw,29px);line-height:1.13;margin:6px 0 6px;font-weight:900}
-.title-block p{font-size:16px;line-height:1.35;margin:0;color:#e8ecdf;min-height:22px}
-.scene{min-height:300px;flex:1 1 305px;max-height:415px;position:relative;overflow:hidden;border-radius:26px 26px 19px 19px;border:1px solid #70838a55;box-shadow:0 12px 32px #0005,inset 0 0 30px #0004;background:radial-gradient(ellipse at 50% 45%,#52646d 0%,#2c444e 43%,#172934 73%,#0e202a 100%)}
-.scene::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:24px;background:linear-gradient(90deg,#0005,transparent 19%,transparent 81%,#0005),linear-gradient(0deg,#050f13a6,transparent 30%)}
-.arch{position:absolute;top:7%;left:5%;right:5%;height:88%;border:10px solid #60717a31;border-bottom:0;border-radius:130px 130px 0 0;box-shadow:inset 0 0 0 2px #e9d5a124}
-.art{position:absolute;width:100%;height:100%;inset:0;z-index:2;overflow:visible}
-.art .pulse{transition:opacity .25s,transform .25s;transform-origin:center;opacity:.12}
-.scene.pick-person .pulse.person{opacity:.85}.scene.pick-object .pulse.object{opacity:.85}
-.art .person-tallit{opacity:0;transform:translate(-22px,-10px);transition:transform .45s,opacity .45s}
-.scene.show-clothing .person-tallit{opacity:1;transform:translate(0,0)}
-.tapzone{position:absolute;z-index:4;top:24%;bottom:15%;width:39%;background:transparent;border:0;border-radius:28px}.tapzone.object{left:4%}.tapzone.person{right:4%}
-.tapzone:hover{background:#ffec9910}
-.scene-label{position:absolute;z-index:3;bottom:11px;padding:6px 11px;border-radius:12px;font-size:13px;font-weight:900;min-width:102px;text-align:center;backdrop-filter:blur(8px)}
-.scene-label.object{left:15px;background:#623b40dc;border:1px solid #df9c8e80;color:#ffe1d9}.scene-label.person{right:15px;background:#244a5bdc;border:1px solid #8ac7d980;color:#dffaff}
-.scene .clue{position:absolute;z-index:5;top:10px;right:50%;transform:translateX(50%);font-size:12px;color:#f5e9c4;background:#10252c99;padding:5px 12px;border-radius:20px;border:1px solid #f8dba84a}
-.answer-section{margin-top:13px;min-height:100px}
-.question-mini{text-align:center;font-weight:800;color:var(--gold);font-size:15px;margin:0 0 10px}
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.choice{min-height:63px;background:linear-gradient(165deg,#31566a,#1e3c4c);color:#f9ffff;border:1px solid #7aafc38c;border-radius:18px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:18px;font-weight:900;box-shadow:inset 0 1px #ffffff23,0 5px 10px #0002;transition:transform .1s,filter .2s}
-.choice.object{background:linear-gradient(165deg,#8c545a,#54343d);border-color:#d3928e96}.choice.person{background:linear-gradient(165deg,#315d70,#21404f)}.choice:active{transform:scale(.96)}.choice:hover{filter:brightness(1.1)}.choice .pict{font-size:21px}
-.feedback{color:#ffebc4;text-align:center;font-size:13px;min-height:20px;margin-top:8px;line-height:1.3}
-.result{min-height:104px;border:1px solid #cca86d99;background:linear-gradient(130deg,#38413d,#243537);border-radius:18px;text-align:center;padding:12px 14px;color:#fdf4da}
-.result strong{display:block;font-size:21px;color:#ffd68d;margin-bottom:5px}.result p{margin:0;font-size:14px;line-height:1.4}
-.next{width:100%;background:linear-gradient(180deg,#ffdda0,#eebc68);border:0;color:#3e2a18;font-size:17px;font-weight:900;border-radius:16px;padding:13px;margin-top:10px;box-shadow:0 3px 0 #a27d45}
-.source{font-size:11px;color:#c6c9be;text-align:center;margin:9px 0 0}.source a{color:#f1d19a;text-decoration:underline}
-.foot{border-top:1px solid #c5d4c126;margin-top:12px;padding-top:10px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
-.case-tab{color:#c5d7d6;background:transparent;border:1px solid transparent;min-height:44px;border-radius:12px;font-size:13px;font-weight:800;padding:7px 2px}
-.case-tab.active{border-color:#e5bb7788;color:#ffda96;background:#c6a56c13}.case-tab span{font-size:17px;display:block;margin-bottom:2px}
-.disclaimer{font-size:10px;line-height:1.3;color:#849ca0;text-align:center;margin-top:7px}
-@media (max-height:760px){.shell{padding-top:10px;padding-bottom:6px}.topline{margin-top:8px}.title-block{padding:2px 0 5px}.title-block h1{margin:3px 0}.scene{min-height:250px;max-height:320px}.answer-section{margin-top:8px}.choice{min-height:52px}.foot{margin-top:7px;padding-top:6px}.case-tab{min-height:35px}.disclaimer{margin-top:3px}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+:root{font-family:Arial,"Noto Sans Hebrew",sans-serif;color:#fff7e9;background:#10232b;--gold:#ffd37f;--aqua:#74d9d6;--cream:#f6ebd3}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 0%,#315060,#142933 53%,#0c1c25)}
+button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.shell{max-width:490px;margin:auto;min-height:100dvh;padding:calc(12px + env(safe-area-inset-top)) 16px calc(18px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:10px}
+.head{display:flex;align-items:center;justify-content:space-between;gap:9px}.logo{display:flex;align-items:center;gap:9px;font-size:17px;font-weight:900}.seal{width:37px;height:37px;display:grid;place-items:center;background:#f3c678;color:#2c2922;font:900 24px Georgia;border-radius:12px}.label-small{font-size:11px;color:#b4cdce;font-weight:500;display:block;margin-top:2px}.mock{font-size:10px;border:1px solid #a6bdbb65;color:#bed3d3;padding:7px 9px;border-radius:100px;white-space:nowrap}
+.progress{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#bcd3ce;font-size:12px;margin-top:5px}.bars{direction:ltr;display:flex;flex:1;gap:5px}.bars i{display:block;height:5px;border-radius:8px;background:#53717a;flex:1;transition:background .2s}.bars i.on{background:#f2c578}
+.kicker{color:#ffd48c;font-size:12px;font-weight:900;text-align:center;letter-spacing:.1px}.title{font-size:clamp(23px,6vw,30px);font-weight:900;line-height:1.17;text-align:center;margin:0}.subtitle{font-size:15px;line-height:1.43;color:#e7e7d6;text-align:center;margin:0;min-height:39px}
+.scene{position:relative;border-radius:25px;overflow:hidden;border:1px solid #86a5a578;box-shadow:0 14px 32px #0004;background:#27434d;isolation:isolate}
+.scene svg{display:block;width:100%;height:auto;aspect-ratio:420/265}.scene:after{content:"";pointer-events:none;position:absolute;inset:0;box-shadow:inset 0 -20px 40px #0b192755}
+.scene .focus{opacity:0;transition:opacity .3s}.scene.focus-cloth .focus.cloth,.scene.focus-person .focus.person{opacity:1}
+.scene .tallit{transform-origin:146px 156px;transition:filter .25s}.scene.focus-cloth .tallit{filter:drop-shadow(0 0 8px #ffe5a5)}
+.scene .actor{transition:filter .25s}.scene.focus-person .actor{filter:drop-shadow(0 0 9px #87f2e9)}
+.overlay{position:absolute;inset:auto 8px 10px;display:flex;justify-content:space-between;gap:8px;z-index:3;pointer-events:none}.tag{background:#132c38e6;border:1px solid #ffffff70;border-radius:11px;padding:6px 10px;font-size:12px;font-weight:900;backdrop-filter:blur(5px)}.tag.cloth{color:#ffdd9f}.tag.person{color:#a5f0ef}
+.bubble{background:#fff3d9;color:#31414a;border-radius:18px 18px 6px 18px;margin:-26px 14px 0;padding:11px 14px;position:relative;z-index:4;box-shadow:0 7px 15px #0004;min-height:48px;font-size:15px;font-weight:800;line-height:1.4}
+.prompt{color:#ffdc96;font-size:16px;font-weight:900;text-align:center;min-height:22px;margin-top:3px}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}.choice{min-height:79px;padding:9px 7px;border-radius:17px;color:#fefdf5;background:linear-gradient(160deg,#2e5569,#183747);border:1px solid #86bbc3a6;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;font-weight:900;font-size:15px;box-shadow:0 4px 0 #091b23}.choice:first-child{background:linear-gradient(160deg,#826147,#594334);border-color:#e9bd80ab}.choice .emoji{font-size:27px}.choice:active{transform:translateY(3px);box-shadow:0 1px 0 #091b23}
+.lenses{display:grid;grid-template-columns:1fr 1fr;gap:10px}.lens{background:#284652;border:1px solid #7c9da6;border-radius:15px;min-height:64px;color:white;padding:9px;font-size:15px;font-weight:900}.lens.active{border:2px solid #f3d397;background:#574f41}.lens small{display:block;font-size:12px;color:#b8d9dc;font-weight:600;margin-top:4px}.lens.active small{color:#fce2b3}
+.explain{font-size:14px;line-height:1.45;text-align:center;color:#e4f2ec;min-height:39px;padding:7px 13px;border:1px solid #a6c7c44a;border-radius:14px;background:#d8e9e711}.explain strong{color:#ffdb92}
+.next{background:linear-gradient(#ffe0a6,#efbe6b);color:#3a2b1c;border:0;border-radius:17px;padding:13px 16px;font-weight:900;font-size:17px;width:100%;box-shadow:0 4px 0 #ad8046;min-height:48px}.next[hidden],.choices[hidden],.lenses[hidden],.explain[hidden],.source[hidden]{display:none!important}
+.source{background:#132c37;border:1px solid #d4bd8f65;border-radius:17px;padding:13px;text-align:center;font-size:14px;line-height:1.6}.source strong{color:#ffe0a4}.source q{display:block;color:#e6f0e8;font-size:16px;font-weight:900;margin-bottom:6px}.source a{color:#a6e9eb}.source small{display:block;color:#c7d5d1;margin-top:6px;font-size:12px}
+.note{font-size:11px;text-align:center;line-height:1.3;color:#a1bab8;margin-top:auto}.note b{color:#e4d1a9}
+@media(max-height:750px){.shell{gap:7px;padding-top:7px}.subtitle{min-height:0;font-size:14px}.scene svg{max-height:222px}.bubble{padding:8px 10px;min-height:40px;margin-top:-20px}.choice{min-height:63px}.explain{min-height:0;padding:6px}.title{font-size:24px}}
+@media(max-width:340px){.choice{font-size:13px}.shell{padding-left:10px;padding-right:10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important}}
 </style>
 </head>
 <body>
-<div class="shell">
-<header class="head"><div class="brand"><div class="brand-mark">ג</div><div>גמרא גיים<small style="display:block;font-size:11px;font-weight:500;color:#a9c2c4">בית המדרש / חדר החקירות</small></div></div><span class="preview">מוקאפ • לא Unity</span></header>
-<div class="topline"><span id="caseNo">חקירה 1 מתוך 3</span><span class="little-dots" id="progress"><i class="done"></i><i></i><i></i></span><span id="topic">חפצא / גברא</span></div>
-<section class="title-block"><div class="eyebrow" id="eyebrow">ציצית · מקרה ראשון</div><h1 id="caseTitle">הטלית בארון</h1><p id="question">איפה נמצא החיוב?</p></section>
-<main class="scene" id="scene" aria-label="זירת החקירה">
-<div class="arch"></div><div class="clue" id="sceneClue">געו בדמות או בחרו למטה</div>
-<svg class="art" viewBox="0 0 390 360" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+<main class="shell">
+<header class="head"><div class="logo"><div class="seal">ג</div><div>גמרא גיים<span class="label-small">לומדים לחשוב כמו הגמרא</span></div></div><span class="mock">מוקאפ אינטראקטיבי</span></header>
+<div class="progress"><span id="progressText">שלב 1 · המציאות</span><div class="bars" id="bars"><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
+<div class="kicker" id="kicker">מנחות מ״ב ע״ב · ציצית</div>
+<h1 class="title" id="title">רגע לפני שמתלבשים</h1>
+<p class="subtitle" id="subtitle">יוסי יוצא מהמקלחת בבוקר. חברו מסיים לקשור ציציות בבגד ארבע כנפות חדש.</p>
+<section class="scene" id="scene" aria-label="איור חדר: בגד ארבע כנפות עם ציציות ליד יוסי">
+<svg viewBox="0 0 420 265" role="img" aria-label="יוסי עומד ליד בגד ארבע כנפות. בחוץ בוקר.">
 <defs>
-<radialGradient id="halo"><stop stop-color="#ffe6ad" stop-opacity=".82"/><stop offset="1" stop-color="#fff0bf" stop-opacity="0"/></radialGradient>
-<linearGradient id="stone" x2="0" y2="1"><stop stop-color="#789095"/><stop offset="1" stop-color="#324b50"/></linearGradient>
-<linearGradient id="floor" x2="0" y2="1"><stop stop-color="#b69a73"/><stop offset="1" stop-color="#523f34"/></linearGradient>
-<linearGradient id="robe" x2="0" y2="1"><stop stop-color="#e9ddbd"/><stop offset="1" stop-color="#c4b28a"/></linearGradient>
+<linearGradient id="wall" x2="0" y2="1"><stop stop-color="#66858a"/><stop offset="1" stop-color="#304d5a"/></linearGradient>
+<linearGradient id="floor" x2="0" y2="1"><stop stop-color="#a48560"/><stop offset="1" stop-color="#654c3b"/></linearGradient>
+<linearGradient id="shirt" x2="0" y2="1"><stop stop-color="#427e97"/><stop offset="1" stop-color="#254a61"/></linearGradient>
+<radialGradient id="sun"><stop stop-color="#fff6bd" stop-opacity=".93"/><stop offset="1" stop-color="#fff8af" stop-opacity="0"/></radialGradient>
 </defs>
-<path d="M0 288 Q195 253 390 287 L390 360 L0 360Z" fill="url(#floor)" opacity=".77"/>
-<path d="M0 306H390 M80 294L38 360 M185 280L175 360 M307 290L357 360" stroke="#edca9454" stroke-width="2"/>
-<path d="M0 54H390 M28 48V288 M362 48V288" stroke="#a4b2a33f" stroke-width="7"/>
-<path d="M30 50Q195 -45 360 50" stroke="#ffda8c3a" stroke-width="5" fill="none"/>
-<ellipse class="pulse object" cx="110" cy="186" rx="100" ry="119" fill="url(#halo)"/>
-<ellipse class="pulse person" cx="275" cy="175" rx="105" ry="135" fill="url(#halo)"/>
-<g id="objectArt">
-<!-- folded four-corner garment, its four corners remain visible -->
-<ellipse cx="110" cy="281" rx="91" ry="16" fill="#182b2acc"/>
-<path d="M53 274 L53 238 Q110 228 167 238 L167 274 Q111 284 53 274Z" fill="#684939"/>
-<path d="M64 242L155 242 L155 266 L64 266 Z" fill="#ac8160"/>
-<path d="M85 112Q111 96 137 111L167 218Q110 242 53 218Z" fill="#e8dec9" stroke="#fff3d9" stroke-width="3"/>
-<path d="M85 112L68 219 M136 112L153 219" stroke="#334c64" stroke-width="8" opacity=".96"/>
-<path d="M92 114L78 216 M129 114L143 216" stroke="#fff4eb" stroke-width="2"/>
-<path d="M75 212L68 254 M87 221L82 259 M144 214L152 256 M155 209L166 248" stroke="#e8d4a1" stroke-width="2.4" stroke-linecap="round"/>
-<path d="M91 111Q110 126 130 111" stroke="#b2a38b" stroke-width="3" fill="none"/>
+<rect width="420" height="265" fill="url(#wall)"/>
+<path d="M0 204Q210 188 420 204V265H0Z" fill="url(#floor)"/>
+<path d="M0 224H420 M50 211L20 265 M190 200L174 265 M330 211L399 265" fill="none" stroke="#d2ac7840" stroke-width="2"/>
+<rect x="20" y="30" width="110" height="118" rx="9" fill="#d6bf92" stroke="#edd8a7" stroke-width="6"/>
+<rect x="26" y="36" width="98" height="106" rx="4" fill="#8ec8d3"/>
+<circle cx="94" cy="65" r="24" fill="#ffdb80"/><ellipse cx="92" cy="68" rx="70" ry="70" fill="url(#sun)"/>
+<path d="M27 127Q55 112 79 125T125 117V143H27Z" fill="#557e6d"/>
+<path d="M75 35V143 M26 91H126" stroke="#e4d5b9" stroke-width="5"/>
+<rect x="365" y="36" width="38" height="169" rx="4" fill="#2b4651" stroke="#95a9a1" stroke-width="5"/><circle cx="380" cy="129" r="4" fill="#fbd58b"/>
+<path d="M55 221L86 163L195 163L227 220Z" fill="#74513f" stroke="#d3a67a" stroke-width="5"/>
+<path d="M77 217V256 M205 216V257" stroke="#533c35" stroke-width="10"/>
+<ellipse cx="146" cy="213" rx="98" ry="13" fill="#192b3355"/>
+<ellipse class="focus cloth" cx="145" cy="164" rx="100" ry="80" fill="url(#sun)"/>
+<g class="tallit">
+<path d="M101 113L185 112L197 183L88 184Z" fill="#fff6df" stroke="#f3e7cc" stroke-width="4"/>
+<path d="M95 158L193 158 M93 169L195 169" stroke="#3b637d" stroke-width="7"/>
+<path d="M107 117L181 117" stroke="#dacbaa" stroke-width="3"/>
+<path d="M98 178L89 211 M105 181L104 217 M185 179L189 216 M193 178L204 211" stroke="#eee3cd" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M89 198L95 204 M101 205L107 210 M186 202L193 209 M200 197L207 201" stroke="#b09b84" stroke-width="2.5"/>
 </g>
-<g id="breadArt" style="display:none">
-<ellipse cx="112" cy="280" rx="95" ry="17" fill="#182b2acc"/>
-<path d="M36 267L46 224H176L186 267Z" fill="#715345"/><path d="M40 222H181V235H40Z" fill="#baa079"/>
-<path d="M69 225Q48 209 65 172Q82 138 132 153Q163 163 160 198Q158 223 141 225Z" fill="#d9a057" stroke="#ffca7a" stroke-width="5"/>
-<path d="M85 168L102 191 M111 158L128 185 M139 172L151 196" stroke="#ab713e" stroke-width="5" stroke-linecap="round"/>
+<path d="M221 92L237 110L222 126" stroke="#f6d391" stroke-width="5" fill="none" opacity=".7"/>
+<ellipse class="focus person" cx="328" cy="141" rx="80" ry="120" fill="url(#sun)"/>
+<g class="actor">
+<ellipse cx="324" cy="246" rx="64" ry="10" fill="#1b2d3688"/>
+<path d="M298 199L294 240L318 244L327 199 M334 197L337 242L359 242L351 192" fill="#263345" stroke="#192733" stroke-width="4"/>
+<path d="M292 240L285 250L321 250L320 243 M336 242L333 250L368 250L359 240" fill="#283039"/>
+<path d="M300 119Q324 109 348 119L361 196Q327 213 288 197Z" fill="url(#shirt)" stroke="#a5d0cc" stroke-width="3"/>
+<path d="M303 131L288 170L282 180 M348 132L366 167L373 175" fill="none" stroke="#37617b" stroke-width="15" stroke-linecap="round"/>
+<path d="M283 178L277 188 M374 176L383 185" stroke="#e0a77d" stroke-width="12" stroke-linecap="round"/>
+<path d="M315 117V105H335V118" fill="#d49a75"/>
+<ellipse cx="326" cy="83" rx="28" ry="34" fill="#e9b187"/>
+<path d="M301 82Q293 52 318 52Q346 46 354 77Q336 70 332 61Q323 76 302 75Z" fill="#382f32"/>
+<ellipse cx="325" cy="53" rx="16" ry="5" fill="#152f44"/>
+<path d="M313 87H317 M333 87H337" stroke="#44332e" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M317 101Q326 107 335 101" stroke="#b46f5d" fill="none" stroke-width="2.3" stroke-linecap="round"/>
 </g>
-<g id="houseArt" style="display:none">
-<ellipse cx="112" cy="283" rx="94" ry="15" fill="#182b2acc"/>
-<path d="M48 177L113 106L179 177V273H48Z" fill="#c8aa86" stroke="#f5dfb3" stroke-width="5"/>
-<path d="M36 184L113 96L191 184" stroke="#704d43" stroke-width="13" stroke-linecap="round" fill="none"/>
-<rect x="65" y="193" width="39" height="43" rx="2" fill="#56838d" stroke="#e7dbc0" stroke-width="5"/>
-<rect x="118" y="197" width="35" height="76" fill="#765a44" stroke="#d0b78a" stroke-width="3"/>
-<path d="M83 191V238 M64 216H105" stroke="#e2d6bd" stroke-width="3"/>
-<circle cx="143" cy="236" r="3.5" fill="#f3dba4"/>
-<path d="M48 273L75 270 M96 277L117 273 M141 276L167 273" stroke="#a88c69" stroke-width="3"/>
-</g>
-<g id="personArt">
-<ellipse cx="276" cy="282" rx="78" ry="15" fill="#182b2acc"/>
-<path d="M241 242L231 278H261L270 239 M283 242L290 278H315L305 240" fill="#29343b" stroke="#252c32" stroke-width="5"/>
-<path d="M241 277L224 285H261V274 M291 277L288 285H324L315 274" fill="#141d23"/>
-<path d="M244 141Q275 127 305 141L320 240Q275 266 230 239Z" fill="url(#robe)" stroke="#f8e4b8" stroke-width="4"/>
-<path d="M260 141L258 239 M289 140L291 241" stroke="#c0ac8a" stroke-width="3"/>
-<path d="M244 154L225 207L228 215L245 214L261 175 M303 154L325 204L319 214L302 211L291 173" fill="#e4d8b9" stroke="#f3e3c0" stroke-width="3"/>
-<ellipse cx="226" cy="218" rx="10" ry="12" fill="#d7a47a"/><ellipse cx="319" cy="217" rx="10" ry="12" fill="#d7a47a"/>
-<path d="M263 135L263 123H285V135" fill="#b98a63"/>
-<ellipse cx="275" cy="102" rx="33" ry="38" fill="#daa47a"/>
-<path d="M242 106Q232 63 265 64Q300 60 307 92L306 100Q291 89 282 75Q273 99 244 96Z" fill="#302a2c"/>
-<path d="M243 107Q236 99 241 92 M305 107Q311 99 307 93" stroke="#b98260" stroke-width="3"/>
-<path d="M258 106H264 M283 106H289" stroke="#3c2924" stroke-width="3.4" stroke-linecap="round"/>
-<path d="M270 121Q276 126 282 121" stroke="#884f41" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-<path d="M251 81Q267 61 290 81" stroke="#29272c" stroke-width="8" fill="none"/>
-<g class="person-tallit">
-<path d="M241 146Q258 134 276 143Q297 135 310 147L327 227L312 232L294 165L293 246L258 246L251 162L236 232L219 229Z" fill="#f6f3e9" stroke="#fffdf4" stroke-width="3"/>
-<path d="M234 203L224 225 M315 203L324 225 M260 212L263 241 M287 213L287 242" stroke="#2f5381" stroke-width="7"/>
-<path d="M229 226L225 249 M236 226L237 248 M315 226L311 248 M322 225L323 247" stroke="#f9e8b9" stroke-width="2.1"/>
-</g>
-</g>
-<g id="broomArt" style="display:none">
-<path d="M317 155L345 267" stroke="#ba8a57" stroke-width="7" stroke-linecap="round"/>
-<path d="M331 260L358 254L369 286Q350 295 329 285Z" fill="#dfbb74" stroke="#eecf8d" stroke-width="2"/>
-<path d="M338 265L335 288 M349 265L351 289 M360 262L365 286" stroke="#876238" stroke-width="2"/>
-</g>
-<g id="token" style="opacity:.95"><path d="M193 140l12 13-12 13-12-13Z" fill="#f9d796" stroke="#fff0c3" stroke-width="2"/><circle cx="193" cy="153" r="30" fill="none" stroke="#f9d79655" stroke-width="2" stroke-dasharray="3 6"/></g>
 </svg>
-<button class="tapzone object" id="tapObject" aria-label="בחרו את החפץ" type="button"></button>
-<button class="tapzone person" id="tapPerson" aria-label="בחרו את האדם" type="button"></button>
-<div class="scene-label object" id="objectCaption">הבגד</div><div class="scene-label person" id="personCaption">הלובש</div>
-</main>
-<section class="answer-section" id="answers">
-<p class="question-mini" id="promptLabel">בחרו: מה נושא את החיוב?</p>
-<div class="duo" id="choiceButtons">
-<button class="choice object" id="objectButton" type="button"><span class="pict">▧</span><span id="objectText">הבגד</span></button>
-<button class="choice person" id="personButton" type="button"><span class="pict">♙</span><span id="personText">האדם</span></button>
-</div>
-<div class="feedback" id="feedback" aria-live="polite"></div>
+<div class="overlay"><span class="tag person">יוסי · לובש</span><span class="tag cloth">החבר · קושר</span></div>
 </section>
-<nav class="foot" aria-label="דוגמאות חקירה">
-<button class="case-tab active" type="button" data-case="0"><span>✧</span>ציצית</button>
-<button class="case-tab" type="button" data-case="1"><span>♧</span>נדר</button>
-<button class="case-tab" type="button" data-case="2"><span>⌂</span>בית נקי</button>
-</nav>
-<div class="disclaimer">הדגמת עיצוב וזרימת משחק בלבד · לא צילום מתוך Unity · התוכן הלמדני דורש ביקורת לפני פרסום לתלמידים</div>
+<div class="bubble" id="bubble">״רגע, מתי מברכים? כשקושרים את החוטים או כשאני לובש?״</div>
+<div class="prompt" id="prompt">מה נראה לך?</div>
+<div class="choices" id="choices">
+<button type="button" class="choice" id="chooseCloth"><span class="emoji">🧵</span><span>כשקושרים את החוטים</span></button>
+<button type="button" class="choice" id="choosePerson"><span class="emoji">👕</span><span>כשיוסי לובש</span></button>
 </div>
+<div class="lenses" id="lenses" hidden>
+<button class="lens" type="button" id="lensCloth">חובת טלית<small>מתמקדים בבגד</small></button>
+<button class="lens" type="button" id="lensPerson">חובת גברא<small>מתמקדים באדם</small></button>
+</div>
+<div class="explain" id="explain" hidden aria-live="polite"></div>
+<div class="source" id="source" hidden><q>מר סבר חובת טלית הוא ומר סבר חובת גברא הוא</q><strong>מנחות מ״ב ע״ב</strong><div>הסוגיה שואלת: האם עשיית הציצית היא כבר גמר המצווה, או שהמצווה מתקיימת בלבישה?</div><small>להלכה מברכים בשעת הלבישה ולא על קשירת החוטים. שולחן ערוך או״ח י״ט, א׳.</small><a href="https://he.wikisource.org/wiki/מנחות_מב_ב" target="_blank" rel="noopener">לקריאת הסוגיה המקורית</a></div>
+<button type="button" class="next" id="next" hidden>בואו נבדוק ←</button>
+<div class="note"><b>מה בודקים?</b> בעיה ← שתי סברות ← נפקא מינה ← מקור · הדגמה בלבד, לא פסיקת הלכה אישית</div>
+</main>
 <script>
 (function(){
 "use strict";
-var cases=[
- {label:"ציצית",section:"ציצית · חובת גברא",topic:"חפצא / גברא",title:"הטלית בארון",question:"מתי מתעורר חיוב הציצית?",prompt:"געו במוקד החיוב",obj:"הבגד",person:"הלובש",correct:"person",visual:"tallit",nafq:"טלית בארון. האם צריך כעת להטיל בה ציצית?",nafqChoices:["כן","לא"],nafqCorrect:1,summary:"הבגד ראוי. החיוב בלבישה.",detail:"אין חובה לקנות בגד ארבע כנפות; כשאדם לובש בגד המחויב בציצית, החיוב חל עליו.",source:"שולחן ערוך או״ח י״ט, א׳",url:"https://he.wikisource.org/wiki/שולחן_ערוך_אורח_חיים_יט_א",tip:"בדקו מה קורה כשהטלית נשארת מקופלת בארון."},
- {label:"נדר",section:"נדרים · חלות האיסור",topic:"חפצא / גברא",title:"קונם כיכר זו עלי",question:"איפה נמצא האיסור?",prompt:"געו במוקד האיסור",obj:"הכיכר",person:"הנודר",correct:"object",visual:"bread",nafq:"האם הנדר הזה אוסר את הכיכר על כולם?",nafqChoices:["כן","לא"],nafqCorrect:1,summary:"הכיכר נאסרת על הנודר.",detail:"זהו צד החפצא בחקירת נדר ושבועה; אין להסיק שהכיכר אסורה אוטומטית לכל אדם.",source:"נדרים ט״ז ע״ב",url:"https://www.sefaria.org/Nedarim.16b?lang=he",tip:"שימו לב למילה ״עלי״. לא מדובר באיסור לכל העולם."},
- {label:"בית נקי",section:"תרגיל חשיבה · פעולה / תוצאה",topic:"מעשה / תוצאה",title:"הבית צריך להיות נקי",question:"מה בדיוק נדרש כאן?",prompt:"בחרו מה עומד במרכז המשפט",obj:"מצב הבית",person:"פעולת הניקיון",correct:"object",visual:"house",nafq:"מישהו אחר ניקה. האם היעד הושג?",nafqChoices:["כן","לא"],nafqCorrect:0,summary:"כאן המטרה היא התוצאה.",detail:"״הבית נקי״ מתאר מצב. ״אני חייב לנקות״ מתאר פעולה של אדם. לא כל דרישה לתוצאה מטילה אותה חובה אישית.",source:"דוגמה מחשבתית, לא מקור הלכתי",url:"",tip:"המשפט מדבר על מצב הבית, לא אומר מי חייב לבצע את הפעולה."}
+var step=0,lens="cloth",guess="",answered=false,matches=0;
+var E=function(id){return document.getElementById(id)};
+var state=[
+ {progress:"שלב 1 · מציאות",kicker:"מנחות מ״ב ע״ב · ציצית",title:"רגע לפני שמתלבשים",subtitle:"יוסי יוצא מהמקלחת בבוקר. חברו מסיים לקשור ציציות בבגד ארבע כנפות חדש.",bubble:"״רגע, מתי מברכים? כשקושרים את החוטים או כשאני לובש?״",prompt:"מה נראה לך?"},
+ {progress:"שלב 2 · סברה",kicker:"מנסים להבין את הדין",title:"מה בעצם המצווה?",subtitle:"יש שתי דרכים להבין מדוע אפשר לברך ברגע אחר.",bubble:"״איפה לדעתך נמצא מרכז המצווה: בבגד או באדם?״",prompt:"געו בכל אחת משתי הסברות"},
+ {progress:"שלב 3 · נפקא מינה",kicker:"בודקים את הסברה הראשונה",title:"אם זו חובת טלית...",subtitle:"נניח שעיקר החיוב הוא שהבגד יהיה עם ציציות.",bubble:"״איזה רגע נחשב להשלמת המצווה לפי ההסבר הזה?״",prompt:"בחרו רגע אחד"},
+ {progress:"שלב 4 · נפקא מינה",kicker:"בודקים את הסברה השנייה",title:"אם זו חובת גברא...",subtitle:"נניח שהמצווה מתקיימת כאשר האדם מתעטף.",bubble:"״איזה רגע נחשב להשלמת המצווה לפי ההסבר הזה?״",prompt:"בחרו רגע אחד"},
+ {progress:"שלב 5 · המקור",kicker:"גילינו את נקודת החילוק",title:"זאת החקירה!",subtitle:"מהו גמר המצווה: הכנת הבגד או לבישת האדם?",bubble:"״אותו בגד, אותו אדם. אבל שתי סברות שונות מובילות לרגעי ברכה שונים.״",prompt:"עכשיו רואים את לשון הגמרא"}
 ];
-var idx=0,step=0,feedback="";
-function byId(id){return document.getElementById(id);}
-function update(){
- var c=cases[idx];
- byId("caseNo").textContent="חקירה "+(idx+1)+" מתוך "+cases.length;
- byId("topic").textContent=c.topic;
- byId("eyebrow").textContent=c.section;
- byId("caseTitle").textContent=c.title;
- byId("question").textContent=step===0?c.question:step===1?c.nafQ||c.nafq:"מה גילינו?";
- byId("sceneClue").textContent=step===0?"געו בדמות או בחרו למטה":step===1?"נפקא מינה":"החקירה הושלמה";
- byId("objectCaption").textContent=c.obj;byId("personCaption").textContent=c.person;
- byId("objectText").textContent=step===0?c.obj:c.nafqChoices[0];
- byId("personText").textContent=step===0?c.person:c.nafqChoices[1];
- byId("promptLabel").textContent=step===0?c.prompt:step===1?"החליפו את המקרה:":"";
- var svg=byId("scene");svg.className="scene "+(step>0?"pick-"+c.correct:"")+(step>0&&idx===0?" show-clothing":"");
- byId("objectArt").style.display=idx===0?"":"none";byId("breadArt").style.display=idx===1?"":"none";byId("houseArt").style.display=idx===2?"":"none";
- byId("broomArt").style.display=idx===2?"":"none";
- byId("token").style.opacity=step===0?".95":"0";
- var buttons=byId("choiceButtons"),result=byId("resultBox");
- if(result){result.remove();}
- if(step===2){
-   buttons.style.display="none";byId("tapObject").disabled=true;byId("tapPerson").disabled=true;
-   var wrap=document.createElement("div");wrap.className="result";wrap.id="resultBox";
-   var strong=document.createElement("strong");strong.textContent=c.summary;wrap.appendChild(strong);
-   var p=document.createElement("p");p.textContent=c.detail;wrap.appendChild(p);
-   var next=document.createElement("button");next.type="button";next.className="next";next.textContent=idx===cases.length-1?"חזרה לחקירה הראשונה":"חקירה הבאה  ←";next.addEventListener("click",function(){select((idx+1)%cases.length);});
-   wrap.appendChild(next);byId("answers").insertBefore(wrap,byId("feedback"));
- }else{buttons.style.display="grid";byId("tapObject").disabled=false;byId("tapPerson").disabled=false;}
- byId("feedback").textContent=feedback;
- var oldSource=byId("sourceLine");if(oldSource)oldSource.remove();
- if(step===2){var s=document.createElement("div");s.className="source";s.id="sourceLine";s.appendChild(document.createTextNode("מקור: "));if(c.url){var a=document.createElement("a");a.href=c.url;a.target="_blank";a.rel="noopener";a.textContent=c.source;s.appendChild(a);}else{s.appendChild(document.createTextNode(c.source));}byId("answers").appendChild(s);}
- Array.from(byId("progress").children).forEach(function(x,i){x.className=i<=step?"done":"";});
- document.querySelectorAll(".case-tab").forEach(function(el){el.classList.toggle("active",Number(el.getAttribute("data-case"))===idx);});
+function render(){
+ var s=state[step];E("progressText").textContent=s.progress;E("kicker").textContent=s.kicker;E("title").textContent=s.title;E("subtitle").textContent=s.subtitle;E("bubble").textContent=s.bubble;E("prompt").textContent=s.prompt;
+ var bs=E("bars").children;for(var i=0;i<bs.length;i++)bs[i].className=i<=step?"on":"";
+ E("choices").hidden=step===1||step===4||answered;E("lenses").hidden=step!==1;E("source").hidden=step!==4;
+ E("next").hidden=!(step===1||step===4||answered);
+ E("next").textContent=step===1?"בואו נבדוק נפקא מינה ←":step===2?"עכשיו נבדוק חובת גברא ←":step===3?"מה הגמרא אומרת? ←":"לשחק שוב ↻";
+ E("scene").className="scene"+(step===1?(lens==="cloth"?" focus-cloth":" focus-person"):step===2?" focus-cloth":step===3?" focus-person":"");
+ E("lensCloth").classList.toggle("active",lens==="cloth");E("lensPerson").classList.toggle("active",lens==="person");
+ E("explain").hidden=step===0||step===4;
+ if(step===1){E("explain").innerHTML=lens==="cloth"?"<strong>חובת טלית:</strong> הבגד צריך להיעשות עם ציציות. לכן קשירת החוטים יכולה להיחשב סיום המצווה.":"<strong>חובת גברא:</strong> המצווה מתקיימת על ידי האדם הלובש. הכנת החוטים לבדה אינה סיום המצווה.";}
+ if(step===2||step===3){E("explain").innerHTML=answered?(step===2?"<strong>בדיוק.</strong> לפי חובת טלית קשירת הציציות היא רגע ההשלמה.":"<strong>בדיוק.</strong> לפי חובת גברא הרגע הקובע הוא ההתעטפות."):"עכשיו נסו להסיק את התוצאה מהסברה, בלי לנחש.";}
 }
-function select(i){idx=i;step=0;feedback="";update();}
-function choose(value){
- if(step===2)return;
- var c=cases[idx];
- if(step===0){
-  if(value===c.correct){step=1;feedback="עברנו למבחן המקרה."; }
-  else{feedback=c.tip;}
- }else if(step===1){
-  var choice=value==="object"?0:1;
-  if(choice===c.nafqCorrect){step=2;feedback="";}
-  else{feedback=idx===0?"האם הטלית בארון מחייבת כבר עכשיו?":idx===1?"״עלי״ אינו ״על כולם״.":"מי ניקה לא משנה את מצב הבית.";}
- }
- update();
+function pick(value){
+ if(step===0){guess=value;step=1;lens=value;render();return;}
+ if(step!==2&&step!==3)return;
+ var needed=step===2?"cloth":"person";
+ if(value===needed){matches++;answered=true;render();}
+ else{E("explain").hidden=false;E("explain").innerHTML="חשבו על הסברה: מהו המעשה שמסיים את המצווה <strong>לפי ההבנה הזאת</strong>?";}
 }
-byId("objectButton").addEventListener("click",function(){choose("object");});
-byId("personButton").addEventListener("click",function(){choose("person");});
-byId("tapObject").addEventListener("click",function(){choose("object");});
-byId("tapPerson").addEventListener("click",function(){choose("person");});
-document.querySelectorAll(".case-tab").forEach(function(b){b.addEventListener("click",function(){select(Number(b.getAttribute("data-case")));});});
-update();
+function advance(){
+ if(step===4){step=0;guess="";matches=0;lens="cloth";}
+ else if(step===1||answered){step++;}answered=false;render();
+}
+E("chooseCloth").addEventListener("click",function(){pick("cloth")});
+E("choosePerson").addEventListener("click",function(){pick("person")});
+E("lensCloth").addEventListener("click",function(){lens="cloth";render()});
+E("lensPerson").addEventListener("click",function(){lens="person";render()});
+E("next").addEventListener("click",advance);
+render();
 })();
 </script>
 </body>
