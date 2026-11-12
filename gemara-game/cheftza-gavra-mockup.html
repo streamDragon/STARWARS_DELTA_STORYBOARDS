@@ -3,146 +3,281 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#142932">
-<title>חפצא וגברא | הדילמה של יוסי | גמרא גיים</title>
+<meta name="theme-color" content="#102630">
+<meta name="description" content="מוקאפ אינטראקטיבי של חפצא וגברא: מתחילים מסיפור בסדנת אבות ובנים, ומגלים את הסברה ואת הנפקא מינה.">
+<title>מתי מברכים? | חפצא וגברא | גמרא גיים</title>
 <style>
-:root{font-family:Arial,"Noto Sans Hebrew",sans-serif;color:#fff7e9;background:#10232b;--gold:#ffd37f;--aqua:#74d9d6;--cream:#f6ebd3}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 0%,#315060,#142933 53%,#0c1c25)}
-button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.shell{max-width:490px;margin:auto;min-height:100dvh;padding:calc(12px + env(safe-area-inset-top)) 16px calc(18px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:10px}
-.head{display:flex;align-items:center;justify-content:space-between;gap:9px}.logo{display:flex;align-items:center;gap:9px;font-size:17px;font-weight:900}.seal{width:37px;height:37px;display:grid;place-items:center;background:#f3c678;color:#2c2922;font:900 24px Georgia;border-radius:12px}.label-small{font-size:11px;color:#b4cdce;font-weight:500;display:block;margin-top:2px}.mock{font-size:10px;border:1px solid #a6bdbb65;color:#bed3d3;padding:7px 9px;border-radius:100px;white-space:nowrap}
-.progress{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#bcd3ce;font-size:12px;margin-top:5px}.bars{direction:ltr;display:flex;flex:1;gap:5px}.bars i{display:block;height:5px;border-radius:8px;background:#53717a;flex:1;transition:background .2s}.bars i.on{background:#f2c578}
-.kicker{color:#ffd48c;font-size:12px;font-weight:900;text-align:center;letter-spacing:.1px}.title{font-size:clamp(23px,6vw,30px);font-weight:900;line-height:1.17;text-align:center;margin:0}.subtitle{font-size:15px;line-height:1.43;color:#e7e7d6;text-align:center;margin:0;min-height:39px}
-.scene{position:relative;border-radius:25px;overflow:hidden;border:1px solid #86a5a578;box-shadow:0 14px 32px #0004;background:#27434d;isolation:isolate}
-.scene svg{display:block;width:100%;height:auto;aspect-ratio:420/265}.scene:after{content:"";pointer-events:none;position:absolute;inset:0;box-shadow:inset 0 -20px 40px #0b192755}
-.scene .focus{opacity:0;transition:opacity .3s}.scene.focus-cloth .focus.cloth,.scene.focus-person .focus.person{opacity:1}
-.scene .tallit{transform-origin:146px 156px;transition:filter .25s}.scene.focus-cloth .tallit{filter:drop-shadow(0 0 8px #ffe5a5)}
-.scene .actor{transition:filter .25s}.scene.focus-person .actor{filter:drop-shadow(0 0 9px #87f2e9)}
-.overlay{position:absolute;inset:auto 8px 10px;display:flex;justify-content:space-between;gap:8px;z-index:3;pointer-events:none}.tag{background:#132c38e6;border:1px solid #ffffff70;border-radius:11px;padding:6px 10px;font-size:12px;font-weight:900;backdrop-filter:blur(5px)}.tag.cloth{color:#ffdd9f}.tag.person{color:#a5f0ef}
-.bubble{background:#fff3d9;color:#31414a;border-radius:18px 18px 6px 18px;margin:-26px 14px 0;padding:11px 14px;position:relative;z-index:4;box-shadow:0 7px 15px #0004;min-height:48px;font-size:15px;font-weight:800;line-height:1.4}
-.prompt{color:#ffdc96;font-size:16px;font-weight:900;text-align:center;min-height:22px;margin-top:3px}
-.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}.choice{min-height:79px;padding:9px 7px;border-radius:17px;color:#fefdf5;background:linear-gradient(160deg,#2e5569,#183747);border:1px solid #86bbc3a6;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;font-weight:900;font-size:15px;box-shadow:0 4px 0 #091b23}.choice:first-child{background:linear-gradient(160deg,#826147,#594334);border-color:#e9bd80ab}.choice .emoji{font-size:27px}.choice:active{transform:translateY(3px);box-shadow:0 1px 0 #091b23}
-.lenses{display:grid;grid-template-columns:1fr 1fr;gap:10px}.lens{background:#284652;border:1px solid #7c9da6;border-radius:15px;min-height:64px;color:white;padding:9px;font-size:15px;font-weight:900}.lens.active{border:2px solid #f3d397;background:#574f41}.lens small{display:block;font-size:12px;color:#b8d9dc;font-weight:600;margin-top:4px}.lens.active small{color:#fce2b3}
-.explain{font-size:14px;line-height:1.45;text-align:center;color:#e4f2ec;min-height:39px;padding:7px 13px;border:1px solid #a6c7c44a;border-radius:14px;background:#d8e9e711}.explain strong{color:#ffdb92}
-.next{background:linear-gradient(#ffe0a6,#efbe6b);color:#3a2b1c;border:0;border-radius:17px;padding:13px 16px;font-weight:900;font-size:17px;width:100%;box-shadow:0 4px 0 #ad8046;min-height:48px}.next[hidden],.choices[hidden],.lenses[hidden],.explain[hidden],.source[hidden]{display:none!important}
-.source{background:#132c37;border:1px solid #d4bd8f65;border-radius:17px;padding:13px;text-align:center;font-size:14px;line-height:1.6}.source strong{color:#ffe0a4}.source q{display:block;color:#e6f0e8;font-size:16px;font-weight:900;margin-bottom:6px}.source a{color:#a6e9eb}.source small{display:block;color:#c7d5d1;margin-top:6px;font-size:12px}
-.note{font-size:11px;text-align:center;line-height:1.3;color:#a1bab8;margin-top:auto}.note b{color:#e4d1a9}
-@media(max-height:750px){.shell{gap:7px;padding-top:7px}.subtitle{min-height:0;font-size:14px}.scene svg{max-height:222px}.bubble{padding:8px 10px;min-height:40px;margin-top:-20px}.choice{min-height:63px}.explain{min-height:0;padding:6px}.title{font-size:24px}}
-@media(max-width:340px){.choice{font-size:13px}.shell{padding-left:10px;padding-right:10px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important}}
+:root{font-family:Arial,"Noto Sans Hebrew",sans-serif;color:#fff8e9;background:#102630;--gold:#ffcf7d;--sea:#9de5df;--ink:#16313d}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% 0%,#2e515d,#102630 65%);min-height:100svh}
+button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+button:focus-visible,a:focus-visible{outline:3px solid #ffe3aa;outline-offset:3px}
+.app{width:min(100%,520px);height:100svh;height:100dvh;margin:0 auto;display:flex;flex-direction:column;gap:10px;padding:calc(env(safe-area-inset-top,0px) + 11px) 12px calc(env(safe-area-inset-bottom,0px) + 12px)}
+.top{height:40px;flex:0 0 40px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.brand{font-weight:900;font-size:17px;display:flex;align-items:center;gap:9px}
+.mark{display:grid;place-items:center;width:33px;height:33px;background:var(--gold);color:#372c20;border-radius:10px;font:900 23px Georgia}
+.counter{font-size:13px;color:#c9d9d4;font-weight:700;white-space:nowrap}
+.progress{height:5px;flex:0 0 5px;border-radius:12px;background:#43636b;overflow:hidden}
+.progress span{display:block;height:100%;width:20%;background:linear-gradient(90deg,#ffe1a5,#f5b65f);border-radius:12px;transition:width .3s}
+.stage{flex:1;min-height:0;position:relative;overflow:hidden;border-radius:27px;border:1px solid #759da07a;background:#325661;isolation:isolate;box-shadow:0 10px 30px #0006}
+.stage:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;background:linear-gradient(180deg,#0c243b99 0%,transparent 23%,transparent 59%,#0a202aba 100%)}
+.stage svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+#workshop,#morning{transition:opacity .55s ease;transform-origin:50% 50%}
+#morning{opacity:0}
+.stage.mode-morning #workshop{opacity:0}
+.stage.mode-morning #morning{opacity:1}
+#garment,#father,#son,#morningSon,#morningGarment{transition:opacity .35s,filter .35s,transform .35s}
+#focusGarment,#focusSon,#focusMorning{opacity:0;transition:opacity .3s}
+.stage.focus-cloth #focusGarment,.stage.focus-person #focusSon,.stage.focus-morning #focusMorning{opacity:1}
+.stage.focus-cloth #son{opacity:.3}.stage.focus-cloth #father{opacity:.45}
+.stage.focus-person #father{opacity:.32}
+.stage.focus-person #garment{opacity:.42}
+.stage.focus-cloth #garment{filter:drop-shadow(0 0 12px #ffdda4);transform:scale(1.08);transform-origin:230px 450px}
+.stage.focus-person #son{filter:drop-shadow(0 0 12px #a7f5ee);transform:scale(1.04);transform-origin:313px 350px}
+#morningGarment{opacity:0;transform-origin:210px 385px;transition:opacity .5s}
+.stage.show-wearing #morningGarment{opacity:1}
+.scene-title{position:absolute;z-index:5;top:79px;left:18px;right:18px;pointer-events:none;text-align:center;text-shadow:0 3px 13px #001b25,0 1px 4px #001a24;background:radial-gradient(ellipse at center,#092a397d 0%,transparent 78%);padding:8px 0 18px}
+.scene-title small{display:block;color:#ffe0a8;font-size:12px;font-weight:900;margin-bottom:6px}
+.scene-title h1{font-size:clamp(25px,7.5vw,34px);line-height:1.15;margin:0;font-weight:900}
+.scene-title p{font-size:14px;line-height:1.35;color:#e4efea;margin:8px 0 0}
+.scene-title[hidden]{display:none}
+.focus-caption{position:absolute;z-index:6;top:50%;right:50%;transform:translate(50%,0);background:#f9edcd;color:#223e45;border-radius:999px;padding:8px 16px;font-size:15px;font-weight:900;max-width:80%;text-align:center;box-shadow:0 8px 23px #031a2666;pointer-events:none}
+.focus-caption[hidden]{display:none}
+.hud{position:absolute;z-index:7;bottom:0;left:0;right:0;padding:40px 15px 17px;display:flex;flex-direction:column;gap:12px;align-items:stretch;background:linear-gradient(0deg,#0e2733 15%,#0e2733fa 55%,transparent);text-align:center}
+.hud[hidden]{display:none}
+.hud-question{font-size:16px;font-weight:900;color:#ffdfa0;line-height:1.35;text-shadow:0 2px 9px #061b28}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{min-height:78px;background:#fff2d8;color:#233c43;border:0;border-radius:20px;font-size:16px;font-weight:900;padding:11px 8px;box-shadow:0 4px 0 #d1ad77;display:flex;align-items:center;justify-content:center;gap:4px;flex-direction:column;transition:transform .13s,background .13s}
+.opt .ico{font-size:25px}.opt:active{transform:translateY(2px);box-shadow:0 2px 0 #d1ad77}
+.opt.aqua{background:#d7f2ee;box-shadow:0 4px 0 #76b9b7}
+.opt.selected{outline:3px solid #ffe09a}
+.opt small{font-size:12px;opacity:.76;font-weight:700}
+.action{border:0;color:#2f3027;background:linear-gradient(#ffe2a7,#f1c16f);font-size:17px;font-weight:900;padding:13px 15px;border-radius:999px;min-height:51px;box-shadow:0 4px 0 #b18142}
+.action:active{transform:translateY(2px);box-shadow:0 2px 0 #b18142}
+.note{font-size:14px;color:#eef8f2;line-height:1.45;font-weight:700;text-shadow:0 2px 7px #132e39}
+.note strong{color:#ffde9d}
+.note.warn{color:#ffdccd}
+.story-backdrop{position:absolute;z-index:8;inset:0;background:#071c264d;opacity:0;pointer-events:none;transition:opacity .3s}
+.story-backdrop.show{opacity:1;pointer-events:auto}
+.story-cloud{position:absolute;z-index:9;top:auto;bottom:5%;right:6%;left:6%;background:#fff0d4;color:#243943;border-radius:33px 33px 33px 11px;padding:22px 22px 20px;box-shadow:0 20px 50px #001a2e8c;transition:top .48s,bottom .48s,right .48s,left .48s,width .48s,padding .48s,border-radius .48s,box-shadow .48s;background-clip:padding-box}
+.story-cloud:after{content:"";position:absolute;right:32px;bottom:-15px;border-top:19px solid #fff0d4;border-left:23px solid transparent;pointer-events:none}
+.story-cloud h2{font-size:24px;margin:0 0 9px;line-height:1.2}
+.story-cloud p{font-size:17px;line-height:1.5;margin:0 0 17px}
+.story-cloud .story-overline{font-size:12px;font-weight:900;color:#8a5c29;margin-bottom:7px;letter-spacing:.15px}
+.story-cloud strong{color:#8d5727}
+.story-cloud .action{width:100%}
+.story-cloud.mini{top:15px;bottom:auto;right:13px;left:auto;width:112px;border-radius:100px;padding:0;box-shadow:0 5px 17px #09233299}
+.story-cloud.mini:after{display:none}
+.story-cloud.mini .story-content{display:none}
+.story-mini{display:none}
+.story-cloud.mini .story-mini{display:flex;align-items:center;justify-content:center;width:100%;min-height:42px;gap:5px;border:0;background:transparent;color:#263b45;border-radius:100px;font-size:13px;font-weight:900;padding:6px}
+.story-mini .mini-photo{width:28px;height:28px;border-radius:50%;background:linear-gradient(120deg,#ce9a5c,#6c9eb0);display:grid;place-items:center;font-size:15px}
+.paper{position:absolute;z-index:6;right:7%;left:7%;top:29%;background:linear-gradient(175deg,#f7e9cc,#ead4ad);border-radius:15px 15px 32px 32px;color:#253b41;padding:25px 19px;text-align:center;box-shadow:0 15px 30px #081b2677,0 0 0 5px #dfc18b55;border-top:5px solid #8f6140}
+.paper[hidden]{display:none}
+.paper .verse{font:900 clamp(17px,5vw,22px)/1.62 Georgia,serif;color:#523929;margin:14px 0}
+.paper .paper-label{font-weight:900;font-size:12px;color:#825b36}
+.paper p{font-size:15px;line-height:1.55;margin:7px 0}
+.paper a{color:#254a78;font-weight:900}
+@media(max-height:750px){.app{padding-top:6px;padding-bottom:7px;gap:6px}.top{height:36px;flex-basis:36px}.scene-title{top:70px}.scene-title h1{font-size:27px}.scene-title p{margin-top:4px}.story-cloud{bottom:4%;padding:15px 17px}.story-cloud h2{font-size:22px}.story-cloud p{font-size:15px;line-height:1.42;margin-bottom:12px}.story-cloud .action{min-height:43px}.hud{padding:25px 13px 11px;gap:9px}.opt{min-height:65px;padding:7px}.action{min-height:44px;padding:9px}.paper{top:24%;padding:15px}}
+@media(max-height:590px){.story-cloud{bottom:3%}.scene-title{top:53px}.scene-title h1{font-size:23px}.scene-title p{font-size:12px}.hud{padding-top:18px}.opt{min-height:52px}.opt .ico{font-size:21px}.story-cloud p{font-size:13px}.paper{top:17%}}
+@media(min-width:700px){.app{padding-top:14px;padding-bottom:14px}.stage{max-height:850px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
-<main class="shell">
-<header class="head"><div class="logo"><div class="seal">ג</div><div>גמרא גיים<span class="label-small">לומדים לחשוב כמו הגמרא</span></div></div><span class="mock">מוקאפ אינטראקטיבי</span></header>
-<div class="progress"><span id="progressText">שלב 1 · המציאות</span><div class="bars" id="bars"><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
-<div class="kicker" id="kicker">מנחות מ״ב ע״ב · ציצית</div>
-<h1 class="title" id="title">רגע לפני שמתלבשים</h1>
-<p class="subtitle" id="subtitle">יוסי יוצא מהמקלחת בבוקר. חברו מסיים לקשור ציציות בבגד ארבע כנפות חדש.</p>
-<section class="scene" id="scene" aria-label="איור חדר: בגד ארבע כנפות עם ציציות ליד יוסי">
-<svg viewBox="0 0 420 265" role="img" aria-label="יוסי עומד ליד בגד ארבע כנפות. בחוץ בוקר.">
+<main class="app">
+<header class="top"><div class="brand"><span class="mark">ג</span><span>גמרא גיים</span></div><span class="counter" id="counter">סיפור · 1 מתוך 5</span></header>
+<div class="progress" aria-label="התקדמות"><span id="fill"></span></div>
+<section class="stage" id="stage" aria-label="הסצנה במשחק">
+<svg viewBox="0 0 420 650" preserveAspectRatio="xMidYMid slice" role="img" aria-label="איור אינטראקטיבי: אבא ויוסי קושרים ציציות בסדנה, ואחר כך יוסי לובש בבוקר">
 <defs>
-<linearGradient id="wall" x2="0" y2="1"><stop stop-color="#66858a"/><stop offset="1" stop-color="#304d5a"/></linearGradient>
-<linearGradient id="floor" x2="0" y2="1"><stop stop-color="#a48560"/><stop offset="1" stop-color="#654c3b"/></linearGradient>
-<linearGradient id="shirt" x2="0" y2="1"><stop stop-color="#427e97"/><stop offset="1" stop-color="#254a61"/></linearGradient>
-<radialGradient id="sun"><stop stop-color="#fff6bd" stop-opacity=".93"/><stop offset="1" stop-color="#fff8af" stop-opacity="0"/></radialGradient>
+<linearGradient id="nightWall" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#456d71"/><stop offset="1" stop-color="#1d394c"/></linearGradient>
+<linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b4855a"/><stop offset="1" stop-color="#795337"/></linearGradient>
+<linearGradient id="blueShirt" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#72b7c3"/><stop offset="1" stop-color="#2e657d"/></linearGradient>
+<radialGradient id="warmGlow"><stop stop-color="#ffe9a4" stop-opacity=".85"/><stop offset=".5" stop-color="#f4cb7e" stop-opacity=".25"/><stop offset="1" stop-color="#f3ca81" stop-opacity="0"/></radialGradient>
+<radialGradient id="mintGlow"><stop stop-color="#aafbef" stop-opacity=".8"/><stop offset="1" stop-color="#aafbef" stop-opacity="0"/></radialGradient>
+<linearGradient id="dayWall" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#8dbbc1"/><stop offset="1" stop-color="#4c7484"/></linearGradient>
 </defs>
-<rect width="420" height="265" fill="url(#wall)"/>
-<path d="M0 204Q210 188 420 204V265H0Z" fill="url(#floor)"/>
-<path d="M0 224H420 M50 211L20 265 M190 200L174 265 M330 211L399 265" fill="none" stroke="#d2ac7840" stroke-width="2"/>
-<rect x="20" y="30" width="110" height="118" rx="9" fill="#d6bf92" stroke="#edd8a7" stroke-width="6"/>
-<rect x="26" y="36" width="98" height="106" rx="4" fill="#8ec8d3"/>
-<circle cx="94" cy="65" r="24" fill="#ffdb80"/><ellipse cx="92" cy="68" rx="70" ry="70" fill="url(#sun)"/>
-<path d="M27 127Q55 112 79 125T125 117V143H27Z" fill="#557e6d"/>
-<path d="M75 35V143 M26 91H126" stroke="#e4d5b9" stroke-width="5"/>
-<rect x="365" y="36" width="38" height="169" rx="4" fill="#2b4651" stroke="#95a9a1" stroke-width="5"/><circle cx="380" cy="129" r="4" fill="#fbd58b"/>
-<path d="M55 221L86 163L195 163L227 220Z" fill="#74513f" stroke="#d3a67a" stroke-width="5"/>
-<path d="M77 217V256 M205 216V257" stroke="#533c35" stroke-width="10"/>
-<ellipse cx="146" cy="213" rx="98" ry="13" fill="#192b3355"/>
-<ellipse class="focus cloth" cx="145" cy="164" rx="100" ry="80" fill="url(#sun)"/>
-<g class="tallit">
-<path d="M101 113L185 112L197 183L88 184Z" fill="#fff6df" stroke="#f3e7cc" stroke-width="4"/>
-<path d="M95 158L193 158 M93 169L195 169" stroke="#3b637d" stroke-width="7"/>
-<path d="M107 117L181 117" stroke="#dacbaa" stroke-width="3"/>
-<path d="M98 178L89 211 M105 181L104 217 M185 179L189 216 M193 178L204 211" stroke="#eee3cd" stroke-width="3.5" stroke-linecap="round"/>
-<path d="M89 198L95 204 M101 205L107 210 M186 202L193 209 M200 197L207 201" stroke="#b09b84" stroke-width="2.5"/>
+<g id="workshop">
+<rect x="-2" y="0" width="425" height="650" fill="url(#nightWall)"/>
+<path d="M0 501Q210 471 420 504V650H0Z" fill="#755640"/>
+<path d="M0 528H420 M50 499L0 650 M155 494L120 650 M298 494L368 650" stroke="#e4b5822e" stroke-width="3"/>
+<rect x="16" y="126" width="112" height="158" rx="12" fill="#e9bd79" stroke="#ebd3a2" stroke-width="5"/>
+<rect x="24" y="133" width="96" height="143" rx="6" fill="#173b59"/>
+<circle cx="92" cy="169" r="21" fill="#ffebb0"/>
+<g fill="#fff2b4"><circle cx="43" cy="166" r="2.5"/><circle cx="62" cy="202" r="2"/><circle cx="112" cy="229" r="2.5"/><circle cx="37" cy="241" r="1.5"/></g>
+<path d="M24 241Q52 213 77 241T120 240V276H24Z" fill="#32606e"/>
+<path d="M73 130V280 M19 205H124" stroke="#e6ce9e" stroke-width="6"/>
+<path d="M150 103H390V123H150Z" fill="#365865"/>
+<path d="M167 88L174 103H185L179 78L163 75Z M221 95L230 103H239L240 83L225 81Z M334 84L338 103H357L348 75L334 74Z" fill="#c58c5c"/>
+<path d="M304 0V65" stroke="#e3c18d" stroke-width="4"/><path d="M280 66H328L341 104H269Z" fill="#c99356"/><ellipse cx="304" cy="104" rx="111" ry="98" fill="url(#warmGlow)"/>
+<path d="M269 106Q304 117 341 106" fill="#fff0b5"/>
+<ellipse cx="231" cy="461" rx="156" ry="33" fill="#132e36a8"/>
+<path d="M93 443L366 443L385 483L74 483Z" fill="url(#wood)" stroke="#dfae77" stroke-width="6"/>
+<path d="M105 482L101 600 M350 482L358 600" stroke="#553d31" stroke-width="14" stroke-linecap="round"/>
+<path d="M79 461H386" stroke="#efd3ab" stroke-width="4" opacity=".5"/>
+<g id="father">
+<path d="M127 428L123 496L158 497L172 428 M179 429L189 497L218 498L209 428" fill="#293544"/>
+<path d="M122 495L111 510H167L158 493 M189 495L185 510H232L217 494" fill="#242c32"/>
+<path d="M132 325Q172 306 211 324L222 428Q181 453 123 432Z" fill="#e8d4ad" stroke="#f9e6c2" stroke-width="4"/>
+<path d="M138 342L111 394L150 417 M204 342L238 390L219 417" fill="none" stroke="#e5d4b3" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M151 325V309H188V325" fill="#d49e7a"/>
+<ellipse cx="170" cy="270" rx="40" ry="48" fill="#dbab89"/>
+<path d="M130 270Q124 221 166 223Q204 221 211 266L195 256Q176 250 172 236Q150 258 132 252Z" fill="#363239"/>
+<ellipse cx="170" cy="224" rx="29" ry="8" fill="#1f3e4d"/>
+<path d="M150 279H156 M181 279H188" stroke="#382c2b" stroke-width="4" stroke-linecap="round"/>
+<path d="M142 293Q167 347 200 294Q192 330 170 333Q148 328 142 293Z" fill="#65453d"/>
+<path d="M158 303Q169 309 181 303" stroke="#d99e86" stroke-width="3" fill="none" stroke-linecap="round"/>
+<ellipse cx="220" cy="422" rx="13" ry="11" fill="#dbab89"/>
 </g>
-<path d="M221 92L237 110L222 126" stroke="#f6d391" stroke-width="5" fill="none" opacity=".7"/>
-<ellipse class="focus person" cx="328" cy="141" rx="80" ry="120" fill="url(#sun)"/>
-<g class="actor">
-<ellipse cx="324" cy="246" rx="64" ry="10" fill="#1b2d3688"/>
-<path d="M298 199L294 240L318 244L327 199 M334 197L337 242L359 242L351 192" fill="#263345" stroke="#192733" stroke-width="4"/>
-<path d="M292 240L285 250L321 250L320 243 M336 242L333 250L368 250L359 240" fill="#283039"/>
-<path d="M300 119Q324 109 348 119L361 196Q327 213 288 197Z" fill="url(#shirt)" stroke="#a5d0cc" stroke-width="3"/>
-<path d="M303 131L288 170L282 180 M348 132L366 167L373 175" fill="none" stroke="#37617b" stroke-width="15" stroke-linecap="round"/>
-<path d="M283 178L277 188 M374 176L383 185" stroke="#e0a77d" stroke-width="12" stroke-linecap="round"/>
-<path d="M315 117V105H335V118" fill="#d49a75"/>
-<ellipse cx="326" cy="83" rx="28" ry="34" fill="#e9b187"/>
-<path d="M301 82Q293 52 318 52Q346 46 354 77Q336 70 332 61Q323 76 302 75Z" fill="#382f32"/>
-<ellipse cx="325" cy="53" rx="16" ry="5" fill="#152f44"/>
-<path d="M313 87H317 M333 87H337" stroke="#44332e" stroke-width="2.5" stroke-linecap="round"/>
-<path d="M317 101Q326 107 335 101" stroke="#b46f5d" fill="none" stroke-width="2.3" stroke-linecap="round"/>
+<g id="son">
+<path d="M270 424L264 509H294L306 431 M309 431L322 509H351L342 424" fill="#243c55" stroke="#1d2b3b" stroke-width="5"/>
+<path d="M262 507L257 520H298L295 509 M321 507L321 520H359L351 508" fill="#202b35"/>
+<path d="M275 347Q311 332 344 346L355 435Q312 458 267 437Z" fill="url(#blueShirt)" stroke="#b2d8d6" stroke-width="3"/>
+<path d="M278 366L263 402L245 423 M345 366L365 406L344 428" fill="none" stroke="#397b8b" stroke-width="17" stroke-linecap="round"/>
+<ellipse cx="244" cy="427" rx="12" ry="11" fill="#e5ac85"/><ellipse cx="345" cy="430" rx="12" ry="11" fill="#e5ac85"/>
+<path d="M300 344V331H321V345" fill="#e3ab82"/>
+<ellipse cx="311" cy="299" rx="34" ry="42" fill="#e7b48b"/>
+<path d="M277 299Q268 264 291 256Q324 242 343 277L342 292Q325 279 320 265Q309 289 280 289Z" fill="#423238"/>
+<ellipse cx="311" cy="254" rx="20" ry="6" fill="#183746"/>
+<path d="M295 306H300 M322 306H328" stroke="#3c2f2b" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M299 322Q311 335 326 322" stroke="#a76857" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+</g>
+<ellipse id="focusGarment" cx="230" cy="463" rx="101" ry="67" fill="url(#warmGlow)"/>
+<ellipse id="focusSon" cx="313" cy="350" rx="91" ry="130" fill="url(#mintGlow)"/>
+<g id="garment">
+<path d="M168 445L184 421L229 429L251 417L293 438L276 470L181 474Z" fill="#fffae7" stroke="#f4e1c3" stroke-width="3"/>
+<path d="M176 460Q229 448 283 461 M187 467Q233 454 277 467" stroke="#3b7387" stroke-width="6" fill="none"/>
+<path d="M181 467L173 494 M187 468L188 500 M277 466L285 496 M282 463L294 488" stroke="#fbe8c6" stroke-width="3" stroke-linecap="round"/>
+<path d="M174 483L178 490 M187 486L190 493 M282 483L285 491 M293 478L296 485" stroke="#c6a27c" stroke-width="2"/>
+</g>
+<path d="M239 419Q229 408 216 413" fill="none" stroke="#f7ead0" stroke-width="3" stroke-dasharray="4 4"/>
+<path d="M19 575Q67 557 100 573" stroke="#ffeac438" stroke-width="3" fill="none"/>
+</g>
+<g id="morning">
+<rect x="-2" y="0" width="425" height="650" fill="url(#dayWall)"/>
+<path d="M0 513Q210 491 420 510V650H0Z" fill="#94715a"/>
+<rect x="43" y="125" width="144" height="169" rx="12" fill="#e9d2a8" stroke="#f2dfbd" stroke-width="6"/>
+<rect x="52" y="134" width="126" height="151" rx="5" fill="#9ddbe0"/>
+<circle cx="142" cy="167" r="32" fill="#ffe393"/>
+<path d="M53 261Q86 219 120 252T179 232V285H53Z" fill="#70a38c"/>
+<path d="M116 126V294 M46 213H186" stroke="#f8e7c5" stroke-width="7"/>
+<rect x="290" y="170" width="90" height="215" rx="10" fill="#d8cbac" stroke="#e9d8b7" stroke-width="8"/>
+<rect x="300" y="184" width="71" height="181" rx="5" fill="#749a9e"/>
+<path d="M316 252Q334 240 359 252" fill="none" stroke="#bad1cb" stroke-width="4"/>
+<path d="M54 508H128L119 545H47Z" fill="#27495c"/><path d="M55 507V456Q58 432 90 433Q119 436 120 457V509" fill="#2a6482" stroke="#9dd3d0" stroke-width="4"/>
+<path d="M76 456H98" stroke="#d4ad6e" stroke-width="5"/>
+<ellipse cx="206" cy="567" rx="92" ry="14" fill="#1b364470"/>
+<ellipse id="focusMorning" cx="209" cy="361" rx="114" ry="178" fill="url(#mintGlow)"/>
+<g id="morningSon">
+<path d="M175 446L164 562H197L211 449 M218 450L232 562H264L248 444" fill="#213c55" stroke="#203144" stroke-width="5"/>
+<path d="M166 560L156 578H202L196 558 M233 560L234 578H275L261 558" fill="#25303a"/>
+<path d="M170 329Q206 312 249 330L270 460Q210 482 154 457Z" fill="url(#blueShirt)" stroke="#bddbd9" stroke-width="4"/>
+<path d="M170 353L140 417L161 432 M247 353L284 423L262 434" stroke="#3f7c8a" stroke-width="18" fill="none" stroke-linecap="round"/>
+<ellipse cx="157" cy="433" rx="12" ry="13" fill="#ebb68e"/><ellipse cx="263" cy="431" rx="12" ry="13" fill="#ebb68e"/>
+<path d="M194 325V311H220V325" fill="#e3ae89"/>
+<ellipse cx="207" cy="272" rx="38" ry="46" fill="#e9b58e"/>
+<path d="M170 274Q162 237 184 233Q221 211 246 254L245 265Q224 257 220 241Q200 260 175 263Z" fill="#3e3236"/>
+<ellipse cx="207" cy="231" rx="22" ry="7" fill="#1c3948"/>
+<path d="M193 280H199 M215 280H221" stroke="#3f3030" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M194 299Q208 310 223 299" stroke="#af735a" stroke-width="3" fill="none"/>
+</g>
+<g id="morningGarment">
+<path d="M169 340Q190 326 209 339Q231 325 249 343L281 448L262 458L237 371L244 468L178 469L178 373L151 456L131 446Z" fill="#fbf6e9" stroke="#fff7ea" stroke-width="5"/>
+<path d="M145 422L132 448 M266 420L279 448 M178 428L180 464 M240 431L243 464" stroke="#356782" stroke-width="8" stroke-linecap="round"/>
+<path d="M136 449L131 475 M145 453L145 475 M271 449L273 475 M280 448L286 475" stroke="#faf1d9" stroke-width="3" stroke-linecap="round"/>
+</g>
+<path d="M33 599Q89 574 147 602" stroke="#f6e1bf5a" stroke-width="3" fill="none"/>
 </g>
 </svg>
-<div class="overlay"><span class="tag person">יוסי · לובש</span><span class="tag cloth">החבר · קושר</span></div>
+<div class="scene-title" id="title" hidden><small id="eyebrow"></small><h1 id="heading"></h1><p id="subheading"></p></div>
+<div class="focus-caption" id="focusCaption" hidden></div>
+<div class="paper" id="paper" hidden>
+<div class="paper-label">מנחות מ״ב ע״ב</div>
+<div class="verse">״מר סבר חובת טלית הוא ומר סבר חובת גברא הוא״</div>
+<p>שתי הבנות למקום שבו מתקיימת המצווה יוצרות שתי אפשרויות למועד הברכה.</p>
+<p><strong>להלכה:</strong> מברכים בשעת הלבישה, ולא בזמן קשירת הציציות.</p>
+<a href="https://he.wikisource.org/wiki/%D7%9E%D7%A0%D7%97%D7%95%D7%AA_%D7%9E%D7%91_%D7%91" target="_blank" rel="noopener">פתחו את הגמרא ↗</a>
+</div>
+<div class="hud" id="hud" hidden aria-live="polite"></div>
+<div class="story-backdrop show" id="backdrop"></div>
+<div class="story-cloud" id="storyCloud">
+<div class="story-content">
+<p class="story-overline">ערב · סדנת אבות ובנים</p>
+<h2>הציצית של יוסי</h2>
+<p>יוסי ואבא שלו יושבים בסדנה וקושרים יחד את חוטי הציצית לבגד חדש. יוסי מחייך: <strong>״מחר אלבש אותו לבית הספר ואראה לחברים!״</strong></p>
+<button type="button" class="action" id="closeStory">הבנתי. מה הדילמה? ←</button>
+</div>
+<button type="button" class="story-mini" id="openStory" aria-label="לפתוח שוב את הסיפור"><span class="mini-photo">👨‍👦</span> הסיפור</button>
+</div>
 </section>
-<div class="bubble" id="bubble">״רגע, מתי מברכים? כשקושרים את החוטים או כשאני לובש?״</div>
-<div class="prompt" id="prompt">מה נראה לך?</div>
-<div class="choices" id="choices">
-<button type="button" class="choice" id="chooseCloth"><span class="emoji">🧵</span><span>כשקושרים את החוטים</span></button>
-<button type="button" class="choice" id="choosePerson"><span class="emoji">👕</span><span>כשיוסי לובש</span></button>
-</div>
-<div class="lenses" id="lenses" hidden>
-<button class="lens" type="button" id="lensCloth">חובת טלית<small>מתמקדים בבגד</small></button>
-<button class="lens" type="button" id="lensPerson">חובת גברא<small>מתמקדים באדם</small></button>
-</div>
-<div class="explain" id="explain" hidden aria-live="polite"></div>
-<div class="source" id="source" hidden><q>מר סבר חובת טלית הוא ומר סבר חובת גברא הוא</q><strong>מנחות מ״ב ע״ב</strong><div>הסוגיה שואלת: האם עשיית הציצית היא כבר גמר המצווה, או שהמצווה מתקיימת בלבישה?</div><small>להלכה מברכים בשעת הלבישה ולא על קשירת החוטים. שולחן ערוך או״ח י״ט, א׳.</small><a href="https://he.wikisource.org/wiki/מנחות_מב_ב" target="_blank" rel="noopener">לקריאת הסוגיה המקורית</a></div>
-<button type="button" class="next" id="next" hidden>בואו נבדוק ←</button>
-<div class="note"><b>מה בודקים?</b> בעיה ← שתי סברות ← נפקא מינה ← מקור · הדגמה בלבד, לא פסיקת הלכה אישית</div>
 </main>
 <script>
 (function(){
 "use strict";
-var step=0,lens="cloth",guess="",answered=false,matches=0;
+var step=0,storyOpen=true,lens="",seen={cloth:false,person:false},answer="",guess="";
 var E=function(id){return document.getElementById(id)};
-var state=[
- {progress:"שלב 1 · מציאות",kicker:"מנחות מ״ב ע״ב · ציצית",title:"רגע לפני שמתלבשים",subtitle:"יוסי יוצא מהמקלחת בבוקר. חברו מסיים לקשור ציציות בבגד ארבע כנפות חדש.",bubble:"״רגע, מתי מברכים? כשקושרים את החוטים או כשאני לובש?״",prompt:"מה נראה לך?"},
- {progress:"שלב 2 · סברה",kicker:"מנסים להבין את הדין",title:"מה בעצם המצווה?",subtitle:"יש שתי דרכים להבין מדוע אפשר לברך ברגע אחר.",bubble:"״איפה לדעתך נמצא מרכז המצווה: בבגד או באדם?״",prompt:"געו בכל אחת משתי הסברות"},
- {progress:"שלב 3 · נפקא מינה",kicker:"בודקים את הסברה הראשונה",title:"אם זו חובת טלית...",subtitle:"נניח שעיקר החיוב הוא שהבגד יהיה עם ציציות.",bubble:"״איזה רגע נחשב להשלמת המצווה לפי ההסבר הזה?״",prompt:"בחרו רגע אחד"},
- {progress:"שלב 4 · נפקא מינה",kicker:"בודקים את הסברה השנייה",title:"אם זו חובת גברא...",subtitle:"נניח שהמצווה מתקיימת כאשר האדם מתעטף.",bubble:"״איזה רגע נחשב להשלמת המצווה לפי ההסבר הזה?״",prompt:"בחרו רגע אחד"},
- {progress:"שלב 5 · המקור",kicker:"גילינו את נקודת החילוק",title:"זאת החקירה!",subtitle:"מהו גמר המצווה: הכנת הבגד או לבישת האדם?",bubble:"״אותו בגד, אותו אדם. אבל שתי סברות שונות מובילות לרגעי ברכה שונים.״",prompt:"עכשיו רואים את לשון הגמרא"}
-];
+function setStory(open){storyOpen=open;E("storyCloud").classList.toggle("mini",!open);E("backdrop").classList.toggle("show",open);}
+function btn(icon,label,action,extra,small){return '<button type="button" class="opt '+(extra||'')+'" data-action="'+action+'"><span class="ico">'+icon+'</span>'+label+(small?'<small>'+small+'</small>':'')+'</button>';}
+function next(label,action){return '<button type="button" class="action" data-action="'+action+'">'+label+'</button>';}
 function render(){
- var s=state[step];E("progressText").textContent=s.progress;E("kicker").textContent=s.kicker;E("title").textContent=s.title;E("subtitle").textContent=s.subtitle;E("bubble").textContent=s.bubble;E("prompt").textContent=s.prompt;
- var bs=E("bars").children;for(var i=0;i<bs.length;i++)bs[i].className=i<=step?"on":"";
- E("choices").hidden=step===1||step===4||answered;E("lenses").hidden=step!==1;E("source").hidden=step!==4;
- E("next").hidden=!(step===1||step===4||answered);
- E("next").textContent=step===1?"בואו נבדוק נפקא מינה ←":step===2?"עכשיו נבדוק חובת גברא ←":step===3?"מה הגמרא אומרת? ←":"לשחק שוב ↻";
- E("scene").className="scene"+(step===1?(lens==="cloth"?" focus-cloth":" focus-person"):step===2?" focus-cloth":step===3?" focus-person":"");
- E("lensCloth").classList.toggle("active",lens==="cloth");E("lensPerson").classList.toggle("active",lens==="person");
- E("explain").hidden=step===0||step===4;
- if(step===1){E("explain").innerHTML=lens==="cloth"?"<strong>חובת טלית:</strong> הבגד צריך להיעשות עם ציציות. לכן קשירת החוטים יכולה להיחשב סיום המצווה.":"<strong>חובת גברא:</strong> המצווה מתקיימת על ידי האדם הלובש. הכנת החוטים לבדה אינה סיום המצווה.";}
- if(step===2||step===3){E("explain").innerHTML=answered?(step===2?"<strong>בדיוק.</strong> לפי חובת טלית קשירת הציציות היא רגע ההשלמה.":"<strong>בדיוק.</strong> לפי חובת גברא הרגע הקובע הוא ההתעטפות."):"עכשיו נסו להסיק את התוצאה מהסברה, בלי לנחש.";}
+ var stage=E("stage");
+ stage.className="stage"+(step>=3?" mode-morning":"")+(step===4?" show-wearing":"")+(step===2&&lens==="cloth"?" focus-cloth":step===2&&lens==="person"?" focus-person":step===3?" focus-morning":"");
+ E("counter").textContent=["סיפור · 1 מתוך 5","דילמה · 2 מתוך 5","סברה · 3 מתוך 5","נפקא מינה · 4 מתוך 5","הגמרא · 5 מתוך 5"][step];
+ E("fill").style.width=((step+1)*20)+"%";
+ setStory(storyOpen);
+ E("title").hidden=step===0||storyOpen;
+ E("paper").hidden=step!==4||storyOpen;
+ E("hud").hidden=step===0||storyOpen;
+ E("focusCaption").hidden=!(step===2&&!!lens);
+ if(step===2&&lens){E("focusCaption").textContent=lens==="cloth"?"כאן מתמקדים בבגד":"כאן מתמקדים ביוסי";E("focusCaption").style.top=lens==="cloth"?"60%":"50%";E("focusCaption").style.right=lens==="cloth"?"50%":"24%";}
+ if(step===0)return;
+ var head=E("heading"),ey=E("eyebrow"),sub=E("subheading"),hud=E("hud");
+ if(step===1){
+   ey.textContent="לילה אחד, שתי אפשרויות";
+   head.textContent="מתי יוסי יברך?";
+   sub.textContent="הלילה הוא קושר. מחר הוא לובש.";
+   hud.innerHTML='<div class="hud-question">מה היית אומר ליוסי?</div><div class="options">'+btn("🌙","עכשיו, בקשירה","guess-cloth","","עם אבא בסדנה")+btn("☀️","מחר, בלבישה","guess-person","aqua","לפני שהוא לובש")+'</div>';
+ } else if(step===2){
+   ey.textContent="מאחורי התשובה";
+   head.textContent="מה עומד במרכז?";
+   sub.textContent="געו בבגד וביוסי כדי לגלות שתי סברות.";
+   var note=lens==="cloth"?"<strong>חובת טלית:</strong> העיקר הוא הבגד. קשירת הציציות עשויה להיחשב גמר המצווה.":lens==="person"?"<strong>חובת גברא:</strong> העיקר הוא האדם הלובש. הקשירה היא הכנה, והמצווה מתקיימת בלבישה.":"בחרו במה להתמקד בתמונה.";
+   hud.innerHTML='<div class="note">'+note+'</div><div class="options">'+btn("🧵","הבגד","lens-cloth",lens==="cloth"?"selected":"")+btn("👦","יוסי","lens-person","aqua "+(lens==="person"?"selected":""))+'</div>'+(seen.cloth&&seen.person?next("ראיתי את שתי הסברות ←","go-test"):'');
+ } else if(step===3){
+   ey.textContent="מחר בבוקר";
+   head.textContent="אם המצווה על האדם...";
+   sub.textContent="מתי מסתיים מעשה המצווה לפי הסברה הזאת?";
+   if(answer==="correct"){
+     hud.innerHTML='<div class="note"><strong>נכון!</strong> לפי חובת גברא, נקודת ההכרעה היא הלבישה. עכשיו אפשר להבין את הגמרא.</div>'+next("נפתח את המקור ←","go-source");
+   }else{
+     hud.innerHTML='<div class="hud-question">בחרו לפי הסברה, לא לפי ניחוש</div><div class="options">'+btn("🌙","בלילה, כשקשרו","test-cloth")+btn("☀️","בבוקר, כשהוא לובש","test-person","aqua")+'</div>'+(answer==="wrong"?'<div class="note warn">רמז: אם החיוב הוא על <strong>יוסי</strong>, מה צריך לקרות כדי שהמצווה תתקיים?</div>':'');
+   }
+ } else {
+   ey.textContent="גילינו את נקודת החילוק";
+   head.textContent="עכשיו הגמרא ברורה";
+   sub.textContent="מה המצווה דורשת: בגד מוכן או אדם שלובש?";
+   hud.innerHTML=next("משחקים מחדש ↻","restart");
+ }
 }
-function pick(value){
- if(step===0){guess=value;step=1;lens=value;render();return;}
- if(step!==2&&step!==3)return;
- var needed=step===2?"cloth":"person";
- if(value===needed){matches++;answered=true;render();}
- else{E("explain").hidden=false;E("explain").innerHTML="חשבו על הסברה: מהו המעשה שמסיים את המצווה <strong>לפי ההבנה הזאת</strong>?";}
+function choose(action){
+ if(action==="guess-cloth"||action==="guess-person"){
+   guess=action==="guess-cloth"?"cloth":"person";step=2;lens="";render();return;
+ }
+ if(action==="lens-cloth"||action==="lens-person"){
+   lens=action==="lens-cloth"?"cloth":"person";seen[lens]=true;render();return;
+ }
+ if(action==="go-test"){step=3;answer="";render();return;}
+ if(action==="test-cloth"){answer="wrong";render();return;}
+ if(action==="test-person"){answer="correct";render();return;}
+ if(action==="go-source"){step=4;render();return;}
+ if(action==="restart"){step=0;storyOpen=true;lens="";seen={cloth:false,person:false};answer="";guess="";render();}
 }
-function advance(){
- if(step===4){step=0;guess="";matches=0;lens="cloth";}
- else if(step===1||answered){step++;}answered=false;render();
-}
-E("chooseCloth").addEventListener("click",function(){pick("cloth")});
-E("choosePerson").addEventListener("click",function(){pick("person")});
-E("lensCloth").addEventListener("click",function(){lens="cloth";render()});
-E("lensPerson").addEventListener("click",function(){lens="person";render()});
-E("next").addEventListener("click",advance);
+E("closeStory").addEventListener("click",function(){storyOpen=false;if(step===0)step=1;render();});
+E("openStory").addEventListener("click",function(){storyOpen=true;render();});
+E("backdrop").addEventListener("click",function(){if(step>0){storyOpen=false;render();}});
+E("hud").addEventListener("click",function(e){var el=e.target.closest("button[data-action]");if(el)choose(el.getAttribute("data-action"));});
 render();
 })();
 </script>
-</body>
-</html>
+</body></html>
