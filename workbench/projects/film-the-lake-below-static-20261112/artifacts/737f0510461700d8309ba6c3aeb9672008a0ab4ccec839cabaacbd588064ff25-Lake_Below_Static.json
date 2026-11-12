@@ -1,0 +1,1673 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+  "schemaVersion": 1,
+  "schemaHash": "C0EFEB78612A3ED867DACE26B2930CB3C6AED36776F0E8D797FF95990EC17469",
+  "authoringRuleRegistryRevision": "80399DACAB7ADEC81ADC0215417942638DFA9A2F2F53105541CADF1A5533E6FF",
+  "title": "The Lake Below Static",
+  "durationSeconds": 72,
+  "creativeIntent": "A Mistworld survey flight discovers what lives beneath a flooded relay shack. Keep the aircraft lanes legible against the lake, and let the final jellyfish echo the first splash.",
+  "cast": [
+    {
+      "id": "scout",
+      "materialHandle": "animation__4eb0fc26",
+      "displayName": "Survey One",
+      "entityKind": "Spaceship",
+      "alignment": "good"
+    },
+    {
+      "id": "ring",
+      "materialHandle": "animation__8b7c9320",
+      "displayName": "Ring sentry",
+      "entityKind": "Spaceship",
+      "alignment": "evil"
+    },
+    {
+      "id": "knife",
+      "materialHandle": "animation__d98cd38d",
+      "displayName": "Starknife interceptor",
+      "entityKind": "Spaceship",
+      "alignment": "evil"
+    },
+    {
+      "id": "mohican",
+      "materialHandle": "animation__6e8754ee",
+      "displayName": "Mohican interceptor",
+      "entityKind": "Spaceship",
+      "alignment": "evil"
+    },
+    {
+      "id": "jelly",
+      "materialHandle": "animation__07793a5c",
+      "displayName": "Lake jellyfish",
+      "entityKind": "Creature",
+      "alignment": "neutral"
+    },
+    {
+      "id": "hunter",
+      "materialHandle": "animation__1d00248e",
+      "displayName": "Hunter drone",
+      "entityKind": "Spaceship",
+      "alignment": "evil"
+    },
+    {
+      "id": "saucer",
+      "materialHandle": "animation__43693c8f",
+      "displayName": "Lake saucer",
+      "entityKind": "Spaceship",
+      "alignment": "evil"
+    }
+  ],
+  "beats": [
+    {
+      "id": "b01",
+      "type": "establishing",
+      "durationSeconds": 6,
+      "locationHandle": "pond_2_0__a941943e",
+      "dramaticFunction": "setup",
+      "energy": "quiet",
+      "evidence": "The pond fills the frame. The survey ship crosses above the reflected light.",
+      "visible": [
+        {
+          "id": "scout",
+          "handle": "animation__4eb0fc26",
+          "role": "scout",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.16,
+          "screenY": 0.72,
+          "screenWidthFraction": 0.16,
+          "facing": "right"
+        },
+        {
+          "id": "fog_01",
+          "handle": "groundfog__9a79c66a",
+          "depth": "mid",
+          "saliency": "ambient",
+          "screenX": 0.5,
+          "screenY": 0.23,
+          "screenWidthFraction": 0.73,
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        },
+        {
+          "id": "rain_01",
+          "handle": "raineffect__c631f5cd",
+          "depth": "foreground",
+          "saliency": "ambient",
+          "screenX": 0.5,
+          "screenY": 0.65,
+          "screenWidthFraction": 0.92,
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "scout",
+          "motionIntent": "flyby",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.16,
+              "y": 0.72
+            },
+            {
+              "x": 0.41,
+              "y": 0.67
+            },
+            {
+              "x": 0.58,
+              "y": 0.59
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "slow",
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "left_to_right"
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "intensity": "subtle"
+      },
+      "transition": {
+        "style": "fade_from_black",
+        "durationSeconds": 0.6
+      },
+      "audio": [
+        {
+          "kind": "music",
+          "handle": "5_deep_place__4c5c4316",
+          "startOffsetSeconds": 0,
+          "volume": 0.39,
+          "operation": "play",
+          "loop": false
+        },
+        {
+          "kind": "sfx",
+          "handle": "delta7_engine__5bfd7f6a",
+          "startOffsetSeconds": 0.3,
+          "volume": 0.27,
+          "durationSeconds": 5.5
+        }
+      ],
+      "captions": [
+        {
+          "text": "THE LAKE BELOW STATIC",
+          "kind": "title",
+          "placement": "top",
+          "startOffset": 0.7,
+          "durationSeconds": 3.8
+        }
+      ]
+    },
+    {
+      "id": "b02",
+      "type": "arrival",
+      "durationSeconds": 6,
+      "locationHandle": "creepysky_0__42c8d489",
+      "dramaticFunction": "build",
+      "energy": "low",
+      "evidence": "Cut to the flooded TV shack. Survey One slows above the roof while fog stays down at water level.",
+      "visible": [
+        {
+          "id": "ridge",
+          "handle": "creepy_2_0__d2a27d4c",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.5,
+          "screenY": 0.48,
+          "screenWidthFraction": 1.0
+        },
+        {
+          "id": "shack",
+          "handle": "creepy_4_0__c00eb688",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.68,
+          "screenY": 0.33,
+          "screenWidthFraction": 0.39
+        },
+        {
+          "id": "scout",
+          "handle": "animation__4eb0fc26",
+          "role": "scout",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.58,
+          "screenY": 0.59,
+          "screenWidthFraction": 0.17,
+          "facing": "right"
+        },
+        {
+          "id": "fog_02",
+          "handle": "groundfog__9a79c66a",
+          "depth": "mid",
+          "saliency": "ambient",
+          "screenX": 0.5,
+          "screenY": 0.23,
+          "screenWidthFraction": 0.73,
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        },
+        {
+          "id": "rain_02",
+          "handle": "raineffect__c631f5cd",
+          "depth": "foreground",
+          "saliency": "ambient",
+          "screenX": 0.5,
+          "screenY": 0.65,
+          "screenWidthFraction": 0.92,
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "scout",
+          "motionIntent": "flyby",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.58,
+              "y": 0.59
+            },
+            {
+              "x": 0.69,
+              "y": 0.65
+            },
+            {
+              "x": 0.77,
+              "y": 0.66
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "slow",
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "left_to_right"
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "intensity": "subtle"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      }
+    },
+    {
+      "id": "b03",
+      "type": "threat_reveal",
+      "durationSeconds": 6,
+      "locationHandle": "pond_2_0__a941943e",
+      "dramaticFunction": "reveal",
+      "energy": "medium",
+      "evidence": "A splash marks the exact point where the jellyfish rises. Its silhouette clears the waterline.",
+      "visible": [
+        {
+          "id": "jelly",
+          "handle": "animation__07793a5c",
+          "role": "jelly",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.47,
+          "screenY": 0.26,
+          "screenWidthFraction": 0.2,
+          "facing": "right"
+        },
+        {
+          "id": "first_splash",
+          "handle": "bigsplash__76b07ce1",
+          "depth": "foreground",
+          "saliency": "ambient",
+          "screenX": 0.47,
+          "screenY": 0.27,
+          "screenWidthFraction": 0.25,
+          "startOffsetSeconds": 0.4,
+          "durationSeconds": 2.1
+        },
+        {
+          "id": "fog_03",
+          "handle": "groundfog__9a79c66a",
+          "depth": "mid",
+          "saliency": "ambient",
+          "screenX": 0.5,
+          "screenY": 0.23,
+          "screenWidthFraction": 0.73,
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        },
+        {
+          "id": "rain_03",
+          "handle": "raineffect__c631f5cd",
+          "depth": "foreground",
+          "saliency": "ambient",
+          "screenX": 0.5,
+          "screenY": 0.65,
+          "screenWidthFraction": 0.92,
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "jelly",
+          "motionIntent": "move",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.47,
+              "y": 0.26
+            },
+            {
+              "x": 0.48,
+              "y": 0.44
+            },
+            {
+              "x": 0.51,
+              "y": 0.55
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "slow",
+          "animationHandle": "animation__07793a5c",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "left_to_right"
+        }
+      ],
+      "camera": {
+        "framing": "medium",
+        "movement": "hold",
+        "intensity": "subtle"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "bossapproach__910d6e60",
+          "startOffsetSeconds": 1.0,
+          "volume": 0.3,
+          "durationSeconds": 4
+        }
+      ]
+    },
+    {
+      "id": "b04",
+      "type": "threat_reveal",
+      "durationSeconds": 6,
+      "locationHandle": "creepysky_0__42c8d489",
+      "dramaticFunction": "reaction",
+      "energy": "medium",
+      "evidence": "The scout backs away left. Ring comes in from the right and takes the lane above the shack.",
+      "visible": [
+        {
+          "id": "ridge",
+          "handle": "creepy_2_0__d2a27d4c",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.5,
+          "screenY": 0.48,
+          "screenWidthFraction": 1.0
+        },
+        {
+          "id": "shack",
+          "handle": "creepy_4_0__c00eb688",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.68,
+          "screenY": 0.33,
+          "screenWidthFraction": 0.39
+        },
+        {
+          "id": "scout",
+          "handle": "animation__4eb0fc26",
+          "role": "scout",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.77,
+          "screenY": 0.66,
+          "screenWidthFraction": 0.15,
+          "facing": "left"
+        },
+        {
+          "id": "ring",
+          "handle": "animation__8b7c9320",
+          "role": "ring",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.87,
+          "screenY": 0.75,
+          "screenWidthFraction": 0.14,
+          "facing": "left"
+        },
+        {
+          "id": "fog_04",
+          "handle": "groundfog__9a79c66a",
+          "depth": "mid",
+          "saliency": "ambient",
+          "screenX": 0.5,
+          "screenY": 0.23,
+          "screenWidthFraction": 0.73,
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        },
+        {
+          "id": "rain_04",
+          "handle": "raineffect__c631f5cd",
+          "depth": "foreground",
+          "saliency": "ambient",
+          "screenX": 0.5,
+          "screenY": 0.65,
+          "screenWidthFraction": 0.92,
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "scout",
+          "motionIntent": "escape",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.77,
+              "y": 0.66
+            },
+            {
+              "x": 0.6,
+              "y": 0.61
+            },
+            {
+              "x": 0.44,
+              "y": 0.58
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "medium",
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "right_to_left"
+        },
+        {
+          "type": "move",
+          "subject": "ring",
+          "motionIntent": "intercept",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.87,
+              "y": 0.75
+            },
+            {
+              "x": 0.73,
+              "y": 0.73
+            },
+            {
+              "x": 0.61,
+              "y": 0.71
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "medium",
+          "animationHandle": "animation__8b7c9320",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "right_to_left"
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "intensity": "subtle"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      }
+    },
+    {
+      "id": "b05",
+      "type": "battle",
+      "durationSeconds": 6,
+      "locationHandle": "creepysky_0__42c8d489",
+      "dramaticFunction": "pursuit",
+      "energy": "high",
+      "evidence": "Starknife and Mohican sweep left on separated high and low lanes, following the scout away from the shack.",
+      "visible": [
+        {
+          "id": "ridge",
+          "handle": "creepy_2_0__d2a27d4c",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.5,
+          "screenY": 0.48,
+          "screenWidthFraction": 1.0
+        },
+        {
+          "id": "shack",
+          "handle": "creepy_4_0__c00eb688",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.68,
+          "screenY": 0.33,
+          "screenWidthFraction": 0.39
+        },
+        {
+          "id": "scout",
+          "handle": "animation__4eb0fc26",
+          "role": "scout",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.44,
+          "screenY": 0.58,
+          "screenWidthFraction": 0.14,
+          "facing": "left"
+        },
+        {
+          "id": "knife",
+          "handle": "animation__d98cd38d",
+          "role": "knife",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.84,
+          "screenY": 0.73,
+          "screenWidthFraction": 0.15,
+          "facing": "left"
+        },
+        {
+          "id": "mohican",
+          "handle": "animation__6e8754ee",
+          "role": "mohican",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.7,
+          "screenY": 0.35,
+          "screenWidthFraction": 0.12,
+          "facing": "left"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "scout",
+          "motionIntent": "escape",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.44,
+              "y": 0.58
+            },
+            {
+              "x": 0.29,
+              "y": 0.56
+            },
+            {
+              "x": 0.14,
+              "y": 0.57
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "fast",
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "right_to_left"
+        },
+        {
+          "type": "move",
+          "subject": "knife",
+          "motionIntent": "pursuit",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.84,
+              "y": 0.73
+            },
+            {
+              "x": 0.66,
+              "y": 0.69
+            },
+            {
+              "x": 0.36,
+              "y": 0.68
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "fast",
+          "animationHandle": "animation__d98cd38d",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "right_to_left"
+        },
+        {
+          "type": "move",
+          "subject": "mohican",
+          "motionIntent": "pursuit",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.7,
+              "y": 0.35
+            },
+            {
+              "x": 0.52,
+              "y": 0.39
+            },
+            {
+              "x": 0.34,
+              "y": 0.41
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "fast",
+          "animationHandle": "animation__6e8754ee",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "right_to_left"
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "intensity": "subtle"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "delta7_engine__5bfd7f6a",
+          "startOffsetSeconds": 0.2,
+          "volume": 0.32,
+          "durationSeconds": 5.5
+        }
+      ]
+    },
+    {
+      "id": "b06",
+      "type": "battle",
+      "durationSeconds": 6,
+      "locationHandle": "pond_2_0__a941943e",
+      "dramaticFunction": "pursuit",
+      "energy": "high",
+      "evidence": "The scout banks back across the water. A separate Hunter drone closes from the opposite bank.",
+      "visible": [
+        {
+          "id": "scout",
+          "handle": "animation__4eb0fc26",
+          "role": "scout",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.14,
+          "screenY": 0.57,
+          "screenWidthFraction": 0.15,
+          "facing": "right"
+        },
+        {
+          "id": "hunter",
+          "handle": "animation__1d00248e",
+          "role": "hunter",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.83,
+          "screenY": 0.48,
+          "screenWidthFraction": 0.13,
+          "facing": "left"
+        },
+        {
+          "id": "jelly",
+          "handle": "animation__07793a5c",
+          "role": "jelly",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.52,
+          "screenY": 0.3,
+          "screenWidthFraction": 0.15,
+          "facing": "right"
+        },
+        {
+          "id": "water_wake",
+          "handle": "bigsplash__76b07ce1",
+          "depth": "foreground",
+          "saliency": "ambient",
+          "screenX": 0.4,
+          "screenY": 0.28,
+          "screenWidthFraction": 0.22,
+          "startOffsetSeconds": 1.1,
+          "durationSeconds": 1.8
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "scout",
+          "motionIntent": "bank_away",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.14,
+              "y": 0.57
+            },
+            {
+              "x": 0.31,
+              "y": 0.38
+            },
+            {
+              "x": 0.55,
+              "y": 0.43
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "fast",
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "left_to_right"
+        },
+        {
+          "type": "move",
+          "subject": "hunter",
+          "motionIntent": "intercept",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.83,
+              "y": 0.48
+            },
+            {
+              "x": 0.72,
+              "y": 0.52
+            },
+            {
+              "x": 0.75,
+              "y": 0.49
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "medium",
+          "animationHandle": "animation__1d00248e",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "right_to_left"
+        },
+        {
+          "type": "move",
+          "subject": "jelly",
+          "motionIntent": "move",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.52,
+              "y": 0.3
+            },
+            {
+              "x": 0.48,
+              "y": 0.27
+            },
+            {
+              "x": 0.45,
+              "y": 0.24
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "slow",
+          "animationHandle": "animation__07793a5c",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "right_to_left"
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "intensity": "subtle"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      }
+    },
+    {
+      "id": "b07",
+      "type": "battle",
+      "durationSeconds": 6,
+      "locationHandle": "pond_2_0__a941943e",
+      "dramaticFunction": "impact",
+      "energy": "peak",
+      "evidence": "Survey One fires a blue bolt into the Hunter. The impact is followed by a bright blast in the Hunter’s lane.",
+      "visible": [
+        {
+          "id": "scout",
+          "handle": "animation__4eb0fc26",
+          "role": "scout",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.55,
+          "screenY": 0.43,
+          "screenWidthFraction": 0.17,
+          "facing": "right"
+        },
+        {
+          "id": "hunter",
+          "handle": "animation__1d00248e",
+          "role": "hunter",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.75,
+          "screenY": 0.49,
+          "screenWidthFraction": 0.13,
+          "facing": "left"
+        },
+        {
+          "id": "hunter_burst",
+          "handle": "bigexplosion__9d286a08",
+          "depth": "foreground",
+          "saliency": "ambient",
+          "screenX": 0.75,
+          "screenY": 0.49,
+          "screenWidthFraction": 0.22,
+          "startOffsetSeconds": 2.6,
+          "durationSeconds": 2.0
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "scout",
+          "motionIntent": "flyby",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.55,
+              "y": 0.43
+            },
+            {
+              "x": 0.6,
+              "y": 0.41
+            },
+            {
+              "x": 0.65,
+              "y": 0.45
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "slow",
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "left_to_right"
+        },
+        {
+          "type": "hold",
+          "subject": "hunter",
+          "animationHandle": "animation__1d00248e",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6
+        },
+        {
+          "type": "fire",
+          "subject": "scout",
+          "target": "hunter",
+          "projectileId": "CS_PROJECTILE_BLUE_BOLT",
+          "impactMode": "target_anchor",
+          "count": 1,
+          "startOffset": 1.6,
+          "duration": 1.0
+        },
+        {
+          "type": "hide",
+          "subject": "hunter",
+          "startOffset": 2.85,
+          "duration": 0.3
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "intensity": "subtle"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "cutelaser__f858d627",
+          "startOffsetSeconds": 1.6,
+          "volume": 0.44,
+          "durationSeconds": 0.38
+        },
+        {
+          "kind": "sfx",
+          "handle": "cannon_impact_9__5ef4c804",
+          "startOffsetSeconds": 2.6,
+          "volume": 0.57,
+          "durationSeconds": 1.64
+        }
+      ]
+    },
+    {
+      "id": "b08",
+      "type": "threat_reveal",
+      "durationSeconds": 6,
+      "locationHandle": "pond_2_0__a941943e",
+      "dramaticFunction": "reveal",
+      "energy": "high",
+      "evidence": "A large splash breaks the surface as the broad red-lit saucer rises. Survey One turns across its bow.",
+      "visible": [
+        {
+          "id": "scout",
+          "handle": "animation__4eb0fc26",
+          "role": "scout",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.65,
+          "screenY": 0.45,
+          "screenWidthFraction": 0.14,
+          "facing": "left"
+        },
+        {
+          "id": "saucer",
+          "handle": "animation__43693c8f",
+          "role": "saucer",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.44,
+          "screenY": 0.24,
+          "screenWidthFraction": 0.36,
+          "facing": "right"
+        },
+        {
+          "id": "saucer_splash",
+          "handle": "bigsplash__76b07ce1",
+          "depth": "foreground",
+          "saliency": "ambient",
+          "screenX": 0.44,
+          "screenY": 0.28,
+          "screenWidthFraction": 0.36,
+          "startOffsetSeconds": 0.25,
+          "durationSeconds": 2.45
+        },
+        {
+          "id": "saucer_steam",
+          "handle": "risingsteam__6ef79677",
+          "depth": "foreground",
+          "saliency": "ambient",
+          "screenX": 0.46,
+          "screenY": 0.29,
+          "screenWidthFraction": 0.34,
+          "startOffsetSeconds": 1.1,
+          "durationSeconds": 4.8
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "scout",
+          "motionIntent": "bank_away",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.65,
+              "y": 0.45
+            },
+            {
+              "x": 0.62,
+              "y": 0.57
+            },
+            {
+              "x": 0.56,
+              "y": 0.65
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "medium",
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "right_to_left"
+        },
+        {
+          "type": "move",
+          "subject": "saucer",
+          "motionIntent": "move",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.44,
+              "y": 0.24
+            },
+            {
+              "x": 0.46,
+              "y": 0.43
+            },
+            {
+              "x": 0.47,
+              "y": 0.53
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "slow",
+          "animationHandle": "animation__43693c8f",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "left_to_right"
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "intensity": "subtle"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "bossapproach__910d6e60",
+          "startOffsetSeconds": 0.55,
+          "volume": 0.53,
+          "durationSeconds": 4
+        }
+      ]
+    },
+    {
+      "id": "b09",
+      "type": "battle",
+      "durationSeconds": 6,
+      "locationHandle": "creepysky_0__42c8d489",
+      "dramaticFunction": "climax",
+      "energy": "peak",
+      "evidence": "The saucer fires along the upper lane. Survey One drops under the line of fire and crosses toward the shack.",
+      "visible": [
+        {
+          "id": "ridge",
+          "handle": "creepy_2_0__d2a27d4c",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.5,
+          "screenY": 0.48,
+          "screenWidthFraction": 1.0
+        },
+        {
+          "id": "shack",
+          "handle": "creepy_4_0__c00eb688",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.68,
+          "screenY": 0.33,
+          "screenWidthFraction": 0.39
+        },
+        {
+          "id": "scout",
+          "handle": "animation__4eb0fc26",
+          "role": "scout",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.56,
+          "screenY": 0.65,
+          "screenWidthFraction": 0.15,
+          "facing": "right"
+        },
+        {
+          "id": "saucer",
+          "handle": "animation__43693c8f",
+          "role": "saucer",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.47,
+          "screenY": 0.53,
+          "screenWidthFraction": 0.32,
+          "facing": "right"
+        },
+        {
+          "id": "ring",
+          "handle": "animation__8b7c9320",
+          "role": "ring",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.29,
+          "screenY": 0.76,
+          "screenWidthFraction": 0.11,
+          "facing": "right"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "scout",
+          "motionIntent": "escape",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.56,
+              "y": 0.65
+            },
+            {
+              "x": 0.62,
+              "y": 0.42
+            },
+            {
+              "x": 0.82,
+              "y": 0.46
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "burst",
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "left_to_right"
+        },
+        {
+          "type": "move",
+          "subject": "saucer",
+          "motionIntent": "flyby",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.47,
+              "y": 0.53
+            },
+            {
+              "x": 0.47,
+              "y": 0.53
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "medium",
+          "animationHandle": "animation__43693c8f",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6
+        },
+        {
+          "type": "move",
+          "subject": "ring",
+          "motionIntent": "flyby",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.29,
+              "y": 0.76
+            },
+            {
+              "x": 0.45,
+              "y": 0.8
+            },
+            {
+              "x": 0.61,
+              "y": 0.8
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "fast",
+          "animationHandle": "animation__8b7c9320",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "left_to_right"
+        },
+        {
+          "type": "fire",
+          "subject": "saucer",
+          "projectileId": "CS_PROJECTILE_PURPLE_BOLT",
+          "impactMode": "endpoint",
+          "x": 0.92,
+          "y": 0.69,
+          "count": 1,
+          "startOffset": 1.1,
+          "duration": 1.1
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "intensity": "subtle"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "cutelaser__f858d627",
+          "startOffsetSeconds": 1.1,
+          "volume": 0.5,
+          "durationSeconds": 0.38
+        }
+      ]
+    },
+    {
+      "id": "b10",
+      "type": "retreat",
+      "durationSeconds": 6,
+      "locationHandle": "creepysky_0__42c8d489",
+      "dramaticFunction": "escape",
+      "energy": "high",
+      "evidence": "Survey One climbs on the right. Starknife and Mohican enter in staggered lanes below its climb.",
+      "visible": [
+        {
+          "id": "ridge",
+          "handle": "creepy_2_0__d2a27d4c",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.5,
+          "screenY": 0.48,
+          "screenWidthFraction": 1.0
+        },
+        {
+          "id": "shack",
+          "handle": "creepy_4_0__c00eb688",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.68,
+          "screenY": 0.33,
+          "screenWidthFraction": 0.39
+        },
+        {
+          "id": "scout",
+          "handle": "animation__4eb0fc26",
+          "role": "scout",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.82,
+          "screenY": 0.46,
+          "screenWidthFraction": 0.15,
+          "facing": "right"
+        },
+        {
+          "id": "knife",
+          "handle": "animation__d98cd38d",
+          "role": "knife",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.21,
+          "screenY": 0.59,
+          "screenWidthFraction": 0.13,
+          "facing": "right"
+        },
+        {
+          "id": "mohican",
+          "handle": "animation__6e8754ee",
+          "role": "mohican",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.35,
+          "screenY": 0.4,
+          "screenWidthFraction": 0.13,
+          "facing": "right"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "scout",
+          "motionIntent": "escape",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.82,
+              "y": 0.46
+            },
+            {
+              "x": 0.86,
+              "y": 0.62
+            },
+            {
+              "x": 1.1,
+              "y": 0.83
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "fast",
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "left_to_right"
+        },
+        {
+          "type": "move",
+          "subject": "knife",
+          "motionIntent": "pursuit",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.21,
+              "y": 0.59
+            },
+            {
+              "x": 0.48,
+              "y": 0.57
+            },
+            {
+              "x": 0.69,
+              "y": 0.59
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "fast",
+          "animationHandle": "animation__d98cd38d",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "left_to_right"
+        },
+        {
+          "type": "move",
+          "subject": "mohican",
+          "motionIntent": "pursuit",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.35,
+              "y": 0.4
+            },
+            {
+              "x": 0.54,
+              "y": 0.4
+            },
+            {
+              "x": 0.73,
+              "y": 0.42
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "fast",
+          "animationHandle": "animation__6e8754ee",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "left_to_right"
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "intensity": "subtle"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "delta7_engine__5bfd7f6a",
+          "startOffsetSeconds": 0.1,
+          "volume": 0.4,
+          "durationSeconds": 5.6
+        }
+      ]
+    },
+    {
+      "id": "b11",
+      "type": "retreat",
+      "durationSeconds": 6,
+      "locationHandle": "pond_2_0__a941943e",
+      "dramaticFunction": "aftermath",
+      "energy": "low",
+      "evidence": "The saucer descends behind steam. The jellyfish slips down along the opposite side of the lake.",
+      "visible": [
+        {
+          "id": "saucer",
+          "handle": "animation__43693c8f",
+          "role": "saucer",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.47,
+          "screenY": 0.53,
+          "screenWidthFraction": 0.32,
+          "facing": "right"
+        },
+        {
+          "id": "jelly",
+          "handle": "animation__07793a5c",
+          "role": "jelly",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.28,
+          "screenY": 0.45,
+          "screenWidthFraction": 0.13,
+          "facing": "right"
+        },
+        {
+          "id": "sink_steam",
+          "handle": "risingsteam__6ef79677",
+          "depth": "foreground",
+          "saliency": "ambient",
+          "screenX": 0.47,
+          "screenY": 0.26,
+          "screenWidthFraction": 0.33,
+          "startOffsetSeconds": 1.0,
+          "durationSeconds": 4.8
+        },
+        {
+          "id": "sink_splash",
+          "handle": "bigsplash__76b07ce1",
+          "depth": "foreground",
+          "saliency": "ambient",
+          "screenX": 0.47,
+          "screenY": 0.24,
+          "screenWidthFraction": 0.31,
+          "startOffsetSeconds": 3.1,
+          "durationSeconds": 2.6
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "saucer",
+          "motionIntent": "move",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.47,
+              "y": 0.53
+            },
+            {
+              "x": 0.47,
+              "y": 0.39
+            },
+            {
+              "x": 0.47,
+              "y": 0.12
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "slow",
+          "animationHandle": "animation__43693c8f",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6
+        },
+        {
+          "type": "move",
+          "subject": "jelly",
+          "motionIntent": "move",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.28,
+              "y": 0.45
+            },
+            {
+              "x": 0.27,
+              "y": 0.32
+            },
+            {
+              "x": 0.25,
+              "y": 0.18
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "slow",
+          "animationHandle": "animation__07793a5c",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "right_to_left"
+        },
+        {
+          "type": "hide",
+          "subject": "saucer",
+          "startOffset": 5.5,
+          "duration": 0.5
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "intensity": "subtle"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      }
+    },
+    {
+      "id": "b12",
+      "type": "custom",
+      "durationSeconds": 6,
+      "locationHandle": "creepysky_0__42c8d489",
+      "dramaticFunction": "release",
+      "energy": "quiet",
+      "evidence": "The camera holds on the lit shack. A lone jellyfish drifts in front of its reflection as the fog passes.",
+      "visible": [
+        {
+          "id": "ridge",
+          "handle": "creepy_2_0__d2a27d4c",
+          "depth": "background",
+          "saliency": "support",
+          "screenX": 0.5,
+          "screenY": 0.48,
+          "screenWidthFraction": 1.0
+        },
+        {
+          "id": "shack",
+          "handle": "creepy_4_0__c00eb688",
+          "depth": "mid",
+          "saliency": "support",
+          "screenX": 0.68,
+          "screenY": 0.33,
+          "screenWidthFraction": 0.39
+        },
+        {
+          "id": "jelly",
+          "handle": "animation__07793a5c",
+          "role": "jelly",
+          "depth": "mid",
+          "saliency": "primary",
+          "screenX": 0.34,
+          "screenY": 0.25,
+          "screenWidthFraction": 0.11,
+          "facing": "right"
+        },
+        {
+          "id": "fog_12",
+          "handle": "groundfog__9a79c66a",
+          "depth": "mid",
+          "saliency": "ambient",
+          "screenX": 0.5,
+          "screenY": 0.23,
+          "screenWidthFraction": 0.73,
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "jelly",
+          "motionIntent": "move",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.34,
+              "y": 0.25
+            },
+            {
+              "x": 0.44,
+              "y": 0.27
+            },
+            {
+              "x": 0.52,
+              "y": 0.26
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "loop": false,
+          "periodSeconds": 6,
+          "speed": "slow",
+          "animationHandle": "animation__07793a5c",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "travelDirection": "left_to_right"
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold",
+        "intensity": "subtle"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "audio": [
+        {
+          "kind": "music",
+          "handle": "5_deep_place__4c5c4316",
+          "startOffsetSeconds": 2.3,
+          "volume": 0.39,
+          "operation": "fade_out",
+          "durationSeconds": 3.7
+        }
+      ]
+    }
+  ]
+}
