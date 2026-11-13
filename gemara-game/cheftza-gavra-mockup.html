@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#102630">
 <meta name="description" content="מוקאפ אינטראקטיבי של חפצא וגברא: מתחילים מסיפור בסדנת אבות ובנים, ומגלים את הסברה ואת הנפקא מינה.">
-<title>מתי מברכים? | חפצא וגברא | גמרא גיים</title>
+<title>שלוש חקירות למדניות | גמרא גיים</title>
 <style>
 :root{font-family:Arial,"Noto Sans Hebrew",sans-serif;color:#fff8e9;background:#102630;--gold:#ffcf7d;--sea:#9de5df;--ink:#16313d}
 *{box-sizing:border-box}
@@ -82,6 +82,37 @@ button:focus-visible,a:focus-visible{outline:3px solid #ffe3aa;outline-offset:3p
 @media(max-height:590px){.story-cloud{bottom:3%}.scene-title{top:53px}.scene-title h1{font-size:23px}.scene-title p{font-size:12px}.hud{padding-top:18px}.opt{min-height:52px}.opt .ico{font-size:21px}.story-cloud p{font-size:13px}.paper{top:17%}}
 @media(min-width:700px){.app{padding-top:14px;padding-bottom:14px}.stage{max-height:850px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
+
+/* Three linked learning investigations. One visible action plane at a time. */
+.stage svg#nederScene,.stage svg#candleScene{opacity:0;pointer-events:none;transition:opacity .35s}
+.stage.scene-neder>svg:not(#nederScene),.stage.scene-candle>svg:not(#candleScene){opacity:0;pointer-events:none}
+.stage.scene-neder svg#nederScene,.stage.scene-candle svg#candleScene{opacity:1}
+.stage.neder-object #nederObjectGlow{opacity:.95!important}
+.stage.neder-person #nederPersonGlow{opacity:1!important}
+.stage.neder-object #nederBoyOne,.stage.neder-object #nederBoyTwo{opacity:.47}
+.stage.neder-person #sukkahRoof{opacity:.55}
+.stage.candle-light #candleLightGlow{opacity:1!important}
+.stage.candle-place #candlePlaceGlow{opacity:.95!important}
+.stage.candle-place #hanukiah{opacity:.48}
+.stage.candle-light #hanukiah{filter:drop-shadow(0 0 13px #f4d48d)}
+.stage .challenge-hint{max-width:410px;margin:auto;color:#fff0dc;font-size:14px;line-height:1.4;font-weight:800}
+.stage .challenge-hint.error{color:#ffbcae}
+.stage .challenge-hint.win{color:#a7f4dd}
+.scene-title h1{font-size:clamp(25px,7vw,32px)}
+.scene-title p{font-size:14px;line-height:1.35}
+.options.triple{grid-template-columns:1fr}
+.options.triple .opt{min-height:50px;flex-direction:row;justify-content:flex-start;padding:8px 16px;text-align:right;gap:9px}
+.options.triple .ico{font-size:23px;flex-shrink:0}
+.options.triple .opt small{font-size:12px}
+.levelname{color:#ffe2a8;letter-spacing:.1px}
+.hud .mini-next{margin-top:2px}
+.paper .paper-label{line-height:1.4}
+.paper .verse{margin:10px 0;font-size:clamp(17px,4.5vw,20px)}
+.paper p{font-size:14px;line-height:1.45}
+.paper small{display:block;font-size:11px;color:#4a5555;margin-top:8px}
+.story-cloud p{font-size:16px}
+@media(max-height:750px){.paper{top:17%}.options.triple .opt{min-height:45px}.scene-title h1{font-size:25px}.scene-title p{font-size:12px}.hud .challenge-hint{font-size:12px}}
+
 </style>
 </head>
 <body>
@@ -190,24 +221,120 @@ button:focus-visible,a:focus-visible{outline:3px solid #ffe3aa;outline-offset:3p
 <path d="M33 599Q89 574 147 602" stroke="#f6e1bf5a" stroke-width="3" fill="none"/>
 </g>
 </svg>
+<svg id="nederScene" viewBox="0 0 420 650" preserveAspectRatio="xMidYMid slice" role="img" aria-label="שני נערים עומדים ליד שולחן בסוכה שבנו לקראת החג">
+<defs>
+<linearGradient id="sukkahSky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#24465b"/><stop offset="1" stop-color="#52776c"/></linearGradient>
+<linearGradient id="sukkahFloor" x2="0" y2="1"><stop stop-color="#907058"/><stop offset="1" stop-color="#4d584b"/></linearGradient>
+<radialGradient id="sukGlow"><stop stop-color="#ffe5aa" stop-opacity=".9"/><stop offset="1" stop-color="#ffe5aa" stop-opacity="0"/></radialGradient>
+<radialGradient id="sukPersonGlow"><stop stop-color="#9cefe4" stop-opacity=".7"/><stop offset="1" stop-color="#9cefe4" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="420" height="650" fill="url(#sukkahSky)"/>
+<circle cx="351" cy="123" r="29" fill="#ffe9aa" opacity=".9"/><g fill="#fff6d6" opacity=".7"><circle cx="62" cy="120" r="2"/><circle cx="109" cy="160" r="2"/><circle cx="290" cy="103" r="2"/><circle cx="384" cy="226" r="2.5"/></g>
+<path d="M0 441Q200 404 420 441V650H0Z" fill="url(#sukkahFloor)"/>
+<path d="M0 486H420 M90 447L40 650 M220 440L190 650 M350 457L393 650" stroke="#f9dba02e" stroke-width="3"/>
+<g id="sukkahRoof">
+<path d="M31 216L392 216L369 250L51 250Z" fill="#9a703e"/><path d="M31 217L95 167H353L392 218" fill="#7f613f" stroke="#d9af70" stroke-width="9"/>
+<path d="M42 217Q78 153 126 205T213 185Q240 161 286 203T379 205" fill="none" stroke="#5f8655" stroke-width="23" stroke-linecap="round"/>
+<path d="M50 229Q100 187 140 227T230 213Q300 182 379 225" fill="none" stroke="#6d985e" stroke-width="20" stroke-linecap="round"/>
+<path d="M63 220L68 251 M88 214L91 251 M124 217L127 249 M169 213L178 254 M218 212L220 251 M267 207L270 257 M318 215L327 258 M365 218L358 250" stroke="#83aa69" stroke-width="7" stroke-linecap="round"/>
+</g>
+<path d="M57 234V553 M368 229V553" stroke="#d3ac72" stroke-width="19" stroke-linecap="round"/>
+<path d="M49 284H375" stroke="#ccaf77" stroke-width="9"/>
+<g fill="#ffdba3"><circle cx="94" cy="286" r="7"/><circle cx="165" cy="286" r="7"/><circle cx="235" cy="286" r="7"/><circle cx="303" cy="286" r="7"/></g>
+<path d="M94 287Q110 305 165 287 M165 287Q211 303 235 287 M235 287Q272 302 303 287" fill="none" stroke="#e5c883" stroke-width="2"/>
+<ellipse id="nederObjectGlow" cx="208" cy="304" rx="155" ry="137" fill="url(#sukGlow)" opacity=".28"/>
+<ellipse id="nederPersonGlow" cx="302" cy="433" rx="106" ry="177" fill="url(#sukPersonGlow)" opacity="0"/>
+<ellipse cx="208" cy="529" rx="159" ry="30" fill="#152c2e88"/>
+<g id="nederTable">
+<path d="M93 462H331L345 485H78Z" fill="#c9a06c" stroke="#ead2a1" stroke-width="5"/>
+<path d="M102 483L95 572 M321 484L328 573" stroke="#735039" stroke-width="15" stroke-linecap="round"/>
+<path d="M145 467Q183 449 215 469T280 469" fill="#f5e6c9"/>
+<ellipse cx="215" cy="455" rx="35" ry="8" fill="#a87b50"/><path d="M180 453L186 438L245 438L252 453Z" fill="#d4a878"/><circle cx="210" cy="442" r="10" fill="#628e52"/><circle cx="227" cy="441" r="8" fill="#91b068"/>
+</g>
+<g id="nederBoyOne">
+<path d="M99 457L93 539H129L138 465 M141 465L146 537H174L165 455" fill="#2d4056"/>
+<path d="M94 537L85 550H139L130 537 M146 537L148 550H184L175 537" fill="#222f38"/>
+<path d="M97 337Q137 319 170 337L180 466Q134 489 87 467Z" fill="#e5d6b9" stroke="#faf0d6" stroke-width="4"/>
+<path d="M107 354L83 407L106 434 M166 357L183 410L202 433" fill="none" stroke="#e8d5b8" stroke-width="17" stroke-linecap="round"/>
+<path d="M122 326V315H146V329" fill="#c99170"/>
+<ellipse cx="134" cy="287" rx="36" ry="44" fill="#d9a27e"/>
+<path d="M98 280Q97 240 125 243Q165 229 171 282Q148 270 145 254Q125 278 102 273Z" fill="#3c3236"/>
+<ellipse cx="133" cy="243" rx="23" ry="7" fill="#1e3b49"/>
+<path d="M120 296H125 M145 296H150" stroke="#3f3030" stroke-width="3" stroke-linecap="round"/>
+<path d="M124 317Q137 324 148 315" fill="none" stroke="#a26855" stroke-width="3" stroke-linecap="round"/>
+</g>
+<g id="nederBoyTwo">
+<path d="M268 456L263 538H293L307 462 M311 461L320 540H354L340 454" fill="#293c55"/>
+<path d="M262 537L257 552H300L293 537 M320 540L316 552H361L353 537" fill="#24323c"/>
+<path d="M275 338Q305 327 344 340L354 463Q309 482 260 466Z" fill="#3e8495" stroke="#c0dfd9" stroke-width="4"/>
+<path d="M273 356L245 416L224 427 M344 361L366 420L352 437" fill="none" stroke="#4c95a2" stroke-width="17" stroke-linecap="round"/>
+<path d="M296 331V319H324V333" fill="#d69f77"/>
+<ellipse cx="310" cy="293" rx="37" ry="44" fill="#e4ac81"/>
+<path d="M272 290Q267 250 294 248Q336 235 347 279Q331 277 320 259Q309 278 276 277Z" fill="#342d35"/>
+<ellipse cx="310" cy="249" rx="23" ry="7" fill="#1a3849"/>
+<path d="M294 302H300 M319 302H326" stroke="#402c27" stroke-width="3" stroke-linecap="round"/>
+<path d="M298 320Q309 317 323 319" fill="none" stroke="#ab6c56" stroke-width="2.5" stroke-linecap="round"/>
+</g>
+</svg>
+<svg id="candleScene" viewBox="0 0 420 650" preserveAspectRatio="xMidYMid slice" role="img" aria-label="סצנת חנוכה: חנוכייה דולקת בפנים, חלון ופתח חיצוני">
+<defs>
+<linearGradient id="hanWall" x2="1" y2="1"><stop stop-color="#466f7b"/><stop offset="1" stop-color="#1b3850"/></linearGradient>
+<linearGradient id="hanFloor" x2="0" y2="1"><stop stop-color="#926e56"/><stop offset="1" stop-color="#65513e"/></linearGradient>
+<radialGradient id="flameGlow"><stop stop-color="#ffe7a1" stop-opacity="1"/><stop offset=".42" stop-color="#f9b755" stop-opacity=".45"/><stop offset="1" stop-color="#ffdc85" stop-opacity="0"/></radialGradient>
+<radialGradient id="placeGlow"><stop stop-color="#b4efea" stop-opacity=".9"/><stop offset="1" stop-color="#b4efea" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="420" height="650" fill="url(#hanWall)"/>
+<path d="M0 476Q210 448 420 478V650H0Z" fill="url(#hanFloor)"/>
+<path d="M0 503H420 M70 470L40 650 M210 467L194 650 M353 470L400 650" fill="none" stroke="#f0b77e36" stroke-width="3"/>
+<rect x="211" y="133" width="169" height="231" rx="11" fill="#e5d0a9" stroke="#f6ddae" stroke-width="7"/>
+<rect x="222" y="145" width="148" height="208" rx="5" fill="#113d5d"/>
+<circle cx="330" cy="193" r="26" fill="#f9dd9b" opacity=".9"/>
+<g fill="#f7edd0" opacity=".9"><circle cx="248" cy="178" r="2"/><circle cx="275" cy="222" r="3"/><circle cx="352" cy="245" r="2"/><circle cx="294" cy="157" r="2"/></g>
+<path d="M221 317Q253 294 285 316T369 299V354H221Z" fill="#376f79"/>
+<path d="M298 144V362 M213 252H378" stroke="#e5d1ad" stroke-width="6"/>
+<ellipse id="candlePlaceGlow" cx="291" cy="265" rx="107" ry="135" fill="url(#placeGlow)" opacity=".0"/>
+<path d="M41 478L282 478L298 507H26Z" fill="#c79b68" stroke="#efd4a6" stroke-width="5"/>
+<path d="M58 503L45 600 M262 502L275 600" stroke="#73503a" stroke-width="14" stroke-linecap="round"/>
+<ellipse cx="155" cy="475" rx="115" ry="22" fill="#162f3788"/>
+<ellipse id="candleLightGlow" cx="147" cy="382" rx="137" ry="150" fill="url(#flameGlow)" opacity=".4"/>
+<g id="hanukiah">
+<path d="M64 427L234 427" stroke="#d3a46e" stroke-width="11" stroke-linecap="round"/>
+<path d="M148 432V461" stroke="#d6b279" stroke-width="8"/>
+<path d="M106 462H191" stroke="#d5ad76" stroke-width="9" stroke-linecap="round"/>
+<path d="M71 374V427 M93 360V427 M116 362V427 M139 366V427 M166 366V427 M188 360V427 M211 374V427" stroke="#f8c984" stroke-width="9" stroke-linecap="round"/>
+<path d="M153 346V428" stroke="#f7d48c" stroke-width="9" stroke-linecap="round"/>
+<g fill="#e6d6c0"><rect x="66" y="361" width="10" height="14" rx="3"/><rect x="88" y="347" width="10" height="14" rx="3"/><rect x="111" y="349" width="10" height="14" rx="3"/><rect x="134" y="353" width="10" height="14" rx="3"/><rect x="148" y="333" width="10" height="15" rx="3"/><rect x="161" y="353" width="10" height="14" rx="3"/><rect x="183" y="347" width="10" height="14" rx="3"/><rect x="206" y="361" width="10" height="14" rx="3"/></g>
+<g fill="#ffe1a4" stroke="#ffb958" stroke-width="1.5">
+<path d="M70 357Q56 349 67 329Q79 340 74 348Q81 344 78 354Z"/>
+<path d="M93 341Q82 328 92 319Q102 330 99 337Z"/>
+<path d="M116 343Q104 331 115 319Q127 334 121 339Z"/>
+<path d="M139 347Q128 333 138 323Q150 337 145 343Z"/>
+<path d="M153 328Q139 309 152 294Q171 312 159 325Z"/>
+<path d="M166 347Q155 334 166 321Q178 336 173 342Z"/>
+<path d="M188 341Q177 329 188 319Q201 331 195 336Z"/>
+<path d="M211 357Q200 345 210 330Q226 347 218 351Z"/>
+</g>
+</g>
+<g id="hanBoy">
+<path d="M293 455L284 554H317L326 462 M327 462L339 556H367L352 453" fill="#1c3450"/>
+<path d="M283 553L276 569H320L318 552 M339 554L339 569H378L368 556" fill="#24313c"/>
+<path d="M288 338Q320 323 354 341L371 465Q329 482 277 464Z" fill="#448293" stroke="#a7cfcb" stroke-width="4"/>
+<path d="M284 356L255 406L239 418 M355 357L371 407L367 426" stroke="#478aa0" stroke-width="17" fill="none" stroke-linecap="round"/>
+<path d="M312 334V321H338V334" fill="#d6a17f"/>
+<ellipse cx="326" cy="291" rx="36" ry="43" fill="#e6b38d"/>
+<path d="M289 285Q279 253 301 251Q344 232 358 272Q335 263 330 250Q317 270 291 268Z" fill="#3b3136"/>
+<ellipse cx="326" cy="249" rx="23" ry="8" fill="#1a3849"/>
+<path d="M310 295H316 M337 295H343" stroke="#43312f" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M313 314Q327 323 342 313" stroke="#a56b55" fill="none" stroke-width="3"/>
+</g>
+</svg>
 <div class="scene-title" id="title" hidden><small id="eyebrow"></small><h1 id="heading"></h1><p id="subheading"></p></div>
 <div class="focus-caption" id="focusCaption" hidden></div>
-<div class="paper" id="paper" hidden>
-<div class="paper-label">מנחות מ״ב ע״ב</div>
-<div class="verse">״מר סבר חובת טלית הוא ומר סבר חובת גברא הוא״</div>
-<p>שתי הבנות למקום שבו מתקיימת המצווה יוצרות שתי אפשרויות למועד הברכה.</p>
-<p><strong>להלכה:</strong> מברכים בשעת הלבישה, ולא בזמן קשירת הציציות.</p>
-<a href="https://he.wikisource.org/wiki/%D7%9E%D7%A0%D7%97%D7%95%D7%AA_%D7%9E%D7%91_%D7%91" target="_blank" rel="noopener">פתחו את הגמרא ↗</a>
-</div>
+<div class="paper" id="paper" hidden><div class="paper-label" id="paperLabel"></div><div class="verse" id="paperVerse"></div><p id="paperText"></p><p id="paperVerdict"></p><small id="paperCaveat"></small><a id="paperLink" target="_blank" rel="noopener">למקור בגמרא ↗</a></div>
 <div class="hud" id="hud" hidden aria-live="polite"></div>
 <div class="story-backdrop show" id="backdrop"></div>
 <div class="story-cloud" id="storyCloud">
-<div class="story-content">
-<p class="story-overline">ערב · סדנת אבות ובנים</p>
-<h2>הציצית של יוסי</h2>
-<p>יוסי ואבא שלו יושבים בסדנה וקושרים יחד את חוטי הציצית לבגד חדש. יוסי מחייך: <strong>״מחר אלבש אותו לבית הספר ואראה לחברים!״</strong></p>
-<button type="button" class="action" id="closeStory">הבנתי. מה הדילמה? ←</button>
-</div>
+<div class="story-content"><p class="story-overline" id="storyEyebrow"></p><h2 id="storyHeading"></h2><p id="storyBody"></p><button type="button" class="action" id="closeStory">מה הדילמה? ←</button></div>
 <button type="button" class="story-mini" id="openStory" aria-label="לפתוח שוב את הסיפור"><span class="mini-photo">👨‍👦</span> הסיפור</button>
 </div>
 </section>
@@ -215,69 +342,155 @@ button:focus-visible,a:focus-visible{outline:3px solid #ffe3aa;outline-offset:3p
 <script>
 (function(){
 "use strict";
-var step=0,storyOpen=true,lens="",seen={cloth:false,person:false},answer="",guess="";
-var E=function(id){return document.getElementById(id)};
-function setStory(open){storyOpen=open;E("storyCloud").classList.toggle("mini",!open);E("backdrop").classList.toggle("show",open);}
-function btn(icon,label,action,extra,small){return '<button type="button" class="opt '+(extra||'')+'" data-action="'+action+'"><span class="ico">'+icon+'</span>'+label+(small?'<small>'+small+'</small>':'')+'</button>';}
-function next(label,action){return '<button type="button" class="action" data-action="'+action+'">'+label+'</button>';}
+const D=[
+ {name:"הציצית של יוסי",level:"★ מתחילים",source:"מנחות מ״ב ע״ב",verse:"מר סבר חובת טלית הוא ומר סבר חובת גברא הוא",link:"https://he.wikisource.org/wiki/מנחות_מב_ב",
+  storyTime:"ערב · סדנת אבות ובנים",storyTitle:"הציצית של יוסי",
+  story:"יוסי ואבא שלו יושבים בסדנה וקושרים ציציות לבגד חדש. יוסי מחייך: ״מחר אלבש אותו לבית הספר ואראה לחברים!״ אבל אבא שואל: ״מתי נברך? עכשיו, בסיום הקשירה, או מחר כשילבש?״",
+  sourceText:"הגמרא מציעה שתי תפיסות שונות: אם המצווה נתפסת כחובת הטלית, יש מקום לברך עם השלמת עשיית הציצית; אם זו חובת האדם, קיום המצווה בלבישה.",
+  verdict:"להלכה: מברכים בשעת הלבישה ולא בזמן קשירת החוטים.",
+  caveat:"מקרה לימודי, לא הוראה מעשית לברכה בנסיבות חריגות.",stages:5},
+ {name:"נדר או שבועה?",level:"★★ מתקדמים",source:"נדרים ט״ז ע״ב",verse:"הא דאמר ישיבת סוכה עלי, הא דאמר שלא אשב בסוכה",link:"https://he.wikisource.org/wiki/נדרים_טז_ב",
+  storyTime:"ערב סוכות · אחרי בניית הסוכה",storyTitle:"שני משפטים, דין שונה",
+  story:"יואב ורוני מתווכחים כשהסוכה כמעט מוכנה. יואב אומר בכעס: ״ישיבת הסוכה הזאת עליי בקונם״. רוני אומר: ״אני נשבע שלא אשב בסוכה״. הם חושבים שאמרו אותו דבר. באמת?",
+  sourceText:"הנדר אוסר על האדם את ישיבת הסוכה, ואילו השבועה מכוונת אל האדם ופעולתו. כשמתנגשים בחיוב מצווה, ההבדל נעשה משמעותי.",
+  verdict:"הנדר עשוי לחול גם על דבר מצווה; שבועה לבטל את המצווה אינה חלה באופן זה.",
+  caveat:"התרחיש לימודי בלבד. אין לנדור או להישבע בניסוי; במקרה של נדר ממשי יש לפנות לרב.",stages:6},
+ {name:"מה עושה את המצווה?",level:"★★★ אתגר",source:"שבת כ״ב–כ״ג",verse:"מדקא מברכינן ... להדליק נר של חנוכה, שמע מינה הדלקה עושה מצוה",link:"https://he.wikisource.org/wiki/שבת_כג_א",
+  storyTime:"חנוכה · רגע אחרי הדלקת הנרות",storyTitle:"החנוכייה שעברה מקום",
+  story:"נועם הדליק את החנוכייה על שולחן בחדר, לא במקום שבו היא אמורה לעמוד למצווה. אחר כך העביר אותה, כשהיא דולקת, למקומה ליד החלון. האם ההעברה תיקנה את ההדלקה?",
+  sourceText:"הגמרא בודקת אם ההדלקה עצמה היא מעשה המצווה או הנחת הנר. היא גם מזהירה: לפעמים מקרה נכשל מסיבה נוספת, ולכן אינו מכריע בין שתי הסברות.",
+  verdict:"למסקנה, הדלקה עושה מצווה; הדלקת הנר צריכה להיות במקום הראוי כבר בשעת ההדלקה.",
+  caveat:"זהו מודל של הדיון התלמודי; מקום ההדלקה ודיני חנוכה בפועל תלויים בפרטי המקרה.",stages:6}
+];
+const E=id=>document.getElementById(id);
+let ci=0,step=0,storyOpen=true,lens="",seen={cloth:false,person:false},feedback="",correct=false,selected="",attempts=0,solved=0;
+const escapeText=s=>String(s).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");
+const opt=(icon,title,action,detail="",extra="")=>'<button type="button" class="opt '+extra+'" data-action="'+action+'"><span class="ico">'+icon+'</span><span>'+title+(detail?'<small>'+detail+'</small>':'')+'</span></button>';
+const options=(items,stack=false)=>'<div class="options '+(stack?'triple':'')+'">'+items.join("")+'</div>';
+const button=(s,action)=>'<button type="button" class="action mini-next" data-action="'+action+'">'+s+'</button>';
+const message=()=>feedback?'<div class="challenge-hint '+(correct?'win':'error')+'">'+escapeText(feedback)+'</div>':"";
+const solvedNext=(s,action)=>correct?message()+button(s,action):message();
+const view=(ey,heading,sub,html)=>{E("eyebrow").textContent=ey;E("heading").textContent=heading;E("subheading").textContent=sub;E("hud").innerHTML=html;};
+function showStory(open){storyOpen=open;E("storyCloud").classList.toggle("mini",!open);E("backdrop").classList.toggle("show",open);}
 function render(){
- var stage=E("stage");
- stage.className="stage"+(step>=3?" mode-morning":"")+(step===4?" show-wearing":"")+(step===2&&lens==="cloth"?" focus-cloth":step===2&&lens==="person"?" focus-person":step===3?" focus-morning":"");
- E("counter").textContent=["סיפור · 1 מתוך 5","דילמה · 2 מתוך 5","סברה · 3 מתוך 5","נפקא מינה · 4 מתוך 5","הגמרא · 5 מתוך 5"][step];
- E("fill").style.width=((step+1)*20)+"%";
- setStory(storyOpen);
+ const d=D[ci],scene=E("stage");
+ E("storyEyebrow").textContent=d.storyTime;
+ E("storyHeading").textContent=d.storyTitle;
+ E("storyBody").textContent=d.story;
+ E("counter").textContent="חקירה "+(ci+1)+"/3 · שלב "+(step+1)+"/"+d.stages;
+ E("fill").style.width=((step+1)/d.stages*100)+"%";
+ showStory(storyOpen);
  E("title").hidden=step===0||storyOpen;
- E("paper").hidden=step!==4||storyOpen;
  E("hud").hidden=step===0||storyOpen;
- E("focusCaption").hidden=!(step===2&&!!lens);
- if(step===2&&lens){E("focusCaption").textContent=lens==="cloth"?"כאן מתמקדים בבגד":"כאן מתמקדים ביוסי";E("focusCaption").style.top=lens==="cloth"?"60%":"50%";E("focusCaption").style.right=lens==="cloth"?"50%":"24%";}
+ E("paper").hidden=(step!==d.stages-1)||storyOpen;
+ E("focusCaption").hidden=true;
+ const sceneBase=ci===0?(step>=3?" mode-morning":"")+(step===4?" show-wearing":"")+(step===2&&lens==="cloth"?" focus-cloth":step===2&&lens==="person"?" focus-person":step===3?" focus-morning":""):
+ ci===1?" scene-neder"+(step===1?" neder-object":step===2?" neder-person":""):
+ " scene-candle"+(step===1?" candle-light":step===2||step===3?" candle-place":step===4?" candle-light":"");
+ scene.className="stage"+sceneBase;
+ if(ci===0)renderTzitzit();
+ else if(ci===1)renderNeder();
+ else renderHanukkah();
+ if(step===d.stages-1){
+   E("paperLabel").textContent=d.source;
+   E("paperVerse").textContent="״"+d.verse+"״";
+   E("paperText").textContent=d.sourceText;
+   E("paperVerdict").textContent=d.verdict;
+   E("paperCaveat").textContent=d.caveat;
+   E("paperLink").href=d.link;
+ }
+ if(ci===0&&step===2&&lens){
+   E("focusCaption").hidden=storyOpen;
+   E("focusCaption").textContent=lens==="cloth"?"מתמקדים בבגד":"מתמקדים ביוסי";
+   E("focusCaption").style.top=lens==="cloth"?"60%":"50%";
+   E("focusCaption").style.right=lens==="cloth"?"50%":"24%";
+ }
+}
+function renderTzitzit(){
  if(step===0)return;
- var head=E("heading"),ey=E("eyebrow"),sub=E("subheading"),hud=E("hud");
- if(step===1){
-   ey.textContent="לילה אחד, שתי אפשרויות";
-   head.textContent="מתי יוסי יברך?";
-   sub.textContent="הלילה הוא קושר. מחר הוא לובש.";
-   hud.innerHTML='<div class="hud-question">מה היית אומר ליוסי?</div><div class="options">'+btn("🌙","עכשיו, בקשירה","guess-cloth","","עם אבא בסדנה")+btn("☀️","מחר, בלבישה","guess-person","aqua","לפני שהוא לובש")+'</div>';
- } else if(step===2){
-   ey.textContent="מאחורי התשובה";
-   head.textContent="מה עומד במרכז?";
-   sub.textContent="געו בבגד וביוסי כדי לגלות שתי סברות.";
-   var note=lens==="cloth"?"<strong>חובת טלית:</strong> העיקר הוא הבגד. קשירת הציציות עשויה להיחשב גמר המצווה.":lens==="person"?"<strong>חובת גברא:</strong> העיקר הוא האדם הלובש. הקשירה היא הכנה, והמצווה מתקיימת בלבישה.":"בחרו במה להתמקד בתמונה.";
-   hud.innerHTML='<div class="note">'+note+'</div><div class="options">'+btn("🧵","הבגד","lens-cloth",lens==="cloth"?"selected":"")+btn("👦","יוסי","lens-person","aqua "+(lens==="person"?"selected":""))+'</div>'+(seen.cloth&&seen.person?next("ראיתי את שתי הסברות ←","go-test"):'');
- } else if(step===3){
-   ey.textContent="מחר בבוקר";
-   head.textContent="אם המצווה על האדם...";
-   sub.textContent="מתי מסתיים מעשה המצווה לפי הסברה הזאת?";
-   if(answer==="correct"){
-     hud.innerHTML='<div class="note"><strong>נכון!</strong> לפי חובת גברא, נקודת ההכרעה היא הלבישה. עכשיו אפשר להבין את הגמרא.</div>'+next("נפתח את המקור ←","go-source");
-   }else{
-     hud.innerHTML='<div class="hud-question">בחרו לפי הסברה, לא לפי ניחוש</div><div class="options">'+btn("🌙","בלילה, כשקשרו","test-cloth")+btn("☀️","בבוקר, כשהוא לובש","test-person","aqua")+'</div>'+(answer==="wrong"?'<div class="note warn">רמז: אם החיוב הוא על <strong>יוסי</strong>, מה צריך לקרות כדי שהמצווה תתקיים?</div>':'');
-   }
- } else {
-   ey.textContent="גילינו את נקודת החילוק";
-   head.textContent="עכשיו הגמרא ברורה";
-   sub.textContent="מה המצווה דורשת: בגד מוכן או אדם שלובש?";
-   hud.innerHTML=next("משחקים מחדש ↻","restart");
- }
+ if(step===1)view(D[0].level,"מתי יוסי יברך?","הלילה הוא קושר. מחר הוא לובש.",
+  '<div class="hud-question">בחרו את ההשערה שלכם</div>'+options([opt("🌙","בסיום הקשירה","t-guess-cloth","הלילה"),opt("☀️","בשעת הלבישה","t-guess-person","מחר בבוקר","aqua")]));
+ else if(step===2){
+  const explanation=lens==="cloth"?"<strong>חובת טלית:</strong> הדגש בבגד המוכן עם הציציות. לכן ייתכן שהשלמת הקשירה היא גמר המצווה.":lens==="person"?"<strong>חובת גברא:</strong> הכנת הבגד היא רק תנאי מוקדם. המצווה מתקיימת במעשה הלבישה.":"על מי מסתכלים כדי להסביר את רגע הברכה?";
+  view(D[0].level,"מה עומד במרכז?","געו בכל צד כדי לגלות שתי סברות.",
+   '<div class="note">'+explanation+'</div>'+options([opt("🧵","הבגד","t-lens-cloth","",""+(lens==="cloth"?"selected":"")),opt("👦","יוסי","t-lens-person","","aqua "+(lens==="person"?"selected":""))])+
+  (seen.cloth&&seen.person?button("בואו נבדוק את הסברה ←","t-test"):""));
+ } else if(step===3)view("נפקא מינה · "+D[0].level,"אם החיוב הוא על האדם...","איזה רגע נחשב לגמר המצווה לפי הבנה זו?",
+  correct?message()+button("בואו נקרא את הגמרא ←","to-source"):
+  '<div class="hud-question">בחרו מתוך הסברה, לא מתוך ניחוש</div>'+options([opt("🌙","קשירת הציציות","t-answer-wrong"),opt("☀️","לבישת הבגד","t-answer-right","","aqua")])+message());
+ else view("המקור · "+D[0].level,"זו חקירה למדנית!","נקודת החילוק יוצרת רגע שונה של ברכה.",button("לחקירה השנייה: נדר ושבועה ←","next-case"));
 }
+function renderNeder(){
+ if(step===0)return;
+ if(step===1)view(D[1].level,"המשפט של יואב","״ישיבת הסוכה הזאת עליי בקונם״",correct?message()+button("עכשיו נבדוק את רוני ←","n-step2"):
+ '<div class="hud-question">על מה מופנה האיסור?</div>'+options([opt("🏠","הישיבה בסוכה נאסרת עליו","n-right1"),opt("👦","יואב נשבע לא לבצע פעולה","n-wrong1","","aqua")])+message());
+ else if(step===2)view(D[1].level,"המשפט של רוני","״שבועה שלא אשב בסוכה״",correct?message()+button("חפשו מקרה מבחין ←","n-step3"):
+ '<div class="hud-question">מה השבועה אוסרת?</div>'+options([opt("👦","על רוני להימנע ממעשה","n-right2"),opt("🏠","הסוכה עצמה נאסרת","n-wrong2","","aqua")])+message());
+ else if(step===3)view("חיפוש נפקא מינה · "+D[1].level,"מה נחליף בניסוי?","אתם מחליטים באיזה מקרה לבחון את ההבדל.",correct?message()+button("נבדוק מה הדין ←","n-step4"):
+ '<div class="hud-question">איזו אפשרות תחשוף הבדל?</div>'+options([opt("🍪","עוגייה רגילה","n-wrong3","שני ניסוחים על אכילה"),opt("🌿","מצווה שחייבים לקיים","n-right3","כמו ישיבה בסוכה","aqua")])+message());
+ else if(step===4)view("הכרעה · "+D[1].level,"אז מה יקרה בסוכה?","נדר ושבועה נפגשים עם חיוב מצווה.",correct?message()+button("לגלות את המקור ←","to-source"):
+ '<div class="hud-question">איזו תוצאה נובעת מן הסברות?</div>'+options([opt("⚖️","נדר יכול לחול, שבועה לבטל מצווה אינה חלה","n-right4"),opt("🔁","אין שום הבדל בין הדינים","n-wrong4","","aqua")])+message());
+ else view("המקור · "+D[1].level,"עכשיו מבינים את ההבדל","חפצא וגברא אינם רק שמות; הם מסבירים דין שונה.",button("לחקירה השלישית: חנוכה ←","next-case"));
+}
+function renderHanukkah(){
+ if(step===0)return;
+ if(step===1)view(D[2].level,"מהי המצווה?","הדלקת הנר, או הנחתו במקום הנכון?",
+ '<div class="hud-question">בחרו השערה כדי להתחיל לחקור</div>'+options([opt("🔥","הדלקה עושה מצווה","h-guess-light"),opt("🪟","הנחה עושה מצווה","h-guess-place","","aqua")]));
+ else if(step===2)view("בדיקת ראיה · "+D[2].level,"הדליק בפנים והוציא","הוא לא יצא ידי חובה. האם זה מכריע ביניהן?",
+ correct?message()+button("מה הסיבה הנוספת? ←","h-step3"):
+ '<div class="hud-question">האם זו ראיה מכרעת?</div>'+options([opt("✅","כן, זה מוכיח שרק ההדלקה קובעת","h-wrong2"),opt("🧐","לא בהכרח; אולי יש סיבה אחרת","h-right2","","aqua")])+message());
+ else if(step===3)view("חוקרים לעומק · "+D[2].level,"מה עוד עלול להסביר?","למה גם לפי ״הנחה״ המקרה עלול להיכשל?",
+ correct?message()+button("חפשו ניסוי טוב יותר ←","h-step4"):
+ '<div class="hud-question">מה מפריע לנו להכריע?</div>'+options([opt("👁️","הרואה חושב שהדליק לצורכו","h-right3"),opt("🛢️","אין מספיק שמן לנר","h-wrong3","","aqua")])+message());
+ else if(step===4)view("אתגר · "+D[2].level,"מצא ראיה טובה יותר","בחרו מצב שבו שתי הסברות מנבאות פעולות שונות.",
+ correct?message()+button("עכשיו הגמרא מכריעה ←","to-source"):
+ '<div class="hud-question">איזה ניסוי מבדיל באמת?</div>'+options([opt("🕯️","נר דלק כל היום; כיבו והדליקו שוב במקומו","h-right4"),opt("↔️","העבירו נר דולק מחדר לחדר","h-wrong4","","aqua")])+message());
+ else view("המקור · "+D[2].level,"זאת חשיבה של גמרא","כאן גילינו שגם לנפקא מינה צריך ביקורת.",button("סיימנו! למסע חדש ↻","restart"));
+}
+function solve(ok,yes,no){
+ attempts++;
+ if(ok){correct=true;feedback=yes;solved++;}else{correct=false;feedback=no;}
+ render();
+}
+function advance(n){step=n;feedback="";correct=false;attempts=0;lens="";render();}
+function nextCase(){
+ if(ci<2){ci++;step=0;storyOpen=true;lens="";feedback="";correct=false;seen={cloth:false,person:false};}
+ else restart();render();
+}
+function restart(){ci=0;step=0;storyOpen=true;lens="";seen={cloth:false,person:false};feedback="";correct=false;attempts=0;solved=0;selected="";}
 function choose(action){
- if(action==="guess-cloth"||action==="guess-person"){
-   guess=action==="guess-cloth"?"cloth":"person";step=2;lens="";render();return;
+ switch(action){
+ case "t-guess-cloth":case "t-guess-person": selected=action;advance(2);return;
+ case "t-lens-cloth":case "t-lens-person":lens=action==="t-lens-cloth"?"cloth":"person";seen[lens]=true;render();return;
+ case "t-test":advance(3);return;
+ case "t-answer-wrong":solve(false,"","אם האדם חייב, מהו המעשה שהאדם צריך לעשות?");return;
+ case "t-answer-right":solve(true,"הסברה הובילה אותך למסקנה: הלבישה קובעת.","");return;
+ case "n-right1":solve(true,"נכון: בנדר האיסור חל על הדבר כלפי האדם.","");return;
+ case "n-wrong1":solve(false,"","שימו לב: יואב אמר ״עלי בקונם״, לא ״אני נשבע שלא״.");return;
+ case "n-right2":solve(true,"נכון: השבועה מכוונת את האדם שלא לפעול.","");return;
+ case "n-wrong2":solve(false,"","רוני דיבר על הפעולה שהוא עצמו לא יעשה.");return;
+ case "n-right3":solve(true,"מצאת נקודת מבחן: התנגשות בין איסור למצווה.","");return;
+ case "n-wrong3":solve(false,"","במקרה רגיל שתי הדרכים יכולות לאסור; חפשו מצב שיבדיל ביניהן.");return;
+ case "n-right4":solve(true,"בדיוק: המבנה השונה של האיסור משנה את הדין כשיש מצווה.","");return;
+ case "n-wrong4":solve(false,"","חזרו לסברה: האם אדם יכול לאסור על עצמו דבר מצווה באותה דרך שהוא נשבע להימנע מפעולה?");return;
+ case "h-guess-light":case "h-guess-place":selected=action;advance(2);return;
+ case "h-right2":solve(true,"מצוין: תוצאה זהה לא תמיד מכריעה, אם יש הסבר נוסף.","");return;
+ case "h-wrong2":solve(false,"","המקרה יכול להיכשל אפילו אם ההנחה היא המצווה. למה הרואה עלול לחשוב שהדליק?");return;
+ case "h-right3":solve(true,"יפה: הגמרא מעלה אפשרות שיחשבו שהנר הודלק לצרכים אישיים.","");return;
+ case "h-wrong3":solve(false,"","נסו לחשוב כיצד המעשה נראה לאדם מבחוץ, לא כמה זמן הנר יכול לדלוק.");return;
+ case "h-right4":solve(true,"זה הניסוי החזק: אם הדלקה העיקר, די לכבות ולהדליק; אם הנחה העיקר, צריך הנחה חדשה.","");return;
+ case "h-wrong4":solve(false,"","כבר ראינו שלהעברת נר דולק יש הסבר נוסף שמפריע להכריע.");return;
+ case "n-step2":advance(2);return;case "n-step3":advance(3);return;case "n-step4":advance(4);return;
+ case "h-step3":advance(3);return;case "h-step4":advance(4);return;
+ case "to-source":advance(D[ci].stages-1);return;
+ case "next-case":nextCase();return;
+ case "restart":restart();render();return;
  }
- if(action==="lens-cloth"||action==="lens-person"){
-   lens=action==="lens-cloth"?"cloth":"person";seen[lens]=true;render();return;
- }
- if(action==="go-test"){step=3;answer="";render();return;}
- if(action==="test-cloth"){answer="wrong";render();return;}
- if(action==="test-person"){answer="correct";render();return;}
- if(action==="go-source"){step=4;render();return;}
- if(action==="restart"){step=0;storyOpen=true;lens="";seen={cloth:false,person:false};answer="";guess="";render();}
 }
-E("closeStory").addEventListener("click",function(){storyOpen=false;if(step===0)step=1;render();});
-E("openStory").addEventListener("click",function(){storyOpen=true;render();});
-E("backdrop").addEventListener("click",function(){if(step>0){storyOpen=false;render();}});
-E("hud").addEventListener("click",function(e){var el=e.target.closest("button[data-action]");if(el)choose(el.getAttribute("data-action"));});
+E("closeStory").addEventListener("click",function(){storyOpen=false;if(step===0)step=1;render()});
+E("openStory").addEventListener("click",function(){storyOpen=true;render()});
+E("backdrop").addEventListener("click",function(){if(step>0){storyOpen=false;render()}});
+E("hud").addEventListener("click",function(ev){const el=ev.target.closest("button[data-action]");if(el)choose(el.getAttribute("data-action"))});
 render();
-})();
-</script>
+})();</script>
 </body></html>
