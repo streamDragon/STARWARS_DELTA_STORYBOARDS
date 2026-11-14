@@ -4,10 +4,10 @@
   "id": "film-jellyfish-crossing-20261113",
   "kind": "film",
   "title": "The Jellyfish Crossing",
-  "revision": 1,
-  "stage": "AUTHORING",
+  "revision": 2,
+  "stage": "REVISION",
   "status": "PENDING_REMOTE",
-  "updatedUtc": "2026-11-12T23:03:30.098Z",
+  "updatedUtc": "2026-11-14T21:12:08.757Z",
   "originalBrief": "please make a scene where there are artpack enemy ship animations and also jellyfish and their animations",
   "approvedTargetRevision": 0,
   "targetArtifacts": [
@@ -16,6 +16,13 @@
       "kind": "source",
       "label": "The Jellyfish Crossing | exact CUTSCENE_SCRIPT_V1",
       "sha256": "cb74be75cd2546e7265c55acd727026c8ea905e763e46d4a3e6176fd7a1a0a40",
+      "evidenceStatus": "SOURCE_ATTACHED"
+    },
+    {
+      "path": "workbench/projects/film-jellyfish-crossing-20261113/artifacts/8270588d0cd5b3409ff510ae4f823f544b7d5ef29f3c3cbaa43eb6a7b1c69a8d-Jellyfish_Crossing_MOVES.json",
+      "kind": "source",
+      "label": "The Jellyfish Crossing | V1 with named crossing flyby",
+      "sha256": "8270588d0cd5b3409ff510ae4f823f544b7d5ef29f3c3cbaa43eb6a7b1c69a8d",
       "evidenceStatus": "SOURCE_ATTACHED"
     }
   ],
@@ -32,24 +39,24 @@
       "id": "b02",
       "startSeconds": 6,
       "durationSeconds": 6,
-      "title": "Ring crosses the upper lane toward the relay. Starknife cuts left on a lower lane.",
-      "visibleEvidence": "Ring crosses the upper lane toward the relay. Starknife cuts left on a lower lane.",
+      "title": "Ring enters from the left above the relay. Starknife crosses left on the lower lane.",
+      "visibleEvidence": "Ring enters from the left above the relay. Starknife crosses left on the lower lane.",
       "locationHandle": "creepysky_0__42c8d489"
     },
     {
       "id": "b03",
       "startSeconds": 12,
       "durationSeconds": 6,
-      "title": "Hunter dives between the drifting jellyfish. Blue turns downward and the Playniax Jellyfish peels left.",
-      "visibleEvidence": "Hunter dives between the drifting jellyfish. Blue turns downward and the Playniax Jellyfish peels left.",
+      "title": "Ring passes across the high lane while Hunter dips between the two turning jellyfish below.",
+      "visibleEvidence": "Ring passes across the high lane while Hunter dips between the two turning jellyfish below.",
       "locationHandle": "pond_2_0__a941943e"
     },
     {
       "id": "b04",
       "startSeconds": 18,
       "durationSeconds": 6,
-      "title": "The saucer rises through its own splash as Hunter climbs away on a separate right-hand lane.",
-      "visibleEvidence": "The saucer rises through its own splash as Hunter climbs away on a separate right-hand lane.",
+      "title": "Ring clears the right edge before the cut as Big Saucer rises out of the water and Hunter climbs away.",
+      "visibleEvidence": "Ring clears the right edge before the cut as Big Saucer rises out of the water and Hunter climbs away.",
       "locationHandle": "pond_2_0__a941943e"
     },
     {
@@ -324,6 +331,11 @@
       "id": "film-design",
       "type": "AUTHORING_CHOICE",
       "detail": "36 seconds in six beats, with four Playniax enemy ship clips and two distinct jellyfish clips."
+    },
+    {
+      "id": "add-crossing-flyby",
+      "type": "AUTHORING_CHOICE",
+      "detail": "Add CROSSING_FLYBY over b02–b04 with one Ring traveler, continuous rightward travel, and explicit entry and exit. Keep all six direct animation handles. User reported no motion or animation in revision 1."
     }
   ],
   "runs": [],
@@ -332,6 +344,11 @@
       "revision": 1,
       "updatedUtc": "2026-11-12T23:03:30.098Z",
       "action": "INIT_AND_AUTHOR"
+    },
+    {
+      "revision": 2,
+      "updatedUtc": "2026-11-14T21:12:08.757Z",
+      "action": "ADD_NAMED_CROSSING_FLYBY"
     }
   ],
   "sourceArtifacts": [
@@ -341,9 +358,16 @@
       "label": "The Jellyfish Crossing | exact CUTSCENE_SCRIPT_V1",
       "sha256": "cb74be75cd2546e7265c55acd727026c8ea905e763e46d4a3e6176fd7a1a0a40",
       "evidenceStatus": "SOURCE_ATTACHED"
+    },
+    {
+      "path": "workbench/projects/film-jellyfish-crossing-20261113/artifacts/8270588d0cd5b3409ff510ae4f823f544b7d5ef29f3c3cbaa43eb6a7b1c69a8d-Jellyfish_Crossing_MOVES.json",
+      "kind": "source",
+      "label": "The Jellyfish Crossing | V1 with named crossing flyby",
+      "sha256": "8270588d0cd5b3409ff510ae4f823f544b7d5ef29f3c3cbaa43eb6a7b1c69a8d",
+      "evidenceStatus": "SOURCE_ATTACHED"
     }
   ],
-  "currentSourcePath": "workbench/projects/film-jellyfish-crossing-20261113/artifacts/cb74be75cd2546e7265c55acd727026c8ea905e763e46d4a3e6176fd7a1a0a40-Jellyfish_Crossing.json",
+  "currentSourcePath": "workbench/projects/film-jellyfish-crossing-20261113/artifacts/8270588d0cd5b3409ff510ae4f823f544b7d5ef29f3c3cbaa43eb6a7b1c69a8d-Jellyfish_Crossing_MOVES.json",
   "currentIdentity": {
     "publishTransactionId": "20261106-205018534-41319da9",
     "publisherVersion": "2.14.0",
@@ -353,7 +377,7 @@
     "snapshotContentHash": "3B5E916667F6219A5F347F06BFEF92B6E834285B101586BE7A801FB3D4380577",
     "authoringRuleRegistryRevision": "80399DACAB7ADEC81ADC0215417942638DFA9A2F2F53105541CADF1A5533E6FF"
   },
-  "lastCompletedAction": "Authored and schema-validated V1. Verified exact CURRENT assets, preview pixels, base sprite routes, explicit animation cues and paths.",
-  "nextAction": "Import exact source into Unity Cutscene Studio, then verify sprite frames and position tracks at 0–6 s, 6–12 s and 18–24 s. Capture Film QA after playback.",
+  "lastCompletedAction": "Validated revised V1 schema, flyby phase order, actor continuity and six exact clip references.",
+  "nextAction": "Import revision 2 in Unity Cutscene Studio. Verify Ring enters, crosses and exits over 6–24 seconds and inspect the six Sprite Animation tracks. If a track is absent, capture the importer or Candidate Lint diagnostic for the exact source.",
   "inFlightAction": null
 }
