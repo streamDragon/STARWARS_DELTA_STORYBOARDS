@@ -1,0 +1,1074 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+  "schemaVersion": 1,
+  "schemaHash": "C0EFEB78612A3ED867DACE26B2930CB3C6AED36776F0E8D797FF95990EC17469",
+  "authoringRuleRegistryRevision": "80399DACAB7ADEC81ADC0215417942638DFA9A2F2F53105541CADF1A5533E6FF",
+  "title": "Ashfall Landing",
+  "durationSeconds": 60,
+  "creativeIntent": "Contrast a calm orbital montage with the burning Earth reveal and a readable three-phase rescue landing.",
+  "cast": [
+    {
+      "id": "lander",
+      "materialHandle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+      "displayName": "Rescue shuttle",
+      "entityKind": "Spaceship"
+    },
+    {
+      "id": "ring",
+      "materialHandle": "rcntnr0000_0__375883bd",
+      "displayName": "Ring scout",
+      "entityKind": "Spaceship"
+    },
+    {
+      "id": "knife",
+      "materialHandle": "2dspaceshipsfreetrialatlassideviewred_0__fae3f618",
+      "displayName": "Starknife interceptor",
+      "entityKind": "Spaceship"
+    },
+    {
+      "id": "transport",
+      "materialHandle": "launcher0000__874e0c78",
+      "displayName": "Heavy transporter",
+      "entityKind": "Spaceship"
+    }
+  ],
+  "beats": [
+    {
+      "id": "b01",
+      "type": "establishing",
+      "durationSeconds": 6,
+      "locationHandle": "bg_stars__3664f01a",
+      "evidence": "A blue rescue shuttle enters the star field below Saturn and a violet world.",
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "visible": [
+        {
+          "id": "saturn",
+          "handle": "saturn_0__12f24d2e",
+          "screenX": 0.27,
+          "screenY": 0.76,
+          "screenWidthFraction": 0.32,
+          "depth": "background"
+        },
+        {
+          "id": "violet_world",
+          "handle": "planet1__0136d3c7",
+          "screenX": 0.7,
+          "screenY": 0.5,
+          "screenWidthFraction": 0.17,
+          "depth": "background"
+        },
+        {
+          "id": "lander",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "screenX": 0.15,
+          "screenY": 0.3,
+          "screenWidthFraction": 0.19,
+          "depth": "foreground",
+          "role": "ship",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "lander",
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.15,
+              "y": 0.3
+            },
+            {
+              "x": 0.29,
+              "y": 0.34
+            },
+            {
+              "x": 0.41,
+              "y": 0.36
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "periodSeconds": 6,
+          "loop": false,
+          "speed": "medium",
+          "centerX": 0.27999999999999997,
+          "centerY": 0.32999999999999996,
+          "width": 0.26,
+          "height": 0.06
+        }
+      ],
+      "audio": [
+        {
+          "kind": "music",
+          "handle": "5_deep_place__4c5c4316",
+          "operation": "play",
+          "volume": 0.3
+        }
+      ],
+      "captions": [
+        {
+          "text": "ASHFALL LANDING",
+          "kind": "title",
+          "placement": "top",
+          "startOffset": 0.35,
+          "durationSeconds": 3
+        }
+      ]
+    },
+    {
+      "id": "b02",
+      "type": "arrival",
+      "durationSeconds": 6,
+      "locationHandle": "bg_stars__3664f01a",
+      "evidence": "The planets shift around the center of the frame as Ring enters from the left in front of them.",
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "visible": [
+        {
+          "id": "saturn",
+          "handle": "saturn_0__12f24d2e",
+          "screenX": 0.48,
+          "screenY": 0.81,
+          "screenWidthFraction": 0.32,
+          "depth": "background"
+        },
+        {
+          "id": "violet_world",
+          "handle": "planet1__0136d3c7",
+          "screenX": 0.72,
+          "screenY": 0.37,
+          "screenWidthFraction": 0.17,
+          "depth": "background"
+        },
+        {
+          "id": "ring",
+          "handle": "rcntnr0000_0__375883bd",
+          "screenX": 0,
+          "screenY": 0.65,
+          "screenWidthFraction": 0.16,
+          "depth": "foreground",
+          "role": "traveler",
+          "saliency": "primary",
+          "enterFrom": "left"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "ring",
+          "animationHandle": "animation__8b7c9320",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": -0.14,
+              "y": 0.65
+            },
+            {
+              "x": 0.1,
+              "y": 0.66
+            },
+            {
+              "x": 0.24,
+              "y": 0.67
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "periodSeconds": 6,
+          "loop": false,
+          "speed": "medium",
+          "centerX": 0.04999999999999999,
+          "centerY": 0.66,
+          "width": 0.38,
+          "height": 0.020000000000000018
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "delta7_engine__5bfd7f6a",
+          "startOffsetSeconds": 0.4,
+          "durationSeconds": 4.8,
+          "volume": 0.28
+        }
+      ]
+    },
+    {
+      "id": "b03",
+      "type": "custom",
+      "durationSeconds": 6,
+      "locationHandle": "bg_stars__3664f01a",
+      "evidence": "Ring crosses the center. A heavy transporter climbs on a separate lower lane.",
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "visible": [
+        {
+          "id": "saturn",
+          "handle": "saturn_0__12f24d2e",
+          "screenX": 0.68,
+          "screenY": 0.72,
+          "screenWidthFraction": 0.32,
+          "depth": "background"
+        },
+        {
+          "id": "violet_world",
+          "handle": "planet1__0136d3c7",
+          "screenX": 0.61,
+          "screenY": 0.24,
+          "screenWidthFraction": 0.17,
+          "depth": "background"
+        },
+        {
+          "id": "ring",
+          "handle": "rcntnr0000_0__375883bd",
+          "screenX": 0.24,
+          "screenY": 0.67,
+          "screenWidthFraction": 0.16,
+          "depth": "foreground",
+          "role": "traveler",
+          "saliency": "primary"
+        },
+        {
+          "id": "transport",
+          "handle": "launcher0000__874e0c78",
+          "screenX": 0.23,
+          "screenY": 0.24,
+          "screenWidthFraction": 0.16,
+          "depth": "foreground",
+          "role": "ship",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "ring",
+          "animationHandle": "animation__8b7c9320",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.24,
+              "y": 0.67
+            },
+            {
+              "x": 0.49,
+              "y": 0.72
+            },
+            {
+              "x": 0.72,
+              "y": 0.73
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "periodSeconds": 6,
+          "loop": false,
+          "speed": "medium",
+          "centerX": 0.48,
+          "centerY": 0.7,
+          "width": 0.48,
+          "height": 0.05999999999999994
+        },
+        {
+          "type": "move",
+          "subject": "transport",
+          "animationHandle": "animation__47980c60",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.23,
+              "y": 0.24
+            },
+            {
+              "x": 0.36,
+              "y": 0.28
+            },
+            {
+              "x": 0.54,
+              "y": 0.3
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "periodSeconds": 6,
+          "loop": false,
+          "speed": "medium",
+          "centerX": 0.385,
+          "centerY": 0.27,
+          "width": 0.31000000000000005,
+          "height": 0.06
+        }
+      ]
+    },
+    {
+      "id": "b04",
+      "type": "retreat",
+      "durationSeconds": 6,
+      "locationHandle": "bg_stars__3664f01a",
+      "evidence": "Ring exits right. The two planet layers complete the orbital montage as the shuttle turns toward Earth.",
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "visible": [
+        {
+          "id": "saturn",
+          "handle": "saturn_0__12f24d2e",
+          "screenX": 0.75,
+          "screenY": 0.54,
+          "screenWidthFraction": 0.32,
+          "depth": "background"
+        },
+        {
+          "id": "violet_world",
+          "handle": "planet1__0136d3c7",
+          "screenX": 0.42,
+          "screenY": 0.22,
+          "screenWidthFraction": 0.17,
+          "depth": "background"
+        },
+        {
+          "id": "ring",
+          "handle": "rcntnr0000_0__375883bd",
+          "screenX": 0.72,
+          "screenY": 0.73,
+          "screenWidthFraction": 0.16,
+          "depth": "foreground",
+          "role": "traveler",
+          "saliency": "primary",
+          "exitTo": "right"
+        },
+        {
+          "id": "lander",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "screenX": 0.41,
+          "screenY": 0.36,
+          "screenWidthFraction": 0.2,
+          "depth": "foreground",
+          "role": "ship",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "ring",
+          "animationHandle": "animation__8b7c9320",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.72,
+              "y": 0.73
+            },
+            {
+              "x": 0.92,
+              "y": 0.72
+            },
+            {
+              "x": 1.19,
+              "y": 0.71
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "periodSeconds": 5,
+          "loop": false,
+          "speed": "medium",
+          "centerX": 0.955,
+          "centerY": 0.72,
+          "width": 0.47,
+          "height": 0.020000000000000018
+        },
+        {
+          "type": "move",
+          "subject": "lander",
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.41,
+              "y": 0.36
+            },
+            {
+              "x": 0.55,
+              "y": 0.34
+            },
+            {
+              "x": 0.7,
+              "y": 0.38
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "periodSeconds": 6,
+          "loop": false,
+          "speed": "medium",
+          "centerX": 0.5549999999999999,
+          "centerY": 0.36,
+          "width": 0.29,
+          "height": 0.03999999999999998
+        }
+      ]
+    },
+    {
+      "id": "b05",
+      "type": "threat_reveal",
+      "durationSeconds": 6,
+      "locationHandle": "ruined_earth_2_0__b159399e",
+      "evidence": "The cut reveals Earth surrounded by a burning rim. Starknife passes above the shuttle on the opposite heading.",
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "visible": [
+        {
+          "id": "lander",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "screenX": 0.25,
+          "screenY": 0.29,
+          "screenWidthFraction": 0.18,
+          "depth": "foreground",
+          "role": "ship",
+          "saliency": "primary"
+        },
+        {
+          "id": "knife",
+          "handle": "2dspaceshipsfreetrialatlassideviewred_0__fae3f618",
+          "screenX": 0.82,
+          "screenY": 0.78,
+          "screenWidthFraction": 0.16,
+          "depth": "foreground",
+          "role": "ship",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "lander",
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.25,
+              "y": 0.29
+            },
+            {
+              "x": 0.36,
+              "y": 0.3
+            },
+            {
+              "x": 0.52,
+              "y": 0.34
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "periodSeconds": 6,
+          "loop": false,
+          "speed": "medium",
+          "centerX": 0.385,
+          "centerY": 0.315,
+          "width": 0.27,
+          "height": 0.050000000000000044
+        },
+        {
+          "type": "move",
+          "subject": "knife",
+          "animationHandle": "animation__d98cd38d",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.82,
+              "y": 0.78
+            },
+            {
+              "x": 0.64,
+              "y": 0.75
+            },
+            {
+              "x": 0.39,
+              "y": 0.72
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "periodSeconds": 6,
+          "loop": false,
+          "speed": "medium",
+          "centerX": 0.605,
+          "centerY": 0.75,
+          "width": 0.42999999999999994,
+          "height": 0.06000000000000005
+        }
+      ]
+    },
+    {
+      "id": "b06",
+      "type": "transition",
+      "durationSeconds": 6,
+      "locationHandle": "space_10_0__0f1b34c9",
+      "evidence": "The shuttle crosses the illuminated limb and starts down toward the city.",
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "visible": [
+        {
+          "id": "lander",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "screenX": 0.52,
+          "screenY": 0.34,
+          "screenWidthFraction": 0.22,
+          "depth": "foreground",
+          "role": "ship",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "lander",
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.52,
+              "y": 0.34
+            },
+            {
+              "x": 0.6,
+              "y": 0.43
+            },
+            {
+              "x": 0.68,
+              "y": 0.36
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "periodSeconds": 6,
+          "loop": false,
+          "speed": "medium",
+          "centerX": 0.6000000000000001,
+          "centerY": 0.385,
+          "width": 0.16000000000000003,
+          "height": 0.08999999999999997
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "delta7_engine__5bfd7f6a",
+          "startOffsetSeconds": 0.15,
+          "durationSeconds": 5.7,
+          "volume": 0.37
+        }
+      ]
+    },
+    {
+      "id": "b07",
+      "type": "arrival",
+      "durationSeconds": 6,
+      "locationHandle": "ruined_city1_0__d437ff62",
+      "evidence": "The shuttle approaches a clear strip of roadway between two fires.",
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "visible": [
+        {
+          "id": "skyline",
+          "handle": "ruined_city3_0__8d46130f",
+          "screenX": 0.52,
+          "screenY": 0.59,
+          "screenWidthFraction": 0.92,
+          "depth": "background"
+        },
+        {
+          "id": "street_fire_a",
+          "handle": "firesmall__adde0205",
+          "screenX": 0.24,
+          "screenY": 0.23,
+          "screenWidthFraction": 0.13,
+          "depth": "mid",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        },
+        {
+          "id": "street_fire_b",
+          "handle": "firesmall__adde0205",
+          "screenX": 0.77,
+          "screenY": 0.24,
+          "screenWidthFraction": 0.14,
+          "depth": "mid",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        },
+        {
+          "id": "ash_haze",
+          "handle": "groundfog__9a79c66a",
+          "screenX": 0.51,
+          "screenY": 0.18,
+          "screenWidthFraction": 0.72,
+          "depth": "mid",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        },
+        {
+          "id": "lander",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "screenX": 0.68,
+          "screenY": 0.69,
+          "screenWidthFraction": 0.23,
+          "depth": "foreground",
+          "role": "lander",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "lander",
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "motionIntent": "approach",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.68,
+              "y": 0.69
+            },
+            {
+              "x": 0.61,
+              "y": 0.55
+            },
+            {
+              "x": 0.55,
+              "y": 0.44
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "periodSeconds": 6,
+          "loop": false,
+          "speed": "slow",
+          "centerX": 0.615,
+          "centerY": 0.565,
+          "width": 0.13,
+          "height": 0.24999999999999994
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "delta7_engine__5bfd7f6a",
+          "startOffsetSeconds": 0.1,
+          "durationSeconds": 5.6,
+          "volume": 0.34
+        }
+      ]
+    },
+    {
+      "id": "b08",
+      "type": "arrival",
+      "durationSeconds": 6,
+      "locationHandle": "ruined_city1_0__d437ff62",
+      "evidence": "The shuttle descends toward the street. An explosion stays on the far side of the landing lane.",
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "visible": [
+        {
+          "id": "skyline",
+          "handle": "ruined_city3_0__8d46130f",
+          "screenX": 0.52,
+          "screenY": 0.59,
+          "screenWidthFraction": 0.92,
+          "depth": "background"
+        },
+        {
+          "id": "street_fire_a",
+          "handle": "firesmall__adde0205",
+          "screenX": 0.24,
+          "screenY": 0.23,
+          "screenWidthFraction": 0.13,
+          "depth": "mid",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        },
+        {
+          "id": "street_fire_b",
+          "handle": "firesmall__adde0205",
+          "screenX": 0.77,
+          "screenY": 0.24,
+          "screenWidthFraction": 0.14,
+          "depth": "mid",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        },
+        {
+          "id": "ash_haze",
+          "handle": "groundfog__9a79c66a",
+          "screenX": 0.51,
+          "screenY": 0.18,
+          "screenWidthFraction": 0.72,
+          "depth": "mid",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        },
+        {
+          "id": "distant_burst",
+          "handle": "bigexplosion__9d286a08",
+          "screenX": 0.82,
+          "screenY": 0.38,
+          "screenWidthFraction": 0.17,
+          "depth": "mid",
+          "startOffsetSeconds": 2,
+          "durationSeconds": 2.1
+        },
+        {
+          "id": "lander",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "screenX": 0.55,
+          "screenY": 0.44,
+          "screenWidthFraction": 0.23,
+          "depth": "foreground",
+          "role": "lander",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "lander",
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "motionIntent": "landing",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.55,
+              "y": 0.44
+            },
+            {
+              "x": 0.52,
+              "y": 0.32
+            },
+            {
+              "x": 0.5,
+              "y": 0.22
+            }
+          ],
+          "pathEasing": "ease_out",
+          "periodSeconds": 6,
+          "loop": false,
+          "speed": "slow",
+          "centerX": 0.525,
+          "centerY": 0.33,
+          "width": 0.050000000000000044,
+          "height": 0.22
+        }
+      ],
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "cannon_impact_9__5ef4c804",
+          "startOffsetSeconds": 2,
+          "durationSeconds": 1.64,
+          "volume": 0.52
+        }
+      ]
+    },
+    {
+      "id": "b09",
+      "type": "custom",
+      "durationSeconds": 6,
+      "locationHandle": "ruined_city1_0__d437ff62",
+      "evidence": "The shuttle settles at the touchdown point while the fire and ash continue around it.",
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "visible": [
+        {
+          "id": "skyline",
+          "handle": "ruined_city3_0__8d46130f",
+          "screenX": 0.52,
+          "screenY": 0.59,
+          "screenWidthFraction": 0.92,
+          "depth": "background"
+        },
+        {
+          "id": "street_fire_a",
+          "handle": "firesmall__adde0205",
+          "screenX": 0.24,
+          "screenY": 0.23,
+          "screenWidthFraction": 0.13,
+          "depth": "mid",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        },
+        {
+          "id": "street_fire_b",
+          "handle": "firesmall__adde0205",
+          "screenX": 0.77,
+          "screenY": 0.24,
+          "screenWidthFraction": 0.14,
+          "depth": "mid",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        },
+        {
+          "id": "ash_haze",
+          "handle": "groundfog__9a79c66a",
+          "screenX": 0.51,
+          "screenY": 0.18,
+          "screenWidthFraction": 0.72,
+          "depth": "mid",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        },
+        {
+          "id": "lander",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "screenX": 0.5,
+          "screenY": 0.22,
+          "screenWidthFraction": 0.23,
+          "depth": "foreground",
+          "role": "lander",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "hold",
+          "subject": "lander",
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": false,
+          "startOffset": 0,
+          "duration": 6
+        }
+      ]
+    },
+    {
+      "id": "b10",
+      "type": "custom",
+      "durationSeconds": 6,
+      "locationHandle": "ruined_city1_0__d437ff62",
+      "evidence": "A second transporter passes overhead. The landed shuttle holds position on the street.",
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut",
+        "durationSeconds": 0
+      },
+      "visible": [
+        {
+          "id": "skyline",
+          "handle": "ruined_city3_0__8d46130f",
+          "screenX": 0.52,
+          "screenY": 0.59,
+          "screenWidthFraction": 0.92,
+          "depth": "background"
+        },
+        {
+          "id": "street_fire_a",
+          "handle": "firesmall__adde0205",
+          "screenX": 0.24,
+          "screenY": 0.23,
+          "screenWidthFraction": 0.13,
+          "depth": "mid",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        },
+        {
+          "id": "street_fire_b",
+          "handle": "firesmall__adde0205",
+          "screenX": 0.77,
+          "screenY": 0.24,
+          "screenWidthFraction": 0.14,
+          "depth": "mid",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        },
+        {
+          "id": "ash_haze",
+          "handle": "groundfog__9a79c66a",
+          "screenX": 0.51,
+          "screenY": 0.18,
+          "screenWidthFraction": 0.72,
+          "depth": "mid",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 6
+        },
+        {
+          "id": "lander",
+          "handle": "2dspaceshipsfreetrialatlassideviewblue2_0__19a26b34",
+          "screenX": 0.5,
+          "screenY": 0.22,
+          "screenWidthFraction": 0.23,
+          "depth": "foreground",
+          "role": "lander",
+          "saliency": "primary"
+        },
+        {
+          "id": "transport",
+          "handle": "launcher0000__874e0c78",
+          "screenX": 0.19,
+          "screenY": 0.77,
+          "screenWidthFraction": 0.13,
+          "depth": "foreground",
+          "role": "ship",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "hold",
+          "subject": "lander",
+          "startOffset": 0,
+          "duration": 6
+        },
+        {
+          "type": "move",
+          "subject": "transport",
+          "animationHandle": "animation__47980c60",
+          "animationLoop": true,
+          "startOffset": 0,
+          "duration": 6,
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "pathPoints": [
+            {
+              "x": 0.19,
+              "y": 0.77
+            },
+            {
+              "x": 0.44,
+              "y": 0.8
+            },
+            {
+              "x": 0.74,
+              "y": 0.83
+            }
+          ],
+          "pathEasing": "smooth_step",
+          "periodSeconds": 6,
+          "loop": false,
+          "speed": "medium",
+          "centerX": 0.46499999999999997,
+          "centerY": 0.8,
+          "width": 0.55,
+          "height": 0.05999999999999994
+        }
+      ],
+      "audio": [
+        {
+          "kind": "music",
+          "handle": "5_deep_place__4c5c4316",
+          "operation": "fade_out",
+          "startOffsetSeconds": 2,
+          "durationSeconds": 4,
+          "volume": 0.3
+        }
+      ]
+    }
+  ],
+  "moves": [
+    {
+      "id": "CROSSING_FLYBY",
+      "beatIds": [
+        "b02",
+        "b03",
+        "b04"
+      ]
+    },
+    {
+      "id": "LANDING_APPROACH",
+      "beatIds": [
+        "b07",
+        "b08",
+        "b09"
+      ]
+    }
+  ]
+}
