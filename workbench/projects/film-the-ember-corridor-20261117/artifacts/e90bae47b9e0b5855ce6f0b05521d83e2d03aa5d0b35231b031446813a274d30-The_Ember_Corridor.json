@@ -1,0 +1,1272 @@
+{
+  "schema": "STARWARS_DELTA_CUTSCENE_SCRIPT",
+  "schemaVersion": 1,
+  "schemaHash": "C0EFEB78612A3ED867DACE26B2930CB3C6AED36776F0E8D797FF95990EC17469",
+  "authoringRuleRegistryRevision": "80399DACAB7ADEC81ADC0215417942638DFA9A2F2F53105541CADF1A5533E6FF",
+  "title": "The Ember Corridor",
+  "durationSeconds": 60,
+  "creativeIntent": "Original 60-second V1 rescue film. Art Pack 01 blue side-view rescue craft chosen over the nose-up Art Pack 02 Transporter and red StarSparrow silhouette. Art Pack 02 saucer plays a friendly decoy; Art Pack 01 Starknife blocks the route. The two planet sprites travel on opposing arcs; no axial-spin clip is implied. Burning Earth is the published illustrated orbital plate. DGraphics volcanic terrain represents the Earth landing site. RisingSteam is an explicit gray ash stand-in; replace only ash cues if a dedicated verified ash effect is desired. No cockpit or survivor model is implied. Unity import, voice generation, visible placeholders and Film QA have not been tested.",
+  "cast": [
+    {
+      "id": "hero",
+      "materialHandle": "animation__4eb0fc26",
+      "entityKind": "Spaceship"
+    },
+    {
+      "id": "escort",
+      "materialHandle": "animation__5c9cd767",
+      "entityKind": "Spaceship"
+    },
+    {
+      "id": "knife",
+      "materialHandle": "animation__d98cd38d",
+      "entityKind": "Spaceship"
+    },
+    {
+      "id": "violet",
+      "materialHandle": "planet1__0136d3c7",
+      "entityKind": "CelestialBody"
+    },
+    {
+      "id": "ice",
+      "materialHandle": "planet5__0700cb16",
+      "entityKind": "CelestialBody"
+    },
+    {
+      "id": "captain",
+      "identityHandle": "CAPTAIN_AVATAR_01",
+      "displayName": "Captain"
+    },
+    {
+      "id": "dana",
+      "identityHandle": "FEMALE_COMMS_01",
+      "displayName": "Dana"
+    }
+  ],
+  "beats": [
+    {
+      "id": "worlds_cross",
+      "type": "custom",
+      "durationSeconds": 5,
+      "locationHandle": "nebula_blue__8cbf4d8f",
+      "storyClaim": "Two planets sweep around a shared center on opposite arcs while the rescue pilot passes below.",
+      "visible": [
+        {
+          "id": "violet",
+          "handle": "planet1__0136d3c7",
+          "screenX": 0.29,
+          "screenY": 0.68,
+          "screenWidthFraction": 0.23,
+          "depth": "far",
+          "saliency": "support"
+        },
+        {
+          "id": "ice",
+          "handle": "planet5__0700cb16",
+          "screenX": 0.74,
+          "screenY": 0.45,
+          "screenWidthFraction": 0.14,
+          "depth": "far",
+          "saliency": "support"
+        },
+        {
+          "id": "hero",
+          "handle": "animation__4eb0fc26",
+          "screenX": 0.13,
+          "screenY": 0.22,
+          "screenWidthFraction": 0.16,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "violet",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "slow",
+          "pathPoints": [
+            {
+              "x": 0.29,
+              "y": 0.68
+            },
+            {
+              "x": 0.36,
+              "y": 0.78
+            },
+            {
+              "x": 0.54,
+              "y": 0.81
+            },
+            {
+              "x": 0.69,
+              "y": 0.74
+            },
+            {
+              "x": 0.74,
+              "y": 0.64
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5
+        },
+        {
+          "type": "move",
+          "subject": "ice",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "slow",
+          "pathPoints": [
+            {
+              "x": 0.74,
+              "y": 0.45
+            },
+            {
+              "x": 0.66,
+              "y": 0.35
+            },
+            {
+              "x": 0.49,
+              "y": 0.32
+            },
+            {
+              "x": 0.34,
+              "y": 0.39
+            },
+            {
+              "x": 0.29,
+              "y": 0.49
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5
+        },
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "fast",
+          "pathPoints": [
+            {
+              "x": 0.13,
+              "y": 0.22
+            },
+            {
+              "x": 0.55,
+              "y": 0.24
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5,
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Sealed CURRENT 20261106-205018534-41319da9; catalog previews inspected. Unity playback pending.",
+      "captions": [
+        {
+          "text": "THE EMBER CORRIDOR",
+          "kind": "title",
+          "placement": "top",
+          "startOffset": 0.2,
+          "durationSeconds": 2.6
+        }
+      ],
+      "audio": [
+        {
+          "kind": "music",
+          "handle": "7_track_7__4ebdab6f",
+          "operation": "play",
+          "loop": true,
+          "volume": 0.24
+        }
+      ]
+    },
+    {
+      "id": "window",
+      "type": "custom",
+      "durationSeconds": 5,
+      "locationHandle": "nebula_blue__8cbf4d8f",
+      "storyClaim": "The two planets complete their opposing arcs; the rescue ship accelerates out of the orbital window.",
+      "visible": [
+        {
+          "id": "violet",
+          "handle": "planet1__0136d3c7",
+          "screenX": 0.74,
+          "screenY": 0.64,
+          "screenWidthFraction": 0.23,
+          "depth": "far",
+          "saliency": "support"
+        },
+        {
+          "id": "ice",
+          "handle": "planet5__0700cb16",
+          "screenX": 0.29,
+          "screenY": 0.49,
+          "screenWidthFraction": 0.14,
+          "depth": "far",
+          "saliency": "support"
+        },
+        {
+          "id": "hero",
+          "handle": "animation__4eb0fc26",
+          "screenX": 0.55,
+          "screenY": 0.24,
+          "screenWidthFraction": 0.16,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "violet",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "slow",
+          "pathPoints": [
+            {
+              "x": 0.74,
+              "y": 0.64
+            },
+            {
+              "x": 0.68,
+              "y": 0.53
+            },
+            {
+              "x": 0.51,
+              "y": 0.48
+            },
+            {
+              "x": 0.36,
+              "y": 0.54
+            },
+            {
+              "x": 0.29,
+              "y": 0.68
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5
+        },
+        {
+          "type": "move",
+          "subject": "ice",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "slow",
+          "pathPoints": [
+            {
+              "x": 0.29,
+              "y": 0.49
+            },
+            {
+              "x": 0.35,
+              "y": 0.6
+            },
+            {
+              "x": 0.5,
+              "y": 0.64
+            },
+            {
+              "x": 0.66,
+              "y": 0.56
+            },
+            {
+              "x": 0.74,
+              "y": 0.45
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5
+        },
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "fast",
+          "pathPoints": [
+            {
+              "x": 0.55,
+              "y": 0.24
+            },
+            {
+              "x": 0.78,
+              "y": 0.32
+            },
+            {
+              "x": 1.12,
+              "y": 0.49
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5,
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Sealed CURRENT 20261106-205018534-41319da9; catalog previews inspected. Unity playback pending.",
+      "dialogue": [
+        {
+          "speaker": "dana",
+          "listener": "captain",
+          "text": "Orbital window is open. The distress beacon is on Earth.",
+          "presentation": "radio",
+          "voice": "generated"
+        }
+      ]
+    },
+    {
+      "id": "earth_burns",
+      "type": "custom",
+      "durationSeconds": 5,
+      "locationHandle": "ruined_earth_2_0__b159399e",
+      "storyClaim": "A glowing firefront surrounds Earth. The rescue ship turns toward the lower edge of the disk.",
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "animation__4eb0fc26",
+          "screenX": 0.12,
+          "screenY": 0.51,
+          "screenWidthFraction": 0.17,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "fast",
+          "pathPoints": [
+            {
+              "x": 0.12,
+              "y": 0.51
+            },
+            {
+              "x": 0.35,
+              "y": 0.44
+            },
+            {
+              "x": 0.44,
+              "y": 0.28
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5,
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Sealed CURRENT 20261106-205018534-41319da9; catalog previews inspected. Unity playback pending.",
+      "dialogue": [
+        {
+          "speaker": "captain",
+          "listener": "dana",
+          "text": "If that beacon is still transmitting, someone is still alive.",
+          "presentation": "radio",
+          "voice": "generated"
+        }
+      ]
+    },
+    {
+      "id": "intercept",
+      "type": "custom",
+      "durationSeconds": 5,
+      "locationHandle": "nebula_blue__8cbf4d8f",
+      "storyClaim": "A Starknife cuts across the rescue flight path; Dana's saucer escort appears above it.",
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "animation__4eb0fc26",
+          "screenX": 0.24,
+          "screenY": 0.35,
+          "screenWidthFraction": 0.22,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "knife",
+          "handle": "animation__d98cd38d",
+          "screenX": 0.9,
+          "screenY": 0.42,
+          "screenWidthFraction": 0.2,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "escort",
+          "handle": "animation__5c9cd767",
+          "screenX": 0.15,
+          "screenY": 0.73,
+          "screenWidthFraction": 0.16,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "fast",
+          "pathPoints": [
+            {
+              "x": 0.24,
+              "y": 0.35
+            },
+            {
+              "x": 0.49,
+              "y": 0.35
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5,
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true
+        },
+        {
+          "type": "move",
+          "subject": "knife",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "fast",
+          "pathPoints": [
+            {
+              "x": 0.9,
+              "y": 0.42
+            },
+            {
+              "x": 0.68,
+              "y": 0.43
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5,
+          "animationHandle": "animation__d98cd38d",
+          "animationLoop": true
+        },
+        {
+          "type": "move",
+          "subject": "escort",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "fast",
+          "pathPoints": [
+            {
+              "x": 0.15,
+              "y": 0.73
+            },
+            {
+              "x": 0.37,
+              "y": 0.68
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5,
+          "animationHandle": "animation__5c9cd767",
+          "animationLoop": true
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Sealed CURRENT 20261106-205018534-41319da9; catalog previews inspected. Unity playback pending.",
+      "dialogue": [
+        {
+          "speaker": "dana",
+          "listener": "captain",
+          "text": "Starknife ahead. I'll draw it high. Go under me.",
+          "presentation": "radio",
+          "voice": "generated"
+        }
+      ]
+    },
+    {
+      "id": "escort_decoy",
+      "type": "custom",
+      "durationSeconds": 5,
+      "locationHandle": "nebula_blue__8cbf4d8f",
+      "storyClaim": "The escort climbs right; the enemy follows while the rescue ship takes the low lane.",
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "animation__4eb0fc26",
+          "screenX": 0.49,
+          "screenY": 0.35,
+          "screenWidthFraction": 0.22,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "knife",
+          "handle": "animation__d98cd38d",
+          "screenX": 0.68,
+          "screenY": 0.43,
+          "screenWidthFraction": 0.2,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "escort",
+          "handle": "animation__5c9cd767",
+          "screenX": 0.37,
+          "screenY": 0.68,
+          "screenWidthFraction": 0.16,
+          "depth": "mid",
+          "saliency": "primary"
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "escort",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "fast",
+          "pathPoints": [
+            {
+              "x": 0.37,
+              "y": 0.68
+            },
+            {
+              "x": 0.56,
+              "y": 0.82
+            },
+            {
+              "x": 0.89,
+              "y": 0.8
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5,
+          "animationHandle": "animation__5c9cd767",
+          "animationLoop": true
+        },
+        {
+          "type": "move",
+          "subject": "knife",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "fast",
+          "pathPoints": [
+            {
+              "x": 0.68,
+              "y": 0.43
+            },
+            {
+              "x": 0.62,
+              "y": 0.58
+            },
+            {
+              "x": 0.8,
+              "y": 0.71
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5,
+          "animationHandle": "animation__d98cd38d",
+          "animationLoop": true
+        },
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "fast",
+          "pathPoints": [
+            {
+              "x": 0.49,
+              "y": 0.35
+            },
+            {
+              "x": 0.71,
+              "y": 0.24
+            },
+            {
+              "x": 1.15,
+              "y": 0.22
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5,
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Sealed CURRENT 20261106-205018534-41319da9; catalog previews inspected. Unity playback pending."
+    },
+    {
+      "id": "burning_limb",
+      "type": "custom",
+      "durationSeconds": 5,
+      "locationHandle": "ruined_earth_2_0__b159399e",
+      "storyClaim": "The rescue ship skirts the fiery limb and drops toward the surface.",
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "animation__4eb0fc26",
+          "screenX": 0.18,
+          "screenY": 0.49,
+          "screenWidthFraction": 0.17,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "flash",
+          "handle": "energyexplosion__0357da2c",
+          "screenX": 0.28,
+          "screenY": 0.5,
+          "screenWidthFraction": 0.13,
+          "depth": "foreground",
+          "saliency": "support",
+          "startOffsetSeconds": 1.2,
+          "durationSeconds": 0.65
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "fast",
+          "pathPoints": [
+            {
+              "x": 0.18,
+              "y": 0.49
+            },
+            {
+              "x": 0.4,
+              "y": 0.37
+            },
+            {
+              "x": 0.62,
+              "y": 0.15
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5,
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Sealed CURRENT 20261106-205018534-41319da9; catalog previews inspected. Unity playback pending.",
+      "dialogue": [
+        {
+          "speaker": "captain",
+          "listener": "dana",
+          "text": "I'm through. Find me solid ground between those flows.",
+          "presentation": "radio",
+          "voice": "generated"
+        }
+      ]
+    },
+    {
+      "id": "ash_descent",
+      "type": "custom",
+      "durationSeconds": 5,
+      "locationHandle": "volcano22_0__2f615cc4",
+      "storyClaim": "The rescue ship emerges above the lava field. Steam stands in for a gray plume beside the flow.",
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "animation__4eb0fc26",
+          "screenX": 0.2,
+          "screenY": 0.82,
+          "screenWidthFraction": 0.19,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "ash",
+          "handle": "risingsteam__6ef79677",
+          "screenX": 0.78,
+          "screenY": 0.4,
+          "screenWidthFraction": 0.22,
+          "depth": "foreground",
+          "saliency": "support",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 5
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "fast",
+          "pathPoints": [
+            {
+              "x": 0.2,
+              "y": 0.82
+            },
+            {
+              "x": 0.43,
+              "y": 0.69
+            },
+            {
+              "x": 0.65,
+              "y": 0.58
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5,
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Sealed CURRENT 20261106-205018534-41319da9; catalog previews inspected. Unity playback pending.",
+      "dialogue": [
+        {
+          "speaker": "dana",
+          "listener": "captain",
+          "text": "There. A black shelf between the two red channels.",
+          "presentation": "radio",
+          "voice": "generated"
+        }
+      ]
+    },
+    {
+      "id": "flare_up",
+      "type": "custom",
+      "durationSeconds": 5,
+      "locationHandle": "volcano22_0__2f615cc4",
+      "storyClaim": "Fire bursts across the direct approach; the pilot climbs around it rather than crossing the plume.",
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "animation__4eb0fc26",
+          "screenX": 0.65,
+          "screenY": 0.58,
+          "screenWidthFraction": 0.19,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "flame",
+          "handle": "largeflames__d43740ce",
+          "screenX": 0.76,
+          "screenY": 0.35,
+          "screenWidthFraction": 0.21,
+          "depth": "foreground",
+          "saliency": "support",
+          "startOffsetSeconds": 0.6,
+          "durationSeconds": 3.8
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "fast",
+          "pathPoints": [
+            {
+              "x": 0.65,
+              "y": 0.58
+            },
+            {
+              "x": 0.73,
+              "y": 0.69
+            },
+            {
+              "x": 0.85,
+              "y": 0.69
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5,
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Sealed CURRENT 20261106-205018534-41319da9; catalog previews inspected. Unity playback pending."
+    },
+    {
+      "id": "second_pass",
+      "type": "custom",
+      "durationSeconds": 5,
+      "locationHandle": "volcano22_0__2f615cc4",
+      "storyClaim": "The pilot loops back from the right to line up with the unlit shelf.",
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "animation__4eb0fc26",
+          "screenX": 0.85,
+          "screenY": 0.69,
+          "screenWidthFraction": 0.19,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "ash",
+          "handle": "risingsteam__6ef79677",
+          "screenX": 0.22,
+          "screenY": 0.31,
+          "screenWidthFraction": 0.17,
+          "depth": "foreground",
+          "saliency": "support",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 5
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 5,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "linear",
+          "speed": "fast",
+          "pathPoints": [
+            {
+              "x": 0.85,
+              "y": 0.69
+            },
+            {
+              "x": 0.72,
+              "y": 0.6
+            },
+            {
+              "x": 0.58,
+              "y": 0.47
+            },
+            {
+              "x": 0.49,
+              "y": 0.4
+            }
+          ],
+          "startOffset": 0,
+          "duration": 5,
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Sealed CURRENT 20261106-205018534-41319da9; catalog previews inspected. Unity playback pending.",
+      "dialogue": [
+        {
+          "speaker": "captain",
+          "listener": "dana",
+          "text": "Shelf in sight. Keeping the engines clear of the ash.",
+          "presentation": "radio",
+          "voice": "generated"
+        }
+      ]
+    },
+    {
+      "id": "touchdown",
+      "type": "custom",
+      "durationSeconds": 5,
+      "locationHandle": "volcano22_0__2f615cc4",
+      "storyClaim": "The same blue ship brakes and settles on the volcanic shelf.",
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "animation__4eb0fc26",
+          "screenX": 0.49,
+          "screenY": 0.4,
+          "screenWidthFraction": 0.19,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "ash",
+          "handle": "risingsteam__6ef79677",
+          "screenX": 0.44,
+          "screenY": 0.18,
+          "screenWidthFraction": 0.18,
+          "depth": "foreground",
+          "saliency": "support",
+          "startOffsetSeconds": 2,
+          "durationSeconds": 3
+        }
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "subject": "hero",
+          "motionIntent": "path_loop",
+          "pathShape": "waypoints",
+          "centerX": 0.5,
+          "centerY": 0.5,
+          "width": 1,
+          "height": 1,
+          "periodSeconds": 3.8,
+          "loop": false,
+          "clockwise": true,
+          "pathEasing": "ease_out",
+          "speed": "fast",
+          "pathPoints": [
+            {
+              "x": 0.49,
+              "y": 0.4
+            },
+            {
+              "x": 0.46,
+              "y": 0.31
+            },
+            {
+              "x": 0.44,
+              "y": 0.25
+            }
+          ],
+          "startOffset": 0,
+          "duration": 3.8,
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": true
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Sealed CURRENT 20261106-205018534-41319da9; catalog previews inspected. Unity playback pending.",
+      "audio": [
+        {
+          "kind": "sfx",
+          "handle": "delta7_engine__5bfd7f6a",
+          "volume": 0.32,
+          "startOffsetSeconds": 0
+        }
+      ]
+    },
+    {
+      "id": "signal_returns",
+      "type": "custom",
+      "durationSeconds": 5,
+      "locationHandle": "volcano22_0__2f615cc4",
+      "storyClaim": "The ship stays landed, with fire in the distance. Radio confirms the beacon survived the approach.",
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "animation__4eb0fc26",
+          "screenX": 0.44,
+          "screenY": 0.25,
+          "screenWidthFraction": 0.19,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "flame",
+          "handle": "largeflames__d43740ce",
+          "screenX": 0.8,
+          "screenY": 0.3,
+          "screenWidthFraction": 0.13,
+          "depth": "foreground",
+          "saliency": "support",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 5
+        }
+      ],
+      "actions": [
+        {
+          "type": "hold",
+          "subject": "hero",
+          "startOffset": 0,
+          "duration": 5,
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": false
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Sealed CURRENT 20261106-205018534-41319da9; catalog previews inspected. Unity playback pending.",
+      "dialogue": [
+        {
+          "speaker": "dana",
+          "listener": "captain",
+          "text": "Beacon confirmed. They're answering from beneath the shelf.",
+          "presentation": "radio",
+          "voice": "generated"
+        }
+      ]
+    },
+    {
+      "id": "we_are_here",
+      "type": "custom",
+      "durationSeconds": 5,
+      "locationHandle": "volcano22_0__2f615cc4",
+      "storyClaim": "Hold on the landed ship and the glowing ridgeline as the Captain answers the survivors.",
+      "visible": [
+        {
+          "id": "hero",
+          "handle": "animation__4eb0fc26",
+          "screenX": 0.44,
+          "screenY": 0.25,
+          "screenWidthFraction": 0.19,
+          "depth": "mid",
+          "saliency": "primary"
+        },
+        {
+          "id": "flame",
+          "handle": "largeflames__d43740ce",
+          "screenX": 0.8,
+          "screenY": 0.3,
+          "screenWidthFraction": 0.13,
+          "depth": "foreground",
+          "saliency": "support",
+          "startOffsetSeconds": 0,
+          "durationSeconds": 5
+        }
+      ],
+      "actions": [
+        {
+          "type": "hold",
+          "subject": "hero",
+          "startOffset": 0,
+          "duration": 5,
+          "animationHandle": "animation__4eb0fc26",
+          "animationLoop": false
+        }
+      ],
+      "camera": {
+        "framing": "wide",
+        "movement": "hold"
+      },
+      "transition": {
+        "style": "cut"
+      },
+      "evidence": "Sealed CURRENT 20261106-205018534-41319da9; catalog previews inspected. Unity playback pending.",
+      "dialogue": [
+        {
+          "speaker": "captain",
+          "listener": "dana",
+          "text": "Keep that signal on. We're here.",
+          "presentation": "radio",
+          "voice": "generated"
+        }
+      ],
+      "captions": [
+        {
+          "text": "EARTH / RESCUE SHUTTLE DOWN",
+          "kind": "title",
+          "placement": "top",
+          "startOffset": 0.2,
+          "durationSeconds": 2.6
+        }
+      ],
+      "audio": [
+        {
+          "kind": "music",
+          "handle": "7_track_7__4ebdab6f",
+          "operation": "fade_out",
+          "startOffsetSeconds": 3,
+          "durationSeconds": 2,
+          "volume": 0.24
+        }
+      ]
+    }
+  ]
+}
