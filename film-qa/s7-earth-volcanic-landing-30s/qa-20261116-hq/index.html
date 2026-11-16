@@ -1,0 +1,45 @@
+﻿<!doctype html>
+<html lang="he" dir="rtl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>STARWARS_DELTA | צילום QA כדור הארץ</title>
+<style>
+:root{color-scheme:dark;font-family:Arial,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:#09121d;color:#edf5ff}
+header,main,footer{max-width:1100px;margin:auto;padding:18px}
+nav a,.link{color:#9bddff}nav{font-size:13px;color:#c6d9e7}
+h1{font-size:clamp(26px,6vw,48px);line-height:1.15;margin:22px 0 12px}
+h2{font-size:clamp(19px,4vw,28px)}
+p{color:#cfdeea;line-height:1.55}strong{color:white}
+.chip{display:inline-block;border:1px solid #52718d;border-radius:100px;padding:7px 12px;color:#f9d696;font-size:13px;background:#182c40}
+.panel{background:#111f31;border:1px solid #233b50;border-radius:14px;overflow:hidden;margin:18px 0}
+.panel .body{padding:16px}.panel img{display:block;width:100%;height:auto;background:#000}
+.photo{display:block;position:relative}.photo small{position:absolute;bottom:10px;left:10px;background:#0a1623b7;padding:6px 10px;border-radius:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:14px}
+.grid .panel{margin:0}ul{line-height:1.8;padding-right:25px;color:#cfdeea}
+a{color:#9fd9ff}a:hover{text-decoration:underline}
+.muted{color:#99acc2;font-size:13px}
+hr{border:0;border-top:1px solid #244056;margin:24px 0}
+@media(max-width:600px){header,main,footer{padding:12px}.panel{border-radius:8px}}
+</style></head>
+<body><header><nav><a href="../../../">STARWARS DELTA</a> / <a href="../../../film-qa.html">Film QA</a> / System 7</nav>
+<h1>כדור הארץ אחרי שדרוג הפרפאב</h1>
+<p>סצנה: <strong>S7_EARTH_VOLCANIC_LANDING_30S</strong> · Unity 6000.7.0b8 · 16.11.2026</p>
+<span class="chip">צילום אמיתי מתוך Unity • בדיקת סרט מלאה עדיין פתוחה</span></header>
+<main>
+<section class="panel"><a class="photo" href="earth_after_4k_prefab.png" target="_blank" rel="noopener">
+<img src="earth_after_4k_prefab.png" alt="צילום QA של כדור הארץ, עננים ואטמוספרה חדשים בסצנת Unity" loading="eager"><small>לפתיחת התמונה בגודל מלא</small></a>
+<div class="body"><strong>אחרי השדרוג</strong>
+<p>צילום חדש של המצלמה הפעילה דרך כלי Unity Pipeline Capture, ברזולוציית 1280×720. נראה שכדור הארץ מציג טקסטורת פני שטח מפורטת ושכבת עננים.</p></div></section>
+<h2>השוואה לצילום QA קודם</h2>
+<div class="grid">
+<section class="panel"><a href="earth_before_v5.png" target="_blank" rel="noopener"><img src="earth_before_v5.png" alt="צילום קודם מתיקיית AFTER_V5 של אותה סצנה" loading="lazy"></a><div class="body"><strong>לפני שדרוג 4K</strong><p>פריים 0.5 שניות מארכיון AFTER_V5, שצולם לפני בניית הפרפאב החדש.</p></div></section>
+<section class="panel"><a href="earth_after_4k_prefab.png" target="_blank" rel="noopener"><img src="earth_after_4k_prefab.png" alt="צילום Unity החדש לאחר התקנת פרפאב 4K" loading="lazy"></a><div class="body"><strong>לאחר שדרוג 4K</strong><p>צילום מצלמת הסרט בגרסה החדשה. זמן הדגימה המדויק במצלמה לא תועד ולכן אין לייחס אותו ל־0.5 שניות.</p></div></section>
+</div>
+<h2>מה נבדק ומה עדיין חסר</h2>
+<ul><li>פרפאב מקור משותף: <strong>PF_S7_EARTH_CINEMATIC_4K</strong>, עם שכבת פני שטח, עננים והילה.</li>
+<li>אומת שהפרפאב הוצמד לשני אובייקטים של כדור הארץ בסצנה באמצעות כלי Unity.</li>
+<li>הצילום החדש הופק במצלמת Unity, ללא הדמיה חיצונית או יצירת תמונה בבינה מלאכותית.</li>
+<li>עדיין נדרשת ביקורת חזותית על שוטי ההר הגעשי, הקוקפיט, המנועים והנחיתה, וכן בדיקה מלאה ב־Play Mode.</li></ul>
+<p class="muted">מפת פני השטח: NASA Blue Marble Next Generation. עננים ומפת לילה: Solar System Scope, CC BY 4.0. סטטוס QA: PARTIAL / REVIEW REQUIRED.</p>
+<hr><p><a href="../../../film-qa.html">חזרה למערכת Film QA</a></p>
+</main><footer class="muted">STARWARS_DELTA • Visual evidence • QA is not approval</footer></body></html>
