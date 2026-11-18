@@ -113,7 +113,45 @@ button:focus-visible,a:focus-visible{outline:3px solid #ffe3aa;outline-offset:3p
 .story-cloud p{font-size:16px}
 @media(max-height:750px){.paper{top:17%}.options.triple .opt{min-height:45px}.scene-title h1{font-size:25px}.scene-title p{font-size:12px}.hud .challenge-hint{font-size:12px}}
 
-</style>
+/* Visual guidance: camera, gentle character movement, and a readable time cue. */
+#workshop,#morning{transition:opacity .55s ease,transform .7s cubic-bezier(.2,.75,.2,1)}
+.stage.focus-cloth #workshop{transform:scale(1.055);transform-origin:52% 71%}
+.stage.focus-person #workshop{transform:scale(1.045);transform-origin:73% 54%}
+.stage.mode-morning #morning{transform:scale(1.035);transform-origin:50% 58%}
+#fatherHands,#sonHands{transform-box:fill-box;transform-origin:center}
+.stage:not(.mode-morning) #fatherHands{animation:knotting 2.6s ease-in-out infinite}
+.stage:not(.mode-morning) #sonHands{animation:knotting 2.8s ease-in-out infinite reverse}
+@keyframes knotting{0%,100%{transform:translate(0,0)}50%{transform:translate(-3px,2px)}}
+.stage.show-wearing #morningGarment{filter:drop-shadow(0 0 10px #fff3be80)}
+.moment-label{position:absolute;z-index:6;top:15px;left:14px;min-height:42px;display:flex;align-items:center;padding:6px 12px;border-radius:999px;background:#0c2b37e6;border:1px solid #e4d3ad77;box-shadow:0 6px 16px #001c2960;color:#fff0ca;font-size:13px;font-weight:900}
+.moment-label[hidden]{display:none}
+.stage.can-touch #son,.stage.can-touch #garment{cursor:pointer}
+#focusGarment,#focusSon,#focusMorning,#nederObjectGlow,#nederPersonGlow,#candlePlaceGlow,#candleLightGlow{pointer-events:none}
+.stage:not(.scene-neder) #nederScene *,.stage:not(.scene-candle) #candleScene *{pointer-events:none}
+.stage:not(.mode-morning) #morning *,.stage.mode-morning #workshop *{pointer-events:none}
+
+/* Guided inquiry experience: focus is on the scene, not a forest of competing cards. */
+.experience-dock{position:absolute;z-index:11;top:13px;left:13px;display:flex;flex-direction:row;gap:6px;align-items:center}
+.experience-icon{display:grid;place-items:center;min-width:41px;height:41px;padding:5px;border:1px solid #ffe0acb8;border-radius:15px;background:#183947ed;color:#ffdd9e;font-size:20px;box-shadow:0 7px 18px #091c2f70}
+.experience-icon[aria-pressed="true"]{background:#f8deb1;color:#243c44}
+.experience-cart{position:absolute;z-index:12;left:12px;right:12px;top:64px;border:2px solid #f1cf91;background:#f9ecd1;color:#233c41;border-radius:22px;box-shadow:0 16px 35px #081c30b5;padding:13px 15px;max-height:65%;overflow:auto}
+.experience-cart[hidden],.phase-overlay[hidden]{display:none}
+.experience-cart-title{display:flex;justify-content:space-between;align-items:center;font-weight:900;font-size:17px}
+.experience-cart p{font-size:15px;line-height:1.4}
+.experience-cart details{border-top:1px solid #bba678;padding-top:9px;font-size:13px;line-height:1.5}
+.experience-cart summary{font-weight:900;cursor:pointer;color:#77512d}
+.experience-cart-close{border:0;background:#264958;color:#fff0d5;border-radius:12px;padding:6px 11px;font-size:13px;font-weight:800}
+.phase-overlay{position:absolute;inset:0;z-index:15;background:#071d29d9;display:grid;place-items:center;padding:16px}
+.phase-cloud{width:100%;max-width:380px;background:linear-gradient(160deg,#fff1d8,#f1d5a6);color:#203741;padding:23px 20px 21px;border-radius:32px;box-shadow:0 19px 40px #051923c9;text-align:center;border:2px solid #ffe8b5}
+.phase-cloud .overline{font-size:12px;color:#8d5a30;font-weight:900}
+.phase-cloud h2{font-size:29px;line-height:1.1;margin:9px 0 12px}
+.phase-cloud p{font-size:16px;line-height:1.5;margin:0 0 19px}
+.phase-cloud .action{width:100%}
+.experience-stage{cursor:pointer;font-family:inherit;position:absolute;top:62px;left:14px;z-index:5;font-size:11px;border:1px solid #fff2c75e;border-radius:99px;background:#143646c9;color:#ffdfa3;padding:5px 12px;font-weight:900}
+@media(max-width:380px){.experience-icon{min-width:34px;height:37px;font-size:17px}.experience-dock{gap:4px}.experience-stage{left:12px;top:59px}.phase-cloud h2{font-size:25px}}
+@media(max-height:700px){.experience-cart{max-height:59%}.phase-cloud{padding:15px}.phase-cloud h2{font-size:25px}.phase-cloud p{font-size:14px}}
+
+.experience-stage:focus-visible,.experience-icon:focus-visible,.experience-cart-close:focus-visible{outline:3px solid #ffe5ad;outline-offset:3px}#researchCartToggle[aria-expanded="true"]{background:#ffdb9d;color:#173642}.scene-title h1,.scene-title p{text-wrap:balance}@media(max-width:365px){.experience-stage{top:60px;left:10px;font-size:10px}.story-cloud{right:4%;left:4%}.options .opt{font-size:14px}}</style>
 </head>
 <body>
 <main class="app">
@@ -151,7 +189,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #ffe3aa;outline-offset:3p
 <path d="M127 428L123 496L158 497L172 428 M179 429L189 497L218 498L209 428" fill="#293544"/>
 <path d="M122 495L111 510H167L158 493 M189 495L185 510H232L217 494" fill="#242c32"/>
 <path d="M132 325Q172 306 211 324L222 428Q181 453 123 432Z" fill="#e8d4ad" stroke="#f9e6c2" stroke-width="4"/>
-<path d="M138 342L111 394L150 417 M204 342L238 390L219 417" fill="none" stroke="#e5d4b3" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="fatherHands" d="M138 342L111 394L150 417 M204 342L238 390L219 417" fill="none" stroke="#e5d4b3" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M151 325V309H188V325" fill="#d49e7a"/>
 <ellipse cx="170" cy="270" rx="40" ry="48" fill="#dbab89"/>
 <path d="M130 270Q124 221 166 223Q204 221 211 266L195 256Q176 250 172 236Q150 258 132 252Z" fill="#363239"/>
@@ -165,7 +203,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #ffe3aa;outline-offset:3p
 <path d="M270 424L264 509H294L306 431 M309 431L322 509H351L342 424" fill="#243c55" stroke="#1d2b3b" stroke-width="5"/>
 <path d="M262 507L257 520H298L295 509 M321 507L321 520H359L351 508" fill="#202b35"/>
 <path d="M275 347Q311 332 344 346L355 435Q312 458 267 437Z" fill="url(#blueShirt)" stroke="#b2d8d6" stroke-width="3"/>
-<path d="M278 366L263 402L245 423 M345 366L365 406L344 428" fill="none" stroke="#397b8b" stroke-width="17" stroke-linecap="round"/>
+<path id="sonHands" d="M278 366L263 402L245 423 M345 366L365 406L344 428" fill="none" stroke="#397b8b" stroke-width="17" stroke-linecap="round"/>
 <ellipse cx="244" cy="427" rx="12" ry="11" fill="#e5ac85"/><ellipse cx="345" cy="430" rx="12" ry="11" fill="#e5ac85"/>
 <path d="M300 344V331H321V345" fill="#e3ab82"/>
 <ellipse cx="311" cy="299" rx="34" ry="42" fill="#e7b48b"/>
@@ -328,8 +366,28 @@ button:focus-visible,a:focus-visible{outline:3px solid #ffe3aa;outline-offset:3p
 <path d="M313 314Q327 323 342 313" stroke="#a56b55" fill="none" stroke-width="3"/>
 </g>
 </svg>
+
+<button type="button" class="experience-stage" id="experienceStage" aria-haspopup="dialog" aria-label="הסבר השלב">שלב המציאות · ?</button>
+<div class="experience-dock">
+ <button class="experience-icon" id="researchCartToggle" type="button" aria-label="עגלת החוקר: כלי חשיבה" aria-expanded="false">🛒</button>
+ <button class="experience-icon" id="fxToggle" type="button" aria-label="צלילי משחק" aria-pressed="true">♪</button>
+ <button class="experience-icon" id="musicToggle" type="button" aria-label="נגן מוזיקת רקע מקורית" aria-pressed="false">♫</button>
+</div>
+<div class="experience-cart" id="experienceCart" hidden>
+ <div class="experience-cart-title"><span>🛒 עגלת החוקר</span><button class="experience-cart-close" id="researchCartClose" type="button">סגור ✕</button></div>
+ <p id="experienceToolHint"></p>
+ <details><summary>מי היה רבי חיים מבריסק?</summary><p>רבי חיים סולובייצ׳יק מבריסק (1853–1918) מזוהה עם בירור יסודות ההלכה בשיטת הלימוד הבריסקאית. לא מסתפקים בידיעת הדין: שואלים מהי הסברה, איזה יסוד מסביר אותו ומהי הנפקא מינה. זהו תרגול בדרך חשיבה, לא ציטוט מפיו על הסיפור שבמשחק.</p></details>
+</div>
+<div class="phase-overlay" id="phaseOverlay" hidden>
+ <div class="phase-cloud" role="dialog" aria-modal="true" aria-labelledby="phaseTitle">
+  <div class="overline">בית מדרש · מעבר שלב</div>
+  <h2 id="phaseTitle"></h2><p id="phaseGoal"></p>
+  <button class="action" id="enterPhase" type="button">הבנתי, מתחילים ←</button>
+ </div>
+</div>
 <div class="scene-title" id="title" hidden><small id="eyebrow"></small><h1 id="heading"></h1><p id="subheading"></p></div>
 <div class="focus-caption" id="focusCaption" hidden></div>
+<div class="moment-label" id="momentLabel" hidden aria-live="polite"></div>
 <div class="paper" id="paper" hidden><div class="paper-label" id="paperLabel"></div><div class="verse" id="paperVerse"></div><p id="paperText"></p><p id="paperVerdict"></p><small id="paperCaveat"></small><a id="paperLink" target="_blank" rel="noopener">למקור בגמרא ↗</a></div>
 <div class="hud" id="hud" hidden aria-live="polite"></div>
 <div class="story-backdrop show" id="backdrop"></div>
@@ -363,7 +421,7 @@ const D=[
   caveat:"זהו מודל של הדיון התלמודי; מקום ההדלקה ודיני חנוכה בפועל תלויים בפרטי המקרה.",stages:6}
 ];
 const E=id=>document.getElementById(id);
-let ci=0,step=0,storyOpen=true,lens="",seen={cloth:false,person:false},feedback="",correct=false,selected="",attempts=0,solved=0;
+let ci=0,step=0,storyOpen=true,lens="",moment="night",seen={cloth:false,person:false},feedback="",correct=false,selected="",attempts=0,solved=0;
 const escapeText=s=>String(s).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");
 const opt=(icon,title,action,detail="",extra="")=>'<button type="button" class="opt '+extra+'" data-action="'+action+'"><span class="ico">'+icon+'</span><span>'+title+(detail?'<small>'+detail+'</small>':'')+'</span></button>';
 const options=(items,stack=false)=>'<div class="options '+(stack?'triple':'')+'">'+items.join("")+'</div>';
@@ -384,7 +442,10 @@ function render(){
  E("hud").hidden=step===0||storyOpen;
  E("paper").hidden=(step!==d.stages-1)||storyOpen;
  E("focusCaption").hidden=true;
- const sceneBase=ci===0?(step>=3?" mode-morning":"")+(step===4?" show-wearing":"")+(step===2&&lens==="cloth"?" focus-cloth":step===2&&lens==="person"?" focus-person":step===3?" focus-morning":""):
+ E("momentLabel").hidden=!(ci===0&&step===3&&!storyOpen);
+ E("momentLabel").textContent=moment==="morning"?"☀️ בוקר · יוסי לובש":"🌙 לילה · קושרים ציצית";
+ const sceneBase=ci===0?(step===2&&lens==="cloth"?" focus-cloth":step===2&&lens==="person"?" focus-person":"")+
+ ((step===3&&moment==="morning")||step>=4?" mode-morning show-wearing focus-morning":"")+(step===2?" can-touch":""):
  ci===1?" scene-neder"+(step===1?" neder-object":step===2?" neder-person":""):
  " scene-candle"+(step===1?" candle-light":step===2||step===3?" candle-place":step===4?" candle-light":"");
  scene.className="stage"+sceneBase;
@@ -405,6 +466,7 @@ function render(){
    E("focusCaption").style.top=lens==="cloth"?"60%":"50%";
    E("focusCaption").style.right=lens==="cloth"?"50%":"24%";
  }
+ syncExperience();
 }
 function renderTzitzit(){
  if(step===0)return;
@@ -413,11 +475,11 @@ function renderTzitzit(){
  else if(step===2){
   const explanation=lens==="cloth"?"<strong>חובת טלית:</strong> הדגש בבגד המוכן עם הציציות. לכן ייתכן שהשלמת הקשירה היא גמר המצווה.":lens==="person"?"<strong>חובת גברא:</strong> הכנת הבגד היא רק תנאי מוקדם. המצווה מתקיימת במעשה הלבישה.":"על מי מסתכלים כדי להסביר את רגע הברכה?";
   view(D[0].level,"מה עומד במרכז?","געו בכל צד כדי לגלות שתי סברות.",
-   '<div class="note">'+explanation+'</div>'+options([opt("🧵","הבגד","t-lens-cloth","",""+(lens==="cloth"?"selected":"")),opt("👦","יוסי","t-lens-person","","aqua "+(lens==="person"?"selected":""))])+
+   '<div class="note">'+explanation+'</div>'+options([opt("🧵","הבגד","t-lens-cloth",seen.cloth?"✓ כבר בדקנו":"געו בבגד",""+(lens==="cloth"?"selected":"")),opt("👦","יוסי","t-lens-person",seen.person?"✓ כבר בדקנו":"געו ביוסי","aqua "+(lens==="person"?"selected":""))])+
   (seen.cloth&&seen.person?button("בואו נבדוק את הסברה ←","t-test"):""));
- } else if(step===3)view("נפקא מינה · "+D[0].level,"אם החיוב הוא על האדם...","איזה רגע נחשב לגמר המצווה לפי הבנה זו?",
+ } else if(step===3)view("נפקא מינה · "+D[0].level,"אם החיוב הוא על האדם...","בחרו רגע וראו מיד מה יוסי עושה בסצנה.",
   correct?message()+button("בואו נקרא את הגמרא ←","to-source"):
-  '<div class="hud-question">בחרו מתוך הסברה, לא מתוך ניחוש</div>'+options([opt("🌙","קשירת הציציות","t-answer-wrong"),opt("☀️","לבישת הבגד","t-answer-right","","aqua")])+message());
+  '<div class="hud-question">מתי יתקיים החיוב לפי חובת גברא?</div>'+options([opt("🌙","קשירת הציציות","t-answer-wrong","הלילה"),opt("☀️","לבישת הבגד","t-answer-right","בבוקר","aqua")])+message());
  else view("המקור · "+D[0].level,"זו חקירה למדנית!","נקודת החילוק יוצרת רגע שונה של ברכה.",button("לחקירה השנייה: נדר ושבועה ←","next-case"));
 }
 function renderNeder(){
@@ -449,22 +511,22 @@ function renderHanukkah(){
 }
 function solve(ok,yes,no){
  attempts++;
- if(ok){correct=true;feedback=yes;solved++;}else{correct=false;feedback=no;}
+ if(ok){correct=true;feedback=yes;solved++;sound("correct")}else{correct=false;feedback=no;sound("wrong")}
  render();
 }
-function advance(n){step=n;feedback="";correct=false;attempts=0;lens="";render();}
+function advance(n){step=n;if(ci===0&&n===3)moment="night";feedback="";correct=false;attempts=0;lens="";render();}
 function nextCase(){
  if(ci<2){ci++;step=0;storyOpen=true;lens="";feedback="";correct=false;seen={cloth:false,person:false};}
  else restart();render();
 }
-function restart(){ci=0;step=0;storyOpen=true;lens="";seen={cloth:false,person:false};feedback="";correct=false;attempts=0;solved=0;selected="";}
+function restart(){if(musicInterval){clearInterval(musicInterval);musicInterval=null;musicEnabled=false;E("musicToggle").setAttribute("aria-pressed","false")}ci=0;step=0;storyOpen=true;lens="";moment="night";seen={cloth:false,person:false};feedback="";correct=false;attempts=0;solved=0;selected="";}
 function choose(action){
  switch(action){
  case "t-guess-cloth":case "t-guess-person": selected=action;advance(2);return;
  case "t-lens-cloth":case "t-lens-person":lens=action==="t-lens-cloth"?"cloth":"person";seen[lens]=true;render();return;
  case "t-test":advance(3);return;
- case "t-answer-wrong":solve(false,"","אם האדם חייב, מהו המעשה שהאדם צריך לעשות?");return;
- case "t-answer-right":solve(true,"הסברה הובילה אותך למסקנה: הלבישה קובעת.","");return;
+ case "t-answer-wrong":moment="night";solve(false,"","עכשיו הציציות רק נקשרות. מה יוסי עצמו צריך לעשות?");return;
+ case "t-answer-right":moment="morning";solve(true,"עכשיו יוסי לובש את הציצית: לפי חובת גברא, זה רגע קיום המצווה.","");return;
  case "n-right1":solve(true,"נכון: בנדר האיסור חל על הדבר כלפי האדם.","");return;
  case "n-wrong1":solve(false,"","שימו לב: יואב אמר ״עלי בקונם״, לא ״אני נשבע שלא״.");return;
  case "n-right2":solve(true,"נכון: השבועה מכוונת את האדם שלא לפעול.","");return;
@@ -487,10 +549,100 @@ function choose(action){
  case "restart":restart();render();return;
  }
 }
+E("stage").querySelector("svg").addEventListener("click",function(ev){
+ if(ci!==0||step!==2||storyOpen)return;
+ const hit=ev.target.closest("#garment,#son");
+ if(hit)choose(hit.id==="garment"?"t-lens-cloth":"t-lens-person");
+});
 E("closeStory").addEventListener("click",function(){storyOpen=false;if(step===0)step=1;render()});
 E("openStory").addEventListener("click",function(){storyOpen=true;render()});
 E("backdrop").addEventListener("click",function(){if(step>0){storyOpen=false;render()}});
 E("hud").addEventListener("click",function(ev){const el=ev.target.closest("button[data-action]");if(el)choose(el.getAttribute("data-action"))});
+
+let phaseKey="",phaseOpen=false,cartOpen=false,soundEnabled=true,musicEnabled=false,audioContext=null,musicInterval=null,musicStepIndex=0;
+const phaseFor=()=>{
+ if(ci===0)return ["מציאות","חקירה","סברה","נפקא מינה","מסקנה"][step];
+ if(ci===1)return ["מציאות","חקירה","סברה","נפקא מינה","הכרעה","מסקנה"][step];
+ return ["מציאות","חקירה","ביקורת הראיה","חיפוש הסבר","ניסוי מכריע","מסקנה"][step];
+};
+const phaseGoal=(ph)=>({
+ "מציאות":"קודם מבינים מה קרה בסיפור, בלי מושגים מסובכים.",
+ "חקירה":"מגלים מה לא ברור בדין ואיזו מחלוקת צריך להסביר.",
+ "סברה":"שתי דרכים להבין את אותו דין. מה היסוד של כל אחת?",
+ "נפקא מינה":"משנים פרט במציאות ומנבאים איזו תוצאה נובעת מכל סברה.",
+ "הכרעה":"עכשיו מחברים את שתי ההבנות לדין שיוצא מהן.",
+ "ביקורת הראיה":"לא כל ראיה שנראית משכנעת באמת מבדילה בין שתי סברות.",
+ "חיפוש הסבר":"מוצאים סיבה נוספת שיכולה להסביר את התוצאה.",
+ "ניסוי מכריע":"בוחרים מקרה ששתי ההבנות מנבאות בו תוצאות שונות.",
+ "מסקנה":"חוזרים ללשון הגמרא ומסבירים מה למדנו."
+})[ph]||"השלב הבא בחקירה";
+const researchPrompt=()=>{
+ const ph=phaseFor();
+ if(ci===0&&ph==="סברה")return "איפה מרכז המצווה: הבגד עצמו או האדם שלובש אותו?";
+ if(ci===1&&ph==="נפקא מינה")return "איזה מקרה יגרום לנדר ולשבועה להתנהג אחרת?";
+ if(ci===2&&ph==="ביקורת הראיה")return "האם הניסוי נכשל רק בגלל הסברה שלנו, או שיש הסבר נוסף?";
+ return phaseGoal(ph)+" בחרו מה לשנות, לא רק על מה ללחוץ.";
+};
+function syncExperience(){
+ const ph=phaseFor(),newKey=ci+":"+ph;
+ E("experienceStage").textContent="◉ "+ph+" · הסבר";
+ E("experienceToolHint").textContent=researchPrompt();
+ E("experienceCart").hidden=!cartOpen;
+ E("researchCartToggle").setAttribute("aria-expanded",String(cartOpen));
+ if(newKey!==phaseKey){
+  phaseKey=newKey;phaseOpen=false;cartOpen=false;E("experienceCart").hidden=true;
+ }
+ E("phaseTitle").textContent="שלב "+ph;
+ E("phaseGoal").textContent=phaseGoal(ph);
+ E("phaseOverlay").hidden=!phaseOpen||storyOpen;
+}
+function ensureAudio(){
+ try{
+  const Audio=window.AudioContext||window.webkitAudioContext;
+  if(!Audio)return null;
+  if(!audioContext)audioContext=new Audio();
+  if(audioContext.state==="suspended")audioContext.resume();
+  return audioContext;
+ }catch(e){return null;}
+}
+function beep(freq=520,duration=.12,gain=.045){
+ const c=ensureAudio();if(!c)return;
+ const o=c.createOscillator(),v=c.createGain(),t=c.currentTime;
+ o.type="sine";o.frequency.value=freq;
+ v.gain.setValueAtTime(.0001,t);
+ v.gain.exponentialRampToValueAtTime(gain,t+.017);
+ v.gain.exponentialRampToValueAtTime(.0001,t+duration);
+ o.connect(v);v.connect(c.destination);
+ o.start(t);o.stop(t+duration+.02);
+}
+function sound(kind){
+ if(!soundEnabled)return;
+ if(kind==="correct"){beep(523,.12,.04);setTimeout(()=>beep(659,.18,.04),110);}
+ else if(kind==="wrong")beep(261,.15,.035);
+ else if(kind==="phase")beep(392,.18,.045);
+ else beep(494,.08,.022);
+}
+function musicNote(){
+ const tune=[261.63,329.63,392,329.63,293.66,349.23,440,349.23,261.63,329.63,392,523.25];
+ const c=ensureAudio();if(!c)return;
+ const freq=tune[musicStepIndex++%tune.length],o=c.createOscillator(),v=c.createGain(),t=c.currentTime;
+ o.type="sine";o.frequency.setValueAtTime(freq,t);
+ v.gain.setValueAtTime(.0001,t);v.gain.linearRampToValueAtTime(.018,t+.04);
+ v.gain.exponentialRampToValueAtTime(.0001,t+.44);o.connect(v);v.connect(c.destination);o.start(t);o.stop(t+.46);
+}
+E("researchCartToggle").addEventListener("click",()=>{phaseOpen=false;E("phaseOverlay").hidden=true;cartOpen=!cartOpen;E("experienceCart").hidden=!cartOpen;E("researchCartToggle").setAttribute("aria-expanded",String(cartOpen));sound("tap")});
+E("researchCartClose").addEventListener("click",()=>{cartOpen=false;E("experienceCart").hidden=true;sound("tap")});
+E("fxToggle").addEventListener("click",()=>{soundEnabled=!soundEnabled;E("fxToggle").setAttribute("aria-pressed",String(soundEnabled));E("fxToggle").textContent=soundEnabled?"♪":"♪̸";if(soundEnabled)sound("tap")});
+E("musicToggle").addEventListener("click",()=>{
+ musicEnabled=!musicEnabled;E("musicToggle").setAttribute("aria-pressed",String(musicEnabled));
+ if(musicEnabled){musicNote();musicInterval=setInterval(musicNote,550)}
+ else if(musicInterval){clearInterval(musicInterval);musicInterval=null}
+});
+E("enterPhase").addEventListener("click",()=>{phaseOpen=false;E("phaseOverlay").hidden=true;sound("phase")});
+E("experienceStage").addEventListener("click",()=>{cartOpen=false;E("experienceCart").hidden=true;phaseOpen=true;E("phaseOverlay").hidden=false;sound("tap")});
+E("phaseOverlay").addEventListener("click",ev=>{if(ev.target===E("phaseOverlay")){phaseOpen=false;E("phaseOverlay").hidden=true}});
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&musicInterval){clearInterval(musicInterval);musicInterval=null;musicEnabled=false;E("musicToggle").setAttribute("aria-pressed","false")}});
+
 render();
 })();</script>
 </body></html>
